@@ -1,0 +1,9 @@
+<settings>
+    <setting id="download" value="false" />
+    <setting id="download_ask" value="false" />
+    <setting id="download_path" value="" />
+    <setting id="enable_debug" value="false" />
+    <setting id="hide_warning" value="true" />
+    <setting id="player_type" value="0" />
+    <setting id="video_type" value="0" />
+</settings>

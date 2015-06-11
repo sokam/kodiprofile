@@ -1,0 +1,13 @@
+1.5.0
+- improved performance
+- improved language detection
+- removed support for languages with nearly no uploads on subscene
+- better title detection (release year can be one off)
+- better episode detection (allows episode markers in 1x01 format)
+
+1.1.2
+- bug fix for temp folder issues
+
+1.1.0
+- added uploader comments to download selection
+

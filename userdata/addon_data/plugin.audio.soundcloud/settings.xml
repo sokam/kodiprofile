@@ -1,0 +1,14 @@
+<settings>
+    <setting id="kodion.access_token" value="" />
+    <setting id="kodion.cache.size" value="5" />
+    <setting id="kodion.content.max_per_page" value="9" />
+    <setting id="kodion.fanart.show" value="true" />
+    <setting id="kodion.login.hash" value="d41d8cd98f00b204e9800998ecf8427e" />
+    <setting id="kodion.search.size" value="1" />
+    <setting id="kodion.setup_wizard" value="false" />
+    <setting id="kodion.view.albums" value="50" />
+    <setting id="kodion.view.artists" value="50" />
+    <setting id="kodion.view.default" value="50" />
+    <setting id="kodion.view.override" value="true" />
+    <setting id="kodion.view.songs" value="50" />
+</settings>

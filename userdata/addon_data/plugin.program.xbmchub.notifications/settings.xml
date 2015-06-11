@@ -1,0 +1,6 @@
+<settings>
+    <setting id="noteImage" value="6" />
+    <setting id="noteMessage" value="We&apos;re very excited to announce the release of the much anticipated update to TVMC for&#x0A;Android, just a couple of weeks behind the Windows and Mac versions. This is not&#x0A;something that you want to miss, it will make your Kodi experience on new devices&#x0A;so much easier.&#x0A;&#x0A;TVMC is a custom version of Kodi that comes with all the best add-ons and tweaks&#x0A;preconfigured for your enjoyment! Just install and enjoy, no hassles! Please visit the&#x0A;following page for more information: [B][COLOR white]www.tvaddons.ag/tvmc-cordcutters[/COLOR][/B]&#x0A;&#x0A;Please take the time to share this special release with as many people as possible,&#x0A;send it to your friends, family, coworkers, neighbours, and anyone else you can think&#x0A;of who would enjoy Kodi as much as you do! Thank you again for your support." />
+    <setting id="noteType" value="t" />
+    <setting id="notifications-on-startup" value="false" />
+</settings>
