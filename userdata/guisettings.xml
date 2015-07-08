@@ -82,7 +82,7 @@
         <addonnotifications default="true">true</addonnotifications>
         <addonupdates default="true">0</addonupdates>
         <settinglevel>1</settinglevel>
-        <systemtotaluptime>126493</systemtotaluptime>
+        <systemtotaluptime>53668</systemtotaluptime>
     </general>
     <input>
         <enablejoystick default="true">true</enablejoystick>
@@ -369,8 +369,8 @@
         <currentlocation default="true">1</currentlocation>
     </weather>
     <window>
-        <height>1056</height>
-        <width>1855</width>
+        <height default="true">480</height>
+        <width default="true">720</width>
     </window>
     <skinsettings>
         <setting type="bool" name="skin.confluence.Use_Startup_Playlist">false</setting>
@@ -396,7 +396,6 @@
         <setting type="bool" name="skin.confluence.View508HideInfo">false</setting>
         <setting type="bool" name="skin.confluence.ActivateTvTunes">false</setting>
         <setting type="bool" name="skin.confluence.HideVisualizationFanart">true</setting>
-        <setting type="bool" name="skin.confluence.WindowedTrailer">false</setting>
         <setting type="string" name="skin.confluence.CustomBackgroundPath">special://home/media/SKINDEFAULT.jpg</setting>
         <setting type="string" name="skin.confluence.HomeVideosButton1">plugin.video.1channel</setting>
         <setting type="string" name="skin.confluence.HomeVideosButton2">plugin.video.genesis</setting>
@@ -419,7 +418,6 @@
         <setting type="string" name="skin.confluence.HomeProgramButton4"></setting>
         <setting type="string" name="skin.confluence.HomeProgramButton5"></setting>
         <setting type="string" name="skin.confluence.Home_Custom_Back_TV_Folder"></setting>
-        <setting type="string" name="skin.confluence.LyricScript_Path"></setting>
     </skinsettings>
     <resolutions />
     <defaultvideosettings>
@@ -545,6 +543,6 @@
     </viewstates>
     <audio>
         <mute>false</mute>
-        <fvolumelevel>1.000000</fvolumelevel>
+        <fvolumelevel>0.866666</fvolumelevel>
     </audio>
 </settings>

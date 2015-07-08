@@ -54,7 +54,7 @@
     <setting id="movie_update-interval" value="3" />
     <setting id="movie_update-last_run" value="1970-01-01 23:59:00.000000" />
     <setting id="movies-view" value="503" />
-    <setting id="old_version" value="2.5.64" />
+    <setting id="old_version" value="2.5.55" />
     <setting id="paginate" value="true" />
     <setting id="paginate-favs" value="false" />
     <setting id="paginate-lists" value="true" />

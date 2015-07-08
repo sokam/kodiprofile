@@ -1,3 +1,17 @@
+[B]v1.8.6(Friday, 19 June 2015):[/B]
+  - Fixed Resolvers:
+    - MightyUpload
+  - Added Resolvers:
+    - 24Uploading
+    - XVidStage
+
+[B]v1.8.5(Monday, 15 June 2015):[/B]
+  - Fixed Resolvers:
+    - TusFiles
+    - ClicknUpload
+    - 180Uploads
+    - VidPlay
+
 [B]v1.8.4(Wednesday, 15 April 2015):[/B]
   - Changed Favourites to sort properly - ignore 'The', 'A' etc.
   - Fixed 180Upload

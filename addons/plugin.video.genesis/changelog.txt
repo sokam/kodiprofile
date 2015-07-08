@@ -1,4 +1,33 @@
 ------------------------
+Genesis v4.8.2 (1-Jul-15)
+------------------------
+
+- Fixed various sources.
+- Tweaked library integration.
+- Tweaked search.
+- Code cosmetics.
+
+
+------------------------
+Genesis v4.8.1 (29-Jun-15)
+------------------------
+
+- Fixed various sources.
+- Fixed various resolvers.
+- Fixed issue with scene "Latest Movies".
+- Code cosmetics.
+
+
+------------------------
+Genesis v4.8.0 (28-Jun-15)
+------------------------
+
+- Re-work of sources.
+- Re-work of resolvers.
+- Code cosmetics.
+
+
+------------------------
 Genesis v4.5.7 (7-Jun-15)
 ------------------------
 

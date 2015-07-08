@@ -94,6 +94,9 @@
 	<setting label="gorillavid" type="lsep"/>
 	<setting default="100" id="GorillavidResolver_priority" label="Priority" type="number"/>
 	<setting default="true" id="GorillavidResolver_enabled" label="Enabled" type="bool"/>
+	<setting label="grifthost" type="lsep"/>
+	<setting default="100" id="CloudyVideosResolver_priority" label="Priority" type="number"/>
+	<setting default="true" id="CloudyVideosResolver_enabled" label="Enabled" type="bool"/>
 	<setting label="hostingbulk" type="lsep"/>
 	<setting default="100" id="HostingBulkResolver_priority" label="Priority" type="number"/>
 	<setting default="true" id="HostingBulkResolver_enabled" label="Enabled" type="bool"/>
@@ -112,6 +115,9 @@
 	<setting label="limevideo" type="lsep"/>
 	<setting default="100" id="LimevideoResolver_priority" label="Priority" type="number"/>
 	<setting default="true" id="LimevideoResolver_enabled" label="Enabled" type="bool"/>
+	<setting label="mail.ru" type="lsep"/>
+	<setting default="100" id="MailRuResolver_priority" label="Priority" type="number"/>
+	<setting default="true" id="MailRuResolver_enabled" label="Enabled" type="bool"/>
 	<setting label="mega-vids" type="lsep"/>
 	<setting default="100" id="MegaVidsResolver_priority" label="Priority" type="number"/>
 	<setting default="true" id="MegaVidsResolver_enabled" label="Enabled" type="bool"/>
@@ -154,14 +160,14 @@
 	<setting label="muchshare" type="lsep"/>
 	<setting default="100" id="MuchshareResolver_priority" label="Priority" type="number"/>
 	<setting default="true" id="MuchshareResolver_enabled" label="Enabled" type="bool"/>
+</category>
+<category label="Resolvers 3">
 	<setting label="nosvideo" type="lsep"/>
 	<setting default="100" id="NosvideoResolver_priority" label="Priority" type="number"/>
 	<setting default="true" id="NosvideoResolver_enabled" label="Enabled" type="bool"/>
 	<setting label="novamov" type="lsep"/>
 	<setting default="100" id="NovamovResolver_priority" label="Priority" type="number"/>
 	<setting default="true" id="NovamovResolver_enabled" label="Enabled" type="bool"/>
-</category>
-<category label="Resolvers 3">
 	<setting label="nowvideo" type="lsep"/>
 	<setting default="100" id="NowvideoResolver_priority" label="Priority" type="number"/>
 	<setting default="true" id="NowvideoResolver_enabled" label="Enabled" type="bool"/>
@@ -232,6 +238,8 @@
 	<setting label="sharesix" type="lsep"/>
 	<setting default="100" id="SharesixResolver_priority" label="Priority" type="number"/>
 	<setting default="true" id="SharesixResolver_enabled" label="Enabled" type="bool"/>
+</category>
+<category label="Resolvers 4">
 	<setting label="sharevid" type="lsep"/>
 	<setting default="100" id="ShareVidResolver_priority" label="Priority" type="number"/>
 	<setting default="true" id="ShareVidResolver_enabled" label="Enabled" type="bool"/>
@@ -243,8 +251,6 @@
 	<setting default="" enable="eq(-1,true)" id="SockshareResolver_username" label="username" type="text"/>
 	<setting default="" enable="eq(-2,true)" id="SockshareResolver_password" label="password" option="hidden" type="text"/>
 	<setting default="false" id="SockshareResolver_notify" label="Notify on login" type="bool"/>
-</category>
-<category label="Resolvers 4">
 	<setting label="speedvideo" type="lsep"/>
 	<setting default="100" id="SpeedVideoResolver_priority" label="Priority" type="number"/>
 	<setting default="true" id="SpeedVideoResolver_enabled" label="Enabled" type="bool"/>
@@ -311,6 +317,8 @@
 	<setting label="videoboxone.com" type="lsep"/>
 	<setting default="100" id="VideoBoxOneResolver_priority" label="Priority" type="number"/>
 	<setting default="true" id="VideoBoxOneResolver_enabled" label="Enabled" type="bool"/>
+</category>
+<category label="Resolvers 5">
 	<setting label="videofun.me" type="lsep"/>
 	<setting default="100" id="VideoFunResolver_priority" label="Priority" type="number"/>
 	<setting default="true" id="VideoFunResolver_enabled" label="Enabled" type="bool"/>
@@ -323,8 +331,6 @@
 	<setting label="videoraj.ch" type="lsep"/>
 	<setting default="100" id="VideorajResolver_priority" label="Priority" type="number"/>
 	<setting default="true" id="VideorajResolver_enabled" label="Enabled" type="bool"/>
-</category>
-<category label="Resolvers 5">
 	<setting label="videotanker" type="lsep"/>
 	<setting default="100" id="VideoTankerResolver_priority" label="Priority" type="number"/>
 	<setting default="true" id="VideoTankerResolver_enabled" label="Enabled" type="bool"/>
@@ -386,6 +392,11 @@
 	<setting label="vshare" type="lsep"/>
 	<setting default="100" id="VshareResolver_priority" label="Priority" type="number"/>
 	<setting default="true" id="VshareResolver_enabled" label="Enabled" type="bool"/>
+	<setting label="vshare.eu" type="lsep"/>
+	<setting default="100" id="VshareEuResolver_priority" label="Priority" type="number"/>
+	<setting default="true" id="VshareEuResolver_enabled" label="Enabled" type="bool"/>
+</category>
+<category label="Resolvers 6">
 	<setting label="watchfreeinhd" type="lsep"/>
 	<setting default="100" id="WatchFreeResolver_priority" label="Priority" type="number"/>
 	<setting default="true" id="WatchFreeResolver_enabled" label="Enabled" type="bool"/>
@@ -401,8 +412,6 @@
 	<setting label="youtube" type="lsep"/>
 	<setting default="100" id="YoutubeResolver_priority" label="Priority" type="number"/>
 	<setting default="true" id="YoutubeResolver_enabled" label="Enabled" type="bool"/>
-</category>
-<category label="Resolvers 6">
 	<setting label="This plugin calls the youtube addon - change settings there." type="lsep"/>
 	<setting label="youwatch" type="lsep"/>
 	<setting default="100" id="YouWatchResolver_priority" label="Priority" type="number"/>

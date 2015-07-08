@@ -1,4 +1,5 @@
 #LWP-Cookies-2.0
-Set-Cookie3: JSESSIONID=062D5D35DEB9AB001A22649E59C7AFF9; path="/"; domain="losmovies.ch"; path_spec; discard; HttpOnly=None; version=0
-Set-Cookie3: JSESSIONID=A7B7EBED1BBA5DEF6BF272CF44EF498C; path="/"; domain="losmovies.is"; path_spec; discard; HttpOnly=None; version=0
+Set-Cookie3: __cfduid=df1bd178c73af77ceaddd17aecfb9e9041434604441; path="/"; domain=".primewire.ag"; path_spec; domain_dot; expires="2016-06-17 05:14:01Z"; HttpOnly=None; version=0
 Set-Cookie3: JSESSIONID=3DA45328087B5BFBBB8739A1ED25FEF2; path="/"; domain="losmovies.tv"; path_spec; discard; HttpOnly=None; version=0
+Set-Cookie3: PHPSESSID=ggti1bdair3vet7s116r9m7if3; path="/"; domain="www.primewire.ag"; path_spec; discard; version=0
+Set-Cookie3: cookies=1; path="/"; domain="www.primewire.ag"; path_spec; expires="2015-06-19 05:13:14Z"; version=0

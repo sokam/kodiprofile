@@ -1,6 +1,2 @@
 #LWP-Cookies-2.0
-Set-Cookie3: __cfduid=d6d702c8d8bc4df42a214786983c7b74c1428987818; path="/"; domain=".icefilms.info"; path_spec; domain_dot; expires="2016-04-13 05:03:38Z"; HttpOnly=None; version=0
-Set-Cookie3: __cfduid=daf8f0d567bc77dca24cf2150af58b4d71433131745; path="/"; domain=".watchseries-online.ch"; path_spec; domain_dot; expires="2016-05-31 04:09:05Z"; HttpOnly=None; version=0
-Set-Cookie3: PHPSESSID=8t317vcap61h94kijmdvim4of5; path="/"; domain="moviestorm.eu"; path_spec; discard; version=0
-Set-Cookie3: PHPSESSID=047177bf650e5a37b03325b2021c2989; path="/"; domain="tv-release.net"; path_spec; discard; version=0
-Set-Cookie3: PHPSESSID=809f602f74c745a075cad82a9c77e9bf; path="/"; domain="www.ch131.me"; path_spec; discard; version=0
+Set-Cookie3: PHPSESSID=dc837e32e60ec9365e2724753fc3fb06; path="/"; domain="www.ch131.me"; path_spec; discard; version=0

@@ -1,6 +1,5 @@
 #LWP-Cookies-2.0
-Set-Cookie3: __cfduid=dfa418492bad762f057cc4b500b49e1cd1428987835; path="/"; domain=".watchseries.ag"; path_spec; domain_dot; expires="2016-04-13 05:03:55Z"; HttpOnly=None; version=0
-Set-Cookie3: JSESSIONID=B98344D8A9D030581D0283125C2641B8; path="/"; domain="losmovies.ch"; path_spec; discard; HttpOnly=None; version=0
-Set-Cookie3: PHPSESSID=26b0430df14fa83b4ce88371f35b0794; path="/"; domain="uflix.me"; path_spec; discard; version=0
-Set-Cookie3: PHPSESSID=ik5oa14lhdh9usirlt5dphov96; path="/"; domain="www.movie4k.to"; path_spec; discard; version=0
-Set-Cookie3: lang=en; path="/"; domain="www.movie4k.to"; expires="2016-04-13 05:03:50Z"; version=0
+Set-Cookie3: __cfduid=dbf1fc3f600fa04967b342e697aaeab151425017526; path="/"; domain=".primewire.ag"; path_spec; domain_dot; expires="2016-02-27 06:12:06Z"; HttpOnly=None; version=0
+Set-Cookie3: __cfduid=dc59a0671dab7f23214fe50f6057a35151425017527; path="/"; domain=".watchseries.ag"; path_spec; domain_dot; expires="2016-02-27 06:12:07Z"; HttpOnly=None; version=0
+Set-Cookie3: PHPSESSID=25ced1d80a53258b82c5c409b587c8bb; path="/"; domain="uflix.org"; path_spec; discard; version=0
+Set-Cookie3: PHPSESSID=8dpilpm71ofp98cfitiffd6am4; path="/"; domain="www.primewire.ag"; path_spec; discard; version=0

@@ -1,7 +1,6 @@
 #LWP-Cookies-2.0
-Set-Cookie3: __cfduid=d5e7aa2e3cd2bcd9e8787e94944d14f9c1431280102; path="/"; domain=".movie4k.to"; path_spec; domain_dot; expires="2016-05-09 17:48:22Z"; HttpOnly=None; version=0
-Set-Cookie3: PHPSESSID=fc9924cb90a13dc6eb2544a80727a0e7; path="/"; domain="uflix.me"; path_spec; discard; version=0
+Set-Cookie3: __cfduid=de267e3a73254e32f27cc6933399f90b51434604416; path="/"; domain=".movie4k.to"; path_spec; domain_dot; expires="2016-06-17 05:13:36Z"; HttpOnly=None; version=0
 Set-Cookie3: PHPSESSID=lpijclis52vdlmc6gm708tqqm6; path="/"; domain="www.movie4k.to"; path_spec; discard; version=0
 Set-Cookie3: lang=en; path="/"; domain="www.movie4k.to"; path_spec; discard; version=0
 Set-Cookie3: onlylanguage=en; path="/"; domain="www.movie4k.to"; path_spec; discard; version=0
-Set-Cookie3: sid=5; path="/"; domain="www.movie4k.to"; expires="2015-06-03 04:08:55Z"; version=0
+Set-Cookie3: sid=0; path="/"; domain="www.movie4k.to"; expires="2015-06-20 05:12:49Z"; version=0

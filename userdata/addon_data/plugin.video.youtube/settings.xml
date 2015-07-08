@@ -22,6 +22,7 @@
     <setting id="kodion.setup_wizard" value="false" />
     <setting id="kodion.support.alternative_player" value="false" />
     <setting id="kodion.video.quality" value="3" />
+    <setting id="kodion.video.quality.ask" value="false" />
     <setting id="kodion.view.default" value="50" />
     <setting id="kodion.view.episodes" value="50" />
     <setting id="kodion.view.override" value="false" />

@@ -155,7 +155,7 @@ def resolve_180upload(url):
                     link = re.search("'file','(.+?)'", js.replace('\\',''))
                     if link:
                         addon.log('180Upload Link Found: %s' % link.group(1))
-                        return link.group(1) + '|User-Agent=%s' % (USER_AGENT)
+                        return link.group(1) + '|Referer=%s&User-Agent=%s' % (url, USER_AGENT)
                     
             #Cannot get video without captcha, so try regular url
             html = net.http_GET(url).content
@@ -187,7 +187,7 @@ def resolve_180upload(url):
         link = re.search('id="lnk_download" href="([^"]+)', html)
         if link:
             addon.log_debug( '180Upload Link Found: %s' % link.group(1))
-            return link.group(1) + '|User-Agent=%s' % (USER_AGENT)
+            return link.group(1) + '|Referer=%s&User-Agent=%s' % (url, USER_AGENT)
         else:
             raise Exception('Unable to resolve 180Upload Link')
 
@@ -198,38 +198,49 @@ def resolve_180upload(url):
         dialog.close()
 
 
-def resolve_megafiles(url):
+def resolve_24uploading(url):
 
     try:
         dialog = xbmcgui.DialogProgress()
-        dialog.create('Resolving', 'Resolving MegaFiles Link...')
+        dialog.create('Resolving', 'Resolving 24Uploading Link...')
         dialog.update(0)
         
-        addon.log_debug('MegaFiles - Requesting GET URL: %s' % url)
+        addon.log_debug('24Uploading - Requesting GET URL: %s' % url)
         html = net.http_GET(url).content
 
-        dialog.update(50)
+        dialog.update(33)
 
         wrong_captcha = True
         
         while wrong_captcha:
         
             data = {}
-            r = re.findall(r'type="hidden" name="(.+?)" value="(.+?)">', html)
-
+            r = re.findall('type="(hidden|submit)" name="(.+?)" value="(.*?)">', html)
             if r:
-                for name, value in r:
+                for none, name, value in r:
                     data[name] = value
             else:
-                raise Exception('Unable to resolve MegaFiles Link')
+                raise Exception('Unable to resolve 24Uploading Link')
+                
+            addon.log('24Uploading - Requesting POST URL: %s DATA: %s' % (url, data))
+            html = net.http_POST(url, data).content                
+            dialog.update(66)
 
+            data = {}
+            r = re.findall('type="(hidden|submit)" name="(.+?)" value="(.*?)">', html)
+            if r:
+                for none, name, value in r:
+                    data[name] = value
+            else:
+                raise Exception('Unable to resolve 24Uploading Link')
+            
             #Handle captcha
             data = handle_captchas(url, html, data, dialog)
 
-            dialog.create('Resolving', 'Resolving MegaFiles Link...') 
-            dialog.update(50)                  
+            dialog.create('Resolving', 'Resolving 24Uploading Link...') 
+            dialog.update(66)
 
-            addon.log_debug('MegaFiles - Requesting POST URL: %s' % url)
+            addon.log('24Uploading - Requesting POST URL: %s DATA: %s' % (url, data))   
             html = net.http_POST(url, data).content
 
             wrong_captcha = re.search('<div class="err">Wrong captcha</div>', html)
@@ -238,15 +249,15 @@ def resolve_megafiles(url):
             
         dialog.update(100)
         
-        link = re.search("var download_url = '(.+?)';", html)
+        link = re.search('<div class="btn_down">.+<a href="(.+?)" style="display:block;">', html, re.DOTALL)
         if link:
-            addon.log_debug('MegaFiles Link Found: %s' % link.group(1))
+            addon.log_debug('24Uploading Link Found: %s' % link.group(1))
             return link.group(1)
         else:
-            raise Exception('Unable to resolve MegaFiles Link')
+            raise Exception('Unable to resolve 24Uploading Link')
 
     except Exception, e:
-        addon.log_error('**** MegaFiles Error occured: %s' % e)
+        addon.log_error('**** 24Uploading Error occured: %s' % e)
         raise
     finally:
         dialog.close()
@@ -277,7 +288,7 @@ def resolve_clicknupload(url):
         if r:
             for none, name, value in r:
                 data[name] = value
-
+                
         addon.log('ClicknUpload - Requesting POST URL: %s DATA: %s' % (url, data))                
         html = net.http_POST(url, data).content
         dialog.update(66)
@@ -288,14 +299,17 @@ def resolve_clicknupload(url):
             for none, name, value in r:
                 data[name] = value
 
+        #Check for captcha
+        data = handle_captchas(url, html, data, dialog)                
+                
         addon.log('ClicknUpload - Requesting POST URL: %s DATA: %s' % (url, data))                                
         html = net.http_POST(url, data).content
 
         #Get download link
         dialog.update(100)
-        link = re.search('onClick="window.open\(\'(.+?)\'\);', html)
+        link = re.search("onClick\s*=\s*\"window\.open\('([^']+)", html)
         if link:
-            return link.group(1)
+            return link.group(1) + '|User-Agent=%s' % USER_AGENT
         else:
             raise Exception("Unable to find final link")
 
@@ -383,7 +397,7 @@ def resolve_vidplay(url):
         request.add_header('Referer', url)
         response = urllib2.urlopen(request)
         redirect_url = re.search('(http://.+?)video', response.geturl()).group(1)
-        download_link = redirect_url + filename  + '|User-Agent=%s' % (USER_AGENT)
+        download_link = redirect_url + filename  + '|Referer=%s&User-Agent=%s' % (url, USER_AGENT)
         
         dialog.update(100)
 
@@ -783,7 +797,7 @@ def resolve_tusfiles(url):
         request.add_header('Accept', ACCEPT)
         request.add_header('Referer', url)
         response = urllib2.urlopen(request)
-        redirect_url = re.search('(http://.+?)video', response.geturl()).group(1)
+        redirect_url = re.search('(http[s]*://.+?)video', response.geturl()).group(1)
         download_link = redirect_url + filename
         
         dialog.update(100)
@@ -850,37 +864,72 @@ def resolve_mightyupload(url):
         dialog.create('Resolving', 'Resolving MightyUpload Link...')       
         dialog.update(0)
         
+        url = url.replace('/embed-', '/')
+        url = re.compile('//.+?/([\w]+)').findall(url)[0]
+        url = 'http://www.mightyupload.com/embed-%s.html' % url
+        
         addon.log('MightyUpload - Requesting GET URL: %s' % url)
         html = net.http_GET(url).content
-        dialog.update(50)        
-                
-        form_values = {}
-        for i in re.finditer('<input type="hidden" name="(.*?)" value="(.*?)"', html):
-            form_values[i.group(1)] = i.group(2)
-        
-        html = net.http_POST(url, form_data=form_values).content
-        dialog.update(100)
-        
-        r = re.search('<IFRAME SRC="(.*?)" .*?></IFRAME>', html, re.DOTALL)
-        if r:
-            html = net.http_GET(r.group(1)).content
-        r = re.search("<div id=\"player_code\">.*?<script type='text/javascript'>(.*?)</script>", html, re.DOTALL)
-        if not r:
-            raise Exception('Unable to resolve Mightyupload link. Player config not found.')
+        dialog.update(100)    
 
-        r_temp = re.search("file: '([^']+)'", r.group(1))
-        if r_temp:
-            return r_temp.group(1) + '|User-Agent=%s' % (USER_AGENT)
-        js = jsunpack.unpack(r.group(1))
-        r = re.search("'file','([^']+)'", js.replace('\\', ''))
-        if not r:
-            r = re.search('"src"value="([^"]+)', js.replace('\\', ''))
-        if not r:
-            raise Exception('Unable to resolve Mightyupload link. Filelink not found.')
-        return r.group(1) + '|User-Agent=%s' % (USER_AGENT)
+        link = re.compile("file *: *'(.+?)'").findall(html)
+        if len(link) > 0: 
+            return link[0] + '|User-Agent=%s' % (USER_AGENT)    
+                
+        result = re.compile('(eval.*?\)\)\))').findall(html)[-1]
+        if result:
+            sJavascript = result
+            sUnpacked = jsunpack.unpack(sJavascript)
+
+            r = re.search("'file','([^']+)'", sUnpacked.replace('\\', ''))
+            if not r:
+                r = re.search('"src"value="([^"]+)', sUnpacked.replace('\\', ''))
+                if not r:
+                    r = re.search('"src"[0-9]="(.+?)"/>', sUnpacked.replace('\\', ''))
+            if r:
+                return r.group(1) + '|User-Agent=%s' % (USER_AGENT)
+            else:
+                raise Exception("Unable to find final link")
 
     except Exception, e:
         addon.log_error('**** MightyUpload Error occured: %s' % e)
+        raise
+    finally:
+        dialog.close()
+
+
+def resolve_xvidstage(url):
+
+    try:
+        #Show dialog box so user knows something is happening
+        dialog = xbmcgui.DialogProgress()
+        dialog.create('Resolving', 'Resolving XvidStage Link...')       
+        dialog.update(0)
+        
+      
+        url = url.replace('/embed-', '/')
+        url = re.compile('//.+?/([\w]+)').findall(url)[0]
+        url = 'http://xvidstage.com/embed-%s.html' % url      
+
+        addon.log('XvidStage - Requesting GET URL: %s' % url)        
+        html = net.http_GET(url).content
+        dialog.update(100)
+        
+        result = re.compile('(eval.*?\)\)\))').findall(html)[-1]
+        if result:
+            sJavascript = result
+            sUnpacked = jsunpack.unpack(sJavascript)
+            sPattern = "'file','(.+?)'"
+            r = re.search(sPattern, sUnpacked)
+            if r:
+                return r.group(1)
+            else:
+                raise Exception("Unable to find final link")
+        else:
+            raise Exception("Unable to find final link")                
+
+    except Exception, e:
+        addon.log_error('**** XvidStage Error occured: %s' % e)
         raise
     finally:
         dialog.close()

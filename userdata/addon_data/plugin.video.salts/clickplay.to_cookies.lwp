@@ -1,3 +1,5 @@
 #LWP-Cookies-2.0
-Set-Cookie3: __cfduid=d1ee9d437d5256088e8fcdfe0c15dc7831428987827; path="/"; domain=".clickplay.to"; path_spec; domain_dot; expires="2016-04-13 05:03:47Z"; HttpOnly=None; version=0
-Set-Cookie3: PHPSESSID=gvl21og03b9s369nl4veeddj35; path="/"; domain="clickplay.to"; path_spec; discard; version=0
+Set-Cookie3: __cfduid=da73debd4da091b7e785673961620f48e1425017526; path="/"; domain=".clickplay.to"; path_spec; domain_dot; expires="2016-02-27 06:12:06Z"; HttpOnly=None; version=0
+Set-Cookie3: S="photos_html=jKqVYqrLwaFJHn6tSmNKmA"; path="/"; domain=".google.com"; path_spec; domain_dot; secure; discard; HttpOnly=None; version=0
+Set-Cookie3: PHPSESSID=ilv6sf0jjuagretqorbcrve3k5; path="/"; domain="clickplay.to"; path_spec; discard; version=0
+Set-Cookie3: _rtok=rYEAgxItcrrJ; path="/"; domain="picasaweb.google.com"; path_spec; secure; discard; HttpOnly=None; version=0

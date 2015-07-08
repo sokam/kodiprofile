@@ -1,6 +1,10 @@
 <favourites>
-    <favourite name="Kindaichi Case Files " thumb="http://www.animeplus.tv/images/series/big/2259.jpg">ActivateWindow(10025,&quot;plugin://plugin.video.animego/?mode=8&amp;name=Kindaichi%20Case%20Files%20&amp;url=2259&amp;vidtype=tv&quot;,return)</favourite>
-    <favourite name="News At 6:30 - 六點半新聞報道" thumb="http://dramas.se/images/thumbs/newsat630.jpg">ActivateWindow(10025,&quot;plugin://plugin.video.azdrama/?mode=5&amp;name=News%20At%206%3a30%20-%20%e5%85%ad%e9%bb%9e%e5%8d%8a%e6%96%b0%e8%81%9e%e5%a0%b1%e9%81%93&amp;url=http%3a%2f%2ficdrama.se%2fhk-show%2f1247-news-at-6-30%2flist-episode%2f&quot;,return)</favourite>
-    <favourite name="Genesis TV" thumb="/home/sokam/.kodi/addons/plugin.video.genesis/resources/art/gone/shows_favourites.jpg">ActivateWindow(10025,&quot;plugin://plugin.video.genesis/?action=shows_favourites&quot;,return)</favourite>
-    <favourite name="Genesis Movies" thumb="/home/sokam/.kodi/addons/plugin.video.genesis/resources/art/gone/movies_favourites.jpg">ActivateWindow(10025,&quot;plugin://plugin.video.genesis/?action=movies_favourites&quot;,return)</favourite>
+    <favourite name="Favourite TV" thumb="/home/sokam/.kodi/addons/plugin.video.genesis/resources/art/gone/shows_favourites.jpg">ActivateWindow(10025,&quot;plugin://plugin.video.genesis/?action=shows_favourites&quot;,return)</favourite>
+    <favourite name="Favourite Movies" thumb="/home/sokam/.kodi/addons/plugin.video.genesis/resources/art/gone/movies_favourites.jpg">ActivateWindow(10025,&quot;plugin://plugin.video.genesis/?action=movies_favourites&quot;,return)</favourite>
+    <favourite name="CCTV-1 综合">PlayMedia(&quot;plugin://plugin.video.cntv-live/?stream=cctv1&quot;)</favourite>
+    <favourite name="CCTV-4 (美洲)">PlayMedia(&quot;plugin://plugin.video.cntv-live/?stream=cctvamerica&quot;)</favourite>
+    <favourite name="CCTV-13 新闻">PlayMedia(&quot;plugin://plugin.video.cntv-live/?stream=cctv13&quot;)</favourite>
+    <favourite name="azdrama.net" thumb="/home/sokam/.kodi/addons/plugin.video.azdrama-1.0.20/icon.png">ActivateWindow(10025,&quot;plugin://plugin.video.azdrama/&quot;,return)</favourite>
+    <favourite name="PPTV视频" thumb="/home/sokam/.kodi/addons/plugin.video.pptv/icon.png">ActivateWindow(10025,&quot;plugin://plugin.video.pptv/&quot;,return)</favourite>
+    <favourite name="天线宝宝网星电视" thumb="/home/sokam/.kodi/addons/plugin.video.txbb-0.0.18/icon.png">ActivateWindow(10025,&quot;plugin://plugin.video.txbb/&quot;,return)</favourite>
 </favourites>
