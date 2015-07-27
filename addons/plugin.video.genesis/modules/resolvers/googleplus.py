@@ -20,16 +20,21 @@
 
 
 import re
-import json
+import urlparse
 from modules.libraries import client
 
 
 def resolve(url):
     try:
         result = client.request(url)
+        result = result.replace('\r','').replace('\n','').replace('\t','')
 
-        u = re.compile('"url"\s*:\s*"([^"]+)"\s*,\s*"height"\s*:\s*\d+\s*,\s*"width"\s*:\s*\d+\s*,\s*"type"\s*:\s*"video/').findall(result)
-        u += re.compile('\d*,\d*,\d*,"(.+?)"').findall(result)
+        result = result.split('"%s"' % (urlparse.urlparse(url).path).split('/')[-1])[-1].split(']]')[0]
+
+        u = re.compile('\d*,\d*,\d*,"(.+?)"').findall(result)
+        
+        if len(u) == 0:
+            u = re.compile('"url"\s*:\s*"([^"]+)"\s*,\s*"height"\s*:\s*\d+\s*,\s*"width"\s*:\s*\d+\s*,\s*"type"\s*:\s*"video/').findall(result)
 
         u = [i.replace('\\u003d','=').replace('\\u0026','&') for i in u][::-1]
         u = sum([tag(i) for i in u], [])

@@ -95,8 +95,8 @@
 	<setting default="100" id="GorillavidResolver_priority" label="Priority" type="number"/>
 	<setting default="true" id="GorillavidResolver_enabled" label="Enabled" type="bool"/>
 	<setting label="grifthost" type="lsep"/>
-	<setting default="100" id="CloudyVideosResolver_priority" label="Priority" type="number"/>
-	<setting default="true" id="CloudyVideosResolver_enabled" label="Enabled" type="bool"/>
+	<setting default="100" id="GrifthostResolver_priority" label="Priority" type="number"/>
+	<setting default="true" id="GrifthostResolver_enabled" label="Enabled" type="bool"/>
 	<setting label="hostingbulk" type="lsep"/>
 	<setting default="100" id="HostingBulkResolver_priority" label="Priority" type="number"/>
 	<setting default="true" id="HostingBulkResolver_enabled" label="Enabled" type="bool"/>
@@ -171,6 +171,9 @@
 	<setting label="nowvideo" type="lsep"/>
 	<setting default="100" id="NowvideoResolver_priority" label="Priority" type="number"/>
 	<setting default="true" id="NowvideoResolver_enabled" label="Enabled" type="bool"/>
+	<setting label="openload" type="lsep"/>
+	<setting default="100" id="OpenLoadResolver_priority" label="Priority" type="number"/>
+	<setting default="true" id="OpenLoadResolver_enabled" label="Enabled" type="bool"/>
 	<setting label="play44.net" type="lsep"/>
 	<setting default="100" id="Play44Resolver_priority" label="Priority" type="number"/>
 	<setting default="true" id="Play44Resolver_enabled" label="Enabled" type="bool"/>
@@ -235,11 +238,11 @@
 	<setting label="sharerepo" type="lsep"/>
 	<setting default="100" id="SharerepoResolver_priority" label="Priority" type="number"/>
 	<setting default="true" id="SharerepoResolver_enabled" label="Enabled" type="bool"/>
+</category>
+<category label="Resolvers 4">
 	<setting label="sharesix" type="lsep"/>
 	<setting default="100" id="SharesixResolver_priority" label="Priority" type="number"/>
 	<setting default="true" id="SharesixResolver_enabled" label="Enabled" type="bool"/>
-</category>
-<category label="Resolvers 4">
 	<setting label="sharevid" type="lsep"/>
 	<setting default="100" id="ShareVidResolver_priority" label="Priority" type="number"/>
 	<setting default="true" id="ShareVidResolver_enabled" label="Enabled" type="bool"/>
@@ -314,11 +317,11 @@
 	<setting default="100" id="VideobbResolver_priority" label="Priority" type="number"/>
 	<setting default="true" id="VideobbResolver_enabled" label="Enabled" type="bool"/>
 	<setting default="2" id="VideobbResolver_q" label="Highest Quality" type="enum" values="240p|480p|Maximum"/>
+</category>
+<category label="Resolvers 5">
 	<setting label="videoboxone.com" type="lsep"/>
 	<setting default="100" id="VideoBoxOneResolver_priority" label="Priority" type="number"/>
 	<setting default="true" id="VideoBoxOneResolver_enabled" label="Enabled" type="bool"/>
-</category>
-<category label="Resolvers 5">
 	<setting label="videofun.me" type="lsep"/>
 	<setting default="100" id="VideoFunResolver_priority" label="Priority" type="number"/>
 	<setting default="true" id="VideoFunResolver_enabled" label="Enabled" type="bool"/>
@@ -392,11 +395,11 @@
 	<setting label="vshare" type="lsep"/>
 	<setting default="100" id="VshareResolver_priority" label="Priority" type="number"/>
 	<setting default="true" id="VshareResolver_enabled" label="Enabled" type="bool"/>
+</category>
+<category label="Resolvers 6">
 	<setting label="vshare.eu" type="lsep"/>
 	<setting default="100" id="VshareEuResolver_priority" label="Priority" type="number"/>
 	<setting default="true" id="VshareEuResolver_enabled" label="Enabled" type="bool"/>
-</category>
-<category label="Resolvers 6">
 	<setting label="watchfreeinhd" type="lsep"/>
 	<setting default="100" id="WatchFreeResolver_priority" label="Priority" type="number"/>
 	<setting default="true" id="WatchFreeResolver_enabled" label="Enabled" type="bool"/>

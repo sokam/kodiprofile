@@ -22,27 +22,29 @@
 import re
 import urllib
 from modules.libraries import client
-from modules.libraries import jsunpack
 
 
 def resolve(url):
     try:
-        result = client.request(url)
+        result = client.request(url, close=False)
 
         post = {}
         f = client.parseDOM(result, "Form", attrs = { "method": "POST" })[0]
         k = client.parseDOM(f, "input", ret="name", attrs = { "type": "hidden" })
         for i in k: post.update({i: client.parseDOM(f, "input", ret="value", attrs = { "name": i })[0]})
-        post.update({'method_free': 'Free Download'})
+        post.update({'method_free': 'Continue to Video'})
         post = urllib.urlencode(post)
 
-        result = client.request(url, post=post)
+        result = client.request(url, post=post, close=False)
 
-        result = re.compile('(eval.*?\)\)\))').findall(result)[0]
-        url = jsunpack.unpack(result)
+        js = re.compile('src *= *[\'|\"](.+?)[\'|\"]').findall(result)
+        js = [i for i in js if '/videojs/' in i][0]
 
-        result = client.request(url)
-        url = client.parseDOM(result, "file")[0]
+        result = client.request(js, close=False)
+        result = result.replace('\n','')
+
+        url = re.compile('sources *: *\[.+?\]').findall(result)[-1]
+        url = re.compile('file *: *[\'|\"](http.+?)[\'|\"]').findall(url)[0]
         return url
     except:
         return

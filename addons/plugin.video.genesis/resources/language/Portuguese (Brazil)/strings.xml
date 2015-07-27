@@ -74,7 +74,7 @@
 	<string id="30128">Actualizar biblioteca Kodi depois de adicionar conteúdo</string>
 	<string id="30129">Evitar criar conteúdo duplicado</string>
 	<string id="30140">Transferências</string>
-	<string id="30141">Filmes</string>
+	<string id="30141">Pasta</string>
 	<string id="30142">Séries</string>
 	<string id="30160">Legendas</string>
 	<string id="30161">As legendas podem não estar disponíveis ou fora de sincronismo.</string>
@@ -82,9 +82,10 @@
 	<string id="30163">Permitir Legendas</string>
 	<string id="30164">Idioma Principal</string>
 	<string id="30165">Idioma Secundário</string>
+	<string id="30169">Converter as legendas para UTF-8</string>
 	<!-- Info -->
-	<string id="30301"/>
-	<string id="30302"> está activado por defeito</string>
+	<string id="30301" />
+	<string id="30302">está activado por defeito</string>
 	<string id="30303">Adicionado aos Favoritos</string>
 	<string id="30304">Removido dos Favoritos</string>
 	<string id="30305">Item já está nos Favoritos</string>

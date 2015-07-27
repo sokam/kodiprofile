@@ -20,21 +20,18 @@
 
 
 import re
-import urllib
+import urlparse
 from modules.libraries import client
 
 
 def resolve(url):
     try:
-        result = client.request(url)
-        post = {}
-        try: f = client.parseDOM(result, "form", attrs = { "method": "POST" })[0]
-        except: f = ''
-        k = client.parseDOM(f, "input", ret="name")
-        for i in k: post.update({i: client.parseDOM(f, "input", ret="value", attrs = { "name": i })[0]})
-        post = urllib.urlencode(post)
+        result = client.request(url, close=False)
 
-        result = client.request(url, post=post)
+        f = client.parseDOM(result, "a", ret="href", attrs = { "id": "go-next" })[0]
+        f = urlparse.urljoin(url, f)
+
+        result = client.request(f)
 
         url = re.compile("var\s+lnk\d* *= *'(http.+?)'").findall(result)[0]
         return url

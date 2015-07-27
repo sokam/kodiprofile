@@ -42,14 +42,6 @@ from modules.resolvers import premiumize
 from modules import resolvers
 
 
-class Thread(threading.Thread):
-    def __init__(self, target, *args):
-        self._target = target
-        self._args = args
-        threading.Thread.__init__(self)
-    def run(self):
-        self._target(*self._args)
-
 
 class sources:
     def __init__(self):
@@ -124,17 +116,17 @@ class sources:
                 try:
                     url, source, provider = i['url'], i['label'], i['provider']
 
-                    sysname, sysimdb, systvdb, sysurl, syssource, sysprovider = urllib.quote_plus(name), urllib.quote_plus(imdb), urllib.quote_plus(tvdb), urllib.quote_plus(url), urllib.quote_plus(source), urllib.quote_plus(provider)
+                    sysname, sysimdb, systvdb, sysurl, sysimage, syssource, sysprovider = urllib.quote_plus(name), urllib.quote_plus(imdb), urllib.quote_plus(tvdb), urllib.quote_plus(url), urllib.quote_plus(poster), urllib.quote_plus(source), urllib.quote_plus(provider)
 
                     query = 'action=playItem&content=%s&name=%s&imdb=%s&tvdb=%s&url=%s&source=%s&provider=%s' % (content, sysname, sysimdb, systvdb, sysurl, syssource, sysprovider)
 
                     cm = []
-                    cm.append((control.lang(30401).encode('utf-8'), 'RunPlugin(%s?action=item_queue)' % (sysaddon)))
-                    cm.append((control.lang(30402).encode('utf-8'), 'RunPlugin(%s?action=download&name=%s&url=%s&provider=%s)' % (sysaddon, sysname, sysurl, sysprovider)))
+                    cm.append((control.lang(30401).encode('utf-8'), 'RunPlugin(%s?action=queueItem)' % (sysaddon)))
+                    cm.append((control.lang(30402).encode('utf-8'), 'RunPlugin(%s?action=addDownload&name=%s&url=%s&image=%s&provider=%s)' % (sysaddon, sysname, sysurl, sysimage, sysprovider)))
                     cm.append((control.lang(30412).encode('utf-8'), 'Action(Info)'))
-                    cm.append((control.lang(30427).encode('utf-8'), 'RunPlugin(%s?action=container_refresh)' % (sysaddon)))
-                    cm.append((control.lang(30410).encode('utf-8'), 'RunPlugin(%s?action=settings_open)' % (sysaddon)))
-                    cm.append((control.lang(30411).encode('utf-8'), 'RunPlugin(%s?action=playlist_open)' % (sysaddon)))
+                    cm.append((control.lang(30427).encode('utf-8'), 'RunPlugin(%s?action=refresh)' % (sysaddon)))
+                    cm.append((control.lang(30410).encode('utf-8'), 'RunPlugin(%s?action=openSettings)' % (sysaddon)))
+                    cm.append((control.lang(30411).encode('utf-8'), 'RunPlugin(%s?action=openPlaylist)' % (sysaddon)))
 
                     item = control.item(source, iconImage='DefaultVideo.png', thumbnailImage=thumb)
                     try: item.setArt({'poster': poster, 'tvshow.poster': poster, 'season.poster': poster, 'banner': banner, 'tvshow.banner': banner, 'season.banner': banner})
@@ -195,6 +187,7 @@ class sources:
 
         threads = []
 
+        control.makeFile(control.dataPath)
         self.sourceFile = control.cachesourcesFile
 
         sourceDict = [i[0] for i in sourceDict if i[1] == 'true']
@@ -348,6 +341,23 @@ class sources:
             dbcur.execute("DELETE FROM rel_src WHERE source = '%s' AND imdb_id = '%s' AND season = '%s' AND episode = '%s'" % (source, 'tt' + imdb, season, episode))
             dbcur.execute("INSERT INTO rel_src Values (?, ?, ?, ?, ?, ?)", (source, 'tt' + imdb, season, episode, json.dumps(sources), datetime.datetime.now().strftime("%Y-%m-%d %H:%M")))
             dbcon.commit()
+        except:
+            pass
+
+
+    def clearSources(self):
+        try:
+            yes = control.yesnoDialog('Are you sure?', '', '')
+            if not yes: return
+
+            control.makeFile(control.dataPath)
+            dbcon = database.connect(control.cachesourcesFile)
+            dbcur = dbcon.cursor()
+            dbcur.execute("DROP TABLE IF EXISTS rel_src")
+            dbcur.execute("VACUUM")
+            dbcon.commit()
+
+            control.infoDialog('Process Complete')
         except:
             pass
 
@@ -551,4 +561,14 @@ class sources:
         self.hostsdfullDict = self.hostprDict + self.hosthqDict + self.hostmqDict + self.hostlqDict
 
         self.hosthdfullDict = self.hostprDict + self.hosthdDict
+
+
+
+class Thread(threading.Thread):
+    def __init__(self, target, *args):
+        self._target = target
+        self._args = args
+        threading.Thread.__init__(self)
+    def run(self):
+        self._target(*self._args)
 

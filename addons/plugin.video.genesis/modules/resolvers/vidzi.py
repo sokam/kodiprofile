@@ -20,20 +20,39 @@
 
 
 import re
+import urllib
+import time
 from modules.libraries import client
 
 
 def resolve(url):
     try:
-        result = client.request(url, mobile=True)
-        result = result.replace('\n','')
-        result = re.compile('sources *: *\[.+?\]').findall(result)[-1]
-        result = re.compile('file *: *"(http.+?)"').findall(result)
+        result = client.request(url, mobile=True, close=False)
 
-        url = [i for i in result if '.m3u8' in i]
-        if len(url) > 0: return url[0]
-        url = [i for i in result if not '.m3u8' in i]
-        if len(url) > 0: return url[0]
+        try:
+            post = {}
+            f = client.parseDOM(result, "Form", attrs = { "method": "POST" })[0]
+            f = f.replace('"submit"', '"hidden"')
+            k = client.parseDOM(f, "input", ret="name", attrs = { "type": "hidden" })
+            for i in k: post.update({i: client.parseDOM(f, "input", ret="value", attrs = { "name": i })[0]})
+            post = urllib.urlencode(post)
+        except:
+            post=None
+
+        for i in range(0, 10):
+            try:
+                result = client.request(url, post=post, mobile=True, close=False)
+                result = result.replace('\n','')
+
+                result = re.compile('sources *: *\[.+?\]').findall(result)[-1]
+                result = re.compile('file *: *"(http.+?)"').findall(result)
+
+                url = [i for i in result if '.m3u8' in i]
+                if len(url) > 0: return url[0]
+                url = [i for i in result if not '.m3u8' in i]
+                if len(url) > 0: return url[0]
+            except:
+                time.sleep(1)
     except:
         return
 

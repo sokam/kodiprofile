@@ -74,7 +74,7 @@
 	<string id="30128">עדכן ספרייה לאחר הוספת תוכן</string>
 	<string id="30129">המנע מיצירת כפילויות</string>
 	<string id="30140">הורדות</string>
-	<string id="30141">סרטים</string>
+	<string id="30141">תיקיה</string>
 	<string id="30142">סדרות</string>
 	<string id="30160">תרגומים</string>
 	<string id="30161">יש מצב לכתוביות לא זמינות או לא מסונכרנות.</string>
@@ -82,6 +82,7 @@
 	<string id="30163">לאפשר הפעלת כתוביות</string>
 	<string id="30164">שפה מועדפת ראשית</string>
 	<string id="30165">שפה מועדפת משנית</string>
+	<string id="30169">המרת כתוביות לUTF-8</string>
 	<!-- Info -->
 	<string id="30301"/>
 	<string id="30302">פעיל כברירת מחדל</string>

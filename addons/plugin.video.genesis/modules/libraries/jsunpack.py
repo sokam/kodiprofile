@@ -60,6 +60,7 @@ def __parse(sUnpacked):
     url = re.compile("'file' *, *'(.+?)'").findall(sUnpacked)
     url += re.compile("file *: *[\'|\"](.+?)[\'|\"]").findall(sUnpacked)
     url += re.compile("playlist=(.+?)&").findall(sUnpacked)
+    url += re.compile("playlist *: *[\'|\"](.+?)[\'|\"]").findall(sUnpacked)
     url += client.parseDOM(sUnpacked, "embed", ret="src")
 
     url = [i for i in url if not i.endswith('.srt')]

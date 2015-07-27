@@ -1734,8 +1734,13 @@ def Get_Path(srcname, vidname, link):
      vidname = Clean_Windows_String(vidname)
      
      #Get file extension from url
+     if link:
+        download_url = re.search('(^https?://[^|]*)', link).group(1)
+     else:
+        download_url = ''
+        
      import urlparse
-     path = urlparse.urlparse(link).path
+     path = urlparse.urlparse(download_url).path
      ext = os.path.splitext(path)[1]
     
      if xbmcvfs.exists(downloadPath):
@@ -1998,7 +2003,7 @@ def Stream_Source(name, download_play=False, download=False, download_jdownloade
         #Download option
         elif download:
             addon.log('Starting Download')
-            completed = Download_Source(name, link)
+            completed = Download_Source(name, link, url)
             addon.log('Downloading completed: %s' % completed)
 
         elif download_jdownloader:
@@ -2432,11 +2437,12 @@ def _dlhook(numblocks, blocksize, filesize, dt, start_time):
         save(os.path.join(downloadPath,'Alive'),dt.dest+'\n'+dt.vidname)
 
 
-def Download_Source(name, url, stacked=False):
+def Download_Source(name, url, referer, stacked=False):
     #get proper name of vid
     vidname=cache.get('videoname')
     
     mypath=Get_Path(name, vidname, url)
+    print '!!!!!!!', mypath
            
     if mypath == 'path not set':
         Notify('Download Alert','You have not set the download folder.\n Please access the addon settings and set it.','','')
@@ -2447,7 +2453,9 @@ def Download_Source(name, url, stacked=False):
             return False
         else:              
             import commondownloader
-            commondownloader.download(url, mypath, 'Icefilms')
+            download_url = re.search('(^https?://[^|]*)', url).group(1)
+            commondownloader.download(download_url, mypath, 'Icefilms', referer=referer, agent=USER_AGENT)
+            #commondownloader.download(url, mypath, 'Icefilms', referer=referer, agent=USER_AGENT)
             
             # DownloadInBack=addon.get_setting('download-in-background')
             # addon.log('attempting to download file, silent = '+ DownloadInBack)

@@ -28,6 +28,9 @@ import premiumize
 
 def request(url):
     try:
+        if '</regex>' in url:
+            import regex ; url = regex.resolve(url)
+
         rd = realdebrid.resolve(url)
         if not rd == None: return rd
         pz = premiumize.resolve(url)
@@ -137,8 +140,17 @@ def info():
         'captcha': False,
         'a/c': False
     }, {
+        'class': 'filmon',
+        'netloc': ['filmon.com']
+    }, {
+        'class': 'filepup',
+        'netloc': ['filepup.net']
+    }, {
         'class': 'googledocs',
         'netloc': ['docs.google.com', 'drive.google.com']
+    }, {
+        'class': 'googlephotos',
+        'netloc': ['photos.google.com']
     }, {
         'class': 'googleplus',
         'netloc': ['plus.google.com', 'picasaweb.google.com']
@@ -156,6 +168,9 @@ def info():
         'quality': 'High',
         'captcha': False,
         'a/c': False
+    }, {
+        'class': 'hdcast',
+        'netloc': ['hdcast.me']
     }, {
         'class': 'hugefiles',
         'netloc': ['hugefiles.net'],
@@ -369,8 +384,14 @@ def info():
         'captcha': False,
         'a/c': False
     }, {
+        'class': 'vaughnlive',
+        'netloc': ['vaughnlive.tv', 'breakers.tv', 'instagib.tv', 'vapers.tv']
+    }, {
         'class': 'veehd',
         'netloc': ['veehd.com']
+    }, {
+        'class': 'veetle',
+        'netloc': ['veetle.com']
     }, {
         'class': 'vidbull',
         'netloc': ['vidbull.com'],

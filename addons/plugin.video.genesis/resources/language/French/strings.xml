@@ -74,7 +74,7 @@
 	<string id="30128">Mise à Jour de la Librairie Kodi après Ajout de Contenu</string>
 	<string id="30129">Éviter des doublons</string>
 	<string id="30140">Téléchargement</string>
-	<string id="30141">Films</string>
+	<string id="30141">Répertoire</string>
 	<string id="30142">TV</string>
 	<string id="30160">Sous-Titres</string>
 	<string id="30161">Le Sous-Titre n'est pas Disponible ou Désynchronisé.</string>
@@ -82,9 +82,10 @@
 	<string id="30163">Activer le Sous-Titre</string>
 	<string id="30164">Langue Principale</string>
 	<string id="30165">Langue Secondaire</string>
+	<string id="30169">Autre sous-titres en UTF-8</string>
 	<!-- Info -->
-	<string id="30301"/>
-	<string id="30302"> activé par Défaut</string>
+	<string id="30301" />
+	<string id="30302">activé par Défaut</string>
 	<string id="30303">Ajouté aux Favoris</string>
 	<string id="30304">Enlevé des Favoris</string>
 	<string id="30305">Cet Item est déjà dans les Fovoris</string>

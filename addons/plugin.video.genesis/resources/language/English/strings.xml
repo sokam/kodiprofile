@@ -74,7 +74,7 @@
 	<string id="30128">Update Kodi library after adding content</string>
 	<string id="30129">Avoid creating duplicate content</string>
 	<string id="30140">Downloads</string>
-	<string id="30141">Movies</string>
+	<string id="30141">Folder</string>
 	<string id="30142">TV</string>
 	<string id="30160">Subtitles</string>
 	<string id="30161">Subtitles could be unavailable or out of sync.</string>
@@ -82,9 +82,10 @@
 	<string id="30163">Enable subtitles</string>
 	<string id="30164">Primary Language</string>
 	<string id="30165">Secondary Language</string>
+	<string id="30169">Convert subtitles to UTF-8</string>
 	<!-- Info -->
-	<string id="30301"/>
-	<string id="30302"> is on by default</string>
+	<string id="30301" />
+	<string id="30302">is on by default</string>
 	<string id="30303">Added to Favourites</string>
 	<string id="30304">Removed from Favourites</string>
 	<string id="30305">Item already in Favourites</string>

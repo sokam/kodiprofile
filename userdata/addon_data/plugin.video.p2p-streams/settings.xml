@@ -17,6 +17,7 @@
     <setting id="engine_app" value="0" />
     <setting id="enter_channel_list" value="false" />
     <setting id="external-sopcast" value="1" />
+    <setting id="folder" value="" />
     <setting id="force_android" value="false" />
     <setting id="force_dvplayer" value="false" />
     <setting id="hide_porn" value="false" />
@@ -32,14 +33,16 @@
     <setting id="openelecarm7" value="false" />
     <setting id="openeleci386" value="false" />
     <setting id="openelecx86_64" value="true" />
-    <setting id="parser_disclaimer_three" value="true" />
+    <setting id="parser_disclaimer_three" value="false" />
     <setting id="parser_sync" value="true" />
     <setting id="parser_sync_cron" value="3" />
-    <setting id="parsers_last_sync_two" value="1970-01-01 23:59:00.000000" />
+    <setting id="parsers_last_sync_two" value="2015-07-25 18:03:43.090067" />
     <setting id="pausable" value="false" />
     <setting id="playerport" value="6878" />
     <setting id="python_cmd" value="python" />
     <setting id="raspberrypi" value="false" />
+    <setting id="remove_parser_traces_" value="" />
+    <setting id="run_a_python_script" value="" />
     <setting id="russian_translation" value="true" />
     <setting id="save" value="false" />
     <setting id="shutdown-engine" value="true" />
@@ -49,6 +52,7 @@
     <setting id="sopcast_version" value="3.2.6" />
     <setting id="stream_time" value="6" />
     <setting id="stream_time_osx" value="15" />
+    <setting id="sync_parsers_now" value="" />
     <setting id="timezone_new" value="439" />
     <setting id="total_max_download_rate" value="0" />
     <setting id="total_max_upload_rate" value="0" />

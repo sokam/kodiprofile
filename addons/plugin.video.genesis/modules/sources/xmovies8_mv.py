@@ -29,7 +29,7 @@ from modules.libraries import client
 
 class source:
     def __init__(self):
-        self.base_link = 'http://xmovies8.co'
+        self.base_link = 'http://xmovies8.tv'
         self.search_link = 'https://www.google.com/search?q=%s&sitesearch=xmovies8.co'
 
 

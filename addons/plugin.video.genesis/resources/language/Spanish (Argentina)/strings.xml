@@ -74,7 +74,7 @@
 	<string id="30128">Actualizar la biblioteca de Kodi cuando se agrega contenido</string>
 	<string id="30129">Evitar crear contenido duplicado</string>
 	<string id="30140">Descargas</string>
-	<string id="30141">Películas</string>
+	<string id="30141">Carpeta</string>
 	<string id="30142">Series</string>
 	<string id="30160">Subtítulos</string>
 	<string id="30161">Los subtítulos pueden no estar disponibles o desfazados</string>
@@ -82,9 +82,10 @@
 	<string id="30163">Habilitar subtítulos</string>
 	<string id="30164">Lenguaje Primario</string>
 	<string id="30165">Lenguaje Secundario</string>
+	<string id="30169">Convertir subtítulos a UTF-8</string>
 	<!-- Info -->
-	<string id="30301"/>
-	<string id="30302"> está encendido por defecto</string>
+	<string id="30301" />
+	<string id="30302">está encendido por defecto</string>
 	<string id="30303">Agregado a Favs.</string>
 	<string id="30304">Eliminado de Favs.</string>
 	<string id="30305">Item ya en Favs.</string>

@@ -30,24 +30,26 @@ from modules.resolvers import googleplus
 class source:
     def __init__(self):
         self.base_link = 'https://afdah.org'
-        self.search_link = '/results?q=%s'
+        self.search_link = 'https://www.google.com/search?q=%s&sitesearch=afdah.org'
         self.info_link = '/video_info'
 
 
     def get_movie(self, imdb, title, year):
         try:
-            query = urlparse.urljoin(self.base_link, self.search_link % (urllib.quote_plus(title)))
+            query = self.search_link % (urllib.quote_plus(title))
 
             result = client.source(query)
-            result = client.parseDOM(result, "div", attrs = { "class": "cell_container" })
 
             title = cleantitle.movie(title)
-            years = ['%s' % str(year), '%s' % str(int(year)+1), '%s' % str(int(year)-1)]
-            result = [(client.parseDOM(i, "a", ret="href")[0], client.parseDOM(i, "a", ret="title")[0]) for i in result]
-            result = [(i[0], re.compile('(.+?) [(](\d{4})[)]').findall(i[1])) for i in result]
-            result = [(i[0], i[1][0][0], i[1][0][1]) for i in result if len(i[1]) > 0]
+            years = ['(%s)' % str(year), '(%s)' % str(int(year)+1), '(%s)' % str(int(year)-1)]
+
+            result = client.parseDOM(result, "h3", attrs = { "class": ".+?" })
+            result = [(client.parseDOM(i, "a", ret="href"), client.parseDOM(i, "a")) for i in result]
+            result = [(i[0][0], i[1][-1]) for i in result if len(i[0]) > 0 and len(i[1]) > 0]
+            result = [(i[0], re.compile('(.+? [(]\d{4}[)])').findall(i[1])) for i in result]
+            result = [(i[0], i[1][0]) for i in result if len(i[1]) > 0]
             result = [i for i in result if title == cleantitle.movie(i[1])]
-            result = [i[0] for i in result if any(x in i[2] for x in years)][0]
+            result = [i[0] for i in result if any(x in i[1] for x in years)][0]
 
             try: url = re.compile('//.+?(/.+)').findall(result)[0]
             except: url = result

@@ -74,7 +74,7 @@
 	<string id="30128">Update Bibliotheek na toevoegen van content</string>
 	<string id="30129">Voorkom het creëren van dubbele content</string>
 	<string id="30140">Downloads</string>
-	<string id="30141">Films</string>
+	<string id="30141">Map</string>
 	<string id="30142">Series</string>
 	<string id="30160">Ondertiteling</string>
 	<string id="30161">Ondertiteling kan niet beschikbaar zijn of niet synchroon lopen.</string>
@@ -82,9 +82,10 @@
 	<string id="30163">Ondertitels gebruiken</string>
 	<string id="30164">Eerste taal</string>
 	<string id="30165">Tweede taal</string>
+	<string id="30169">Ondertitels te converteren naar UTF-8</string>
 	<!-- Info -->
-	<string id="30301"></string>
-	<string id="30302"> is als standaard ingesteld</string>
+	<string id="30301" />
+	<string id="30302">is als standaard ingesteld</string>
 	<string id="30303">Toegevoegd aan Favorieten</string>
 	<string id="30304">Verwijderd uit Favorieten</string>
 	<string id="30305">Artikel staat al in Favorieten</string>

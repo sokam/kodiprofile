@@ -1,0 +1,1 @@
+Direct ID ( )|sop://broker.sopcast.com:3912/|2|/home/sokam/.kodi/addons/plugin.video.p2p-streams/resources/art/sopcast_logo.jpg

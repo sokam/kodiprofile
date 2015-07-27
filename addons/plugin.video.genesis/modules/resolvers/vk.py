@@ -34,10 +34,12 @@ def resolve(url):
         except: hash = _hash(oid, id)
 
         u = 'http://api.vk.com/method/video.getEmbed?oid=%s&video_id=%s&embed_hash=%s' % (oid, id, hash)
-
+ 
         result = client.request(u)
-        result = json.loads(result)
-        result = result['response']
+        result = re.sub(r'[^\x00-\x7F]+',' ', result)
+
+        try: result = json.loads(result)['response']
+        except: result = _private(oid, id)
 
         url = []
         try: url += [{'quality': 'HD', 'url': result['url720']}]
@@ -70,6 +72,19 @@ def _hash(oid, id):
         hash = hash[0]
 
         return hash
+    except:
+        return
+
+def _private(oid, id):
+    try:
+        url = 'http://vk.com/al_video.php?act=show_inline&al=1&video=%s_%s' % (oid, id)
+
+        result = client.request(url)
+        result = re.compile('var vars *= *({.+?});').findall(result)[0]
+        result = re.sub(r'[^\x00-\x7F]+',' ', result)
+        result = json.loads(result)
+
+        return result
     except:
         return
 

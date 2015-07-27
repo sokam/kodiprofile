@@ -33,5 +33,10 @@
             <path pathversion="1">http://xunitytalk.com/xfinity/</path>
             <allowsharing>true</allowsharing>
         </source>
+        <source>
+            <name>#megareborn</name>
+            <path pathversion="1">http://iptvcanada-usa.net84.net/</path>
+            <allowsharing>true</allowsharing>
+        </source>
     </files>
 </sources>

@@ -23,6 +23,7 @@ import re
 import urllib
 import urlparse
 import base64
+import datetime
 from modules.libraries import cleantitle
 from modules.libraries import client
 from modules import resolvers
@@ -37,7 +38,7 @@ class source:
         self.link_3 = 'https://primewire.unblocked.pw'
         self.moviesearch_link = '/index.php?search_keywords=%s&key=%s&search_section=1'
         self.tvsearch_link = '/index.php?search_keywords=%s&key=%s&search_section=2'
-        self.headers = {}
+        self.headers = {'User-Agent' : 'Mozilla/%s' % datetime.datetime.now().strftime('%Y%m%d%H%M%S')}
 
 
     def get_movie(self, imdb, title, year):
