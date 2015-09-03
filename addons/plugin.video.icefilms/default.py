@@ -66,6 +66,7 @@ search = addon.queries.get('search', '')
 addon.log('----------------Icefilms Addon Param Info----------------------')
 addon.log('--- Version: ' + str(addon.get_version()))
 addon.log('--- Mode: ' + str(mode))
+addon.log('--- DirMode: ' + str(dirmode))
 addon.log('--- URL: ' + str(url))
 addon.log('--- Video Type: ' + str(video_type))
 addon.log('--- Name: ' + str(name))
@@ -116,7 +117,8 @@ ICEFILMS_URL = addon.get_setting('icefilms-url')
 if not ICEFILMS_URL.endswith("/"):
     ICEFILMS_URL = ICEFILMS_URL + "/"
 
-ICEFILMS_AJAX = ICEFILMS_URL+'membersonly/components/com_iceplayer/video.phpAjaxResp.php'
+ICEFILMS_AJAX = ICEFILMS_URL+'membersonly/components/com_iceplayer/video.phpAjaxResp.php?s=%s&t=%s&app_id=if'
+ICEFILMS_AJAX_REFER = 'http://www.icefilms.info/membersonly/components/com_iceplayer/video.php?h=374&w=631&vid=%s&img='
 ICEFILMS_REFERRER = 'http://www.icefilms.info'
 USER_AGENT = 'Mozilla/5.0 (Windows NT 6.1; WOW64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/28.0.1500.72 Safari/537.36'
 ACCEPT = 'text/html,application/xhtml+xml,application/xml;q=0.9,*/*;q=0.8'
@@ -393,29 +395,6 @@ def LoginStartup():
               addon.log('**** Real-Debrid Error: %s' % e)
               Notify('big','Real-Debrid Login Failed','Failed to connect with Real-Debrid.', '', '', 'Please check your internet connection.')
               pass
-
-
-     #Verify MovReel Account
-     if movreel_account:
-         loginurl='http://www.movreel.com/login.html'
-         op = 'login'
-         login = addon.get_setting('movreel-username')
-         password = addon.get_setting('movreel-password')
-         data = {'op': op, 'login': login, 'password': password}
-         cookiejar = os.path.join(cookie_path,'movreel.lwp')
-        
-         try:
-             html = net.http_POST(loginurl, data).content
-             if re.search('op=logout', html):
-                net.save_cookies(cookiejar)
-             else:
-                Notify('big','Movreel','Login failed.', '')
-                addon.log('Movreel Account: login failed')
-         except Exception, e:
-             addon.log('**** Movreel Error: %s' % e)
-             Notify('big','Movreel Login Failed','Failed to connect with Movreel.', '', '', 'Please check your internet connection and the Movreel.com site.')
-             pass
-
 
 def ContainerStartup():
 
@@ -1489,6 +1468,11 @@ def LOADMIRRORS(url):
       
     html = GetURL(mirrorpageurl, save_cookie = True)
 
+    #Show Ice Ad's
+    match = re.search('<iframe[^>]*src="([^"]+)', html)
+    if match:
+        show_ice_ad(urllib.quote(match.group(1)))
+    
     #string for all text under hd720p border
     defcat = re.compile('<div class=ripdiv><b>(.+?)</b>(.+?)</div>').findall(html)
     for media_type, scrape in defcat:
@@ -1517,7 +1501,6 @@ def determine_source(search_string, is_domain=False):
                 ('tusfiles.net', 'TusFiles', 'resolve_tusfiles'),
                 ('xfileload.com', 'XfileLoad', 'resolve_xfileload'),
                 ('mightyupload.com', 'MightyUpload', 'resolve_mightyupload'),
-                ('movreel.com', 'MovReel', 'resolve_movreel'),
                 ('donevideo.com', 'DoneVideo', 'resolve_donevideo'),
                 ('vidplay.net', 'VidPlay', 'resolve_vidplay'),
                 ('24uploading.com', '24Uploading', 'resolve_24uploading'),                
@@ -1623,9 +1606,13 @@ def SOURCE(page, sources, source_tag, ice_meta=None):
     #     s:   seconds since page loaded (> 5, < 250)
 
     args = {}
-    args['sec'] = re.search("f\.lastChild\.value=\"(.+?)\",a", page).group(1)
-    args['t'] = re.search('"&t=([^"]+)",', page).group(1)
 
+    match = re.search('lastChild\.value="([^"]+)"(?:\s*\+\s*"([^"]+))?', page)
+    args['sec'] = ''.join(match.groups(''))
+    args['t'] = re.search('"&t=([^"]+)",', page).group(1)
+    args['s'] = re.search('(?:\s+|,)s\s*=(\d+)', page).group(1)
+    args['m'] = re.search('(?:\s+|,)m\s*=(\d+)', page).group(1)
+    
     #add cached source
     vidname=cache.get('videoname')
     dlDir = Get_Path("noext", "", "")
@@ -1654,7 +1641,56 @@ def SOURCE(page, sources, source_tag, ice_meta=None):
         PART(sources, number, host, args, source_tag, ice_meta)
     setView(None, 'default-view')
 
+    
+def show_ice_ad(ad_url):
 
+    try:
+
+        # Import PyXBMCt module.
+        import pyxbmct.addonwindow as pyxbmct
+             
+        # Create a window instance.
+        window = pyxbmct.AddonDialogWindow('Icefilms Advertisement')
+        # Set the window width, height, rows, columns.
+        window.setGeometry(450, 250, 6, 4)
+        
+        if not ad_url.startswith('http:'): ad_url = 'http:' + ad_url
+        addon.log('Found Ice advertisement url: %s' % ad_url)
+        html = net.http_GET(ad_url).content
+        for match in re.finditer("<img\s+src='([^']+)'\s+width='(\d+)'\s+height='(\d+)'", html):
+            img_url, width, height = match.groups()
+            addon.log('Ice advertisement image url: %s' % img_url)
+            width = int(width)
+            height = int(height)
+            if width > 0 and height > 0:
+
+                # Ad image
+                image = pyxbmct.Image(img_url)
+                window.placeControl(image, 0, 0, rowspan=4, columnspan=4)                   
+            else:
+                temp = net.http_GET(img_url).content
+               
+        # Create a button.
+        button = pyxbmct.Button('Close')
+        # Place the button on the window grid.
+        window.placeControl(button, 5, 1, columnspan=2)
+        # Set initial focus on the button.
+        window.setFocus(button)
+        # Connect the button to a function.
+        window.connect(button, window.close)
+        # Connect a key action to a function.
+        window.connect(pyxbmct.ACTION_NAV_BACK, window.close)
+        # Show the created window.
+        window.doModal()                
+
+        match = re.search("href='([^']+)", html)
+        if match and random.randint(0, 100) < 5:
+            addon.log('Ice advertisement - performing click on ad: %s' % match.group(1))
+            html = net.http_GET(match.group(1)).content
+    finally:
+        window.close()
+
+            
 def GetURL(url, params = None, referrer = ICEFILMS_REFERRER, use_cookie = False, save_cookie = False, use_cache=True):
     addon.log('GetUrl: ' + url)
     addon.log('params: ' + repr(params))
@@ -1917,21 +1953,21 @@ def PlayFile(name,url):
 
 def GetSource():
 
+    t = addon.queries.get('t', '')
+    id = addon.queries.get('id', '')
+    
     params = {
         'iqs': '',
         'url': '',
-        'cap': '',
+        'cap': ' ',
         'sec': addon.queries.get('sec', ''),
-        't': addon.queries.get('t', ''),
-        'id': addon.queries.get('id', '')
+        't': t,
+        'id': id,
+        'm' : int(addon.queries.get('m', '')) + random.randrange(20, 500),
+        's' : int(addon.queries.get('s', '')) + random.randrange(2, 500)
     } 
-   
-    m = random.randrange(100, 300) * -1
-    s = random.randrange(5, 50)
-    params['m'] = m
-    params['s'] = s
     
-    body = GetURL(ICEFILMS_AJAX, params = params, use_cookie=True, use_cache=False)
+    body = GetURL(ICEFILMS_AJAX % (id, t), params = params, referrer = ICEFILMS_AJAX_REFER % t, use_cookie=True, use_cache=False)
     addon.log('GetSource Response: %s' % body)
     source = re.search('url=(http[^&]+)', body)
     
@@ -2442,7 +2478,6 @@ def Download_Source(name, url, referer, stacked=False):
     vidname=cache.get('videoname')
     
     mypath=Get_Path(name, vidname, url)
-    print '!!!!!!!', mypath
            
     if mypath == 'path not set':
         Notify('Download Alert','You have not set the download folder.\n Please access the addon settings and set it.','','')
@@ -2975,7 +3010,7 @@ def SearchGoogle(search):
 
 
 def SearchForTrailer(search, imdb_id, type, manual=False):
-    search = search.replace(' *HD 720p*', '')
+    search = search.replace(' [COLOR red]*HD*[/COLOR]', '')
     res_name = []
     res_url = []
     res_name.append('Manualy enter search...')
@@ -3000,7 +3035,7 @@ def SearchForTrailer(search, imdb_id, type, manual=False):
             
     dialog = xbmcgui.Dialog()
     ret = dialog.select(search + ' trailer search',res_name)
-    
+       
     # Manual search for trailer
     if ret == 0:
         if manual:
@@ -3017,19 +3052,18 @@ def SearchForTrailer(search, imdb_id, type, manual=False):
             result = keyboard.getText()
             SearchForTrailer(result, imdb_id, type, manual=True) 
     # Found trailers
-    elif ret > 1:
+    elif ret > 0:
         trailer_url = res_url[ret - 2]
         xbmc.executebuiltin(
             "PlayMedia(plugin://plugin.video.youtube/?action=play_video&videoid=%s&quality=720p)" 
             % str(trailer_url)[str(trailer_url).rfind("v=")+2:] )
         
-        #dialog.ok(' title ', ' message ')
         metaget=metahandlers.MetaData()
-        if type==100:
-            type='movie'
-        elif type==12:
-            type='tvshow'
-        metaget.update_trailer(type, imdb_id, trailer_url)
+        if type=='100':
+            media_type='movie'
+        elif type=='12':
+            media_type='tvshow'
+        metaget.update_trailer(media_type, imdb_id, trailer_url)
         xbmc.executebuiltin("XBMC.Container.Refresh")
     else:
         res_name.append('Nothing Found. Thanks!!!')

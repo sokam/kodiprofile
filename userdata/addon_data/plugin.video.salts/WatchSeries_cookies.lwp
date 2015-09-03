@@ -1,5 +1,7 @@
 #LWP-Cookies-2.0
-Set-Cookie3: __cfduid=dbf1fc3f600fa04967b342e697aaeab151425017526; path="/"; domain=".primewire.ag"; path_spec; domain_dot; expires="2016-02-27 06:12:06Z"; HttpOnly=None; version=0
+Set-Cookie3: __cfduid=db20918655b15d97e237f3f7e5545d0251440817337; path="/"; domain=".primewire.ag"; path_spec; domain_dot; expires="2016-08-28 03:02:17Z"; HttpOnly=None; version=0
 Set-Cookie3: __cfduid=dc59a0671dab7f23214fe50f6057a35151425017527; path="/"; domain=".watchseries.ag"; path_spec; domain_dot; expires="2016-02-27 06:12:07Z"; HttpOnly=None; version=0
 Set-Cookie3: PHPSESSID=25ced1d80a53258b82c5c409b587c8bb; path="/"; domain="uflix.org"; path_spec; discard; version=0
-Set-Cookie3: PHPSESSID=8dpilpm71ofp98cfitiffd6am4; path="/"; domain="www.primewire.ag"; path_spec; discard; version=0
+Set-Cookie3: PHPSESSID=cb9j67jchot6qgobevekd40lf4; path="/"; domain="www.primewire.ag"; path_spec; discard; version=0
+Set-Cookie3: cookies=1; path="/"; domain="www.primewire.ag"; path_spec; expires="2015-08-30 03:00:56Z"; version=0
+Set-Cookie3: lolwtf=1; path="/"; domain="www.primewire.ag"; expires="2015-08-29 04:00:56Z"; version=0

@@ -17,44 +17,7 @@
     <setting id="furk_tv" value="false" />
     <setting id="furk_user" value="" />
     <setting id="g2g" value="true" />
-    <setting id="host1" value="Movreel" />
-    <setting id="host10" value="Mrfile" />
-    <setting id="host11" value="Vidbull" />
-    <setting id="host12" value="Mightyupload" />
-    <setting id="host13" value="VK" />
-    <setting id="host14" value="Movshare" />
-    <setting id="host15" value="Promptfile" />
-    <setting id="host16" value="Vodlocker" />
-    <setting id="host17" value="Played" />
-    <setting id="host18" value="Gorillavid" />
-    <setting id="host19" value="Bestreams" />
-    <setting id="host2" value="Billionuploads" />
-    <setting id="host20" value="Divxstage" />
-    <setting id="host3" value="180upload" />
-    <setting id="host4" value="Ororo" />
-    <setting id="host5" value="Animeultima" />
-    <setting id="host6" value="Streamin" />
-    <setting id="host7" value="Grifthost" />
-    <setting id="host8" value="iShared" />
-    <setting id="host9" value="Cloudyvideos" />
     <setting id="host_select" value="1" />
-    <setting id="hosthd1" value="VK" />
-    <setting id="hosthd10" value="Billionuploads" />
-    <setting id="hosthd11" value="V-vids" />
-    <setting id="hosthd12" value="Vidbull" />
-    <setting id="hosthd13" value="180upload" />
-    <setting id="hosthd14" value="Hugefiles" />
-    <setting id="hosthd15" value="Filecloud" />
-    <setting id="hosthd16" value="Uploadrocket" />
-    <setting id="hosthd17" value="Kingfiles" />
-    <setting id="hosthd2" value="GVideo" />
-    <setting id="hosthd3" value="Muchmovies" />
-    <setting id="hosthd4" value="Sweflix" />
-    <setting id="hosthd5" value="Videomega" />
-    <setting id="hosthd6" value="Niter" />
-    <setting id="hosthd7" value="YIFY" />
-    <setting id="hosthd8" value="Einthusan" />
-    <setting id="hosthd9" value="Movreel" />
     <setting id="icefilms" value="true" />
     <setting id="icefilms_tv" value="true" />
     <setting id="imdb_user" value="" />

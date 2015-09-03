@@ -1,0 +1,42 @@
+0.0.7
+- Remove code added for 0.0.5 which isn't needed, had been added to workarond
+  a Kodi Helix bug with handling of temp dir.
+- Implement manual search. Issue #2. Thanks Diego Garber.
+- Minor cleanups
+
+0.0.6
+- When the new option to show nicks was set, the subtitle file written ended
+  in '..srt' instead of '.es.srt'. Workaround this with a hack.
+- Remove flag column from search results table.
+- More code readability/maintainability work.
+- Copied workaround for xbmcvfs.exists() problem in Kodi 14 (Helix) from
+  opensubtitles add-on, thanks to its authors.
+
+0.0.5
+- Add first setting: Show uploader name in place of language
+  Being a spanish subtitles site, there is no point in showing the spanish
+  flag and literal in the first column so we put that spot of the screen to
+  better use: There are some renowned uploaders in the Subdivx.community and,
+  for lack of more structured information in Subdivx, it can be a very
+  important piece of information when it comes to choosing from several
+  subtitles. Show his/her nick there.
+  Initially the value of the setting is False. We'll see if it's worth
+  changing it to True in some future release.
+- Bullet-proof .rar uncompression as it's a popular file format on subdivx.com
+
+0.0.4
+- More robust parsing of description, better logging.
+- Also match variation in CSS class name just in case.
+- Fix stripping of trailing '/' from param value.
+
+0.0.3
+- Handle arbitrary casing in subs file extension, e.g. .SRT, .sRt, etc.
+- More code cleanup (PEP8, comment/docstring typos, logic of a helper function).
+
+0.0.2
+- Fixed accented characters mojibake.
+- Removed or replaced code of dubious utility/robustness.
+- More idiomatic Python code.
+
+0.0.1
+- Initial port to new Gotham structure.

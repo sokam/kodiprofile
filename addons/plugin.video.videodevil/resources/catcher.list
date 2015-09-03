@@ -56,12 +56,12 @@ url=%s
 quality=low
 ########################################################
 title=eporner.com
-target=/config5/(\d+)/
+target=/config7/(\d+)/
 url=%s
 ext_target=file: "([^"]+\d-lq.mp4)"
 ext_url=http://www.eporner.com/config5/%s
 quality=low
-target=/config5/(\d+)/
+target=/config7/(\d+)/
 url=%s
 ext_target=file: "([^"]+\d.mp4)"
 ext_url=http://www.eporner.com/config5/%s
@@ -133,7 +133,7 @@ url=%s
 quality=standard
 ########################################################
 title=xhamster.com
-target=file="([^"]+mp4[^"]*)"
+target=file: '([^']+)'
 url=%s
 quality=standard
 ########################################################
@@ -210,9 +210,18 @@ quality=standard
 #quality=fallback
 ########################################################
 title=pornhub.com
-target="video_url":"([^"]+)"
+target=var player_quality_240p = '([^"]+.mp4[^']*)';
+url=%s
+quality=low
+target=var player_quality_480p = '([^"]+.mp4[^']*)';
 url=%s
 quality=standard
+target=var player_quality_720p = '([^"]+.mp4[^']*)';
+url=%s
+quality=high
+target=var player_quality_1080p = '([^"]+.mp4[^']*)';
+url=%s
+quality=high
 ########################################################
 title=m.pornhub.com
 target=quality="([^"]+400[kK][^"]+\.mp4[^"]*)"
@@ -285,15 +294,6 @@ title=slutload.com
 target=data-url="([^"]+)"
 url=%s
 action=decode
-quality=standard
-########################################################
-title=porndig.com
-target=<iframe src="([^"]+)"
-url=%s
-ext_target={"file":"([^"]+)","type":"[^"]+"}]
-ext_url=%s
-ext_action=quote
-ext_header=Referer|http://www.porndig.com
 quality=standard
 ########################################################
 title=tukif.com

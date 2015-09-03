@@ -25,10 +25,6 @@
       <setting id="realdebrid-account" type="bool" label="30220" default="false"/>
       <setting id="realdebrid-username" type="text" label="30221" default="" enable="!eq(-1,false)"/>
       <setting id="realdebrid-password" type="text" label="30222" default="" option="hidden" enable="!eq(-2,false)"/> 
-      <setting type="sep" />
-      <setting id="movreel-account" type="bool" label="30217" default="false"/>
-      <setting id="movreel-username" type="text" label="30218" default="" enable="!eq(-1,false)"/>
-      <setting id="movreel-password" type="text" label="30219" default="" option="hidden" enable="!eq(-2,false)"/>
    </category>
    <category label="Meta Data">
     <setting id="meta-path" type="action" label="30601" option="close" action="RunPlugin(plugin://plugin.video.icefilms/default.py?mode=58)"/>    

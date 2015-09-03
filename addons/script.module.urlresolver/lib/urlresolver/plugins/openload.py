@@ -26,13 +26,13 @@ import re
 class OpenLoadResolver(Plugin, UrlResolver, PluginSettings):
     implements = [UrlResolver, PluginSettings]
     name = "openload"
-    domains = ["openload.io"]
+    domains = ["openload.io", "openload.co"]
 
     def __init__(self):
         p = self.get_setting('priority') or 100
         self.priority = int(p)
         self.net = Net()
-        self.pattern = '//((?:www.)?openload\.io)/(?:embed|f)/([0-9a-zA-Z-_]+)'
+        self.pattern = '//((?:www.)?openload\.(?:io|co))/(?:embed|f)/([0-9a-zA-Z-_]+)'
 
     def get_media_url(self, host, media_id):
         web_url = self.get_url(host, media_id)
@@ -40,9 +40,18 @@ class OpenLoadResolver(Plugin, UrlResolver, PluginSettings):
         if 'We are sorry!' in html:
             raise UrlResolver.ResolverError('File Not Found or Removed.')
         
-        match = re.search('<source\s+type="video/mp4"\s+src="([^"]+)', html)
+        stream_url = ''
+        match = re.search('attr\s*\(\s*"src"\s*,\s*"([^"]+)', html)
         if match:
-            return match.group(1) + '|User-Agent=%s' % (common.IE_USER_AGENT)
+            stream_url = match.group(1)
+        else:
+            match = re.search('<source[^>]+src="([^"]+)', html)
+            if match:
+                stream_url = match.group(1)
+            
+        if stream_url:
+            stream_url = stream_url.replace('\\/', '/')
+            return stream_url + '|User-Agent=%s' % (common.IE_USER_AGENT)
         
         raise UrlResolver.ResolverError('Unable to resolve openload.io link. Filelink not found.')
 

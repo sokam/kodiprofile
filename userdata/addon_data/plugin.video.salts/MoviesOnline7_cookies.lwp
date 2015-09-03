@@ -1,2 +1,4 @@
 #LWP-Cookies-2.0
+Set-Cookie3: __cfduid=d8e06bb829402b437d1f2f2eb2de481161438514165; path="/"; domain=".movietv.to"; path_spec; domain_dot; expires="2016-08-01 11:16:05Z"; HttpOnly=None; version=0
 Set-Cookie3: fusion_visited=yes; path="/"; domain="moviesonline7.co"; path_spec; expires="2016-01-06 00:52:23Z"; version=0
+Set-Cookie3: PHPSESSID=ec64a3a9c2a606569dcb5af4ced517e3; path="/"; domain="movietv.to"; path_spec; discard; version=0

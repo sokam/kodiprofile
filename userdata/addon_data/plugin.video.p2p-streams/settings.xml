@@ -6,6 +6,7 @@
     <setting id="aceporta" value="62062" />
     <setting id="acestream_cachefolder" value="" />
     <setting id="acestream_version" value="3.0.5.1" />
+    <setting id="active" value="0" />
     <setting id="addon_history" value="true" />
     <setting id="android_port" value="8621" />
     <setting id="android_sopclient" value="" />
@@ -36,7 +37,7 @@
     <setting id="parser_disclaimer_three" value="false" />
     <setting id="parser_sync" value="true" />
     <setting id="parser_sync_cron" value="3" />
-    <setting id="parsers_last_sync_two" value="2015-07-25 18:03:43.090067" />
+    <setting id="parsers_last_sync_two" value="2015-08-17 22:42:23.414500" />
     <setting id="pausable" value="false" />
     <setting id="playerport" value="6878" />
     <setting id="python_cmd" value="python" />

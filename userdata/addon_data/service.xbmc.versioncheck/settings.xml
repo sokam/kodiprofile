@@ -1,5 +1,5 @@
 <settings>
-    <setting id="lastnotified_stable" value="14.2 stable" />
+    <setting id="lastnotified_stable" value="15.1 stable" />
     <setting id="upgrade_apt" value="false" />
     <setting id="upgrade_system" value="false" />
     <setting id="versioncheck_enable" value="true" />

@@ -1,3 +1,14 @@
+2.0.2 (2015-08-31)
+[fix] add missing fanart
+
+2.0.1 (2015-08-27)
+[add] French (thx 2 Soullivaneuh)
+[upd] moved to *.po files
+[upd] Framework
+
+2.0.0 (2015-08-01)
+UPD: framework
+
 1.2.1 (2015-05-17)
 UPD: resized fanart for better support of visualization
 UPD: kodion

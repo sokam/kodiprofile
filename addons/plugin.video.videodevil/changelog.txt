@@ -1,3 +1,17 @@
+[B]Version 1.7.116[/B]
+
+- Updated: eporner
+- Fixed: catcher
+- Deleted: porndig
+- Updated: pornhd
+- Fixed: video regex
+- Updated: pornhub
+- Fixed: catcher
+- Updated: xhamster
+- Fixed: catcher
+- Updated: pornoxo
+- Fixed: video regex
+
 [B]Version 1.7.115[/B]
 
 - Updated: pornhub
