@@ -319,6 +319,9 @@
 	<setting default="true" id="VidggResolver_enabled" label="Enabled" type="bool"/>
 </category>
 <category label="Resolvers 5">
+	<setting label="vid.me" type="lsep"/>
+	<setting default="100" id="VidMeResolver_priority" label="Priority" type="number"/>
+	<setting default="true" id="VidMeResolver_enabled" label="Enabled" type="bool"/>
 	<setting label="vidbull" type="lsep"/>
 	<setting default="100" id="VidbullResolver_priority" label="Priority" type="number"/>
 	<setting default="true" id="VidbullResolver_enabled" label="Enabled" type="bool"/>
@@ -394,11 +397,11 @@
 	<setting label="vidzur.com" type="lsep"/>
 	<setting default="100" id="VidzurResolver_priority" label="Priority" type="number"/>
 	<setting default="true" id="VidzurResolver_enabled" label="Enabled" type="bool"/>
+</category>
+<category label="Resolvers 6">
 	<setting label="vimeo" type="lsep"/>
 	<setting default="100" id="VimeoResolver_priority" label="Priority" type="number"/>
 	<setting default="true" id="VimeoResolver_enabled" label="Enabled" type="bool"/>
-</category>
-<category label="Resolvers 6">
 	<setting label="This plugin calls the vimeo addon - change settings there." type="lsep"/>
 	<setting label="vivosx" type="lsep"/>
 	<setting default="100" id="VivosxResolver_priority" label="Priority" type="number"/>

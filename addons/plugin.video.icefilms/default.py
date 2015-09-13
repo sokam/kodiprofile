@@ -117,7 +117,7 @@ ICEFILMS_URL = addon.get_setting('icefilms-url')
 if not ICEFILMS_URL.endswith("/"):
     ICEFILMS_URL = ICEFILMS_URL + "/"
 
-ICEFILMS_AJAX = ICEFILMS_URL+'membersonly/components/com_iceplayer/video.phpAjaxResp.php?s=%s&t=%s&app_id=if'
+ICEFILMS_AJAX = ICEFILMS_URL+'membersonly/components/com_iceplayer/video.phpAjaxResp.php?s=%s&t=%s&app_id=if_' + addon.get_version()
 ICEFILMS_AJAX_REFER = 'http://www.icefilms.info/membersonly/components/com_iceplayer/video.php?h=374&w=631&vid=%s&img='
 ICEFILMS_REFERRER = 'http://www.icefilms.info'
 USER_AGENT = 'Mozilla/5.0 (Windows NT 6.1; WOW64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/28.0.1500.72 Safari/537.36'
@@ -1471,7 +1471,7 @@ def LOADMIRRORS(url):
     #Show Ice Ad's
     match = re.search('<iframe[^>]*src="([^"]+)', html)
     if match:
-        show_ice_ad(urllib.quote(match.group(1)))
+        show_ice_ad(urllib.quote(match.group(1)), mirrorpageurl)
     
     #string for all text under hd720p border
     defcat = re.compile('<div class=ripdiv><b>(.+?)</b>(.+?)</div>').findall(html)
@@ -1642,10 +1642,12 @@ def SOURCE(page, sources, source_tag, ice_meta=None):
     setView(None, 'default-view')
 
     
-def show_ice_ad(ad_url):
+def show_ice_ad(ad_url, referrer):
 
     try:
 
+        headers = {'Referer': referrer}
+         
         # Import PyXBMCt module.
         import pyxbmct.addonwindow as pyxbmct
              
@@ -1656,7 +1658,7 @@ def show_ice_ad(ad_url):
         
         if not ad_url.startswith('http:'): ad_url = 'http:' + ad_url
         addon.log('Found Ice advertisement url: %s' % ad_url)
-        html = net.http_GET(ad_url).content
+        html = net.http_GET(ad_url, headers=headers).content
         for match in re.finditer("<img\s+src='([^']+)'\s+width='(\d+)'\s+height='(\d+)'", html):
             img_url, width, height = match.groups()
             addon.log('Ice advertisement image url: %s' % img_url)
@@ -1668,7 +1670,7 @@ def show_ice_ad(ad_url):
                 image = pyxbmct.Image(img_url)
                 window.placeControl(image, 0, 0, rowspan=4, columnspan=4)                   
             else:
-                temp = net.http_GET(img_url).content
+                temp = net.http_GET(img_url, headers=headers).content
                
         # Create a button.
         button = pyxbmct.Button('Close')
@@ -1687,6 +1689,9 @@ def show_ice_ad(ad_url):
         if match and random.randint(0, 100) < 5:
             addon.log('Ice advertisement - performing click on ad: %s' % match.group(1))
             html = net.http_GET(match.group(1)).content
+            match = re.search("location=decode\('([^']+)", html)
+            if match:
+                html = net.http_GET(match.group(1)).content
     finally:
         window.close()
 

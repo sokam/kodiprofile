@@ -10,6 +10,7 @@ import urlparse
 import plugintools
 
 plugintools.module_log_enabled = (plugintools.get_setting("debug")=="true")
+expertlist = (plugintools.get_setting("expertlist")=="true")
 URL = "http://www.broadcastify.com/listen/"
 IMAGES = os.path.join(plugintools.get_runtime_path(),"resources")
 
@@ -129,23 +130,36 @@ def feeds(params):
     
     # Row pattern
     patron  = '<tr[^<]+<td nowrap[^<]+<a href="[^"]+">([^<]+)</a[^<]+</td[^<]+'
-    patron += '<td class="w1p"[^<]+<a href="([^"]+)">([^<]+)</a></td[^<]+'
+    patron += '<td class="w1p"[^<]+.*?<a href="([^"]+)">([^<]+)(</a>.*?)</td[^<]+'
     patron += '<td class="c" nowrap>(.*?)</td[^<]+'
     patron += '<td class="c m">([^<]+)</\'td[^<]+'
-    patron += '<td nowrap[^<]+<a href="[^"]+" class="button-info"></a[^<]+</td[^<]+'
-    patron += '<td class="[^"]+">([^<]+)</td>'
+    patron += '<td nowrap[^<]+<a href="[^"]+" class="button-info feed-info"></a[^<]+</td[^<]+'
+    patron += '<td.+?(Of[^<]+|On[^<]+|Not[^<]+|Act[^<]+).*?</td>'
     matches = plugintools.find_multiple_matches(body,patron)
 
     at_least_one = False
-    for county_name,feed_url,title,feedtype,listeners,status in matches:
+    for county_name,feed_url,title,alert,feedtype,listeners,status in matches:
         at_least_one = True
         code = plugintools.find_single_match(feed_url,"/listen/feed/(\d+)")
+        alert = plugintools.find_single_match(alert,"</a>.*?bold\">(.*?)</font>")
         status = status.strip().lower()
         feedtype = plugintools.find_single_match(feedtype,"([a-zA-Z\ ]+)")
-        fulltitle = county_name+": "+title.strip() + " (" + feedtype.strip() + ")" + "(" + listeners.strip() + " listeners)" + "(" + status + ")"
+        fulltitle = county_name + ": "+ title.strip() + " (" + feedtype.strip() + ")" + "(" + listeners.strip() + " listeners)" + "(" + status + ")" + alert
+
+        if expertlist:
+            fulltitle = "(" + listeners.strip() + ") " + county_name+": "+title.strip() + " (" + feedtype.strip() + ")"+ alert
 
         if status=="offline":
-            fulltitle="[COLOR red]"+fulltitle+"[/COLOR]"
+            fulltitle="[COLOR red]"+ fulltitle + "(" + status + ")" + "[/COLOR]"
+
+        if status=="not active":
+            fulltitle="[COLOR brown]"+ fulltitle + "(" + status + ")" + "[/COLOR]"
+
+        if status=="active":
+            fulltitle="[COLOR green]"+ fulltitle + "(" + status + ")" + "[/COLOR]"
+
+        if alert:
+            fulltitle = "[COLOR yellow]" + fulltitle + " [/COLOR]"
 
         url="http://www.broadcastify.com/scripts/playlists/ep.php?feedId="+code
         thumbnail = os.path.join(IMAGES,"images","radio-icon.png")

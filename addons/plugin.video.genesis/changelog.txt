@@ -1,4 +1,64 @@
 ------------------------
+Genesis v5.0.5 (12-Sep-15)
+------------------------
+
+- Added Beinmovie source.
+- Added Dizilab source.
+- Added Dizimag source.
+- Added TVrelease source.
+- Removed Moviezone source.
+- Removed Clickplay source.
+- Updated available sources.
+- Updated available resolvers.
+- Code cosmetics.
+
+
+------------------------
+Genesis v5.0.4 (9-Sep-15)
+------------------------
+
+- Tweaked Icefilms source.
+- Tweaked DirectDownload source.
+- Tweaked resolvers.
+- Added German translation.
+- Updated Hebrew translation.
+- Code cosmetics.
+
+
+------------------------
+Genesis v5.0.3 (8-Sep-15)
+------------------------
+
+- Added Megabox source.
+- Updated available sources.
+- NOTE: Ororo in some areas may need an account, create an account at http://ororo.tv
+- NOTE: Don't forget to add your account in the addon's settings.
+- Tweaked default timeout of sources to 15 seconds.
+- Updated available resolvers.
+- Code cosmetics.
+
+
+------------------------
+Genesis v5.0.2 (5-Sep-15)
+------------------------
+
+- Tweaked favourites.
+- Tweaked tv show search.
+- Tweaked movie and tv show listings.
+- Fixed issue with missing tv shows.
+- Fixed issue with season and episode listings.
+- Added Dutch and Hebrew translations.
+- Fixed Alluc source.
+- NOTE: Alluc requires an account, create an account at http://accounts.alluc.com
+- NOTE: Don't forget to add your account in the addon's settings.
+- Fixed Icefilms source.
+- NOTE: Icefilms source shows ice ads before playback starts.
+- NOTE: Don't forget that you can disable the source.
+- Updated available sources.
+- Code cosmetics.
+
+
+------------------------
 Genesis v5.0.1 (2-Sep-15)
 ------------------------
 

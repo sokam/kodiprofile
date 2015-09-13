@@ -202,7 +202,7 @@
         <usehttpproxy default="true">false</usehttpproxy>
     </network>
     <pictures>
-        <displayresolution default="true">14</displayresolution>
+        <displayresolution>16</displayresolution>
         <generatethumbs default="true">true</generatethumbs>
         <showvideos default="true">true</showvideos>
         <useexifrotation default="true">true</useexifrotation>
@@ -295,7 +295,7 @@
     </services>
     <slideshow>
         <displayeffects default="true">true</displayeffects>
-        <shuffle default="true">false</shuffle>
+        <shuffle>true</shuffle>
         <staytime default="true">5</staytime>
     </slideshow>
     <smb>
@@ -380,7 +380,7 @@
         <vsync default="true">3</vsync>
     </videoscreen>
     <weather>
-        <addon default="true"></addon>
+        <addon>weather.openweathermap.extended</addon>
         <currentlocation default="true">1</currentlocation>
     </weather>
     <window>
@@ -411,6 +411,10 @@
         <setting type="bool" name="skin.confluence.View508HideInfo">false</setting>
         <setting type="bool" name="skin.confluence.ActivateTvTunes">false</setting>
         <setting type="bool" name="skin.confluence.HideVisualizationFanart">true</setting>
+        <setting type="bool" name="skin.confluence.ShowWeatherFanart">false</setting>
+        <setting type="bool" name="skin.confluence.WeatherScript_Enable">false</setting>
+        <setting type="bool" name="skin.confluence.Show_SlideShow_Paused">false</setting>
+        <setting type="bool" name="skin.confluence.PandoraVis">false</setting>
         <setting type="string" name="skin.confluence.CustomBackgroundPath">special://home/media/SKINDEFAULT.jpg</setting>
         <setting type="string" name="skin.confluence.HomeVideosButton1">plugin.video.1channel</setting>
         <setting type="string" name="skin.confluence.HomeVideosButton2">plugin.video.genesis</setting>
@@ -434,6 +438,8 @@
         <setting type="string" name="skin.confluence.HomeProgramButton5"></setting>
         <setting type="string" name="skin.confluence.Home_Custom_Back_TV_Folder"></setting>
         <setting type="string" name="skin.confluence.LyricScript_Path"></setting>
+        <setting type="string" name="skin.confluence.WeatherFanartDir"></setting>
+        <setting type="string" name="skin.confluence.WeatherScript_Label"></setting>
     </skinsettings>
     <resolutions />
     <defaultvideosettings>
@@ -558,6 +564,6 @@
     </viewstates>
     <audio>
         <mute>false</mute>
-        <fvolumelevel>0.844444</fvolumelevel>
+        <fvolumelevel>1.000000</fvolumelevel>
     </audio>
 </settings>

@@ -1,6 +1,6 @@
 # -*- coding: utf-8 -*-
 #---------------------------------------------------------------------------
-# Plugin Tools v1.0.7
+# Plugin Tools v1.0.8
 #---------------------------------------------------------------------------
 # License: GPL (http://www.gnu.org/licenses/gpl-3.0.html)
 # Based on code from youtube, parsedom and pelisalacarta addons
@@ -33,6 +33,8 @@
 # - Added fanart, show, episode and infolabels to add_item
 # 1.0.7
 # - Added set_view function
+# 1.0.8
+# - Added selector
 #---------------------------------------------------------------------------
 
 import xbmc
@@ -57,23 +59,53 @@ LIST = "list"
 THUMBNAIL = "thumbnail"
 MOVIES = "movies"
 TV_SHOWS = "tvshows"
+SEASONS = "seasons"
 EPISODES = "episodes"
 OTHER = "other"
 
 # Suggested view codes for each type from different skins (initial list thanks to xbmcswift2 library)
 ALL_VIEW_CODES = {
+    'list': {
+        'skin.confluence': 50, # List
+        'skin.aeon.nox': 50, # List
+        'skin.droid': 50, # List
+        'skin.quartz': 50, # List
+        'skin.re-touched': 50, # List
+    },
     'thumbnail': {
-        'skin.confluence': 500,
-        'skin.aeon.nox': 551,
-        'skin.confluence-vertical': 500,
-        'skin.jx720': 52,
-        'skin.pm3-hd': 53,
-        'skin.rapier': 50,
-        'skin.simplicity': 500,
-        'skin.slik': 53,
-        'skin.touched': 500,
-        'skin.transparency': 53,
-        'skin.xeebo': 55,
+        'skin.confluence': 500, # Thumbnail
+        'skin.aeon.nox': 500, # Wall
+        'skin.droid': 51, # Big icons
+        'skin.quartz': 51, # Big icons
+        'skin.re-touched': 500, #Thumbnail
+    },
+    'movies': {
+        'skin.confluence': 500, # Thumbnail 515, # Media Info 3
+        'skin.aeon.nox': 500, # Wall
+        'skin.droid': 51, # Big icons
+        'skin.quartz': 52, # Media info
+        'skin.re-touched': 500, #Thumbnail
+    },
+    'tvshows': {
+        'skin.confluence': 500, # Thumbnail 515, # Media Info 3
+        'skin.aeon.nox': 500, # Wall
+        'skin.droid': 51, # Big icons
+        'skin.quartz': 52, # Media info
+        'skin.re-touched': 500, #Thumbnail
+    },
+    'seasons': {
+        'skin.confluence': 50, # List
+        'skin.aeon.nox': 50, # List
+        'skin.droid': 50, # List
+        'skin.quartz': 52, # Media info
+        'skin.re-touched': 50, # List
+    },
+    'episodes': {
+        'skin.confluence': 504, # Media Info
+        'skin.aeon.nox': 518, # Infopanel
+        'skin.droid': 50, # List
+        'skin.quartz': 52, # Media info
+        'skin.re-touched': 550, # Wide
     },
 }
 
@@ -484,25 +516,41 @@ def message(text1, text2="", text3=""):
     else:
         xbmcgui.Dialog().ok( text1 , text2 , text3 )
 
-def message_options(text1, text2="", text3=""):
-    _log("message_options text1='"+text1+"', text2='"+text2+"', text3='"+text3+"'")
+def message_yes_no(text1, text2="", text3=""):
+    _log("message_yes_no text1='"+text1+"', text2='"+text2+"', text3='"+text3+"'")
 
     if text3=="":
-        xbmcgui.Dialog().ok( text1 , text2 )
+        yes_pressed = xbmcgui.Dialog().yesno( text1 , text2 )
     elif text2=="":
-        xbmcgui.Dialog().ok( "" , text1 )
+        yes_pressed = xbmcgui.Dialog().yesno( "" , text1 )
     else:
-        xbmcgui.Dialog().ok( text1 , text2 , text3 )
+        yes_pressed = xbmcgui.Dialog().yesno( text1 , text2 , text3 )
+
+    return yes_pressed
+
+def selector(option_list,title="Select one"):
+    _log("selector title='"+title+"', options="+repr(option_list))
+
+    dia = xbmcgui.Dialog()
+    selection = dia.select(title,option_list)
+
+    return selection
 
 def set_view(view_mode, view_code=0):
-    _log("set_view view_mode='"+view_mode+"', view_code='"+str(view_code))
+    _log("set_view view_mode='"+view_mode+"', view_code="+str(view_code))
 
     # Set the content for extended library views if needed
     if view_mode==MOVIES:
-        xbmcplugin.setContent( int(sys.argv[1]) ,"Movies" )
+        _log("set_view content is movies")
+        xbmcplugin.setContent( int(sys.argv[1]) ,"movies" )
     elif view_mode==TV_SHOWS:
+        _log("set_view content is tvshows")
         xbmcplugin.setContent( int(sys.argv[1]) ,"tvshows" )
+    elif view_mode==SEASONS:
+        _log("set_view content is seasons")
+        xbmcplugin.setContent( int(sys.argv[1]) ,"seasons" )
     elif view_mode==EPISODES:
+        _log("set_view content is episodes")
         xbmcplugin.setContent( int(sys.argv[1]) ,"episodes" )
 
     # Reads skin name
@@ -510,9 +558,14 @@ def set_view(view_mode, view_code=0):
     _log("set_view skin_name='"+skin_name+"'")
 
     try:
-        if view_mode==THUMBNAIL:
-            view_codes = ALL_VIEW_CODES.get("thumbnail")
+        if view_code==0:
+            _log("set_view view mode is "+view_mode)
+            view_codes = ALL_VIEW_CODES.get(view_mode)
             view_code = view_codes.get(skin_name)
+            _log("set_view view code for "+view_mode+" in "+skin_name+" is "+str(view_code))
+            xbmc.executebuiltin("Container.SetViewMode("+str(view_code)+")")
+        else:
+            _log("set_view view code forced to "+str(view_code))
             xbmc.executebuiltin("Container.SetViewMode("+str(view_code)+")")
     except:
         _log("Unable to find view code for view mode "+str(view_mode)+" and skin "+skin_name)
