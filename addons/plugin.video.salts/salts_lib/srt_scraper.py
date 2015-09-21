@@ -24,13 +24,12 @@ import socket
 import xbmc
 import xbmcvfs
 import log_utils
+import kodi
 from constants import VIDEO_TYPES
 from constants import SRT_SOURCE
-from addon.common.addon import Addon
 from db_utils import DB_Connection
 
-_SALTS = Addon('plugin.video.salts')
-ADDON_PATH = _SALTS.get_path()
+ADDON_PATH = kodi.get_path()
 ICON_PATH = os.path.join(ADDON_PATH, 'icon.png')
 MAX_RETRIES = 2
 TEMP_ERRORS = [500, 502, 503, 504]
@@ -38,7 +37,7 @@ USER_AGENT = ("User-Agent:Mozilla/5.0 (Windows NT 6.2; WOW64)"
               "AppleWebKit/537.17 (KHTML, like Gecko)"
               "Chrome/24.0.1312.56")
 BASE_URL = 'http://www.addic7ed.com'
-BASE_PATH = _SALTS.get_setting('subtitle-folder')
+BASE_PATH = kodi.get_setting('subtitle-folder')
 db_connection = DB_Connection()
 
 class SRT_Scraper():
@@ -50,7 +49,7 @@ class SRT_Scraper():
         rows = db_connection.get_related_url(VIDEO_TYPES.TVSHOW, title, year, SRT_SOURCE)
         if rows:
             tvshow_id = rows[0][0]
-            log_utils.log('Returning local tvshow id: |%s|%s|%s|' % (title, year, tvshow_id), xbmc.LOGDEBUG)
+            log_utils.log('Returning local tvshow id: |%s|%s|%s|' % (title, year, tvshow_id), log_utils.LOGDEBUG)
             return tvshow_id
 
         html = self.__get_cached_url(BASE_URL, 24)
@@ -91,10 +90,10 @@ class SRT_Scraper():
         url = BASE_URL + '/ajax_loadShow.php?show=%s&season=%s&langs=&hd=%s&hi=%s' % (tvshow_id, season, 0, 0)
         html = self.__get_cached_url(url, .25)
         # print html.decode('ascii', 'ignore')
-        req_hi = _SALTS.get_setting('subtitle-hi') == 'true'
-        req_hd = _SALTS.get_setting('subtitle-hd') == 'true'
+        req_hi = kodi.get_setting('subtitle-hi') == 'true'
+        req_hd = kodi.get_setting('subtitle-hd') == 'true'
         items = []
-        regex = re.compile('<td>(\d+)</td><td>(\d+)</td><td>.*?</td><td>(.*?)</td><td.*?>(.+?)</td>.*?<td.*?>(.+?)</td><td.*?>(.*?)</td><td.*?>(.*?)</td><td.*?>(.*?)</td><td.*?><a\s+href="(.*?)">.+?</td>',
+        regex = re.compile('<td>(\d+)</td><td>(\d+)</td><td>.*?</td><td>(.*?)</td><td.*?>(.*?)</td>.*?<td.*?>(.+?)</td><td.*?>(.*?)</td><td.*?>(.*?)</td><td.*?>(.*?)</td><td.*?><a\s+href="(.*?)">.+?</td>',
                          re.DOTALL)
         for match in regex.finditer(html):
             season, episode, srt_lang, version, completed, hi, corrected, hd, srt_url = match.groups()
@@ -135,7 +134,7 @@ class SRT_Scraper():
     def download_subtitle(self, url):
         url = BASE_URL + url
         (response, srt) = self.__get_url(url)
-        if 'Content-Disposition' not in response.info():
+        if not hasattr(response, 'info') or 'Content-Disposition' not in response.info():
             return
 
         cd = response.info()['Content-Disposition']
@@ -152,7 +151,7 @@ class SRT_Scraper():
                 try: xbmcvfs.mkdirs(os.path.dirname(final_path))
                 except: os.mkdir(os.path.dirname(final_path))
             except:
-                log_utils.log('Failed to create directory %s' % os.path.dirname(final_path), xbmc.LOGERROR)
+                log_utils.log('Failed to create directory %s' % os.path.dirname(final_path), log_utils.LOGERROR)
                 raise
 
         with open(final_path, 'w') as f:
@@ -171,23 +170,22 @@ class SRT_Scraper():
             parser = HTMLParser.HTMLParser()
             body = parser.unescape(body)
         except Exception as e:
-            builtin = 'XBMC.Notification(PrimeWire, Failed to connect to URL: %s, 5000, %s)'
-            xbmc.executebuiltin(builtin % (url, ICON_PATH))
-            log_utils.log('Failed to connect to URL %s: (%s)' % (url, e), xbmc.LOGERROR)
+            kodi.notify(msg='Failed to connect to URL: %s' % (url), duration=5000)
+            log_utils.log('Failed to connect to URL %s: (%s)' % (url, e), log_utils.LOGERROR)
             return ('', '')
 
         return (response, body)
 
     def __get_cached_url(self, url, cache=8):
-        log_utils.log('Fetching Cached URL: %s' % url, xbmc.LOGDEBUG)
+        log_utils.log('Fetching Cached URL: %s' % url, log_utils.LOGDEBUG)
         before = time.time()
 
         _, html = db_connection.get_cached_url(url, cache)
         if html:
-            log_utils.log('Returning cached result for: %s' % (url), xbmc.LOGDEBUG)
+            log_utils.log('Returning cached result for: %s' % (url), log_utils.LOGDEBUG)
             return html
 
-        log_utils.log('No cached url found for: %s' % url, xbmc.LOGDEBUG)
+        log_utils.log('No cached url found for: %s' % url, log_utils.LOGDEBUG)
         req = urllib2.Request(url)
 
         host = BASE_URL.replace('http://', '')
@@ -200,18 +198,17 @@ class SRT_Scraper():
             parser = HTMLParser.HTMLParser()
             body = parser.unescape(body)
         except Exception as e:
-            builtin = 'XBMC.Notification(PrimeWire, Failed to connect to URL: %s, 5000, %s)'
-            xbmc.executebuiltin(builtin % (url, ICON_PATH))
-            log_utils.log('Failed to connect to URL %s: (%s)' % (url, e), xbmc.LOGERROR)
+            kodi.notify(msg='Failed to connect to URL: %s' % (url), duration=5000)
+            log_utils.log('Failed to connect to URL %s: (%s)' % (url, e), log_utils.LOGERROR)
             return ''
 
         db_connection.cache_url(url, body)
         after = time.time()
-        log_utils.log('Cached Url Fetch took: %.2f secs' % (after - before), xbmc.LOGDEBUG)
+        log_utils.log('Cached Url Fetch took: %.2f secs' % (after - before), log_utils.LOGDEBUG)
         return body
 
     def __http_get_with_retry(self, url, request):
-        log_utils.log('Fetching URL: %s' % request.get_full_url(), xbmc.LOGDEBUG)
+        log_utils.log('Fetching URL: %s' % request.get_full_url(), log_utils.LOGDEBUG)
         retries = 0
         html = None
         while retries <= MAX_RETRIES:
@@ -222,13 +219,13 @@ class SRT_Scraper():
                 break
             except socket.timeout:
                 retries += 1
-                log_utils.log('Retry #%s for URL %s because of timeout' % (retries, url), xbmc.LOGWARNING)
+                log_utils.log('Retry #%s for URL %s because of timeout' % (retries, url), log_utils.LOGWARNING)
                 continue
             except urllib2.HTTPError as e:
                 # if it's a temporary code, retry
                 if e.code in TEMP_ERRORS:
                     retries += 1
-                    log_utils.log('Retry #%s for URL %s because of HTTP Error %s' % (retries, url, e.code), xbmc.LOGWARNING)
+                    log_utils.log('Retry #%s for URL %s because of HTTP Error %s' % (retries, url, e.code), log_utils.LOGWARNING)
                     continue
                 # if it's not pass it back up the stack
                 else:

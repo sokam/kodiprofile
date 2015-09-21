@@ -23,7 +23,6 @@ import json
 import xbmc
 from salts_lib import log_utils
 from salts_lib.constants import VIDEO_TYPES
-from salts_lib.db_utils import DB_Connection
 from salts_lib.constants import QUALITIES
 from salts_lib.constants import Q_ORDER
 
@@ -38,14 +37,14 @@ QUALITY_MAP = {
                QUALITIES.LOW: ['DVDSCR', 'CAMRIP', 'HDCAM'],
                QUALITIES.MEDIUM: [],
                QUALITIES.HIGH: ['BDRIP', 'BRRIP', 'HDRIP'],
-               QUALITIES.HD: ['720P', '1080P']}
+               QUALITIES.HD720: ['720P'],
+               QUALITIES.HD1080: ['1080P']}
 
 class Alluc_Scraper(scraper.Scraper):
     base_url = BASE_URL
 
     def __init__(self, timeout=scraper.DEFAULT_TIMEOUT):
         self.timeout = timeout
-        self.db_connection = DB_Connection()
         self.base_url = xbmcaddon.Addon().getSetting('%s-base_url' % (self.get_name()))
 
     @classmethod
@@ -86,20 +85,24 @@ class Alluc_Scraper(scraper.Scraper):
             search_url = self.__translate_search(url, search_type)
             html = self._http_get(search_url, cache_limit=.5)
             if html:
-                js_result = json.loads(html)
-                if js_result['status'] == 'success':
-                    for result in js_result['result']:
-                        if len(result['hosterurls']) > 1: continue
-                        if result['extension'] == 'rar': continue
-                        
-                        stream_url = result['hosterurls'][0]['url']
-                        if stream_url not in seen_urls:
-                            if self.__title_check(video, result['title']):
-                                host = urlparse.urlsplit(stream_url).hostname.lower()
-                                quality = self._get_quality(video, host, self._get_title_quality(result['title']))
-                                hoster = {'multi-part': False, 'class': self, 'views': None, 'url': stream_url, 'rating': None, 'host': host, 'quality': quality, 'direct': False}
-                                hosters.append(hoster)
-                                seen_urls.add(stream_url)
+                try:
+                    js_result = json.loads(html)
+                except ValueError:
+                    log_utils.log('Invalid JSON returned: %s: %s' % (search_url, html), xbmc.LOGWARNING)
+                else:
+                    if js_result['status'] == 'success':
+                        for result in js_result['result']:
+                            if len(result['hosterurls']) > 1: continue
+                            if result['extension'] == 'rar': continue
+                            
+                            stream_url = result['hosterurls'][0]['url']
+                            if stream_url not in seen_urls:
+                                if self.__title_check(video, result['title']):
+                                    host = urlparse.urlsplit(stream_url).hostname.lower()
+                                    quality = self._get_quality(video, host, self._get_title_quality(result['title']))
+                                    hoster = {'multi-part': False, 'class': self, 'views': None, 'url': stream_url, 'rating': None, 'host': host, 'quality': quality, 'direct': False}
+                                    hosters.append(hoster)
+                                    seen_urls.add(stream_url)
         return hosters
         
     def __title_check(self, video, title):
@@ -133,6 +136,7 @@ class Alluc_Scraper(scraper.Scraper):
     
     def get_url(self, video):
         url = None
+        self.create_db_connection()
         result = self.db_connection.get_related_url(video.video_type, video.title, video.year, self.get_name(), video.season, video.episode)
         if result:
             url = result[0][0]

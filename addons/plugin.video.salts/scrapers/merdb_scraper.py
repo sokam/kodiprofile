@@ -20,19 +20,18 @@ import re
 import urllib
 import urlparse
 import xbmcaddon
-from salts_lib.db_utils import DB_Connection
+from salts_lib import dom_parser
 from salts_lib.constants import VIDEO_TYPES
 from salts_lib.constants import QUALITIES
 
 QUALITY_MAP = {'DVD': QUALITIES.HIGH, 'TS': QUALITIES.MEDIUM, 'CAM': QUALITIES.LOW}
-BASE_URL = 'http://merdb.cn'
+BASE_URL = 'http://www.merdb.mx'
 
 class MerDB_Scraper(scraper.Scraper):
     base_url = BASE_URL
 
     def __init__(self, timeout=scraper.DEFAULT_TIMEOUT):
         self.timeout = timeout
-        self.db_connection = DB_Connection()
         self.base_url = xbmcaddon.Addon().getSetting('%s-base_url' % (self.get_name()))
 
     @classmethod
@@ -110,20 +109,26 @@ class MerDB_Scraper(scraper.Scraper):
         search_url += '&advanced_search=Search'
 
         html = self._http_get(search_url, cache_limit=.25)
-        pattern = r'class="list_box_title.+?href="(.+?)" title="Watch (.+?)"?\(?([0-9]{4})?\)?"?>'
         results = []
-        for match in re.finditer(pattern, html):
-            result = {}
-            url, title, year = match.groups('')
-            result['url'] = urlparse.urljoin('/', url)
-            result['title'] = title
-            result['year'] = year
-            results.append(result)
+        for element in dom_parser.parse_dom(html, 'div', {'class': 'list_box_title'}):
+            match = re.search('href="([^"]+)"\s+title="Watch ([^"]+)', element)
+            if match:
+                url, match_title_year = match.groups()
+                match = re.search('(.*?)(?:\s+\(?(\d{4})\)?)', match_title_year)
+                if match:
+                    match_title, match_year = match.groups()
+                else:
+                    match_title = match_title_year
+                    match_year = ''
+                
+                if not year or not match_year or year == match_year:
+                    result = {'url': urlparse.urljoin('/', url), 'title': match_title, 'year': match_year}
+                    results.append(result)
         return results
 
     def _get_episode_url(self, show_url, video):
-        episode_pattern = '"tv_episode_item".+?href="([^"]+/season-%s-episode-%s)">' % (video.season, video.episode)
-        title_pattern = 'class="tv_episode_item".*?href="([^"]+).*?class="tv_episode_name">\s+-\s+([^<]+)'
+        episode_pattern = '"tv_episode_item">\s*<a\s+href="([^"]+/season-%s-episode-%s)"' % (video.season, video.episode)
+        title_pattern = 'class="tv_episode_item">\s*<a\s+href="([^"]+).*?class="tv_episode_name">\s+-\s+([^<]+)'
         airdate_pattern = 'href="([^"]+)(?:[^<]+<){3}span class="tv_episode_airdate">\s*-\s*{year}-{p_month}-{p_day}'
         return super(MerDB_Scraper, self)._default_get_episode_url(show_url, video, episode_pattern, title_pattern, airdate_pattern)
 

@@ -23,11 +23,12 @@ import json
 import xbmcaddon
 import xbmc
 from salts_lib import log_utils
+from salts_lib.trans_utils import i18n
 from salts_lib.constants import VIDEO_TYPES
-from salts_lib.db_utils import DB_Connection
 from salts_lib.constants import QUALITIES
 
 BASE_URL = 'http://niter.co'
+PHP_URL = BASE_URL + '/player/pk/pk/plugins/player_p2.php'
 MAX_TRIES = 3
 
 class Niter_Scraper(scraper.Scraper):
@@ -35,7 +36,6 @@ class Niter_Scraper(scraper.Scraper):
 
     def __init__(self, timeout=scraper.DEFAULT_TIMEOUT):
         self.timeout = timeout
-        self.db_connection = DB_Connection()
         self.base_url = xbmcaddon.Addon().getSetting('%s-base_url' % (self.get_name()))
         self.username = xbmcaddon.Addon().getSetting('%s-username' % (self.get_name()))
         self.password = xbmcaddon.Addon().getSetting('%s-password' % (self.get_name()))
@@ -49,47 +49,7 @@ class Niter_Scraper(scraper.Scraper):
         return 'niter.tv'
 
     def resolve_link(self, link):
-        url = '/player/pk/pk/plugins/player_p2.php'
-        url = urlparse.urljoin(self.base_url, url)
-        data = {'url': link}
-        html = ''
-        stream_url = None
-        tries = 1
-        while tries <= MAX_TRIES:
-            html = self._http_get(url, data=data, auth=False, cache_limit=0)
-            log_utils.log('Initial Data (%s): |%s|' % (tries, html), xbmc.LOGDEBUG)
-            if html.strip():
-                break
-            tries += 1
-        else:
-            return None
-
-        try:
-            js_data = json.loads(html)
-            if 'captcha' in js_data[0]:
-                tries = 1
-                while tries <= MAX_TRIES:
-                    data['type'] = js_data[0]['captcha']
-                    captcha_result = self._do_recaptcha(js_data[0]['k'], tries, MAX_TRIES)
-                    data['chall'] = captcha_result['recaptcha_challenge_field']
-                    data['res'] = captcha_result['recaptcha_response_field']
-                    html = self._http_get(url, data=data, auth=False, cache_limit=0)
-                    log_utils.log('2nd Data (%s): %s' % (tries, html), xbmc.LOGDEBUG)
-                    if html:
-                        js_data = json.loads(html)
-                        if 'captcha' not in js_data[0]:
-                            break
-                    tries += 1
-                else:
-                    return None
-
-            for elem in js_data:
-                if elem['type'].startswith('video'):
-                    stream_url = elem['url']
-        except ValueError:
-            return None
-
-        return stream_url
+        return link
 
     def format_source_label(self, item):
         return '[%s] %s' % (item['quality'], item['host'])
@@ -101,10 +61,43 @@ class Niter_Scraper(scraper.Scraper):
             url = urlparse.urljoin(self.base_url, source_url)
             html = self._http_get(url, cache_limit=.5)
 
-            for match in re.finditer('pic=([^&<]+)', html):
-                video_id = match.group(1)
-                hoster = {'multi-part': False, 'host': 'niter.tv', 'class': self, 'quality': QUALITIES.HD, 'views': None, 'rating': None, 'url': video_id, 'direct': True}
-                hosters.append(hoster)
+            match = re.search('((?:pic|emb|vb)=[^<]+)', html)
+            if match:
+                embeds = match.group(1)
+                for stream_url in embeds.split('&'):
+                    if stream_url.startswith('vb='):
+                        stream_url = 'http://www.vidbux.com/%s' % (stream_url[3:])
+                        host = 'vidbux.com'
+                        direct = False
+                        quality = self._get_quality(video, host, QUALITIES.HD1080)
+                    elif stream_url.startswith('pic='):
+                        data = {'url': stream_url[4:]}
+                        html = self._http_get(PHP_URL, data=data, auth=False, cache_limit=0)
+                        try:
+                            js_data = json.loads(html)
+                        except ValueError:
+                            log_utils.log('Invalid JSON returned: %s (%s): %s' % (PHP_URL, stream_url, html), xbmc.LOGWARNING)
+                            continue
+                        else:
+                            host = self._get_direct_hostname(stream_url)
+                            direct = True
+                            for item in js_data:
+                                if 'medium' in item and item['medium'] == 'video':
+                                    stream_url = item['url']
+                                    quality = self._width_get_quality(item['width'])
+                                    break
+                            else:
+                                continue
+                    elif stream_url.startswith('emb='):
+                        stream_url = stream_url.replace('emb=', '')
+                        host = urlparse.urlparse(stream_url).hostname
+                        direct = False
+                        quality = self._get_quality(video, host, QUALITIES.HD720)
+                    else:
+                        continue
+
+                    hoster = {'multi-part': False, 'host': host, 'class': self, 'quality': quality, 'views': None, 'rating': None, 'url': stream_url, 'direct': direct}
+                    hosters.append(hoster)
         return hosters
 
     def get_url(self, video):
@@ -126,8 +119,8 @@ class Niter_Scraper(scraper.Scraper):
     def get_settings(cls):
         settings = super(Niter_Scraper, cls).get_settings()
         name = cls.get_name()
-        settings.append('         <setting id="%s-username" type="text" label="     Username" default="" visible="eq(-6,true)"/>' % (name))
-        settings.append('         <setting id="%s-password" type="text" label="     Password" option="hidden" default="" visible="eq(-7,true)"/>' % (name))
+        settings.append('         <setting id="%s-username" type="text" label="     %s" default="" visible="eq(-6,true)"/>' % (name, i18n('username')))
+        settings.append('         <setting id="%s-password" type="text" label="     %s" option="hidden" default="" visible="eq(-7,true)"/>' % (name, i18n('password')))
         return settings
 
     def _http_get(self, url, data=None, auth=True, cache_limit=8):
@@ -146,6 +139,6 @@ class Niter_Scraper(scraper.Scraper):
     def __login(self):
         url = urlparse.urljoin(self.base_url, '/sessions')
         data = {'username': self.username, 'password': self.password, 'remember': 1}
-        html = super(Niter_Scraper, self)._cached_http_get(url, self.base_url, self.timeout, data=data, cache_limit=0)
-        if not re.search('href="[^"]+/logout"', html):
+        html = super(Niter_Scraper, self)._cached_http_get(url, self.base_url, self.timeout, data=data, allow_redirect=False, cache_limit=0)
+        if html != self.base_url:
             raise Exception('niter.tv login failed')

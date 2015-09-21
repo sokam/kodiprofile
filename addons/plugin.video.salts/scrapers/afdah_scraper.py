@@ -22,16 +22,14 @@ import re
 import xbmcaddon
 import string
 from salts_lib.constants import VIDEO_TYPES
-from salts_lib.db_utils import DB_Connection
 from salts_lib.constants import QUALITIES
-BASE_URL = 'http://afdah.com'
+BASE_URL = 'http://afdah.tv'
 
 class Afdah_Scraper(scraper.Scraper):
     base_url = BASE_URL
 
     def __init__(self, timeout=scraper.DEFAULT_TIMEOUT):
         self.timeout = timeout
-        self.db_connection = DB_Connection()
         self.base_url = xbmcaddon.Addon().getSetting('%s-base_url' % (self.get_name()))
 
     @classmethod
@@ -46,10 +44,7 @@ class Afdah_Scraper(scraper.Scraper):
         return link
 
     def format_source_label(self, item):
-        if 'resolution' in item:
-            return '[%s] (%s) %s' % (item['quality'], item['resolution'], item['host'])
-        else:
-            return '[%s] %s' % (item['quality'], item['host'])
+        return '[%s] %s' % (item['quality'], item['host'])
 
     def get_sources(self, video):
         source_url = self.get_url(video)
@@ -74,7 +69,6 @@ class Afdah_Scraper(scraper.Scraper):
                         plaintext = self._caesar(r.group(1).decode('base-64'), 13).decode('base-64')
                 else:
                     plaintext = embed_html
-                print plaintext
                 hosters += self._get_links(plaintext)
             
             pattern = 'href="([^"]+)".*play_video.gif'
@@ -89,10 +83,8 @@ class Afdah_Scraper(scraper.Scraper):
         hosters = []
         for match in re.finditer('file\s*:\s*"([^"]+).*?label\s*:\s*"([^"]+)', html):
             url, resolution = match.groups()
-            hoster = {'multi-part': False, 'url': url, 'host': 'afdah.com', 'class': self, 'quality': self._height_get_quality(resolution[:-1]), 'rating': None, 'views': None, 'direct': True}
-            hoster['resolution'] = resolution
+            hoster = {'multi-part': False, 'url': url, 'host': self._get_direct_hostname(url), 'class': self, 'quality': self._height_get_quality(resolution[:-1]), 'rating': None, 'views': None, 'direct': True}
             hosters.append(hoster)
-        hosters.sort(key=lambda x: int(x['resolution'][:-1]), reverse=True)
         return hosters
 
     def _caesar(self, plaintext, shift):

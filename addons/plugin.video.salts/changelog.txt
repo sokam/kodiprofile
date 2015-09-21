@@ -1,3 +1,228 @@
+[B]Version 1.0.47[/B]
+- More icefilms ad testing
+- Add dizimag scraper
+- Add ayyex scraper
+
+[B]Version 1.0.45[/B]
+- Add beinmovie scraper
+- Fix srt scraper
+- Update dizilab scraper
+- Handle dd.tv api errors more gracefully
+- Fix gvcenter and megabox scrapers
+
+[B]Version 1.0.43[/B]
+- Fix gvcenter scraper
+- Update wso scraper
+- update viooz scraper
+ - Add de-dup "add to library" option
+ - Move source sort order back to settings.xml
+ - Fix megabox scraper
+ 
+[B]Version 1.0.41[/B]
+- Add megabox scraper
+- Fix gvcenter scraper
+- Fix hdmz scraper
+- Fix ororo.tv scraper
+- Fix niter.tv scraper
+- Icefilms Ad fixes
+
+[B]Version 1.0.39[/B]
+- Fix gvideo parsing
+- Show icefilms ads when playing icefilms sources
+- Fix ads for proxy users
+- Simplify local scraper
+- Fix redirect handler
+
+[B]Version 1.0.37[/B]
+- Improve icefilms scraper
+- Improve view47 and niter scrapers
+- Removed None and Process Parallel modes
+- Add setting to show authorized trakt user
+- Add option to test direct streams before including them in results
+- Fix streamallthis scraper
+- Improve GVCenter scraper
+
+[B]Version 1.0.36[/B]
+- Add Movie & TV Shows Mosts
+- Add watch8now scraper
+- Fix ororo.tv scraper
+- Fix icefilms scraper
+- Fix ocw scraper
+- Fix gvcenter scraper
+- Fix solarmovie scraper
+- Fix playbox scraper
+- Fix yify-streaming scraper
+- Improve gvcenter scraper
+- Fix mvl scraper
+- Improve iwatchonline scraper
+- Improve moviestorm scraper
+- Improve niter scraper
+- Fix view47 scraper
+- Improve viooz scraper
+- Fix clickplay scraper
+- Fix pftv scraper
+-  Fix couchtunerV2 scraper
+
+[B]Version 1.0.30[/B]
+- Fix pctf scraper
+- Fix movieshd scraper
+- Improve merdb scraper
+- Code improvements
+
+[B]Version 1.0.29[/B]
+- Fix trakt reauthorization
+- Improve trakt call reading
+
+[B]Version 1.0.28[/B]
+- Merge GK decrypt and pyaes
+- fix timeout=0 bug for trakt.tv
+
+[B]Version 1.0.27[/B]
+- Handle TraktNotFound better
+- Add gvideo sources to tunemovie
+- Add Browse other lists back
+- Add ability to add lists and other lists to section menu
+- Add Browse Liked Lists function
+- Fix yify-streaming scraper
+
+[B]Version 1.0.23[/B]
+- Fix merdb scraper
+- Migrate from slugs to traktid's
+- Add popcorntime scraper
+- Add simply elegant theme
+- Improve playbox scraper
+- Fix gvcenter scraper
+- Hack watched indicators for collections (trakt API bug workaround)
+- Add couchtuner V1 and V2 scrapers
+- Add tunemovie scraper
+
+[B]Version 1.0.22[/B]
+- Subscription fix
+- Scraper Fixes
+- Add notification on add to library
+
+[B]Version 1.0.21[/B]
+- Fix input stream error on Isengard
+- Improve scrapers
+- Remove dependency on common.addon
+
+[B]Version 1.0.20[/B]
+- Show google videos as gvideo host
+- Improve several scrapers
+- Tweak parallel code
+- Tweak cloudflare code
+
+[B]Version 1.0.19[/B]
+- Better handle direct sources
+- Fix stream-tv scraper
+- Fix merdb scraper
+- Improve directdownload scraper
+- Fix i-streamhd scraper
+- Remove onlinemovies scraper
+- Fix zumvo scraper
+- Fix ororo.tv movies
+- Fix yify-streaming scraper
+- View view47 scraper
+- Fix movies25 scraper
+- Fix film-streaming.in scraper
+- Fix mvsnap scraper 
+
+[B]Version 1.0.18[/B]
+- Fix yify-streaming
+- Fix watchseries
+- Improve noobroom scraper
+- Improve playbox scraper
+- Make cookie handling manual (Experimental)
+
+[B]Version 1.0.17[/B]
+- Fix xmovies scraper
+- Fix movie25 scraper
+
+[B]Version 1.0.16[/B]
+- Add mvsnap scraper
+- Several scraper fixes
+
+[B]Version 1.0.15[/B]
+- Fix xmovies
+- Fix copy list script error
+- Fix sorting bug
+- Improve yify-streaming and playbox scrapers
+- update LosMovies base url
+
+[B]Version 1.0.14[/B]
+- Minor code improvements
+- cloudflare improvements
+- Remove tubemotion scraper
+- Fix tv-release.net scraper
+
+[B]Version 1.0.12[/B]
+- Fix shush base url
+
+[B]Version 1.0.11[/B]
+- Fix ssl error
+
+[B]Version 1.0.10[/B]
+- Improve mail.ru and videomega host qualities
+- Add shush scraper
+
+[B]Version 1.0.9[/B]
+- Add PlayboxHD scraper
+- Remove hdtvshows.net scraper
+- Switch cartoonhd scraper to flixanity scraper.
+- Fix movieshd scraper
+- Tweak MintMovies
+- Add Base Url Reset function
+- Minor Fixes
+
+[B]Version 1.0.8[/B]
+- Add tubemotion scraper
+- Fix clickplay.to
+- Add cloudflare detection/solve
+- Add yify-streaming scraper
+- Add Mint Movies scraper
+
+[B]Version 1.0.7[/B]
+- Remove TVA UrlResolver Repo
+
+[B]Version 1.0.6[/B]
+- Add new TVA UrlResolver Repo (TESTING!)
+
+[B]Version 1.0.5[/B]
+- Add better integration with script.trakt
+- Add xmovies8 scraper
+- fix iwatchonline and cartoonhd scraper
+- Minor code fixes
+
+[B]Version 1.0.4[/B]
+- Add all strings to po file to start translation
+- Add new themes from DK, mjbxx, and flthemi
+- Improve wso scraper
+
+[B]Version 1.0.3[/B]
+- Sort seasons
+- Add SALTy theme
+- Allow fanart fallbacks and png/jpg fallbacks
+- Fix bug with multithreaded db access in scrapers resolve_link()
+
+[B]Version 1.0.2[/B]
+- Remove progress dialog from get sources (fixes XBMC hang)
+- Add 1080p option to local scraper
+- Fix quality in yify scraper
+- Fix long standing problem w/ noobroom and ororo.tv scraper
+
+[B]Version 1.0.1[/B]
+- Changed default fanart
+- Moved place holder poster to local
+- Moved themes to separate addon (install SALTS Themepak)
+- Added afdah.org scraper
+- Fix watchseries scraper
+- Fix afdah.com scraper
+- Fix cookie handling
+- Improve film-streaming.in scraper
+- Fix noobroom scraper
+- Split 720p and 1080p HD Quality settings
+- Added progress dialog on SRU and Get Sources
+
 [B]Version 1.0.0[/B]
 - Minor PIN Dialog improvements
 

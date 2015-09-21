@@ -21,12 +21,11 @@ import urlparse
 import re
 import xbmcaddon
 from salts_lib.constants import VIDEO_TYPES
-from salts_lib.db_utils import DB_Connection
 from salts_lib.constants import QUALITIES
 
 BASE_URL = 'http://moviesonline7.co'
 BUY_VIDS_URL = '/includes/buyVidS.php?vid=%s&num=%s'
-QUALITY_MAP = {'BRRIP1': QUALITIES.HIGH, 'BRRIP2': QUALITIES.HD, 'BRRIP3': QUALITIES.MEDIUM, 'BRRIP4': QUALITIES.HD,
+QUALITY_MAP = {'BRRIP1': QUALITIES.HIGH, 'BRRIP2': QUALITIES.HD720, 'BRRIP3': QUALITIES.MEDIUM, 'BRRIP4': QUALITIES.HD720,
              'DVDRIP1': QUALITIES.HIGH, 'DVDRIP2': QUALITIES.HIGH, 'DVDRIP3': QUALITIES.HIGH,
              'CAM1': QUALITIES.LOW, 'CAM2': QUALITIES.LOW}
 
@@ -35,7 +34,6 @@ class MO7_Scraper(scraper.Scraper):
 
     def __init__(self, timeout=scraper.DEFAULT_TIMEOUT):
         self.timeout = timeout
-        self.db_connection = DB_Connection()
         self.base_url = xbmcaddon.Addon().getSetting('%s-base_url' % (self.get_name()))
 
     @classmethod
@@ -78,7 +76,7 @@ class MO7_Scraper(scraper.Scraper):
                 if match:
                     stream_url = urlparse.urljoin(self.base_url, BUY_VIDS_URL % (match.group(1), vid_num))
                     if stream_url:
-                        hoster = {'multi-part': False, 'host': 'moviesonline7.co', 'url': stream_url, 'class': self, 'rating': None, 'views': None, 'quality': quality, 'direct': True}
+                        hoster = {'multi-part': False, 'host': self._get_direct_hostname(stream_url), 'url': stream_url, 'class': self, 'rating': None, 'views': None, 'quality': quality, 'direct': True}
                         hosters.append(hoster)
 
         return hosters

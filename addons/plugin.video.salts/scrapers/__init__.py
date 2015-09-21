@@ -1,9 +1,12 @@
-__all__ = ['scraper', 'local_scraper', 'pw_scraper', 'uflix_scraper', 'watchseries_scraper', 'movie25_scraper', 'merdb_scraper', '2movies_scraper', 'icefilms_scraper', 'afdah_scraper',
-           'movieshd_scraper', 'yifytv_scraper', 'viooz_scraper', 'filmstreaming_scraper', 'onlinemovies_scraper', 'myvideolinks_scraper', 'filmikz_scraper', 'hdtvshows_scraper',
+__all__ = ['scraper', 'local_scraper', 'pw_scraper', 'uflix_scraper', 'watchseries_scraper', 'movie25_scraper', 'merdb_scraper', '2movies_scraper', 'icefilms_scraper',
+           'movieshd_scraper', 'yifytv_scraper', 'viooz_scraper', 'filmstreaming_scraper', 'myvideolinks_scraper', 'filmikz_scraper', 'clickplay_scraper', 'nitertv_scraper',
            'iwatch_scraper', 'ororotv_scraper', 'view47_scraper', 'vidics_scraper', 'oneclickwatch_scraper', 'istreamhd_scraper', 'losmovies_scraper', 'movie4k_scraper',
-           'noobroom_scraper', 'solar_scraper', 'vkbox_scraper', 'directdl_scraper', 'movietv_scraper', 'moviesonline7_scraper', 'streamallthis_scraper', 'clickplay_scraper', 'nitertv_scraper',
+           'noobroom_scraper', 'solar_scraper', 'vkbox_scraper', 'directdl_scraper', 'movietv_scraper', 'moviesonline7_scraper', 'streamallthis_scraper', 'afdah_scraper',
            'streamtv_scraper', 'moviestorm_scraper', 'wmo_scraper', 'zumvo_scraper', 'wso_scraper', 'tvrelease_scraper', 'hdmz_scraper', 'ch131_scraper', 'watchfree_scraper',
-           'rlssource_scraper', 'pftv_scraper', 'cartoonhd_scraper', 'cmz_scraper', 'movienight_scraper', 'gvcenter_scraper', 'alluc_scraper']
+           'pftv_scraper', 'flixanity_scraper', 'cmz_scraper', 'movienight_scraper', 'gvcenter_scraper', 'alluc_scraper', 'afdahorg_scraper', 'xmovies8_scraper',
+           'yifystreaming_scraper', 'mintmovies_scraper', 'playbox_scraper', 'shush_proxy', 'mvsnap_scraper', 'pubfilm_scraper', 'pctf_scraper', 'rlssource_scraper',
+           'couchtunerv1_scraper', 'couchtunerv2_scraper', 'tunemovie_scraper', 'watch8now_scraper', 'megabox_scraper', 'dizilab_scraper', 'beinmovie_scraper',
+           'dizimag_scraper', 'ayyex_scraper']
 
 import re
 import os
@@ -17,7 +20,7 @@ from . import scraper  # just to avoid editor warning
 from . import *
 
 class ScraperVideo:
-    def __init__(self, video_type, title, year, slug, season='', episode='', ep_title='', ep_airdate=''):
+    def __init__(self, video_type, title, year, trakt_id, season='', episode='', ep_title='', ep_airdate=''):
         assert(video_type in (VIDEO_TYPES.__dict__[k] for k in VIDEO_TYPES.__dict__ if not k.startswith('__')))
         self.video_type = video_type
         self.title = title
@@ -25,7 +28,7 @@ class ScraperVideo:
         self.season = season
         self.episode = episode
         self.ep_title = ep_title
-        self.slug = slug
+        self.trakt_id = trakt_id
         self.ep_airdate = None
         if ep_airdate:
             try: self.ep_airdate = datetime.datetime.strptime(ep_airdate, "%Y-%m-%d").date()

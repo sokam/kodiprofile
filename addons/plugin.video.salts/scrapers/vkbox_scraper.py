@@ -22,7 +22,6 @@ import xbmc
 import zipfile
 import StringIO
 import json
-from salts_lib.db_utils import DB_Connection
 from salts_lib import log_utils
 from salts_lib.constants import VIDEO_TYPES
 from salts_lib.constants import QUALITIES
@@ -39,7 +38,6 @@ class VKBox_Scraper(scraper.Scraper):
 
     def __init__(self, timeout=scraper.DEFAULT_TIMEOUT):
         self.timeout = timeout
-        self.db_connection = DB_Connection()
         self.base_url = xbmcaddon.Addon().getSetting('%s-base_url' % (self.get_name()))
 
     @classmethod
@@ -73,15 +71,15 @@ class VKBox_Scraper(scraper.Scraper):
             if html:
                 try:
                     json_data = json.loads(html)
-                except:
+                except ValueError:
                     log_utils.log('No JSON returned: %s' % (url), xbmc.LOGWARNING)
                 else:
                     try: langs = json_data['langs']
                     except: langs = json_data
                     for lang in langs:
-                        if lang['lang'] == 'en':
+                        if lang['lang'] in ['en', '']:
                             stream_url = STREAM_URL % (str(int(lang['apple']) + magic_num), str(int(lang['google']) + magic_num), lang['microsoft'])
-                            hoster = {'multi-part': False, 'url': stream_url, 'host': 'vk.com', 'class': self, 'quality': QUALITIES.HD, 'views': None, 'rating': None, 'direct': False}
+                            hoster = {'multi-part': False, 'url': stream_url, 'host': 'vk.com', 'class': self, 'quality': QUALITIES.HD720, 'views': None, 'rating': None, 'direct': False}
                             hosters.append(hoster)
                             break
                     else:

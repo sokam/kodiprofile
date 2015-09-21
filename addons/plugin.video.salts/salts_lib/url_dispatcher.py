@@ -1,4 +1,3 @@
-import xbmc
 import log_utils
 
 class URL_Dispatcher:
@@ -28,7 +27,7 @@ class URL_Dispatcher:
         def decorator(f):
             if mode in self.func_registry:
                 message = 'Error: %s already registered as %s' % (str(f), mode)
-                log_utils.log(message, xbmc.LOGERROR)
+                log_utils.log(message, log_utils.LOGERROR)
                 raise Exception(message)
 
             # log_utils.log('registering function: |%s|->|%s|' % (mode,str(f)), xbmc.LOGDEBUG)
@@ -49,7 +48,7 @@ class URL_Dispatcher:
         """
         if mode not in self.func_registry:
             message = 'Error: Attempt to invoke unregistered mode |%s|' % (mode)
-            log_utils.log(message, xbmc.LOGERROR)
+            log_utils.log(message, log_utils.LOGERROR)
             raise Exception(message)
 
         args = []
@@ -64,7 +63,7 @@ class URL_Dispatcher:
                     del unused_args[arg]
                 else:
                     message = 'Error: mode |%s| requested argument |%s| but it was not provided.' % (mode, arg)
-                    log_utils.log(message, xbmc.LOGERROR)
+                    log_utils.log(message, log_utils.LOGERROR)
                     raise Exception(message)
 
         if self.kwargs_registry[mode]:

@@ -21,8 +21,8 @@ import urlparse
 import re
 import xbmcaddon
 from salts_lib import log_utils
+from salts_lib.trans_utils import i18n
 from salts_lib.constants import VIDEO_TYPES
-from salts_lib.db_utils import DB_Connection
 
 BASE_URL = 'http://oneclickwatch.ws'
 
@@ -31,7 +31,6 @@ class OneClickWatch_Scraper(scraper.Scraper):
 
     def __init__(self, timeout=scraper.DEFAULT_TIMEOUT):
         self.timeout = timeout
-        self.db_connection = DB_Connection()
         self.base_url = xbmcaddon.Addon().getSetting('%s-base_url' % (self.get_name()))
 
     @classmethod
@@ -78,15 +77,19 @@ class OneClickWatch_Scraper(scraper.Scraper):
         settings = super(OneClickWatch_Scraper, cls).get_settings()
         settings = cls._disable_sub_check(settings)
         name = cls.get_name()
-        settings.append('         <setting id="%s-filter" type="slider" range="0,180" option="int" label="     Filter results older than (0=No Filter) (days)" default="30" visible="eq(-6,true)"/>' % (name))
-        settings.append('         <setting id="%s-select" type="enum" label="     Automatically Select" values="Most Recent|Highest Quality" default="0" visible="eq(-7,true)"/>' % (name))
+        settings.append('         <setting id="%s-filter" type="slider" range="0,180" option="int" label="     %s" default="30" visible="eq(-6,true)"/>' % (name, i18n('filter_results_days')))
+        settings.append('         <setting id="%s-select" type="enum" label="     %s" lvalues="30636|30637" default="0" visible="eq(-7,true)"/>' % (name, i18n('auto_select')))
         return settings
 
     def search(self, video_type, title, year):
-        search_url = urlparse.urljoin(self.base_url, '/?s=')
-        search_url += urllib.quote_plus(title)
-        headers = {'Referer': self.base_url}
-        html = self._http_get(search_url, headers=headers, cache_limit=.25)
+        html = self._http_get(self.base_url, cache_limit=.25)
+        match = re.search('id="ocw_once_search[^>]*value="([^"]+)', html)
+        if match:
+            token = match.group(1)
+            search_url = urlparse.urljoin(self.base_url, '/?s=%s&ocw_once_search=%s' % (urllib.quote_plus(title), token))
+            headers = {'Referer': self.base_url}
+            html = self._http_get(search_url, headers=headers, cache_limit=.25)
+
         pattern = 'class="title"><a href="(?P<url>[^"]+)[^>]+>(?P<post_title>[^<]+).*?rel="bookmark">(?P<date>[^<]+)'
         date_format = '%B %d, %Y'
         return self._blog_proc_results(html, pattern, date_format, video_type, title, year)

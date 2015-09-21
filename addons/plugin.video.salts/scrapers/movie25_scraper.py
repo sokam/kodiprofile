@@ -20,19 +20,18 @@ import urllib
 import urlparse
 import re
 import xbmcaddon
+import base64
 from salts_lib.constants import VIDEO_TYPES
-from salts_lib.db_utils import DB_Connection
 from salts_lib.constants import QUALITIES
 
 QUALITY_MAP = {'DVD': QUALITIES.HIGH, 'CAM': QUALITIES.LOW}
-BASE_URL = 'http://movie25.cm'
+BASE_URL = 'http://movie25.ag'
 
 class Movie25_Scraper(scraper.Scraper):
     base_url = BASE_URL
 
     def __init__(self, timeout=scraper.DEFAULT_TIMEOUT):
         self.timeout = timeout
-        self.db_connection = DB_Connection()
         self.base_url = xbmcaddon.Addon().getSetting('%s-base_url' % (self.get_name()))
 
     @classmethod
@@ -50,9 +49,12 @@ class Movie25_Scraper(scraper.Scraper):
         if match:
             return match.group(1)
         else:
-            match = re.search('<IFRAME SRC="(?:/?tz\.php\?url=)?([^"]+)', html, re.DOTALL | re.I)
+            match = re.search('<IFRAME SRC="(?:/?tz\.php\?url=external\.php\?url=)?([^"]+)', html, re.DOTALL | re.I)
             if match:
-                return match.group(1)
+                try:
+                    return base64.b64decode(match.group(1))
+                except TypeError:
+                    return match.group(1)
             else:
                 return link
 
@@ -73,7 +75,7 @@ class Movie25_Scraper(scraper.Scraper):
 
             for match in re.finditer('id="link_name">\s*([^<]+).*?href="([^"]+)', html, re.DOTALL):
                 host, url = match.groups()
-                host = host.lower()
+                host = host.lower().strip()
                 hoster = {'multi-part': False, 'host': host, 'class': self, 'url': url, 'quality': self._get_quality(video, host, quality), 'rating': None, 'views': None, 'direct': False}
                 hosters.append(hoster)
         return hosters

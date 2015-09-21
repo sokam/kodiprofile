@@ -21,9 +21,7 @@ import urlparse
 import re
 import xbmcaddon
 import base64
-from salts_lib import GKDecrypter
 from salts_lib.constants import VIDEO_TYPES
-from salts_lib.db_utils import DB_Connection
 from salts_lib.constants import QUALITIES
 
 BASE_URL = 'http://viooz.ac'
@@ -33,7 +31,6 @@ class VioozAc_Scraper(scraper.Scraper):
 
     def __init__(self, timeout=scraper.DEFAULT_TIMEOUT):
         self.timeout = timeout
-        self.db_connection = DB_Connection()
         self.base_url = xbmcaddon.Addon().getSetting('%s-base_url' % (self.get_name()))
 
     @classmethod
@@ -65,22 +62,26 @@ class VioozAc_Scraper(scraper.Scraper):
             pattern = '<div id="cont(.*?)</div>'
             for match in re.finditer(pattern, html, re.DOTALL):
                 link_fragment = match.group(1)
+                stream_url = ''
                 match = re.search('<iframe.*?src="([^"]+)', link_fragment)
                 if match:
                     stream_url = match.group(1)
                     direct = False
                 else:
-                    match = re.search('proxy\.link=([^"&]+)', link_fragment)
+                    match = re.search('href="([^"]+)"', link_fragment)
                     if match:
-                        proxy_link = match.group(1)
-                        proxy_link = proxy_link.split('*', 1)[-1]
-                        stream_url = GKDecrypter.decrypter(198, 128).decrypt(proxy_link, base64.urlsafe_b64decode('YVhWN09hU0M4MDRWYXlUQ0lPYmE='), 'ECB').split('\0')[0]
-                        direct = True
+                        stream_url = match.group(1)
+                        direct = False
                     else:
-                        continue
+                        match = re.search('proxy\.link=([^"&]+)', link_fragment)
+                        if match:
+                            proxy_link = match.group(1)
+                            proxy_link = proxy_link.split('*', 1)[-1]
+                            stream_url = self._gk_decrypt(base64.urlsafe_b64decode('Y0t3RERKc1ZpQ3NtWndET2p6UlU='), proxy_link)
+                            direct = False
 
                 # skip these for now till I work out how to extract them
-                if 'hqq.tv' in stream_url:
+                if not stream_url or 'hqq.tv' in stream_url:
                     continue
 
                 try:

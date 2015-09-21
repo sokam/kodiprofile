@@ -21,8 +21,7 @@ import urlparse
 import xbmcaddon
 import urllib
 import base64
-from salts_lib import GKDecrypter
-from salts_lib.db_utils import DB_Connection
+from salts_lib import dom_parser
 from salts_lib.constants import VIDEO_TYPES
 from salts_lib.constants import QUALITIES
 
@@ -33,7 +32,6 @@ class ClickPlay_Scraper(scraper.Scraper):
 
     def __init__(self, timeout=scraper.DEFAULT_TIMEOUT):
         self.timeout = timeout
-        self.db_connection = DB_Connection()
         self.base_url = xbmcaddon.Addon().getSetting('%s-base_url' % (self.get_name()))
 
     @classmethod
@@ -58,49 +56,39 @@ class ClickPlay_Scraper(scraper.Scraper):
             url = urlparse.urljoin(self.base_url, source_url)
             html = self._http_get(url, cache_limit=.5)
 
-            match = re.search('proxy\.link=([^"&]+)', html)
-            if match:
-                proxy_link = match.group(1)
-                proxy_link = proxy_link.split('*', 1)[-1]
-                stream_url = GKDecrypter.decrypter(198, 128).decrypt(proxy_link, base64.urlsafe_b64decode('bW5pcUpUcUJVOFozS1FVZWpTb00='), 'ECB').split('\0')[0]
-                if 'vk.com' in stream_url.lower():
-                    hoster = {'multi-part': False, 'host': 'vk.com', 'class': self, 'url': stream_url, 'quality': QUALITIES.HD, 'views': None, 'rating': None, 'direct': False}
+            ele = dom_parser.parse_dom(html, 'video')
+            if ele:
+                stream_url = dom_parser.parse_dom(ele, 'source', ret='src')
+                if stream_url:
+                    hoster = {'multi-part': False, 'url': stream_url[0], 'class': self, 'quality': QUALITIES.HD720, 'host': self._get_direct_hostname(stream_url[0]), 'rating': None, 'views': None, 'direct': True}
+                    if hoster['host'] == 'gvideo':
+                        hoster['quality'] = self._gv_get_quality(hoster['url'])
                     hosters.append(hoster)
-                elif 'picasaweb' in stream_url.lower():
-                    html = self._http_get(stream_url, cache_limit=.5)
-                    sources = self.__parse_google(html)
-                    if sources:
-                        for source in sources:
-                            hoster = {'multi-part': False, 'url': source, 'class': self, 'quality': sources[source], 'host': 'clickplay.to', 'rating': None, 'views': None, 'direct': True}
-                            hosters.append(hoster)
-
+            
+            sources = dom_parser.parse_dom(html, 'iframe', ret='src')
+            for src in sources:
+                if 'facebook' in src: continue
+                host = urlparse.urlparse(src).hostname
+                hoster = {'multi-part': False, 'url': src, 'class': self, 'quality': QUALITIES.HIGH, 'host': host, 'rating': None, 'views': None, 'direct': False}
+                hosters.append(hoster)
+                
         return hosters
-
-    def __parse_google(self, html):
-        pattern = '"url"\s*:\s*"([^"]+)"\s*,\s*"height"\s*:\s*\d+\s*,\s*"width"\s*:\s*(\d+)\s*,\s*"type"\s*:\s*"video/'
-        sources = {}
-        for match in re.finditer(pattern, html):
-            url, width = match.groups()
-            url = url.replace('%3D', '=')
-            sources[url] = self._width_get_quality(width)
-        return sources
 
     def get_url(self, video):
         return super(ClickPlay_Scraper, self)._default_get_url(video)
 
     def _get_episode_url(self, show_url, video):
         season_url = show_url + 'season-%d/' % (int(video.season))
-        episode_pattern = 'href="([^"]+/season-%d/episode-%d[^"]+)' % (int(video.season), int(video.episode))
+        episode_pattern = 'href="([^"]+/season-%d/episode-%d-[^"]+)' % (int(video.season), int(video.episode))
         title_pattern = 'href="([^"]+)"\s+title="[^"]+/\s*([^"]+)'
         return super(ClickPlay_Scraper, self)._default_get_episode_url(season_url, video, episode_pattern, title_pattern)
 
     def search(self, video_type, title, year):
-        url = urlparse.urljoin(self.base_url, '/search/')
-        url += urllib.quote(title)
+        url = urlparse.urljoin(self.base_url, '/tv-series-a-z-list')
         html = self._http_get(url, cache_limit=8)
 
         results = []
-        pattern = 'href="([^"]+)"\s+class="article.*?class="article-title">([^<]+)'
+        pattern = '<li>\s*<a.*?href="([^"]+)[^>]*>([^<]+)'
         norm_title = self._normalize_title(title)
         for match in re.finditer(pattern, html, re.DOTALL):
             url, match_title_year = match.groups()

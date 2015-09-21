@@ -22,8 +22,8 @@ import urllib2
 import urlparse
 import xbmcaddon
 import xbmc
-from salts_lib.db_utils import DB_Connection
 from salts_lib import log_utils
+from salts_lib.trans_utils import i18n
 from salts_lib.constants import VIDEO_TYPES
 from salts_lib.constants import QUALITIES
 from salts_lib.constants import USER_AGENT
@@ -35,7 +35,6 @@ class NoobRoom_Scraper(scraper.Scraper):
 
     def __init__(self, timeout=scraper.DEFAULT_TIMEOUT):
         self.timeout = timeout
-        self.db_connection = DB_Connection()
         self.base_url = xbmcaddon.Addon().getSetting('%s-base_url' % (self.get_name()))
         self.username = xbmcaddon.Addon().getSetting('%s-username' % (self.get_name()))
         self.password = xbmcaddon.Addon().getSetting('%s-password' % (self.get_name()))
@@ -56,16 +55,17 @@ class NoobRoom_Scraper(scraper.Scraper):
         if match:
             file_link = match.group(1)
             stream_url = urlparse.urljoin(self.base_url, file_link)
-            self._set_cookies(self.base_url, {})
+            cj = self._set_cookies(self.base_url, {})
             request = urllib2.Request(stream_url)
             request.add_header('User-Agent', USER_AGENT)
             request.add_unredirected_header('Host', request.get_host())
             request.add_unredirected_header('Referer', url)
+            cj.add_cookie_header(request)
             response = urllib2.urlopen(request)
             return response.geturl()
 
     def format_source_label(self, item):
-        label = '[%s] (%s) %s (%s/100) ' % (item['quality'], item['res'], item['host'], item['rating'])
+        label = '[%s] %s (%s/100) ' % (item['quality'], item['host'], item['rating'])
         return label
 
     def get_sources(self, video):
@@ -75,33 +75,32 @@ class NoobRoom_Scraper(scraper.Scraper):
             url = urlparse.urljoin(self.base_url, source_url)
             html = self._http_get(url, cache_limit=.5)
 
-            has_1080p = False
-            match = re.search('Watch in 1080p', html)
-            if match:
+            if 'Watch in 1080p' in html:
                 has_1080p = True
+            else:
+                has_1080p = False
 
             if video.video_type == VIDEO_TYPES.MOVIE:
-                quality = QUALITIES.HD
+                quality = QUALITIES.HD720
+                paid_quality = QUALITIES.HD1080
             else:
                 quality = QUALITIES.HIGH
-
+                paid_quality = QUALITIES.HD720
+                
             for match in re.finditer("class='hoverz'.*?href='([^']+)'>([^<]+)\s+\(([^)]+).*?>(\d+)%", html, re.DOTALL):
                 url, host, status, load = match.groups()
-                if not self.include_paid and status.upper() == 'PAID':
+                if not self.include_paid and status.upper() == 'PREMIUM':
                     continue
 
                 url = url.replace('&amp;', '&')
                 host = '%s (%s)' % (host, status)
-                hoster = {'multi-part': False, 'host': host, 'class': self, 'url': url, 'quality': quality, 'views': None, 'rating': 100 - int(load), 'direct': True, 'res': '720p'}
-                if quality == QUALITIES.HD:
-                    hoster['res'] = '720p'
-                else:
-                    hoster['res'] = '480p'
+                hoster = {'multi-part': False, 'host': host, 'class': self, 'url': url, 'quality': quality, 'views': None, 'rating': 100 - int(load), 'direct': True}
                 hosters.append(hoster)
 
                 if self.include_paid and has_1080p:
+                    
                     url += '&hd=1'
-                    hoster = {'multi-part': False, 'host': host, 'class': self, 'url': url, 'quality': QUALITIES.HD, 'views': None, 'rating': 100 - int(load), 'direct': True, 'res': '1080p'}
+                    hoster = {'multi-part': False, 'host': host, 'class': self, 'url': url, 'quality': paid_quality, 'views': None, 'rating': 100 - int(load), 'direct': True}
                     hosters.append(hoster)
         return hosters
 
@@ -141,9 +140,9 @@ class NoobRoom_Scraper(scraper.Scraper):
     def get_settings(cls):
         settings = super(NoobRoom_Scraper, cls).get_settings()
         name = cls.get_name()
-        settings.append('         <setting id="%s-username" type="text" label="     Username" default="" visible="eq(-6,true)"/>' % (name))
-        settings.append('         <setting id="%s-password" type="text" label="     Password" option="hidden" default="" visible="eq(-7,true)"/>' % (name))
-        settings.append('         <setting id="%s-include_premium" type="bool" label="     Include Premium" default="false" visible="eq(-8,true)"/>' % (name))
+        settings.append('         <setting id="%s-username" type="text" label="     %s" default="" visible="eq(-6,true)"/>' % (name, i18n('username')))
+        settings.append('         <setting id="%s-password" type="text" label="     %s" option="hidden" default="" visible="eq(-7,true)"/>' % (name, i18n('password')))
+        settings.append('         <setting id="%s-include_premium" type="bool" label="     %s" default="false" visible="eq(-8,true)"/>' % (name, i18n('include_premium')))
         return settings
 
     def _http_get(self, url, data=None, cache_limit=8):
@@ -152,16 +151,20 @@ class NoobRoom_Scraper(scraper.Scraper):
             return ''
 
         html = super(NoobRoom_Scraper, self)._cached_http_get(url, self.base_url, self.timeout, data=data, cache_limit=cache_limit)
-        if not re.search('href="logout.php"', html):
+        if not 'href="logout.php"' in html:
             log_utils.log('Logging in for url (%s)' % (url), xbmc.LOGDEBUG)
-            self.__login()
+            self.__login(html)
             html = super(NoobRoom_Scraper, self)._cached_http_get(url, self.base_url, self.timeout, data=data, cache_limit=0)
 
         return html
 
-    def __login(self):
+    def __login(self, html):
         url = urlparse.urljoin(self.base_url, '/login2.php')
-        data = {'email': self.username, 'password': self.password}
-        html = super(NoobRoom_Scraper, self)._cached_http_get(url, self.base_url, self.timeout, data=data, cache_limit=0)
-        if not re.search('href="logout.php"', html):
+        data = {'email': self.username, 'password': self.password, 'echo': 'echo'}
+        match = re.search('challenge\?k=([^"]+)', html)
+        if match:
+            data.update(self._do_recaptcha(match.group(1)))
+            
+        html = super(NoobRoom_Scraper, self)._cached_http_get(url, self.base_url, self.timeout, data=data, allow_redirect=False, cache_limit=0)
+        if 'index.php' not in html:
             raise Exception('noobroom login failed')

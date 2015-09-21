@@ -20,20 +20,21 @@ import urllib
 import urlparse
 import re
 import xbmcaddon
+import xbmc
 import json
 import xml.dom.minidom
 from salts_lib.constants import VIDEO_TYPES
-from salts_lib.db_utils import DB_Connection
+from salts_lib import log_utils
 
 BASE_URL = 'http://www.hdmoviezone.net'
 PHP_URL = 'http://gl.hdmoviezone.net/hdmzgl.php'
+COOKIE_URL = 'http://gl.hdmoviezone.net/getimage.php'
 
 class hdmz_Scraper(scraper.Scraper):
     base_url = BASE_URL
 
     def __init__(self, timeout=scraper.DEFAULT_TIMEOUT):
         self.timeout = timeout
-        self.db_connection = DB_Connection()
         self.base_url = xbmcaddon.Addon().getSetting('%s-base_url' % (self.get_name()))
 
     @classmethod
@@ -54,6 +55,7 @@ class hdmz_Scraper(scraper.Scraper):
         source_url = self.get_url(video)
         hosters = []
         if source_url:
+            _html = self._http_get(COOKIE_URL, cache_limit=.25)
             url = urlparse.urljoin(self.base_url, source_url)
             html = self._http_get(url, cache_limit=.5)
             match = re.search('file\s*=\s*"([^"]+)', html)
@@ -61,12 +63,16 @@ class hdmz_Scraper(scraper.Scraper):
                 file_hash = match.group(1)
                 data = self._http_get(PHP_URL, data={'url': file_hash}, headers={'Origin': self.base_url, 'Referer': source_url}, cache_limit=0)
                 if data:
-                    js_data = json.loads(data)
-                    if js_data and 'content' in js_data:
-                        for item in js_data['content']:
-                            if 'type' in item and item['type'].lower().startswith('video'):
-                                hoster = {'multi-part': False, 'host': 'hdmoviezone.net', 'url': item['url'], 'class': self, 'rating': None, 'views': None, 'quality': self._width_get_quality(item['width']), 'direct': True}
-                                hosters.append(hoster)
+                    try:
+                        js_data = json.loads(data)
+                    except ValueError:
+                        log_utils.log('No JSON returned: %s: %s' % (url, data), xbmc.LOGWARNING)
+                    else:
+                        if js_data and 'content' in js_data:
+                            for item in js_data['content']:
+                                if 'type' in item and item['type'].lower().startswith('video'):
+                                    hoster = {'multi-part': False, 'host': self._get_direct_hostname(item['url']), 'url': item['url'], 'class': self, 'rating': None, 'views': None, 'quality': self._width_get_quality(item['width']), 'direct': True}
+                                    hosters.append(hoster)
 
         return hosters
 

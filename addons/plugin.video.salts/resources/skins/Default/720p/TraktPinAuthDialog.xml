@@ -32,7 +32,7 @@
 				<width>450</width>
 				<height>30</height>
 				<font>font13_title</font>
-				<label>Trakt Account Authorization</label>
+				<label>$ADDON[plugin.video.salts 30161]</label>
 				<align>center</align>
 				<aligny>center</aligny>
 				<textcolor>darkorange</textcolor>
@@ -61,12 +61,7 @@
 				<height>150</height>
 				<font>font12</font>
 				<wrapmultiline>true</wrapmultiline>
-				<label>To authorize SALTS to access your trakt.tv account:
-1) Visit [COLOR skyblue]http://trakt.tv/pin/347[/COLOR] or scan the QR Code below.
-2) If prompted, authorize SALTS to access your account.
-3) Enter the PIN provided in the box below.
-
-SALTS can be used without a trakt.tv account, but to take full advantage of SALTS you should authorize it to access your trakt.tv account.</label>
+				<label>$ADDON[plugin.video.salts 30162][CR]$ADDON[plugin.video.salts 30163][CR]$ADDON[plugin.video.salts 30164][CR]$ADDON[plugin.video.salts 30165][CR][CR]$ADDON[plugin.video.salts 30166]</label>
 				<textcolor>white</textcolor>
 				<shadowcolor>black</shadowcolor>
 			</control>
@@ -89,7 +84,7 @@ SALTS can be used without a trakt.tv account, but to take full advantage of SALT
 				<height>40</height>
 				<align>center</align>
 				<aligny>center</aligny>
-				<label>Authorize</label>
+				<label>$ADDON[plugin.video.salts 30167]</label>
 				<font>font12_title</font>
 				<textoffsetx>10</textoffsetx>
 				<ondown>201</ondown>
@@ -103,7 +98,7 @@ SALTS can be used without a trakt.tv account, but to take full advantage of SALT
 				<height>40</height>
 				<align>center</align>
 				<aligny>center</aligny>
-				<label>Remind Me Later</label>
+				<label>$ADDON[plugin.video.salts 30168]</label>
 				<font>font12_title</font>
 				<textoffsetx>10</textoffsetx>
 				<onup>200</onup>
@@ -119,7 +114,7 @@ SALTS can be used without a trakt.tv account, but to take full advantage of SALT
 				<height>40</height>
 				<align>center</align>
 				<aligny>center</aligny>
-				<label>No Thanks</label>
+				<label>$ADDON[plugin.video.salts 30169]</label>
 				<font>font12_title</font>
 				<textoffsetx>10</textoffsetx>
 				<onup>201</onup>

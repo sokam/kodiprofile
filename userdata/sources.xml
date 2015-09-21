@@ -38,5 +38,15 @@
             <path pathversion="1">http://iptvcanada-usa.net84.net/</path>
             <allowsharing>true</allowsharing>
         </source>
+        <source>
+            <name>#podgod</name>
+            <path pathversion="1">http://podgod.mtlfreetv.com/Podgod/install/</path>
+            <allowsharing>true</allowsharing>
+        </source>
+        <source>
+            <name>#dexter</name>
+            <path pathversion="1">http://dexteriptv.com/repo</path>
+            <allowsharing>true</allowsharing>
+        </source>
     </files>
 </sources>

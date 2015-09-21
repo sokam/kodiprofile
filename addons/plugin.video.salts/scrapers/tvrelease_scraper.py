@@ -21,20 +21,20 @@ import urlparse
 import re
 import xbmcaddon
 from salts_lib import log_utils
+from salts_lib import dom_parser
+from salts_lib.trans_utils import i18n
 from salts_lib.constants import VIDEO_TYPES
-from salts_lib.db_utils import DB_Connection
 from salts_lib.constants import QUALITIES
 
 BASE_URL = 'http://tv-release.net'
 QUALITY_MAP = {'MOVIES-XVID': QUALITIES.MEDIUM, 'TV-XVID': QUALITIES.HIGH, 'TV-MP4': QUALITIES.HIGH,
-               'TV-480P': QUALITIES.HIGH, 'MOVIES-480P': QUALITIES.HIGH, 'TV-720P': QUALITIES.HD, 'MOVIES-720P': QUALITIES.HD}
+               'TV-480P': QUALITIES.HIGH, 'MOVIES-480P': QUALITIES.HIGH, 'TV-720P': QUALITIES.HD720, 'MOVIES-720P': QUALITIES.HD720}
 
 class TVReleaseNet_Scraper(scraper.Scraper):
     base_url = BASE_URL
 
     def __init__(self, timeout=scraper.DEFAULT_TIMEOUT):
         self.timeout = timeout
-        self.db_connection = DB_Connection()
         self.base_url = xbmcaddon.Addon().getSetting('%s-base_url' % (self.get_name()))
 
     @classmethod
@@ -84,8 +84,8 @@ class TVReleaseNet_Scraper(scraper.Scraper):
         settings = super(TVReleaseNet_Scraper, cls).get_settings()
         settings = cls._disable_sub_check(settings)
         name = cls.get_name()
-        settings.append('         <setting id="%s-filter" type="slider" range="0,180" option="int" label="     Filter results older than (0=No Filter) (days)" default="30" visible="eq(-6,true)"/>' % (name))
-        settings.append('         <setting id="%s-select" type="enum" label="     Automatically Select" values="Most Recent|Highest Quality" default="0" visible="eq(-7,true)"/>' % (name))
+        settings.append('         <setting id="%s-filter" type="slider" range="0,180" option="int" label="     %s" default="30" visible="eq(-6,true)"/>' % (name, i18n('filter_results_days')))
+        settings.append('         <setting id="%s-select" type="enum" label="     %s" lvalues="30636|30637" default="0" visible="eq(-7,true)"/>' % (name, i18n('auto_select')))
         return settings
 
     def search(self, video_type, title, year):
@@ -96,9 +96,15 @@ class TVReleaseNet_Scraper(scraper.Scraper):
         else:
             search_url += '&cat=Movies-XviD,Movies-720p,Movies-480p'
         html = self._http_get(search_url, cache_limit=.25)
-        pattern = "posts_table.*?<a[^>]+>(?P<quality>[^<]+).*?href='(?P<url>[^']+)'>(?P<post_title>[^<]+).*?(?P<date>[^>]+)</td></tr>"
-        date_format = '%Y-%m-%d %H:%M:%S'
-        return self._blog_proc_results(html, pattern, date_format, video_type, title, year)
+        tables = dom_parser.parse_dom(html, 'table', {'class': 'posts_table'})
+        if tables:
+            del tables[0]
+            html = ''.join(tables)
+            pattern = "<a[^>]+>(?P<quality>[^<]+).*?href='(?P<url>[^']+)'>(?P<post_title>[^<]+).*?(?P<date>[^>]+)</td></tr>"
+            date_format = '%Y-%m-%d %H:%M:%S'
+            return self._blog_proc_results(html, pattern, date_format, video_type, title, year)
+        else:
+            return []
 
     def _http_get(self, url, cache_limit=8):
         return super(TVReleaseNet_Scraper, self)._cached_http_get(url, self.base_url, self.timeout, cache_limit=cache_limit)

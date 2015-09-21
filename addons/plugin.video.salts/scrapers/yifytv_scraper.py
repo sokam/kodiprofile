@@ -24,7 +24,6 @@ import xbmcaddon
 import xbmc
 from salts_lib import log_utils
 from salts_lib.constants import VIDEO_TYPES
-from salts_lib.db_utils import DB_Connection
 from salts_lib.constants import QUALITIES
 
 BASE_URL = 'http://yify.tv'
@@ -35,7 +34,6 @@ class YIFY_Scraper(scraper.Scraper):
 
     def __init__(self, timeout=scraper.DEFAULT_TIMEOUT):
         self.timeout = timeout
-        self.db_connection = DB_Connection()
         self.base_url = xbmcaddon.Addon().getSetting('%s-base_url' % (self.get_name()))
 
     @classmethod
@@ -81,10 +79,11 @@ class YIFY_Scraper(scraper.Scraper):
                 else:
                     return None
 
+            best_width = 0
             for elem in js_data:
-                if 'type' in elem and elem['type'].startswith('video'):
+                if 'type' in elem and elem['type'].startswith('video') and elem['width'] > best_width:
                     stream_url = elem['url']
-                    break
+                    best_width = elem['width']
                 if 'jscode' in elem:
                     stream_url = self.__parse_fmt(elem['jscode'])
                     break
@@ -141,7 +140,7 @@ class YIFY_Scraper(scraper.Scraper):
 
             for match in re.finditer('pic=([^&]+)', html):
                 video_id = match.group(1)
-                hoster = {'multi-part': False, 'host': 'yify.tv', 'class': self, 'quality': QUALITIES.HD, 'views': views, 'rating': None, 'url': video_id, 'direct': True}
+                hoster = {'multi-part': False, 'host': 'yify.tv', 'class': self, 'quality': QUALITIES.HD720, 'views': views, 'rating': None, 'url': video_id, 'direct': True}
                 hosters.append(hoster)
         return hosters
 
@@ -153,14 +152,18 @@ class YIFY_Scraper(scraper.Scraper):
         search_url += urllib.quote_plus(title)
         html = self._http_get(search_url, cache_limit=.25)
         results = []
-        pattern = 'var\s+posts\s+=\s+(.*);'
+        pattern = 'var\s+posts\s*=\s*(.*);'
         match = re.search(pattern, html)
         if match:
             fragment = match.group(1)
-            data = json.loads(fragment)
-            for post in data['posts']:
-                result = {'title': post['title'], 'year': post['year'], 'url': post['link'].replace(self.base_url, '')}
-                results.append(result)
+            if fragment and fragment != 'null':
+                try:
+                    data = json.loads(fragment)
+                    for post in data['posts']:
+                        result = {'title': post['title'], 'year': post['year'], 'url': post['link'].replace(self.base_url, '')}
+                        results.append(result)
+                except ValueError:
+                    log_utils.log('Invalid JSON in yify.tv: %s' % (fragment), xbmc.LOGWARNING)
         return results
 
     def _http_get(self, url, data=None, cache_limit=8):

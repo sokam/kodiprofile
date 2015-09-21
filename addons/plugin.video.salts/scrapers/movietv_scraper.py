@@ -21,7 +21,6 @@ import urllib
 import urlparse
 import xbmcaddon
 import json
-from salts_lib.db_utils import DB_Connection
 from salts_lib.constants import VIDEO_TYPES
 from salts_lib.constants import QUALITIES
 
@@ -33,7 +32,6 @@ class MovieTV_Scraper(scraper.Scraper):
 
     def __init__(self, timeout=scraper.DEFAULT_TIMEOUT):
         self.timeout = timeout
-        self.db_connection = DB_Connection()
         self.base_url = xbmcaddon.Addon().getSetting('%s-base_url' % (self.get_name()))
 
     @classmethod
@@ -64,7 +62,7 @@ class MovieTV_Scraper(scraper.Scraper):
                     html = '{"url":"%s"}' % (match.group(1))
                 else:
                     return hosters
-                quality = QUALITIES.HD
+                quality = QUALITIES.HD720
             else:
                 quality = QUALITIES.HIGH
 
@@ -72,7 +70,7 @@ class MovieTV_Scraper(scraper.Scraper):
                 js_data = json.loads(html)
                 if js_data['url']:
                     stream_url = js_data['url'] + '|referer=%s' % (url)
-                    hoster = {'multi-part': False, 'host': 'movietv.to', 'class': self, 'url': stream_url, 'quality': quality, 'views': None, 'rating': None, 'direct': True}
+                    hoster = {'multi-part': False, 'host': self._get_direct_hostname(stream_url), 'class': self, 'url': stream_url, 'quality': quality, 'views': None, 'rating': None, 'direct': True}
                     hosters.append(hoster)
             except ValueError:
                 pass

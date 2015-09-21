@@ -25,11 +25,11 @@ from salts_lib.db_utils import DB_Connection
 
 MAX_ERRORS = 10
 
-ADDON = xbmcaddon.Addon(id='plugin.video.salts')
-log_utils.log('Service: Installed Version: %s' % (ADDON.getAddonInfo('version')))
+kodi = xbmcaddon.Addon(id='plugin.video.salts')
+log_utils.log('Service: Installed Version: %s' % (kodi.getAddonInfo('version')))
 
 db_connection = DB_Connection()
-if ADDON.getSetting('use_remote_db') == 'false' or ADDON.getSetting('enable_upgrade') == 'true':
+if kodi.getSetting('use_remote_db') == 'false' or kodi.getSetting('enable_upgrade') == 'true':
     db_connection.init_database()
 
 class Service(xbmc.Player):
@@ -42,14 +42,14 @@ class Service(xbmc.Player):
     def reset(self):
         log_utils.log('Service: Resetting...')
         self.win.clearProperty('salts.playing')
-        self.win.clearProperty('salts.playing.slug')
+        self.win.clearProperty('salts.playing.trakt_id')
         self.win.clearProperty('salts.playing.season')
         self.win.clearProperty('salts.playing.episode')
         self.win.clearProperty('salts.playing.srt')
         self.win.clearProperty('salts.playing.resume')
         self.tracked = False
         self._totalTime = 999999
-        self.slug = None
+        self.trakt_id = None
         self.season = None
         self.episode = None
         self._lastPos = 0
@@ -57,7 +57,7 @@ class Service(xbmc.Player):
     def onPlayBackStarted(self):
         log_utils.log('Service: Playback started')
         playing = self.win.getProperty('salts.playing') == 'True'
-        self.slug = self.win.getProperty('salts.playing.slug')
+        self.trakt_id = self.win.getProperty('salts.playing.trakt_id')
         self.season = self.win.getProperty('salts.playing.season')
         self.episode = self.win.getProperty('salts.playing.episode')
         srt_path = self.win.getProperty('salts.playing.srt')
@@ -82,7 +82,7 @@ class Service(xbmc.Player):
 
         if resume_point:
             resume_time = float(resume_point) * self._totalTime / 100
-            log_utils.log("Resume Percent: %s, Resume Time: %s Total Time: %s" % (resume_point, resume_time, self._totalTime), xbmc.LOGDEBUG)
+            log_utils.log("Resume Percent: %s, Resume Time: %s Total Time: %s" % (resume_point, resume_time, self._totalTime), log_utils.LOGDEBUG)
             self.seekTime(resume_time)
 
     def onPlayBackStopped(self):
@@ -93,12 +93,12 @@ class Service(xbmc.Player):
             except: percent_played = 0  # guard div by zero
             pTime = utils.format_time(playedTime)
             tTime = utils.format_time(self._totalTime)
-            log_utils.log('Service: Played %s of %s total = %s%%' % (pTime, tTime, percent_played), xbmc.LOGDEBUG)
+            log_utils.log('Service: Played %s of %s total = %s%%' % (pTime, tTime, percent_played), log_utils.LOGDEBUG)
             if playedTime == 0 and self._totalTime == 999999:
-                log_utils.log('XBMC silently failed to start playback', xbmc.LOGWARNING)
+                log_utils.log('XBMC silently failed to start playback', log_utils.LOGWARNING)
             elif playedTime >= 5:
-                log_utils.log('Service: Setting bookmark on |%s|%s|%s| to %s seconds' % (self.slug, self.season, self.episode, playedTime), xbmc.LOGDEBUG)
-                db_connection.set_bookmark(self.slug, playedTime, self.season, self.episode)
+                log_utils.log('Service: Setting bookmark on |%s|%s|%s| to %s seconds' % (self.trakt_id, self.season, self.episode, playedTime), log_utils.LOGDEBUG)
+                db_connection.set_bookmark(self.trakt_id, playedTime, self.season, self.episode)
                 if percent_played >= 75:
                     if xbmc.getCondVisibility('System.HasAddon(script.trakt)'):
                         run = 'RunScript(script.trakt, action=sync, silent=True)'
@@ -122,10 +122,10 @@ while not xbmc.abortRequested:
     except Exception as e:
         errors += 1
         if errors >= MAX_ERRORS:
-            log_utils.log('Service: Error (%s) received..(%s/%s)...Ending Service...' % (e, errors, MAX_ERRORS), xbmc.LOGERROR)
+            log_utils.log('Service: Error (%s) received..(%s/%s)...Ending Service...' % (e, errors, MAX_ERRORS), log_utils.LOGERROR)
             break
         else:
-            log_utils.log('Service: Error (%s) received..(%s/%s)...Continuing Service...' % (e, errors, MAX_ERRORS), xbmc.LOGERROR)
+            log_utils.log('Service: Error (%s) received..(%s/%s)...Continuing Service...' % (e, errors, MAX_ERRORS), log_utils.LOGERROR)
     else:
         errors = 0
 

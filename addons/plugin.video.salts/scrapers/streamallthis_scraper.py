@@ -21,7 +21,6 @@ import urlparse
 import xbmcaddon
 import json
 import urllib
-from salts_lib.db_utils import DB_Connection
 from salts_lib.constants import VIDEO_TYPES
 from salts_lib.constants import QUALITIES
 
@@ -32,7 +31,6 @@ class Stream_Scraper(scraper.Scraper):
 
     def __init__(self, timeout=scraper.DEFAULT_TIMEOUT):
         self.timeout = timeout
-        self.db_connection = DB_Connection()
         self.base_url = xbmcaddon.Addon().getSetting('%s-base_url' % (self.get_name()))
 
     @classmethod
@@ -74,6 +72,7 @@ class Stream_Scraper(scraper.Scraper):
                         break
 
             # assume we must be on the mail.ru link now
+            # TODO: Once mail.ru resolver is pushed, this code needs to be removed
             match = re.search("iframe\s+src='([^']+)", html)
             if match:
                 new_url = match.group(1)
@@ -86,7 +85,7 @@ class Stream_Scraper(scraper.Scraper):
                         js_data = json.loads(html)
                         for video in js_data['videos']:
                             stream_url = video['url'] + '|Cookie=%s' % (self.__get_stream_cookies())
-                            hoster = {'multi-part': False, 'host': 'streamallthis.is', 'class': self, 'url': stream_url, 'quality': self.__set_quality(video['key'][:-1]), 'views': None, 'rating': None, 'direct': True}
+                            hoster = {'multi-part': False, 'host': self._get_direct_hostname(stream_url), 'class': self, 'url': stream_url, 'quality': self.__set_quality(video['key'][:-1]), 'views': None, 'rating': None, 'direct': True}
                             hosters.append(hoster)
         return hosters
 
@@ -101,7 +100,7 @@ class Stream_Scraper(scraper.Scraper):
     def __set_quality(self, height):
         height = int(height)
         if height >= 720:
-            quality = QUALITIES.HD
+            quality = QUALITIES.HD720
         elif height >= 480:
             quality = QUALITIES.HIGH
         else:

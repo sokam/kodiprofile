@@ -21,7 +21,7 @@ import urllib2
 import urllib
 import urlparse
 import xbmcaddon
-from salts_lib.db_utils import DB_Connection
+from salts_lib import dom_parser
 from salts_lib.constants import VIDEO_TYPES
 from salts_lib.constants import QUALITIES
 from salts_lib.constants import USER_AGENT
@@ -33,7 +33,6 @@ class Vidics_Scraper(scraper.Scraper):
 
     def __init__(self, timeout=scraper.DEFAULT_TIMEOUT):
         self.timeout = timeout
-        self.db_connection = DB_Connection()
         self.base_url = xbmcaddon.Addon().getSetting('%s-base_url' % (self.get_name()))
 
     @classmethod
@@ -86,15 +85,18 @@ class Vidics_Scraper(scraper.Scraper):
         html = self._http_get(search_url, cache_limit=.25)
 
         results = []
-        match = re.search('id="searchResults"(.*)', html, re.DOTALL)
-        if match:
-            fragment = match.group(1)
-            pattern = 'href="([^"]+).*?itemprop="name">([^<]+).*?itemprop="copyrightYear">(\d{4})'
-            for match in re.finditer(pattern, fragment):
-                url, title, match_year = match.groups('')
-                if not year or not match_year or year == match_year:
-                    result = {'url': url.replace(self.base_url, ''), 'title': title, 'year': match_year}
-                    results.append(result)
+        for result in dom_parser.parse_dom(html, 'div', {'class': 'searchResult'}):
+            url = dom_parser.parse_dom(result, 'a', {'itemprop': 'url'}, ret='href')
+            match_title = dom_parser.parse_dom(result, 'span', {'itemprop': 'name'})
+            match_year = dom_parser.parse_dom(result, 'span', {'itemprop': 'copyrightYear'})
+            if match_year:
+                match_year = match_year[0]
+            else:
+                match_year = ''
+            
+            if url and match_title and (not year or not match_year or year == match_year):
+                result = {'url': url[0].replace(self.base_url, ''), 'title': match_title[0], 'year': match_year}
+                results.append(result)
         return results
 
     def _get_episode_url(self, show_url, video):

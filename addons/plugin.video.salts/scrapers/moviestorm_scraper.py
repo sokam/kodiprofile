@@ -20,9 +20,9 @@ import re
 import urlparse
 import xbmcaddon
 import urllib
-from salts_lib.db_utils import DB_Connection
 from salts_lib.constants import VIDEO_TYPES
 from salts_lib.constants import QUALITIES
+from salts_lib import dom_parser
 
 BASE_URL = 'http://moviestorm.eu'
 QUALITY_MAP = {'HD': QUALITIES.HIGH, 'CAM': QUALITIES.LOW, 'BRRIP': QUALITIES.HIGH, 'UNKNOWN': QUALITIES.MEDIUM, 'DVDRIP': QUALITIES.HIGH}
@@ -32,7 +32,6 @@ class MovieStorm_Scraper(scraper.Scraper):
 
     def __init__(self, timeout=scraper.DEFAULT_TIMEOUT):
         self.timeout = timeout
-        self.db_connection = DB_Connection()
         self.base_url = xbmcaddon.Addon().getSetting('%s-base_url' % (self.get_name()))
 
     @classmethod
@@ -81,15 +80,24 @@ class MovieStorm_Scraper(scraper.Scraper):
         return super(MovieStorm_Scraper, self)._default_get_episode_url(show_url, video, episode_pattern, title_pattern, airdate_pattern)
 
     def search(self, video_type, title, year):
-        url = urlparse.urljoin(self.base_url, '/search?q=%s&go=Search' % urllib.quote_plus(title))
-        data = {'q': title, 'go': 'Search'}
-        html = self._http_get(url, data=data, cache_limit=8)
-
         results = []
-        pattern = 'class="movie_box.*?href="([^"]+).*?<h1>([^<]+)'
+        if video_type == VIDEO_TYPES.TVSHOW:
+            url = urlparse.urljoin(self.base_url, '/series/all/')
+            html = self._http_get(url, cache_limit=8)
+    
+            links = dom_parser.parse_dom(html, 'a', {'class': 'underilne'}, 'href')
+            titles = dom_parser.parse_dom(html, 'a', {'class': 'underilne'})
+            items = zip(links, titles)
+        else:
+            url = urlparse.urljoin(self.base_url, '/search?q=%s&go=Search' % urllib.quote_plus(title))
+            data = {'q': title, 'go': 'Search'}
+            html = self._http_get(url, data=data, cache_limit=8)
+            pattern = 'class="movie_box.*?href="([^"]+).*?<h1>([^<]+)'
+            items = re.findall(pattern, html)
+
         norm_title = self._normalize_title(title)
-        for match in re.finditer(pattern, html, re.DOTALL):
-            url, match_title = match.groups()
+        for item in items:
+            url, match_title = item
             if norm_title in self._normalize_title(match_title):
                 result = {'url': url.replace(self.base_url, ''), 'title': match_title, 'year': ''}
                 results.append(result)

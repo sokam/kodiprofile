@@ -21,8 +21,8 @@ import csv
 import xbmc
 import xbmcvfs
 import xbmcgui
-from addon.common.addon import Addon
 import log_utils
+import kodi
 
 def enum(**enums):
     return type('Enum', (), enums)
@@ -32,33 +32,31 @@ CSV_MARKERS = enum(REL_URL='***REL_URL***', OTHER_LISTS='***OTHER_LISTS***', SAV
 TRIG_DB_UPG = False
 MAX_TRIES = 5
 
-_SALTS = Addon('plugin.video.salts')
-
 class DB_Connection():
     def __init__(self):
         global db_lib
         global OperationalError
-        self.dbname = _SALTS.get_setting('db_name')
-        self.username = _SALTS.get_setting('db_user')
-        self.password = _SALTS.get_setting('db_pass')
-        self.address = _SALTS.get_setting('db_address')
+        self.dbname = kodi.get_setting('db_name')
+        self.username = kodi.get_setting('db_user')
+        self.password = kodi.get_setting('db_pass')
+        self.address = kodi.get_setting('db_address')
         self.db = None
         self.progress = None
 
-        if _SALTS.get_setting('use_remote_db') == 'true':
+        if kodi.get_setting('use_remote_db') == 'true':
             if self.address is not None and self.username is not None \
             and self.password is not None and self.dbname is not None:
                 import mysql.connector as db_lib
                 from mysql.connector import OperationalError as OperationalError
-                log_utils.log('Loading MySQL as DB engine', xbmc.LOGDEBUG)
+                log_utils.log('Loading MySQL as DB engine', log_utils.LOGDEBUG)
                 self.db_type = DB_TYPES.MYSQL
             else:
-                log_utils.log('MySQL is enabled but not setup correctly', xbmc.LOGERROR)
+                log_utils.log('MySQL is enabled but not setup correctly', log_utils.LOGERROR)
                 raise ValueError('MySQL enabled but not setup correctly')
         else:
             from sqlite3 import dbapi2 as db_lib
             from sqlite3 import OperationalError as OperationalError
-            log_utils.log('Loading sqlite3 as DB engine', xbmc.LOGDEBUG)
+            log_utils.log('Loading sqlite3 as DB engine', log_utils.LOGDEBUG)
             self.db_type = DB_TYPES.SQLITE
             db_dir = xbmc.translatePath("special://database")
             self.db_path = os.path.join(db_dir, 'saltscache.db')
@@ -68,10 +66,10 @@ class DB_Connection():
         sql = 'DELETE FROM url_cache'
         self.__execute(sql)
 
-    def get_bookmark(self, slug, season='', episode=''):
-        if not slug: return None
+    def get_bookmark(self, trakt_id, season='', episode=''):
+        if not trakt_id: return None
         sql = 'SELECT resumepoint FROM bookmark where slug=? and season=? and episode=?'
-        bookmark = self.__execute(sql, (slug, season, episode))
+        bookmark = self.__execute(sql, (trakt_id, season, episode))
         if bookmark:
             return bookmark[0][0]
         else:
@@ -82,18 +80,18 @@ class DB_Connection():
         bookmarks = self.__execute(sql)
         return bookmarks
 
-    def bookmark_exists(self, slug, season='', episode=''):
-        return self.get_bookmark(slug, season, episode) != None
+    def bookmark_exists(self, trakt_id, season='', episode=''):
+        return self.get_bookmark(trakt_id, season, episode) != None
 
-    def set_bookmark(self, slug, offset, season='', episode=''):
-        if not slug: return
+    def set_bookmark(self, trakt_id, offset, season='', episode=''):
+        if not trakt_id: return
         sql = 'REPLACE INTO bookmark (slug, season, episode, resumepoint) VALUES(?, ?, ?,?)'
-        self.__execute(sql, (slug, season, episode, offset))
+        self.__execute(sql, (trakt_id, season, episode, offset))
 
-    def clear_bookmark(self, slug, season='', episode=''):
-        if not slug: return
+    def clear_bookmark(self, trakt_id, season='', episode=''):
+        if not trakt_id: return
         sql = 'DELETE FROM bookmark WHERE slug=? and season=? and episode=?'
-        self.__execute(sql, (slug, season, episode))
+        self.__execute(sql, (trakt_id, season, episode))
 
     def cache_url(self, url, body):
         now = time.time()
@@ -117,7 +115,7 @@ class DB_Connection():
             age = now - created
             if age < limit:
                 html = rows[0][1]
-        log_utils.log('DB Cache: Url: %s, Cache Hit: %s, created: %s, age: %s, limit: %s' % (url, bool(html), created, now - created, limit), xbmc.LOGDEBUG)
+        log_utils.log('DB Cache: Url: %s, Cache Hit: %s, created: %s, age: %s, limit: %s' % (url, bool(html), created, now - created, limit), log_utils.LOGDEBUG)
         return created, html
 
     def get_all_urls(self, include_response=False, order_matters=False):
@@ -232,7 +230,7 @@ class DB_Connection():
                 for sub in self.get_bookmarks():
                     writer.writerow(sub)
 
-        log_utils.log('Copying export file from: |%s| to |%s|' % (temp_path, full_path), xbmc.LOGDEBUG)
+        log_utils.log('Copying export file from: |%s| to |%s|' % (temp_path, full_path), log_utils.LOGDEBUG)
         if not xbmcvfs.copy(temp_path, full_path):
             raise Exception('Export: Copy from |%s| to |%s| failed' % (temp_path, full_path))
 
@@ -241,7 +239,7 @@ class DB_Connection():
 
     def import_into_db(self, full_path):
         temp_path = os.path.join(xbmc.translatePath("special://profile"), 'temp_import_%s.csv' % (int(time.time())))
-        log_utils.log('Copying import file from: |%s| to |%s|' % (full_path, temp_path), xbmc.LOGDEBUG)
+        log_utils.log('Copying import file from: |%s| to |%s|' % (full_path, temp_path), log_utils.LOGDEBUG)
         if not xbmcvfs.copy(full_path, temp_path):
             raise Exception('Import: Copy from |%s| to |%s| failed' % (full_path, temp_path))
 
@@ -287,7 +285,7 @@ class DB_Connection():
 
     # intended to be a common method for creating a db from scratch
     def init_database(self):
-        cur_version = _SALTS.get_version()
+        cur_version = kodi.get_version()
         db_version = self.__get_db_version()
         if not TRIG_DB_UPG:
             db_version = cur_version
@@ -299,7 +297,7 @@ class DB_Connection():
             self.progress.update(0)
             self.__prep_for_reinit()
 
-        log_utils.log('Building SALTS Database', xbmc.LOGDEBUG)
+        log_utils.log('Building SALTS Database', log_utils.LOGDEBUG)
         if self.db_type == DB_TYPES.MYSQL:
             self.__execute('CREATE TABLE IF NOT EXISTS url_cache (url VARCHAR(255) NOT NULL, response MEDIUMBLOB, timestamp TEXT, PRIMARY KEY(url))')
             self.__execute('CREATE TABLE IF NOT EXISTS db_info (setting VARCHAR(255) NOT NULL, value TEXT, PRIMARY KEY(setting))')
@@ -326,12 +324,12 @@ class DB_Connection():
 
         # reload the previously saved backup export
         if db_version is not None and cur_version != db_version:
-            log_utils.log('Restoring DB from backup at %s' % (self.mig_path), xbmc.LOGDEBUG)
+            log_utils.log('Restoring DB from backup at %s' % (self.mig_path), log_utils.LOGDEBUG)
             self.import_into_db(self.mig_path)
             log_utils.log('DB restored from %s' % (self.mig_path))
 
         sql = 'REPLACE INTO db_info (setting, value) VALUES(?,?)'
-        self.__execute(sql, ('version', _SALTS.get_version()))
+        self.__execute(sql, ('version', kodi.get_version()))
 
     def __table_exists(self, table):
         if self.db_type == DB_TYPES.MYSQL:
@@ -367,7 +365,7 @@ class DB_Connection():
         while True:
             try:
                 cur = self.db.cursor()
-                #log_utils.log('Running: %s with %s' % (sql, params), xbmc.LOGDEBUG)
+                #log_utils.log('Running: %s with %s' % (sql, params), log_utils.LOGDEBUG)
                 cur.execute(sql, params)
                 if sql[:6].upper() == 'SELECT' or sql[:4].upper() == 'SHOW':
                     rows = cur.fetchall()
@@ -377,7 +375,7 @@ class DB_Connection():
             except OperationalError:
                 if tries < MAX_TRIES:
                     tries += 1
-                    log_utils.log('Retrying (%s/%s) SQL: %s' % (tries, MAX_TRIES, sql), xbmc.LOGWARNING)
+                    log_utils.log('Retrying (%s/%s) SQL: %s' % (tries, MAX_TRIES, sql), log_utils.LOGWARNING)
                     self.db = None
                     self.__connect_to_db()
                 else:
@@ -399,11 +397,11 @@ class DB_Connection():
     # purpose is to save the current db with an export, drop the db, recreate it, then connect to it
     def __prep_for_reinit(self):
         self.mig_path = os.path.join(xbmc.translatePath("special://database"), 'mig_export_%s.csv' % (int(time.time())))
-        log_utils.log('Backing up DB to %s' % (self.mig_path), xbmc.LOGDEBUG)
+        log_utils.log('Backing up DB to %s' % (self.mig_path), log_utils.LOGDEBUG)
         self.export_from_db(self.mig_path)
         log_utils.log('Backup export of DB created at %s' % (self.mig_path))
         self.__drop_all()
-        log_utils.log('DB Objects Dropped', xbmc.LOGDEBUG)
+        log_utils.log('DB Objects Dropped', log_utils.LOGDEBUG)
 
     def __create_sqlite_db(self):
         if not xbmcvfs.exists(os.path.dirname(self.db_path)):

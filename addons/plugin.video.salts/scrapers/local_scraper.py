@@ -25,12 +25,10 @@ from salts_lib.constants import VIDEO_TYPES
 from salts_lib.constants import QUALITIES
 from salts_lib.constants import SORT_KEYS
 
-from salts_lib.db_utils import DB_Connection
 BASE_URL = ''
 
 class Local_Scraper(scraper.Scraper):
     def __init__(self, timeout=scraper.DEFAULT_TIMEOUT):
-        self.db_connection = DB_Connection()
         self.base_url = xbmcaddon.Addon().getSetting('%s-base_url' % (self.get_name()))
         self.def_quality = int(xbmcaddon.Addon().getSetting('%s-def-quality' % (self.get_name())))
 
@@ -75,19 +73,7 @@ class Local_Scraper(scraper.Scraper):
         return hosters
 
     def get_url(self, video):
-        temp_video_type = video.video_type
-        if video.video_type == VIDEO_TYPES.EPISODE: temp_video_type = VIDEO_TYPES.TVSHOW
-        url = None
-
-        results = self.search(temp_video_type, video.title, video.year)
-        if results:
-            url = results[0]['url']
-
-        if url and video.video_type == VIDEO_TYPES.EPISODE:
-            show_url = url
-            url = self._get_episode_url(show_url, video)
-
-        return url
+        return super(Local_Scraper, self)._default_get_url(video)
 
     def _get_episode_url(self, show_url, video):
         params = urlparse.parse_qs(show_url)
@@ -106,7 +92,7 @@ class Local_Scraper(scraper.Scraper):
             if 'result' in meta and 'episodes' in meta['result']:
                 episodes = meta['result']['episodes']
         else:
-            log_utils.log('Skipping S&E matching as title search is forced on: %s' % (video.slug), xbmc.LOGDEBUG)
+            log_utils.log('Skipping S&E matching as title search is forced on: %s' % (video.trakt_id), xbmc.LOGDEBUG)
 
         if (force_title or xbmcaddon.Addon().getSetting('title-fallback') == 'true') and video.ep_title:
             run = cmd % (params['id'][0], video.season, 'title', video.ep_title)
@@ -126,7 +112,7 @@ class Local_Scraper(scraper.Scraper):
     def get_settings(cls):
         settings = super(Local_Scraper, cls).get_settings()
         name = cls.get_name()
-        settings.append('         <setting id="%s-def-quality" type="enum" label="     Default Quality" values="None|Low|Medium|High|HD" default="0" visible="eq(-6,true)"/>' % (name))
+        settings.append('         <setting id="%s-def-quality" type="enum" label="     Default Quality" values="None|Low|Medium|High|HD720|HD1080" default="0" visible="eq(-6,true)"/>' % (name))
         return settings
 
     def search(self, video_type, title, year):

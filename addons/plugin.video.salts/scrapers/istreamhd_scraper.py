@@ -21,7 +21,7 @@ import urllib
 import urlparse
 import xbmcaddon
 import xbmc
-from salts_lib.db_utils import DB_Connection
+from salts_lib.trans_utils import i18n
 from salts_lib import log_utils
 from salts_lib.constants import VIDEO_TYPES
 from salts_lib.constants import QUALITIES
@@ -34,7 +34,6 @@ class IStreamHD_Scraper(scraper.Scraper):
 
     def __init__(self, timeout=scraper.DEFAULT_TIMEOUT):
         self.timeout = timeout
-        self.db_connection = DB_Connection()
         self.base_url = xbmcaddon.Addon().getSetting('%s-base_url' % (self.get_name()))
         self.username = xbmcaddon.Addon().getSetting('%s-username' % (self.get_name()))
         self.password = xbmcaddon.Addon().getSetting('%s-password' % (self.get_name()))
@@ -52,7 +51,10 @@ class IStreamHD_Scraper(scraper.Scraper):
         html = self._http_get(url, cache_limit=0)
         match = re.search('id="videoFrame".*?src="([^"]+)', html, re.DOTALL)
         if match:
-            return match.group(1)
+            stream_url = match.group(1)
+            stream_url = stream_url.replace('http://shisqo.atwebpages.com/index.php?url=', '')
+            stream_url = urllib.unquote(stream_url)
+            return stream_url
 
     def format_source_label(self, item):
         label = '[%s] %s (%s views) (%s/100) ' % (item['quality'], item['host'], item['views'], item['rating'])
@@ -68,7 +70,7 @@ class IStreamHD_Scraper(scraper.Scraper):
             hoster = {'multi-part': False, 'class': self, 'rating': None, 'host': 'vk.com', 'direct': False}
             # episodes seem to be consistently available in HD, but movies only in SD
             if video.video_type == VIDEO_TYPES.EPISODE:
-                hoster['quality'] = QUALITIES.HD
+                hoster['quality'] = QUALITIES.HD720
             else:
                 hoster['quality'] = QUALITIES.HIGH
             match = re.search('Views</strong>:\s+(\d+)\s+', html, re.I)
@@ -116,8 +118,8 @@ class IStreamHD_Scraper(scraper.Scraper):
     def get_settings(cls):
         settings = super(IStreamHD_Scraper, cls).get_settings()
         name = cls.get_name()
-        settings.append('         <setting id="%s-username" type="text" label="     Username" default="" visible="eq(-6,true)"/>' % (name))
-        settings.append('         <setting id="%s-password" type="text" label="     Password" option="hidden" default="" visible="eq(-7,true)"/>' % (name))
+        settings.append('         <setting id="%s-username" type="text" label="     %s" default="" visible="eq(-6,true)"/>' % (name, i18n('username')))
+        settings.append('         <setting id="%s-password" type="text" label="     %s" option="hidden" default="" visible="eq(-7,true)"/>' % (name, i18n('password')))
         return settings
 
     def _http_get(self, url, data=None, cache_limit=8):

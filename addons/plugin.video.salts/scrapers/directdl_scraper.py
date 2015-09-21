@@ -24,7 +24,6 @@ import xbmc
 import json
 from salts_lib import log_utils
 from salts_lib.constants import VIDEO_TYPES
-from salts_lib.db_utils import DB_Connection
 from salts_lib.constants import QUALITIES
 
 BASE_URL = 'http://directdownload.tv'
@@ -33,17 +32,15 @@ API_KEY = 'AFBF8E33A19787D1'
 
 Q_ORDER = ['PDTV', 'DSR', 'DVDRIP', 'HDTV', '720P', 'WEBDL', 'WEBDL1080P']
 Q_DICT = dict((quality, i) for i, quality in enumerate(Q_ORDER))
-QUALITY_MAP = {'PDTV': QUALITIES.MEDIUM, 'DSR': QUALITIES.MEDIUM, 'DVDRIP': QUALITIES.HIGH, 'HDTV': QUALITIES.HIGH, '720P': QUALITIES.HD, 'WEBDL': QUALITIES.HD, 'WEBDL1080P': QUALITIES.HD}
+QUALITY_MAP = {'PDTV': QUALITIES.MEDIUM, 'DSR': QUALITIES.MEDIUM, 'DVDRIP': QUALITIES.HIGH,
+               'HDTV': QUALITIES.HIGH, '720P': QUALITIES.HD720, 'WEBDL': QUALITIES.HD720, 'WEBDL1080P': QUALITIES.HD1080}
 
 class DirectDownload_Scraper(scraper.Scraper):
     base_url = BASE_URL
 
     def __init__(self, timeout=scraper.DEFAULT_TIMEOUT):
         self.timeout = timeout
-        self.db_connection = DB_Connection()
         self.base_url = xbmcaddon.Addon().getSetting('%s-base_url' % (self.get_name()))
-        self.username = xbmcaddon.Addon().getSetting('%s-username' % (self.get_name()))
-        self.password = xbmcaddon.Addon().getSetting('%s-password' % (self.get_name()))
 
     @classmethod
     def provides(cls):
@@ -66,37 +63,43 @@ class DirectDownload_Scraper(scraper.Scraper):
             url = urlparse.urljoin(self.base_url, source_url)
             html = self._http_get(url, cache_limit=.5)
             if html:
-                js_result = json.loads(html)
-                query = urlparse.parse_qs(urlparse.urlparse(url).query)
-                match_quality = Q_ORDER
-                if 'quality' in query:
-                    temp_quality = re.sub('\s', '', query['quality'][0])
-                    match_quality = temp_quality.split(',')
+                try:
+                    js_result = json.loads(html)
+                except ValueError:
+                    log_utils.log('Invalid JSON returned: %s: %s' % (url, html), xbmc.LOGWARNING)
+                else:
+                    if 'error' in js_result:
+                        log_utils.log('DD.tv API error: "%s" @ %s' % (js_result['error'], url), xbmc.LOGWARNING)
+                        return hosters
 
-                import urlresolver
-                sxe_str = '.S%02dE%02d.' % (int(video.season), int(video.episode))
-                airdate_str = video.ep_airdate.strftime('.%Y.%m.%d.')
-                for result in js_result:
-                    if sxe_str not in result['release'] and airdate_str not in result['release']:
-                        continue
-                    
-                    if result['quality'] in match_quality:
-                        for key in result['links']:
-                            url = result['links'][key][0]
-                            if re.search('\.rar(\.|$)', url):
-                                continue
-                            
-                            # validate url since host validation fails for real-debrid; mark links direct to avoid unusable check
-                            if urlresolver.HostedMediaFile(url):
+                    query = urlparse.parse_qs(urlparse.urlparse(url).query)
+                    match_quality = Q_ORDER
+                    if 'quality' in query:
+                        temp_quality = re.sub('\s', '', query['quality'][0])
+                        match_quality = temp_quality.split(',')
+    
+                    sxe_str = '.S%02dE%02d.' % (int(video.season), int(video.episode))
+                    airdate_str = video.ep_airdate.strftime('.%Y.%m.%d.')
+                    for result in js_result:
+                        if sxe_str not in result['release'] and airdate_str not in result['release']:
+                            continue
+                        
+                        if result['quality'] in match_quality:
+                            for key in result['links']:
+                                url = result['links'][key][0]
+                                if re.search('\.rar(\.|$)', url):
+                                    continue
+                                
                                 hostname = urlparse.urlparse(url).hostname
                                 hoster = {'multi-part': False, 'class': self, 'views': None, 'url': url, 'rating': None, 'host': hostname,
-                                        'quality': QUALITY_MAP[result['quality']], 'dd_qual': result['quality'], 'direct': True}
+                                        'quality': QUALITY_MAP[result['quality']], 'dd_qual': result['quality'], 'direct': False}
                                 hosters.append(hoster)
 
         return hosters
 
     def get_url(self, video):
         url = None
+        self.create_db_connection()
         result = self.db_connection.get_related_url(video.video_type, video.title, video.year, self.get_name(), video.season, video.episode)
         if result:
             url = result[0][0]
@@ -133,11 +136,19 @@ class DirectDownload_Scraper(scraper.Scraper):
         html = self._http_get(search_url, cache_limit=.25)
         results = []
         if html:
-            js_result = json.loads(html)
-            for match in js_result:
-                url = search_url + '&quality=%s' % match['quality']
-                result = {'url': url.replace(self.base_url, ''), 'title': match['release'], 'quality': match['quality'], 'year': ''}
-                results.append(result)
+            try:
+                js_result = json.loads(html)
+            except ValueError:
+                log_utils.log('Invalid JSON returned: %s: %s' % (search_url, html), xbmc.LOGWARNING)
+            else:
+                if 'error' in js_result:
+                    log_utils.log('DD.tv API error: "%s" @ %s' % (js_result['error'], search_url), xbmc.LOGWARNING)
+                    return results
+                
+                for match in js_result:
+                    url = search_url + '&quality=%s' % match['quality']
+                    result = {'url': url.replace(self.base_url, ''), 'title': match['release'], 'quality': match['quality'], 'year': ''}
+                    results.append(result)
         return results
 
     def _http_get(self, url, data=None, cache_limit=8):
