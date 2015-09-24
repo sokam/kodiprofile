@@ -1,4 +1,4 @@
-# -*- coding: latin-1 -*-
+# -*- coding: utf-8 -*-
 
 import time, datetime
 import re
@@ -230,9 +230,9 @@ def getUnixTimestamp():
 def utcToGmt(date):
     return date - datetime.timedelta(seconds = time.timezone)
 
-def strToDatetime(dateStr, format):
+def strToDatetime(dateStr, dformat):
     try:
-        result = datetime.datetime.strptime(dateStr, format)
+        result = datetime.datetime.strptime(dateStr, dformat)
     except TypeError:
-        result = datetime.datetime(*(time.strptime(dateStr, format)[0:6]))
+        result = datetime.datetime(*(time.strptime(dateStr, dformat)[0:6]))
     return result
