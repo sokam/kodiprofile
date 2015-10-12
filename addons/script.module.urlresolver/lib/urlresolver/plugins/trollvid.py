@@ -33,7 +33,7 @@ class TrollVidResolver(Plugin, UrlResolver, PluginSettings):
         p = self.get_setting('priority') or 100
         self.priority = int(p)
         self.net = Net()
-        self.pattern = 'http://((?:sv\d*.)?trollvid.net)/embed.php.file=([0-9a-zA-Z]+)' # http://sv3.trollvid.net/embed.php?file=([0-9a-zA-Z]+)&
+        self.pattern = 'http://((?:sv\d*\.)?trollvid\.net)/embed\.php.file=([0-9a-zA-Z]+)' # http://sv3.trollvid.net/embed.php?file=([0-9a-zA-Z]+)&
     
     def get_url(self, host, media_id):
             return 'http://sv3.trollvid.net/embed.php?file=%s&w=800&h=600&bg=' % (media_id)
@@ -49,11 +49,26 @@ class TrollVidResolver(Plugin, UrlResolver, PluginSettings):
     
     def get_media_url(self, host, media_id):
         web_url = self.get_url(host, media_id)
-        resp = self.net.http_GET(web_url)
-        html = resp.content
-        r = re.search('clip\s*:\s*\n*\s*{\s*\n*\s*\n*\s*\n*\s*url\s*:\s*"(http.+?)"', html)
+        self.headers['Referer'] = web_url
+        stream_url = None
+        html = self.net.http_GET(web_url, headers=self.headers).content
+        r = re.search('clip\s*:\s*\n*\s*\{\s*\n*\s*\n*\s*\n*\s*url\s*:\s*"(http.+?)"', html)
         if r:
             stream_url = urllib.unquote_plus(r.group(1))
         else:
-            raise UrlResolver.ResolverError('No File located')
-        return stream_url
+            r = re.search('unescape\(atob\(\'(.+?)\'', html)
+            if r:
+                try:
+                    stream_url = urllib.unquote_plus(self._decode_base64(r.group(1)))
+                except:
+                    stream_url = None
+        if stream_url:
+            return stream_url
+        else:
+            raise UrlResolver.ResolverError('File not found')
+
+    def _decode_base64(self, data):
+        missing_padding = 4 - len(data) % 4
+        if missing_padding:
+            data += b'='* missing_padding
+        return data.decode('base64')

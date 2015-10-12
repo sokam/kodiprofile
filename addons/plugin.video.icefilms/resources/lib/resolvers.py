@@ -15,7 +15,7 @@ datapath = addon.get_profile()
 
 cookie_path = os.path.join(datapath, 'cookies')
 
-USER_AGENT = 'Mozilla/5.0 (Windows NT 6.1; WOW64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/28.0.1500.72 Safari/537.36'
+USER_AGENT = 'Mozilla/5.0 (Windows NT 6.1; WOW64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/45.0.2454.99 Safari/537.36'
 ACCEPT = 'text/html,application/xhtml+xml,application/xml;q=0.9,*/*;q=0.8'
 
 def handle_captchas(url, html, data, dialog):
@@ -118,6 +118,8 @@ def resolve_180upload(url):
         dialog.create('Resolving', 'Resolving 180Upload Link...')
         dialog.update(0)
         
+        headers = {'Referer': url}
+        
         media_id = re.search('//.+?/([\w]+)', url).group(1)
         web_url = 'http://180upload.com/embed-%s.html' % media_id
        
@@ -141,7 +143,7 @@ def resolve_180upload(url):
 
             # 1st attempt, probably no captcha
             addon.log('180Upload - Requesting POST URL: %s Data values: %s' % (web_url, data))
-            html = net.http_POST(web_url, data).content
+            html = net.http_POST(web_url, data, headers=headers).content
  
             packed = re.search('id="player_code".*?(eval.*?\)\)\))', html,re.DOTALL)
             if packed:
@@ -150,7 +152,7 @@ def resolve_180upload(url):
                 if link:
                     addon.log('180Upload Link Found: %s' % link.group(1))
                     dialog.update(100)
-                    return link.group(1) + '|User-Agent=%s' % (USER_AGENT)
+                    return link.group(1) + '|Referer=%s&User-Agent=%s' % (url, USER_AGENT)
                 else:
                     link = re.search("'file','(.+?)'", js.replace('\\',''))
                     if link:
@@ -176,7 +178,7 @@ def resolve_180upload(url):
             dialog.update(50)  
             
             addon.log_debug( '180Upload - Requesting POST URL: %s Data: %s' % (url, data))
-            html = net.http_POST(url, data).content
+            html = net.http_POST(url, data, headers=headers).content
 
             wrong_captcha = re.search('<div class="err">Wrong captcha</div>', html)
             if wrong_captcha:
@@ -267,6 +269,8 @@ def resolve_clicknupload(url):
 
     try:
 
+        headers = {'Referer': url}
+        
         #Show dialog box so user knows something is happening
         dialog = xbmcgui.DialogProgress()
         dialog.create('Resolving', 'Resolving ClicknUpload Link...')       
@@ -290,7 +294,7 @@ def resolve_clicknupload(url):
                 data[name] = value
                 
         addon.log('ClicknUpload - Requesting POST URL: %s DATA: %s' % (url, data))                
-        html = net.http_POST(url, data).content
+        html = net.http_POST(url, data, headers=headers).content
         dialog.update(66)
 
         data = {}
@@ -301,9 +305,13 @@ def resolve_clicknupload(url):
 
         #Check for captcha
         data = handle_captchas(url, html, data, dialog)                
-                
+
+        wait_string = re.search('<span id="countdown_str">Please wait <span id=".+?" style=".+?">([0-9]+)</span>', html)
+        if wait_string:
+            xbmc.sleep(int(wait_string.group(1)) * 1000)
+    
         addon.log('ClicknUpload - Requesting POST URL: %s DATA: %s' % (url, data))                                
-        html = net.http_POST(url, data).content
+        html = net.http_POST(url, data, headers=headers).content
 
         #Get download link
         dialog.update(100)
@@ -483,6 +491,8 @@ def resolve_hugefiles(url):
 
     try:
 
+        headers = {'Referer': url}
+        
         puzzle_img = os.path.join(datapath, "hugefiles_puzzle.png")
         
         #Show dialog box so user knows something is happening
@@ -490,8 +500,11 @@ def resolve_hugefiles(url):
         dialog.create('Resolving', 'Resolving HugeFiles Link...')       
         dialog.update(0)
         
-        addon.log('HugeFiles - Requesting GET URL: %s' % url)
-        html = net.http_GET(url).content
+        media_id = re.search('//.+?/([\w]+)', url).group(1)
+        web_url = 'http://hugefiles.net/embed-%s.html' % media_id
+        
+        addon.log('HugeFiles - Requesting GET URL: %s' % web_url)
+        html = net.http_GET(web_url).content
         
         dialog.update(50)
         
@@ -518,13 +531,13 @@ def resolve_hugefiles(url):
             data['method_free'] = 'Free Download'
 
             #Handle captcha
-            data.update(handle_captchas(url, html, data, dialog))
+            data.update(handle_captchas(web_url, html, data, dialog))
             
             dialog.create('Resolving', 'Resolving HugeFiles Link...') 
             dialog.update(50)             
             
-            addon.log('HugeFiles - Requesting POST URL: %s DATA: %s' % (url, data))
-            html = net.http_POST(url, data).content
+            addon.log('HugeFiles - Requesting POST URL: %s DATA: %s' % (web_url, data))
+            html = net.http_POST(web_url, data, headers=headers).content
 
             solvemedia = re.search('<iframe src="((?:http:)?//api.solvemedia.com[^"]+)', html)
             recaptcha = re.search('<script type="text/javascript" src="(http://www.google.com[^"]+)', html)            
@@ -537,9 +550,24 @@ def resolve_hugefiles(url):
             
         #Get download link
         dialog.update(100)       
-        r = re.search('fileUrl\s*=\s*"([^"]+)', html)
-        if r:
-            return r.group(1)        
+
+        packed = re.search('id="player_code".*?(eval.*?\)\)\))', html,re.DOTALL)
+        if packed:
+            js = jsunpack.unpack(packed.group(1))
+            link = re.search('name="src"0="([^"]+)"/>', js.replace('\\',''))
+            if link:
+                addon.log('HugeFiles Link Found: %s' % link.group(1))
+                return link.group(1) + '|Referer=%s&User-Agent=%s' % (url, USER_AGENT)
+            else:
+                link = re.search("'file','(.+?)'", js.replace('\\',''))
+                if link:
+                    addon.log('HugeFiles Link Found: %s' % link.group(1))
+                    return link.group(1) + '|Referer=%s&User-Agent=%s' % (url, USER_AGENT)
+
+
+        #r = re.search('fileUrl\s*=\s*"([^"]+)', html)
+        #if r:
+        #    return r.group(1)        
         
     except Exception, e:
         addon.log_error('**** HugeFiles Error occured: %s' % e)

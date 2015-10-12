@@ -62,12 +62,14 @@ video_type = addon.queries.get('videoType', '')
 stacked_parts = addon.queries.get('stackedParts', '')
 nextPage = addon.queries.get('nextPage', '')
 search = addon.queries.get('search', '')
+video_id = addon.queries.get('t', '')
 
 addon.log('----------------Icefilms Addon Param Info----------------------')
 addon.log('--- Version: ' + str(addon.get_version()))
 addon.log('--- Mode: ' + str(mode))
 addon.log('--- DirMode: ' + str(dirmode))
 addon.log('--- URL: ' + str(url))
+addon.log('--- Video Id: ' + str(video_id))
 addon.log('--- Video Type: ' + str(video_type))
 addon.log('--- Name: ' + str(name))
 addon.log('--- IMDB: ' + str(imdbnum))
@@ -118,8 +120,8 @@ if not ICEFILMS_URL.endswith("/"):
     ICEFILMS_URL = ICEFILMS_URL + "/"
 
 ICEFILMS_AJAX = ICEFILMS_URL+'membersonly/components/com_iceplayer/video.phpAjaxResp.php?s=%s&t=%s&app_id=if_' + addon.get_version()
-ICEFILMS_AJAX_REFER = 'http://www.icefilms.info/membersonly/components/com_iceplayer/video.php?h=374&w=631&vid=%s&img='
-ICEFILMS_REFERRER = 'http://www.icefilms.info'
+ICEFILMS_AJAX_REFER = ICEFILMS_URL + 'membersonly/components/com_iceplayer/video.php?h=374&w=631&vid=%s&img='
+ICEFILMS_REFERRER = ICEFILMS_URL
 USER_AGENT = 'Mozilla/5.0 (Windows NT 6.1; WOW64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/28.0.1500.72 Safari/537.36'
 ACCEPT = 'text/html,application/xhtml+xml,application/xml;q=0.9,*/*;q=0.8'
 
@@ -1370,8 +1372,8 @@ def TVEPLINKS(source, season, imdb_id):
 def LOADMIRRORS(url):
     # This proceeds from the file page to the separate frame where the mirrors can be found,
     # then executes code to scrape the mirrors
-    html=GetURL(url)  
-    
+    html=GetURL(url)
+      
     #---------------Begin phantom metadata getting--------
 
     #Save metadata on page to files, for use when playing.
@@ -1387,7 +1389,9 @@ def LOADMIRRORS(url):
         return
     else:
         ice_meta['title'] = namematch.group(1)
-        ice_meta['year'] = re.search('\(([0-9]+)\)', namematch.group(1)).group(1)
+        year = re.search('\(([0-9]+)\)', namematch.group(1))
+        if year:
+            ice_meta['year'] = year.group(1)
         try:
             cache.set('videoname', namematch.group(1))
         except:
@@ -1463,16 +1467,16 @@ def LOADMIRRORS(url):
     match=re.compile('/membersonly/components/com_iceplayer/(.+?img=).*?" width=').findall(html)
     match[0]=re.sub('%29',')',match[0])
     match[0]=re.sub('%28','(',match[0])
-    for url in match:
-        mirrorpageurl = iceurl+'membersonly/components/com_iceplayer/'+url
+    for link in match:
+        mirrorpageurl = iceurl+'membersonly/components/com_iceplayer/' + link
       
-    html = GetURL(mirrorpageurl, save_cookie = True)
+    html = GetURL(mirrorpageurl, save_cookie = True, use_cache=False)
 
     #Show Ice Ad's
     match = re.search('<iframe[^>]*src="([^"]+)', html)
     if match:
         show_ice_ad(urllib.quote(match.group(1)), mirrorpageurl)
-    
+              
     #string for all text under hd720p border
     defcat = re.compile('<div class=ripdiv><b>(.+?)</b>(.+?)</div>').findall(html)
     for media_type, scrape in defcat:
@@ -1572,7 +1576,7 @@ def PART(scrap, sourcenumber, host, args, source_tag, ice_meta=None):
                                 fullname = fullname.replace('Part 1', 'Multiple Parts')
                                 addExecute(fullname, args, get_default_action(), ice_meta, stacked)
                             elif not stacked:
-                                addExecute(fullname, args, get_default_action(), ice_meta)                                                
+                                addExecute(fullname, args, get_default_action(), ice_meta)
 
           # if source does not have multiple parts...
           else:
@@ -1692,6 +1696,8 @@ def show_ice_ad(ad_url, referrer):
             match = re.search("location=decode\('([^']+)", html)
             if match:
                 html = net.http_GET(match.group(1)).content
+    except:
+        pass
     finally:
         window.close()
 
@@ -1845,7 +1851,7 @@ def Item_Meta(name):
     listitem = xbmcgui.ListItem(name)
 
     video = get_video_name(vidname)
-
+              
     if video_type == 'movie':
         listitem.setInfo('video', {'title': video['name'], 'year': vid_year, 'type': 'movie', 'plotoutline': plot_outline, 'plot': vid_plot, 'mpaa': mpaa})
 
@@ -1858,7 +1864,7 @@ def Item_Meta(name):
         listitem.setInfo('video', {'title': video['name'], 'tvshowtitle': show['name'], 'year': vid_year, 'episode': episode_num, 'season': episode_season, 'type': 'episode', 'plotoutline': plot_outline, 'plot': vid_plot, 'mpaa': mpaa})
 
     listitem.setThumbnailImage(thumb_img)
-
+       
     return listitem
 
 
@@ -1985,6 +1991,20 @@ def GetSource():
     return url
 
 
+def get_resume_choice(video_id):
+    question = 'Resume from %s' % (format_time(db_connection.get_bookmark(video_id)))
+    return xbmcgui.Dialog().yesno('Resume?', question, '', '', 'Start from beginning', 'Resume') == 1
+
+
+def format_time(seconds):
+    minutes, seconds = divmod(seconds, 60)
+    if minutes > 60:
+        hours, minutes = divmod(minutes, 60)
+        return "%02d:%02d:%02d" % (hours, minutes, seconds)
+    else:
+        return "%02d:%02d" % (minutes, seconds)
+
+
 def Stream_Source(name, download_play=False, download=False, download_jdownloader=False, stacked=False):
 
     #Grab actual source url
@@ -2002,7 +2022,20 @@ def Stream_Source(name, download_play=False, download=False, download_jdownloade
 
     last_part = False
     current_part = 1
-
+    
+    resume_threshhold = int(addon.get_setting('resume-threshhold'))
+    
+    resume = False
+    use_resume = str2bool(addon.get_setting('resume-support'))
+    if use_resume:
+        if db_connection.bookmark_exists(video_id):
+            resume = get_resume_choice(video_id)  
+                
+    resume_point = 0
+    if resume:
+        resume_point = db_connection.get_bookmark(video_id)    
+        addon.log('Resuming video at: %s' % resume_point)    
+    
     while not last_part:
         
         #If it's a stacked source, grab url one by one
@@ -2064,8 +2097,8 @@ def Stream_Source(name, download_play=False, download=False, download_jdownloade
         #Else play the file as normal stream
         else:               
             addon.log('Starting Normal Streaming')
-                       
-            completed = play_with_watched(link, listitem, mypath, last_part)
+                                  
+            completed = play_with_watched(link, listitem, mypath, last_part, resume_point, resume_threshhold)
             addon.log('Normal streaming completed: %s' % completed)
 
         #Check if video was played until end - else assume user stopped watching video so break from loop
@@ -2073,7 +2106,7 @@ def Stream_Source(name, download_play=False, download=False, download_jdownloade
             break                
 
 
-def play_with_watched(url, listitem, mypath, last_part=False):
+def play_with_watched(url, listitem, mypath, last_part=False, resume_point=0, resume_threshhold=1):
     global currentTime
     global totalTime
     global watched_percent
@@ -2091,7 +2124,7 @@ def play_with_watched(url, listitem, mypath, last_part=False):
         axelhelper =  proxy.ProxyHelper()
         url, download_id = axelhelper.create_proxy_url(url)
     
-    mplayer = MyPlayer(axelhelper=axelhelper, download_id=download_id)
+    mplayer = MyPlayer(axelhelper=axelhelper, download_id=download_id, ice_id=video_id, resume_point=resume_point, resume_threshhold=resume_threshhold)
     mplayer.play(url, listitem)
 
     try:
@@ -2113,9 +2146,9 @@ def play_with_watched(url, listitem, mypath, last_part=False):
     while(1):
         try:
             temp_current_time = mplayer.getTime()
-            currentTime= temp_current_time + temp_total
+            currentTime= int(temp_current_time + temp_total)
         except Exception:
-            addon.log_error('XBMC is not currently playing a media file')
+            addon.log_error('Kodi is not currently playing a media file')
             break
         xbmc.sleep(1000)
     
@@ -2148,23 +2181,33 @@ def get_stacked_part(name, part):
 
 
 class MyPlayer (xbmc.Player):
-     def __init__ (self, axelhelper=None, download_id=None):
+    def __init__ (self, axelhelper=None, download_id=None, ice_id=None, resume_point=0, resume_threshhold=1):
         self.dialog = None
         self.axelhelper = axelhelper
         self.download_id = download_id
+        self.ice_video_id = ice_id
+        self.seek_time = resume_point
+        self.resume_threshhold = resume_threshhold
         xbmc.Player.__init__(self)
         
         addon.log('Initializing myPlayer...')
         
-     def play(self, url, listitem):
+    def play(self, url, listitem):
         addon.log('Now im playing... %s' % url)
 
-        xbmc.Player(xbmc.PLAYER_CORE_AUTO).play(url, listitem)            
+        xbmc.Player(xbmc.PLAYER_CORE_AUTO).play(url, listitem)
         
-     def isplaying(self):
+    def isplaying(self):
         xbmc.Player.isPlaying(self)
 
-     def onPlayBackEnded(self):
+    def onPlayBackStarted(self):
+        try:
+            if self.seek_time == 0: raise Exception()
+            self.seekTime(float(self.seek_time))
+        except:
+            pass        
+        
+    def onPlayBackEnded(self):
         global currentTime
         global totalTime
         global finalPart
@@ -2174,7 +2217,8 @@ class MyPlayer (xbmc.Player):
             self.axelhelper.stop_download(self.download_id)        
         
         if finalPart:
-            percentWatched = currentTime / totalTime
+            try: percentWatched = currentTime / totalTime
+            except: percentWatched = 0
             addon.log('current time: ' + str(currentTime) + ' total time: ' + str(totalTime) + ' percent watched: ' + str(percentWatched))
             if percentWatched >= watched_percent:
                 #set watched
@@ -2183,7 +2227,7 @@ class MyPlayer (xbmc.Player):
                 addon.log('Auto-Watch - Setting %s to watched' % video)
                 ChangeWatched(imdbnum, video_type, video['name'], season_num, episode_num, video['year'], watched=7)
 
-     def onPlayBackStopped(self):
+    def onPlayBackStopped(self):
         global currentTime
         global totalTime
         global finalPart
@@ -2193,7 +2237,8 @@ class MyPlayer (xbmc.Player):
             self.axelhelper.stop_download(self.download_id)
         
         if finalPart:
-            percentWatched = currentTime / totalTime
+            try: percentWatched = currentTime / totalTime
+            except: percentWatched = 0
             addon.log('current time: ' + str(currentTime) + ' total time: ' + str(totalTime) + ' percent watched: ' + str(percentWatched))
             if percentWatched >= watched_percent and totalTime > 1:
                 #set watched
@@ -2201,6 +2246,10 @@ class MyPlayer (xbmc.Player):
                 video = get_video_name(vidname)
                 addon.log('Auto-Watch - Setting %s to watched' % video            )
                 ChangeWatched(imdbnum, video_type, video['name'], season_num, episode_num, video['year'], watched=7)
+                db_connection.clear_bookmark(self.ice_video_id)
+            elif currentTime >= (self.resume_threshhold * 60):
+                addon.log('Stopped watching at: %s' % currentTime)
+                db_connection.set_bookmark(self.ice_video_id, currentTime)
 
 ############## End MyPlayer Class ################
 

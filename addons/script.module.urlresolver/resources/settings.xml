@@ -19,6 +19,9 @@
 	<setting label="allmyvideos" type="lsep"/>
 	<setting default="100" id="AllmyvideosResolver_priority" label="Priority" type="number"/>
 	<setting default="true" id="AllmyvideosResolver_enabled" label="Enabled" type="bool"/>
+	<setting label="allvid" type="lsep"/>
+	<setting default="100" id="AllVidResolver_priority" label="Priority" type="number"/>
+	<setting default="true" id="AllVidResolver_enabled" label="Enabled" type="bool"/>
 	<setting label="auengine.com" type="lsep"/>
 	<setting default="100" id="AuEngineResolver_priority" label="Priority" type="number"/>
 	<setting default="true" id="AuEngineResolver_enabled" label="Enabled" type="bool"/>
@@ -78,11 +81,11 @@
 	<setting label="filehoot" type="lsep"/>
 	<setting default="100" id="FilehootResolver_priority" label="Priority" type="number"/>
 	<setting default="true" id="FilehootResolver_enabled" label="Enabled" type="bool"/>
+</category>
+<category label="Resolvers 2">
 	<setting label="filenuke" type="lsep"/>
 	<setting default="100" id="FilenukeResolver_priority" label="Priority" type="number"/>
 	<setting default="true" id="FilenukeResolver_enabled" label="Enabled" type="bool"/>
-</category>
-<category label="Resolvers 2">
 	<setting label="filepup" type="lsep"/>
 	<setting default="100" id="FilePupResolver_priority" label="Priority" type="number"/>
 	<setting default="true" id="FilePupResolver_enabled" label="Enabled" type="bool"/>
@@ -157,11 +160,11 @@
 	<setting label="mp4upload" type="lsep"/>
 	<setting default="100" id="Mp4uploadResolver_priority" label="Priority" type="number"/>
 	<setting default="true" id="Mp4uploadResolver_enabled" label="Enabled" type="bool"/>
+</category>
+<category label="Resolvers 3">
 	<setting label="mrfile" type="lsep"/>
 	<setting default="100" id="MrFileResolver_priority" label="Priority" type="number"/>
 	<setting default="true" id="MrFileResolver_enabled" label="Enabled" type="bool"/>
-</category>
-<category label="Resolvers 3">
 	<setting label="muchshare" type="lsep"/>
 	<setting default="100" id="MuchshareResolver_priority" label="Priority" type="number"/>
 	<setting default="true" id="MuchshareResolver_enabled" label="Enabled" type="bool"/>
@@ -180,9 +183,6 @@
 	<setting label="play44.net" type="lsep"/>
 	<setting default="100" id="Play44Resolver_priority" label="Priority" type="number"/>
 	<setting default="true" id="Play44Resolver_enabled" label="Enabled" type="bool"/>
-	<setting label="played" type="lsep"/>
-	<setting default="100" id="PlayedResolver_priority" label="Priority" type="number"/>
-	<setting default="true" id="PlayedResolver_enabled" label="Enabled" type="bool"/>
 	<setting label="playwire" type="lsep"/>
 	<setting default="100" id="PlaywireResolver_priority" label="Priority" type="number"/>
 	<setting default="true" id="PlaywireResolver_enabled" label="Enabled" type="bool"/>
@@ -301,6 +301,13 @@
 	<setting label="uploadcrazy.net" type="lsep"/>
 	<setting default="100" id="UploadCrazyResolver_priority" label="Priority" type="number"/>
 	<setting default="true" id="UploadCrazyResolver_enabled" label="Enabled" type="bool"/>
+	<setting label="uptobox" type="lsep"/>
+	<setting default="100" id="UpToBoxResolver_priority" label="Priority" type="number"/>
+	<setting default="true" id="UpToBoxResolver_enabled" label="Enabled" type="bool"/>
+	<setting default="false" id="UpToBoxResolver_auto_pick" label="Automatically pick best quality" type="bool" visible="true"/>
+	<setting label="userscloud" type="lsep"/>
+	<setting default="100" id="UsersCloudResolver_priority" label="Priority" type="number"/>
+	<setting default="true" id="UsersCloudResolver_enabled" label="Enabled" type="bool"/>
 	<setting label="VeeHD" type="lsep"/>
 	<setting default="100" id="VeeHDResolver_priority" label="Priority" type="number"/>
 	<setting default="true" id="VeeHDResolver_enabled" label="Enabled" type="bool"/>
@@ -310,6 +317,8 @@
 	<setting label="veoh" type="lsep"/>
 	<setting default="100" id="VeohResolver_priority" label="Priority" type="number"/>
 	<setting default="true" id="VeohResolver_enabled" label="Enabled" type="bool"/>
+</category>
+<category label="Resolvers 5">
 	<setting label="This plugin calls the veoh addon - change settings there." type="lsep"/>
 	<setting label="vid.ag" type="lsep"/>
 	<setting default="100" id="VidAgResolver_priority" label="Priority" type="number"/>
@@ -317,8 +326,6 @@
 	<setting label="vid.gg" type="lsep"/>
 	<setting default="100" id="VidggResolver_priority" label="Priority" type="number"/>
 	<setting default="true" id="VidggResolver_enabled" label="Enabled" type="bool"/>
-</category>
-<category label="Resolvers 5">
 	<setting label="vid.me" type="lsep"/>
 	<setting default="100" id="VidMeResolver_priority" label="Priority" type="number"/>
 	<setting default="true" id="VidMeResolver_enabled" label="Enabled" type="bool"/>
@@ -388,6 +395,8 @@
 	<setting label="vidup" type="lsep"/>
 	<setting default="100" id="VidUpResolver_priority" label="Priority" type="number"/>
 	<setting default="true" id="VidUpResolver_enabled" label="Enabled" type="bool"/>
+</category>
+<category label="Resolvers 6">
 	<setting label="vidxden" type="lsep"/>
 	<setting default="100" id="VidxdenResolver_priority" label="Priority" type="number"/>
 	<setting default="true" id="VidxdenResolver_enabled" label="Enabled" type="bool"/>
@@ -397,8 +406,6 @@
 	<setting label="vidzur.com" type="lsep"/>
 	<setting default="100" id="VidzurResolver_priority" label="Priority" type="number"/>
 	<setting default="true" id="VidzurResolver_enabled" label="Enabled" type="bool"/>
-</category>
-<category label="Resolvers 6">
 	<setting label="vimeo" type="lsep"/>
 	<setting default="100" id="VimeoResolver_priority" label="Priority" type="number"/>
 	<setting default="true" id="VimeoResolver_enabled" label="Enabled" type="bool"/>
@@ -445,5 +452,8 @@
 	<setting label="zalaa" type="lsep"/>
 	<setting default="100" id="ZalaaResolver_priority" label="Priority" type="number"/>
 	<setting default="true" id="ZalaaResolver_enabled" label="Enabled" type="bool"/>
+	<setting label="zerocast" type="lsep"/>
+	<setting default="100" id="ZeroCastResolver_priority" label="Priority" type="number"/>
+	<setting default="true" id="ZeroCastResolver_enabled" label="Enabled" type="bool"/>
 </category>
 </settings>

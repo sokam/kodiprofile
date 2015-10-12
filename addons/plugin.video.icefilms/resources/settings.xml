@@ -14,10 +14,12 @@
       <setting id="auto_host_2" type="labelenum" label="30509" values="" default="BillionUploads" enable="!eq(-2,false)" visible="false" />
       <setting id="auto_host_3" type="labelenum" label="30510" values="" default="HugeFiles" enable="!eq(-3,false)" visible="false" />
       <setting type="sep" visible="false" />
+      <setting id="resume-support" label="30511" type="bool" default="true" />
+        <setting id="resume-threshhold" label="30512" type="slider" range="1,1,10" option="int"  default="2" enable="!eq(-1,false)"/>
       <setting id="watched-percent" label="30501" type="enum" values="70[B] %[/B]|80[B] %[/B]|90[B] %[/B]" default="2" />
       <setting id="play-action" type="enum" label="30502" values="Watch Stream|Download|Download and Watch" default="Watch Stream"/>
       <setting id="video-seeking" type="bool" label="30503" default="false" visible="false"/>
-      <setting id="buffer-delay" type="number" label="30504" default="10" enable="!eq(-1,false)"/>
+        <setting id="buffer-delay" type="number" label="30504" default="10" enable="!eq(-1,false)"/>
    </category>  
    <category label="Accounts">
       <setting id="hide-successful-login-messages" type="bool" label="30250" default="false" />

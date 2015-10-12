@@ -1,3 +1,16 @@
+[B]v1.15.0 (Tuesday, 06 October 2015):[/B]
+  - Added resume support
+  - Fixed HugeFile resolver
+  - Fixed issue (hopefully) with occasional error (_getitem_) when loading list of sources
+
+[B]v1.14.0(Friday, 02 October 2015):[/B]
+  - Small fix to catch and bypass errors encountered with ad's
+
+[B]v1.13.0(Friday, 25 September 2015):[/B]
+  - Fixed ClicknUpload resolver
+  - Fixed 180Uploads resolver
+  - Small bug fix in tv show episodes listing
+
 [B]v1.12.0(Friday, 11 September 2015):[/B]
   - Small update to help fix Ice Ads
 

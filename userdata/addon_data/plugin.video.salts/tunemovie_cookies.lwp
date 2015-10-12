@@ -1,5 +1,4 @@
 #LWP-Cookies-2.0
-Set-Cookie3: S="photos_html=QUsL5yzg50-9ExlWAofr2A"; path="/"; domain=".google.com"; path_spec; domain_dot; secure; discard; HttpOnly=None; version=0
+Set-Cookie3: S="photos_html=nSFYgOGPJikvm_gPil7acQ"; path="/"; domain=".google.com"; path_spec; domain_dot; secure; discard; HttpOnly=None; version=0
 Set-Cookie3: __cfduid=d494454d48c18d486d3e51f509c3301601443064959; path="/"; domain=".tunemovie.is"; path_spec; domain_dot; expires="2016-09-23 03:22:39Z"; HttpOnly=None; version=0
-Set-Cookie3: cf_clearance="1c632cc51593cc44cd3eaf78cafba3a56ac618eb-1443064959-1800"; path="/"; domain=".tunemovie.is"; path_spec; domain_dot; expires="2015-09-24 04:52:39Z"; HttpOnly=None; version=0
 Set-Cookie3: _rtok=19eYZf9mQ8i9; path="/"; domain="picasaweb.google.com"; path_spec; secure; discard; HttpOnly=None; version=0
