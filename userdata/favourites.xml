@@ -1,10 +1,4 @@
 <favourites>
-    <favourite name="Favourite TV" thumb="/home/sokam/.kodi/addons/plugin.video.genesis/resources/art/gone/shows_favourites.jpg">ActivateWindow(10025,&quot;plugin://plugin.video.genesis/?action=shows_favourites&quot;,return)</favourite>
-    <favourite name="Favourite Movies" thumb="/home/sokam/.kodi/addons/plugin.video.genesis/resources/art/gone/movies_favourites.jpg">ActivateWindow(10025,&quot;plugin://plugin.video.genesis/?action=movies_favourites&quot;,return)</favourite>
-    <favourite name="CCTV-1 综合">PlayMedia(&quot;plugin://plugin.video.cntv-live/?stream=cctv1&quot;)</favourite>
-    <favourite name="CCTV-4 (美洲)">PlayMedia(&quot;plugin://plugin.video.cntv-live/?stream=cctvamerica&quot;)</favourite>
-    <favourite name="CCTV-13 新闻">PlayMedia(&quot;plugin://plugin.video.cntv-live/?stream=cctv13&quot;)</favourite>
-    <favourite name="azdrama.net" thumb="/home/sokam/.kodi/addons/plugin.video.azdrama-1.0.20/icon.png">ActivateWindow(10025,&quot;plugin://plugin.video.azdrama/&quot;,return)</favourite>
-    <favourite name="PPTV视频" thumb="/home/sokam/.kodi/addons/plugin.video.pptv/icon.png">ActivateWindow(10025,&quot;plugin://plugin.video.pptv/&quot;,return)</favourite>
-    <favourite name="天线宝宝网星电视" thumb="/home/sokam/.kodi/addons/plugin.video.txbb-0.0.18/icon.png">ActivateWindow(10025,&quot;plugin://plugin.video.txbb/&quot;,return)</favourite>
+    <favourite name="Favourite TV" thumb="/home/sokam/.kodi/addons/plugin.video.genesis/resources/media/gone/tvFavourites.jpg">ActivateWindow(10025,&quot;plugin://plugin.video.genesis/?action=tvFavourites&quot;,return)</favourite>
+    <favourite name="Favourite Movies" thumb="/home/sokam/.kodi/addons/plugin.video.genesis/resources/media/gone/movieFavourites.jpg">ActivateWindow(10025,&quot;plugin://plugin.video.genesis/?action=movieFavourites&quot;,return)</favourite>
 </favourites>
