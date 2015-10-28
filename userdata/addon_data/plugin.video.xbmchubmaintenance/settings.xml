@@ -1,5 +1,5 @@
 <settings>
-    <setting id="7icon" value="false" />
+    <setting id="7icon" value="true" />
     <setting id="_allitemsonbottom" value="DISABLED" />
     <setting id="_backgroundupdate" value="DISABLED" />
     <setting id="_defaultplayer" value="DISABLED" />
@@ -140,7 +140,7 @@
     <setting id="nextsongpopuptime" value="DISABLED" />
     <setting id="nocdgbackground" value="DISABLED" />
     <setting id="numericchannelswitchtimeout" value="DISABLED" />
-    <setting id="opened" value="1" />
+    <setting id="opened" value="7" />
     <setting id="override-av" value="DISABLED" />
     <setting id="override-bv" value="DISABLED" />
     <setting id="override-range-av" value="DISABLED" />

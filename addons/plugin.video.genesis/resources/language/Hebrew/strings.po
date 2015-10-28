@@ -4,6 +4,7 @@
 # Translators:
 # Translators:
 # Translators:
+# Translators:
 # Itay Mizi, 2015
 # lambda81, 2015
 # lambda81, 2015
@@ -12,8 +13,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: Genesis\n"
 "POT-Creation-Date: YEAR-MO-DA HO:MI+ZONE\n"
-"PO-Revision-Date: 2015-10-10 13:02+0000\n"
-"Last-Translator: lambda81\n"
+"PO-Revision-Date: 2015-10-18 17:05+0000\n"
+"Last-Translator: Tomer meirov\n"
 "Language-Team: Hebrew (http://www.transifex.com/tv-addons/genesis/language/he/)\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -183,7 +184,7 @@ msgstr "חיפוש"
 
 msgctxt "#30081"
 msgid "[B]TRAKT[/B] : Collection"
-msgstr " אוסף: [B]TRAKT[/B]"
+msgstr "אוסף:[B]TRAKT[/B] "
 
 msgctxt "#30082"
 msgid "[B]TRAKT[/B] : Watchlist"
@@ -199,7 +200,7 @@ msgstr "רייטינג:[B]TRAKT[/B]"
 
 msgctxt "#30085"
 msgid "[B]TRAKT[/B] : TV Collection"
-msgstr "לוח שנה:[B]TRAKT[/B]"
+msgstr "אוסף סדרות:[B]TRAKT[/B]"
 
 msgctxt "#30086"
 msgid "[B]TRAKT[/B] : TV Watchlist"
@@ -267,63 +268,63 @@ msgstr "סגנון: [B]הגדרות[/B]"
 
 msgctxt "#30112"
 msgid "[B]SETTINGS[/B] : Accounts"
-msgstr "[B]הגדרות[/B] :חשבון"
+msgstr "חשבון: [B]הגדרות[/B]"
 
 msgctxt "#30113"
 msgid "[B]SETTINGS[/B] : Playback"
-msgstr "[B]הגדרות[/B] :שמע"
+msgstr "שמע: [B]הגדרות[/B]"
 
 msgctxt "#30114"
 msgid "[B]SETTINGS[/B] : Subtitles"
-msgstr "[B]הגדרות[/B] :כתוביות"
+msgstr "כתוביות: [B]הגדרות[/B]"
 
 msgctxt "#30115"
 msgid "[B]SOURCES[/B] : Movies"
-msgstr "[B]מקור[/B] :סרטים"
+msgstr "סרטים: [B]מקור[/B]"
 
 msgctxt "#30116"
 msgid "[B]SOURCES[/B] : TV"
-msgstr "[B]מקור[/B]: סדרות "
+msgstr "סדרות: [B]מקור[/B]"
 
 msgctxt "#30117"
 msgid "[B]HOSTS[/B] : HD Priority"
-msgstr " HD אחסון  : [B]שרת[/B]"
+msgstr "HD אחסון: [B]שרת[/B]"
 
 msgctxt "#30118"
 msgid "[B]HOSTS[/B] : SD Priority"
-msgstr "[B]שרת[/B] : אחסון SD"
+msgstr "SD אחסון: [B]שרת[/B]"
 
 msgctxt "#30119"
 msgid "[B]GENESIS[/B] : Clear sources..."
-msgstr "[B]ג'נסיס[/B] :נקה העדפת מקורות אחסון"
+msgstr "נקה העדפת מקורות אחסון :[B]ג'נסיס[/B]"
 
 msgctxt "#30120"
 msgid "[B]GENESIS[/B] : Clear cache..."
-msgstr "[B]ג'נסיס[/B] :ניקוי Cache"
+msgstr "נקה Cache :[B]ג'נסיס[/B]"
 
 msgctxt "#30121"
 msgid "[B]GENESIS[/B] : Library"
-msgstr "[B]ג'נסיס[/B] :ספריה"
+msgstr "ספריה :[B]ג'נסיס[/B]"
 
 msgctxt "#30122"
 msgid "[B]GENESIS[/B] : Downloads"
-msgstr "[B]ספריה[/B] : הורדות"
+msgstr " הורדות:[B]ג'נסיס[/B]"
 
 msgctxt "#30131"
 msgid "[B]LIBRARY[/B] : Settings"
-msgstr "[B]ספריה[/B] :הגדרות"
+msgstr "הגדרות:[B]ספריה[/B]"
 
 msgctxt "#30132"
 msgid "[B]GENESIS[/B] : Update folders..."
-msgstr "[B]ג'נסיס[/B] :עדכון התקייה"
+msgstr "עדכון תיקייה:[B]ג'נסיס[/B]"
 
 msgctxt "#30133"
 msgid "[B]GENESIS[/B] : Movie folder..."
-msgstr "[B]ספריה[/B] :תיקית סרטים"
+msgstr "תיקיית סרטים:[B]ג'נסיס[/B]"
 
 msgctxt "#30134"
 msgid "[B]GENESIS[/B] : TV folder..."
-msgstr "[B]ספריה[/B] :תיקית סדרות"
+msgstr "תיקיית סדרות:[B]ג'נסיס[/B]"
 
 msgctxt "#30135"
 msgid "[B]TRAKT[/B] : Import Collection..."
@@ -516,6 +517,10 @@ msgstr "מידע על הפרק"
 msgctxt "#30273"
 msgid "Set Episodes view"
 msgstr "הגדר פרקים להצגה"
+
+msgctxt "#30274"
+msgid "Browse Seasons"
+msgstr "עיון בעונות"
 
 msgctxt "#30291"
 msgid "Auto-play"

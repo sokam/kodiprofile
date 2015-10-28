@@ -103,7 +103,69 @@ class DB_Connection():
         if not url: return
         sql = 'DELETE FROM new_bkmark WHERE url=?'
         self.__execute(sql, (url,))
+        
 
+    ###### QUEUE LIST
+    def get_queue(self, type):
+        sql='SELECT a.*, b.resumepoint FROM queue_list a left join new_bkmark b on a.url=b.url where type=? order by timestamp desc'
+        queue = self.__execute(sql, (type,))
+        return queue
+       
+    def save_queue(self, url, type, name, year, season, episode, imdbid):
+        now = time.time()
+        if not url: return
+        sql = 'INSERT INTO queue_list (url, type, name, year, season, episode, imdbid, timestamp) VALUES(?,?,?,?,?,?,?,?)'
+        try:
+            title = urllib.unquote_plus(unicode(name, 'latin1'))
+            self.__execute(sql, (url, type, title, year, season, episode, imdbid, now))
+        except database.IntegrityError:
+            raise     
+        
+    def clear_queue(self, url):
+        if not url: return
+        sql = 'DELETE FROM queue_list WHERE url=?'
+        self.__execute(sql, (url,))
+
+    def flush_queue(self, type=None):
+        if type:
+            sql = 'DELETE FROM queue_list WHERE type=?'
+            self.__execute(sql, (type,))
+        else:
+            sql = 'DELETE FROM queue_list'
+            self.__execute(sql)
+
+            
+    ###### RECENT WATCHED
+    def get_watched(self, type):
+        sql='SELECT a.*, b.resumepoint FROM recent_watched a left join new_bkmark b on a.url=b.url where type=? order by timestamp desc'
+        watched = self.__execute(sql, (type,))
+        return watched
+    
+    # return true if watched exists
+    def watched_exists(self, url):
+        return self.get_watched(url) != None
+    
+    def set_watched(self, url, type, name, year, season, episode, imdbid):
+        now = time.time()
+        if not url: return
+        sql = 'REPLACE INTO recent_watched (url, type, name, year, season, episode, imdbid, timestamp) VALUES(?,?,?,?,?,?,?,?)'
+        self.__execute(sql, (url, type, name, year, season, episode, imdbid, now))
+        
+    def clear_watched(self, url):
+        if not url: return
+        sql = 'DELETE FROM recent_watched WHERE url=?'
+        self.__execute(sql, (url,))
+
+    def flush_watched(self, type=None):
+        if type:
+            sql = 'DELETE FROM recent_watched WHERE type=?'
+            self.__execute(sql, (type,))
+        else:
+            sql = 'DELETE FROM recent_watched'
+            self.__execute(sql)
+
+
+    ###### FAVOURITES
     def get_favourites(self, fav_type=None):
         sql = 'SELECT * FROM favourites'
         if fav_type:
@@ -324,6 +386,8 @@ class DB_Connection():
             self.__execute('CREATE TABLE IF NOT EXISTS new_bkmark (url VARCHAR(255) PRIMARY KEY NOT NULL, resumepoint DOUBLE NOT NULL)')            
             self.__execute('CREATE TABLE IF NOT EXISTS external_subs (type INTEGER NOT NULL, url VARCHAR(255) NOT NULL, imdbnum TEXT, days VARCHAR(7), PRIMARY KEY (type, url))')
             self.__execute('CREATE TABLE IF NOT EXISTS cache_data (name TEXT, value TEXT, PRIMARY KEY(name(250)))')
+            self.__execute('CREATE TABLE IF NOT EXISTS recent_watched (url VARCHAR(255) PRIMARY KEY NOT NULL, type TEXT, name TEXT, year TEXT, season TEXT, episode TEXT, imdbid TEXT, timestamp TEXT)')
+            self.__execute('CREATE TABLE IF NOT EXISTS queue_list (url VARCHAR(255) PRIMARY KEY NOT NULL, type TEXT, name TEXT, year TEXT, season TEXT, episode TEXT, imdbid TEXT, timestamp TEXT)')
             try: self.__execute('DROP INDEX unique_db_info ON db_info')
             except: pass # ignore failures if the index doesn't exist
             self.__execute('CREATE UNIQUE INDEX unique_db_info ON db_info (setting (255))')
@@ -337,11 +401,15 @@ class DB_Connection():
             self.__execute('CREATE TABLE IF NOT EXISTS new_bkmark (url TEXT PRIMARY KEY NOT NULL, resumepoint DOUBLE NOT NULL)')
             self.__execute('CREATE TABLE IF NOT EXISTS external_subs (type INTEGER NOT NULL, url TEXT NOT NULL, imdbnum TEXT, days VARCHAR(7), PRIMARY KEY (type, url))')
             self.__execute('CREATE TABLE IF NOT EXISTS cache_data (name TEXT, value TEXT)')
+            self.__execute('CREATE TABLE IF NOT EXISTS recent_watched (url TEXT PRIMARY KEY NOT NULL, type TEXT, name TEXT, year TEXT, season TEXT, episode TEXT, imdbid TEXT, timestamp TEXT)')
+            self.__execute('CREATE TABLE IF NOT EXISTS queue_list (url, type, name, year, season, episode, imdbid, timestamp)')
             self.__execute('CREATE UNIQUE INDEX IF NOT EXISTS unique_fav ON favourites (url)')
             self.__execute('CREATE UNIQUE INDEX IF NOT EXISTS unique_sub ON subscriptions (url)')
             self.__execute('CREATE UNIQUE INDEX IF NOT EXISTS unique_url ON url_cache (url)')
             self.__execute('CREATE UNIQUE INDEX IF NOT EXISTS unique_db_info ON db_info (setting)') 
             self.__execute('CREATE UNIQUE INDEX IF NOT EXISTS unique_name ON cache_data (name)')
+            self.__execute('CREATE UNIQUE INDEX IF NOT EXISTS unique_watched ON recent_watched (url)')
+            self.__execute('CREATE UNIQUE INDEX IF NOT EXISTS unique_queue ON queue_list (url)')
         
         # reload the previously saved backup export
         # if db_version is not None and cur_version !=  db_version:

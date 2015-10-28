@@ -1,3 +1,10 @@
+[B]v1.16.0 (Monday, 19 October 2015):[/B]
+  - Adjusted resume support, hopefully makes the resume more fluid
+  - Added Recently Watched support, enable/disable in the addon settings
+  - Added Watch Queue support, similar to Netflix, queue items to watch later, when you finish watching they are removed from the list
+  - Fixed 180Upload resolver issue when the captcha is needed
+  - Fixed HD and DVD tags not correctly showing
+
 [B]v1.15.0 (Tuesday, 06 October 2015):[/B]
   - Added resume support
   - Fixed HugeFile resolver

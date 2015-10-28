@@ -186,7 +186,7 @@ def resolve_180upload(url):
 
         dialog.update(100)
         
-        link = re.search('id="lnk_download" href="([^"]+)', html)
+        link = re.search('id="lnk_download[^"]*" href="([^"]+)', html)
         if link:
             addon.log_debug( '180Upload Link Found: %s' % link.group(1))
             return link.group(1) + '|Referer=%s&User-Agent=%s' % (url, USER_AGENT)

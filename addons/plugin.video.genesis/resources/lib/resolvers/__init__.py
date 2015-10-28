@@ -87,6 +87,13 @@ def info():
         'captcha': False,
         'a/c': False
     }, {
+        'class': 'allvid',
+        'netloc': ['allvid.ch'],
+        'host': ['Allvid'],
+        'quality': 'High',
+        'captcha': False,
+        'a/c': False
+    }, {
         'class': 'bestreams',
         'netloc': ['bestreams.net'],
         'host': ['Bestreams'],
@@ -105,6 +112,13 @@ def info():
         'netloc': ['cloudtime.to'],
         'host': ['Cloudtime'],
         'quality': 'Medium',
+        'captcha': False,
+        'a/c': False
+    }, {
+        'class': 'cloudyvideos',
+        'netloc': ['cloudyvideos.com'],
+        #'host': ['Cloudyvideos'],
+        'quality': 'High',
         'captcha': False,
         'a/c': False
     }, {
@@ -190,7 +204,7 @@ def info():
     }, {
         'class': 'grifthost',
         'netloc': ['grifthost.com'],
-        'host': ['Grifthost'],
+        #'host': ['Grifthost'],
         'quality': 'High',
         'captcha': False,
         'a/c': False
@@ -234,14 +248,14 @@ def info():
         'a/c': False
     }, {
         'class': 'mailru',
-        'netloc': ['mail.ru', 'my.mail.ru', 'videoapi.my.mail.ru']
+        'netloc': ['mail.ru', 'my.mail.ru', 'videoapi.my.mail.ru', 'api.video.mail.ru']
     }, {
         'class': 'mightyupload',
         'netloc': ['mightyupload.com'],
-        #'host': ['Mightyupload'],
-        #'quality': 'High',
-        #'captcha': False,
-        #'a/c': False
+        'host': ['Mightyupload'],
+        'quality': 'High',
+        'captcha': False,
+        'a/c': False
     }, {
         'class': 'movdivx',
         'netloc': ['movdivx.com'],
@@ -277,9 +291,9 @@ def info():
         'class': 'nosvideo',
         'netloc': ['nosvideo.com'],
         #'host': ['Nosvideo'],
-        #'quality': 'Low',
-        #'captcha': False,
-        #'a/c': False
+        'quality': 'Low',
+        'captcha': False,
+        'a/c': False
     }, {
         'class': 'novamov',
         'netloc': ['novamov.com'],
@@ -454,7 +468,11 @@ def info():
         'a/c': False
     }, {
         'class': 'videomega',
-        'netloc': ['videomega.tv']
+        'netloc': ['videomega.tv'],
+        #'host': ['Videomega'],
+        'quality': 'High',
+        'captcha': False,
+        'a/c': False
     }, {
         'class': 'videopremium',
         'netloc': ['videopremium.tv', 'videopremium.me']
@@ -542,4 +560,5 @@ def info():
         'captcha': False,
         'a/c': False
     }]
+
 

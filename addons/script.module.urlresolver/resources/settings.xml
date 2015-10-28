@@ -151,17 +151,20 @@
 	<setting label="movzap|zuzvideo" type="lsep"/>
 	<setting default="100" id="MovzapZuzVideoResolver_priority" label="Priority" type="number"/>
 	<setting default="true" id="MovzapZuzVideoResolver_enabled" label="Enabled" type="bool"/>
+	<setting label="mp4edge.com" type="lsep"/>
+	<setting default="100" id="Mp4EdgeResolver_priority" label="Priority" type="number"/>
+	<setting default="true" id="Mp4EdgeResolver_enabled" label="Enabled" type="bool"/>
 	<setting label="mp4star" type="lsep"/>
 	<setting default="100" id="MP4StarResolver_priority" label="Priority" type="number"/>
 	<setting default="true" id="MP4StarResolver_enabled" label="Enabled" type="bool"/>
 	<setting label="mp4stream" type="lsep"/>
 	<setting default="100" id="Mp4streamResolver_priority" label="Priority" type="number"/>
 	<setting default="true" id="Mp4streamResolver_enabled" label="Enabled" type="bool"/>
+</category>
+<category label="Resolvers 3">
 	<setting label="mp4upload" type="lsep"/>
 	<setting default="100" id="Mp4uploadResolver_priority" label="Priority" type="number"/>
 	<setting default="true" id="Mp4uploadResolver_enabled" label="Enabled" type="bool"/>
-</category>
-<category label="Resolvers 3">
 	<setting label="mrfile" type="lsep"/>
 	<setting default="100" id="MrFileResolver_priority" label="Priority" type="number"/>
 	<setting default="true" id="MrFileResolver_enabled" label="Enabled" type="bool"/>
@@ -235,11 +238,11 @@
 	<setting default="false" id="RPnetResolver_login" label="Login" type="bool"/>
 	<setting default="" enable="eq(-1,true)" id="RPnetResolver_username" label="username" type="text"/>
 	<setting default="" enable="eq(-2,true)" id="RPnetResolver_password" label="password" option="hidden" type="text"/>
+</category>
+<category label="Resolvers 4">
 	<setting label="sharedsx" type="lsep"/>
 	<setting default="100" id="SharedsxResolver_priority" label="Priority" type="number"/>
 	<setting default="true" id="SharedsxResolver_enabled" label="Enabled" type="bool"/>
-</category>
-<category label="Resolvers 4">
 	<setting label="sharerepo" type="lsep"/>
 	<setting default="100" id="SharerepoResolver_priority" label="Priority" type="number"/>
 	<setting default="true" id="SharerepoResolver_enabled" label="Enabled" type="bool"/>
@@ -314,11 +317,11 @@
 	<setting default="false" id="VeeHDResolver_login" label="login" type="bool"/>
 	<setting default="" enable="eq(-1,true)" id="VeeHDResolver_username" label="username" type="text"/>
 	<setting default="" enable="eq(-2,true)" id="VeeHDResolver_password" label="password" option="hidden" type="text"/>
+</category>
+<category label="Resolvers 5">
 	<setting label="veoh" type="lsep"/>
 	<setting default="100" id="VeohResolver_priority" label="Priority" type="number"/>
 	<setting default="true" id="VeohResolver_enabled" label="Enabled" type="bool"/>
-</category>
-<category label="Resolvers 5">
 	<setting label="This plugin calls the veoh addon - change settings there." type="lsep"/>
 	<setting label="vid.ag" type="lsep"/>
 	<setting default="100" id="VidAgResolver_priority" label="Priority" type="number"/>
@@ -392,11 +395,11 @@
 	<setting label="vidto" type="lsep"/>
 	<setting default="100" id="VidtoResolver_priority" label="Priority" type="number"/>
 	<setting default="true" id="VidtoResolver_enabled" label="Enabled" type="bool"/>
+</category>
+<category label="Resolvers 6">
 	<setting label="vidup" type="lsep"/>
 	<setting default="100" id="VidUpResolver_priority" label="Priority" type="number"/>
 	<setting default="true" id="VidUpResolver_enabled" label="Enabled" type="bool"/>
-</category>
-<category label="Resolvers 6">
 	<setting label="vidxden" type="lsep"/>
 	<setting default="100" id="VidxdenResolver_priority" label="Priority" type="number"/>
 	<setting default="true" id="VidxdenResolver_enabled" label="Enabled" type="bool"/>

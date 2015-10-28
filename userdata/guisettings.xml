@@ -86,7 +86,7 @@
         <addonforeignfilter default="true">false</addonforeignfilter>
         <addonnotifications default="true">true</addonnotifications>
         <addonupdates default="true">0</addonupdates>
-        <settinglevel>1</settinglevel>
+        <settinglevel>3</settinglevel>
         <systemtotaluptime>57916</systemtotaluptime>
     </general>
     <input>
@@ -182,7 +182,7 @@
         <flatten default="true">false</flatten>
         <replacelabels default="true">true</replacelabels>
         <selectaction default="true">1</selectaction>
-        <stackvideos default="true">false</stackvideos>
+        <stackvideos>true</stackvideos>
         <watchmodemovies>0</watchmodemovies>
         <watchmodetvshows>0</watchmodetvshows>
         <watchmodemusicvideos>0</watchmodemusicvideos>
@@ -309,7 +309,7 @@
         <custompath default="true"></custompath>
         <downloadfirst default="true">false</downloadfirst>
         <font default="true">arial.ttf</font>
-        <height default="true">28</height>
+        <height>26</height>
         <languages default="true">English</languages>
         <movie default="true"></movie>
         <overrideassfonts default="true">false</overrideassfonts>
@@ -327,7 +327,7 @@
         <actorthumbs default="true">true</actorthumbs>
         <backgroundupdate default="true">false</backgroundupdate>
         <flattentvshows default="true">1</flattentvshows>
-        <groupmoviesets default="true">false</groupmoviesets>
+        <groupmoviesets>true</groupmoviesets>
         <showallitems default="true">true</showallitems>
         <showunwatchedplots default="true">true</showunwatchedplots>
         <tvshowsincludeallseasonsandspecials default="true">0</tvshowsincludeallseasonsandspecials>
@@ -395,16 +395,16 @@
         <setting type="bool" name="skin.confluence.ShowBackgroundVis">false</setting>
         <setting type="bool" name="skin.confluence.HomepageHideRecentlyAddedVideo">false</setting>
         <setting type="bool" name="skin.confluence.HomepageHideRecentlyAddedAlbums">false</setting>
-        <setting type="bool" name="skin.confluence.homepageWeatherinfo">false</setting>
+        <setting type="bool" name="skin.confluence.homepageWeatherinfo">true</setting>
         <setting type="bool" name="skin.confluence.homepageMusicinfo">false</setting>
         <setting type="bool" name="skin.confluence.homepageVideoinfo">false</setting>
         <setting type="bool" name="skin.confluence.HomeMenuNoMovieButton">false</setting>
         <setting type="bool" name="skin.confluence.HomeMenuNoTVShowButton">false</setting>
-        <setting type="bool" name="skin.confluence.HomeMenuNoWeatherButton">false</setting>
-        <setting type="bool" name="skin.confluence.HomeMenuNoPicturesButton">false</setting>
+        <setting type="bool" name="skin.confluence.HomeMenuNoWeatherButton">true</setting>
+        <setting type="bool" name="skin.confluence.HomeMenuNoPicturesButton">true</setting>
         <setting type="bool" name="skin.confluence.HomeMenuNoVideosButton">false</setting>
         <setting type="bool" name="skin.confluence.HomeMenuNoMusicButton">false</setting>
-        <setting type="bool" name="skin.confluence.HomeMenuNoProgramsButton">false</setting>
+        <setting type="bool" name="skin.confluence.HomeMenuNoProgramsButton">true</setting>
         <setting type="bool" name="skin.confluence.AutoScroll">true</setting>
         <setting type="bool" name="skin.confluence.FirstTimeRun">true</setting>
         <setting type="bool" name="skin.confluence.HideFilenameFlagging">false</setting>
@@ -415,31 +415,34 @@
         <setting type="bool" name="skin.confluence.WeatherScript_Enable">false</setting>
         <setting type="bool" name="skin.confluence.Show_SlideShow_Paused">false</setting>
         <setting type="bool" name="skin.confluence.PandoraVis">false</setting>
+        <setting type="bool" name="skin.confluence.WindowedTrailer">false</setting>
         <setting type="string" name="skin.confluence.CustomBackgroundPath">special://home/media/SKINDEFAULT.jpg</setting>
-        <setting type="string" name="skin.confluence.HomeVideosButton1">plugin.video.1channel</setting>
-        <setting type="string" name="skin.confluence.HomeVideosButton2">plugin.video.genesis</setting>
-        <setting type="string" name="skin.confluence.HomeVideosButton3">plugin.video.projectfreetv</setting>
-        <setting type="string" name="skin.confluence.HomeVideosButton4">plugin.video.icefilms</setting>
-        <setting type="string" name="skin.confluence.HomeVideosButton5">plugin.video.moviedb</setting>
-        <setting type="string" name="skin.confluence.HomeMusicButton1">plugin.audio.radio_de</setting>
-        <setting type="string" name="skin.confluence.HomeMusicButton2">plugin.video.itunes_podcasts</setting>
-        <setting type="string" name="skin.confluence.HomeMusicButton3">plugin.audio.radioreference</setting>
-        <setting type="string" name="skin.confluence.HomeMusicButton4">plugin.video.XBMCKaraoke</setting>
+        <setting type="string" name="skin.confluence.HomeVideosButton1">plugin.video.ccloudtv</setting>
+        <setting type="string" name="skin.confluence.HomeVideosButton2">plugin.video.channelpear</setting>
+        <setting type="string" name="skin.confluence.HomeVideosButton3">plugin.video.genesis</setting>
+        <setting type="string" name="skin.confluence.HomeVideosButton4">plugin.video.SportsDevil</setting>
+        <setting type="string" name="skin.confluence.HomeVideosButton5">plugin.video.salts</setting>
+        <setting type="string" name="skin.confluence.HomeMusicButton1">plugin.audio.hongkongradio</setting>
+        <setting type="string" name="skin.confluence.HomeMusicButton2">plugin.audio.npr</setting>
+        <setting type="string" name="skin.confluence.HomeMusicButton3">script.audio.pandora</setting>
+        <setting type="string" name="skin.confluence.HomeMusicButton4">plugin.audio.radio_de</setting>
         <setting type="string" name="skin.confluence.HomeMusicButton5">plugin.audio.soundcloud</setting>
-        <setting type="string" name="skin.confluence.HomePictureButton1"></setting>
-        <setting type="string" name="skin.confluence.HomePictureButton2"></setting>
-        <setting type="string" name="skin.confluence.HomePictureButton3"></setting>
-        <setting type="string" name="skin.confluence.HomePictureButton4"></setting>
+        <setting type="string" name="skin.confluence.HomePictureButton1">plugin.image.500px</setting>
+        <setting type="string" name="skin.confluence.HomePictureButton2">plugin.image.comicstrips</setting>
+        <setting type="string" name="skin.confluence.HomePictureButton3">plugin.image.flickr</setting>
+        <setting type="string" name="skin.confluence.HomePictureButton4">plugin.image.picasa</setting>
         <setting type="string" name="skin.confluence.HomePictureButton5"></setting>
-        <setting type="string" name="skin.confluence.HomeProgramButton1">script.navi-x</setting>
+        <setting type="string" name="skin.confluence.HomeProgramButton1">script.games.rom.collection.browser</setting>
         <setting type="string" name="skin.confluence.HomeProgramButton2">plugin.program.addoninstaller</setting>
         <setting type="string" name="skin.confluence.HomeProgramButton3">plugin.video.xbmchubmaintenance</setting>
         <setting type="string" name="skin.confluence.HomeProgramButton4"></setting>
         <setting type="string" name="skin.confluence.HomeProgramButton5"></setting>
         <setting type="string" name="skin.confluence.Home_Custom_Back_TV_Folder"></setting>
-        <setting type="string" name="skin.confluence.LyricScript_Path"></setting>
+        <setting type="string" name="skin.confluence.LyricScript_Path">script.cu.lrclyrics</setting>
         <setting type="string" name="skin.confluence.WeatherFanartDir"></setting>
         <setting type="string" name="skin.confluence.WeatherScript_Label"></setting>
+        <setting type="string" name="skin.confluence.Startup_Playlist_Path"></setting>
+        <setting type="string" name="skin.confluence.HomeProgramButton6"></setting>
     </skinsettings>
     <resolutions />
     <defaultvideosettings>

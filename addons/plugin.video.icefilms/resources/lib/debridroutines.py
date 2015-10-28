@@ -1,6 +1,7 @@
 import urllib, urllib2
 import re, os, cookielib
 import simplejson as json
+import xbmcgui
 
 class RealDebrid:
 
@@ -37,23 +38,34 @@ class RealDebrid:
 
 
     def Resolve(self, url):
-        print 'DebridRoutines - Resolving url: %s' % url
-        url = 'https://real-debrid.com/ajax/unrestrict.php?link=%s' % url
-        source = self.GetURL(url)
-        jsonresult = json.loads(source)
-        print 'DebridRoutines - Returned Source: %s' % source
-        download_details = {}
-        download_details['download_link'] = ''
-        download_details['message'] = ''
-        if 'generated_links' in jsonresult:
-            generated_links = jsonresult['generated_links']
-            link = generated_links[0][2]
-            download_details['download_link'] = link
-            return download_details
-        else:
-            message = jsonresult['message']
-            download_details['message'] = message
-            return download_details
+        try:
+            dialog = xbmcgui.DialogProgress()
+            dialog.create('Resolving', 'Resolving Link Using Real-Debrid...')       
+            dialog.update(0)
+            
+            print 'DebridRoutines - Resolving url: %s' % url
+            url = 'https://real-debrid.com/ajax/unrestrict.php?link=%s' % url
+            source = self.GetURL(url)
+            dialog.update(100)
+            jsonresult = json.loads(source)
+            print 'DebridRoutines - Returned Source: %s' % source
+            download_details = {}
+            download_details['download_link'] = ''
+            download_details['message'] = ''
+            if 'generated_links' in jsonresult:
+                generated_links = jsonresult['generated_links']
+                link = generated_links[0][2]
+                download_details['download_link'] = link
+                return download_details
+            else:
+                message = jsonresult['message']
+                download_details['message'] = message
+                return download_details
+        except Exception, e:
+            print 'Error occured resolving with Real-Debrid: %s' % e
+            return None
+        finally:
+            dialog.close()
 
 
     def valid_host(self, host):
