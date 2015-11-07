@@ -20,7 +20,6 @@ socket.setdefaulttimeout(10)
 
 class Main:
     def __init__(self):
-        self.loop = 0
         set_property('Map.IsFetched', 'true')
         lat, lon = self._parse_argv()
         self._get_maps(lat, lon)
@@ -152,6 +151,7 @@ class get_tiles(threading.Thread):
         self.stamp = stamp
         self.imgs = imgs
         self.url = url
+        self.loop = 0
         threading.Thread.__init__(self)
  
     def run(self):
@@ -199,7 +199,8 @@ class get_tiles(threading.Thread):
                 return
         if failed and self.loop < 10:
             self.loop += 1
-            xbmc.sleep(10000)
+            if MONITOR.waitForAbort(10):
+                return
             self.fetch_tiles(failed, mapdir)
 
     def merge_tiles(self):

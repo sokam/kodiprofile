@@ -87,7 +87,7 @@
         <addonnotifications default="true">true</addonnotifications>
         <addonupdates default="true">0</addonupdates>
         <settinglevel>3</settinglevel>
-        <systemtotaluptime>57916</systemtotaluptime>
+        <systemtotaluptime>59624</systemtotaluptime>
     </general>
     <input>
         <enablejoystick default="true">true</enablejoystick>
@@ -126,7 +126,7 @@
         <skintheme default="true">SKINDEFAULT</skintheme>
         <skinzoom default="true">0</skinzoom>
         <soundskin default="true">resource.uisounds.confluence</soundskin>
-        <startupwindow>10006</startupwindow>
+        <startupwindow default="true">10000</startupwindow>
     </lookandfeel>
     <masterlock>
         <maxretries default="true">3</maxretries>
