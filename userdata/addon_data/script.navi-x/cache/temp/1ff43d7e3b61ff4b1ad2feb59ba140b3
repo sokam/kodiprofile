@@ -1,0 +1,371 @@
+version=1
+background=http://wonderfulengineering.com/wp-content/uploads/2013/11/HD-apple-wallpaper-2.png
+title=Live TV Channels (Porkie's Playlist) [COLOR=FF888888]Â»[/COLOR] 1 to 198 of 265
+logo=http://www.userlogos.org/files/logos/igor23/livetv_black.png
+
+type=playlist
+name=Sorted by user-assigned order
+icon=http://media.navi-x.org/images/icons/2downarrow.png
+URL=http://www.navixtreme.com/playlist/137077/live_tv_channels_(porkies_playlist)_1_to_198_of_265.plx?action=sortsel&cur=ord
+
+# 2261613
+type=video
+name=ESPN Brazil
+thumb=http://www.throughrosetintedglasses.com/wp-content/uploads/2012/05/ESPN-LOGO.jpg
+URL=rtsp://173.193.20.150:1935/mtv/2
+player=default
+rating=-1.00
+
+# 2261614
+type=video
+name=FOX US
+thumb=http://tvseriesfinale.com/assets/fox01a.jpg
+URL=rtmp://watch.ilive.to/edge playpath=1ri6383sf1vupgv live=1 timeout=15 swfUrl=http://player.ilive.to/player_ilive_2.swf pageUrl=http://www.ilive.to/embedplayer.php?width=640&height=480&channel=55828&autoplay=true token=12345dsagf4
+player=default
+rating=-1.00
+
+# 2261615
+type=video
+name=ION Television US
+thumb=https://www.mediabistro.com/tvspy/files/original/DC-IonTV.jpg
+URL=rtmp://watch.ilive.to/edge playpath=4pn7y568ce1ixav live=1 timeout=15 swfUrl=http://player.ilive.to/player_ilive_2.swf pageUrl=http://www.ilive.to/embedplayer.php?width=640&height=480&channel=52317&autoplay=true token=12345dsagf4
+player=default
+rating=-1.00
+
+# 2261616
+type=video
+name=MTV US
+thumb=http://www.bangsandabun.com/wp-content/uploads/2011/04/MTV-Logo-MTV.jpg
+URL=rtmp://watch.ilive.to/edge playpath=bc04erxus7v35oq live=1 timeout=15 swfUrl=http://player.ilive.to/player_ilive_2.swf pageUrl=http://www.ilive.to/embedplayer.php?width=640&height=480&channel=46860&autoplay=true token=12345dsagf4
+player=default
+rating=-1.00
+
+# 2261621
+type=video
+name=AXN Beyond Singapore
+thumb=http://www.acaciacreatives.com/wp-content/uploads/2010/12/axnbeyond-thumbnail.jpg
+URL=rtsp://69.197.154.238/axn2.333
+player=default
+rating=-1.00
+
+# 2261622
+type=video
+name=Digitalb Gold Albania
+thumb=http://www.lyngsat-logo.com/logo/tv/dd/digit_alb_gold.jpg
+URL=rtmp://live.histream.tv/histream/2222ss
+player=default
+rating=-1.00
+
+# 2261623
+type=video
+name=Only Good Movies 2
+thumb=http://www.onlygoodmovies.com/images/content/good-movies.png
+URL=rtmp://31.7.63.186/flash playpath=17706 swfUrl=/http://www.udemy.com/static/flash/player5.9.swf live=1 pageUrl=http://sawlive.tv/v/thehippiehut
+player=default
+rating=-1.00
+
+# 2261624
+type=video
+name=Only Good Movies
+thumb=http://www.onlygoodmovies.com/images/content/good-movies.png
+URL=rtmp://31.7.63.186/flash playpath=18205 swfUrl=/http://www.udemy.com/static/flash/player5.9.swf pageUrl=http://sawlive.tv/v/onlygoodmovies
+player=default
+rating=-1.00
+
+# 2261625
+type=video
+name=5 Citv-TV US
+thumb=http://ing-sat.what.hu/images/web-tv/USA/056-USA-City-5-TV-1.jpg
+URL=rtmp://video.lincoln.ne.gov/live/tv5_3
+player=default
+rating=-1.00
+
+# 2261626
+type=video
+name=9021GO Live US
+thumb=http://www.shockya.com/news/wp-content/themes/toxicshocktv/9021go_banner.jpg
+URL=rtmp://204.107.26.71:1935/battlecam/_definst_/bc_3211629
+rating=-1.00
+
+# 2261627
+type=video
+name=ABC US
+thumb=http://tvseriesfinale.com/assets/abc02aa.jpg
+URL=rtmp://watch.ilive.to/edge playpath=nz7l9vc5nv1og7b swfUrl=http://player.ilive.to/player_ilive_2.swf  live=1 timeout=15 swfVfy=1 pageUrl=http://www.ilive.to/embedplayer.php?width=640&height=400&channel=50746&autoplay=true token=12345dsagf4
+player=default
+rating=-1.00
+
+# 2261628
+type=video
+name=ABC US
+thumb=http://tvseriesfinale.com/assets/abc02aa.jpg
+URL=rtmp://watch.ilive.to/edge/nz7l9vc5nv1og7b swfUrl=http://player.ilive.to/player_ilive_2.swf live=1 pageUrl=http://www.ilive.to/embedplayer.php token=12345dsagf4
+player=default
+rating=-1.00
+
+# 2261629
+type=video
+name=ABC Family US
+thumb=http://www-deadline-com.vimg.net/wp-content/uploads/2010/08/ABC-Family-logo.jpg
+URL=rtmp://watch.ilive.to/edge playpath=0ofj5z5lab0b3ox swfUrl=http://player.ilive.to/player_ilive_2.swf  live=1 pageUrl=http://www.ilive.to/embedplayer.php token=12345dsagf4
+player=default
+rating=-1.00
+
+# 2261630
+type=video
+name=AMC US
+thumb=http://tvbythenumbers.zap2it.com/wp-content/uploads/2013/04/AMC-Logo-Something-More-350x185.jpg
+URL=rtmp://watch.ilive.to/edge/z4cxm7zlfyqs65m swfUrl=http://player.ilive.to/player_ilive_2.swf  live=1 pageUrl=http://www.ilive.to/embedplayer.php token=12345dsagf4
+player=default
+rating=-1.00
+
+# 2261636
+type=video
+name=Animal Planet Thailand
+thumb=http://www.vivatv.ro/wp-content/uploads/2012/01/animal-planet-live-logo.jpg
+URL=rtmp://watch.ilive.to/edge playpath=41i3ymbmum28xfk swfUrl=http://player.ilive.to/player_ilive_2.swf  live=1 timeout=15 swfVfy=1 pageUrl=http://www.ilive.to/embedplayer.php?width=640&height=400&channel=50746&autoplay=true token=12345dsagf4
+player=default
+rating=-1.00
+
+# 2261637
+type=video
+name=Apollo FM Movies
+thumb=https://d1i6vahw24eb07.cloudfront.net/s68910.gif
+URL=rtmp://watch.ilive.to/edge/h43im3za22e66am swfUrl=http://player.ilive.to/player_ilive_2.swf  live=1 pageUrl=http://www.ilive.to/embedplayer.php token=12345dsagf4
+player=default
+rating=-1.00
+
+# 2261639
+type=video
+name=Austin City Channel 6 US
+thumb=http://impactnews.com/downloads/5747/download/bitblt-620x443-0346055845a7c5f0041c1891b300ca9ca0410fee/01-leslie.jpg
+URL=rtmp://oflash.dfw.swagit.com/live/austintx/live-1
+player=default
+rating=-1.00
+
+# 2261641
+type=video
+name=AXN Brazil
+thumb=http://2.bp.blogspot.com/-nzY9_B0HCNA/TdraXaKxqkI/AAAAAAAAGSQ/fZFMf8DT8u4/s320/HighResLogo_RGB.jpg
+URL=rtmp://watch.ilive.to/edge/778im6ualerzp67 swfUrl=http://player.ilive.to/player_ilive_2.swf  live=1 pageUrl=http://www.ilive.to/embedplayer.php token=12345dsagf4
+player=default
+rating=-1.00
+
+# 2261642
+type=video
+name=AXN Portugal
+thumb=http://2.bp.blogspot.com/-nzY9_B0HCNA/TdraXaKxqkI/AAAAAAAAGSQ/fZFMf8DT8u4/s320/HighResLogo_RGB.jpg
+URL=rtmp://watch.ilive.to/edge/dw657dcdmdf0vap swfUrl=http://player.ilive.to/player_ilive_2.swf  live=1 pageUrl=http://www.ilive.to/embedplayer.php token=12345dsagf4
+player=default
+rating=-1.00
+
+# 2261644
+type=video
+name=AXN Black Portugal
+thumb=http://tb.bizwiz.ro/RCS-RDS-a-scos-din-grila-televiziunea-AXN-Black--inlocuind-o-cu-Nickelodeon/a2b151771933839f05/588/331/2/70/RCS-RDS-a-scos-din-grila-televiziunea-AXN-Black--inlocuind-o-cu-Nickelodeon.jpg
+URL=rtmp://watch.ilive.to/edge/79fkf9ugubolnai swfUrl=http://player.ilive.to/player_ilive_2.swf  live=1 pageUrl=http://www.ilive.to/embedplayer.php token=12345dsagf4
+player=default
+rating=-1.00
+
+# 2261648
+type=video
+name=AXN White Portugal
+thumb=http://www.plus.es/recorte.php?xref=20120416pluutmifr_4&type=Ies&id=LCO413
+URL=rtmp://watch.ilive.to/edge/pe94wt2bo03n4rt swfUrl=http://player.ilive.to/player_ilive_2.swf  live=1 pageUrl=http://www.ilive.to/embedplayer.php token=12345dsagf4
+player=default
+rating=-1.00
+
+# 2261652
+type=video
+name=BET US
+thumb=http://thegrid10.com/wp-content/uploads/2013/08/BET.jpg
+URL=rtmp://watch.ilive.to/edge playpath=kexkxje3nqi6dtl swfUrl=http://player.ilive.to/player_ilive_2.swf  live=1 pageUrl=http://www.ilive.to/embedplayer.php token=12345dsagf4
+player=default
+rating=-1.00
+
+# 2261653
+type=video
+name=BigPond Movies Extra Australia
+thumb=http://www.nowscreen.com/content/upload/images/mov-thumbs/bw-bigpond-thumb.jpg
+URL=mms://ken-cdn220-is-3.se.bptvlive.ngcdn.telstra.com/bp_online_movieextra_high
+player=default
+rating=-1.00
+
+# 2261654
+type=video
+name=Board Riders TV US
+thumb=http://boardriders.tv/img/boardriders.png
+URL=rtsp://live240.impek.com/brtvhd
+player=default
+rating=-1.00
+
+# 2261655
+type=video
+name=Bravo US
+thumb=http://i1.cdnds.net/10/04/ustv_bravo_logo_0.jpg
+URL=rtmp://watch.ilive.to/edge playpath=uw433ikqnrj501l swfUrl=http://player.ilive.to/player_ilive_2.swf  live=1 pageUrl=http://www.ilive.to/embedplayer.php token=12345dsagf4
+player=default
+rating=-1.00
+
+# 2261656
+type=video
+name=Bravo US
+thumb=http://i1.cdnds.net/10/04/ustv_bravo_logo_0.jpg
+URL=rtmp://watch.ilive.to/edge playpath=bfmw64f3l53st5n swfUrl=http://player.ilive.to/player_ilive_2.swf  live=1 pageUrl=http://www.ilive.to/embedplayer.php token=12345dsagf4
+player=default
+rating=-1.00
+
+# 2261658
+type=video
+name=CBS US
+thumb=http://mrc-static.s3.amazonaws.com/Newsbusters/static/2009/01/2009-01-19-CBS-TES-Logo.jpg
+URL=rtmp://watch.ilive.to/edge playpath=jlloui0fux61mix live=1 timeout=15 swfUrl=http://player.ilive.to/player_ilive_2.swf pageUrl=http://www.ilive.to/embedplayer.php?width=640&height=480&channel=54352&autoplay=true token=12345dsagf4
+player=default
+rating=-1.00
+
+# 2261659
+type=video
+name=CBS US
+thumb=http://mrc-static.s3.amazonaws.com/Newsbusters/static/2009/01/2009-01-19-CBS-TES-Logo.jpg
+URL=rtmp://watch.ilive.to/edge playpath=6s2m9jt10buq2ww live=1 timeout=15 swfUrl=http://player.ilive.to/player_ilive_2.swf pageUrl=http://www.ilive.to/embedplayer.php?width=640&height=480&channel=54235&autoplay=true token=12345dsagf4
+player=default
+rating=-1.00
+
+# 2261663
+type=video
+name=Cinemax India
+thumb=http://b.vimeocdn.com/ts/157/196/157196111_640.jpg
+URL=rtmp://watch.ilive.to/edge/nl1yg9ant34fy93 swfUrl=http://player.ilive.to/player_ilive_2.swf  live=1 pageUrl=http://www.ilive.to/embedplayer.php token=12345dsagf4
+player=default
+rating=-1.00
+
+# 2261664
+type=video
+name=CNN US (Set Audio Offset Ahead By 0.550)
+thumb=http://www.userlogos.org/files/logos/tl/cnn.png
+URL=rtmp://watch.ilive.to/edge playpath=rjxo8hz17q9waiq swfUrl=http://player.ilive.to/player_ilive_2.swf  live=1 pageUrl=http://www.ilive.to/embedplayer.php token=12345dsagf4
+player=default
+rating=-1.00
+
+# 2261665
+type=video
+name=CNN US
+thumb=http://www.userlogos.org/files/logos/tl/cnn.png
+URL=rtmp://c.cdn.livenewschat.eu/edge playpath=cnn_live swfUrl=http://msnbclive.eu/player.swf swfVfy=1 live=1 pageUrl=http://weplaylive.tv timeout=15
+player=default
+rating=-1.00
+
+# 2261666
+type=video
+name=Comedy Central US (Set Audio Offset Ahead By 0.275)
+thumb=http://www.nytix.com/repository/tvshows/ComedyCentral/logo.jpg
+URL=rtmp://watch.ilive.to/edge playpath=sfrd5bsagtq9eg0 swfUrl=http://player.ilive.to/player_ilive_2.swf  live=1 pageUrl=http://www.ilive.to/embedplayer.php token=12345dsagf4
+player=default
+rating=-1.00
+
+# 2261667
+type=video
+name=Comedy Central Brazil
+thumb=http://www.nytix.com/repository/tvshows/ComedyCentral/logo.jpg
+URL=rtmp://watch.ilive.to/edge playpath=tuhq23pjmv2t6az swfUrl=http://player.ilive.to/player_ilive_2.swf live=1 timeout=15 swfVfy=1 pageUrl=http://www.ilive.to/embedplayer.php?width=640&height=400&channel=52987&autoplay=true token=12345dsagf4
+player=default
+rating=-1.00
+
+# 2261668
+type=video
+name=The CW US
+thumb=http://images.politico.com/global/click/090910_cw_ap_392_regular.jpg
+URL=rtmp://watch.ilive.to/edge playpath=fvksu1sp51ijtyd swfUrl=http://player.ilive.to/player_ilive_2.swf  live=1 pageUrl=http://www.ilive.to/embedplayer.php token=12345dsagf4
+player=default
+rating=-1.00
+
+# 2261669
+type=video
+name=The CW US
+thumb=http://images.politico.com/global/click/090910_cw_ap_392_regular.jpg
+URL=rtmp://watch.ilive.to/edge playpath=koh5oq74hayye8m live=1 timeout=15 swfUrl=http://player.ilive.to/player_ilive_2.swf pageUrl=http://www.ilive.to/embedplayer.php?width=640&height=480&channel=53708&autoplay=true token=12345dsagf4
+player=default
+rating=-1.00
+
+# 2261670
+type=video
+name=Discovery Channel US (Set Audio Offset Ahead By 0.550)
+thumb=http://www.digitaltvselector.com/wp-content/uploads/2011/02/discovery-channel-logo.jpg
+URL=rtmp://watch.ilive.to/edge playpath=it82brayqtelkyi live=1 timeout=15 swfUrl=http://player.ilive.to/player_ilive_2.swf pageUrl=http://www.ilive.to/embedplayer.php?width=640&height=480&channel=38810&autoplay=true token=12345dsagf4
+player=default
+rating=-1.00
+
+# 2261675
+type=video
+name=Discovery Home & Health China (Click Three Times)
+thumb=http://www.theidentgallery.com/discoveryhomehealth/2008/DISCHH-2008-ID-1-4.jpg
+URL=rtsp://adelivery_s.emome.net:554/discoveryhome_gphone.sdp
+player=default
+rating=-1.00
+
+# 2261687
+type=video
+name=DoughyGuy Broadcast System
+thumb=http://1.bp.blogspot.com/-9c3h5LeGWck/TV9IHswthcI/AAAAAAAAABQ/0FPYYXkowho/s320/Interrupt%2B02.jpg
+URL=http://goo.gl/XFwBL6
+player=default
+rating=-1.00
+
+# 2261784
+type=video
+name=Pac 12 Network US
+thumb=http://i1.ytimg.com/vi/GqZQvs8dtUo/hqdefault.jpg
+URL=http://goo.gl/0CofPI
+player=default
+rating=-1.00
+
+# 2261785
+type=video
+name=Pac 12 Network Arizona US
+thumb=http://i1.ytimg.com/vi/GqZQvs8dtUo/hqdefault.jpg
+URL=http://goo.gl/yy2Y0F
+player=default
+rating=-1.00
+
+# 2261786
+type=video
+name=Pac 12 Network Bay Area US
+thumb=http://i1.ytimg.com/vi/GqZQvs8dtUo/hqdefault.jpg
+URL=http://goo.gl/gHG3ty
+player=default
+rating=-1.00
+
+# 2261787
+type=video
+name=Pac 12 Network Los Angeles US
+thumb=http://i1.ytimg.com/vi/GqZQvs8dtUo/hqdefault.jpg
+URL=http://goo.gl/m4Xaul
+player=default
+rating=-1.00
+
+# 2261788
+type=video
+name=Pac 12 Network Mountain US
+thumb=http://i1.ytimg.com/vi/GqZQvs8dtUo/hqdefault.jpg
+URL=http://goo.gl/6QnKIG
+player=default
+rating=-1.00
+
+# 2261789
+type=video
+name=Pac 12 Network Oregon US
+thumb=http://i1.ytimg.com/vi/GqZQvs8dtUo/hqdefault.jpg
+URL=http://goo.gl/FLfuDu
+player=default
+rating=-1.00
+
+# 2261790
+type=video
+name=Pac 12 Network Washington US
+thumb=http://i1.ytimg.com/vi/GqZQvs8dtUo/hqdefault.jpg
+URL=http://goo.gl/ZOww80
+player=default
+rating=-1.00
+
+
+# cached

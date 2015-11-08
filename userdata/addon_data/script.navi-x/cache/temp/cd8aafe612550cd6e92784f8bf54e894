@@ -1,0 +1,11 @@
+version=7
+title=NBC
+logo=http://www.navixtreme.com/images/backgrounds/thumb_nbc.jpg
+
+type=playlist
+name=Current shows
+URL=http://www.navixtreme.com/scrape/nbc/type/current/
+
+type=playlist
+name=Vintage shows
+URL=http://www.navixtreme.com/scrape/nbc/type/vintage/

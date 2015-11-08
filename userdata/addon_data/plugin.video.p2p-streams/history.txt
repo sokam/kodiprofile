@@ -1,3 +1,6 @@
+TLС|http://super-pomoyka.us.to/trash/ttv-list/acelive/491_reg.acelive|1|/home/sokam/.kodi/addons/plugin.video.p2p-streams/resources/core/parsers/torrenttvruall/icon.png
+Sopcast|sop://broker.sopcast.com:3912/257667|2|/home/sokam/.kodi/addons/plugin.video.p2p-streams/resources/art/sopcast_logo.jpg
+BBC One|acestream://0056794950904c1f169566c045d5d747253c7e36|1|/home/sokam/.kodi/addons/plugin.video.p2p-streams/resources/core/parsers/torrenttvruall/icon.png
 Sopcast|sop://broker.sopcast.com:3912/257667|2|/home/sokam/.kodi/addons/plugin.video.p2p-streams/resources/art/sopcast_logo.jpg
 TLС|http://super-pomoyka.us.to/trash/ttv-list/acelive/491_reg.acelive|1|/home/sokam/.kodi/addons/plugin.video.p2p-streams/resources/core/parsers/torrenttvruall/icon.png
 Direct ID ( 111)|sop://broker.sopcast.com:3912/111|2|/home/sokam/.kodi/addons/plugin.video.p2p-streams/resources/art/sopcast_logo.jpg

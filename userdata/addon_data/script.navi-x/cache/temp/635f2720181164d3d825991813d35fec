@@ -1,0 +1,90 @@
+version=1
+background=http://navix.turner3d.net/images/backgrounds/bkg_navix_bh_plain.jpg
+title=BBC Archive
+logo=http://www.straumr.dk/host/BBC_Archive_inv.png
+description=BBC Archive Site Scraper for Navi-X/description
+
+type=playlist
+name=Art and Artists
+URL=http://www.straumr.dk/host/BBC_Archive_scraper_plx.php?col=0
+player=default
+
+type=playlist
+name=Books and Writers
+URL=http://www.straumr.dk/host/BBC_Archive_scraper_plx.php?col=1
+player=default
+
+type=playlist
+name=Broadcasting and Performing Arts
+URL=http://www.straumr.dk/host/BBC_Archive_scraper_plx.php?col=2
+player=default
+
+type=playlist
+name=Business, Finance and Industry
+URL=http://www.straumr.dk/host/BBC_Archive_scraper_plx.php?col=3
+player=default
+
+type=playlist
+name=Cultural Heritage
+URL=http://www.straumr.dk/host/BBC_Archive_scraper_plx.php?col=4
+player=default
+
+type=playlist
+name=Events
+URL=http://www.straumr.dk/host/BBC_Archive_scraper_plx.php?col=5
+player=default
+
+type=playlist
+name=Family and Lifestyle
+URL=http://www.straumr.dk/host/BBC_Archive_scraper_plx.php?col=6
+player=default
+
+type=playlist
+name=Health and Wellbeing
+URL=http://www.straumr.dk/host/BBC_Archive_scraper_plx.php?col=7
+player=default
+
+type=playlist
+name=Locations - UK 
+URL=http://www.straumr.dk/host/BBC_Archive_scraper_plx.php?col=8
+player=default
+
+type=playlist
+name=Nature and Environment
+URL=http://www.straumr.dk/host/BBC_Archive_scraper_plx.php?col=9
+player=default
+
+type=playlist
+name=Politics and Government
+URL=http://www.straumr.dk/host/BBC_Archive_scraper_plx.php?col=10
+player=default
+
+type=playlist
+name=Politics and Government - Non-UK
+URL=http://www.straumr.dk/host/BBC_Archive_scraper_plx.php?col=11
+player=default
+
+type=playlist
+name=Science and Technology
+URL=http://www.straumr.dk/host/BBC_Archive_scraper_plx.php?col=12
+player=default
+
+type=playlist
+name=Society and Welfare
+URL=http://www.straumr.dk/host/BBC_Archive_scraper_plx.php?col=13
+player=default
+
+type=playlist
+name=Sports
+URL=http://www.straumr.dk/host/BBC_Archive_scraper_plx.php?col=14
+player=default
+
+type=playlist
+name=Transport and Travel
+URL=http://www.straumr.dk/host/BBC_Archive_scraper_plx.php?col=15
+player=default
+
+type=playlist
+name=War and Conflict
+URL=http://www.straumr.dk/host/BBC_Archive_scraper_plx.php?col=16
+player=default

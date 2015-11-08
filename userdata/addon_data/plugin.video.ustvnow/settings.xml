@@ -1,6 +1,7 @@
 <settings>
-    <setting id="email" value="soka4@yahoo.com" />
-    <setting id="password" value="so123456" />
+    <setting id="email" value="" />
+    <setting id="password" value="" />
     <setting id="quality" value="0" />
     <setting id="stream_type" value="0" />
+    <setting id="subscription" value="false" />
 </settings>

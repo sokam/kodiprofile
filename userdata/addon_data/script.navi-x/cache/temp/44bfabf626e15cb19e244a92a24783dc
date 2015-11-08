@@ -1,0 +1,32 @@
+version=7
+title=CBS
+logo=http://www.navixtreme.com/images/backgrounds/thumb_cbs.png
+
+type=playlist
+name=All Current Shows
+URL=http://www.navixtreme.com/scrape/cbs/type/0/All%20Current%20Shows
+
+type=playlist
+name=Primetime
+URL=http://www.navixtreme.com/scrape/cbs/type/1/Primetime
+
+type=playlist
+name=Daytime
+URL=http://www.navixtreme.com/scrape/cbs/type/2/Daytime
+
+type=playlist
+name=Late Night
+URL=http://www.navixtreme.com/scrape/cbs/type/3/Late%20Night
+
+type=playlist
+name=TV Classics
+URL=http://www.navixtreme.com/scrape/cbs/type/4/TV%20Classics
+
+type=playlist
+name=CBS.com Originals
+URL=http://www.navixtreme.com/scrape/cbs/type/5/CBS.com%20Originals
+
+type=playlist
+name=Movies & Specials
+URL=http://www.navixtreme.com/scrape/cbs/type/6/Movies%20&%20Specials
+

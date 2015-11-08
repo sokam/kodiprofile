@@ -1,0 +1,141 @@
+version=1
+background=http://globaltradeallied.com/wp-content/uploads/2013/03/GlobalTradeWorldBackground.jpg
+title=News and Documentary Channels [COLOR=FFFFFF00]*****Documentary World*****[/COLOR]
+logo=https://sp.yimg.com/ib/th?id=JN.3PSFEd68Kq1lL%2fexypAKGw&pid=15.1&P=0
+icon_playlist=https://sp.yimg.com/ib/th?id=JN.3PSFEd68Kq1lL%2fexypAKGw&pid=15.1&P=0
+description=News and Documentary Channels
+
+***follow me on twitter or just let me know you watch[COLOR=FFFFFF00]@docworldnavix[/COLOR]***/description
+
+# 2507666
+type=video
+name=France 24 [English]
+thumb=https://upload.wikimedia.org/wikipedia/en/thumb/6/65/FRANCE_24_logo.svg/1024px-FRANCE_24_logo.svg.png
+date=2015-11-02
+URL=http://f24hls-i.akamaihd.net/hls/live/221193/F24_EN_LO_HLS/master_500.m3u8
+player=default
+rating=-1.00
+
+# 2482097
+type=video
+name=RT NEWS
+thumb=http://russia-insider.com/sites/insider/files/rt_1.jpg
+URL=http://rt.ashttp6.visionip.tv/live/RT_Global-SD/playlist.m3u8?wowzasessionid=1584858433
+player=default
+rating=-1.00
+
+# 2490354
+type=video
+name=CCTV NEWS
+thumb=http://www.cnad.com/Upload/image/2010/1115/20101115162937270821.jpg
+URL=http://origin2.live.web.tv.streamprovider.net/streams/877ba7a57aa68fd898b838f58d51a69f/index.m3u8
+player=default
+rating=-1.00
+
+# 2458787
+type=video
+name=Euronews
+thumb=https://sp.yimg.com/ib/th?id=JN.Sw8165%2fh8mqKOWaj0ol%2bsA&pid=15.1&P=0
+URL=rtsp://ewns-hls-b-stream.hexaglobe.net/rtpeuronewslive/en_vidan350_rtp.sdp
+player=default
+rating=-1.00
+description=Euronews/description
+
+# 2491493
+type=video
+name=DEUTSCHE WELLE (English)
+thumb=http://www.dwdl.de/images/1423038495.jpg
+URL=http://www.metafilegenerator.de/DWelle/tv-asia/ios/master.m3u8
+player=default
+rating=-1.00
+
+# 2491487
+type=video
+name=REUTERS LIVESTREAM
+thumb=http://images.theage.com.au/2014/08/08/5661728/vd-Reuters-livestream-image-620x349.jpg
+URL=http://37.58.85.156/rlo001/ngrp:rlo001.stream_all/playlist.m3u8
+player=default
+rating=-1.00
+
+# 2454687
+type=video
+name=Bloomberg News
+thumb=https://sp.yimg.com/ib/th?id=JN.fFnV38Rd%2fmSj77W3Tb17lw&pid=15.1&P=0
+URL=http://cdn3.videos.bloomberg.com/btv/us/master.m3u8?b?b*t$
+player=default
+rating=-1.00
+description=Bloomberg News (Encore)/description
+
+# 2454685
+type=video
+name=CNBC
+thumb=https://sp.yimg.com/ib/th?id=JN.izefsyBYGAo4JQ3qx3fXvA&pid=15.1&P=0
+URL=http://origin2.live.web.tv.streamprovider.net/streams/3bc166ba3776c04e987eb242710e75c0/index.m3u8
+player=default
+rating=-1.00
+description=CNBC Financial News/description
+
+# 2451226
+type=video
+name=I24 News
+thumb=https://sp.yimg.com/ib/th?id=JN.LuKEmZN7CR0D6x8oEwOkrw&pid=15.1&P=0
+URL=http://bcoveliveios-i.akamaihd.net/hls/live/215102/master_english/398/master.m3u8
+player=default
+rating=-1.00
+description=I24 News/description
+
+# 2458556
+type=video
+name=London Live
+thumb=https://sp.yimg.com/ib/th?id=JN.DeXayvodmX6ts70qmW2otw&pid=15.1&P=0
+URL=http://bcoveliveios-i.akamaihd.net/hls/live/217434/3083279840001/master_900.m3u8
+player=default
+rating=-1.00
+description=London Live ****Documentary World****/description
+
+# 2454248
+type=video
+name=ABC NEWS
+thumb=https://sp.yimg.com/ib/th?id=JN.kZJ9eqRhrV7xlz6%2bYemxAw&pid=15.1&P=0
+URL=http://abclive.abcnews.com/i/abc_live4@136330/index_1200_av-b.m3u8?sd=10&b=1200&rebase=on
+player=default
+rating=-1.00
+description=ABC NEWS/description
+
+# 2482978
+type=video
+name=WEATHER NATION
+thumb=http://www.stream2watch.co/images/thumbs/weather%20nation%20stream.jpg
+URL=http://cdnapi.kaltura.com/p/931702/sp/93170200/playManifest/entryId/1_oorxcge2/format/applehttp/protocol/http/uiConfId/28428751/a.m3u8
+player=default
+rating=-1.00
+
+# 2460439
+type=video
+name=PRESS TV
+thumb=https://sp.yimg.com/ib/th?id=JN.plMFoA7bnNQHO%2bj%2fYn1VIQ&pid=15.1&P=0
+URL=rtmp://mtv.fms-01.visionip.tv/live/mtv-ptv-live-25f-16x9-SDh
+player=default
+rating=-1.00
+description=Press TV/description
+
+# 2459660
+type=video
+name=WGN News Chicago
+thumb=https://sp.yimg.com/ib/th?id=JN.awYrskDtnc3tOFZdcfR5gw&pid=15.1&P=0
+URL=http://wgntribune-lh.akamaihd.net/i/WGNPrimary_1@304622/master.m3u8
+player=default
+rating=-1.00
+description=WGN News Chicago/description
+
+# 2451005
+type=video
+name=UCLA TV
+thumb=https://sp.yimg.com/ib/th?id=JN.2cx4vp3RACTZKZeFCbRWng&pid=15.1&P=0
+URL=rtmp://ucsdtv-wowza.ucsd.edu:1935/live/live_800
+player=default
+rating=-1.00
+description=Education T.V/description
+
+
+# cached

@@ -1,0 +1,3850 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+  <title>Gocomics Mobile</title>
+  <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+<meta name="viewport" id="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no" />
+<link rel="apple-touch-icon-precomposed" href="http://assets.gocomics.com/images/mobile/app_icons/Icon.png?1446735942" />
+<link rel="apple-touch-icon-precomposed" sizes="72x72" href="http://assets.gocomics.com/images/mobile/app_icons/Icon-72.png?1446735942" />
+<link rel="apple-touch-icon-precomposed" sizes="114x114" href="http://assets.gocomics.com/images/mobile/app_icons/Icon@2x.png?1446735942" />
+<link rel="apple-touch-icon-precomposed" sizes="144x144" href="http://assets.gocomics.com/images/mobile/app_icons/Icon-72@2x.png?1446735942" />
+
+  <link href="http://assets.gocomics.com/stylesheets/iphone.css?1446735942" media="screen" rel="stylesheet" type="text/css" />
+  <script src="//ajax.googleapis.com/ajax/libs/jquery/1.9.1/jquery.min.js" type="text/javascript"></script>
+  <script src="http://assets.gocomics.com/javascripts/mobile/hide_bar.js?1446735942" type="text/javascript"></script>
+  <meta http-equiv="Content-Type" content="text/html; charset=UTF-8"/>
+  <meta name="author" content="Universal Uclick" />
+  <meta name="apple-itunes-app" content="app-id=591428858" />
+  <meta name="google-play-app" content="app-id=com.amuniversal.android.gocomics" />
+  <link rel="apple-touch-icon" href="http://assets.gocomics.com/images/mobile/uclickIcon.png"/>
+
+
+  <script type='text/javascript' src='http://c.amazon-adsystem.com/aax2/amzn_ads.js'></script>
+
+<script type='text/javascript'>
+    // Fetches Amazon ads if available and stores them for future use
+    try {
+        amznads.getAds('3170');
+    } catch(e) {
+        /*ignore*/
+    }
+</script>
+  
+  <script type="text/javascript">
+    var googletag = googletag || {};
+    googletag.cmd = googletag.cmd || [];
+
+    (function() {
+        var oads = document.createElement("script");
+        oads.async = true;
+        oads.type = "text/javascript";
+        var useSSL = "https:" == document.location.protocol;
+        oads.onload = oads.onreadystatechange = function() {
+            if (!this.readyState || this.readyState === "loaded" || this.readyState === "complete") {
+                var gads = document.createElement("script");
+                gads.async = true;
+                gads.type = "text/javascript";
+                var useSSL = "https:" == document.location.protocol;
+                gads.src = (useSSL ? "https:" : "http:") + "//www.googletagservices.com/tag/js/gpt.js";
+                var node = document.getElementsByTagName("script")[0];
+                node.parentNode.insertBefore(gads, node);
+            }
+        };
+        oads.src = '//ox-d.amu.servedbyopenx.com/w/1.0/jstag?nc=19196947-GoComics';
+        var node = document.getElementsByTagName("script")[0];
+        node.parentNode.insertBefore(oads, node);
+    })();
+</script>
+
+
+<script type='text/javascript'>
+    var adSlot = '/19196947/gocomics_mobile/comic';
+
+  // $(document).ready(function() {
+  //   $('#ad-interstitial-mobile-cancel').click(function() {
+  //     $('#ad-interstitial-mobile1').hide();
+  //   });
+  // });
+  googletag.cmd.push(function() {
+    // googletag.defineSlot('', [[1, 1], [320, 50]], 'ad-interstitial-mobile1').addService(googletag.pubads());
+    googletag.defineSlot(adSlot, [320, 50], 'leaderboard1').addService(googletag.pubads());
+
+   
+    // Gets key-value pairs and makes calls to googletag.setTargeting() to set them
+    try {
+        amznads.setTargetingForGPTAsync('amznslots');
+    } catch(e) {
+        /*ignore*/
+    }
+
+
+  googletag.pubads().enableSingleRequest();
+  googletag.enableServices();
+  });
+</script>
+
+
+
+  <!-- Index Request -->
+<script src="http://js.indexww.com/ht/uuclick.js"></script>
+<!-- Index Request -->
+
+
+  <link href="http://assets.gocomics.com/stylesheets/mobile/jquery-smartbanner.css?1446735942" media="screen" rel="stylesheet" type="text/css" />
+  <script src="http://assets.gocomics.com/javascripts/mobile/jquery-smartbanner.js?1446735942" type="text/javascript"></script>
+  <script src="http://assets.gocomics.com/javascripts/mobile/jquery-smartbanner-settings.js?1446735942" type="text/javascript"></script>
+
+  <!-- BEGIN PageFair script -->
+<script type="text/javascript">
+    (function() {
+        function async_load(script_url){
+            var protocol = ('https:' == document.location.protocol ? 'https://' : 'http://');
+            var s = document.createElement('script'); s.src = protocol + script_url;
+            var x = document.getElementsByTagName('script')[0]; x.parentNode.insertBefore(s, x);
+        }
+        bm_website_code = '53F040374AD54452';
+        jQuery(document).ready(function(){async_load('asset.pagefair.com/measure.min.js')});
+        jQuery(document).ready(function(){async_load('asset.pagefair.net/ads.min.js')});
+    })();
+</script>
+<!-- END PageFair script -->
+  <!-- Begin comScore Tag -->
+<script>
+    var _comscore = _comscore || [];
+    _comscore.push({ c1: "2", c2: "20519258" });
+    (function() {
+        var s = document.createElement("script"), el = document.getElementsByTagName("script")[0]; s.async = true;
+        s.src = (document.location.protocol == "https:" ? "https://sb" : "http://b") + ".scorecardresearch.com/beacon.js";
+        el.parentNode.insertBefore(s, el);
+    })();
+</script>
+<noscript>
+  <img src="http://b.scorecardresearch.com/p?c1=2&c2=20519258&cv=2.0&cj=1" />
+</noscript>
+<!-- End comScore Tag -->
+  <script type="text/javascript">
+    //Set markup and styling here
+    window.cookieconsent_options = {
+        container: '#cookieconsent-container',
+        learnMore: 'More info',
+        link: 'http://www.gocomics.com/help/privacy',
+        //If you wish to use your own CSS instead, specify the URL of your CSS file. e.g. styles/my_custom_theme.css.
+        //This can be a relative or absolute URL.
+        //To stop Cookie Consent from loading CSS at all, specify false
+        //IE8 Styles need to be duplicated in app specific css overrides /assets/stylesheets/ie/ie8.css
+        theme: false,
+        markup: [
+            '<div>',
+            '<style type="text/css">.cc_banner-wrapper {height: 70px; } .cc_container {z-index:9001; position:relative; width:100%; left:0; top:0; right:0; overflow:hidden; background-color:#666; } .cookie-choices-info {margin:0; padding:0; text-align:center; color:#fff; line-height:140%; padding:15px 0; font-family:roboto,Arial } .cookie-choices-info .cookie-choices-text {display:inline-block; vertical-align:middle; font-size:16px; margin:10px; color:#fefefe; max-width:800px; text-align:center } .cookie-choices-info .cookie-choices-buttons {display:inline-block; vertical-align:middle; white-space:nowrap; margin:10px } .cookie-choices-info .cookie-choices-button:hover {color:#fff; background-color:#000 } .cookie-choices-info .cookie-choices-button {background:#444; font-weight:700; text-transform:UPPERCASE; white-space:nowrap; color:#eee; margin-left:8px; padding:10px; border-radius:3px; text-decoration:none } @media screen and (max-width: 851px) {.cc_banner-wrapper {height:110px } } @media screen and (max-width: 588px) {.cc_banner-wrapper {height:140px } } @media screen and (max-width: 327px) {.cc_banner-wrapper {height:160px } } @media print {.cc_banner-wrapper,.cc_container {display:none } }</style>',
+            '<div class="cc_banner-wrapper {{containerClasses}}">',
+            '<div class="cc_banner cc_container cc_container--open">',
+            '<div class="cookie-choices-info"><div class="cookie-choices-inner"><span class="cookie-choices-text">{{options.message}}</span><span class="cookie-choices-buttons"> <a data-cc-if="options.link" class="cookie-choices-button" target="_blank" href="{{options.link || "#null"}}">{{options.learnMore}}</a> <a id="cookieChoiceDismiss" href="#null" data-cc-event="click:dismiss"  class="cookie-choices-button">{{options.dismiss}}</a></span></div></div>',
+            '</div>',
+            '</div>',
+            '</div>'
+        ],
+        cookieName: 'gocomics_cookieconsent_dismissed',
+        readystate: 'interactive'
+    };
+</script>
+  <script src="http://assets.gocomics.com/javascripts/uu-cookieconsent.js?1446735942" type="text/javascript"></script>
+</head>
+<body class="main">
+  <!-- Google Universal Analytics Start -->
+<script>
+  (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+  (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+  m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+  })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+
+  // UU Tracking Object
+  ga('create', 'UA-273330-9', 'auto', {'name': 'trackerUU9'});
+  ga('trackerUU9.require', 'displayfeatures');
+  ga('trackerUU9.require', 'linkid');
+  ga('trackerUU9.set', 'dimension1', "casual");
+  ga('trackerUU9.set', 'dimension2', "Gocomics Mobile");
+  ga('trackerUU9.set', 'dimension3', "");
+  ga('trackerUU9.set', '&uid', "");
+  ga('trackerUU9.send', 'pageview');
+
+  // UU Tracking Object
+  ga('create', 'UA-273330-4', 'auto', {'name': 'trackerUU4'});
+  ga('trackerUU4.require', 'displayfeatures');
+  ga('trackerUU4.require', 'linkid');
+  ga('trackerUU4.set', 'dimension1', "casual");
+  ga('trackerUU4.set', 'dimension2', "Gocomics Mobile");
+  ga('trackerUU4.set', 'dimension3', "");
+  ga('trackerUU4.set', '&uid', "");
+  ga('trackerUU4.send', 'pageview');
+
+  function trackAppDownloadLink() {
+    ga('trackerUU4.send', 'event', 'Mobile', 'Downloaded App', 'Banner Link');
+  }
+
+</script>
+<!-- Google Universal Analytics End -->
+
+
+  <div id='leaderboard1' class="ad ad-leaderboard">
+  <script type='text/javascript'>
+    googletag.cmd.push(function() { googletag.display('leaderboard1'); });
+  </script>
+</div>
+  <div id="logo">
+    <a href="/" name="a_to_b"><img alt="Logo-mobile" src="http://assets.gocomics.com/images/mobile/logo-mobile.png?1446735942" /></a>
+  </div>
+      <div id="topbar">
+      <a href="/" class="btnBack">Home</a>
+      <a href="/search" class="search">Search</a>
+
+      <p>Comic Strips</p>
+    </div>
+    <div id="cookieconsent-container"></div>
+
+  
+  
+    
+<ul class="comicsList" selected="true">
+  <li class="az-nav">
+  
+      <a href="#a_to_b" name="a_to_b"><span>A to B</span></a>
+  <a href="/explore/comics#c_to_f">C to F</a>  <a href="/explore/comics#g_to_l">G to L</a>  <a href="/explore/comics#m_to_q">M to Q</a>  <a href="/explore/comics#r_to_z">R to Z</a></li>
+
+      
+      <li>
+        <a href="/1-and-done">
+          <img alt="1 and Done" class="thumb" height="60" src="http://avatar.amuniversal.com/feature_avatars/avatars_large/features/oad/tiny_avatar.png" title="1 and Done" width="60" />
+          <span class="title">1 and Done</span>
+          <span class="author">Eric Scott</span>
+          <span class="viewBtn"></span>
+        </a>
+      </li>
+      
+      <li>
+        <a href="/2cowsandachicken">
+          <img alt="2 Cows and a Chicken" class="thumb" height="60" src="http://avatar.amuniversal.com/feature_avatars/avatars_large/features/tcc/tiny_avatar.png" title="2 Cows and a Chicken" width="60" />
+          <span class="title">2 Cows and a Chicken</span>
+          <span class="author">Steve Skelton</span>
+          <span class="viewBtn"></span>
+        </a>
+      </li>
+      
+      <li>
+        <a href="/9chickweedlane">
+          <img alt="9 Chickweed Lane" class="thumb" height="60" src="http://avatar.amuniversal.com/feature_avatars/avatars_large/features/cw/tiny_avatar.png" title="9 Chickweed Lane" width="60" />
+          <span class="title">9 Chickweed Lane</span>
+          <span class="author">Brooke McEldowney</span>
+          <span class="viewBtn"></span>
+        </a>
+      </li>
+      
+      <li>
+        <a href="/9to5">
+          <img alt="9 to 5" class="thumb" height="60" src="http://avatar.amuniversal.com/feature_avatars/avatars_large/features/tmntf/tiny_avatar.png" title="9 to 5" width="60" />
+          <span class="title">9 to 5</span>
+          <span class="author">Harley Schwadron</span>
+          <span class="viewBtn"></span>
+        </a>
+      </li>
+      
+      <li>
+        <a href="/academiawaltz">
+          <img alt="The Academia Waltz" class="thumb" height="60" src="http://avatar.amuniversal.com/feature_avatars/avatars_large/features/aw/tiny_avatar.png" title="The Academia Waltz" width="60" />
+          <span class="title">The Academia Waltz</span>
+          <span class="author">Berkeley Breathed</span>
+          <span class="viewBtn"></span>
+        </a>
+      </li>
+      
+      <li>
+        <a href="/adamathome">
+          <img alt="Adam@Home" class="thumb" height="60" src="http://avatar.amuniversal.com/feature_avatars/avatars_large/features/ad/tiny_avatar.png" title="Adam@Home" width="60" />
+          <span class="title">Adam@Home</span>
+          <span class="author">Rob Harrell</span>
+          <span class="viewBtn"></span>
+        </a>
+      </li>
+      
+      <li>
+        <a href="/adult-children">
+          <img alt="Adult Children" class="thumb" height="60" src="http://avatar.amuniversal.com/feature_avatars/avatars_large/features/ach/tiny_avatar.png" title="Adult Children" width="60" />
+          <span class="title">Adult Children</span>
+          <span class="author">Stephen Beals</span>
+          <span class="viewBtn"></span>
+        </a>
+      </li>
+      
+      <li>
+        <a href="/the-adventures-of-business-cat">
+          <img alt="The Adventures of Business Cat" class="thumb" height="60" src="http://avatar.amuniversal.com/feature_avatars/avatars_large/features/abc/tiny_avatar.png" title="The Adventures of Business Cat" width="60" />
+          <span class="title">The Adventures of Business Cat</span>
+          <span class="author">Tom Fonder</span>
+          <span class="viewBtn"></span>
+        </a>
+      </li>
+      
+      <li>
+        <a href="/agent-gates">
+          <img alt="Agent Gates" class="thumb" height="60" src="http://avatar.amuniversal.com/feature_avatars/avatars_large/features/agt/tiny_avatar.png" title="Agent Gates" width="60" />
+          <span class="title">Agent Gates</span>
+          <span class="author">Carmen Subhiyah &amp; Kyle Hilton</span>
+          <span class="viewBtn"></span>
+        </a>
+      </li>
+      
+      <li>
+        <a href="/agnes">
+          <img alt="Agnes" class="thumb" height="60" src="http://avatar.amuniversal.com/feature_avatars/avatars_large/features/cragn/tiny_avatar.png" title="Agnes" width="60" />
+          <span class="title">Agnes</span>
+          <span class="author">Tony Cochran</span>
+          <span class="viewBtn"></span>
+        </a>
+      </li>
+      
+      <li>
+        <a href="/alley-oop">
+          <img alt="Alley Oop" class="thumb" height="60" src="http://avatar.amuniversal.com/feature_avatars/avatars_large/features/ao/tiny_avatar.png" title="Alley Oop" width="60" />
+          <span class="title">Alley Oop</span>
+          <span class="author">Jack and Carole Bender</span>
+          <span class="viewBtn"></span>
+        </a>
+      </li>
+      
+      <li>
+        <a href="/andertoons">
+          <img alt="Andertoons" class="thumb" height="60" src="http://avatar.amuniversal.com/feature_avatars/avatars_large/features/and/tiny_avatar.png" title="Andertoons" width="60" />
+          <span class="title">Andertoons</span>
+          <span class="author">Mark Anderson</span>
+          <span class="viewBtn"></span>
+        </a>
+      </li>
+      
+      <li>
+        <a href="/andycapp">
+          <img alt="Andy Capp" class="thumb" height="60" src="http://avatar.amuniversal.com/feature_avatars/avatars_large/features/crcap/tiny_avatar.png" title="Andy Capp" width="60" />
+          <span class="title">Andy Capp</span>
+          <span class="author">Reg Smythe</span>
+          <span class="viewBtn"></span>
+        </a>
+      </li>
+      
+      <li>
+        <a href="/angry-little-girls">
+          <img alt="Angry Little Girls" class="thumb" height="60" src="http://avatar.amuniversal.com/feature_avatars/avatars_large/features/ag/tiny_avatar.png" title="Angry Little Girls" width="60" />
+          <span class="title">Angry Little Girls</span>
+          <span class="author">Lela Lee</span>
+          <span class="viewBtn"></span>
+        </a>
+      </li>
+      
+      <li>
+        <a href="/animalcrackers">
+          <img alt="Animal Crackers" class="thumb" height="60" src="http://avatar.amuniversal.com/feature_avatars/avatars_large/features/tmani/tiny_avatar.png" title="Animal Crackers" width="60" />
+          <span class="title">Animal Crackers</span>
+          <span class="author">Fred Wagner</span>
+          <span class="viewBtn"></span>
+        </a>
+      </li>
+      
+      <li>
+        <a href="/annie">
+          <img alt="Annie" class="thumb" height="60" src="http://avatar.amuniversal.com/feature_avatars/avatars_large/features/tmann/tiny_avatar.png" title="Annie" width="60" />
+          <span class="title">Annie</span>
+          <span class="author">Jay Maeder and Alan Kupperberg</span>
+          <span class="viewBtn"></span>
+        </a>
+      </li>
+      
+      <li>
+        <a href="/theargylesweater">
+          <img alt="The Argyle Sweater" class="thumb" height="60" src="http://avatar.amuniversal.com/feature_avatars/avatars_large/features/tas/tiny_avatar.png" title="The Argyle Sweater" width="60" />
+          <span class="title">The Argyle Sweater</span>
+          <span class="author">Scott Hilburn</span>
+          <span class="viewBtn"></span>
+        </a>
+      </li>
+      
+      <li>
+        <a href="/arloandjanis">
+          <img alt="Arlo and Janis" class="thumb" height="60" src="http://avatar.amuniversal.com/feature_avatars/avatars_large/features/aj/tiny_avatar.png" title="Arlo and Janis" width="60" />
+          <span class="title">Arlo and Janis</span>
+          <span class="author">Jimmy Johnson</span>
+          <span class="viewBtn"></span>
+        </a>
+      </li>
+      
+      <li>
+        <a href="/ask-a-cat">
+          <img alt="Ask a Cat" class="thumb" height="60" src="http://avatar.amuniversal.com/feature_avatars/avatars_large/features/aac/tiny_avatar.png" title="Ask a Cat" width="60" />
+          <span class="title">Ask a Cat</span>
+          <span class="author">Charles Brubaker</span>
+          <span class="viewBtn"></span>
+        </a>
+      </li>
+      
+      <li>
+        <a href="/askshagg">
+          <img alt="Ask Shagg" class="thumb" height="60" src="http://avatar.amuniversal.com/feature_avatars/avatars_large/features/crask/tiny_avatar.png" title="Ask Shagg" width="60" />
+          <span class="title">Ask Shagg</span>
+          <span class="author">Peter Guren</span>
+          <span class="viewBtn"></span>
+        </a>
+      </li>
+      
+      <li>
+        <a href="/aunty-acid">
+          <img alt="Aunty Acid" class="thumb" height="60" src="http://avatar.amuniversal.com/feature_avatars/avatars_large/features/aun/tiny_avatar.png" title="Aunty Acid" width="60" />
+          <span class="title">Aunty Acid</span>
+          <span class="author">Ged Backland</span>
+          <span class="viewBtn"></span>
+        </a>
+      </li>
+      
+      <li>
+        <a href="/the-awkward-yeti">
+          <img alt="The Awkward Yeti" class="thumb" height="60" src="http://avatar.amuniversal.com/feature_avatars/avatars_large/features/ay/tiny_avatar.png" title="The Awkward Yeti" width="60" />
+          <span class="title">The Awkward Yeti</span>
+          <span class="author">Nick Seluk</span>
+          <span class="viewBtn"></span>
+        </a>
+      </li>
+      
+      <li>
+        <a href="/bc">
+          <img alt="B.C." class="thumb" height="60" src="http://avatar.amuniversal.com/feature_avatars/avatars_large/features/crbc/tiny_avatar.png" title="B.C." width="60" />
+          <span class="title">B.C.</span>
+          <span class="author">Mastroianni and Hart</span>
+          <span class="viewBtn"></span>
+        </a>
+      </li>
+      
+      <li>
+        <a href="/backintheday">
+          <img alt="Back in the Day" class="thumb" height="60" src="http://avatar.amuniversal.com/feature_avatars/avatars_large/features/bid/tiny_avatar.png" title="Back in the Day" width="60" />
+          <span class="title">Back in the Day</span>
+          <span class="author">Eric Scott</span>
+          <span class="viewBtn"></span>
+        </a>
+      </li>
+      
+      <li>
+        <a href="/back-to-bc">
+          <img alt="Back to B.C." class="thumb" height="60" src="http://avatar.amuniversal.com/feature_avatars/avatars_large/features/cbc/tiny_avatar.png" title="Back to B.C." width="60" />
+          <span class="title">Back to B.C.</span>
+          <span class="author">Johnny Hart</span>
+          <span class="viewBtn"></span>
+        </a>
+      </li>
+      
+      <li>
+        <a href="/badreporter">
+          <img alt="Bad Reporter" class="thumb" height="60" src="http://avatar.amuniversal.com/feature_avatars/avatars_large/features/bad/tiny_avatar.png" title="Bad Reporter" width="60" />
+          <span class="title">Bad Reporter</span>
+          <span class="author">Don Asmussen</span>
+          <span class="viewBtn"></span>
+        </a>
+      </li>
+      
+      <li>
+        <a href="/badlands">
+          <img alt="Badlands" class="thumb" height="60" src="http://avatar.amuniversal.com/feature_avatars/avatars_large/features/bld/tiny_avatar.png" title="Badlands" width="60" />
+          <span class="title">Badlands</span>
+          <span class="author">Steve McGarry</span>
+          <span class="viewBtn"></span>
+        </a>
+      </li>
+      
+      <li>
+        <a href="/baldo">
+          <img alt="Baldo" class="thumb" height="60" src="http://avatar.amuniversal.com/feature_avatars/avatars_large/features/ba/tiny_avatar.png" title="Baldo" width="60" />
+          <span class="title">Baldo</span>
+          <span class="author">Hector D. Cantu and Carlos Castellanos</span>
+          <span class="viewBtn"></span>
+        </a>
+      </li>
+      
+      <li>
+        <a href="/ballardstreet">
+          <img alt="Ballard Street" class="thumb" height="60" src="http://avatar.amuniversal.com/feature_avatars/avatars_large/features/crbal/tiny_avatar.png" title="Ballard Street" width="60" />
+          <span class="title">Ballard Street</span>
+          <span class="author">Jerry Van Amerongen</span>
+          <span class="viewBtn"></span>
+        </a>
+      </li>
+      
+      <li>
+        <a href="/banana-triangle">
+          <img alt="Banana Triangle" class="thumb" height="60" src="http://avatar.amuniversal.com/feature_avatars/avatars_large/features/bat/tiny_avatar.png" title="Banana Triangle" width="60" />
+          <span class="title">Banana Triangle</span>
+          <span class="author">Beutel, James</span>
+          <span class="viewBtn"></span>
+        </a>
+      </li>
+      
+      <li>
+        <a href="/barkeaterlake">
+          <img alt="Barkeater Lake" class="thumb" height="60" src="http://avatar.amuniversal.com/feature_avatars/avatars_large/features/bark/tiny_avatar.png" title="Barkeater Lake" width="60" />
+          <span class="title">Barkeater Lake</span>
+          <span class="author">Corey Pandolph</span>
+          <span class="viewBtn"></span>
+        </a>
+      </li>
+      
+      <li>
+        <a href="/thebarn">
+          <img alt="The Barn" class="thumb" height="60" src="http://avatar.amuniversal.com/feature_avatars/avatars_large/features/crbar/tiny_avatar.png" title="The Barn" width="60" />
+          <span class="title">The Barn</span>
+          <span class="author">Ralph Hagen</span>
+          <span class="viewBtn"></span>
+        </a>
+      </li>
+      
+      <li>
+        <a href="/barneyandclyde">
+          <img alt="Barney &amp; Clyde" class="thumb" height="60" src="http://avatar.amuniversal.com/feature_avatars/avatars_large/features/wpbcl/tiny_avatar.png" title="Barney &amp; Clyde" width="60" />
+          <span class="title">Barney &amp; Clyde</span>
+          <span class="author">Gene Weingarten, Dan Weingarten &amp; David Clark</span>
+          <span class="viewBtn"></span>
+        </a>
+      </li>
+      
+      <li>
+        <a href="/basicinstructions">
+          <img alt="Basic Instructions" class="thumb" height="60" src="http://avatar.amuniversal.com/feature_avatars/avatars_large/features/basic/tiny_avatar.png" title="Basic Instructions" width="60" />
+          <span class="title">Basic Instructions</span>
+          <span class="author">Scott Meyer</span>
+          <span class="viewBtn"></span>
+        </a>
+      </li>
+      
+      <li>
+        <a href="/beakman">
+          <img alt="You Can with Beakman and Jax" class="thumb" height="60" src="http://avatar.amuniversal.com/feature_avatars/avatars_large/features/bk/tiny_avatar.png" title="You Can with Beakman and Jax" width="60" />
+          <span class="title">You Can with Beakman and Jax</span>
+          <span class="author">Jok Church</span>
+          <span class="viewBtn"></span>
+        </a>
+      </li>
+      
+      <li>
+        <a href="/beanie-the-brownie">
+          <img alt="Beanie the Brownie" class="thumb" height="60" src="http://avatar.amuniversal.com/feature_avatars/avatars_large/features/btb/tiny_avatar.png" title="Beanie the Brownie" width="60" />
+          <span class="title">Beanie the Brownie</span>
+          <span class="author">Stuart Carlson</span>
+          <span class="viewBtn"></span>
+        </a>
+      </li>
+      
+      <li>
+        <a href="/beardo">
+          <img alt="Beardo" class="thumb" height="60" src="http://avatar.amuniversal.com/feature_avatars/avatars_large/features/bdo/tiny_avatar.png" title="Beardo" width="60" />
+          <span class="title">Beardo</span>
+          <span class="author">Dan Dougherty</span>
+          <span class="viewBtn"></span>
+        </a>
+      </li>
+      
+      <li>
+        <a href="/ben">
+          <img alt="Ben" class="thumb" height="60" src="http://avatar.amuniversal.com/feature_avatars/avatars_large/features/ben/tiny_avatar.png" title="Ben" width="60" />
+          <span class="title">Ben</span>
+          <span class="author">Daniel Shelton</span>
+          <span class="viewBtn"></span>
+        </a>
+      </li>
+      
+      <li>
+        <a href="/bent-objects">
+          <img alt="Bent Objects" class="thumb" height="60" src="http://avatar.amuniversal.com/feature_avatars/avatars_large/features/beo/tiny_avatar.png" title="Bent Objects" width="60" />
+          <span class="title">Bent Objects</span>
+          <span class="author">Terry Border</span>
+          <span class="viewBtn"></span>
+        </a>
+      </li>
+      
+      <li>
+        <a href="/the-bent-pinky">
+          <img alt="The Bent Pinky" class="thumb" height="60" src="http://avatar.amuniversal.com/feature_avatars/avatars_large/features/tbp/tiny_avatar.png" title="The Bent Pinky" width="60" />
+          <span class="title">The Bent Pinky</span>
+          <span class="author">Scott Metzger</span>
+          <span class="viewBtn"></span>
+        </a>
+      </li>
+      
+      <li>
+        <a href="/berger-and-wyse">
+          <img alt="Berger &amp; Wyse" class="thumb" height="60" src="http://avatar.amuniversal.com/feature_avatars/avatars_large/features/baw/tiny_avatar.png" title="Berger &amp; Wyse" width="60" />
+          <span class="title">Berger &amp; Wyse</span>
+          <span class="author">Pascal Wyse and Joe Berger</span>
+          <span class="viewBtn"></span>
+        </a>
+      </li>
+      
+      <li>
+        <a href="/berkeley-mews">
+          <img alt="Berkeley Mews" class="thumb" height="60" src="http://avatar.amuniversal.com/feature_avatars/avatars_large/features/bmew/tiny_avatar.png" title="Berkeley Mews" width="60" />
+          <span class="title">Berkeley Mews</span>
+          <span class="author">Ben Zaehringer</span>
+          <span class="viewBtn"></span>
+        </a>
+      </li>
+      
+      <li>
+        <a href="/the-best-medicine">
+          <img alt="The Best Medicine Cartoon" class="thumb" height="60" src="http://avatar.amuniversal.com/feature_avatars/avatars_large/features/tbm/tiny_avatar.png" title="The Best Medicine Cartoon" width="60" />
+          <span class="title">The Best Medicine Cartoon</span>
+          <span class="author">Izzy Ehnes</span>
+          <span class="viewBtn"></span>
+        </a>
+      </li>
+      
+      <li>
+        <a href="/betty">
+          <img alt="Betty" class="thumb" height="60" src="http://avatar.amuniversal.com/feature_avatars/avatars_large/features/bt/tiny_avatar.png" title="Betty" width="60" />
+          <span class="title">Betty</span>
+          <span class="author">Gary Delainey and Gerry Rasmussen</span>
+          <span class="viewBtn"></span>
+        </a>
+      </li>
+      
+      <li>
+        <a href="/bewley">
+          <img alt="Bewley" class="thumb" height="60" src="http://avatar.amuniversal.com/feature_avatars/avatars_large/features/bew/tiny_avatar.png" title="Bewley" width="60" />
+          <span class="title">Bewley</span>
+          <span class="author">Anthony Blades</span>
+          <span class="viewBtn"></span>
+        </a>
+      </li>
+      
+      <li>
+        <a href="/biff-and-riley">
+          <img alt="Biff &amp; Riley" class="thumb" height="60" src="http://avatar.amuniversal.com/feature_avatars/avatars_large/features/bnr/tiny_avatar.png" title="Biff &amp; Riley" width="60" />
+          <span class="title">Biff &amp; Riley</span>
+          <span class="author">Jeff Payden</span>
+          <span class="viewBtn"></span>
+        </a>
+      </li>
+      
+      <li>
+        <a href="/bignate">
+          <img alt="Big Nate" class="thumb" height="60" src="http://avatar.amuniversal.com/feature_avatars/avatars_large/features/bn/tiny_avatar.png" title="Big Nate" width="60" />
+          <span class="title">Big Nate</span>
+          <span class="author">Lincoln Peirce</span>
+          <span class="viewBtn"></span>
+        </a>
+      </li>
+      
+      <li>
+        <a href="/big-nate-first-class">
+          <img alt="Big Nate: First Class" class="thumb" height="60" src="http://avatar.amuniversal.com/feature_avatars/avatars_large/features/bncl/tiny_avatar.png" title="Big Nate: First Class" width="60" />
+          <span class="title">Big Nate: First Class</span>
+          <span class="author">Lincoln Peirce</span>
+          <span class="viewBtn"></span>
+        </a>
+      </li>
+      
+      <li>
+        <a href="/thebigpicture">
+          <img alt="The Big Picture" class="thumb" height="60" src="http://avatar.amuniversal.com/feature_avatars/avatars_large/features/bi/tiny_avatar.png" title="The Big Picture" width="60" />
+          <span class="title">The Big Picture</span>
+          <span class="author">Lennie Peterson</span>
+          <span class="viewBtn"></span>
+        </a>
+      </li>
+      
+      <li>
+        <a href="/bigtop">
+          <img alt="Big Top" class="thumb" height="60" src="http://avatar.amuniversal.com/feature_avatars/avatars_large/features/top/tiny_avatar.png" title="Big Top" width="60" />
+          <span class="title">Big Top</span>
+          <span class="author">Rob Harrell</span>
+          <span class="viewBtn"></span>
+        </a>
+      </li>
+      
+      <li>
+        <a href="/biographic">
+          <img alt="Biographic" class="thumb" height="60" src="http://avatar.amuniversal.com/feature_avatars/avatars_large/features/biov/tiny_avatar.png" title="Biographic" width="60" />
+          <span class="title">Biographic</span>
+          <span class="author">Steve McGarry</span>
+          <span class="viewBtn"></span>
+        </a>
+      </li>
+      
+      <li>
+        <a href="/birdbrains">
+          <img alt="Birdbrains" class="thumb" height="60" src="http://avatar.amuniversal.com/feature_avatars/avatars_large/features/bbs/tiny_avatar.png" title="Birdbrains" width="60" />
+          <span class="title">Birdbrains</span>
+          <span class="author">Thom Bluemel</span>
+          <span class="viewBtn"></span>
+        </a>
+      </li>
+      
+      <li>
+        <a href="/bliss">
+          <img alt="Bliss" class="thumb" height="60" src="http://avatar.amuniversal.com/feature_avatars/avatars_large/features/tmbss/tiny_avatar.png" title="Bliss" width="60" />
+          <span class="title">Bliss</span>
+          <span class="author">Harry Bliss</span>
+          <span class="viewBtn"></span>
+        </a>
+      </li>
+      
+      <li>
+        <a href="/bloomcounty">
+          <img alt="Bloom County" class="thumb" height="60" src="http://avatar.amuniversal.com/feature_avatars/avatars_large/features/blm/tiny_avatar.png" title="Bloom County" width="60" />
+          <span class="title">Bloom County</span>
+          <span class="author">Berkeley Breathed</span>
+          <span class="viewBtn"></span>
+        </a>
+      </li>
+      
+      <li>
+        <a href="/bloom-county">
+          <img alt="Bloom County 2015" class="thumb" height="60" src="http://avatar.amuniversal.com/feature_avatars/avatars_large/features/blmc/tiny_avatar.png" title="Bloom County 2015" width="60" />
+          <span class="title">Bloom County 2015</span>
+          <span class="author">Berkeley Breathed</span>
+          <span class="viewBtn"></span>
+        </a>
+      </li>
+      
+      <li>
+        <a href="/bonanas">
+          <img alt="Bo Nanas" class="thumb" height="60" src="http://avatar.amuniversal.com/feature_avatars/avatars_large/features/bon/tiny_avatar.png" title="Bo Nanas" width="60" />
+          <span class="title">Bo Nanas</span>
+          <span class="author">John Kovaleski</span>
+          <span class="viewBtn"></span>
+        </a>
+      </li>
+      
+      <li>
+        <a href="/bobthesquirrel">
+          <img alt="Bob the Squirrel" class="thumb" height="60" src="http://avatar.amuniversal.com/feature_avatars/avatars_large/features/bob/tiny_avatar.png" title="Bob the Squirrel" width="60" />
+          <span class="title">Bob the Squirrel</span>
+          <span class="author">Frank Page</span>
+          <span class="viewBtn"></span>
+        </a>
+      </li>
+      
+      <li>
+        <a href="/boomerangs">
+          <img alt="Boomerangs" class="thumb" height="60" src="http://avatar.amuniversal.com/feature_avatars/avatars_large/features/boom/tiny_avatar.png" title="Boomerangs" width="60" />
+          <span class="title">Boomerangs</span>
+          <span class="author">Jack Pullan</span>
+          <span class="viewBtn"></span>
+        </a>
+      </li>
+      
+      <li>
+        <a href="/boondocks">
+          <img alt="The Boondocks" class="thumb" height="60" src="http://avatar.amuniversal.com/feature_avatars/avatars_large/features/bo/tiny_avatar.png" title="The Boondocks" width="60" />
+          <span class="title">The Boondocks</span>
+          <span class="author">Aaron McGruder</span>
+          <span class="viewBtn"></span>
+        </a>
+      </li>
+      
+      <li>
+        <a href="/the-born-loser">
+          <img alt="The Born Loser" class="thumb" height="60" src="http://avatar.amuniversal.com/feature_avatars/avatars_large/features/bnl/tiny_avatar.png" title="The Born Loser" width="60" />
+          <span class="title">The Born Loser</span>
+          <span class="author">Art and Chip Sansom</span>
+          <span class="viewBtn"></span>
+        </a>
+      </li>
+      
+      <li>
+        <a href="/bottomliners">
+          <img alt="Bottomliners" class="thumb" height="60" src="http://avatar.amuniversal.com/feature_avatars/avatars_large/features/tmbot/tiny_avatar.png" title="Bottomliners" width="60" />
+          <span class="title">Bottomliners</span>
+          <span class="author">Eric and Bill Teitelbaum</span>
+          <span class="viewBtn"></span>
+        </a>
+      </li>
+      
+      <li>
+        <a href="/boundandgagged">
+          <img alt="Bound and Gagged" class="thumb" height="60" src="http://avatar.amuniversal.com/feature_avatars/avatars_large/features/tmbou/tiny_avatar.png" title="Bound and Gagged" width="60" />
+          <span class="title">Bound and Gagged</span>
+          <span class="author">Dana Summers</span>
+          <span class="viewBtn"></span>
+        </a>
+      </li>
+      
+      <li>
+        <a href="/brain-squirts">
+          <img alt="Brain Squirts" class="thumb" height="60" src="http://avatar.amuniversal.com/feature_avatars/avatars_large/features/brs/tiny_avatar.png" title="Brain Squirts" width="60" />
+          <span class="title">Brain Squirts</span>
+          <span class="author">Frank Cummings</span>
+          <span class="viewBtn"></span>
+        </a>
+      </li>
+      
+      <li>
+        <a href="/break-of-day">
+          <img alt="Break of Day" class="thumb" height="60" src="http://avatar.amuniversal.com/feature_avatars/avatars_large/features/bod/tiny_avatar.png" title="Break of Day" width="60" />
+          <span class="title">Break of Day</span>
+          <span class="author">Nate Fakes</span>
+          <span class="viewBtn"></span>
+        </a>
+      </li>
+      
+      <li>
+        <a href="/breaking-cat-news">
+          <img alt="Breaking Cat News" class="thumb" height="60" src="http://avatar.amuniversal.com/feature_avatars/avatars_large/features/bcn/tiny_avatar.png" title="Breaking Cat News" width="60" />
+          <span class="title">Breaking Cat News</span>
+          <span class="author">Georgia Dunn</span>
+          <span class="viewBtn"></span>
+        </a>
+      </li>
+      
+      <li>
+        <a href="/brevity">
+          <img alt="Brevity" class="thumb" height="60" src="http://avatar.amuniversal.com/feature_avatars/avatars_large/features/bvp/tiny_avatar.png" title="Brevity" width="60" />
+          <span class="title">Brevity</span>
+          <span class="author">Dan Thompson</span>
+          <span class="viewBtn"></span>
+        </a>
+      </li>
+      
+      <li>
+        <a href="/brewsterrockit">
+          <img alt="Brewster Rockit" class="thumb" height="60" src="http://avatar.amuniversal.com/feature_avatars/avatars_large/features/tmrkt/tiny_avatar.png" title="Brewster Rockit" width="60" />
+          <span class="title">Brewster Rockit</span>
+          <span class="author">Tim Rickard</span>
+          <span class="viewBtn"></span>
+        </a>
+      </li>
+      
+      <li>
+        <a href="/broomhilda">
+          <img alt="Broom Hilda" class="thumb" height="60" src="http://avatar.amuniversal.com/feature_avatars/avatars_large/features/tmbro/tiny_avatar.png" title="Broom Hilda" width="60" />
+          <span class="title">Broom Hilda</span>
+          <span class="author">Russell Myers</span>
+          <span class="viewBtn"></span>
+        </a>
+      </li>
+      
+      <li>
+        <a href="/thebuckets">
+          <img alt="The Buckets" class="thumb" height="60" src="http://avatar.amuniversal.com/feature_avatars/avatars_large/features/bu/tiny_avatar.png" title="The Buckets" width="60" />
+          <span class="title">The Buckets</span>
+          <span class="author">Greg Cravens</span>
+          <span class="viewBtn"></span>
+        </a>
+      </li>
+      
+      <li>
+        <a href="/bully">
+          <img alt="Bully" class="thumb" height="60" src="http://avatar.amuniversal.com/feature_avatars/avatars_large/features/bully/tiny_avatar.png" title="Bully" width="60" />
+          <span class="title">Bully</span>
+          <span class="author">Andrew Paavola</span>
+          <span class="viewBtn"></span>
+        </a>
+      </li>
+      
+      <li>
+        <a href="/buni">
+          <img alt="Buni" class="thumb" height="60" src="http://avatar.amuniversal.com/feature_avatars/avatars_large/features/buni/tiny_avatar.png" title="Buni" width="60" />
+          <span class="title">Buni</span>
+          <span class="author">Ryan Pagelow</span>
+          <span class="viewBtn"></span>
+        </a>
+      </li>
+      
+      <li>
+        <a href="/bushy-tales">
+          <img alt="Bushy Tales" class="thumb" height="60" src="http://avatar.amuniversal.com/feature_avatars/avatars_large/features/bush/tiny_avatar.png" title="Bushy Tales" width="60" />
+          <span class="title">Bushy Tales</span>
+          <span class="author">Ian Jones</span>
+          <span class="viewBtn"></span>
+        </a>
+      </li>
+      <li class="az-nav">
+  <a href="/explore/comics#a_to_b">A to B</a>  
+      <a href="#c_to_f" name="c_to_f"><span>C to F</span></a>
+  <a href="/explore/comics#g_to_l">G to L</a>  <a href="/explore/comics#m_to_q">M to Q</a>  <a href="/explore/comics#r_to_z">R to Z</a></li>
+  <li class="az-ads">
+    <div id='leaderboard2' class="ad ad-banner">
+  <script type='text/javascript'>
+    googletag.cmd.push(function() { googletag.display('leaderboard2'); });
+  </script>
+</div>
+  </li>
+
+      <li>
+        <a href="/cafeconleche">
+          <img alt="Café con Leche" class="thumb" height="60" src="http://avatar.amuniversal.com/feature_avatars/avatars_large/features/crccl/tiny_avatar.png" title="Café con Leche" width="60" />
+          <span class="title">Café con Leche</span>
+          <span class="author">Charlos Gary</span>
+          <span class="viewBtn"></span>
+        </a>
+      </li>
+      
+      <li>
+        <a href="/calvinandhobbes">
+          <img alt="Calvin and Hobbes" class="thumb" height="60" src="http://avatar.amuniversal.com/feature_avatars/avatars_large/features/ch/tiny_avatar.png" title="Calvin and Hobbes" width="60" />
+          <span class="title">Calvin and Hobbes</span>
+          <span class="author">Bill Watterson</span>
+          <span class="viewBtn"></span>
+        </a>
+      </li>
+      
+      <li>
+        <a href="/candorville">
+          <img alt="Candorville" class="thumb" height="60" src="http://avatar.amuniversal.com/feature_avatars/avatars_large/features/cand/tiny_avatar.png" title="Candorville" width="60" />
+          <span class="title">Candorville</span>
+          <span class="author">Darrin Bell</span>
+          <span class="viewBtn"></span>
+        </a>
+      </li>
+      
+      <li>
+        <a href="/cathy">
+          <img alt="Cathy" class="thumb" height="60" src="http://avatar.amuniversal.com/feature_avatars/avatars_large/features/ca/tiny_avatar.png" title="Cathy" width="60" />
+          <span class="title">Cathy</span>
+          <span class="author">Cathy Guisewite</span>
+          <span class="viewBtn"></span>
+        </a>
+      </li>
+      
+      <li>
+        <a href="/cestlavie">
+          <img alt="C&#x27;est la Vie" class="thumb" height="60" src="http://avatar.amuniversal.com/feature_avatars/avatars_large/features/clv/tiny_avatar.png" title="C&#x27;est la Vie" width="60" />
+          <span class="title">C&#x27;est la Vie</span>
+          <span class="author">Jennifer Babcock</span>
+          <span class="viewBtn"></span>
+        </a>
+      </li>
+      
+      <li>
+        <a href="/cheap-thrills-cuisine">
+          <img alt="Cheap Thrills Cuisine" class="thumb" height="60" src="http://avatar.amuniversal.com/feature_avatars/avatars_large/features/wpchp/tiny_avatar.png" title="Cheap Thrills Cuisine" width="60" />
+          <span class="title">Cheap Thrills Cuisine</span>
+          <span class="author">Bill Lombardo &amp; Thach Bui</span>
+          <span class="viewBtn"></span>
+        </a>
+      </li>
+      
+      <li>
+        <a href="/chucklebros">
+          <img alt="Chuckle Bros" class="thumb" height="60" src="http://avatar.amuniversal.com/feature_avatars/avatars_large/features/crckb/tiny_avatar.png" title="Chuckle Bros" width="60" />
+          <span class="title">Chuckle Bros</span>
+          <span class="author">Brian and Ron Boychuk</span>
+          <span class="viewBtn"></span>
+        </a>
+      </li>
+      
+      <li>
+        <a href="/citizendog">
+          <img alt="Citizen Dog" class="thumb" height="60" src="http://avatar.amuniversal.com/feature_avatars/avatars_large/features/cd/tiny_avatar.png" title="Citizen Dog" width="60" />
+          <span class="title">Citizen Dog</span>
+          <span class="author">Mark O&#x27;Hare</span>
+          <span class="viewBtn"></span>
+        </a>
+      </li>
+      
+      <li>
+        <a href="/thecity">
+          <img alt="The City" class="thumb" height="60" src="http://avatar.amuniversal.com/feature_avatars/avatars_large/features/derf/tiny_avatar.png" title="The City" width="60" />
+          <span class="title">The City</span>
+          <span class="author">John Backderf</span>
+          <span class="viewBtn"></span>
+        </a>
+      </li>
+      
+      <li>
+        <a href="/clearbluewater">
+          <img alt="Clear Blue Water" class="thumb" height="60" src="http://avatar.amuniversal.com/feature_avatars/avatars_large/features/cbw/tiny_avatar.png" title="Clear Blue Water" width="60" />
+          <span class="title">Clear Blue Water</span>
+          <span class="author">Karen Montague-Reyes</span>
+          <span class="viewBtn"></span>
+        </a>
+      </li>
+      
+      <li>
+        <a href="/cleats">
+          <img alt="Cleats" class="thumb" height="60" src="http://avatar.amuniversal.com/feature_avatars/avatars_large/features/cle/tiny_avatar.png" title="Cleats" width="60" />
+          <span class="title">Cleats</span>
+          <span class="author">Bill Hinds</span>
+          <span class="viewBtn"></span>
+        </a>
+      </li>
+      
+      <li>
+        <a href="/closetohome">
+          <img alt="Close to Home" class="thumb" height="60" src="http://avatar.amuniversal.com/feature_avatars/avatars_large/features/cl/tiny_avatar.png" title="Close to Home" width="60" />
+          <span class="title">Close to Home</span>
+          <span class="author">John McPherson</span>
+          <span class="viewBtn"></span>
+        </a>
+      </li>
+      
+      <li>
+        <a href="/the-comic-strip-that-has-a-finale-every-day">
+          <img alt="The Comic Strip That Has A Finale Every Day" class="thumb" height="60" src="http://avatar.amuniversal.com/feature_avatars/avatars_large/features/fed/tiny_avatar.png" title="The Comic Strip That Has A Finale Every Day" width="60" />
+          <span class="title">The Comic Strip That Has A Finale Every Day</span>
+          <span class="author">John &quot;Scully&quot; Scully</span>
+          <span class="viewBtn"></span>
+        </a>
+      </li>
+      
+      <li>
+        <a href="/committed">
+          <img alt="Committed" class="thumb" height="60" src="http://avatar.amuniversal.com/feature_avatars/avatars_large/features/cmt/tiny_avatar.png" title="Committed" width="60" />
+          <span class="title">Committed</span>
+          <span class="author">Michael Fry</span>
+          <span class="viewBtn"></span>
+        </a>
+      </li>
+      
+      <li>
+        <a href="/compu-toon">
+          <img alt="Compu-toon" class="thumb" height="60" src="http://avatar.amuniversal.com/feature_avatars/avatars_large/features/tmcom/tiny_avatar.png" title="Compu-toon" width="60" />
+          <span class="title">Compu-toon</span>
+          <span class="author">Charles Boyce</span>
+          <span class="viewBtn"></span>
+        </a>
+      </li>
+      
+      <li>
+        <a href="/the-conjurers">
+          <img alt="The Conjurers" class="thumb" height="60" src="http://avatar.amuniversal.com/feature_avatars/avatars_large/features/conj/tiny_avatar.png" title="The Conjurers" width="60" />
+          <span class="title">The Conjurers</span>
+          <span class="author">Brian Anderson</span>
+          <span class="viewBtn"></span>
+        </a>
+      </li>
+      
+      <li>
+        <a href="/connie-to-the-wonnie">
+          <img alt="Connie to the Wonnie" class="thumb" height="60" src="http://avatar.amuniversal.com/feature_avatars/avatars_large/features/conn/tiny_avatar.png" title="Connie to the Wonnie" width="60" />
+          <span class="title">Connie to the Wonnie</span>
+          <span class="author">Connie Sun</span>
+          <span class="viewBtn"></span>
+        </a>
+      </li>
+      
+      <li>
+        <a href="/cornered">
+          <img alt="Cornered" class="thumb" height="60" src="http://avatar.amuniversal.com/feature_avatars/avatars_large/features/co/tiny_avatar.png" title="Cornered" width="60" />
+          <span class="title">Cornered</span>
+          <span class="author">Mike Baldwin</span>
+          <span class="viewBtn"></span>
+        </a>
+      </li>
+      
+      <li>
+        <a href="/cowandboy">
+          <img alt="Cow and Boy Classics" class="thumb" height="60" src="http://avatar.amuniversal.com/feature_avatars/avatars_large/features/cb/tiny_avatar.png" title="Cow and Boy Classics" width="60" />
+          <span class="title">Cow and Boy Classics</span>
+          <span class="author">Mark Leiknes</span>
+          <span class="viewBtn"></span>
+        </a>
+      </li>
+      
+      <li>
+        <a href="/cowtown">
+          <img alt="CowTown" class="thumb" height="60" src="http://avatar.amuniversal.com/feature_avatars/avatars_large/features/cow/tiny_avatar.png" title="CowTown" width="60" />
+          <span class="title">CowTown</span>
+          <span class="author">Charlie Podrebarac</span>
+          <span class="viewBtn"></span>
+        </a>
+      </li>
+      
+      <li>
+        <a href="/the-creeps">
+          <img alt="The Creeps" class="thumb" height="60" src="http://avatar.amuniversal.com/feature_avatars/avatars_large/features/cre/tiny_avatar.png" title="The Creeps" width="60" />
+          <span class="title">The Creeps</span>
+          <span class="author">Jean Floch</span>
+          <span class="viewBtn"></span>
+        </a>
+      </li>
+      
+      <li>
+        <a href="/crumb">
+          <img alt="Crumb" class="thumb" height="60" src="http://avatar.amuniversal.com/feature_avatars/avatars_large/features/crumb/tiny_avatar.png" title="Crumb" width="60" />
+          <span class="title">Crumb</span>
+          <span class="author">David Fletcher</span>
+          <span class="viewBtn"></span>
+        </a>
+      </li>
+      
+      <li>
+        <a href="/culdesac">
+          <img alt="Cul de Sac" class="thumb" height="60" src="http://avatar.amuniversal.com/feature_avatars/avatars_large/features/cds/tiny_avatar.png" title="Cul de Sac" width="60" />
+          <span class="title">Cul de Sac</span>
+          <span class="author">Richard Thompson</span>
+          <span class="viewBtn"></span>
+        </a>
+      </li>
+      
+      <li>
+        <a href="/daddyshome">
+          <img alt="Daddy&#x27;s Home" class="thumb" height="60" src="http://avatar.amuniversal.com/feature_avatars/avatars_large/features/crdad/tiny_avatar.png" title="Daddy&#x27;s Home" width="60" />
+          <span class="title">Daddy&#x27;s Home</span>
+          <span class="author">Tony Rubino and Gary Markstein</span>
+          <span class="viewBtn"></span>
+        </a>
+      </li>
+      
+      <li>
+        <a href="/the-daily-drawing">
+          <img alt="The Daily Drawing" class="thumb" height="60" src="http://avatar.amuniversal.com/feature_avatars/avatars_large/features/tdd/tiny_avatar.png" title="The Daily Drawing" width="60" />
+          <span class="title">The Daily Drawing</span>
+          <span class="author">Lorie Ransom</span>
+          <span class="viewBtn"></span>
+        </a>
+      </li>
+      
+      <li>
+        <a href="/darksideofthehorse">
+          <img alt="Dark Side of the Horse" class="thumb" height="60" src="http://avatar.amuniversal.com/feature_avatars/avatars_large/features/dsh/tiny_avatar.png" title="Dark Side of the Horse" width="60" />
+          <span class="title">Dark Side of the Horse</span>
+          <span class="author">Samson</span>
+          <span class="viewBtn"></span>
+        </a>
+      </li>
+      
+      <li>
+        <a href="/deep-dark-fears">
+          <img alt="Deep Dark Fears" class="thumb" height="60" src="http://avatar.amuniversal.com/feature_avatars/avatars_large/features/ddf/tiny_avatar.png" title="Deep Dark Fears" width="60" />
+          <span class="title">Deep Dark Fears</span>
+          <span class="author">Fran Krause</span>
+          <span class="viewBtn"></span>
+        </a>
+      </li>
+      
+      <li>
+        <a href="/diamondlil">
+          <img alt="Diamond Lil" class="thumb" height="60" src="http://avatar.amuniversal.com/feature_avatars/avatars_large/features/crdia/tiny_avatar.png" title="Diamond Lil" width="60" />
+          <span class="title">Diamond Lil</span>
+          <span class="author">Brett Koth</span>
+          <span class="viewBtn"></span>
+        </a>
+      </li>
+      
+      <li>
+        <a href="/dicktracy">
+          <img alt="Dick Tracy" class="thumb" height="60" src="http://avatar.amuniversal.com/feature_avatars/avatars_large/features/tmdic/tiny_avatar.png" title="Dick Tracy" width="60" />
+          <span class="title">Dick Tracy</span>
+          <span class="author">Joe Staton and Mike Curtis</span>
+          <span class="viewBtn"></span>
+        </a>
+      </li>
+      
+      <li>
+        <a href="/dilbert-classics">
+          <img alt="Dilbert Classics" class="thumb" height="60" src="http://avatar.amuniversal.com/feature_avatars/avatars_large/features/dc/tiny_avatar.png" title="Dilbert Classics" width="60" />
+          <span class="title">Dilbert Classics</span>
+          <span class="author">Scott Adams</span>
+          <span class="viewBtn"></span>
+        </a>
+      </li>
+      
+      <li>
+        <a href="/dinetteset">
+          <img alt="The Dinette Set" class="thumb" height="60" src="http://avatar.amuniversal.com/feature_avatars/avatars_large/features/di/tiny_avatar.png" title="The Dinette Set" width="60" />
+          <span class="title">The Dinette Set</span>
+          <span class="author">Julie Larson</span>
+          <span class="viewBtn"></span>
+        </a>
+      </li>
+      
+      <li>
+        <a href="/dinosaur-comics">
+          <img alt="Dinosaur Comics" class="thumb" height="60" src="http://avatar.amuniversal.com/feature_avatars/avatars_large/features/dco/tiny_avatar.png" title="Dinosaur Comics" width="60" />
+          <span class="title">Dinosaur Comics</span>
+          <span class="author">Ryan North</span>
+          <span class="viewBtn"></span>
+        </a>
+      </li>
+      
+      <li>
+        <a href="/dogeatdoug">
+          <img alt="Dog Eat Doug" class="thumb" height="60" src="http://avatar.amuniversal.com/feature_avatars/avatars_large/features/crdog/tiny_avatar.png" title="Dog Eat Doug" width="60" />
+          <span class="title">Dog Eat Doug</span>
+          <span class="author">Brian Anderson</span>
+          <span class="viewBtn"></span>
+        </a>
+      </li>
+      
+      <li>
+        <a href="/dogsofckennel">
+          <img alt="Dogs of C-Kennel" class="thumb" height="60" src="http://avatar.amuniversal.com/feature_avatars/avatars_large/features/crckn/tiny_avatar.png" title="Dogs of C-Kennel" width="60" />
+          <span class="title">Dogs of C-Kennel</span>
+          <span class="author">Mick &amp; Mason Mastroianni</span>
+          <span class="viewBtn"></span>
+        </a>
+      </li>
+      
+      <li>
+        <a href="/domesticabuse">
+          <img alt="Domestic Abuse" class="thumb" height="60" src="http://avatar.amuniversal.com/feature_avatars/avatars_large/features/dom/tiny_avatar.png" title="Domestic Abuse" width="60" />
+          <span class="title">Domestic Abuse</span>
+          <span class="author">Jeremy Lambros</span>
+          <span class="viewBtn"></span>
+        </a>
+      </li>
+      
+      <li>
+        <a href="/doodle-town">
+          <img alt="Doodle Town" class="thumb" height="60" src="http://avatar.amuniversal.com/feature_avatars/avatars_large/features/dot/tiny_avatar.png" title="Doodle Town" width="60" />
+          <span class="title">Doodle Town</span>
+          <span class="author">Melissa Lomax</span>
+          <span class="viewBtn"></span>
+        </a>
+      </li>
+      
+      <li>
+        <a href="/doonesbury">
+          <img alt="Doonesbury" class="thumb" height="60" src="http://avatar.amuniversal.com/feature_avatars/avatars_large/features/db/tiny_avatar.png" title="Doonesbury" width="60" />
+          <span class="title">Doonesbury</span>
+          <span class="author">Garry Trudeau</span>
+          <span class="viewBtn"></span>
+        </a>
+      </li>
+      
+      <li>
+        <a href="/thedoozies">
+          <img alt="The Doozies" class="thumb" height="60" src="http://avatar.amuniversal.com/feature_avatars/avatars_large/features/doo/tiny_avatar.png" title="The Doozies" width="60" />
+          <span class="title">The Doozies</span>
+          <span class="author">Tom Gammill</span>
+          <span class="viewBtn"></span>
+        </a>
+      </li>
+      
+      <li>
+        <a href="/drabble">
+          <img alt="Drabble" class="thumb" height="60" src="http://avatar.amuniversal.com/feature_avatars/avatars_large/features/dr/tiny_avatar.png" title="Drabble" width="60" />
+          <span class="title">Drabble</span>
+          <span class="author">Kevin Fagan</span>
+          <span class="viewBtn"></span>
+        </a>
+      </li>
+      
+      <li>
+        <a href="/dragon-girl">
+          <img alt="Dragon Girl" class="thumb" height="60" src="http://avatar.amuniversal.com/feature_avatars/avatars_large/features/drg/tiny_avatar.png" title="Dragon Girl" width="60" />
+          <span class="title">Dragon Girl</span>
+          <span class="author">Jeff Weigel</span>
+          <span class="viewBtn"></span>
+        </a>
+      </li>
+      
+      <li>
+        <a href="/drive">
+          <img alt="Drive" class="thumb" height="60" src="http://avatar.amuniversal.com/feature_avatars/avatars_large/features/drv/tiny_avatar.png" title="Drive" width="60" />
+          <span class="title">Drive</span>
+          <span class="author">Dave Kellett</span>
+          <span class="viewBtn"></span>
+        </a>
+      </li>
+      
+      <li>
+        <a href="/dro-mo">
+          <img alt="dro-mo" class="thumb" height="60" src="http://avatar.amuniversal.com/feature_avatars/avatars_large/features/dro/tiny_avatar.png" title="dro-mo" width="60" />
+          <span class="title">dro-mo</span>
+          
+          <span class="viewBtn"></span>
+        </a>
+      </li>
+      
+      <li>
+        <a href="/dudedude">
+          <img alt="Dude and Dude" class="thumb" height="60" src="http://avatar.amuniversal.com/feature_avatars/avatars_large/features/dd/tiny_avatar.png" title="Dude and Dude" width="60" />
+          <span class="title">Dude and Dude</span>
+          <span class="author">Keith Poletiek</span>
+          <span class="viewBtn"></span>
+        </a>
+      </li>
+      
+      <li>
+        <a href="/duplex">
+          <img alt="The Duplex" class="thumb" height="60" src="http://avatar.amuniversal.com/feature_avatars/avatars_large/features/dp/tiny_avatar.png" title="The Duplex" width="60" />
+          <span class="title">The Duplex</span>
+          <span class="author">Glenn McCoy</span>
+          <span class="viewBtn"></span>
+        </a>
+      </li>
+      
+      <li>
+        <a href="/eek">
+          <img alt="Eek!" class="thumb" height="60" src="http://avatar.amuniversal.com/feature_avatars/avatars_large/features/eek/tiny_avatar.png" title="Eek!" width="60" />
+          <span class="title">Eek!</span>
+          <span class="author">Scott Nickel</span>
+          <span class="viewBtn"></span>
+        </a>
+      </li>
+      
+      <li>
+        <a href="/theelderberries">
+          <img alt="The Elderberries" class="thumb" height="60" src="http://avatar.amuniversal.com/feature_avatars/avatars_large/features/eld/tiny_avatar.png" title="The Elderberries" width="60" />
+          <span class="title">The Elderberries</span>
+          <span class="author">Corey Pandolph and Phil Frank and Joe Troise</span>
+          <span class="viewBtn"></span>
+        </a>
+      </li>
+      
+      <li>
+        <a href="/eleri-mai-harris-cartoons">
+          <img alt="Eleri Mai Harris Cartoons" class="thumb" height="60" src="http://avatar.amuniversal.com/feature_avatars/avatars_large/features/emh/tiny_avatar.png" title="Eleri Mai Harris Cartoons" width="60" />
+          <span class="title">Eleri Mai Harris Cartoons</span>
+          <span class="author">Eleri Mai Harris</span>
+          <span class="viewBtn"></span>
+        </a>
+      </li>
+      
+      <li>
+        <a href="/emmy-lou">
+          <img alt="Emmy Lou" class="thumb" height="60" src="http://avatar.amuniversal.com/feature_avatars/avatars_large/features/eml/tiny_avatar.png" title="Emmy Lou" width="60" />
+          <span class="title">Emmy Lou</span>
+          <span class="author">Marty Links</span>
+          <span class="viewBtn"></span>
+        </a>
+      </li>
+      
+      <li>
+        <a href="/endtown">
+          <img alt="Endtown" class="thumb" height="60" src="http://avatar.amuniversal.com/feature_avatars/avatars_large/features/end/tiny_avatar.png" title="Endtown" width="60" />
+          <span class="title">Endtown</span>
+          <span class="author">Aaron Neathery</span>
+          <span class="viewBtn"></span>
+        </a>
+      </li>
+      
+      <li>
+        <a href="/eric-the-circle">
+          <img alt="Eric the Circle" class="thumb" height="60" src="http://avatar.amuniversal.com/feature_avatars/avatars_large/features/eric/tiny_avatar.png" title="Eric the Circle" width="60" />
+          <span class="title">Eric the Circle</span>
+          <span class="author">.....</span>
+          <span class="viewBtn"></span>
+        </a>
+      </li>
+      
+      <li>
+        <a href="/fminus">
+          <img alt="F Minus" class="thumb" height="60" src="http://avatar.amuniversal.com/feature_avatars/avatars_large/features/fm/tiny_avatar.png" title="F Minus" width="60" />
+          <span class="title">F Minus</span>
+          <span class="author">Tony Carrillo</span>
+          <span class="viewBtn"></span>
+        </a>
+      </li>
+      
+      <li>
+        <a href="/familytree">
+          <img alt="Family Tree" class="thumb" height="60" src="http://avatar.amuniversal.com/feature_avatars/avatars_large/features/fmt/tiny_avatar.png" title="Family Tree" width="60" />
+          <span class="title">Family Tree</span>
+          <span class="author">Signe Wilkinson</span>
+          <span class="viewBtn"></span>
+        </a>
+      </li>
+      
+      <li>
+        <a href="/farcus">
+          <img alt="Farcus" class="thumb" height="60" src="http://avatar.amuniversal.com/feature_avatars/avatars_large/features/far/tiny_avatar.png" title="Farcus" width="60" />
+          <span class="title">Farcus</span>
+          <span class="author">David Waisglass and Gordon Coulthart</span>
+          <span class="viewBtn"></span>
+        </a>
+      </li>
+      
+      <li>
+        <a href="/fat-cats">
+          <img alt="Fat Cats" class="thumb" height="60" src="http://avatar.amuniversal.com/feature_avatars/avatars_large/features/fc/tiny_avatar.png" title="Fat Cats" width="60" />
+          <span class="title">Fat Cats</span>
+          <span class="author">Charlie Podrebarac</span>
+          <span class="viewBtn"></span>
+        </a>
+      </li>
+      
+      <li>
+        <a href="/floandfriends">
+          <img alt="Flo and Friends" class="thumb" height="60" src="http://avatar.amuniversal.com/feature_avatars/avatars_large/features/crflo/tiny_avatar.png" title="Flo and Friends" width="60" />
+          <span class="title">Flo and Friends</span>
+          <span class="author">Jenny Campbell</span>
+          <span class="viewBtn"></span>
+        </a>
+      </li>
+      
+      <li>
+        <a href="/theflyingmccoys">
+          <img alt="The Flying McCoys" class="thumb" height="60" src="http://avatar.amuniversal.com/feature_avatars/avatars_large/features/fmc/tiny_avatar.png" title="The Flying McCoys" width="60" />
+          <span class="title">The Flying McCoys</span>
+          <span class="author">Glenn and Gary McCoy</span>
+          <span class="viewBtn"></span>
+        </a>
+      </li>
+      
+      <li>
+        <a href="/foolish-mortals">
+          <img alt="Foolish Mortals" class="thumb" height="60" src="http://avatar.amuniversal.com/feature_avatars/avatars_large/features/fmo/tiny_avatar.png" title="Foolish Mortals" width="60" />
+          <span class="title">Foolish Mortals</span>
+          <span class="author">Tom Horacek</span>
+          <span class="viewBtn"></span>
+        </a>
+      </li>
+      
+      <li>
+        <a href="/forbetterorforworse">
+          <img alt="For Better or For Worse" class="thumb" height="60" src="http://avatar.amuniversal.com/feature_avatars/avatars_large/features/fb/tiny_avatar.png" title="For Better or For Worse" width="60" />
+          <span class="title">For Better or For Worse</span>
+          <span class="author">Lynn Johnston</span>
+          <span class="viewBtn"></span>
+        </a>
+      </li>
+      
+      <li>
+        <a href="/forheavenssake">
+          <img alt="For Heaven&#x27;s Sake" class="thumb" height="60" src="http://avatar.amuniversal.com/feature_avatars/avatars_large/features/crfhs/tiny_avatar.png" title="For Heaven&#x27;s Sake" width="60" />
+          <span class="title">For Heaven&#x27;s Sake</span>
+          <span class="author">Mike Morgan</span>
+          <span class="viewBtn"></span>
+        </a>
+      </li>
+      
+      <li>
+        <a href="/fortknox">
+          <img alt="Fort Knox" class="thumb" height="60" src="http://avatar.amuniversal.com/feature_avatars/avatars_large/features/wpfk/tiny_avatar.png" title="Fort Knox" width="60" />
+          <span class="title">Fort Knox</span>
+          <span class="author">Paul Jon</span>
+          <span class="viewBtn"></span>
+        </a>
+      </li>
+      
+      <li>
+        <a href="/four-eyes">
+          <img alt="Four Eyes" class="thumb" height="60" src="http://avatar.amuniversal.com/feature_avatars/avatars_large/features/feye/tiny_avatar.png" title="Four Eyes" width="60" />
+          <span class="title">Four Eyes</span>
+          <span class="author">Gemma Correll</span>
+          <span class="viewBtn"></span>
+        </a>
+      </li>
+      
+      <li>
+        <a href="/foxtrot">
+          <img alt="FoxTrot" class="thumb" height="60" src="http://avatar.amuniversal.com/feature_avatars/avatars_large/features/ft/tiny_avatar.png" title="FoxTrot" width="60" />
+          <span class="title">FoxTrot</span>
+          <span class="author">Bill Amend</span>
+          <span class="viewBtn"></span>
+        </a>
+      </li>
+      
+      <li>
+        <a href="/foxtrotclassics">
+          <img alt="FoxTrot Classics" class="thumb" height="60" src="http://avatar.amuniversal.com/feature_avatars/avatars_large/features/ftcl/tiny_avatar.png" title="FoxTrot Classics" width="60" />
+          <span class="title">FoxTrot Classics</span>
+          <span class="author">Bill Amend</span>
+          <span class="viewBtn"></span>
+        </a>
+      </li>
+      
+      <li>
+        <a href="/francis">
+          <img alt="Francis" class="thumb" height="60" src="http://avatar.amuniversal.com/feature_avatars/avatars_large/features/fran/tiny_avatar.png" title="Francis" width="60" />
+          <span class="title">Francis</span>
+          <span class="author">Patrick J. Marrin</span>
+          <span class="viewBtn"></span>
+        </a>
+      </li>
+      
+      <li>
+        <a href="/frank-and-ernest">
+          <img alt="Frank &amp; Ernest" class="thumb" height="60" src="http://avatar.amuniversal.com/feature_avatars/avatars_large/features/fk/tiny_avatar.png" title="Frank &amp; Ernest" width="60" />
+          <span class="title">Frank &amp; Ernest</span>
+          <span class="author">Thaves</span>
+          <span class="viewBtn"></span>
+        </a>
+      </li>
+      
+      <li>
+        <a href="/frankie-comics">
+          <img alt="Frankie Comics" class="thumb" height="60" src="http://avatar.amuniversal.com/feature_avatars/avatars_large/features/frankie/tiny_avatar.png" title="Frankie Comics" width="60" />
+          <span class="title">Frankie Comics</span>
+          <span class="author">Rachel Dukes</span>
+          <span class="viewBtn"></span>
+        </a>
+      </li>
+      
+      <li>
+        <a href="/frazz">
+          <img alt="Frazz" class="thumb" height="60" src="http://avatar.amuniversal.com/feature_avatars/avatars_large/features/fz/tiny_avatar.png" title="Frazz" width="60" />
+          <span class="title">Frazz</span>
+          <span class="author">Jef Mallett</span>
+          <span class="viewBtn"></span>
+        </a>
+      </li>
+      
+      <li>
+        <a href="/fredbasset">
+          <img alt="Fred Basset" class="thumb" height="60" src="http://avatar.amuniversal.com/feature_avatars/avatars_large/features/tmfba/tiny_avatar.png" title="Fred Basset" width="60" />
+          <span class="title">Fred Basset</span>
+          <span class="author">Alex Graham</span>
+          <span class="viewBtn"></span>
+        </a>
+      </li>
+      
+      <li>
+        <a href="/freerange">
+          <img alt="Free Range" class="thumb" height="60" src="http://avatar.amuniversal.com/feature_avatars/avatars_large/features/crfr/tiny_avatar.png" title="Free Range" width="60" />
+          <span class="title">Free Range</span>
+          <span class="author">Bill Whitehead</span>
+          <span class="viewBtn"></span>
+        </a>
+      </li>
+      
+      <li>
+        <a href="/freshlysqueezed">
+          <img alt="Freshly Squeezed" class="thumb" height="60" src="http://avatar.amuniversal.com/feature_avatars/avatars_large/features/fs/tiny_avatar.png" title="Freshly Squeezed" width="60" />
+          <span class="title">Freshly Squeezed</span>
+          <span class="author">Ed Stein</span>
+          <span class="viewBtn"></span>
+        </a>
+      </li>
+      
+      <li>
+        <a href="/frogapplause">
+          <img alt="Frog Applause" class="thumb" height="60" src="http://avatar.amuniversal.com/feature_avatars/avatars_large/features/frog/tiny_avatar.png" title="Frog Applause" width="60" />
+          <span class="title">Frog Applause</span>
+          <span class="author">Teresa Burritt</span>
+          <span class="viewBtn"></span>
+        </a>
+      </li>
+      
+      <li>
+        <a href="/from-the-mo-willems-sketchbook">
+          <img alt="From the Mo Willems Sketchbook" class="thumb" height="60" src="http://avatar.amuniversal.com/feature_avatars/avatars_large/features/mwpd/tiny_avatar.png" title="From the Mo Willems Sketchbook" width="60" />
+          <span class="title">From the Mo Willems Sketchbook</span>
+          <span class="author">Mo Willems</span>
+          <span class="viewBtn"></span>
+        </a>
+      </li>
+      
+      <li>
+        <a href="/thefuscobrothers">
+          <img alt="The Fusco Brothers" class="thumb" height="60" src="http://avatar.amuniversal.com/feature_avatars/avatars_large/features/fu/tiny_avatar.png" title="The Fusco Brothers" width="60" />
+          <span class="title">The Fusco Brothers</span>
+          <span class="author">J.C. Duffy</span>
+          <span class="viewBtn"></span>
+        </a>
+      </li>
+      <li class="az-nav">
+  <a href="/explore/comics#a_to_b">A to B</a>  <a href="/explore/comics#c_to_f">C to F</a>  
+      <a href="#g_to_l" name="g_to_l"><span>G to L</span></a>
+  <a href="/explore/comics#m_to_q">M to Q</a>  <a href="/explore/comics#r_to_z">R to Z</a></li>
+  <li class="az-ads">
+    <div id='leaderboard2' class="ad ad-banner">
+  <script type='text/javascript'>
+    googletag.cmd.push(function() { googletag.display('leaderboard2'); });
+  </script>
+</div>
+  </li>
+
+      <li>
+        <a href="/garfield">
+          <img alt="Garfield" class="thumb" height="60" src="http://avatar.amuniversal.com/feature_avatars/avatars_large/features/ga/tiny_avatar.png" title="Garfield" width="60" />
+          <span class="title">Garfield</span>
+          <span class="author">Jim Davis</span>
+          <span class="viewBtn"></span>
+        </a>
+      </li>
+      
+      <li>
+        <a href="/garfieldminusgarfield">
+          <img alt="Garfield Minus Garfield" class="thumb" height="60" src="http://avatar.amuniversal.com/feature_avatars/avatars_large/features/gmg/tiny_avatar.png" title="Garfield Minus Garfield" width="60" />
+          <span class="title">Garfield Minus Garfield</span>
+          <span class="author">Paws, Inc.</span>
+          <span class="viewBtn"></span>
+        </a>
+      </li>
+      
+      <li>
+        <a href="/gasolinealley">
+          <img alt="Gasoline Alley" class="thumb" height="60" src="http://avatar.amuniversal.com/feature_avatars/avatars_large/features/tmgas/tiny_avatar.png" title="Gasoline Alley" width="60" />
+          <span class="title">Gasoline Alley</span>
+          <span class="author">Jim Scancarelli</span>
+          <span class="viewBtn"></span>
+        </a>
+      </li>
+      
+      <li>
+        <a href="/geech">
+          <img alt="Geech" class="thumb" height="60" src="http://avatar.amuniversal.com/feature_avatars/avatars_large/features/ge/tiny_avatar.png" title="Geech" width="60" />
+          <span class="title">Geech</span>
+          <span class="author">Jerry Bittle</span>
+          <span class="viewBtn"></span>
+        </a>
+      </li>
+      
+      <li>
+        <a href="/gentle-creatures">
+          <img alt="Gentle Creatures" class="thumb" height="60" src="http://avatar.amuniversal.com/feature_avatars/avatars_large/features/gen/tiny_avatar.png" title="Gentle Creatures" width="60" />
+          <span class="title">Gentle Creatures</span>
+          <span class="author">Mel Henze</span>
+          <span class="viewBtn"></span>
+        </a>
+      </li>
+      
+      <li>
+        <a href="/getalife">
+          <img alt="Get a Life" class="thumb" height="60" src="http://avatar.amuniversal.com/feature_avatars/avatars_large/features/gal/tiny_avatar.png" title="Get a Life" width="60" />
+          <span class="title">Get a Life</span>
+          <span class="author">Tim Lachowski</span>
+          <span class="viewBtn"></span>
+        </a>
+      </li>
+      
+      <li>
+        <a href="/getfuzzy">
+          <img alt="Get Fuzzy" class="thumb" height="60" src="http://avatar.amuniversal.com/feature_avatars/avatars_large/features/gz/tiny_avatar.png" title="Get Fuzzy" width="60" />
+          <span class="title">Get Fuzzy</span>
+          <span class="author">Darby Conley</span>
+          <span class="viewBtn"></span>
+        </a>
+      </li>
+      
+      <li>
+        <a href="/gilthorp">
+          <img alt="Gil Thorp" class="thumb" height="60" src="http://avatar.amuniversal.com/feature_avatars/avatars_large/features/tmgil/tiny_avatar.png" title="Gil Thorp" width="60" />
+          <span class="title">Gil Thorp</span>
+          <span class="author">Neal Rubin and Rod Whigham</span>
+          <span class="viewBtn"></span>
+        </a>
+      </li>
+      
+      <li>
+        <a href="/gingermeggs">
+          <img alt="Ginger Meggs" class="thumb" height="60" src="http://avatar.amuniversal.com/feature_avatars/avatars_large/features/gin/tiny_avatar.png" title="Ginger Meggs" width="60" />
+          <span class="title">Ginger Meggs</span>
+          <span class="author">Jason Chatfield</span>
+          <span class="viewBtn"></span>
+        </a>
+      </li>
+      
+      <li>
+        <a href="/glasbergen-cartoons">
+          <img alt="Glasbergen Cartoons" class="thumb" height="60" src="http://avatar.amuniversal.com/feature_avatars/avatars_large/features/rgc/tiny_avatar.png" title="Glasbergen Cartoons" width="60" />
+          <span class="title">Glasbergen Cartoons</span>
+          <span class="author">Randy Glasbergen</span>
+          <span class="viewBtn"></span>
+        </a>
+      </li>
+      
+      <li>
+        <a href="/g-man-webcomics">
+          <img alt="G-Man Webcomics" class="thumb" height="60" src="http://avatar.amuniversal.com/feature_avatars/avatars_large/features/gman/tiny_avatar.png" title="G-Man Webcomics" width="60" />
+          <span class="title">G-Man Webcomics</span>
+          <span class="author">Chris Giarrusso</span>
+          <span class="viewBtn"></span>
+        </a>
+      </li>
+      
+      <li>
+        <a href="/goats">
+          <img alt="Goats" class="thumb" height="60" src="http://avatar.amuniversal.com/feature_avatars/avatars_large/features/goat/tiny_avatar.png" title="Goats" width="60" />
+          <span class="title">Goats</span>
+          <span class="author">Jon Rosenberg</span>
+          <span class="viewBtn"></span>
+        </a>
+      </li>
+      
+      <li>
+        <a href="/fan-art">
+          <img alt="GoComics Fan Art" class="thumb" height="60" src="http://avatar.amuniversal.com/feature_avatars/avatars_gocomicsver3/features/60-default-comic.png" title="GoComics Fan Art" width="60" />
+          <span class="title">GoComics Fan Art</span>
+          <span class="author">The Fans!</span>
+          <span class="viewBtn"></span>
+        </a>
+      </li>
+      
+      <li>
+        <a href="/graffiti">
+          <img alt="Graffiti" class="thumb" height="60" src="http://avatar.amuniversal.com/feature_avatars/avatars_large/features/gf/tiny_avatar.png" title="Graffiti" width="60" />
+          <span class="title">Graffiti</span>
+          <span class="author">Gene Mora</span>
+          <span class="viewBtn"></span>
+        </a>
+      </li>
+      
+      <li>
+        <a href="/grand-avenue">
+          <img alt="Grand Avenue" class="thumb" height="60" src="http://avatar.amuniversal.com/feature_avatars/avatars_large/features/gr/tiny_avatar.png" title="Grand Avenue" width="60" />
+          <span class="title">Grand Avenue</span>
+          <span class="author">Steve Breen and Mike Thompson</span>
+          <span class="viewBtn"></span>
+        </a>
+      </li>
+      
+      <li>
+        <a href="/gray-matters">
+          <img alt="Gray Matters" class="thumb" height="60" src="http://avatar.amuniversal.com/feature_avatars/avatars_large/features/gma/tiny_avatar.png" title="Gray Matters" width="60" />
+          <span class="title">Gray Matters</span>
+          <span class="author">Stuart Carlson and Jerry Resler</span>
+          <span class="viewBtn"></span>
+        </a>
+      </li>
+      
+      <li>
+        <a href="/green-humour">
+          <img alt="Green Humour" class="thumb" height="60" src="http://avatar.amuniversal.com/feature_avatars/avatars_large/features/grnh/tiny_avatar.png" title="Green Humour" width="60" />
+          <span class="title">Green Humour</span>
+          <span class="author">Rohan Chakravarty</span>
+          <span class="viewBtn"></span>
+        </a>
+      </li>
+      
+      <li>
+        <a href="/thegrizzwells">
+          <img alt="The Grizzwells" class="thumb" height="60" src="http://avatar.amuniversal.com/feature_avatars/avatars_large/features/gw/tiny_avatar.png" title="The Grizzwells" width="60" />
+          <span class="title">The Grizzwells</span>
+          <span class="author">Bill Schorr</span>
+          <span class="viewBtn"></span>
+        </a>
+      </li>
+      
+      <li>
+        <a href="/haikuewe">
+          <img alt="Haiku Ewe" class="thumb" height="60" src="http://avatar.amuniversal.com/feature_avatars/avatars_large/features/hai/tiny_avatar.png" title="Haiku Ewe" width="60" />
+          <span class="title">Haiku Ewe</span>
+          <span class="author">Allison Garwood</span>
+          <span class="viewBtn"></span>
+        </a>
+      </li>
+      
+      <li>
+        <a href="/half-full">
+          <img alt="Half Full" class="thumb" height="60" src="http://avatar.amuniversal.com/feature_avatars/avatars_large/features/hf/tiny_avatar.png" title="Half Full" width="60" />
+          <span class="title">Half Full</span>
+          <span class="author">Maria Scrivan</span>
+          <span class="viewBtn"></span>
+        </a>
+      </li>
+      
+      <li>
+        <a href="/ham-shears">
+          <img alt="Ham Shears" class="thumb" height="60" src="http://avatar.amuniversal.com/feature_avatars/avatars_large/features/ham/tiny_avatar.png" title="Ham Shears" width="60" />
+          <span class="title">Ham Shears</span>
+          <span class="author">Madeline Queripel</span>
+          <span class="viewBtn"></span>
+        </a>
+      </li>
+      
+      <li>
+        <a href="/happy-boy-bobs-animated-gifs">
+          <img alt="Happy Boy Bob&#x27;s Animated Gifs" class="thumb" height="60" src="http://avatar.amuniversal.com/feature_avatars/avatars_large/features/hbb/tiny_avatar.png" title="Happy Boy Bob&#x27;s Animated Gifs" width="60" />
+          <span class="title">Happy Boy Bob&#x27;s Animated Gifs</span>
+          <span class="author">Robert Holt</span>
+          <span class="viewBtn"></span>
+        </a>
+      </li>
+      
+      <li>
+        <a href="/healthcapsules">
+          <img alt="Health Capsules" class="thumb" height="60" src="http://avatar.amuniversal.com/feature_avatars/avatars_large/features/hcp/tiny_avatar.png" title="Health Capsules" width="60" />
+          <span class="title">Health Capsules</span>
+          <span class="author">Bron Smith</span>
+          <span class="viewBtn"></span>
+        </a>
+      </li>
+      
+      <li>
+        <a href="/heart-brain-and-soul">
+          <img alt="Heart, Brain and Soul" class="thumb" height="60" src="http://avatar.amuniversal.com/feature_avatars/avatars_large/features/hbs/tiny_avatar.png" title="Heart, Brain and Soul" width="60" />
+          <span class="title">Heart, Brain and Soul</span>
+          <span class="author">Ryan Webb</span>
+          <span class="viewBtn"></span>
+        </a>
+      </li>
+      
+      <li>
+        <a href="/heartofthecity">
+          <img alt="Heart of the City" class="thumb" height="60" src="http://avatar.amuniversal.com/feature_avatars/avatars_large/features/hc/tiny_avatar.png" title="Heart of the City" width="60" />
+          <span class="title">Heart of the City</span>
+          <span class="author">Mark Tatulli</span>
+          <span class="viewBtn"></span>
+        </a>
+      </li>
+      
+      <li>
+        <a href="/heathcliff">
+          <img alt="Heathcliff" class="thumb" height="60" src="http://avatar.amuniversal.com/feature_avatars/avatars_large/features/crhea/tiny_avatar.png" title="Heathcliff" width="60" />
+          <span class="title">Heathcliff</span>
+          <span class="author">George Gately</span>
+          <span class="viewBtn"></span>
+        </a>
+      </li>
+      
+      <li>
+        <a href="/herbandjamaal">
+          <img alt="Herb and Jamaal" class="thumb" height="60" src="http://avatar.amuniversal.com/feature_avatars/avatars_large/features/crher/tiny_avatar.png" title="Herb and Jamaal" width="60" />
+          <span class="title">Herb and Jamaal</span>
+          <span class="author">Stephen Bentley</span>
+          <span class="viewBtn"></span>
+        </a>
+      </li>
+      
+      <li>
+        <a href="/herman">
+          <img alt="Herman" class="thumb" height="60" src="http://avatar.amuniversal.com/feature_avatars/avatars_large/features/hm/tiny_avatar.png" title="Herman" width="60" />
+          <span class="title">Herman</span>
+          <span class="author">Jim Unger</span>
+          <span class="viewBtn"></span>
+        </a>
+      </li>
+      
+      <li>
+        <a href="/hipster-picnic">
+          <img alt="Hipster Picnic" class="thumb" height="60" src="http://avatar.amuniversal.com/feature_avatars/avatars_large/features/hed/tiny_avatar.png" title="Hipster Picnic" width="60" />
+          <span class="title">Hipster Picnic</span>
+          <span class="author">Patrick Yurick</span>
+          <span class="viewBtn"></span>
+        </a>
+      </li>
+      
+      <li>
+        <a href="/holiday-doodles">
+          <img alt="Holiday Doodles" class="thumb" height="60" src="http://avatar.amuniversal.com/feature_avatars/avatars_large/features/hd/tiny_avatar.png" title="Holiday Doodles" width="60" />
+          <span class="title">Holiday Doodles</span>
+          <span class="author">Missy Meyer</span>
+          <span class="viewBtn"></span>
+        </a>
+      </li>
+      
+      <li>
+        <a href="/homeandaway">
+          <img alt="Home and Away" class="thumb" height="60" src="http://avatar.amuniversal.com/feature_avatars/avatars_large/features/wphaa/tiny_avatar.png" title="Home and Away" width="60" />
+          <span class="title">Home and Away</span>
+          <span class="author">Steve Sicula</span>
+          <span class="viewBtn"></span>
+        </a>
+      </li>
+      
+      <li>
+        <a href="/hubris">
+          <img alt="HUBRIS!" class="thumb" height="60" src="http://avatar.amuniversal.com/feature_avatars/avatars_large/features/hub/tiny_avatar.png" title="HUBRIS!" width="60" />
+          <span class="title">HUBRIS!</span>
+          <span class="author">Greg Cravens</span>
+          <span class="viewBtn"></span>
+        </a>
+      </li>
+      
+      <li>
+        <a href="/human-cull">
+          <img alt="Human Cull" class="thumb" height="60" src="http://avatar.amuniversal.com/feature_avatars/avatars_large/features/hcu/tiny_avatar.png" title="Human Cull" width="60" />
+          <span class="title">Human Cull</span>
+          <span class="author">Alex Hallatt</span>
+          <span class="viewBtn"></span>
+        </a>
+      </li>
+      
+      <li>
+        <a href="/humble-stumble">
+          <img alt="The Humble Stumble" class="thumb" height="60" src="http://avatar.amuniversal.com/feature_avatars/avatars_large/features/hu/tiny_avatar.png" title="The Humble Stumble" width="60" />
+          <span class="title">The Humble Stumble</span>
+          <span class="author">Roy Schneider</span>
+          <span class="viewBtn"></span>
+        </a>
+      </li>
+      
+      <li>
+        <a href="/hutch-owen">
+          <img alt="Hutch Owen" class="thumb" height="60" src="http://avatar.amuniversal.com/feature_avatars/avatars_large/features/hut/tiny_avatar.png" title="Hutch Owen" width="60" />
+          <span class="title">Hutch Owen</span>
+          <span class="author">Tom Hart</span>
+          <span class="viewBtn"></span>
+        </a>
+      </li>
+      
+      <li>
+        <a href="/imaginethis">
+          <img alt="Imagine This" class="thumb" height="60" src="http://avatar.amuniversal.com/feature_avatars/avatars_large/features/imt/tiny_avatar.png" title="Imagine This" width="60" />
+          <span class="title">Imagine This</span>
+          <span class="author">Lucas Turnbloom</span>
+          <span class="viewBtn"></span>
+        </a>
+      </li>
+      
+      <li>
+        <a href="/inthebleachers">
+          <img alt="In the Bleachers" class="thumb" height="60" src="http://avatar.amuniversal.com/feature_avatars/avatars_large/features/bl/tiny_avatar.png" title="In the Bleachers" width="60" />
+          <span class="title">In the Bleachers</span>
+          <span class="author">Steve Moore</span>
+          <span class="viewBtn"></span>
+        </a>
+      </li>
+      
+      <li>
+        <a href="/inthesticks">
+          <img alt="In the Sticks" class="thumb" height="60" src="http://avatar.amuniversal.com/feature_avatars/avatars_large/features/its/tiny_avatar.png" title="In the Sticks" width="60" />
+          <span class="title">In the Sticks</span>
+          <span class="author">Nathan Cooper</span>
+          <span class="viewBtn"></span>
+        </a>
+      </li>
+      
+      <li>
+        <a href="/inherit-the-mirth">
+          <img alt="Inherit the Mirth" class="thumb" height="60" src="http://avatar.amuniversal.com/feature_avatars/avatars_large/features/itm/tiny_avatar.png" title="Inherit the Mirth" width="60" />
+          <span class="title">Inherit the Mirth</span>
+          <span class="author">Cuyler Black</span>
+          <span class="viewBtn"></span>
+        </a>
+      </li>
+      
+      <li>
+        <a href="/inkpen">
+          <img alt="Ink Pen" class="thumb" height="60" src="http://avatar.amuniversal.com/feature_avatars/avatars_large/features/ink/tiny_avatar.png" title="Ink Pen" width="60" />
+          <span class="title">Ink Pen</span>
+          <span class="author">Phil Dunlap</span>
+          <span class="viewBtn"></span>
+        </a>
+      </li>
+      
+      <li>
+        <a href="/inspector-dangers-crime-quiz">
+          <img alt="Inspector Danger&#x27;s Crime Quiz" class="thumb" height="60" src="http://avatar.amuniversal.com/feature_avatars/avatars_large/features/cq/tiny_avatar.png" title="Inspector Danger&#x27;s Crime Quiz" width="60" />
+          <span class="title">Inspector Danger&#x27;s Crime Quiz</span>
+          <span class="author">Werner Wejp-Olsen</span>
+          <span class="viewBtn"></span>
+        </a>
+      </li>
+      
+      <li>
+        <a href="/invisible-bread">
+          <img alt="Invisible Bread" class="thumb" height="60" src="http://avatar.amuniversal.com/feature_avatars/avatars_large/features/inb/tiny_avatar.png" title="Invisible Bread" width="60" />
+          <span class="title">Invisible Bread</span>
+          <span class="author">Justin Boyd</span>
+          <span class="viewBtn"></span>
+        </a>
+      </li>
+      
+      <li>
+        <a href="/itsallaboutyou">
+          <img alt="It&#x27;s All About You" class="thumb" height="60" src="http://avatar.amuniversal.com/feature_avatars/avatars_large/features/wpiay/tiny_avatar.png" title="It&#x27;s All About You" width="60" />
+          <span class="title">It&#x27;s All About You</span>
+          <span class="author">Tony Murphy</span>
+          <span class="viewBtn"></span>
+        </a>
+      </li>
+      
+      <li>
+        <a href="/janesworld">
+          <img alt="Jane&#x27;s World" class="thumb" height="60" src="http://avatar.amuniversal.com/feature_avatars/avatars_large/features/jw/tiny_avatar.png" title="Jane&#x27;s World" width="60" />
+          <span class="title">Jane&#x27;s World</span>
+          <span class="author">Paige Braddock</span>
+          <span class="viewBtn"></span>
+        </a>
+      </li>
+      
+      <li>
+        <a href="/jetpack-jr">
+          <img alt="Jetpack Jr." class="thumb" height="60" src="http://avatar.amuniversal.com/feature_avatars/avatars_large/features/pbh/tiny_avatar.png" title="Jetpack Jr." width="60" />
+          <span class="title">Jetpack Jr.</span>
+          <span class="author">Geoff Grogan</span>
+          <span class="viewBtn"></span>
+        </a>
+      </li>
+      
+      <li>
+        <a href="/jim-benton-cartoons">
+          <img alt="Jim Benton Cartoons" class="thumb" height="60" src="http://avatar.amuniversal.com/feature_avatars/avatars_large/features/jbs/tiny_avatar.png" title="Jim Benton Cartoons" width="60" />
+          <span class="title">Jim Benton Cartoons</span>
+          <span class="author">Jim Benton</span>
+          <span class="viewBtn"></span>
+        </a>
+      </li>
+      
+      <li>
+        <a href="/jimsjournal">
+          <img alt="Jim&#x27;s Journal" class="thumb" height="60" src="http://avatar.amuniversal.com/feature_avatars/avatars_large/features/jjo/tiny_avatar.png" title="Jim&#x27;s Journal" width="60" />
+          <span class="title">Jim&#x27;s Journal</span>
+          <span class="author">Jim</span>
+          <span class="viewBtn"></span>
+        </a>
+      </li>
+      
+      <li>
+        <a href="/joevanilla">
+          <img alt="Joe Vanilla" class="thumb" height="60" src="http://avatar.amuniversal.com/feature_avatars/avatars_large/features/jv/tiny_avatar.png" title="Joe Vanilla" width="60" />
+          <span class="title">Joe Vanilla</span>
+          <span class="author">Mark Litzler</span>
+          <span class="viewBtn"></span>
+        </a>
+      </li>
+      
+      <li>
+        <a href="/jumpstart">
+          <img alt="JumpStart" class="thumb" height="60" src="http://avatar.amuniversal.com/feature_avatars/avatars_large/features/jt/tiny_avatar.png" title="JumpStart" width="60" />
+          <span class="title">JumpStart</span>
+          <span class="author">Robb Armstrong</span>
+          <span class="viewBtn"></span>
+        </a>
+      </li>
+      
+      <li>
+        <a href="/just-say-uncle">
+          <img alt="Just Say Uncle" class="thumb" height="60" src="http://avatar.amuniversal.com/feature_avatars/avatars_large/features/jsu/tiny_avatar.png" title="Just Say Uncle" width="60" />
+          <span class="title">Just Say Uncle</span>
+          <span class="author">Dan Pavelich</span>
+          <span class="viewBtn"></span>
+        </a>
+      </li>
+      
+      <li>
+        <a href="/thekchronicles">
+          <img alt="The K Chronicles" class="thumb" height="60" src="http://avatar.amuniversal.com/feature_avatars/avatars_large/features/kk/tiny_avatar.png" title="The K Chronicles" width="60" />
+          <span class="title">The K Chronicles</span>
+          <span class="author">Keith Knight</span>
+          <span class="viewBtn"></span>
+        </a>
+      </li>
+      
+      <li>
+        <a href="/kid-beowulf">
+          <img alt="Kid Beowulf" class="thumb" height="60" src="http://avatar.amuniversal.com/feature_avatars/avatars_large/features/kb/tiny_avatar.png" title="Kid Beowulf" width="60" />
+          <span class="title">Kid Beowulf</span>
+          <span class="author">Alexis E. Fajardo</span>
+          <span class="viewBtn"></span>
+        </a>
+      </li>
+      
+      <li>
+        <a href="/kid-shay-comics">
+          <img alt="Kid Shay Comics" class="thumb" height="60" src="http://avatar.amuniversal.com/feature_avatars/avatars_large/features/ksc/tiny_avatar.png" title="Kid Shay Comics" width="60" />
+          <span class="title">Kid Shay Comics</span>
+          <span class="author">Josh Shalek</span>
+          <span class="viewBtn"></span>
+        </a>
+      </li>
+      
+      <li>
+        <a href="/kidspot">
+          <img alt="KidSpot" class="thumb" height="60" src="http://avatar.amuniversal.com/feature_avatars/avatars_large/features/ks/tiny_avatar.png" title="KidSpot" width="60" />
+          <span class="title">KidSpot</span>
+          <span class="author">Dan Thompson</span>
+          <span class="viewBtn"></span>
+        </a>
+      </li>
+      
+      <li>
+        <a href="/kidtown">
+          <img alt="KidTown" class="thumb" height="60" src="http://avatar.amuniversal.com/feature_avatars/avatars_large/features/ki/tiny_avatar.png" title="KidTown" width="60" />
+          <span class="title">KidTown</span>
+          <span class="author">Steve McGarry</span>
+          <span class="viewBtn"></span>
+        </a>
+      </li>
+      
+      <li>
+        <a href="/kitandcarlyle">
+          <img alt="Kit &#x27;N&#x27; Carlyle" class="thumb" height="60" src="http://avatar.amuniversal.com/feature_avatars/avatars_large/features/kc/tiny_avatar.png" title="Kit &#x27;N&#x27; Carlyle" width="60" />
+          <span class="title">Kit &#x27;N&#x27; Carlyle</span>
+          <span class="author">Larry Wright</span>
+          <span class="viewBtn"></span>
+        </a>
+      </li>
+      
+      <li>
+        <a href="/kitchen-capers">
+          <img alt="Kitchen Capers" class="thumb" height="60" src="http://avatar.amuniversal.com/feature_avatars/avatars_large/features/kic/tiny_avatar.png" title="Kitchen Capers" width="60" />
+          <span class="title">Kitchen Capers</span>
+          <span class="author">David Banks</span>
+          <span class="viewBtn"></span>
+        </a>
+      </li>
+      
+      <li>
+        <a href="/kliban">
+          <img alt="Kliban" class="thumb" height="60" src="http://avatar.amuniversal.com/feature_avatars/avatars_large/features/klib/tiny_avatar.png" title="Kliban" width="60" />
+          <span class="title">Kliban</span>
+          <span class="author">B. Kliban</span>
+          <span class="viewBtn"></span>
+        </a>
+      </li>
+      
+      <li>
+        <a href="/klibans-cats">
+          <img alt="Kliban&#x27;s Cats" class="thumb" height="60" src="http://avatar.amuniversal.com/feature_avatars/avatars_large/features/klic/tiny_avatar.png" title="Kliban&#x27;s Cats" width="60" />
+          <span class="title">Kliban&#x27;s Cats</span>
+          <span class="author">B. Kliban</span>
+          <span class="viewBtn"></span>
+        </a>
+      </li>
+      
+      <li>
+        <a href="/theknightlife">
+          <img alt="The Knight Life" class="thumb" height="60" src="http://avatar.amuniversal.com/feature_avatars/avatars_large/features/kl/tiny_avatar.png" title="The Knight Life" width="60" />
+          <span class="title">The Knight Life</span>
+          <span class="author">Keith Knight</span>
+          <span class="viewBtn"></span>
+        </a>
+      </li>
+      
+      <li>
+        <a href="/lacucaracha">
+          <img alt="La Cucaracha" class="thumb" height="60" src="http://avatar.amuniversal.com/feature_avatars/avatars_large/features/lc/tiny_avatar.png" title="La Cucaracha" width="60" />
+          <span class="title">La Cucaracha</span>
+          <span class="author">Lalo Alcaraz</span>
+          <span class="viewBtn"></span>
+        </a>
+      </li>
+      
+      <li>
+        <a href="/lards-world-peace-tips">
+          <img alt="Lard&#x27;s World Peace Tips" class="thumb" height="60" src="http://avatar.amuniversal.com/feature_avatars/avatars_large/features/ltwp/tiny_avatar.png" title="Lard&#x27;s World Peace Tips" width="60" />
+          <span class="title">Lard&#x27;s World Peace Tips</span>
+          <span class="author">Keith Tutt and Daniel Saunders</span>
+          <span class="viewBtn"></span>
+        </a>
+      </li>
+      
+      <li>
+        <a href="/lastkiss">
+          <img alt="Last Kiss" class="thumb" height="60" src="http://avatar.amuniversal.com/feature_avatars/avatars_large/features/last/tiny_avatar.png" title="Last Kiss" width="60" />
+          <span class="title">Last Kiss</span>
+          <span class="author">John Lustig</span>
+          <span class="viewBtn"></span>
+        </a>
+      </li>
+      
+      <li>
+        <a href="/lay-lines">
+          <img alt="Lay Lines" class="thumb" height="60" src="http://avatar.amuniversal.com/feature_avatars/avatars_large/features/lli/tiny_avatar.png" title="Lay Lines" width="60" />
+          <span class="title">Lay Lines</span>
+          <span class="author">Carol Lay</span>
+          <span class="viewBtn"></span>
+        </a>
+      </li>
+      
+      <li>
+        <a href="/learn-to-speak-cat">
+          <img alt="Learn to Speak Cat" class="thumb" height="60" src="http://avatar.amuniversal.com/feature_avatars/avatars_large/features/lsc/tiny_avatar.png" title="Learn to Speak Cat" width="60" />
+          <span class="title">Learn to Speak Cat</span>
+          <span class="author">Anthony Smith</span>
+          <span class="viewBtn"></span>
+        </a>
+      </li>
+      
+      <li>
+        <a href="/leftyboscopictureshow">
+          <img alt="The LeftyBosco Picture Show" class="thumb" height="60" src="http://avatar.amuniversal.com/feature_avatars/avatars_large/features/lps/tiny_avatar.png" title="The LeftyBosco Picture Show" width="60" />
+          <span class="title">The LeftyBosco Picture Show</span>
+          <span class="author">Keith DuQuette</span>
+          <span class="viewBtn"></span>
+        </a>
+      </li>
+      
+      <li>
+        <a href="/legendofbill">
+          <img alt="Legend of Bill" class="thumb" height="60" src="http://avatar.amuniversal.com/feature_avatars/avatars_large/features/lob/tiny_avatar.png" title="Legend of Bill" width="60" />
+          <span class="title">Legend of Bill</span>
+          <span class="author">David Reddick</span>
+          <span class="viewBtn"></span>
+        </a>
+      </li>
+      
+      <li>
+        <a href="/leigh-luna-comics">
+          <img alt="Leigh Luna Comics" class="thumb" height="60" src="http://avatar.amuniversal.com/feature_avatars/avatars_large/features/llu/tiny_avatar.png" title="Leigh Luna Comics" width="60" />
+          <span class="title">Leigh Luna Comics</span>
+          <span class="author">Leigh Luna</span>
+          <span class="viewBtn"></span>
+        </a>
+      </li>
+      
+      <li>
+        <a href="/libertymeadows">
+          <img alt="Liberty Meadows" class="thumb" height="60" src="http://avatar.amuniversal.com/feature_avatars/avatars_large/features/crlib/tiny_avatar.png" title="Liberty Meadows" width="60" />
+          <span class="title">Liberty Meadows</span>
+          <span class="author">Frank Cho</span>
+          <span class="viewBtn"></span>
+        </a>
+      </li>
+      
+      <li>
+        <a href="/lil-abner">
+          <img alt="Li&#x27;l Abner" class="thumb" height="60" src="http://avatar.amuniversal.com/feature_avatars/avatars_large/features/li/tiny_avatar.png" title="Li&#x27;l Abner" width="60" />
+          <span class="title">Li&#x27;l Abner</span>
+          <span class="author">Al Capp</span>
+          <span class="viewBtn"></span>
+        </a>
+      </li>
+      
+      <li>
+        <a href="/lio">
+          <img alt="Lio" class="thumb" height="60" src="http://avatar.amuniversal.com/feature_avatars/avatars_large/features/lio/tiny_avatar.png" title="Lio" width="60" />
+          <span class="title">Lio</span>
+          <span class="author">Mark Tatulli</span>
+          <span class="viewBtn"></span>
+        </a>
+      </li>
+      
+      <li>
+        <a href="/littledoglost">
+          <img alt="Little Dog Lost" class="thumb" height="60" src="http://avatar.amuniversal.com/feature_avatars/avatars_large/features/wpldl/tiny_avatar.png" title="Little Dog Lost" width="60" />
+          <span class="title">Little Dog Lost</span>
+          <span class="author">Steve Boreman</span>
+          <span class="viewBtn"></span>
+        </a>
+      </li>
+      
+      <li>
+        <a href="/little-fried-chicken-and-sushi">
+          <img alt="Little Fried Chicken and Sushi" class="thumb" height="60" src="http://avatar.amuniversal.com/feature_avatars/avatars_large/features/lfc/tiny_avatar.png" title="Little Fried Chicken and Sushi" width="60" />
+          <span class="title">Little Fried Chicken and Sushi</span>
+          <span class="author">Khalid Birdsong</span>
+          <span class="viewBtn"></span>
+        </a>
+      </li>
+      
+      <li>
+        <a href="/little-nemo">
+          <img alt="Little Nemo" class="thumb" height="60" src="http://avatar.amuniversal.com/feature_avatars/avatars_large/features/nemo/tiny_avatar.png" title="Little Nemo" width="60" />
+          <span class="title">Little Nemo</span>
+          <span class="author">Winsor McCay</span>
+          <span class="viewBtn"></span>
+        </a>
+      </li>
+      
+      <li>
+        <a href="/lola">
+          <img alt="Lola" class="thumb" height="60" src="http://avatar.amuniversal.com/feature_avatars/avatars_large/features/ll/tiny_avatar.png" title="Lola" width="60" />
+          <span class="title">Lola</span>
+          <span class="author">Todd Clark</span>
+          <span class="viewBtn"></span>
+        </a>
+      </li>
+      
+      <li>
+        <a href="/looks-good-on-paper">
+          <img alt="Looks Good on Paper" class="thumb" height="60" src="http://avatar.amuniversal.com/feature_avatars/avatars_large/features/lgop/tiny_avatar.png" title="Looks Good on Paper" width="60" />
+          <span class="title">Looks Good on Paper</span>
+          <span class="author">Dan Collins</span>
+          <span class="viewBtn"></span>
+        </a>
+      </li>
+      
+      <li>
+        <a href="/looseparts">
+          <img alt="Loose Parts" class="thumb" height="60" src="http://avatar.amuniversal.com/feature_avatars/avatars_large/features/tmloo/tiny_avatar.png" title="Loose Parts" width="60" />
+          <span class="title">Loose Parts</span>
+          <span class="author">Dave Blazek</span>
+          <span class="viewBtn"></span>
+        </a>
+      </li>
+      
+      <li>
+        <a href="/the-lost-bear">
+          <img alt="The Lost Bear" class="thumb" height="60" src="http://avatar.amuniversal.com/feature_avatars/avatars_large/features/tlb/tiny_avatar.png" title="The Lost Bear" width="60" />
+          <span class="title">The Lost Bear</span>
+          <span class="author">Bradley Trevor Greive</span>
+          <span class="viewBtn"></span>
+        </a>
+      </li>
+      
+      <li>
+        <a href="/lostsideofsuburbia">
+          <img alt="Lost Side of Suburbia" class="thumb" height="60" src="http://avatar.amuniversal.com/feature_avatars/avatars_large/features/lss/tiny_avatar.png" title="Lost Side of Suburbia" width="60" />
+          <span class="title">Lost Side of Suburbia</span>
+          <span class="author">Kory Merritt</span>
+          <span class="viewBtn"></span>
+        </a>
+      </li>
+      
+      <li>
+        <a href="/lostsheep">
+          <img alt="Lost Sheep" class="thumb" height="60" src="http://avatar.amuniversal.com/feature_avatars/avatars_large/features/lost/tiny_avatar.png" title="Lost Sheep" width="60" />
+          <span class="title">Lost Sheep</span>
+          <span class="author">Dan Thompson</span>
+          <span class="viewBtn"></span>
+        </a>
+      </li>
+      
+      <li>
+        <a href="/luann">
+          <img alt="Luann" class="thumb" height="60" src="http://avatar.amuniversal.com/feature_avatars/avatars_large/features/lu/tiny_avatar.png" title="Luann" width="60" />
+          <span class="title">Luann</span>
+          <span class="author">Greg Evans</span>
+          <span class="viewBtn"></span>
+        </a>
+      </li>
+      
+      <li>
+        <a href="/luann-againn">
+          <img alt="Luann Againn" class="thumb" height="60" src="http://avatar.amuniversal.com/feature_avatars/avatars_large/features/lua/tiny_avatar.png" title="Luann Againn" width="60" />
+          <span class="title">Luann Againn</span>
+          <span class="author">Greg Evans</span>
+          <span class="viewBtn"></span>
+        </a>
+      </li>
+      
+      <li>
+        <a href="/luckycow">
+          <img alt="Lucky Cow" class="thumb" height="60" src="http://avatar.amuniversal.com/feature_avatars/avatars_large/features/luc/tiny_avatar.png" title="Lucky Cow" width="60" />
+          <span class="title">Lucky Cow</span>
+          <span class="author">Mark Pett</span>
+          <span class="viewBtn"></span>
+        </a>
+      </li>
+      
+      <li>
+        <a href="/lug-nuts">
+          <img alt="Lug Nuts" class="thumb" height="60" src="http://avatar.amuniversal.com/feature_avatars/avatars_large/features/ln/tiny_avatar.png" title="Lug Nuts" width="60" />
+          <span class="title">Lug Nuts</span>
+          <span class="author">J.C. Duffy</span>
+          <span class="viewBtn"></span>
+        </a>
+      </li>
+      
+      <li>
+        <a href="/lunarbaboon">
+          <img alt="Lunarbaboon" class="thumb" height="60" src="http://avatar.amuniversal.com/feature_avatars/avatars_large/features/lb/tiny_avatar.png" title="Lunarbaboon" width="60" />
+          <span class="title">Lunarbaboon</span>
+          <span class="author">Christopher Grady</span>
+          <span class="viewBtn"></span>
+        </a>
+      </li>
+      <li class="az-nav">
+  <a href="/explore/comics#a_to_b">A to B</a>  <a href="/explore/comics#c_to_f">C to F</a>  <a href="/explore/comics#g_to_l">G to L</a>  
+      <a href="#m_to_q" name="m_to_q"><span>M to Q</span></a>
+  <a href="/explore/comics#r_to_z">R to Z</a></li>
+  <li class="az-ads">
+    <div id='leaderboard2' class="ad ad-banner">
+  <script type='text/javascript'>
+    googletag.cmd.push(function() { googletag.display('leaderboard2'); });
+  </script>
+</div>
+  </li>
+
+      <li>
+        <a href="/mac">
+          <img alt="Mac" class="thumb" height="60" src="http://avatar.amuniversal.com/feature_avatars/avatars_large/features/tpa/tiny_avatar.png" title="Mac" width="60" />
+          <span class="title">Mac</span>
+          <span class="author">Michael McParlane</span>
+          <span class="viewBtn"></span>
+        </a>
+      </li>
+      
+      <li>
+        <a href="/magicinaminute">
+          <img alt="Magic in a Minute" class="thumb" height="60" src="http://avatar.amuniversal.com/feature_avatars/avatars_large/features/mag/tiny_avatar.png" title="Magic in a Minute" width="60" />
+          <span class="title">Magic in a Minute</span>
+          <span class="author">Mac and Bill King</span>
+          <span class="viewBtn"></span>
+        </a>
+      </li>
+      
+      <li>
+        <a href="/maintaining">
+          <img alt="Maintaining" class="thumb" height="60" src="http://avatar.amuniversal.com/feature_avatars/avatars_large/features/main/tiny_avatar.png" title="Maintaining" width="60" />
+          <span class="title">Maintaining</span>
+          <span class="author">Nate Creekmore</span>
+          <span class="viewBtn"></span>
+        </a>
+      </li>
+      
+      <li>
+        <a href="/making-it">
+          <img alt="Making It" class="thumb" height="60" src="http://avatar.amuniversal.com/feature_avatars/avatars_large/features/mak/tiny_avatar.png" title="Making It" width="60" />
+          <span class="title">Making It</span>
+          <span class="author">Keith Robinson</span>
+          <span class="viewBtn"></span>
+        </a>
+      </li>
+      
+      <li>
+        <a href="/marias-day">
+          <img alt="Maria&#x27;s Day" class="thumb" height="60" src="http://avatar.amuniversal.com/feature_avatars/avatars_large/features/mar/tiny_avatar.png" title="Maria&#x27;s Day" width="60" />
+          <span class="title">Maria&#x27;s Day</span>
+          <span class="author">John Zakour and Scott Roberts</span>
+          <span class="viewBtn"></span>
+        </a>
+      </li>
+      
+      <li>
+        <a href="/marmaduke">
+          <img alt="Marmaduke" class="thumb" height="60" src="http://avatar.amuniversal.com/feature_avatars/avatars_large/features/ma/tiny_avatar.png" title="Marmaduke" width="60" />
+          <span class="title">Marmaduke</span>
+          <span class="author">Brad Anderson</span>
+          <span class="viewBtn"></span>
+        </a>
+      </li>
+      
+      <li>
+        <a href="/the-martian-confederacy">
+          <img alt="The Martian Confederacy" class="thumb" height="60" src="http://avatar.amuniversal.com/feature_avatars/avatars_large/features/mc/tiny_avatar.png" title="The Martian Confederacy" width="60" />
+          <span class="title">The Martian Confederacy</span>
+          <span class="author">Paige Braddock and Jason McNamara</span>
+          <span class="viewBtn"></span>
+        </a>
+      </li>
+      
+      <li>
+        <a href="/mcarroni">
+          <img alt="McArroni" class="thumb" height="60" src="http://avatar.amuniversal.com/feature_avatars/avatars_large/features/mca/tiny_avatar.png" title="McArroni" width="60" />
+          <span class="title">McArroni</span>
+          <span class="author">Julian Loayza &amp; Carmen Pérez</span>
+          <span class="viewBtn"></span>
+        </a>
+      </li>
+      
+      <li>
+        <a href="/meaningoflila">
+          <img alt="The Meaning of Lila" class="thumb" height="60" src="http://avatar.amuniversal.com/feature_avatars/avatars_large/features/crlil/tiny_avatar.png" title="The Meaning of Lila" width="60" />
+          <span class="title">The Meaning of Lila</span>
+          <span class="author">John Forgetta and L.A. Rose</span>
+          <span class="viewBtn"></span>
+        </a>
+      </li>
+      
+      <li>
+        <a href="/medium-large">
+          <img alt="Medium Large" class="thumb" height="60" src="http://avatar.amuniversal.com/feature_avatars/avatars_large/features/mlg/tiny_avatar.png" title="Medium Large" width="60" />
+          <span class="title">Medium Large</span>
+          <span class="author">Francesco Marciuliano</span>
+          <span class="viewBtn"></span>
+        </a>
+      </li>
+      
+      <li>
+        <a href="/meg-classics">
+          <img alt="Meg Classics" class="thumb" height="60" src="http://avatar.amuniversal.com/feature_avatars/avatars_large/features/meg/tiny_avatar.png" title="Meg Classics" width="60" />
+          <span class="title">Meg Classics</span>
+          <span class="author">Greg Curfman</span>
+          <span class="viewBtn"></span>
+        </a>
+      </li>
+      
+      <li>
+        <a href="/themiddletons">
+          <img alt="The Middletons" class="thumb" height="60" src="http://avatar.amuniversal.com/feature_avatars/avatars_large/features/tmmid/tiny_avatar.png" title="The Middletons" width="60" />
+          <span class="title">The Middletons</span>
+          <span class="author">Ralph Dunagin and Dana Summers</span>
+          <span class="viewBtn"></span>
+        </a>
+      </li>
+      
+      <li>
+        <a href="/mike-du-jour">
+          <img alt="Mike du Jour" class="thumb" height="60" src="http://avatar.amuniversal.com/feature_avatars/avatars_large/features/mdj/tiny_avatar.png" title="Mike du Jour" width="60" />
+          <span class="title">Mike du Jour</span>
+          <span class="author">Mike Lester</span>
+          <span class="viewBtn"></span>
+        </a>
+      </li>
+      
+      <li>
+        <a href="/minimumsecurity">
+          <img alt="Minimum Security" class="thumb" height="60" src="http://avatar.amuniversal.com/feature_avatars/avatars_large/features/mn/tiny_avatar.png" title="Minimum Security" width="60" />
+          <span class="title">Minimum Security</span>
+          <span class="author">Stephanie McMillan</span>
+          <span class="viewBtn"></span>
+        </a>
+      </li>
+      
+      <li>
+        <a href="/moderately-confused">
+          <img alt="Moderately Confused" class="thumb" height="60" src="http://avatar.amuniversal.com/feature_avatars/avatars_large/features/mcf/tiny_avatar.png" title="Moderately Confused" width="60" />
+          <span class="title">Moderately Confused</span>
+          <span class="author">Jeff Stahler</span>
+          <span class="viewBtn"></span>
+        </a>
+      </li>
+      
+      <li>
+        <a href="/molebashed">
+          <img alt="Molebashed" class="thumb" height="60" src="http://avatar.amuniversal.com/feature_avatars/avatars_large/features/mole/tiny_avatar.png" title="Molebashed" width="60" />
+          <span class="title">Molebashed</span>
+          <span class="author">Wes Molebash</span>
+          <span class="viewBtn"></span>
+        </a>
+      </li>
+      
+      <li>
+        <a href="/mollyandthebear">
+          <img alt="Molly and the Bear" class="thumb" height="60" src="http://avatar.amuniversal.com/feature_avatars/avatars_large/features/mab/tiny_avatar.png" title="Molly and the Bear" width="60" />
+          <span class="title">Molly and the Bear</span>
+          <span class="author">Bob Scott</span>
+          <span class="viewBtn"></span>
+        </a>
+      </li>
+      
+      <li>
+        <a href="/momma">
+          <img alt="Momma" class="thumb" height="60" src="http://avatar.amuniversal.com/feature_avatars/avatars_large/features/crmom/tiny_avatar.png" title="Momma" width="60" />
+          <span class="title">Momma</span>
+          <span class="author">Mell Lazarus</span>
+          <span class="viewBtn"></span>
+        </a>
+      </li>
+      
+      <li>
+        <a href="/moms-cancer">
+          <img alt="Mom&#x27;s Cancer" class="thumb" height="60" src="http://avatar.amuniversal.com/feature_avatars/avatars_large/features/momc/tiny_avatar.png" title="Mom&#x27;s Cancer" width="60" />
+          <span class="title">Mom&#x27;s Cancer</span>
+          <span class="author">Brian Fies</span>
+          <span class="viewBtn"></span>
+        </a>
+      </li>
+      
+      <li>
+        <a href="/monty">
+          <img alt="Monty" class="thumb" height="60" src="http://avatar.amuniversal.com/feature_avatars/avatars_large/features/mt/tiny_avatar.png" title="Monty" width="60" />
+          <span class="title">Monty</span>
+          <span class="author">Jim Meddick</span>
+          <span class="viewBtn"></span>
+        </a>
+      </li>
+      
+      <li>
+        <a href="/motley-classics">
+          <img alt="Motley Classics" class="thumb" height="60" src="http://avatar.amuniversal.com/feature_avatars/avatars_large/features/my/tiny_avatar.png" title="Motley Classics" width="60" />
+          <span class="title">Motley Classics</span>
+          <span class="author">Larry Wright</span>
+          <span class="viewBtn"></span>
+        </a>
+      </li>
+      
+      <li>
+        <a href="/mr-lowe">
+          <img alt="Mr. Lowe" class="thumb" height="60" src="http://avatar.amuniversal.com/feature_avatars/avatars_large/features/ml/tiny_avatar.png" title="Mr. Lowe" width="60" />
+          <span class="title">Mr. Lowe</span>
+          <span class="author">Mark Pett</span>
+          <span class="viewBtn"></span>
+        </a>
+      </li>
+      
+      <li>
+        <a href="/mr-gigi-and-the-squid">
+          <img alt="Mr. Gigi and the Squid" class="thumb" height="60" src="http://avatar.amuniversal.com/feature_avatars/avatars_large/features/ggs/tiny_avatar.png" title="Mr. Gigi and the Squid" width="60" />
+          <span class="title">Mr. Gigi and the Squid</span>
+          <span class="author">T Lewis and Todd Clark</span>
+          <span class="viewBtn"></span>
+        </a>
+      </li>
+      
+      <li>
+        <a href="/mulligan">
+          <img alt="Mulligan" class="thumb" height="60" src="http://avatar.amuniversal.com/feature_avatars/avatars_large/features/mgn/tiny_avatar.png" title="Mulligan" width="60" />
+          <span class="title">Mulligan</span>
+          <span class="author">Pete McEachen</span>
+          <span class="viewBtn"></span>
+        </a>
+      </li>
+      
+      <li>
+        <a href="/mustard-and-boloney">
+          <img alt="Mustard and Boloney" class="thumb" height="60" src="http://avatar.amuniversal.com/feature_avatars/avatars_large/features/mad/tiny_avatar.png" title="Mustard and Boloney" width="60" />
+          <span class="title">Mustard and Boloney</span>
+          <span class="author">Jeffrey Caulfield and Alexandre Rouillard</span>
+          <span class="viewBtn"></span>
+        </a>
+      </li>
+      
+      <li>
+        <a href="/muttandjeff">
+          <img alt="Mutt &amp; Jeff" class="thumb" height="60" src="http://avatar.amuniversal.com/feature_avatars/avatars_large/features/mutt/tiny_avatar.png" title="Mutt &amp; Jeff" width="60" />
+          <span class="title">Mutt &amp; Jeff</span>
+          <span class="author">Bud Fisher</span>
+          <span class="viewBtn"></span>
+        </a>
+      </li>
+      
+      <li>
+        <a href="/mycage">
+          <img alt="My Cage Classics" class="thumb" height="60" src="http://avatar.amuniversal.com/feature_avatars/avatars_large/features/cage/tiny_avatar.png" title="My Cage Classics" width="60" />
+          <span class="title">My Cage Classics</span>
+          <span class="author">Melissa DeJesus and Ed Power</span>
+          <span class="viewBtn"></span>
+        </a>
+      </li>
+      
+      <li>
+        <a href="/mythtickle">
+          <img alt="MythTickle" class="thumb" height="60" src="http://avatar.amuniversal.com/feature_avatars/avatars_large/features/myth/tiny_avatar.png" title="MythTickle" width="60" />
+          <span class="title">MythTickle</span>
+          <span class="author">Justin Thompson</span>
+          <span class="viewBtn"></span>
+        </a>
+      </li>
+      
+      <li>
+        <a href="/nancy">
+          <img alt="Nancy" class="thumb" height="60" src="http://avatar.amuniversal.com/feature_avatars/avatars_large/features/nc/tiny_avatar.png" title="Nancy" width="60" />
+          <span class="title">Nancy</span>
+          <span class="author">Guy Gilchrist</span>
+          <span class="viewBtn"></span>
+        </a>
+      </li>
+      
+      <li>
+        <a href="/nancy-classics">
+          <img alt="Nancy Classics" class="thumb" height="60" src="http://avatar.amuniversal.com/feature_avatars/avatars_large/features/nccl/tiny_avatar.png" title="Nancy Classics" width="60" />
+          <span class="title">Nancy Classics</span>
+          <span class="author">Ernie Bushmiller</span>
+          <span class="viewBtn"></span>
+        </a>
+      </li>
+      
+      <li>
+        <a href="/nestheads">
+          <img alt="Nest Heads" class="thumb" height="60" src="http://avatar.amuniversal.com/feature_avatars/avatars_large/features/cpnst/tiny_avatar.png" title="Nest Heads" width="60" />
+          <span class="title">Nest Heads</span>
+          <span class="author">John Allen</span>
+          <span class="viewBtn"></span>
+        </a>
+      </li>
+      
+      <li>
+        <a href="/neurotica">
+          <img alt="NEUROTICA" class="thumb" height="60" src="http://avatar.amuniversal.com/feature_avatars/avatars_large/features/neu/tiny_avatar.png" title="NEUROTICA" width="60" />
+          <span class="title">NEUROTICA</span>
+          <span class="author">Allison Garwood</span>
+          <span class="viewBtn"></span>
+        </a>
+      </li>
+      
+      <li>
+        <a href="/thenewadventuresofqueenvictoria">
+          <img alt="New Adventures of Queen Victoria" class="thumb" height="60" src="http://avatar.amuniversal.com/feature_avatars/avatars_large/features/naqv/tiny_avatar.png" title="New Adventures of Queen Victoria" width="60" />
+          <span class="title">New Adventures of Queen Victoria</span>
+          <span class="author">Pab Sungenis</span>
+          <span class="viewBtn"></span>
+        </a>
+      </li>
+      
+      <li>
+        <a href="/nick-and-zuzu">
+          <img alt="Nick and Zuzu" class="thumb" height="60" src="http://avatar.amuniversal.com/feature_avatars/avatars_large/features/nic/tiny_avatar.png" title="Nick and Zuzu" width="60" />
+          <span class="title">Nick and Zuzu</span>
+          <span class="author">Nick Galifianakis</span>
+          <span class="viewBtn"></span>
+        </a>
+      </li>
+      
+      <li>
+        <a href="/nonsequitur">
+          <img alt="Non Sequitur" class="thumb" height="60" src="http://avatar.amuniversal.com/feature_avatars/avatars_large/features/nq/tiny_avatar.png" title="Non Sequitur" width="60" />
+          <span class="title">Non Sequitur</span>
+          <span class="author">Wiley Miller</span>
+          <span class="viewBtn"></span>
+        </a>
+      </li>
+      
+      <li>
+        <a href="/the-norm-4-0">
+          <img alt="The Norm 4.0" class="thumb" height="60" src="http://avatar.amuniversal.com/feature_avatars/avatars_large/features/nrm/tiny_avatar.png" title="The Norm 4.0" width="60" />
+          <span class="title">The Norm 4.0</span>
+          <span class="author">Michael Jantze</span>
+          <span class="viewBtn"></span>
+        </a>
+      </li>
+      
+      <li>
+        <a href="/thenorm">
+          <img alt="The Norm Classics" class="thumb" height="60" src="http://avatar.amuniversal.com/feature_avatars/avatars_large/features/kfnrm/tiny_avatar.png" title="The Norm Classics" width="60" />
+          <span class="title">The Norm Classics</span>
+          <span class="author">Michael Jantze</span>
+          <span class="viewBtn"></span>
+        </a>
+      </li>
+      
+      <li>
+        <a href="/nothing-is-not-something">
+          <img alt="Nothing is Not Something" class="thumb" height="60" src="http://avatar.amuniversal.com/feature_avatars/avatars_large/features/nins/tiny_avatar.png" title="Nothing is Not Something" width="60" />
+          <span class="title">Nothing is Not Something</span>
+          <span class="author">Greg Wallace</span>
+          <span class="viewBtn"></span>
+        </a>
+      </li>
+      
+      <li>
+        <a href="/offthemark">
+          <img alt="Off the Mark" class="thumb" height="60" src="http://avatar.amuniversal.com/feature_avatars/avatars_large/features/of/tiny_avatar.png" title="Off the Mark" width="60" />
+          <span class="title">Off the Mark</span>
+          <span class="author">Mark Parisi</span>
+          <span class="viewBtn"></span>
+        </a>
+      </li>
+      
+      <li>
+        <a href="/oh-brother">
+          <img alt="Oh, Brother!" class="thumb" height="60" src="http://avatar.amuniversal.com/feature_avatars/avatars_large/features/obr/tiny_avatar.png" title="Oh, Brother!" width="60" />
+          <span class="title">Oh, Brother!</span>
+          <span class="author">Bob Weber Jr. and Jay Stephens</span>
+          <span class="viewBtn"></span>
+        </a>
+      </li>
+      
+      <li>
+        <a href="/ollie-and-quentin">
+          <img alt="Ollie and Quentin" class="thumb" height="60" src="http://avatar.amuniversal.com/feature_avatars/avatars_large/features/oq/tiny_avatar.png" title="Ollie and Quentin" width="60" />
+          <span class="title">Ollie and Quentin</span>
+          <span class="author">Piers Baker</span>
+          <span class="viewBtn"></span>
+        </a>
+      </li>
+      
+      <li>
+        <a href="/onaclaireday">
+          <img alt="On A Claire Day" class="thumb" height="60" src="http://avatar.amuniversal.com/feature_avatars/avatars_large/features/crocd/tiny_avatar.png" title="On A Claire Day" width="60" />
+          <span class="title">On A Claire Day</span>
+          <span class="author">Carla Ventresca and Henry Beckett</span>
+          <span class="viewBtn"></span>
+        </a>
+      </li>
+      
+      <li>
+        <a href="/onebighappy">
+          <img alt="One Big Happy" class="thumb" height="60" src="http://avatar.amuniversal.com/feature_avatars/avatars_large/features/crobh/tiny_avatar.png" title="One Big Happy" width="60" />
+          <span class="title">One Big Happy</span>
+          <span class="author">Rick Detorie</span>
+          <span class="viewBtn"></span>
+        </a>
+      </li>
+      
+      <li>
+        <a href="/ordinary-bill">
+          <img alt="Ordinary Bill" class="thumb" height="60" src="http://avatar.amuniversal.com/feature_avatars/avatars_large/features/ord/tiny_avatar.png" title="Ordinary Bill" width="60" />
+          <span class="title">Ordinary Bill</span>
+          <span class="author">William Wilson</span>
+          <span class="viewBtn"></span>
+        </a>
+      </li>
+      
+      <li>
+        <a href="/origins-of-the-sunday-comics">
+          <img alt="Origins of the Sunday Comics" class="thumb" height="60" src="http://avatar.amuniversal.com/feature_avatars/avatars_large/features/osc/tiny_avatar.png" title="Origins of the Sunday Comics" width="60" />
+          <span class="title">Origins of the Sunday Comics</span>
+          <span class="author">Peter Maresca</span>
+          <span class="viewBtn"></span>
+        </a>
+      </li>
+      
+      <li>
+        <a href="/theothercoast">
+          <img alt="The Other Coast" class="thumb" height="60" src="http://avatar.amuniversal.com/feature_avatars/avatars_large/features/crtoc/tiny_avatar.png" title="The Other Coast" width="60" />
+          <span class="title">The Other Coast</span>
+          <span class="author">Adrian Raeside</span>
+          <span class="viewBtn"></span>
+        </a>
+      </li>
+      
+      <li>
+        <a href="/outofthegenepool">
+          <img alt="Out of the Gene Pool Re-Runs" class="thumb" height="60" src="http://avatar.amuniversal.com/feature_avatars/avatars_large/features/wpgen/tiny_avatar.png" title="Out of the Gene Pool Re-Runs" width="60" />
+          <span class="title">Out of the Gene Pool Re-Runs</span>
+          <span class="author">Matt Janz</span>
+          <span class="viewBtn"></span>
+        </a>
+      </li>
+      
+      <li>
+        <a href="/overthehedge">
+          <img alt="Over the Hedge" class="thumb" height="60" src="http://avatar.amuniversal.com/feature_avatars/avatars_large/features/oh/tiny_avatar.png" title="Over the Hedge" width="60" />
+          <span class="title">Over the Hedge</span>
+          <span class="author">T Lewis and Michael Fry</span>
+          <span class="viewBtn"></span>
+        </a>
+      </li>
+      
+      <li>
+        <a href="/overboard">
+          <img alt="Overboard" class="thumb" height="60" src="http://avatar.amuniversal.com/feature_avatars/avatars_large/features/ob/tiny_avatar.png" title="Overboard" width="60" />
+          <span class="title">Overboard</span>
+          <span class="author">Chip Dunham</span>
+          <span class="viewBtn"></span>
+        </a>
+      </li>
+      
+      <li>
+        <a href="/ozy-and-millie">
+          <img alt="Ozy and Millie" class="thumb" height="60" src="http://avatar.amuniversal.com/feature_avatars/avatars_large/features/ozy/tiny_avatar.png" title="Ozy and Millie" width="60" />
+          <span class="title">Ozy and Millie</span>
+          <span class="author">Dana Simpson</span>
+          <span class="viewBtn"></span>
+        </a>
+      </li>
+      
+      <li>
+        <a href="/pcandpixel">
+          <img alt="PC and Pixel" class="thumb" height="60" src="http://avatar.amuniversal.com/feature_avatars/avatars_large/features/pcp/tiny_avatar.png" title="PC and Pixel" width="60" />
+          <span class="title">PC and Pixel</span>
+          <span class="author">Tak Bui</span>
+          <span class="viewBtn"></span>
+        </a>
+      </li>
+      
+      <li>
+        <a href="/peanuts">
+          <img alt="Peanuts" class="thumb" height="60" src="http://avatar.amuniversal.com/feature_avatars/avatars_large/features/pe/tiny_avatar.png" title="Peanuts" width="60" />
+          <span class="title">Peanuts</span>
+          <span class="author">Charles Schulz</span>
+          <span class="viewBtn"></span>
+        </a>
+      </li>
+      
+      <li>
+        <a href="/peanuts-begins">
+          <img alt="Peanuts Begins" class="thumb" height="60" src="http://avatar.amuniversal.com/feature_avatars/avatars_large/features/pecl/tiny_avatar.png" title="Peanuts Begins" width="60" />
+          <span class="title">Peanuts Begins</span>
+          <span class="author">Charles Schulz</span>
+          <span class="viewBtn"></span>
+        </a>
+      </li>
+      
+      <li>
+        <a href="/pearlsbeforeswine">
+          <img alt="Pearls Before Swine" class="thumb" height="60" src="http://avatar.amuniversal.com/feature_avatars/avatars_large/features/pb/tiny_avatar.png" title="Pearls Before Swine" width="60" />
+          <span class="title">Pearls Before Swine</span>
+          <span class="author">Stephan Pastis</span>
+          <span class="viewBtn"></span>
+        </a>
+      </li>
+      
+      <li>
+        <a href="/perry-bible-fellowship">
+          <img alt="Perry Bible Fellowship" class="thumb" height="60" src="http://avatar.amuniversal.com/feature_avatars/avatars_large/features/pbf/tiny_avatar.png" title="Perry Bible Fellowship" width="60" />
+          <span class="title">Perry Bible Fellowship</span>
+          <span class="author">Nicholas Gurewitch</span>
+          <span class="viewBtn"></span>
+        </a>
+      </li>
+      
+      <li>
+        <a href="/phoebe-and-her-unicorn">
+          <img alt="Phoebe and Her Unicorn" class="thumb" height="60" src="http://avatar.amuniversal.com/feature_avatars/avatars_large/features/hev/tiny_avatar.png" title="Phoebe and Her Unicorn" width="60" />
+          <span class="title">Phoebe and Her Unicorn</span>
+          <span class="author">Dana Simpson</span>
+          <span class="viewBtn"></span>
+        </a>
+      </li>
+      
+      <li>
+        <a href="/pibgorn">
+          <img alt="Pibgorn" class="thumb" height="60" src="http://avatar.amuniversal.com/feature_avatars/avatars_large/features/pib/tiny_avatar.png" title="Pibgorn" width="60" />
+          <span class="title">Pibgorn</span>
+          <span class="author">Brooke McEldowney</span>
+          <span class="viewBtn"></span>
+        </a>
+      </li>
+      
+      <li>
+        <a href="/pibgornsketches">
+          <img alt="Pibgorn Sketches" class="thumb" height="60" src="http://avatar.amuniversal.com/feature_avatars/avatars_large/features/pibs/tiny_avatar.png" title="Pibgorn Sketches" width="60" />
+          <span class="title">Pibgorn Sketches</span>
+          <span class="author">Brooke McEldowney</span>
+          <span class="viewBtn"></span>
+        </a>
+      </li>
+      
+      <li>
+        <a href="/pickles">
+          <img alt="Pickles" class="thumb" height="60" src="http://avatar.amuniversal.com/feature_avatars/avatars_large/features/wppic/tiny_avatar.png" title="Pickles" width="60" />
+          <span class="title">Pickles</span>
+          <span class="author">Brian Crane</span>
+          <span class="viewBtn"></span>
+        </a>
+      </li>
+      
+      <li>
+        <a href="/pictures-in-boxes">
+          <img alt="Pictures in Boxes" class="thumb" height="60" src="http://avatar.amuniversal.com/feature_avatars/avatars_large/features/pbx/tiny_avatar.png" title="Pictures in Boxes" width="60" />
+          <span class="title">Pictures in Boxes</span>
+          <span class="author">David Cahill</span>
+          <span class="viewBtn"></span>
+        </a>
+      </li>
+      
+      <li>
+        <a href="/pie-comic">
+          <img alt="Pie Comic" class="thumb" height="60" src="http://avatar.amuniversal.com/feature_avatars/avatars_large/features/pie/tiny_avatar.png" title="Pie Comic" width="60" />
+          <span class="title">Pie Comic</span>
+          <span class="author">John McNamee</span>
+          <span class="viewBtn"></span>
+        </a>
+      </li>
+      
+      <li>
+        <a href="/pinkerton">
+          <img alt="Pinkerton" class="thumb" height="60" src="http://avatar.amuniversal.com/feature_avatars/avatars_large/features/pink/tiny_avatar.png" title="Pinkerton" width="60" />
+          <span class="title">Pinkerton</span>
+          <span class="author">Mike Witmer</span>
+          <span class="viewBtn"></span>
+        </a>
+      </li>
+      
+      <li>
+        <a href="/pluggers">
+          <img alt="Pluggers" class="thumb" height="60" src="http://avatar.amuniversal.com/feature_avatars/avatars_large/features/tmplu/tiny_avatar.png" title="Pluggers" width="60" />
+          <span class="title">Pluggers</span>
+          <span class="author">Gary Brookins</span>
+          <span class="viewBtn"></span>
+        </a>
+      </li>
+      
+      <li>
+        <a href="/poochcafe">
+          <img alt="Pooch Cafe" class="thumb" height="60" src="http://avatar.amuniversal.com/feature_avatars/avatars_large/features/poc/tiny_avatar.png" title="Pooch Cafe" width="60" />
+          <span class="title">Pooch Cafe</span>
+          <span class="author">Paul Gilligan</span>
+          <span class="viewBtn"></span>
+        </a>
+      </li>
+      
+      <li>
+        <a href="/poorly-drawn-lines">
+          <img alt="Poorly Drawn Lines" class="thumb" height="60" src="http://avatar.amuniversal.com/feature_avatars/avatars_large/features/pdl/tiny_avatar.png" title="Poorly Drawn Lines" width="60" />
+          <span class="title">Poorly Drawn Lines</span>
+          <span class="author">Reza Farazmand</span>
+          <span class="viewBtn"></span>
+        </a>
+      </li>
+      
+      <li>
+        <a href="/pop-culture-shock-therapy">
+          <img alt="Pop Culture Shock Therapy" class="thumb" height="60" src="http://avatar.amuniversal.com/feature_avatars/avatars_large/features/pcst/tiny_avatar.png" title="Pop Culture Shock Therapy" width="60" />
+          <span class="title">Pop Culture Shock Therapy</span>
+          <span class="author">Doug Bratton</span>
+          <span class="viewBtn"></span>
+        </a>
+      </li>
+      
+      <li>
+        <a href="/poptropica">
+          <img alt="Poptropica" class="thumb" height="60" src="http://avatar.amuniversal.com/feature_avatars/avatars_large/features/popt/tiny_avatar.png" title="Poptropica" width="60" />
+          <span class="title">Poptropica</span>
+          <span class="author">Paul Gilligan and Kory Merritt</span>
+          <span class="viewBtn"></span>
+        </a>
+      </li>
+      
+      <li>
+        <a href="/pot-shots">
+          <img alt="Pot-Shots" class="thumb" height="60" src="http://avatar.amuniversal.com/feature_avatars/avatars_large/features/ps/tiny_avatar.png" title="Pot-Shots" width="60" />
+          <span class="title">Pot-Shots</span>
+          <span class="author">Ashleigh Brilliant</span>
+          <span class="viewBtn"></span>
+        </a>
+      </li>
+      
+      <li>
+        <a href="/preteena">
+          <img alt="PreTeena" class="thumb" height="60" src="http://avatar.amuniversal.com/feature_avatars/avatars_large/features/pr/tiny_avatar.png" title="PreTeena" width="60" />
+          <span class="title">PreTeena</span>
+          <span class="author">Allison Barrows</span>
+          <span class="viewBtn"></span>
+        </a>
+      </li>
+      
+      <li>
+        <a href="/pricklycity">
+          <img alt="Prickly City" class="thumb" height="60" src="http://avatar.amuniversal.com/feature_avatars/avatars_large/features/prc/tiny_avatar.png" title="Prickly City" width="60" />
+          <span class="title">Prickly City</span>
+          <span class="author">Scott Stantis</span>
+          <span class="viewBtn"></span>
+        </a>
+      </li>
+      
+      <li>
+        <a href="/promises-promises">
+          <img alt="Promises, Promises" class="thumb" height="60" src="http://avatar.amuniversal.com/feature_avatars/avatars_large/features/prom/tiny_avatar.png" title="Promises, Promises" width="60" />
+          <span class="title">Promises, Promises</span>
+          <span class="author">J.R. Faulkner</span>
+          <span class="viewBtn"></span>
+        </a>
+      </li>
+      
+      <li>
+        <a href="/the-quixote-syndrome">
+          <img alt="The Quixote Syndrome" class="thumb" height="60" src="http://avatar.amuniversal.com/feature_avatars/avatars_large/features/oth/tiny_avatar.png" title="The Quixote Syndrome" width="60" />
+          <span class="title">The Quixote Syndrome</span>
+          <span class="author">Peter Mann</span>
+          <span class="viewBtn"></span>
+        </a>
+      </li>
+      <li class="az-nav">
+  <a href="/explore/comics#a_to_b">A to B</a>  <a href="/explore/comics#c_to_f">C to F</a>  <a href="/explore/comics#g_to_l">G to L</a>  <a href="/explore/comics#m_to_q">M to Q</a>  
+      <a href="# =r_to_z" name="r_to_z"><span>R to Z</span></a>
+</li>
+  <li class="az-ads">
+    <div id='leaderboard2' class="ad ad-banner">
+  <script type='text/javascript'>
+    googletag.cmd.push(function() { googletag.display('leaderboard2'); });
+  </script>
+</div>
+  </li>
+
+      <li>
+        <a href="/rabbitsagainstmagic">
+          <img alt="Rabbits Against Magic" class="thumb" height="60" src="http://avatar.amuniversal.com/feature_avatars/avatars_large/features/ram/tiny_avatar.png" title="Rabbits Against Magic" width="60" />
+          <span class="title">Rabbits Against Magic</span>
+          <span class="author">Jonathan Lemon</span>
+          <span class="viewBtn"></span>
+        </a>
+      </li>
+      
+      <li>
+        <a href="/raising-duncan">
+          <img alt="Raising Duncan" class="thumb" height="60" src="http://avatar.amuniversal.com/feature_avatars/avatars_large/features/du/tiny_avatar.png" title="Raising Duncan" width="60" />
+          <span class="title">Raising Duncan</span>
+          <span class="author">Chris Browne</span>
+          <span class="viewBtn"></span>
+        </a>
+      </li>
+      
+      <li>
+        <a href="/randolphitch">
+          <img alt="Randolph Itch, 2 a.m." class="thumb" height="60" src="http://avatar.amuniversal.com/feature_avatars/avatars_large/features/ri/tiny_avatar.png" title="Randolph Itch, 2 a.m." width="60" />
+          <span class="title">Randolph Itch, 2 a.m.</span>
+          <span class="author">Tom Toles</span>
+          <span class="viewBtn"></span>
+        </a>
+      </li>
+      
+      <li>
+        <a href="/random-acts-of-nancy">
+          <img alt="Random Acts of Nancy" class="thumb" height="60" src="http://avatar.amuniversal.com/feature_avatars/avatars_large/features/ran/tiny_avatar.png" title="Random Acts of Nancy" width="60" />
+          <span class="title">Random Acts of Nancy</span>
+          <span class="author">Guy Gilchrist and John Lotshaw</span>
+          <span class="viewBtn"></span>
+        </a>
+      </li>
+      
+      <li>
+        <a href="/reallifeadventures">
+          <img alt="Real Life Adventures" class="thumb" height="60" src="http://avatar.amuniversal.com/feature_avatars/avatars_large/features/rl/tiny_avatar.png" title="Real Life Adventures" width="60" />
+          <span class="title">Real Life Adventures</span>
+          <span class="author">Gary Wise and Lance Aldrich</span>
+          <span class="viewBtn"></span>
+        </a>
+      </li>
+      
+      <li>
+        <a href="/realitycheck">
+          <img alt="Reality Check" class="thumb" height="60" src="http://avatar.amuniversal.com/feature_avatars/avatars_large/features/rc/tiny_avatar.png" title="Reality Check" width="60" />
+          <span class="title">Reality Check</span>
+          <span class="author">Dave Whamond</span>
+          <span class="viewBtn"></span>
+        </a>
+      </li>
+      
+      <li>
+        <a href="/redandrover">
+          <img alt="Red and Rover" class="thumb" height="60" src="http://avatar.amuniversal.com/feature_avatars/avatars_large/features/wpred/tiny_avatar.png" title="Red and Rover" width="60" />
+          <span class="title">Red and Rover</span>
+          <span class="author">Brian Basset</span>
+          <span class="viewBtn"></span>
+        </a>
+      </li>
+      
+      <li>
+        <a href="/redmeat">
+          <img alt="Red Meat" class="thumb" height="60" src="http://avatar.amuniversal.com/feature_avatars/avatars_large/features/red/tiny_avatar.png" title="Red Meat" width="60" />
+          <span class="title">Red Meat</span>
+          <span class="author">Max Cannon</span>
+          <span class="viewBtn"></span>
+        </a>
+      </li>
+      
+      <li>
+        <a href="/replyall">
+          <img alt="Reply All" class="thumb" height="60" src="http://avatar.amuniversal.com/feature_avatars/avatars_large/features/wprep/tiny_avatar.png" title="Reply All" width="60" />
+          <span class="title">Reply All</span>
+          <span class="author">Donna A. Lewis</span>
+          <span class="viewBtn"></span>
+        </a>
+      </li>
+      
+      <li>
+        <a href="/reply-all-lite">
+          <img alt="Reply All Lite" class="thumb" height="60" src="http://avatar.amuniversal.com/feature_avatars/avatars_large/features/wprel/tiny_avatar.png" title="Reply All Lite" width="60" />
+          <span class="title">Reply All Lite</span>
+          <span class="author">Donna A. Lewis</span>
+          <span class="viewBtn"></span>
+        </a>
+      </li>
+      
+      <li>
+        <a href="/richards-poor-almanac">
+          <img alt="Richard&#x27;s Poor Almanac" class="thumb" height="60" src="http://avatar.amuniversal.com/feature_avatars/avatars_large/features/rpa/tiny_avatar.png" title="Richard&#x27;s Poor Almanac" width="60" />
+          <span class="title">Richard&#x27;s Poor Almanac</span>
+          <span class="author">Richard Thompson</span>
+          <span class="viewBtn"></span>
+        </a>
+      </li>
+      
+      <li>
+        <a href="/ricigs-toon-trivia">
+          <img alt="Ricig&#x27;s Toon Trivia" class="thumb" height="60" src="http://avatar.amuniversal.com/feature_avatars/avatars_large/features/ric/tiny_avatar.png" title="Ricig&#x27;s Toon Trivia" width="60" />
+          <span class="title">Ricig&#x27;s Toon Trivia</span>
+          <span class="author">Michael Ricigliano</span>
+          <span class="viewBtn"></span>
+        </a>
+      </li>
+      
+      <li>
+        <a href="/riphaywire">
+          <img alt="Rip Haywire" class="thumb" height="60" src="http://avatar.amuniversal.com/feature_avatars/avatars_large/features/rh/tiny_avatar.png" title="Rip Haywire" width="60" />
+          <span class="title">Rip Haywire</span>
+          <span class="author">Dan Thompson</span>
+          <span class="viewBtn"></span>
+        </a>
+      </li>
+      
+      <li>
+        <a href="/ripleysbelieveitornot">
+          <img alt="Ripley&#x27;s Believe It or Not" class="thumb" height="60" src="http://avatar.amuniversal.com/feature_avatars/avatars_large/features/rp/tiny_avatar.png" title="Ripley&#x27;s Believe It or Not" width="60" />
+          <span class="title">Ripley&#x27;s Believe It or Not</span>
+          <span class="author">John Graziano</span>
+          <span class="viewBtn"></span>
+        </a>
+      </li>
+      
+      <li>
+        <a href="/robbie-and-bobby">
+          <img alt="Robbie and Bobby" class="thumb" height="60" src="http://avatar.amuniversal.com/feature_avatars/avatars_large/features/rab/tiny_avatar.png" title="Robbie and Bobby" width="60" />
+          <span class="title">Robbie and Bobby</span>
+          <span class="author">Jason Poland</span>
+          <span class="viewBtn"></span>
+        </a>
+      </li>
+      
+      <li>
+        <a href="/roseisrose">
+          <img alt="Rose is Rose" class="thumb" height="60" src="http://avatar.amuniversal.com/feature_avatars/avatars_large/features/rr/tiny_avatar.png" title="Rose is Rose" width="60" />
+          <span class="title">Rose is Rose</span>
+          <span class="author">Don Wimmer and Pat Brady</span>
+          <span class="viewBtn"></span>
+        </a>
+      </li>
+      
+      <li>
+        <a href="/rubes">
+          <img alt="Rubes" class="thumb" height="60" src="http://avatar.amuniversal.com/feature_avatars/avatars_large/features/crrub/tiny_avatar.png" title="Rubes" width="60" />
+          <span class="title">Rubes</span>
+          <span class="author">Leigh Rubin</span>
+          <span class="viewBtn"></span>
+        </a>
+      </li>
+      
+      <li>
+        <a href="/rudypark">
+          <img alt="Rudy Park" class="thumb" height="60" src="http://avatar.amuniversal.com/feature_avatars/avatars_large/features/rk/tiny_avatar.png" title="Rudy Park" width="60" />
+          <span class="title">Rudy Park</span>
+          <span class="author">Darrin Bell and Theron Heir</span>
+          <span class="viewBtn"></span>
+        </a>
+      </li>
+      
+      <li>
+        <a href="/santa-vs-dracula">
+          <img alt="Santa vs. Dracula" class="thumb" height="60" src="http://avatar.amuniversal.com/feature_avatars/avatars_large/features/svd/tiny_avatar.png" title="Santa vs. Dracula" width="60" />
+          <span class="title">Santa vs. Dracula</span>
+          <span class="author">Melissa DeJesus and Ed Power</span>
+          <span class="viewBtn"></span>
+        </a>
+      </li>
+      
+      <li>
+        <a href="/sarahs-scribbles">
+          <img alt="Sarah&#x27;s Scribbles" class="thumb" height="60" src="http://avatar.amuniversal.com/feature_avatars/avatars_large/features/sasc/tiny_avatar.png" title="Sarah&#x27;s Scribbles" width="60" />
+          <span class="title">Sarah&#x27;s Scribbles</span>
+          <span class="author">Sarah Andersen</span>
+          <span class="viewBtn"></span>
+        </a>
+      </li>
+      
+      <li>
+        <a href="/saturday-morning-breakfast-cereal">
+          <img alt="Saturday Morning Breakfast Cereal" class="thumb" height="60" src="http://avatar.amuniversal.com/feature_avatars/avatars_large/features/smbc/tiny_avatar.png" title="Saturday Morning Breakfast Cereal" width="60" />
+          <span class="title">Saturday Morning Breakfast Cereal</span>
+          <span class="author">Zach Weinersmith</span>
+          <span class="viewBtn"></span>
+        </a>
+      </li>
+      
+      <li>
+        <a href="/savage-chickens">
+          <img alt="Savage Chickens" class="thumb" height="60" src="http://avatar.amuniversal.com/feature_avatars/avatars_large/features/sac/tiny_avatar.png" title="Savage Chickens" width="60" />
+          <span class="title">Savage Chickens</span>
+          <span class="author">Doug Savage</span>
+          <span class="viewBtn"></span>
+        </a>
+      </li>
+      
+      <li>
+        <a href="/scarygary">
+          <img alt="Scary Gary" class="thumb" height="60" src="http://avatar.amuniversal.com/feature_avatars/avatars_large/features/crsca/tiny_avatar.png" title="Scary Gary" width="60" />
+          <span class="title">Scary Gary</span>
+          <span class="author">Mark Buford</span>
+          <span class="viewBtn"></span>
+        </a>
+      </li>
+      
+      <li>
+        <a href="/scenes-from-a-multiverse">
+          <img alt="Scenes from a Multiverse" class="thumb" height="60" src="http://avatar.amuniversal.com/feature_avatars/avatars_large/features/sfm/tiny_avatar.png" title="Scenes from a Multiverse" width="60" />
+          <span class="title">Scenes from a Multiverse</span>
+          <span class="author">Jon Rosenberg</span>
+          <span class="viewBtn"></span>
+        </a>
+      </li>
+      
+      <li>
+        <a href="/sheldon">
+          <img alt="Sheldon" class="thumb" height="60" src="http://avatar.amuniversal.com/feature_avatars/avatars_large/features/shel/tiny_avatar.png" title="Sheldon" width="60" />
+          <span class="title">Sheldon</span>
+          <span class="author">Dave Kellett</span>
+          <span class="viewBtn"></span>
+        </a>
+      </li>
+      
+      <li>
+        <a href="/shirley-and-son-classics">
+          <img alt="Shirley and Son Classics" class="thumb" height="60" src="http://avatar.amuniversal.com/feature_avatars/avatars_large/features/sy/tiny_avatar.png" title="Shirley and Son Classics" width="60" />
+          <span class="title">Shirley and Son Classics</span>
+          <span class="author">Jerry Bittle</span>
+          <span class="viewBtn"></span>
+        </a>
+      </li>
+      
+      <li>
+        <a href="/shoe">
+          <img alt="Shoe" class="thumb" height="60" src="http://avatar.amuniversal.com/feature_avatars/avatars_large/features/tmsho/tiny_avatar.png" title="Shoe" width="60" />
+          <span class="title">Shoe</span>
+          <span class="author">Gary Brookins and Susie MacNelly</span>
+          <span class="viewBtn"></span>
+        </a>
+      </li>
+      
+      <li>
+        <a href="/shoecabbage">
+          <img alt="Shoecabbage" class="thumb" height="60" src="http://avatar.amuniversal.com/feature_avatars/avatars_large/features/shcab/tiny_avatar.png" title="Shoecabbage" width="60" />
+          <span class="title">Shoecabbage</span>
+          <span class="author">Teresa Burritt and David Stanford</span>
+          <span class="viewBtn"></span>
+        </a>
+      </li>
+      
+      <li>
+        <a href="/shortcuts">
+          <img alt="Shortcuts" class="thumb" height="60" src="http://avatar.amuniversal.com/feature_avatars/avatars_large/features/shc/tiny_avatar.png" title="Shortcuts" width="60" />
+          <span class="title">Shortcuts</span>
+          <span class="author">Jeff Harris</span>
+          <span class="viewBtn"></span>
+        </a>
+      </li>
+      
+      <li>
+        <a href="/shutterbug-follies">
+          <img alt="Shutterbug Follies" class="thumb" height="60" src="http://avatar.amuniversal.com/feature_avatars/avatars_large/features/sfo/tiny_avatar.png" title="Shutterbug Follies" width="60" />
+          <span class="title">Shutterbug Follies</span>
+          <span class="author">Jason Little</span>
+          <span class="viewBtn"></span>
+        </a>
+      </li>
+      
+      <li>
+        <a href="/skinhorse">
+          <img alt="Skin Horse" class="thumb" height="60" src="http://avatar.amuniversal.com/feature_avatars/avatars_large/features/skh/tiny_avatar.png" title="Skin Horse" width="60" />
+          <span class="title">Skin Horse</span>
+          <span class="author">Shaenon K. Garrity and Jeffrey C. Wells</span>
+          <span class="viewBtn"></span>
+        </a>
+      </li>
+      
+      <li>
+        <a href="/skippy">
+          <img alt="Skippy" class="thumb" height="60" src="http://avatar.amuniversal.com/feature_avatars/avatars_large/features/skippy/tiny_avatar.png" title="Skippy" width="60" />
+          <span class="title">Skippy</span>
+          <span class="author">Percy Crosby</span>
+          <span class="viewBtn"></span>
+        </a>
+      </li>
+      
+      <li>
+        <a href="/snow-sez">
+          <img alt="Snow Sez" class="thumb" height="60" src="http://avatar.amuniversal.com/feature_avatars/avatars_large/features/sez/tiny_avatar.png" title="Snow Sez" width="60" />
+          <span class="title">Snow Sez</span>
+          <span class="author">T. Shepherd</span>
+          <span class="viewBtn"></span>
+        </a>
+      </li>
+      
+      <li>
+        <a href="/snowflakes">
+          <img alt="Snowflakes" class="thumb" height="60" src="http://avatar.amuniversal.com/feature_avatars/avatars_large/features/snow/tiny_avatar.png" title="Snowflakes" width="60" />
+          <span class="title">Snowflakes</span>
+          <span class="author">Zach Weinersmith, Chris Jones and James Ashby</span>
+          <span class="viewBtn"></span>
+        </a>
+      </li>
+      
+      <li>
+        <a href="/soup-to-nutz">
+          <img alt="Soup to Nutz" class="thumb" height="60" src="http://avatar.amuniversal.com/feature_avatars/avatars_large/features/snu/tiny_avatar.png" title="Soup to Nutz" width="60" />
+          <span class="title">Soup to Nutz</span>
+          <span class="author">Rick Stromoski</span>
+          <span class="viewBtn"></span>
+        </a>
+      </li>
+      
+      <li>
+        <a href="/speechless">
+          <img alt="Speechless" class="thumb" height="60" src="http://avatar.amuniversal.com/feature_avatars/avatars_large/features/wor/tiny_avatar.png" title="Speechless" width="60" />
+          <span class="title">Speechless</span>
+          <span class="author">Len Borozinski</span>
+          <span class="viewBtn"></span>
+        </a>
+      </li>
+      
+      <li>
+        <a href="/speedbump">
+          <img alt="Speed Bump" class="thumb" height="60" src="http://avatar.amuniversal.com/feature_avatars/avatars_large/features/crspe/tiny_avatar.png" title="Speed Bump" width="60" />
+          <span class="title">Speed Bump</span>
+          <span class="author">Dave Coverly</span>
+          <span class="viewBtn"></span>
+        </a>
+      </li>
+      
+      <li>
+        <a href="/spot-the-frog">
+          <img alt="Spot the Frog" class="thumb" height="60" src="http://avatar.amuniversal.com/feature_avatars/avatars_large/features/sf/tiny_avatar.png" title="Spot the Frog" width="60" />
+          <span class="title">Spot the Frog</span>
+          <span class="author">Mark Heath</span>
+          <span class="viewBtn"></span>
+        </a>
+      </li>
+      
+      <li>
+        <a href="/starslip">
+          <img alt="Starslip" class="thumb" height="60" src="http://avatar.amuniversal.com/feature_avatars/avatars_large/features/stc/tiny_avatar.png" title="Starslip" width="60" />
+          <span class="title">Starslip</span>
+          <span class="author">Kris Straub</span>
+          <span class="viewBtn"></span>
+        </a>
+      </li>
+      
+      <li>
+        <a href="/stonesoup">
+          <img alt="Stone Soup" class="thumb" height="60" src="http://avatar.amuniversal.com/feature_avatars/avatars_large/features/ss/tiny_avatar.png" title="Stone Soup" width="60" />
+          <span class="title">Stone Soup</span>
+          <span class="author">Jan Eliot</span>
+          <span class="viewBtn"></span>
+        </a>
+      </li>
+      
+      <li>
+        <a href="/stone-soup-classics">
+          <img alt="Stone Soup Classics" class="thumb" height="60" src="http://avatar.amuniversal.com/feature_avatars/avatars_large/features/ssc/tiny_avatar.png" title="Stone Soup Classics" width="60" />
+          <span class="title">Stone Soup Classics</span>
+          <span class="author">Jan Eliot</span>
+          <span class="viewBtn"></span>
+        </a>
+      </li>
+      
+      <li>
+        <a href="/strangebrew">
+          <img alt="Strange Brew" class="thumb" height="60" src="http://avatar.amuniversal.com/feature_avatars/avatars_large/features/crstr/tiny_avatar.png" title="Strange Brew" width="60" />
+          <span class="title">Strange Brew</span>
+          <span class="author">John Deering</span>
+          <span class="viewBtn"></span>
+        </a>
+      </li>
+      
+      <li>
+        <a href="/sunny-street">
+          <img alt="Sunny Street" class="thumb" height="60" src="http://avatar.amuniversal.com/feature_avatars/avatars_large/features/snt/tiny_avatar.png" title="Sunny Street" width="60" />
+          <span class="title">Sunny Street</span>
+          <span class="author">Max Garcia and Sandra Barthauer</span>
+          <span class="viewBtn"></span>
+        </a>
+      </li>
+      
+      <li>
+        <a href="/the-sunshine-club">
+          <img alt="The Sunshine Club" class="thumb" height="60" src="http://avatar.amuniversal.com/feature_avatars/avatars_large/features/sun/tiny_avatar.png" title="The Sunshine Club" width="60" />
+          <span class="title">The Sunshine Club</span>
+          <span class="author">Howie Schneider</span>
+          <span class="viewBtn"></span>
+        </a>
+      </li>
+      
+      <li>
+        <a href="/sunshine-state">
+          <img alt="Sunshine State" class="thumb" height="60" src="http://avatar.amuniversal.com/feature_avatars/avatars_large/features/sus/tiny_avatar.png" title="Sunshine State" width="60" />
+          <span class="title">Sunshine State</span>
+          <span class="author">Graham Nolan</span>
+          <span class="viewBtn"></span>
+        </a>
+      </li>
+      
+      <li>
+        <a href="/sylvia">
+          <img alt="Sylvia" class="thumb" height="60" src="http://avatar.amuniversal.com/feature_avatars/avatars_large/features/tmsyl/tiny_avatar.png" title="Sylvia" width="60" />
+          <span class="title">Sylvia</span>
+          <span class="author">Nicole Hollander</span>
+          <span class="viewBtn"></span>
+        </a>
+      </li>
+      
+      <li>
+        <a href="/tankmcnamara">
+          <img alt="Tank McNamara" class="thumb" height="60" src="http://avatar.amuniversal.com/feature_avatars/avatars_large/features/tm/tiny_avatar.png" title="Tank McNamara" width="60" />
+          <span class="title">Tank McNamara</span>
+          <span class="author">Bill Hinds</span>
+          <span class="viewBtn"></span>
+        </a>
+      </li>
+      
+      <li>
+        <a href="/tarzan">
+          <img alt="Tarzan" class="thumb" height="60" src="http://avatar.amuniversal.com/feature_avatars/avatars_large/features/tz/tiny_avatar.png" title="Tarzan" width="60" />
+          <span class="title">Tarzan</span>
+          <span class="author">Edgar Rice Burroughs</span>
+          <span class="viewBtn"></span>
+        </a>
+      </li>
+      
+      <li>
+        <a href="/ten-cats">
+          <img alt="Ten Cats" class="thumb" height="60" src="http://avatar.amuniversal.com/feature_avatars/avatars_large/features/tc/tiny_avatar.png" title="Ten Cats" width="60" />
+          <span class="title">Ten Cats</span>
+          <span class="author">Graham Harrop</span>
+          <span class="viewBtn"></span>
+        </a>
+      </li>
+      
+      <li>
+        <a href="/that-is-priceless">
+          <img alt="That is Priceless" class="thumb" height="60" src="http://avatar.amuniversal.com/feature_avatars/avatars_large/features/tip/tiny_avatar.png" title="That is Priceless" width="60" />
+          <span class="title">That is Priceless</span>
+          <span class="author">Steve Melcher</span>
+          <span class="viewBtn"></span>
+        </a>
+      </li>
+      
+      <li>
+        <a href="/that-monkey-tune">
+          <img alt="That Monkey Tune" class="thumb" height="60" src="http://avatar.amuniversal.com/feature_avatars/avatars_large/features/tmt/tiny_avatar.png" title="That Monkey Tune" width="60" />
+          <span class="title">That Monkey Tune</span>
+          <span class="author">Michael A. Kandalaft</span>
+          <span class="viewBtn"></span>
+        </a>
+      </li>
+      
+      <li>
+        <a href="/that-new-carl-smell">
+          <img alt="That New Carl Smell" class="thumb" height="60" src="http://avatar.amuniversal.com/feature_avatars/avatars_large/features/ncs/tiny_avatar.png" title="That New Carl Smell" width="60" />
+          <span class="title">That New Carl Smell</span>
+          <span class="author">Carl Skanberg</span>
+          <span class="viewBtn"></span>
+        </a>
+      </li>
+      
+      <li>
+        <a href="/thats-life">
+          <img alt="That&#x27;s Life" class="thumb" height="60" src="http://avatar.amuniversal.com/feature_avatars/avatars_large/features/tl/tiny_avatar.png" title="That&#x27;s Life" width="60" />
+          <span class="title">That&#x27;s Life</span>
+          <span class="author">Mike Twohy</span>
+          <span class="viewBtn"></span>
+        </a>
+      </li>
+      
+      <li>
+        <a href="/thatababy">
+          <img alt="Thatababy" class="thumb" height="60" src="http://avatar.amuniversal.com/feature_avatars/avatars_large/features/tab/tiny_avatar.png" title="Thatababy" width="60" />
+          <span class="title">Thatababy</span>
+          <span class="author">Paul Trap</span>
+          <span class="viewBtn"></span>
+        </a>
+      </li>
+      
+      <li>
+        <a href="/thinlines">
+          <img alt="Thin Lines" class="thumb" height="60" src="http://avatar.amuniversal.com/feature_avatars/avatars_large/features/crtli/tiny_avatar.png" title="Thin Lines" width="60" />
+          <span class="title">Thin Lines</span>
+          <span class="author">Randy Glasbergen</span>
+          <span class="viewBtn"></span>
+        </a>
+      </li>
+      
+      <li>
+        <a href="/tiny-confessions">
+          <img alt="Tiny Confessions" class="thumb" height="60" src="http://avatar.amuniversal.com/feature_avatars/avatars_large/features/tin/tiny_avatar.png" title="Tiny Confessions" width="60" />
+          <span class="title">Tiny Confessions</span>
+          <span class="author">Christopher Rozzi</span>
+          <span class="viewBtn"></span>
+        </a>
+      </li>
+      
+      <li>
+        <a href="/tinysepuku">
+          <img alt="Tiny Sepuku" class="thumb" height="60" src="http://avatar.amuniversal.com/feature_avatars/avatars_large/features/tiny/tiny_avatar.png" title="Tiny Sepuku" width="60" />
+          <span class="title">Tiny Sepuku</span>
+          <span class="author">Ken Cursoe</span>
+          <span class="viewBtn"></span>
+        </a>
+      </li>
+      
+      <li>
+        <a href="/toby">
+          <img alt="TOBY" class="thumb" height="60" src="http://avatar.amuniversal.com/feature_avatars/avatars_large/features/toby/tiny_avatar.png" title="TOBY" width="60" />
+          <span class="title">TOBY</span>
+          <span class="author">Corey Pandolph</span>
+          <span class="viewBtn"></span>
+        </a>
+      </li>
+      
+      <li>
+        <a href="/todays-dogg">
+          <img alt="Today&#x27;s Dogg" class="thumb" height="60" src="http://avatar.amuniversal.com/feature_avatars/avatars_large/features/tdo/tiny_avatar.png" title="Today&#x27;s Dogg" width="60" />
+          <span class="title">Today&#x27;s Dogg</span>
+          <span class="author">Guy Gilchrist</span>
+          <span class="viewBtn"></span>
+        </a>
+      </li>
+      
+      <li>
+        <a href="/tomthedancingbug">
+          <img alt="Tom the Dancing Bug" class="thumb" height="60" src="http://avatar.amuniversal.com/feature_avatars/avatars_large/features/td/tiny_avatar.png" title="Tom the Dancing Bug" width="60" />
+          <span class="title">Tom the Dancing Bug</span>
+          <span class="author">Ruben Bolling</span>
+          <span class="viewBtn"></span>
+        </a>
+      </li>
+      
+      <li>
+        <a href="/super-fun-pak-comix">
+          <img alt="Super-Fun-Pak Comix" class="thumb" height="60" src="http://avatar.amuniversal.com/feature_avatars/avatars_large/features/sfpc/tiny_avatar.png" title="Super-Fun-Pak Comix" width="60" />
+          <span class="title">Super-Fun-Pak Comix</span>
+          <span class="author">Ruben Bolling</span>
+          <span class="viewBtn"></span>
+        </a>
+      </li>
+      
+      <li>
+        <a href="/toomuchcoffeeman">
+          <img alt="Too Much Coffee Man" class="thumb" height="60" src="http://avatar.amuniversal.com/feature_avatars/avatars_large/features/tmcm/tiny_avatar.png" title="Too Much Coffee Man" width="60" />
+          <span class="title">Too Much Coffee Man</span>
+          <span class="author">Shannon Wheeler</span>
+          <span class="viewBtn"></span>
+        </a>
+      </li>
+      
+      <li>
+        <a href="/tough-town">
+          <img alt="Tough Town" class="thumb" height="60" src="http://avatar.amuniversal.com/feature_avatars/avatars_large/features/tot/tiny_avatar.png" title="Tough Town" width="60" />
+          <span class="title">Tough Town</span>
+          <span class="author">Bob Shannon</span>
+          <span class="viewBtn"></span>
+        </a>
+      </li>
+      
+      <li>
+        <a href="/trivquiz">
+          <img alt="Trivquiz" class="thumb" height="60" src="http://avatar.amuniversal.com/feature_avatars/avatars_large/features/tq/tiny_avatar.png" title="Trivquiz" width="60" />
+          <span class="title">Trivquiz</span>
+          <span class="author">Steve McGarry</span>
+          <span class="viewBtn"></span>
+        </a>
+      </li>
+      
+      <li>
+        <a href="/truth-facts">
+          <img alt="Truth Facts" class="thumb" height="60" src="http://avatar.amuniversal.com/feature_avatars/avatars_large/features/tf/tiny_avatar.png" title="Truth Facts" width="60" />
+          <span class="title">Truth Facts</span>
+          <span class="author">Wulff &amp; Morgenthaler</span>
+          <span class="viewBtn"></span>
+        </a>
+      </li>
+      
+      <li>
+        <a href="/twaggies">
+          <img alt="Twaggies" class="thumb" height="60" src="http://avatar.amuniversal.com/feature_avatars/avatars_large/features/twag/tiny_avatar.png" title="Twaggies" width="60" />
+          <span class="title">Twaggies</span>
+          <span class="author">David Israel</span>
+          <span class="viewBtn"></span>
+        </a>
+      </li>
+      
+      <li>
+        <a href="/uncleartsfunland">
+          <img alt="Uncle Art&#x27;s Funland" class="thumb" height="60" src="http://avatar.amuniversal.com/feature_avatars/avatars_large/features/fl/tiny_avatar.png" title="Uncle Art&#x27;s Funland" width="60" />
+          <span class="title">Uncle Art&#x27;s Funland</span>
+          <span class="author">Art Nugent</span>
+          <span class="viewBtn"></span>
+        </a>
+      </li>
+      
+      <li>
+        <a href="/understanding-chaos">
+          <img alt="Understanding Chaos" class="thumb" height="60" src="http://avatar.amuniversal.com/feature_avatars/avatars_large/features/uc/tiny_avatar.png" title="Understanding Chaos" width="60" />
+          <span class="title">Understanding Chaos</span>
+          <span class="author">Gustavo Rodriguez</span>
+          <span class="viewBtn"></span>
+        </a>
+      </li>
+      
+      <li>
+        <a href="/unstrange-phenomena">
+          <img alt="Unstrange Phenomena" class="thumb" height="60" src="http://avatar.amuniversal.com/feature_avatars/avatars_large/features/up/tiny_avatar.png" title="Unstrange Phenomena" width="60" />
+          <span class="title">Unstrange Phenomena</span>
+          <span class="author">Ed Allison</span>
+          <span class="viewBtn"></span>
+        </a>
+      </li>
+      
+      <li>
+        <a href="/up-and-out">
+          <img alt="Up and Out" class="thumb" height="60" src="http://avatar.amuniversal.com/feature_avatars/avatars_large/features/uao/tiny_avatar.png" title="Up and Out" width="60" />
+          <span class="title">Up and Out</span>
+          <span class="author">Jeremy Kaye</span>
+          <span class="viewBtn"></span>
+        </a>
+      </li>
+      
+      <li>
+        <a href="/us-acres">
+          <img alt="U.S. Acres" class="thumb" height="60" src="http://avatar.amuniversal.com/feature_avatars/avatars_large/features/gausa/tiny_avatar.png" title="U.S. Acres" width="60" />
+          <span class="title">U.S. Acres</span>
+          <span class="author">Jim Davis</span>
+          <span class="viewBtn"></span>
+        </a>
+      </li>
+      
+      <li>
+        <a href="/viivi-and-wagner">
+          <img alt="Viivi &amp; Wagner" class="thumb" height="60" src="http://avatar.amuniversal.com/feature_avatars/avatars_large/features/juba/tiny_avatar.png" title="Viivi &amp; Wagner" width="60" />
+          <span class="title">Viivi &amp; Wagner</span>
+          <span class="author">Juba</span>
+          <span class="viewBtn"></span>
+        </a>
+      </li>
+      
+      <li>
+        <a href="/wallace-the-brave">
+          <img alt="Wallace the Brave" class="thumb" height="60" src="http://avatar.amuniversal.com/feature_avatars/avatars_large/features/wtb/tiny_avatar.png" title="Wallace the Brave" width="60" />
+          <span class="title">Wallace the Brave</span>
+          <span class="author">Will Henry</span>
+          <span class="viewBtn"></span>
+        </a>
+      </li>
+      
+      <li>
+        <a href="/the-wandering-melon">
+          <img alt="The Wandering Melon" class="thumb" height="60" src="http://avatar.amuniversal.com/feature_avatars/avatars_large/features/wml/tiny_avatar.png" title="The Wandering Melon" width="60" />
+          <span class="title">The Wandering Melon</span>
+          <span class="author">Mike Shiell</span>
+          <span class="viewBtn"></span>
+        </a>
+      </li>
+      
+      <li>
+        <a href="/watchyourhead">
+          <img alt="Watch Your Head" class="thumb" height="60" src="http://avatar.amuniversal.com/feature_avatars/avatars_large/features/wpwyh/tiny_avatar.png" title="Watch Your Head" width="60" />
+          <span class="title">Watch Your Head</span>
+          <span class="author">Cory Thomas</span>
+          <span class="viewBtn"></span>
+        </a>
+      </li>
+      
+      <li>
+        <a href="/waynovision">
+          <img alt="WaynoVision" class="thumb" height="60" src="http://avatar.amuniversal.com/feature_avatars/avatars_large/features/wayne/tiny_avatar.png" title="WaynoVision" width="60" />
+          <span class="title">WaynoVision</span>
+          <span class="author">Wayno</span>
+          <span class="viewBtn"></span>
+        </a>
+      </li>
+      
+      <li>
+        <a href="/weepals">
+          <img alt="Wee Pals" class="thumb" height="60" src="http://avatar.amuniversal.com/feature_avatars/avatars_large/features/crwee/tiny_avatar.png" title="Wee Pals" width="60" />
+          <span class="title">Wee Pals</span>
+          <span class="author">Morrie Turner</span>
+          <span class="viewBtn"></span>
+        </a>
+      </li>
+      
+      <li>
+        <a href="/wicked-crispy">
+          <img alt="Wicked Crispy" class="thumb" height="60" src="http://avatar.amuniversal.com/feature_avatars/avatars_large/features/wc/tiny_avatar.png" title="Wicked Crispy" width="60" />
+          <span class="title">Wicked Crispy</span>
+          <span class="author">Chris Grine</span>
+          <span class="viewBtn"></span>
+        </a>
+      </li>
+      
+      <li>
+        <a href="/wide-open">
+          <img alt="Wide Open" class="thumb" height="60" src="http://avatar.amuniversal.com/feature_avatars/avatars_large/features/dix/tiny_avatar.png" title="Wide Open" width="60" />
+          <span class="title">Wide Open</span>
+          <span class="author">Rich Powell</span>
+          <span class="viewBtn"></span>
+        </a>
+      </li>
+      
+      <li>
+        <a href="/winston">
+          <img alt="Winston" class="thumb" height="60" src="http://avatar.amuniversal.com/feature_avatars/avatars_large/features/win/tiny_avatar.png" title="Winston" width="60" />
+          <span class="title">Winston</span>
+          <span class="author">Andrew Hart</span>
+          <span class="viewBtn"></span>
+        </a>
+      </li>
+      
+      <li>
+        <a href="/wizardofid">
+          <img alt="Wizard of Id" class="thumb" height="60" src="http://avatar.amuniversal.com/feature_avatars/avatars_large/features/crwiz/tiny_avatar.png" title="Wizard of Id" width="60" />
+          <span class="title">Wizard of Id</span>
+          <span class="author">Parker and Hart</span>
+          <span class="viewBtn"></span>
+        </a>
+      </li>
+      
+      <li>
+        <a href="/wizard-of-id-classics">
+          <img alt="Wizard of Id Classics" class="thumb" height="60" src="http://avatar.amuniversal.com/feature_avatars/avatars_large/features/wiz/tiny_avatar.png" title="Wizard of Id Classics" width="60" />
+          <span class="title">Wizard of Id Classics</span>
+          <span class="author">Parker and Hart</span>
+          <span class="viewBtn"></span>
+        </a>
+      </li>
+      
+      <li>
+        <a href="/working-daze">
+          <img alt="Working Daze" class="thumb" height="60" src="http://avatar.amuniversal.com/feature_avatars/avatars_large/features/wd/tiny_avatar.png" title="Working Daze" width="60" />
+          <span class="title">Working Daze</span>
+          <span class="author">John Zakour and Scott Roberts</span>
+          <span class="viewBtn"></span>
+        </a>
+      </li>
+      
+      <li>
+        <a href="/workingitout">
+          <img alt="Working It Out" class="thumb" height="60" src="http://avatar.amuniversal.com/feature_avatars/avatars_large/features/crwio/tiny_avatar.png" title="Working It Out" width="60" />
+          <span class="title">Working It Out</span>
+          <span class="author">Charlos Gary</span>
+          <span class="viewBtn"></span>
+        </a>
+      </li>
+      
+      <li>
+        <a href="/world-of-wonder">
+          <img alt="World of Wonder" class="thumb" height="60" src="http://avatar.amuniversal.com/feature_avatars/avatars_large/features/wow/tiny_avatar.png" title="World of Wonder" width="60" />
+          <span class="title">World of Wonder</span>
+          <span class="author">Laurie Triefeldt</span>
+          <span class="viewBtn"></span>
+        </a>
+      </li>
+      
+      <li>
+        <a href="/the-worst-thing-ive-ever-done">
+          <img alt="The Worst Thing I&#x27;ve Ever Done" class="thumb" height="60" src="http://avatar.amuniversal.com/feature_avatars/avatars_large/features/wst/tiny_avatar.png" title="The Worst Thing I&#x27;ve Ever Done" width="60" />
+          <span class="title">The Worst Thing I&#x27;ve Ever Done</span>
+          <span class="author">Ted Rall</span>
+          <span class="viewBtn"></span>
+        </a>
+      </li>
+      
+      <li>
+        <a href="/wrong-hands">
+          <img alt="Wrong Hands" class="thumb" height="60" src="http://avatar.amuniversal.com/feature_avatars/avatars_large/features/wh/tiny_avatar.png" title="Wrong Hands" width="60" />
+          <span class="title">Wrong Hands</span>
+          <span class="author">John Atkinson</span>
+          <span class="viewBtn"></span>
+        </a>
+      </li>
+      
+      <li>
+        <a href="/wtduck">
+          <img alt="W.T. Duck" class="thumb" height="60" src="http://avatar.amuniversal.com/feature_avatars/avatars_large/features/wtd/tiny_avatar.png" title="W.T. Duck" width="60" />
+          <span class="title">W.T. Duck</span>
+          <span class="author">Aaron Johnson</span>
+          <span class="viewBtn"></span>
+        </a>
+      </li>
+      
+      <li>
+        <a href="/wumo">
+          <img alt="WuMo" class="thumb" height="60" src="http://avatar.amuniversal.com/feature_avatars/avatars_large/features/wm/tiny_avatar.png" title="WuMo" width="60" />
+          <span class="title">WuMo</span>
+          <span class="author">Wulff &amp; Morgenthaler</span>
+          <span class="viewBtn"></span>
+        </a>
+      </li>
+      
+      <li>
+        <a href="/yenny-lopez">
+          <img alt="Yenny Lopez" class="thumb" height="60" src="http://avatar.amuniversal.com/feature_avatars/avatars_large/features/yen/tiny_avatar.png" title="Yenny Lopez" width="60" />
+          <span class="title">Yenny Lopez</span>
+          <span class="author">David Alvarez</span>
+          <span class="viewBtn"></span>
+        </a>
+      </li>
+      
+      <li>
+        <a href="/zackhill">
+          <img alt="Zack Hill" class="thumb" height="60" src="http://avatar.amuniversal.com/feature_avatars/avatars_large/features/crzhi/tiny_avatar.png" title="Zack Hill" width="60" />
+          <span class="title">Zack Hill</span>
+          <span class="author">John Deering and John Newcombe</span>
+          <span class="viewBtn"></span>
+        </a>
+      </li>
+      
+      <li>
+        <a href="/zen-pencils">
+          <img alt="Zen Pencils" class="thumb" height="60" src="http://avatar.amuniversal.com/feature_avatars/avatars_large/features/zp/tiny_avatar.png" title="Zen Pencils" width="60" />
+          <span class="title">Zen Pencils</span>
+          <span class="author">Gavin Aung Than</span>
+          <span class="viewBtn"></span>
+        </a>
+      </li>
+      
+      <li>
+        <a href="/ziggy">
+          <img alt="Ziggy" class="thumb" height="60" src="http://avatar.amuniversal.com/feature_avatars/avatars_large/features/zi/tiny_avatar.png" title="Ziggy" width="60" />
+          <span class="title">Ziggy</span>
+          <span class="author">Tom Wilson &amp; Tom II</span>
+          <span class="viewBtn"></span>
+        </a>
+      </li>
+</ul>
+
+
+  <div id="footer">
+  <p class="footerLinks">
+    <a href="http://www.gocomics.com/">home</a>&nbsp;&nbsp;<a href="/help/about">about</a>&nbsp;&nbsp;<a href="/features/search">search</a>
+  </p>
+  <br/>
+
+  <p class="footerLinks">
+    <a href="/explore/comics">comics</a>&nbsp;&nbsp;<a href="/explore/editorials">political</a>&nbsp;&nbsp;<a href="/explore/sherpa">sherpa</a>&nbsp;&nbsp;<a href="/explore/espanol">espanol</a>
+    <a href="/explore/app_store">apps</a>&nbsp;&nbsp;
+  </p>
+
+  <p>
+    <a href="/?view=full" class="desktopLink" data-confirm="You are switching to the version of GoComics for the desktop. To switch back, select the link in the top right corner." onClick="javascript: pageTracker._trackPageview(&#x27;/outgoing/viewDesktopVersion&#x27;);">switch to desktop version</a>
+  </p>
+
+  <p class="copyright">&copy; 2015 Universal Uclick</p>
+</div>
+
+  <!-- Start Quantcast tag -->
+<script type="text/javascript">
+    _qoptions = {
+        qacct:"p-5bhew76JBcfq6",
+        labels:"comic"
+    };
+</script>
+<script type="text/javascript" src="http://edge.quantserve.com/quant.js"></script>
+<noscript>
+  <img src="http://pixel.quantserve.com/pixel/p-5bhew76JBcfq6.gif" style="display: none;" border="0" height="1" width="1" alt="Quantcast"/>
+</noscript>
+<!-- End Quantcast tag -->
+
+
+  </body>
+</html>
+
+

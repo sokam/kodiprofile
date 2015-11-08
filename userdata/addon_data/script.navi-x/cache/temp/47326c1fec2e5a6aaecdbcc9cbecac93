@@ -1,0 +1,12 @@
+version=1
+title=BBC Podcasts - Video
+
+# 1137238
+type=rss:
+name=Click News
+URL=http://newsrss.bbc.co.uk/rss/newsonline_world_edition/programmes/click_online/rss.xml
+player=default
+rating=-1.00
+
+
+# cached

@@ -1,0 +1,266 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+  <title>Gocomics Mobile</title>
+  <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+<meta name="viewport" id="viewport" content="width=device-width, initial-scale=1.0,  maximum-scale=3.125
+" />
+<link rel="apple-touch-icon-precomposed" href="http://assets.gocomics.com/images/mobile/app_icons/Icon.png?1446735942" />
+<link rel="apple-touch-icon-precomposed" sizes="72x72" href="http://assets.gocomics.com/images/mobile/app_icons/Icon-72.png?1446735942" />
+<link rel="apple-touch-icon-precomposed" sizes="114x114" href="http://assets.gocomics.com/images/mobile/app_icons/Icon@2x.png?1446735942" />
+<link rel="apple-touch-icon-precomposed" sizes="144x144" href="http://assets.gocomics.com/images/mobile/app_icons/Icon-72@2x.png?1446735942" />
+
+  <link href="http://assets.gocomics.com/stylesheets/iphone.css?1446735942" media="screen" rel="stylesheet" type="text/css" />
+  <script src="//ajax.googleapis.com/ajax/libs/jquery/1.9.1/jquery.min.js" type="text/javascript"></script>
+  <script src="http://assets.gocomics.com/javascripts/mobile/hide_bar.js?1446735942" type="text/javascript"></script>
+  <meta http-equiv="Content-Type" content="text/html; charset=UTF-8"/>
+  <meta name="author" content="Universal Uclick" />
+  <meta name="apple-itunes-app" content="app-id=591428858" />
+  <meta name="google-play-app" content="app-id=com.amuniversal.android.gocomics" />
+  <link rel="apple-touch-icon" href="http://assets.gocomics.com/images/mobile/uclickIcon.png"/>
+
+  <script type='text/javascript' src='http://c.amazon-adsystem.com/aax2/amzn_ads.js'></script>
+
+<script type='text/javascript'>
+    // Fetches Amazon ads if available and stores them for future use
+    try {
+        amznads.getAds('3170');
+    } catch(e) {
+        /*ignore*/
+    }
+</script>
+  
+  <script type="text/javascript">
+    var googletag = googletag || {};
+    googletag.cmd = googletag.cmd || [];
+
+    (function() {
+        var oads = document.createElement("script");
+        oads.async = true;
+        oads.type = "text/javascript";
+        var useSSL = "https:" == document.location.protocol;
+        oads.onload = oads.onreadystatechange = function() {
+            if (!this.readyState || this.readyState === "loaded" || this.readyState === "complete") {
+                var gads = document.createElement("script");
+                gads.async = true;
+                gads.type = "text/javascript";
+                var useSSL = "https:" == document.location.protocol;
+                gads.src = (useSSL ? "https:" : "http:") + "//www.googletagservices.com/tag/js/gpt.js";
+                var node = document.getElementsByTagName("script")[0];
+                node.parentNode.insertBefore(gads, node);
+            }
+        };
+        oads.src = '//ox-d.amu.servedbyopenx.com/w/1.0/jstag?nc=19196947-GoComics';
+        var node = document.getElementsByTagName("script")[0];
+        node.parentNode.insertBefore(oads, node);
+    })();
+</script>
+
+
+<script type='text/javascript'>
+    var adSlot = '/19196947/gocomics_mobile/editorial/aria';
+
+  // $(document).ready(function() {
+  //   $('#ad-interstitial-mobile-cancel').click(function() {
+  //     $('#ad-interstitial-mobile1').hide();
+  //   });
+  // });
+  googletag.cmd.push(function() {
+    // googletag.defineSlot('', [[1, 1], [320, 50]], 'ad-interstitial-mobile1').addService(googletag.pubads());
+    googletag.defineSlot(adSlot, [320, 50], 'leaderboard1').addService(googletag.pubads()).setTargeting("fcode", "aria");
+
+   
+    // Gets key-value pairs and makes calls to googletag.setTargeting() to set them
+    try {
+        amznads.setTargetingForGPTAsync('amznslots');
+    } catch(e) {
+        /*ignore*/
+    }
+
+
+  googletag.pubads().enableSingleRequest();
+  googletag.enableServices();
+  });
+</script>
+
+
+
+  <!-- Index Request -->
+<script src="http://js.indexww.com/ht/uuclick.js"></script>
+<!-- Index Request -->
+
+
+  <link href="http://assets.gocomics.com/stylesheets/mobile/jquery-smartbanner.css?1446735942" media="screen" rel="stylesheet" type="text/css" />
+  <script src="http://assets.gocomics.com/javascripts/mobile/jquery-smartbanner.js?1446735942" type="text/javascript"></script>
+  <script src="http://assets.gocomics.com/javascripts/mobile/jquery-smartbanner-settings.js?1446735942" type="text/javascript"></script>
+
+  <!-- BEGIN PageFair script -->
+<script type="text/javascript">
+    (function() {
+        function async_load(script_url){
+            var protocol = ('https:' == document.location.protocol ? 'https://' : 'http://');
+            var s = document.createElement('script'); s.src = protocol + script_url;
+            var x = document.getElementsByTagName('script')[0]; x.parentNode.insertBefore(s, x);
+        }
+        bm_website_code = '53F040374AD54452';
+        jQuery(document).ready(function(){async_load('asset.pagefair.com/measure.min.js')});
+        jQuery(document).ready(function(){async_load('asset.pagefair.net/ads.min.js')});
+    })();
+</script>
+<!-- END PageFair script -->
+  <!-- Begin comScore Tag -->
+<script>
+    var _comscore = _comscore || [];
+    _comscore.push({ c1: "2", c2: "20519258" });
+    (function() {
+        var s = document.createElement("script"), el = document.getElementsByTagName("script")[0]; s.async = true;
+        s.src = (document.location.protocol == "https:" ? "https://sb" : "http://b") + ".scorecardresearch.com/beacon.js";
+        el.parentNode.insertBefore(s, el);
+    })();
+</script>
+<noscript>
+  <img src="http://b.scorecardresearch.com/p?c1=2&c2=20519258&cv=2.0&cj=1" />
+</noscript>
+<!-- End comScore Tag -->
+
+  <script type="text/javascript">
+    //Set markup and styling here
+    window.cookieconsent_options = {
+        container: '#cookieconsent-container',
+        learnMore: 'More info',
+        link: 'http://www.gocomics.com/help/privacy',
+        //If you wish to use your own CSS instead, specify the URL of your CSS file. e.g. styles/my_custom_theme.css.
+        //This can be a relative or absolute URL.
+        //To stop Cookie Consent from loading CSS at all, specify false
+        //IE8 Styles need to be duplicated in app specific css overrides /assets/stylesheets/ie/ie8.css
+        theme: false,
+        markup: [
+            '<div>',
+            '<style type="text/css">.cc_banner-wrapper {height: 70px; } .cc_container {z-index:9001; position:relative; width:100%; left:0; top:0; right:0; overflow:hidden; background-color:#666; } .cookie-choices-info {margin:0; padding:0; text-align:center; color:#fff; line-height:140%; padding:15px 0; font-family:roboto,Arial } .cookie-choices-info .cookie-choices-text {display:inline-block; vertical-align:middle; font-size:16px; margin:10px; color:#fefefe; max-width:800px; text-align:center } .cookie-choices-info .cookie-choices-buttons {display:inline-block; vertical-align:middle; white-space:nowrap; margin:10px } .cookie-choices-info .cookie-choices-button:hover {color:#fff; background-color:#000 } .cookie-choices-info .cookie-choices-button {background:#444; font-weight:700; text-transform:UPPERCASE; white-space:nowrap; color:#eee; margin-left:8px; padding:10px; border-radius:3px; text-decoration:none } @media screen and (max-width: 851px) {.cc_banner-wrapper {height:110px } } @media screen and (max-width: 588px) {.cc_banner-wrapper {height:140px } } @media screen and (max-width: 327px) {.cc_banner-wrapper {height:160px } } @media print {.cc_banner-wrapper,.cc_container {display:none } }</style>',
+            '<div class="cc_banner-wrapper {{containerClasses}}">',
+            '<div class="cc_banner cc_container cc_container--open">',
+            '<div class="cookie-choices-info"><div class="cookie-choices-inner"><span class="cookie-choices-text">{{options.message}}</span><span class="cookie-choices-buttons"> <a data-cc-if="options.link" class="cookie-choices-button" target="_blank" href="{{options.link || "#null"}}">{{options.learnMore}}</a> <a id="cookieChoiceDismiss" href="#null" data-cc-event="click:dismiss"  class="cookie-choices-button">{{options.dismiss}}</a></span></div></div>',
+            '</div>',
+            '</div>',
+            '</div>'
+        ],
+        cookieName: 'gocomics_cookieconsent_dismissed',
+        readystate: 'interactive'
+    };
+</script>
+  <script src="http://assets.gocomics.com/javascripts/uu-cookieconsent.js?1446735942" type="text/javascript"></script>
+
+</head>
+<body class="main">
+  <!-- Exact same as Application -->
+  <!-- Google Universal Analytics Start -->
+<script>
+  (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+  (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+  m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+  })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+
+  // UU Tracking Object
+  ga('create', 'UA-273330-9', 'auto', {'name': 'trackerUU9'});
+  ga('trackerUU9.require', 'displayfeatures');
+  ga('trackerUU9.require', 'linkid');
+  ga('trackerUU9.set', 'dimension1', "casual");
+  ga('trackerUU9.set', 'dimension2', "Gocomics Mobile");
+  ga('trackerUU9.set', 'dimension3', "Robert Ariail");
+  ga('trackerUU9.set', '&uid', "");
+  ga('trackerUU9.send', 'pageview');
+
+  // UU Tracking Object
+  ga('create', 'UA-273330-4', 'auto', {'name': 'trackerUU4'});
+  ga('trackerUU4.require', 'displayfeatures');
+  ga('trackerUU4.require', 'linkid');
+  ga('trackerUU4.set', 'dimension1', "casual");
+  ga('trackerUU4.set', 'dimension2', "Gocomics Mobile");
+  ga('trackerUU4.set', 'dimension3', "Robert Ariail");
+  ga('trackerUU4.set', '&uid', "");
+  ga('trackerUU4.send', 'pageview');
+
+  function trackAppDownloadLink() {
+    ga('trackerUU4.send', 'event', 'Mobile', 'Downloaded App', 'Banner Link');
+  }
+
+</script>
+<!-- Google Universal Analytics End -->
+
+
+  <div id='leaderboard1' class="ad ad-leaderboard">
+  <script type='text/javascript'>
+    googletag.cmd.push(function() { googletag.display('leaderboard1'); });
+  </script>
+</div>
+  <div id="logo">
+    <a href="/" name="a_to_b"><img alt="Logo-mobile" src="http://assets.gocomics.com/images/mobile/logo-mobile.png?1446735942" /></a>
+  </div>
+      <div id="topbar">
+      <a href="/explore/editorials" class="btnBack" id="editorialsButton">Editorials</a>
+      <a href="/search" class="search">Search</a>
+
+      <p><a class="feature-title " href="/robert-ariail">Robert Ariail</a></p>
+    </div>
+    <div id="cookieconsent-container"></div>
+
+  
+  
+
+
+
+
+    <img alt="6c2f34602f2a013301ba005056a9545d" src="http://assets.amuniversal.com/6c2f34602f2a013301ba005056a9545d" width="100%" />
+    <div class="feature-controls">
+      <span class="btn-archive btn-archive-older"><a href="/robert-ariail/2015/08/26">&lt;&lt; Older</a></span>
+      <span class="feature-info"><strong>August 30, 2015</strong>By Robert Ariail</span>
+      <span class="btn-archive btn-archive-newer"><a href="/robert-ariail/2015/09/01">Newer &gt;&gt;</a></span>
+    </div>
+
+
+<script src="http://ib.3lift.com/ttj?inv_code=gocomics_mobile"></script>
+
+    <div id="category_nav">
+      <div class="thumbnail first">
+        <a href="/nickanderson"><img alt="Nick Anderson" class="thumb" height="60" src="http://avatar.amuniversal.com/feature_avatars/avatars_large/features/wpnan/tiny_avatar.png" title="Nick Anderson" width="60" /><span>Nick Anderson</span></a></div>
+      <div class="thumbnail last">
+        <a href="/darrin-bell"><img alt="Darrin Bell" class="thumb" height="60" src="http://avatar.amuniversal.com/feature_avatars/avatars_large/features/dbell/tiny_avatar.png" title="Darrin Bell" width="60" /><span>Darrin Bell</span></a></div>
+      <div class="clear"></div>
+    </div>
+
+
+  <div id="footer">
+  <p class="footerLinks">
+    <a href="http://www.gocomics.com/">home</a>&nbsp;&nbsp;<a href="/help/about">about</a>&nbsp;&nbsp;<a href="/features/search">search</a>
+  </p>
+  <br/>
+
+  <p class="footerLinks">
+    <a href="/explore/comics">comics</a>&nbsp;&nbsp;<a href="/explore/editorials">political</a>&nbsp;&nbsp;<a href="/explore/sherpa">sherpa</a>&nbsp;&nbsp;<a href="/explore/espanol">espanol</a>
+    <a href="/explore/app_store">apps</a>&nbsp;&nbsp;
+  </p>
+
+  <p>
+    <a href="/?view=full" class="desktopLink" data-confirm="You are switching to the version of GoComics for the desktop. To switch back, select the link in the top right corner." onClick="javascript: pageTracker._trackPageview(&#x27;/outgoing/viewDesktopVersion&#x27;);">switch to desktop version</a>
+  </p>
+
+  <p class="copyright">&copy; 2015 Universal Uclick</p>
+</div>
+
+  <!-- Start Quantcast tag -->
+<script type="text/javascript">
+    _qoptions = {
+        qacct:"p-5bhew76JBcfq6",
+        labels:"editorial.robert-ariail"
+    };
+</script>
+<script type="text/javascript" src="http://edge.quantserve.com/quant.js"></script>
+<noscript>
+  <img src="http://pixel.quantserve.com/pixel/p-5bhew76JBcfq6.gif" style="display: none;" border="0" height="1" width="1" alt="Quantcast"/>
+</noscript>
+<!-- End Quantcast tag -->
+
+
+  </body>
+</html>
+

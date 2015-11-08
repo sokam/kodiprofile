@@ -1,0 +1,69 @@
+version=1
+title=Podcasts
+
+# 932518
+type=playlist
+name=3sat
+thumb=http://www.lyngsat-logo.com/logo/tv/num/3sat.jpg
+URL=http://www.navixtreme.com/playlist/53940/test.plx
+player=default
+rating=-1.00
+
+# 932998
+type=playlist
+name=ARD
+thumb=http://www.lyngsat-logo.com/logo/tv/aa/ard_das_erste.jpg
+URL=http://www.navixtreme.com/playlist/53994/test.plx
+player=default
+rating=-1.00
+
+# 932519
+type=playlist
+name=arte
+thumb=http://www.lyngsat-logo.com/logo/tv/aa/arte_de.jpg
+URL=http://www.navixtreme.com/playlist/53942/test.plx
+player=default
+rating=-1.00
+
+# 933001
+type=playlist
+name=n-tv
+thumb=http://www.lyngsat-logo.com/logo/tv/nn/ntv_de.jpg
+URL=http://www.navixtreme.com/playlist/53996/ntv.plx
+player=default
+rating=-1.00
+
+# 933028
+type=playlist
+name=NDR
+thumb=http://www.lyngsat-logo.com/logo/tv/nn/ndr_fernsehen.jpg
+URL=http://www.navixtreme.com/playlist/53997/ndr.plx
+player=default
+rating=-1.00
+
+# 932520
+type=playlist
+name=Phoenix
+thumb=http://www.lyngsat-logo.com/logo/tv/pp/phoenix_de.jpg
+URL=http://www.navixtreme.com/playlist/53939/test.plx
+player=default
+rating=-1.00
+
+# 932577
+type=playlist
+name=WDR
+thumb=http://www.lyngsat-logo.com/logo/tv/ww/wdr_fernsehen.jpg
+URL=http://www.navixtreme.com/playlist/53954/test.plx
+player=default
+rating=-1.00
+
+# 933000
+type=playlist
+name=ZDF
+thumb=http://www.lyngsat-logo.com/logo/tv/zz/zdf_de.jpg
+URL=http://www.navixtreme.com/playlist/53995/zdf.plx
+player=default
+rating=-1.00
+
+
+# cached

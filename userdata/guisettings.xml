@@ -163,7 +163,7 @@
         <replaygaintype default="true">1</replaygaintype>
         <seekdelay default="true">750</seekdelay>
         <seeksteps default="true">-60,-30,-10,10,30,60</seeksteps>
-        <visualisation default="true">visualization.glspectrum</visualisation>
+        <visualisation>visualization.waveform</visualisation>
     </musicplayer>
     <mymusic>
         <defaultlibview default="true"></defaultlibview>
@@ -417,16 +417,16 @@
         <setting type="bool" name="skin.confluence.PandoraVis">false</setting>
         <setting type="bool" name="skin.confluence.WindowedTrailer">false</setting>
         <setting type="string" name="skin.confluence.CustomBackgroundPath">special://home/media/SKINDEFAULT.jpg</setting>
-        <setting type="string" name="skin.confluence.HomeVideosButton1">plugin.video.ccloudtv</setting>
-        <setting type="string" name="skin.confluence.HomeVideosButton2">plugin.video.channelpear</setting>
+        <setting type="string" name="skin.confluence.HomeVideosButton1">plugin.video.channelpear</setting>
+        <setting type="string" name="skin.confluence.HomeVideosButton2">plugin.video.vdubt</setting>
         <setting type="string" name="skin.confluence.HomeVideosButton3">plugin.video.genesis</setting>
-        <setting type="string" name="skin.confluence.HomeVideosButton4">plugin.video.SportsDevil</setting>
-        <setting type="string" name="skin.confluence.HomeVideosButton5">plugin.video.salts</setting>
-        <setting type="string" name="skin.confluence.HomeMusicButton1">plugin.audio.hongkongradio</setting>
+        <setting type="string" name="skin.confluence.HomeVideosButton4">script.navi-x</setting>
+        <setting type="string" name="skin.confluence.HomeVideosButton5">plugin.video.SportsDevil</setting>
+        <setting type="string" name="skin.confluence.HomeMusicButton1">plugin.video.itunes_podcasts</setting>
         <setting type="string" name="skin.confluence.HomeMusicButton2">plugin.audio.npr</setting>
-        <setting type="string" name="skin.confluence.HomeMusicButton3">script.audio.pandora</setting>
-        <setting type="string" name="skin.confluence.HomeMusicButton4">plugin.audio.radio_de</setting>
-        <setting type="string" name="skin.confluence.HomeMusicButton5">plugin.audio.soundcloud</setting>
+        <setting type="string" name="skin.confluence.HomeMusicButton3">plugin.audio.booksshouldbefree</setting>
+        <setting type="string" name="skin.confluence.HomeMusicButton4">plugin.audio.hongkongradio</setting>
+        <setting type="string" name="skin.confluence.HomeMusicButton5">plugin.audio.radio_de</setting>
         <setting type="string" name="skin.confluence.HomePictureButton1">plugin.image.500px</setting>
         <setting type="string" name="skin.confluence.HomePictureButton2">plugin.image.comicstrips</setting>
         <setting type="string" name="skin.confluence.HomePictureButton3">plugin.image.flickr</setting>

@@ -1,0 +1,148 @@
+version=1
+title=Live CableTV
+
+# 1064832
+type=video
+name=Psychic TV UK
+URL=http://api.firestormmedia.tv/iptv/flash/psychic_cc/player.swf?authSecureString=aWxvdmVtb25rZXlz&
+player=default
+rating=-1.00
+
+# 1044118
+type=video
+name=Animal Planet
+thumb=http://www.cryptomundo.com/wp-content/uploads/ANIMAL-PLANET.jpg
+URL=rtmp://s6.webport.tv/live/ playpath=z050001.stream swfUrl="http://www.tvsector.com/wp-content/uploads/jw-player-plugin-for-wordpress/player/player.swf"  pageUrl=http://www.tvsector.com/national-geographic-nat-geo-hd/
+player=default
+rating=5.00
+
+# 1044017
+type=video
+name=BBC HD
+thumb=http://static.ibnlive.in.com/ibnlive/pix/sitepix/05_2010/bbc-logo-630.jpg
+URL=rtmp://s6.webport.tv/live/ playpath=z010201.stream swfUrl="http://www.tvsector.com/wp-content/uploads/jw-player-plugin-for-wordpress/player/player.swf" pageUrl="http://www.tvsector.com/national-geographic-nat-geo-hd/"
+player=default
+rating=5.00
+
+# 1044111
+type=video
+name=Comedy Central
+thumb=http://upload.wikimedia.org/wikipedia/en/thumb/6/6f/Comedy_Central_logo_(1990s).svg/300px-Comedy_Central_logo_(1990s).svg.png
+URL=rtmp://s99.webport.tv/live/ playpath=z020503.stream swfUrl="http://www.tvsector.com/wp-content/uploads/jw-player-plugin-for-wordpress/player/player.swf" pageUrl=http://www.tvsector.com/national-geographic-nat-geo-hd/
+player=default
+rating=-1.00
+
+# 1044120
+type=video
+name=Discovery
+thumb=http://en.kingofsat.net/jpg/discovery-poland.jpg
+URL=rtmp://s6.webport.tv/live/ playpath=z050002.stream swfUrl="http://www.tvsector.com/wp-content/uploads/jw-player-plugin-for-wordpress/player/player.swf"  pageUrl=http://www.tvsector.com/national-geographic-nat-geo-hd/
+player=default
+rating=-1.00
+
+# 1044117
+type=video
+name=Disney XD
+thumb=http://blogs.sltrib.com/tv/uploaded_images/TT_disney_xd_lg[1]-790272.jpg
+URL=rtmp://s6.webport.tv/live/ playpath=z020101.stream swfUrl="http://www.tvsector.com/wp-content/uploads/jw-player-plugin-for-wordpress/player/player.swf"  pageUrl=http://www.tvsector.com/national-geographic-nat-geo-hd/
+player=default
+rating=-1.00
+
+# 1044122
+type=video
+name=ESPN America
+thumb=http://yozgat.files.wordpress.com/2011/02/espn-america-25941.jpg
+URL=rtmp://s6.webport.tv/live/ playpath=z050201.stream swfUrl="http://www.tvsector.com/wp-content/uploads/jw-player-plugin-for-wordpress/player/player.swf" pageUrl="http://www.tvsector.com/national-geographic-nat-geo-hd/" timeout=60
+player=default
+rating=-1.00
+
+# 1044124
+type=video
+name=Eurosport 2
+thumb=http://www.seeklogo.com/images/E/Eurosport_2-logo-069CDF80FA-seeklogo.com.gif
+URL=rtmp://s6.webport.tv/live/ playpath=z010301.stream swfUrl="http://www.tvsector.com/wp-content/uploads/jw-player-plugin-for-wordpress/player/player.swf"  pageUrl=http://www.tvsector.com/national-geographic-nat-geo-hd/
+player=default
+rating=-1.00
+
+# 1044123
+type=video
+name=Eurosport
+thumb=http://identitydesigned.com/images/eurosport/eurosport-logo.jpg
+URL=rtmp://s6.webport.tv/live/ playpath=z010601.stream swfUrl="http://www.tvsector.com/wp-content/uploads/jw-player-plugin-for-wordpress/player/player.swf"  pageUrl=http://www.tvsector.com/national-geographic-nat-geo-hd/
+player=default
+rating=-1.00
+
+# 1044116
+type=video
+name=HBO 2
+thumb=http://images.all-free-download.com/images/graphicmedium/hbo_2_106386.jpg
+URL=rtmp://s6.webport.tv/live/ playpath=z010701.stream swfUrl="http://www.tvsector.com/wp-content/uploads/jw-player-plugin-for-wordpress/player/player.swf"  pageUrl=http://www.tvsector.com/national-geographic-nat-geo-hd/
+player=default
+rating=-1.00
+
+# 1044115
+type=video
+name=HBO
+thumb=http://www.tv14.net/wp-content/uploads/2010/02/HBO-Online.jpg
+URL=rtmp://s6.webport.tv/live/ playpath=z010402.stream swfUrl="http://www.tvsector.com/wp-content/uploads/jw-player-plugin-for-wordpress/player/player.swf"  pageUrl=http://www.tvsector.com/national-geographic-nat-geo-hd/
+player=default
+rating=1.00
+
+# 1044121
+type=video
+name=History
+thumb=http://cdn.ghosttheory.com/wp-content/uploads/2010/08/historyFeatureImg.jpg
+URL=rtmp://s99.webport.tv/live/ playpath=z050003.stream swfUrl="http://www.tvsector.com/wp-content/uploads/jw-player-plugin-for-wordpress/player/player.swf" pageUrl="http://www.tvsector.com/national-geographic-nat-geo-hd/" timeout=60
+player=default
+rating=-1.00
+
+# 1044018
+type=video
+name=iTV 2
+thumb=http://socialnews.itv.com/media/ITV2%20logo%20-%20white%20FILL.JPG
+URL=rtmp://s6.webport.tv/live/ playpath=z020102.stream swfUrl="http://www.tvsector.com/wp-content/uploads/jw-player-plugin-for-wordpress/player/player.swf"  pageUrl=http://www.tvsector.com/national-geographic-nat-geo-hd/
+player=default
+rating=-1.00
+
+# 1044110
+type=video
+name=iTV 3
+thumb=http://image.guardian.co.uk/sys-images/Media/Pix/pictures/2006/01/09/ITV3logo300.jpg
+URL=rtmp://s6.webport.tv/live/ playpath=z020103.stream swfUrl="http://www.tvsector.com/wp-content/uploads/jw-player-plugin-for-wordpress/player/player.swf"  pageUrl=http://www.tvsector.com/national-geographic-nat-geo-hd/
+player=default
+rating=-1.00
+
+# 1044113
+type=video
+name=MGM
+thumb=http://www.contentasia.tv/TBLlogo/MGM.jpg
+URL=rtmp://s6.webport.tv/live/ playpath=z020401.stream swfUrl="http://www.tvsector.com/wp-content/uploads/jw-player-plugin-for-wordpress/player/player.swf"  pageUrl=http://www.tvsector.com/national-geographic-nat-geo-hd/
+player=default
+rating=-1.00
+
+# 1044112
+type=video
+name=MTV
+thumb=http://charles-henry.co.uk/cv/images/mtv/mtv-trio.jpg
+URL=rtmp://s6.webport.tv/live/ playpath=z010001.stream swfUrl="http://www.tvsector.com/wp-content/uploads/jw-player-plugin-for-wordpress/player/player.swf"  pageUrl=http://www.tvsector.com/national-geographic-nat-geo-hd/
+player=default
+rating=5.00
+
+# 1044126
+type=video
+name=Sky Premiere
+thumb=http://www.lyngsat-logo.com/logo/tv/ss/sky_mx_premiere.jpg
+URL=rtmp://s6.webport.tv/live/ playpath=z020402.stream swfUrl="http://www.tvsector.com/wp-content/uploads/jw-player-plugin-for-wordpress/player/player.swf"  pageUrl=http://www.tvsector.com/national-geographic-nat-geo-hd/
+player=default
+rating=-1.00
+
+# 1044125
+type=video
+name=Sky Thriller
+thumb=http://www-deadline-com.vimg.net/wp-content/uploads/2010/01/Sky-logo.jpg
+URL=rtmp://s6.webport.tv/live/ playpath=z020404.stream swfUrl="http://www.tvsector.com/wp-content/uploads/jw-player-plugin-for-wordpress/player/player.swf"  pageUrl=http://www.tvsector.com/national-geographic-nat-geo-hd/
+player=default
+rating=-1.00
+
+
+# cached

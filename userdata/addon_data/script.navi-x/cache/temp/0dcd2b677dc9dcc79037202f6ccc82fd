@@ -1,0 +1,108 @@
+version=7
+title=ABC - choose max bitrate
+logo=http://www.navixtreme.com/images/backgrounds/thumb_abc.png
+description=* Setting this too low will cause playback to fail if they don't have a version at the rate chosen.
+* 700mbps is often the lowest bit rate available.
+* 800mbps seems to be a good value for the Xbox
+* Even though they have options going up to 15000mbps (wow) they usually only have up to 1600mbps/description
+
+type=playlist
+name=300 kbps
+icon=http://www.navixtreme.com/images/icons/network.png
+URL=http://www.navixtreme.com/scrape/abc/?br=300
+
+type=playlist
+name=400 kbps
+icon=http://www.navixtreme.com/images/icons/network.png
+URL=http://www.navixtreme.com/scrape/abc/?br=400
+
+type=playlist
+name=500 kbps
+icon=http://www.navixtreme.com/images/icons/network.png
+URL=http://www.navixtreme.com/scrape/abc/?br=500
+
+type=playlist
+name=600 kbps
+icon=http://www.navixtreme.com/images/icons/network.png
+URL=http://www.navixtreme.com/scrape/abc/?br=600
+
+type=playlist
+name=700 kbps
+icon=http://www.navixtreme.com/images/icons/network.png
+URL=http://www.navixtreme.com/scrape/abc/?br=700
+
+type=playlist
+name=[COLOR=FF00FF00]800 kbps[/COLOR]
+icon=http://www.navixtreme.com/images/icons/network.png
+URL=http://www.navixtreme.com/scrape/abc/?br=800
+
+type=playlist
+name=900 kbps
+icon=http://www.navixtreme.com/images/icons/network.png
+URL=http://www.navixtreme.com/scrape/abc/?br=900
+
+type=playlist
+name=1000 kbps
+icon=http://www.navixtreme.com/images/icons/network.png
+URL=http://www.navixtreme.com/scrape/abc/?br=1000
+
+type=playlist
+name=1300 kbps
+icon=http://www.navixtreme.com/images/icons/network.png
+URL=http://www.navixtreme.com/scrape/abc/?br=1300
+
+type=playlist
+name=1600 kbps
+icon=http://www.navixtreme.com/images/icons/network.png
+URL=http://www.navixtreme.com/scrape/abc/?br=1600
+
+type=playlist
+name=2000 kbps
+icon=http://www.navixtreme.com/images/icons/network.png
+URL=http://www.navixtreme.com/scrape/abc/?br=2000
+
+type=playlist
+name=2500 kbps
+icon=http://www.navixtreme.com/images/icons/network.png
+URL=http://www.navixtreme.com/scrape/abc/?br=2500
+
+type=playlist
+name=3000 kbps
+icon=http://www.navixtreme.com/images/icons/network.png
+URL=http://www.navixtreme.com/scrape/abc/?br=3000
+
+type=playlist
+name=3500 kbps
+icon=http://www.navixtreme.com/images/icons/network.png
+URL=http://www.navixtreme.com/scrape/abc/?br=3500
+
+type=playlist
+name=5000 kbps
+icon=http://www.navixtreme.com/images/icons/network.png
+URL=http://www.navixtreme.com/scrape/abc/?br=5000
+
+type=playlist
+name=6500 kbps
+icon=http://www.navixtreme.com/images/icons/network.png
+URL=http://www.navixtreme.com/scrape/abc/?br=6500
+
+type=playlist
+name=8000 kbps
+icon=http://www.navixtreme.com/images/icons/network.png
+URL=http://www.navixtreme.com/scrape/abc/?br=8000
+
+type=playlist
+name=10000 kbps
+icon=http://www.navixtreme.com/images/icons/network.png
+URL=http://www.navixtreme.com/scrape/abc/?br=10000
+
+type=playlist
+name=12500 kbps
+icon=http://www.navixtreme.com/images/icons/network.png
+URL=http://www.navixtreme.com/scrape/abc/?br=12500
+
+type=playlist
+name=15000 kbps
+icon=http://www.navixtreme.com/images/icons/network.png
+URL=http://www.navixtreme.com/scrape/abc/?br=15000
+
