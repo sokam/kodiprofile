@@ -65,6 +65,7 @@ def handle_captchas(url, html, data, dialog):
                 solution = kb.getText()
             elif userInput == '':
                 raise Exception ('You must enter text in the image to access video')
+                wdlg.close()
         else:
             wdlg.close()
             raise Exception ('Captcha Error')
@@ -96,6 +97,7 @@ def handle_captchas(url, html, data, dialog):
                 solution = kb.getText()
             elif userInput == '':
                 raise Exception ('You must enter text in the image to access video')
+                wdlg.close()
         else:
             wdlg.close()
             raise Exception ('Captcha Error')
@@ -269,6 +271,9 @@ def resolve_clicknupload(url):
 
     try:
 
+        media_id = re.search('//.+?/([\w]+)', url).group(1)
+        url = 'http://clicknupload.me/%s' % media_id
+        
         headers = {'Referer': url}
         
         #Show dialog box so user knows something is happening
@@ -327,6 +332,71 @@ def resolve_clicknupload(url):
     finally:
         dialog.close()
 
+
+def resolve_upload_af(url):
+
+    try:
+
+        headers = {'Referer': url}
+        
+        #Show dialog box so user knows something is happening
+        dialog = xbmcgui.DialogProgress()
+        dialog.create('Resolving', 'Resolving Upload.af Link...')       
+        dialog.update(0)
+        
+        addon.log('Upload.af - Requesting GET URL: %s' % url)
+        html = net.http_GET(url).content
+        
+        dialog.update(33)
+        
+        #Check page for any error msgs
+        if re.search('<b>File Not Found</b>', html):
+            addon.log_error('***** Upload.af - File is deleted')
+            raise Exception('File has been deleted from the host')
+
+        #Set POST data values
+        data = {}
+        r = re.findall('type="(hidden|submit)" name="(.+?)" value="(.*?)">', html)
+        if r:
+            for none, name, value in r:
+                data[name] = value
+
+        data['method_free'] = 'Free Download >>'                
+        
+        addon.log('Upload.af - Requesting POST URL: %s DATA: %s' % (url, data))                
+        html = net.http_POST(url, data, headers=headers).content
+        dialog.update(66)
+
+        data = {}
+        r = re.findall('type="(hidden|submit)" name="(.+?)" value="(.*?)">', html)
+        if r:
+            for none, name, value in r:
+                data[name] = value
+
+        #Check for captcha
+        data = handle_captchas(url, html, data, dialog)                
+        
+        wait_string = re.search('<div class="btn btn-danger" id="countdown">Wait <b class="seconds">([0-9]+)</b> seconds</div>', html)
+        if wait_string:
+            xbmc.sleep(int(wait_string.group(1)) * 1000)
+    
+        addon.log('Upload.af - Requesting POST URL: %s DATA: %s' % (url, data))                                
+        html = net.http_POST(url, data, headers=headers).content
+
+        #Get download link
+        dialog.update(100)
+        link = re.search('<a href="(.+?)" class="downloadbtn btn btn-success btn-lg">Download</a>', html)
+        if link:
+            return link.group(1) + '|User-Agent=%s' % USER_AGENT
+        else:
+            raise Exception("Unable to find final link")
+
+    except Exception, e:
+        addon.log_error('**** Upload.af Error occured: %s' % e)
+        raise
+    finally:
+        dialog.close()
+        
 
 def resolve_vidhog(url):
 
@@ -490,8 +560,8 @@ def resolve_epicshare(url):
 def resolve_hugefiles(url):
 
     try:
-
-        headers = {'Referer': url}
+            
+        headers = {'Referer': 'http://www.icefilms.info/'}
         
         puzzle_img = os.path.join(datapath, "hugefiles_puzzle.png")
         
@@ -503,8 +573,8 @@ def resolve_hugefiles(url):
         media_id = re.search('//.+?/([\w]+)', url).group(1)
         web_url = 'http://hugefiles.net/embed-%s.html' % media_id
         
-        addon.log('HugeFiles - Requesting GET URL: %s' % web_url)
-        html = net.http_GET(web_url).content
+        addon.log_debug('HugeFiles - Requesting GET URL: %s' % web_url)
+        html = net.http_GET(web_url, headers=headers).content
         
         dialog.update(50)
         

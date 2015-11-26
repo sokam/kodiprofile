@@ -188,14 +188,15 @@ class TestClient(unittest.TestCase):
         context = kodion.Context()
 
         # ranadom stuff
-        streams = client.get_video_streams(context, 'FlvtHMO6XHY')
+        #streams = client.get_video_streams(context, 'FlvtHMO6XHY')
         #streams = client.get_video_streams(context, 'zyg0WUsY9HI')
 
         # Exception: Sign in to confirm your age
         #streams = client.get_video_streams(context, 'B3eAMGXFw1o')
 
         # VEVO
-        streams = client.get_video_streams(context, 'a3ir9HC9vYg')
+        streams = client.get_video_streams(context, 'VHrLPs3_1Fs')
+        #streams = client.get_video_streams(context, 'a3ir9HC9vYg')
 
         #streams = client.get_video_streams(context, 'nfWlot6h_JM')
         self.assertGreater(len(streams), 0)

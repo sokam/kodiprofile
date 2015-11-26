@@ -1,8 +1,8 @@
 <settings>
     <setting id="RESULTS" value="30" />
-    <setting id="RESUME_CHAPTER" value="0" />
-    <setting id="RESUME_INFO" value="" />
-    <setting id="RESUME_TIME" value="49" />
+    <setting id="RESUME_CHAPTER" value="7" />
+    <setting id="RESUME_INFO" value="http://www.loyalbooks.com//book/pride-and-prejudice-by-jane-austen%7C%7C900%7C%7CPride+and+Prejudice%7C%7CJane+Austen%7C%7Chttp%3A%2F%2Fwww.loyalbooks.com%2Fimage%2Flayout2%2FPride-and-Prejudice-Jane-Austen.jpg" />
+    <setting id="RESUME_TIME" value="248" />
     <setting id="SORT" value="0" />
     <setting id="VERSION" value="1.0.7" />
     <setting id="VIEW" value="0" />

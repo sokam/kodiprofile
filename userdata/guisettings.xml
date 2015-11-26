@@ -87,7 +87,7 @@
         <addonnotifications default="true">true</addonnotifications>
         <addonupdates default="true">0</addonupdates>
         <settinglevel>3</settinglevel>
-        <systemtotaluptime>59624</systemtotaluptime>
+        <systemtotaluptime>63968</systemtotaluptime>
     </general>
     <input>
         <enablejoystick default="true">true</enablejoystick>
@@ -163,7 +163,7 @@
         <replaygaintype default="true">1</replaygaintype>
         <seekdelay default="true">750</seekdelay>
         <seeksteps default="true">-60,-30,-10,10,30,60</seeksteps>
-        <visualisation>visualization.waveform</visualisation>
+        <visualisation></visualisation>
     </musicplayer>
     <mymusic>
         <defaultlibview default="true"></defaultlibview>
@@ -438,7 +438,7 @@
         <setting type="string" name="skin.confluence.HomeProgramButton4"></setting>
         <setting type="string" name="skin.confluence.HomeProgramButton5"></setting>
         <setting type="string" name="skin.confluence.Home_Custom_Back_TV_Folder"></setting>
-        <setting type="string" name="skin.confluence.LyricScript_Path">script.cu.lrclyrics</setting>
+        <setting type="string" name="skin.confluence.LyricScript_Path"></setting>
         <setting type="string" name="skin.confluence.WeatherFanartDir"></setting>
         <setting type="string" name="skin.confluence.WeatherScript_Label"></setting>
         <setting type="string" name="skin.confluence.Startup_Playlist_Path"></setting>

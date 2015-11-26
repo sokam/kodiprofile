@@ -14,35 +14,14 @@ If you get and error click on the channel again or a few time.
 I would be eternally grateful[/COLOR]/description
 
 type=playlist
-name=Sorted by user-assigned order
+name=Sorted [COLOR=FF00FF00][COLOR=FF00FF00]by user-assigned order[/COLOR][/COLOR]
 icon=http://media.navi-x.org/images/icons/2downarrow.png
 URL=http://www.navixtreme.com/playlist/150705/(live_splash_tv)_all_working.plx?action=sortsel&cur=ord
-
-# 2453237
-type=video
-name=ADULT X
-URL=http://bit.do/4nH9
-player=default
-rating=-1.00
-
-# 2447274
-type=video
-name=ADULTXXX 1
-URL=http://bit.do/4nHM
-player=default
-rating=-1.00
 
 # 2451286
 type=video
 name=Sexysat-tv
 URL=rtmp://81.89.48.215/xyz999wkz/ playpath=sexysat.stream swfUrl=http://ero-tv.org/jwplayer/jwplayer.flash.swf live=1pageUrl=http://ero-tv.org/sexysat-tv_online/
-player=default
-rating=-1.00
-
-# 2451284
-type=video
-name=Claro Adulto
-URL=http://bit.do/3Uk5
 player=default
 rating=-1.00
 
@@ -53,31 +32,10 @@ URL=rtmp://46.105.116.183/leved/ playpath=livesexlatinas swfUrl=http://iptv.fire
 player=default
 rating=-1.00
 
-# 2444031
-type=video
-name=Wepa
-URL=http://bit.do/3qqg
-player=default
-rating=0.00
-
-# 2444341
-type=video
-name=Claro Adulto 18+ Premium (XXX)
-URL=http://goo.gl/n0if05
-player=default
-rating=-1.00
-
 # 2447446
 type=video
 name=Korea Okadai
 URL=http://bit.do/3vtD
-player=default
-rating=-1.00
-
-# 2447273
-type=video
-name=Adulto
-URL=http://bit.do/3vsH
 player=default
 rating=-1.00
 

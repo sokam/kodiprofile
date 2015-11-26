@@ -102,7 +102,11 @@ def replaceEntities(s):
 
 r_unescape = re.compile(r"&(#?[xX]?(?:[0-9a-fA-F]+|\w{1,8}));")
 def unescape(s):
-    return r_unescape.sub(replaceEntities, s)
+    try:
+        unescaped = r_unescape.sub(replaceEntities, s)
+    except:
+        unescaped = s
+    return unescaped
 ### End Entity Nonsense ###
 
 def cleanUnicode(string):   

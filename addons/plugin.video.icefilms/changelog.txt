@@ -1,3 +1,13 @@
+[B]v1.18.0 (Tuesday, 24 November 2015):[/B]
+  - Fixed HugeFiles resolver
+  
+[B]v1.17.0 (Tuesday, 24 November 2015):[/B]
+  - Fixed small bug with Recently Added lists
+  - Fixed ClicknUpload resolver
+  - Added new Upload.af resolver
+  - Added indicators for hosts that Real-Debrid supports, shown by a yellow *RD next to the host name
+  - Temporarily removed the main screen Recently Added, Latest Releases, Watching Now sections, don't worry they will be back very soon
+
 [B]v1.16.0 (Monday, 19 October 2015):[/B]
   - Adjusted resume support, hopefully makes the resume more fluid
   - Added Recently Watched support, enable/disable in the addon settings

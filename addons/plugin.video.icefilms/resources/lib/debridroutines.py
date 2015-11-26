@@ -15,7 +15,7 @@ class RealDebrid:
     def GetURL(self, url):
 
         print 'DebridRoutines - Requesting URL: %s' % url
-        if self.cookie_file is not None and os.path.exists(self.cookie_file):
+        if self.cookie_file and os.path.exists(self.cookie_file):
             cj = cookielib.LWPCookieJar()
             cj.load(self.cookie_file)
             req = urllib2.Request(url)
@@ -68,9 +68,12 @@ class RealDebrid:
             dialog.close()
 
 
-    def valid_host(self, host):
+    def get_supported_hosts(self):
         url = 'https://real-debrid.com/api/hosters.php'
-        allhosts = self.GetURL(url)
+        return self.GetURL(url)
+        
+    def valid_host(self, host):
+        allhosts = self.get_supported_hosts();
         if re.search(host, allhosts):
             return True
         else:

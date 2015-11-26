@@ -298,6 +298,9 @@
 	<setting label="up2stream" type="lsep"/>
 	<setting default="100" id="Up2StreamResolver_priority" label="Priority" type="number"/>
 	<setting default="true" id="Up2StreamResolver_enabled" label="Enabled" type="bool"/>
+	<setting label="upload.af" type="lsep"/>
+	<setting default="100" id="UploadAfResolver_priority" label="Priority" type="number"/>
+	<setting default="true" id="UploadAfResolver_enabled" label="Enabled" type="bool"/>
 	<setting label="uploadc" type="lsep"/>
 	<setting default="100" id="UploadcResolver_priority" label="Priority" type="number"/>
 	<setting default="true" id="UploadcResolver_enabled" label="Enabled" type="bool"/>

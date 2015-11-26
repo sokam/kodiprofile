@@ -15,6 +15,9 @@ import threading
 import string
 import traceback
 
+reload(sys)
+sys.setdefaultencoding('utf8')
+
 ############ Set prepare_zip to True in order to scrape the entire site to create a new meta pack ############
 ''' 
 Setting to true will also enable a new menu option 'Create Meta Pack' which will scrape all categories and download covers & backdrops 
@@ -559,9 +562,9 @@ def CATEGORIES():  #  (homescreen of addon)
           addDir('Music', iceurl+'music/a-z/1',52,music)
           addDir('Stand Up Comedy', iceurl+'standup/a-z/1',53,standup)
           addDir('Other', iceurl+'other/a-z/1',54,other)
-          addDir('Recently Added', iceurl+'index',60,os.path.join(art_path,'recently added.png'))
-          addDir('Latest Releases', iceurl+'index',61,os.path.join(art_path,'latest releases.png'))
-          addDir('Being Watched Now', iceurl+'index',62,os.path.join(art_path,'being watched now.png'))
+          # addDir('Recently Added Movies', iceurl+'index',60,os.path.join(art_path,'recently added.png'))
+          # addDir('Latest Releases', iceurl+'index',61,os.path.join(art_path,'latest releases.png'))
+          # addDir('Being Watched Now', iceurl+'index',62,os.path.join(art_path,'being watched now.png'))
           
           if str2bool(addon.get_setting('recent-watched')):
                 addDir('Recently Watched', '', 'recent_watched', os.path.join(art_path,'being watched now.png'))
@@ -823,7 +826,7 @@ def folder_tags(folder_text):
         
 
 def RECENT(url):
-        link=GetURL(url)
+        html = GetURL(url)
 
         #initialise meta class before loop
         if meta_setting=='true':
@@ -832,38 +835,31 @@ def RECENT(url):
         else:
             meta_installed = False
               
-        homepage=re.compile('<h1>Recently Added</h1>(.+?)<h1>Statistics</h1>', re.DOTALL).findall(link)
-        for scrape in homepage:
-            scrape='<h1>Recently Added</h1>'+scrape+'<h1>Statistics</h1>'
-            recadd=re.compile('<h1>Recently Added</h1>(.+?)<h1>Latest Releases</h1>', re.DOTALL).findall(scrape)
-            for scraped in recadd:
-                text = re.compile("<span style='font-size:14px;'>(.+?)<li>").findall(scraped)
-                
-                #Add the first line
-                folder_tags('[COLOR blue]' + text[0] + '[/COLOR]')
-                
-                mirlinks=re.compile('<a href=/(.+?)>(.+?)</a>[ ]*<(.+?)>').findall(scraped)
-                for url,name,hd in mirlinks:
-                    url=iceurl+url
-                    name=CLEANUP(name)
+        recent_movies = re.search('<h2>Recently Added Movies</h2>(.+?)</div>', html, re.DOTALL)
+        if recent_movies:
+            
+            text = re.compile("<span style='font-size:14px;'>(.+?)<li>").findall(recent_movies.group(1))
+            
+            #Add the first line
+            folder_tags('[COLOR blue]' + text[0] + '[/COLOR]')
+            
+            mirlinks=re.compile('<a href=/(.+?)>(.+?)</a>[ ]*<(.+?)>').findall(recent_movies.group(1))
+            for url,name,hd in mirlinks:
+                url=iceurl+url
+                name=CLEANUP(name)
+                                   
+                #Check if it's an HD source and add a tag to the name
+                if re.search('color:red', hd):
+                    new_name = name + ' [COLOR red]*HD*[/COLOR]'
+                else:
+                    new_name = name
                     
-                    if check_episode(name):
-                        mode = 14
-                    else:
-                        mode = 100
-                        
-                    #Check if it's an HD source and add a tag to the name
-                    if re.search('color:red', hd):
-                        new_name = name + ' [COLOR red]*HD*[/COLOR]'
-                    else:
-                        new_name = name
-                        
-                    if meta_installed and meta_setting=='true':
-                        meta = check_video_meta(name, metaget)
-                        addDir(new_name,url,mode,'',meta=meta,disablefav=True, disablewatch=True, meta_install=meta_installed)
-                    else:
-                        addDir(new_name,url,mode,'',disablefav=True, disablewatch=True)
-        setView(None, 'default-view')                                    
+                if meta_installed and meta_setting=='true':
+                    meta = check_video_meta(name, metaget)
+                    addDir(new_name,url,100,'',meta=meta,disablefav=True, disablewatch=True, meta_install=meta_installed)
+                else:
+                    addDir(new_name,url,100,'',disablefav=True, disablewatch=True)
+        setView('movies', 'movies-view')
 
 
 def LATEST(url):
@@ -1702,9 +1698,9 @@ def LOADMIRRORS(url):
     #string for all text under hd720p border
     defcat = re.compile('<div class=ripdiv><b>(.+?)</b>(.+?)</div>').findall(html)
     for media_type, scrape in defcat:
-        if media_type == 'HD 720p' or media_type == 'HD 720p+':
+        if media_type == 'HD 720p+':
             tag = ' | [COLOR red]HD[/COLOR]'
-        elif media_type == 'DVDRip / Standard Def' or media_type == 'SD Standard Def/DVD':
+        elif media_type == 'SD / DVD 480p':
             tag = ' | [COLOR blue]DVD[/COLOR]'
         elif media_type == 'DVD Screener':
             tag = ' | [COLOR yellow]DVDSCR[/COLOR]'
@@ -1719,11 +1715,13 @@ def LOADMIRRORS(url):
 
 
 def determine_source(search_string, is_domain=False):
-
+  
     #Keep host list as global var - used to determine resolver and build/select auto play settings
     host_list = [('180upload.com', '180Upload', 'resolve_180upload'),
                 ('hugefiles.net', 'HugeFiles', 'resolve_hugefiles'),
                 ('clicknupload.com', 'ClicknUpload', 'resolve_clicknupload'),
+                ('clicknupload.me', 'ClicknUpload', 'resolve_clicknupload'),
+                ('upload.af', 'Upload', 'resolve_upload_af'),
                 ('tusfiles.net', 'TusFiles', 'resolve_tusfiles'),
                 ('xfileload.com', 'XfileLoad', 'resolve_xfileload'),
                 ('mightyupload.com', 'MightyUpload', 'resolve_mightyupload'),
@@ -1754,13 +1752,22 @@ def determine_source(search_string, is_domain=False):
         return None
 
 
-def PART(scrap, sourcenumber, host, args, source_tag, ice_meta=None, video_url=None):
+def PART(scrap, sourcenumber, host, args, source_tag, ice_meta=None, video_url=None, debrid_hosts=None):
      #check if source exists
      sourcestring='Source #'+sourcenumber
      checkforsource = re.search(sourcestring, scrap)
-         
+             
      #if source exists proceed.
      if checkforsource:
+          
+          hoster = determine_source(host)
+          
+          debrid_tag = ''
+          addon.log(debrid_hosts)
+          if debrid_hosts:
+              addon.log(hoster[0])
+              if hoster[0] in debrid_hosts:
+                  debrid_tag = ' [COLOR yellow]*RD[/COLOR] '
           
           #check if source contains multiple parts
           multiple_part = re.search('<p>Source #'+sourcenumber+':', scrap)
@@ -1777,11 +1784,11 @@ def PART(scrap, sourcenumber, host, args, source_tag, ice_meta=None, video_url=N
 
                     for id, partnum in pair:
 
-                        hoster = determine_source(host)
+                        #hoster = determine_source(host)
 
                         if hoster:
                             partname='Part '+ partnum
-                            fullname=sourcestring + ' | ' + hoster[1] + ' | ' + source_tag + partname
+                            fullname=sourcestring + ' | ' + hoster[1] + debrid_tag + ' | ' + source_tag + partname
 
                             try:
                                 sources = eval(cache.get("source"+str(sourcenumber)+"parts"))
@@ -1807,9 +1814,9 @@ def PART(scrap, sourcenumber, host, args, source_tag, ice_meta=None, video_url=N
 
                for id in source5:
                     
-                    hoster = determine_source(host)
+                    #hoster = determine_source(host)
                     if hoster:
-                        fullname=sourcestring + ' | ' + hoster[1] + source_tag + ' | Full '
+                        fullname=sourcestring + ' | ' + hoster[1] + debrid_tag + source_tag + ' | Full '
                         addExecute(fullname, args, get_default_action(), ice_meta, video_url=video_url)
 
 
@@ -1860,11 +1867,20 @@ def SOURCE(page, sources, source_tag, ice_meta=None, video_url=None):
         pass
 
     #Find all hosts
+    debrid_hosts = None
+    debrid_account = str2bool(addon.get_setting('realdebrid-account'))
+    if debrid_account:
+      rd = debridroutines.RealDebrid(cookie_jar, '', '')
+      try: debrid_hosts = eval(rd.get_supported_hosts())
+      except Exception, e: 
+        addon.log(e)
+        pass
+      
     hosts = re.findall('<a\s+rel=[0-9]+.+?onclick=\'go\((\d+)\)\'>Source\s+#([0-9]+): (<span .+?</span>)</a>', sources)
     for id, number, hoster in hosts:
         host = re.sub('</span>', '', re.sub('<span .+?>', '', hoster)).lower()
         args['id'] = id
-        PART(sources, number, host, args, source_tag, ice_meta, video_url)
+        PART(sources, number, host, args, source_tag, ice_meta, video_url, debrid_hosts)
     setView(None, 'default-view')
 
     
@@ -2086,9 +2102,6 @@ def Item_Meta(name, resume_point=0):
         listitem.setInfo('video', {'title': video['name'], 'tvshowtitle': show['name'], 'year': vid_year, 'episode': episode_num, 'season': episode_season, 'type': 'episode', 'plotoutline': plot_outline, 'plot': vid_plot, 'mpaa': mpaa})
 
     listitem.setProperty('StartOffset', str(resume_point))
-    # listitem.setProperty('TotalTime', str(resume_point))
-    # listitem.setProperty('ResumeTime', str(resume_point))
-    # listitem.setProperty('IsPlayable', 'true')
     listitem.setThumbnailImage(thumb_img)
        
     return listitem
@@ -2482,7 +2495,7 @@ class MyPlayer (xbmc.Player):
                 
 
     def setRecentWatched(self, video):
-        if enableRecent:
+        if self.enableRecent:
             addon.log_debug('Setting recently watched: %s' % video['name'])                    
             db_connection.set_watched(self.ice_url, video_type, video['name'], video['year'], self.season, self.episode, self.imdbid)
 

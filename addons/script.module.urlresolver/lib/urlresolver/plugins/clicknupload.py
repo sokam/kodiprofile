@@ -30,7 +30,7 @@ MAX_TRIES = 3
 class ClickNUploadResolver(Plugin, UrlResolver, PluginSettings):
     implements = [UrlResolver, PluginSettings]
     name = "clicknupload"
-    domains = ["clicknupload.com"]
+    domains = ["clicknupload.com", "clicknupload.me"]
 
     def __init__(self):
         p = self.get_setting('priority') or 100
@@ -76,4 +76,4 @@ class ClickNUploadResolver(Plugin, UrlResolver, PluginSettings):
 
     def valid_url(self, url, host):
         if self.get_setting('enabled') == 'false': return False
-        return re.match('http://((?:www.)?clicknupload.com)/(?:f/)?([0-9A-Za-z]+)', url) or 'clicknupload' in host
+        return re.match('http://((?:www.)?clicknupload.(?:com|me))/(?:f/)?([0-9A-Za-z]+)', url) or 'clicknupload' in host

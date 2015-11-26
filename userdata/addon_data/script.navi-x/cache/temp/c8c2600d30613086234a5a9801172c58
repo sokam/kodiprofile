@@ -1,6 +1,6 @@
 version=1
 background=http://i.imgur.com/79hGbDR.jpg
-title=videobronx [COLOR=FF888888]»[/COLOR] 1 to 198 of 401
+title=videobronx [COLOR=FF888888]»[/COLOR] 1 to 198 of 403
 logo=http://i.imgur.com/Bxl5aNF.png
 icon_playlist=http://i.imgur.com/Bxl5aNF.png
 description=www.bronxbico.org
@@ -45,23 +45,32 @@ Please visit my website it contains direct links to files in playlist but mostly
 [COLOR=FFFFFF00]http://www.bronxbico.org[/COLOR]/description
 
 type=playlist
-name=Sorted [COLOR=FF00FF00]by user-assigned order[/COLOR]
+name=Sorted by user-assigned order
 icon=http://media.navi-x.org/images/icons/2downarrow.png
 URL=http://www.navixtreme.com/playlist/148106/videobronx.plx?action=sortsel&cur=ord
+
+# 2510920
+type=video
+name=Anna Bell Peaks - Reality Kings
+thumb=http://i.imgur.com/QfS6CHg.jpg
+date=2015-11-17
+URL=http://thevideo.me/nxsjmvxqqpei
+player=default
+rating=-1.00
+
+# 2510551
+type=video
+name=Xev Bellringer - Meeting Your Mother
+date=2015-11-15
+URL=http://beta.vidup.me/oogok0gqpl2n
+processor=http://www.navixtreme.com/wlfwood/processors/vidup_me.txt
+player=default
+rating=-1.00
 
 # 2508928
 type=video
 name=Britney Amber - Primal Fetish
-date=2015-11-06
 URL=http://thevideo.me/8rivmj5x5gny
-player=default
-rating=-1.00
-
-# 2508889
-type=video
-name=Mellanie Hicks - The Stepmom
-date=2015-11-06
-URL=http://thevideo.me/tvpfzf0p7pug
 player=default
 rating=-1.00
 
@@ -70,6 +79,13 @@ type=video
 name=Daddys Dirty Girl Riley Reid
 thumb=http://i.imgur.com/n5Sz9tM.jpg
 URL=http://thevideo.me/fi8o1ne9p2g3
+player=default
+rating=-1.00
+
+# 2508889
+type=video
+name=Mellanie Hicks - The Stepmom
+URL=http://thevideo.me/tvpfzf0p7pug
 player=default
 rating=-1.00
 
@@ -1614,22 +1630,6 @@ type=video
 name=Keisha Grey - Bang POV
 thumb=http://i.imgur.com/cjV4h8N.jpg
 URL=http://vodlocker.com/x6bl1t9jzacx
-player=default
-rating=-1.00
-
-# 2430871
-type=video
-name=Keisha Grey - Lex's Pretty Young Things
-thumb=http://i.imgur.com/5Npf5Ml.jpg
-URL=http://vidbull.com/13pzb2ci00mw.html
-player=default
-rating=-1.00
-
-# 2475525
-type=video
-name=Keisha Grey - Physical Therapy - Fantasy Massage
-thumb=http://i.imgur.com/iKXLeqN.jpg
-URL=http://vidbull.com/0x8fs12z7aav.html
 player=default
 rating=-1.00
 type=playlist

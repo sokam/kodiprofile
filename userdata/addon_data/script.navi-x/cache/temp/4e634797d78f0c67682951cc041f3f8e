@@ -18,8 +18,8 @@ type=video
 name=The Dark Knight Rises (2012)
 thumb=https://upload.wikimedia.org/wikipedia/en/thumb/8/83/Dark_knight_rises_poster.jpg/220px-Dark_knight_rises_poster.jpg
 date=2015-11-08
-URL=http://cloudyvideos.com/eusrw3kufkyf
-processor=http://cloudyvideos.com/eusrw3kufkyf
+URL=http://hugefiles.net/aamunfimupne
+processor=http://hugefiles.net/aamunfimupne
 player=default
 rating=-1.00
 
@@ -28,8 +28,8 @@ type=video
 name=The Dark Knight (2008)
 thumb=https://upload.wikimedia.org/wikipedia/en/thumb/8/8a/Dark_Knight.jpg/220px-Dark_Knight.jpg
 date=2015-11-08
-URL=http://cloudyvideos.com/o9pceqbm480v
-processor=http://cloudyvideos.com/o9pceqbm480v
+URL=http://hugefiles.net/t0kdcm2i69l4
+processor=http://hugefiles.net/t0kdcm2i69l4
 player=default
 rating=-1.00
 
@@ -38,8 +38,8 @@ type=video
 name=Batman Begins (2005)
 thumb=https://upload.wikimedia.org/wikipedia/en/thumb/a/af/Batman_Begins_Poster.jpg/220px-Batman_Begins_Poster.jpg
 date=2015-11-07
-URL=http://cloudyvideos.com/hqsspuabwboo
-processor=http://cloudyvideos.com/hqsspuabwboo
+URL=http://hugefiles.net/9ues3ca1z1ze
+processor=http://hugefiles.net/9ues3ca1z1ze
 player=default
 rating=-1.00
 
@@ -52,30 +52,12 @@ processor=http://cloudyvideos.com/gx1y6562demz
 player=default
 rating=-1.00
 
-# 2472907
-type=video
-name=The Amazing Spiderman 2 (2014)
-thumb=https://upload.wikimedia.org/wikipedia/en/thumb/0/02/The_Amazing_Spiderman_2_poster.jpg/220px-The_Amazing_Spiderman_2_poster.jpg
-URL=http://clicknupload.com/mu8ln4c4n25e
-processor=http://clicknupload.com/mu8ln4c4n25e
-player=default
-rating=-1.00
-
 # 2451060
 type=video
 name=The Avengers (2012)
 thumb=http://upload.wikimedia.org/wikipedia/en/thumb/f/f9/TheAvengers2012Poster.jpg/220px-TheAvengers2012Poster.jpg
 URL=http://clicknupload.com/ml6pk0e3fk2q
 processor=http://clicknupload.com/ml6pk0e3fk2q
-player=default
-rating=-1.00
-
-# 2506117
-type=video
-name=Avengers Age of Ultron (2014)
-thumb=https://upload.wikimedia.org/wikipedia/en/thumb/1/1b/Avengers_Age_of_Ultron.jpg/220px-Avengers_Age_of_Ultron.jpg
-URL=http://clicknupload.com/u9owin05obml
-processor=http://clicknupload.com/u9owin05obml
 player=default
 rating=-1.00
 
@@ -174,33 +156,6 @@ name=Guardians of the Galaxy (2014) 3D
 thumb=http://upload.wikimedia.org/wikipedia/en/thumb/8/8f/GOTG-poster.jpg/220px-GOTG-poster.jpg
 URL=http://clicknupload.com/9vncxj5o46oz
 processor=http://clicknupload.com/9vncxj5o46oz
-player=default
-rating=-1.00
-
-# 2452228
-type=video
-name=The Incredible Hulk (2008)
-thumb=http://upload.wikimedia.org/wikipedia/en/thumb/8/88/The_Incredible_Hulk_poster.jpg/220px-The_Incredible_Hulk_poster.jpg
-URL=http://clicknupload.com/jkxmyhqpa030
-processor=http://clicknupload.com/jkxmyhqpa030
-player=default
-rating=-1.00
-
-# 2451160
-type=video
-name=Iron Man (2008)
-thumb=https://upload.wikimedia.org/wikipedia/en/thumb/7/70/Ironmanposter.JPG/220px-Ironmanposter.JPG
-URL=http://clicknupload.com/nxhkcvkwlz2w
-processor=http://clicknupload.com/nxhkcvkwlz2w
-player=default
-rating=-1.00
-
-# 2451281
-type=video
-name=Iron Man 2 (2010)
-thumb=https://upload.wikimedia.org/wikipedia/en/thumb/e/ed/Iron_Man_2_poster.jpg/220px-Iron_Man_2_poster.jpg
-URL=http://clicknupload.com/gqg5sjsbaz2t
-processor=http://clicknupload.com/gqg5sjsbaz2t
 player=default
 rating=-1.00
 
@@ -368,15 +323,6 @@ processor=http://clicknupload.com/nw5i5xj4mf3k
 player=default
 rating=-1.00
 
-# 2451308
-type=video
-name=Thor The Dark World (2013)
-thumb=https://upload.wikimedia.org/wikipedia/en/thumb/7/7e/Thor_-_The_Dark_World_poster.jpg/220px-Thor_-_The_Dark_World_poster.jpg
-URL=http://clicknupload.com/kotfte6ji71u
-processor=http://clicknupload.com/kotfte6ji71u
-player=default
-rating=-1.00
-
 # 2506795
 type=video
 name=The Watchmen  (2009)
@@ -392,15 +338,6 @@ name=The Watchmen (2009) Directors Cut
 thumb=https://upload.wikimedia.org/wikipedia/en/thumb/b/bc/Watchmen_film_poster.jpg/220px-Watchmen_film_poster.jpg
 URL=http://clicknupload.com/35urte9wno7q
 processor=http://clicknupload.com/35urte9wno7q
-player=default
-rating=-1.00
-
-# 2451277
-type=video
-name=The Wolverine (2013) EXTENDED VERSION
-thumb=http://upload.wikimedia.org/wikipedia/en/thumb/7/74/The_Wolverine_posterUS.jpg/220px-The_Wolverine_posterUS.jpg
-URL=http://clicknupload.com/lv7lk2h8wzy7
-processor=http://clicknupload.com/lv7lk2h8wzy7
 player=default
 rating=-1.00
 

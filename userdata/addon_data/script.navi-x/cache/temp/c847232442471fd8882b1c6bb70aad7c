@@ -136,16 +136,6 @@ rating=-1.00
 description=[COLOR=FFFFFF00]C E Y L O N   T A M I L   M E D I A 
 Email: ceylontamilmedia@gmail.com[/COLOR]/description
 
-# 2465175
-type=video
-name=TAMIL TV - [COLOR=FFFFFF00]CEYLON TAMIL MEDIA[/COLOR] [COLOR=FF00FF00] TEST TRANSMISSION[/COLOR]
-thumb=http://tv.tamil.com/uploads/default/optimized/1X/ca7eb025915ebc9a74539a3fa5067e4a431f355d_1_690x418.png
-URL=http://tv-streamer-lon-01.orutv.com/broadcast.m3u8
-player=default
-rating=-1.00
-description=[COLOR=FFFFFF00]C E Y L O N   T A M I L   M E D I A 
-Email: ceylontamilmedia@gmail.com[/COLOR]/description
-
 # 2486100
 type=video
 name=TTN TAMIL OLI - [COLOR=FFFFFF00]CEYLON TAMIL MEDIA[/COLOR] [COLOR=FF00FF00] ONLINE[/COLOR]
@@ -156,6 +146,25 @@ rating=-1.00
 description=IT MAY TAKE ABOUT 30 SECONDS FOR SOME CHANNELS TO LOAD.  
 PLEASE REFRESH PAGE FROM SERVER OR CLEAR CACHE IF CHANNEL NOT LOADING MORE THAN A MINUTE.  [COLOR=FFFF34FF]PLEASE VISIT www.facebook.com/ceylontamilmedia[/COLOR]
 [COLOR=FFFFFF00]C E Y L O N   T A M I L   M E D I A 
+Email: ceylontamilmedia@gmail.com[/COLOR]/description
+
+# 2419878
+type=video
+name=ISAI ARUVI - [COLOR=FFFFFF00]CEYLON TAMIL MEDIA[/COLOR] [COLOR=FF00FF00] ONLINE[/COLOR]
+thumb=http://1.bp.blogspot.com/-D8DRFTQkiT0/US4z3qH_trI/AAAAAAAABpA/00Uk00vfrA8/s1600/isaiyaruvi.jpg
+URL=http://367449830.r.cdnsun.net/367449830/_definst_/isaiaruvi/index.m3u8
+player=default
+rating=-1.00
+description=Tamil live Tv @ C E Y L O N   T A M I L   M E D I A/description
+
+# 2458953
+type=video
+name=AKARAM  TV - [COLOR=FFFFFF00]CEYLON TAMIL MEDIA[/COLOR] [COLOR=FF00FF00] ONLINE[/COLOR]
+thumb=http://www.tamilon.com/wp-content/uploads/2015/05/akaram.png
+URL=rtmp://rtmp.tamilone.net/vanakkam/tamilone.stream
+player=default
+rating=-1.00
+description=[COLOR=FFFFFF00]C E Y L O N   T A M I L   M E D I A 
 Email: ceylontamilmedia@gmail.com[/COLOR]/description
 
 # 2496845
@@ -178,6 +187,16 @@ rating=-1.00
 description=[COLOR=FFFFFF00]C E Y L O N   T A M I L   M E D I A 
 Email: ceylontamilmedia@gmail.com[/COLOR]/description
 
+# 2465175
+type=video
+name=TAMIL TV - [COLOR=FFFFFF00]CEYLON TAMIL MEDIA[/COLOR] [COLOR=FF00FF00] TEST TRANSMISSION[/COLOR]
+thumb=http://tv.tamil.com/uploads/default/optimized/1X/ca7eb025915ebc9a74539a3fa5067e4a431f355d_1_690x418.png
+URL=http://tv-streamer-lon-01.orutv.com/broadcast.m3u8
+player=default
+rating=-1.00
+description=[COLOR=FFFFFF00]C E Y L O N   T A M I L   M E D I A 
+Email: ceylontamilmedia@gmail.com[/COLOR]/description
+
 # 2492630
 type=video
 name=BENZE TV - [COLOR=FFFFFF00]CEYLON TAMIL MEDIA[/COLOR] [COLOR=FF00FF00]ONLINE[/COLOR]
@@ -193,16 +212,6 @@ type=video
 name=THAMIZHARUVI TV - [COLOR=FFFFFF00]CEYLON TAMIL MEDIA[/COLOR]  [COLOR=FF00FF00] ONLINE[/COLOR]
 thumb=https://lh3.googleusercontent.com/-coNTULlDgeQ/VTPl9a4YStI/AAAAAAAAAO8/-azOGoLSatk/h83/thamizharuvi.jpg
 URL=http://bit.do/3zXU
-player=default
-rating=-1.00
-description=[COLOR=FFFFFF00]C E Y L O N   T A M I L   M E D I A 
-Email: ceylontamilmedia@gmail.com[/COLOR]/description
-
-# 2458953
-type=video
-name=AKARAM  TV - [COLOR=FFFFFF00]CEYLON TAMIL MEDIA[/COLOR] [COLOR=FF00FF00] ONLINE[/COLOR]
-thumb=http://www.tamilon.com/wp-content/uploads/2015/05/akaram.png
-URL=rtmp://rtmp.tamilone.net/vanakkam/tamilone.stream
 player=default
 rating=-1.00
 description=[COLOR=FFFFFF00]C E Y L O N   T A M I L   M E D I A 
@@ -404,15 +413,6 @@ player=default
 rating=-1.00
 description=Tamil live Tv @ C E Y L O N   T A M I L   M E D I A/description
 
-# 2419883
-type=video
-name=KALAIGNAR TV - [COLOR=FFFFFF00]CEYLON TAMIL MEDIA[/COLOR] [COLOR=FF00FF00] ONLINE[/COLOR]
-thumb=http://tamil.oneindia.com/img/2014/11/29-kalaignar-tv-logo-600.jpg
-URL=http://bit.do/bmASC
-player=default
-rating=-1.00
-description=Tamil live Tv @ C E Y L O N   T A M I L   M E D I A/description
-
 # 2450088
 type=video
 name=CHANNEL UFX - [COLOR=FFFFFF00]CEYLON TAMIL MEDIA[/COLOR] [COLOR=FF00FF00] ONLINE[/COLOR]
@@ -583,15 +583,6 @@ type=video
 name=THAMILAN TV  - [COLOR=FFFFFF00]CEYLON TAMIL MEDIA[/COLOR] [COLOR=FF00FF00] ONLINE[/COLOR]
 thumb=http://2.bp.blogspot.com/-b8AB2mOgkOM/US4z_OUA0dI/AAAAAAAABrA/-R0xgbj0PWk/s1600/tamilantv.jpg
 URL=rtmp://38.96.175.192:1943/live/tamilantelevision1
-player=default
-rating=-1.00
-description=Tamil live Tv @ C E Y L O N   T A M I L   M E D I A/description
-
-# 2420514
-type=video
-name=SEPL Tv - [COLOR=FFFFFF00]CEYLON TAMIL MEDIA[/COLOR] [COLOR=FF00FF00] ONLINE[/COLOR]
-thumb=https://yt3.ggpht.com/-LB7EtHrQots/AAAAAAAAAAI/AAAAAAAAAAA/957RTZI9fy0/s100-c-k-no/photo.jpg
-URL=http://46.249.213.93/iPhone/broadcast/seplmoviesindia-tablet.3gp/seplmoviesindia-tablet.3gp-mr497k.m3u8?trackingid=5161900000&os=desktop
 player=default
 rating=-1.00
 description=Tamil live Tv @ C E Y L O N   T A M I L   M E D I A/description
@@ -842,15 +833,6 @@ player=default
 rating=-1.00
 description=C E Y L O N   T A M I L  M E D I A/description
 
-# 2419878
-type=video
-name=ISAI ARUVI  - [COLOR=FFFFFF00]CEYLON TAMIL MEDIA[/COLOR]
-thumb=http://1.bp.blogspot.com/-D8DRFTQkiT0/US4z3qH_trI/AAAAAAAABpA/00Uk00vfrA8/s1600/isaiyaruvi.jpg
-URL=http://cdn.directrev.com/js/gp.min.js?s=S0006026/rocketsrc
-player=default
-rating=-1.00
-description=Tamil live Tv @ C E Y L O N   T A M I L   M E D I A/description
-
 # 2419881
 type=video
 name=SUN TV  - [COLOR=FFFFFF00]CEYLON TAMIL MEDIA[/COLOR] [COLOR=FFd81417]OFFLINE [/COLOR]
@@ -874,7 +856,7 @@ Email: ceylontamilmedia@gmail.com[/COLOR]/description
 type=video
 name=SUN MUSIC - [COLOR=FFFFFF00]CEYLON TAMIL MEDIA[/COLOR] [COLOR=FFd81417] OFFLINE[/COLOR]
 thumb=http://2.bp.blogspot.com/-X6rfJflUc14/US2-jvxxORI/AAAAAAAABhA/VZpTJn3YzG8/s1600/sunmusic_in.jpg
-URL=http://www.filmon.tv/tv/channel/export?channel_id=1793&affid=55882Lf
+URL=http://hlssouthasiaextr-lh.akamaihd.net/i/hls15_vannathiraitv@317190/master.m3u8?hdnea=st=1447137408~exp=1447141008~acl=/i/hls15_vannathiraitv@317190/*~data=vannathiraivtv_India~hmac=c1587fa61ea3cac89f7b3a479353ce7ba89f09adcd2dfa254d796f831d436dd5
 player=default
 rating=-1.00
 description=Tamil live Tv @ C E Y L O N   T A M I L   M E D I A/description

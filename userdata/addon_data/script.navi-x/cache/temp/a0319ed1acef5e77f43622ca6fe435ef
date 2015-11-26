@@ -1,6 +1,6 @@
 version=1
 background=http://www.livewallpapers.org/wp-content/uploads/2012/12/blue-3d-cubes.jpg
-title=([COLOR=FFFF0000]Live[/COLOR] International [COLOR=FF00BFFF]TV[/COLOR]) All Working! [COLOR=FF888888]»[/COLOR] 1 to 198 of 367
+title=([COLOR=FFFF0000]Live[/COLOR] International [COLOR=FF00BFFF]TV[/COLOR]) All Working! [COLOR=FF888888]»[/COLOR] 1 to 198 of 362
 logo=http://lrc.utk.edu/learn/images/dishworld.jpg
 description=Visit my website Janco809.com
 
@@ -21,7 +21,7 @@ Email me with any questions, bad links or request [COLOR=FF00BFFF]Jaymac192@gmai
 {{== Links [COLOR=FF00FF00] Tested [/COLOR]  / [COLOR=FFFF34FF] Added [/COLOR]  /[COLOR=FFFF0000] Replaced [/COLOR]/ [COLOR=FF00BFFF] Updated Daily [/COLOR] ==}}/description
 
 type=playlist
-name=Sorted by user-assigned order
+name=Sorted [COLOR=FF00FF00]by user-assigned order[/COLOR]
 icon=http://media.navi-x.org/images/icons/2downarrow.png
 URL=http://www.navixtreme.com/playlist/150363/(live_international_tv)_all_working.plx?action=sortsel&cur=ord
 
@@ -551,30 +551,6 @@ URL=http://bglive-a.bitgravity.com/twit/live/high
 player=default
 rating=-1.00
 
-# 2456994
-type=video
-name=BCC London
-thumb=http://www.burger-n-bier.de/Bilder/1alle_sky.png
-URL=http://82.135.224.134/udp/239.100.3.1:1234
-player=default
-rating=-1.00
-
-# 2456982
-type=video
-name=BBC Two England
-thumb=http://www.burger-n-bier.de/Bilder/1alle_sky.png
-URL=http://82.135.224.134/udp/239.100.3.3:1234
-player=default
-rating=-1.00
-
-# 2456983
-type=video
-name=ITV 1 London
-thumb=http://www.burger-n-bier.de/Bilder/1alle_sky.png
-URL=http://82.135.224.134/udp/239.100.3.6:1234
-player=default
-rating=-1.00
-
 # 2450051
 type=video
 name=UC3
@@ -588,22 +564,6 @@ type=video
 name=CineStream TV Barbados
 thumb=http://us.123rf.com/450wm/promesaartstudio/promesaartstudio1402/promesaartstudio140200754/26243884-barbados-flag-painted-on-old-wood-plank-texture.jpg
 URL=http://68.71.42.179/live/livestream1/playlist.m3u8
-player=default
-rating=-1.00
-
-# 2449896
-type=video
-name=TV Africa
-thumb=https://encrypted-tbn1.gstatic.com/images?q=tbn:ANd9GcSMTdEy88Czquoly0zr3ljCSgKJy5vYG5khBgjRYicey69vCP4d
-URL=http://wpc.12bc9.kappacdn.net/hls-live/2012BC9/default/TvAfrica/tvafrica_1200.m3u8?608edfab8a31cdb2906f767923e21035c7696807555fd6f720a8fbf339ecfd61dae2
-player=default
-rating=-1.00
-
-# 2449975
-type=video
-name=GTV Ghana
-thumb=https://encrypted-tbn1.gstatic.com/images?q=tbn:ANd9GcSMTdEy88Czquoly0zr3ljCSgKJy5vYG5khBgjRYicey69vCP4d
-URL=http://wpc.12bc9.kappacdn.net/hls-live/2012BC9/default/GhanaTV/ghanatv_1200.m3u8?608edfab8a31cdb2906f767923e21035c7696807555fd6f720a8fbf339ecfd61dae2
 player=default
 rating=-1.00
 
@@ -710,22 +670,6 @@ rating=-1.00
 type=
 name=- - - [COLOR=FF00BFFF]Cartoon's[/COLOR] - - -
 thumb=http://cartooncollectors.com/wp-content/uploads/2014/07/disney-channel-cartoons-for-toddlersvirgin-media---great-kids-shows-from-the-best-childrens-channels-wasdk01g.jpg
-player=default
-rating=-1.00
-
-# 2456981
-type=video
-name=BBC Four / CBeebies
-thumb=http://www.burger-n-bier.de/Bilder/1alle_sky.png
-URL=http://82.135.224.134/udp/239.100.3.5:1234
-player=default
-rating=-1.00
-
-# 2456986
-type=video
-name=BBC Three / CBBC
-thumb=http://www.burger-n-bier.de/Bilder/1alle_sky.png
-URL=http://82.135.224.134/udp/239.100.3.4:1234
 player=default
 rating=-1.00
 
@@ -850,6 +794,14 @@ URL=rtsp://200.104.250.183/vtr_cnn_online/cnn-web/
 player=default
 rating=-1.00
 
+# 2444194
+type=video
+name=Noticias CDN (Diminicano)
+thumb=http://www.dominican-republic-live.com/upload/dominican-flag-v6.jpg
+URL=http://bit.do/3daL
+player=default
+rating=-1.00
+
 # 2444551
 type=video
 name=CNN (Mexico)
@@ -900,13 +852,6 @@ type=video
 name=TDN  UNIVISION
 thumb=http://2.bp.blogspot.com/-pF3ifHeabzc/U-8GGxnCW-I/AAAAAAAABtQ/Iq9BbOfs8Eo/s1600/UNIVISION%2BIPTV.jpg
 URL=http://sjc-uhls-proxy103.ustream.tv/watch/playlist.m3u8?cid=15379493&appType=11&appVersion=2&locks=97d170e1550eee4afc0af065b78cda302a97674c&geo=BR&geocity=Imperatriz&userId=&connectionId=sjc-flot-live04_1811480796&ts=1430501862&ip=189.89.9.118&connectionType=&cdn=uhs_akamai&sgn=546423d0ecb26bf00d80b7d34038a087c157ca49
-player=default
-rating=-1.00
-
-# 2459059
-type=video
-name=,Ultra Cine
-URL=http://vemoxhlslive-i.akamaihd.net/hls/live/219940/vemoxchannel1/iOS/vemoxchannel1@219940/stream2/streamPlaylist.m3u8
 player=default
 rating=-1.00
 
@@ -1300,6 +1245,14 @@ URL=rtmp://vivo.canalesdominicanosenvivo.com:1935/canal/ playpath=tele0505.strea
 player=default
 rating=-1.00
 
+# 2444542
+type=video
+name=Teleuniverso 29
+thumb=http://www.dominican-republic-live.com/upload/dominican-flag-v6.jpg
+URL=http://bit.do/3fm3
+player=default
+rating=-1.00
+
 # 2443760
 type=video
 name=Telefuturo
@@ -1348,6 +1301,14 @@ URL=http://live.rpctv.com/rpctv/tm.smil/playlist.m3u8
 player=default
 rating=-1.00
 
+# 2444541
+type=video
+name=La Vega TV
+thumb=http://www.dominican-republic-live.com/upload/dominican-flag-v6.jpg
+URL=http://bit.do/3fmQ
+player=default
+rating=-1.00
+
 # 2444192
 type=video
 name=Telemetro
@@ -1372,11 +1333,35 @@ URL=http://canalesdominicanosenvivo.com/asset/play/novideo.mp4
 player=default
 rating=-1.00
 
+# 2444545
+type=video
+name=1850 Television
+thumb=http://www.dominican-republic-live.com/upload/dominican-flag-v6.jpg
+URL=http://bit.do/3fnj
+player=default
+rating=-1.00
+
 # 2444195
 type=video
 name=Color Vision 9
 thumb=http://www.dominican-republic-live.com/upload/dominican-flag-v6.jpg
 URL=http://bit.do/3daT
+player=default
+rating=-1.00
+
+# 2444539
+type=video
+name=Revestida
+thumb=http://www.dominican-republic-live.com/upload/dominican-flag-v6.jpg
+URL=http://bit.do/3fma
+player=default
+rating=-1.00
+
+# 2444543
+type=video
+name=RTVE 24h
+thumb=http://www.dominican-republic-live.com/upload/dominican-flag-v6.jpg
+URL=http://bit.do/3fm8
 player=default
 rating=-1.00
 
@@ -1503,6 +1488,22 @@ type=video
 name=Chile - CAMARA DE DIPUTADOS
 thumb=http://www.freelargeimages.com/wp-content/uploads/2014/11/Chile_flag-7.jpg
 URL=rtsp://origin.camara.ztreaming.com/origincamara8/streamcam8.sdp
+player=default
+rating=-1.00
+
+# 2443959
+type=video
+name=Chile - CNN CHILE
+thumb=http://www.freelargeimages.com/wp-content/uploads/2014/11/Chile_flag-7.jpg
+URL=rtsp://origin.camara.ztreaming.com/origincamara8/streamcam8.sdp
+player=default
+rating=-1.00
+
+# 2443958
+type=video
+name=Chile - C9 BIO BIO TV CONCEPCION HD
+thumb=http://www.freelargeimages.com/wp-content/uploads/2014/11/Chile_flag-7.jpg
+URL=http://wow2.cl.digitalproserver.com/c9//c9.smil/hasbahca.m3u8
 player=default
 rating=-1.00
 type=playlist
