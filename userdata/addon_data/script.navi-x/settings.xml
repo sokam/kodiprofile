@@ -1,0 +1,9 @@
+<settings>
+    <setting id="LastVerMessageID" value="3.8.2" />
+    <setting id="core-homepage" value="Default" />
+    <setting id="debug-enable" value="false" />
+    <setting id="debug-show" value="false" />
+    <setting id="scripts-testers" value="false" />
+    <setting id="scripts-testers2" value="" />
+    <setting id="use-LocalUrlResolver" value="false" />
+</settings>

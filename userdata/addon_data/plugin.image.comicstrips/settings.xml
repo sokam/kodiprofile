@@ -1,0 +1,5 @@
+<settings>
+    <setting id="DISPLAY" value="0" />
+    <setting id="TRANSITION" value="5" />
+    <setting id="VERSION" value="1.0.4" />
+</settings>

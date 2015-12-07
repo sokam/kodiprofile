@@ -1,0 +1,161 @@
+version=1
+background=http://cdn.desktopwallpapers4.me/wallpapers/fantasy/1920x1200/2/12325-universe-1920x1200-fantasy-wallpaper.jpg
+title=LIVESTREAMS 24/7 movies + programs
+logo=http://www.the-universe.ie/html/multimedia/Grand_Universe.jpg
+description=enjoy bitches.  24/7 live streaming . /description
+
+# 2507596
+type=video
+name=dbz
+date=2015-11-02
+URL=https://www.youtube.com/watch?v=y-aKDLlK14Y
+processor=http://www.navixtreme.com/justme4u2c/processors/ESPN_Deportes.php
+player=default
+rating=-1.00
+
+# 2496825
+type=video
+name=Kung Fu movies
+thumb=https://station923.files.wordpress.com/2013/07/kungfu.jpg
+URL=http://veetle.com/index.php/channel/view#563899471ce8e
+processor=http://www.navixtreme.com/boseman/static/veetle
+player=default
+rating=-1.00
+
+# 2490357
+type=video
+name=Columbo
+thumb=http://i.jeded.com/i/columbo-tenth-season.14177.jpg
+URL=http://veetle.com/index.php/channel/view#51d8cf3f02188
+processor=http://www.navixtreme.com/boseman/static/veetle
+player=default
+rating=-1.00
+
+# 2488028
+type=video
+name=Star Trek TNG
+thumb=http://vignette1.wikia.nocookie.net/memoryalpha/images/a/a7/TNG_crew.jpg/revision/latest?cb=20060604162049&path-prefix=en
+URL=http://veetle.com/v/51e482fa02883
+processor=http://www.navixtreme.com/boseman/static/veetle
+player=default
+rating=-1.00
+
+# 2480374
+type=video
+name=the simpsons
+thumb=http://images6.alphacoders.com/456/456595.jpg
+URL=http://veetle.com/index.php/channel/view#52dada61bdf13
+processor=http://www.navixtreme.com/boseman/static/veetle
+player=mplayer
+rating=-1.00
+
+# 2473623
+type=video
+name=Great Movies
+thumb=http://www.careers.ox.ac.uk/wp-content/uploads/2012/09/film-reel-and-clapperboard.jpg
+URL=http://veetle.com/index.php/channel/view#56327bab00e4a
+processor=http://www.navixtreme.com/boseman/static/veetle
+player=default
+rating=-1.00
+
+# 2463158
+type=video
+name=Top Gear UK, including Specials
+thumb=http://cdn2-b.examiner.com/sites/default/files/styles/image_content_width/hash/4a/0d/TopGearUK.jpg?itok=WOdX
+URL=http://veetle.com/index.php/channel/view#5285079c2c9e5
+processor=http://www.navixtreme.com/boseman/static/veetle
+player=default
+rating=-1.00
+
+# 2463156
+type=video
+name=movies (Mandy100s)
+thumb=http://gscvoice.org/wordpress/wp-content/uploads/2013/10/MovieReel_122712_mt_tif_.jpg
+URL=http://veetle.com/index.php/channel/view#56389c9053f09
+processor=http://www.navixtreme.com/boseman/static/veetle
+player=default
+rating=-1.00
+
+# 2460064
+type=video
+name=movies 2
+thumb=http://cnet4.cbsistatic.com/hub/i/r/2014/02/05/380fda20-a59f-11e3-a24e-d4ae52e62bcc/resize/770x578/4884963dd0b70320d43c9f7106aee8a7/wolverine-phwoar.jpg
+URL=http://veetle.com/index.php/channel/view#56389dc9f0add
+processor=http://www.navixtreme.com/boseman/static/veetle
+player=default
+rating=-1.00
+
+# 2463153
+type=video
+name=HD Bollywood action . Subtitled
+thumb=http://www.wallpaperup.com/uploads/wallpapers/2015/01/12/584059/cd1a731e948e8fcd4c66068a987f830e.jpg
+URL=http://veetle.com/index.php/channel/view#4e0e6f4dcc2d3
+processor=http://www.navixtreme.com/boseman/static/veetle
+player=default
+rating=-1.00
+
+# 2463151
+type=video
+name=king of the hill
+thumb=http://cloud-4.steamusercontent.com/ugc/28473805916560248/63921AC95B9F36D681517E1098603EBD7302EA3D/
+URL=http://veetle.com/index.php/channel/view#4f9436ece56e2
+processor=http://www.navixtreme.com/boseman/static/veetle
+player=default
+rating=-1.00
+
+# 2461546
+type=video
+name=The Office
+thumb=http://media.nbcbayarea.com/images/1200*675/SteveCarellOffice.B.jpg
+URL=http://veetle.com/index.php/channel/view#5294e75c5cbd6
+processor=http://www.navixtreme.com/boseman/static/veetle
+player=default
+rating=-1.00
+
+# 2461433
+type=video
+name=movies
+thumb=http://sayednet.wapath.com/images/youre-in-the-movies-logo-490.jpg
+URL=http://veetle.com/index.php/channel/view#51e8fc7e4c6d9
+processor=http://www.navixtreme.com/boseman/static/veetle
+player=default
+rating=-1.00
+
+# 2461394
+type=video
+name=South Park
+thumb=http://img1.gtsstatic.com/wallpapers/7f3fc8b8ad9e168511a6096d1a81e796_large.jpeg
+URL=http://veetle.com/index.php/channel/view#541c316fe8423
+processor=http://www.navixtreme.com/boseman/static/veetle
+player=default
+rating=-1.00
+
+# 2460475
+type=video
+name=horror movies
+thumb=http://images2.fanpop.com/image/photos/8700000/Saw-Wallpaper-horror-movies-8767334-1600-1200.jpg
+URL=http://veetle.com/index.php/channel/view#55fdbe65d66bf
+processor=http://www.navixtreme.com/boseman/static/veetle
+player=default
+rating=-1.00
+
+# 2460443
+type=video
+name=sci-fi movies
+thumb=http://www.dogsgossip.com/image-files/dogs-in-movies.gif
+URL=http://veetle.com/index.php/channel/view#55deb10e264cf
+processor=http://www.navixtreme.com/boseman/static/veetle
+player=default
+rating=-1.00
+
+# 2460249
+type=video
+name=the sopranos
+thumb=http://www.thetimes.co.uk/tto/multimedia/archive/00424/130710209__424189b.jpg
+URL=http://veetle.com/index.php/channel/view#549af672ae7c7
+processor=http://www.navixtreme.com/boseman/static/veetle
+player=default
+rating=-1.00
+
+
+# cached

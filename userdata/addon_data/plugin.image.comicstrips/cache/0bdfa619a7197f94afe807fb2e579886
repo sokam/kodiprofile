@@ -1,0 +1,871 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+  <title>Gocomics Mobile</title>
+  <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+<meta name="viewport" id="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no" />
+<link rel="apple-touch-icon-precomposed" href="http://assets.gocomics.com/images/mobile/app_icons/Icon.png?1446735942" />
+<link rel="apple-touch-icon-precomposed" sizes="72x72" href="http://assets.gocomics.com/images/mobile/app_icons/Icon-72.png?1446735942" />
+<link rel="apple-touch-icon-precomposed" sizes="114x114" href="http://assets.gocomics.com/images/mobile/app_icons/Icon@2x.png?1446735942" />
+<link rel="apple-touch-icon-precomposed" sizes="144x144" href="http://assets.gocomics.com/images/mobile/app_icons/Icon-72@2x.png?1446735942" />
+
+  <link href="http://assets.gocomics.com/stylesheets/iphone.css?1446735942" media="screen" rel="stylesheet" type="text/css" />
+  <script src="//ajax.googleapis.com/ajax/libs/jquery/1.9.1/jquery.min.js" type="text/javascript"></script>
+  <script src="http://assets.gocomics.com/javascripts/mobile/hide_bar.js?1446735942" type="text/javascript"></script>
+  <meta http-equiv="Content-Type" content="text/html; charset=UTF-8"/>
+  <meta name="author" content="Universal Uclick" />
+  <meta name="apple-itunes-app" content="app-id=591428858" />
+  <meta name="google-play-app" content="app-id=com.amuniversal.android.gocomics" />
+  <link rel="apple-touch-icon" href="http://assets.gocomics.com/images/mobile/uclickIcon.png"/>
+
+
+  <script type='text/javascript' src='http://c.amazon-adsystem.com/aax2/amzn_ads.js'></script>
+
+<script type='text/javascript'>
+    // Fetches Amazon ads if available and stores them for future use
+    try {
+        amznads.getAds('3170');
+    } catch(e) {
+        /*ignore*/
+    }
+</script>
+  
+  <script type="text/javascript">
+    var googletag = googletag || {};
+    googletag.cmd = googletag.cmd || [];
+
+    (function() {
+        var oads = document.createElement("script");
+        oads.async = true;
+        oads.type = "text/javascript";
+        var useSSL = "https:" == document.location.protocol;
+        oads.onload = oads.onreadystatechange = function() {
+            if (!this.readyState || this.readyState === "loaded" || this.readyState === "complete") {
+                var gads = document.createElement("script");
+                gads.async = true;
+                gads.type = "text/javascript";
+                var useSSL = "https:" == document.location.protocol;
+                gads.src = (useSSL ? "https:" : "http:") + "//www.googletagservices.com/tag/js/gpt.js";
+                var node = document.getElementsByTagName("script")[0];
+                node.parentNode.insertBefore(gads, node);
+            }
+        };
+        oads.src = '//ox-d.amu.servedbyopenx.com/w/1.0/jstag?nc=19196947-GoComics';
+        var node = document.getElementsByTagName("script")[0];
+        node.parentNode.insertBefore(oads, node);
+    })();
+</script>
+
+
+<script type='text/javascript'>
+    var adSlot = '/19196947/gocomics_mobile/editorial';
+
+  // $(document).ready(function() {
+  //   $('#ad-interstitial-mobile-cancel').click(function() {
+  //     $('#ad-interstitial-mobile1').hide();
+  //   });
+  // });
+  googletag.cmd.push(function() {
+    // googletag.defineSlot('', [[1, 1], [320, 50]], 'ad-interstitial-mobile1').addService(googletag.pubads());
+    googletag.defineSlot(adSlot, [320, 50], 'leaderboard1').addService(googletag.pubads());
+
+   
+    // Gets key-value pairs and makes calls to googletag.setTargeting() to set them
+    try {
+        amznads.setTargetingForGPTAsync('amznslots');
+    } catch(e) {
+        /*ignore*/
+    }
+
+
+  googletag.pubads().enableSingleRequest();
+  googletag.enableServices();
+  });
+</script>
+
+
+
+  <!-- Index Request -->
+<script src="http://js.indexww.com/ht/uuclick.js"></script>
+<!-- Index Request -->
+
+
+  <link href="http://assets.gocomics.com/stylesheets/mobile/jquery-smartbanner.css?1446735942" media="screen" rel="stylesheet" type="text/css" />
+  <script src="http://assets.gocomics.com/javascripts/mobile/jquery-smartbanner.js?1446735942" type="text/javascript"></script>
+  <script src="http://assets.gocomics.com/javascripts/mobile/jquery-smartbanner-settings.js?1446735942" type="text/javascript"></script>
+
+  <!-- BEGIN PageFair script -->
+<script type="text/javascript">
+    (function() {
+        function async_load(script_url){
+            var protocol = ('https:' == document.location.protocol ? 'https://' : 'http://');
+            var s = document.createElement('script'); s.src = protocol + script_url;
+            var x = document.getElementsByTagName('script')[0]; x.parentNode.insertBefore(s, x);
+        }
+        bm_website_code = '53F040374AD54452';
+        jQuery(document).ready(function(){async_load('asset.pagefair.com/measure.min.js')});
+        jQuery(document).ready(function(){async_load('asset.pagefair.net/ads.min.js')});
+    })();
+</script>
+<!-- END PageFair script -->
+  <!-- Begin comScore Tag -->
+<script>
+    var _comscore = _comscore || [];
+    _comscore.push({ c1: "2", c2: "20519258" });
+    (function() {
+        var s = document.createElement("script"), el = document.getElementsByTagName("script")[0]; s.async = true;
+        s.src = (document.location.protocol == "https:" ? "https://sb" : "http://b") + ".scorecardresearch.com/beacon.js";
+        el.parentNode.insertBefore(s, el);
+    })();
+</script>
+<noscript>
+  <img src="http://b.scorecardresearch.com/p?c1=2&c2=20519258&cv=2.0&cj=1" />
+</noscript>
+<!-- End comScore Tag -->
+  <script type="text/javascript">
+    //Set markup and styling here
+    window.cookieconsent_options = {
+        container: '#cookieconsent-container',
+        learnMore: 'More info',
+        link: 'http://www.gocomics.com/help/privacy',
+        //If you wish to use your own CSS instead, specify the URL of your CSS file. e.g. styles/my_custom_theme.css.
+        //This can be a relative or absolute URL.
+        //To stop Cookie Consent from loading CSS at all, specify false
+        //IE8 Styles need to be duplicated in app specific css overrides /assets/stylesheets/ie/ie8.css
+        theme: false,
+        markup: [
+            '<div>',
+            '<style type="text/css">.cc_banner-wrapper {height: 70px; } .cc_container {z-index:9001; position:relative; width:100%; left:0; top:0; right:0; overflow:hidden; background-color:#666; } .cookie-choices-info {margin:0; padding:0; text-align:center; color:#fff; line-height:140%; padding:15px 0; font-family:roboto,Arial } .cookie-choices-info .cookie-choices-text {display:inline-block; vertical-align:middle; font-size:16px; margin:10px; color:#fefefe; max-width:800px; text-align:center } .cookie-choices-info .cookie-choices-buttons {display:inline-block; vertical-align:middle; white-space:nowrap; margin:10px } .cookie-choices-info .cookie-choices-button:hover {color:#fff; background-color:#000 } .cookie-choices-info .cookie-choices-button {background:#444; font-weight:700; text-transform:UPPERCASE; white-space:nowrap; color:#eee; margin-left:8px; padding:10px; border-radius:3px; text-decoration:none } @media screen and (max-width: 851px) {.cc_banner-wrapper {height:110px } } @media screen and (max-width: 588px) {.cc_banner-wrapper {height:140px } } @media screen and (max-width: 327px) {.cc_banner-wrapper {height:160px } } @media print {.cc_banner-wrapper,.cc_container {display:none } }</style>',
+            '<div class="cc_banner-wrapper {{containerClasses}}">',
+            '<div class="cc_banner cc_container cc_container--open">',
+            '<div class="cookie-choices-info"><div class="cookie-choices-inner"><span class="cookie-choices-text">{{options.message}}</span><span class="cookie-choices-buttons"> <a data-cc-if="options.link" class="cookie-choices-button" target="_blank" href="{{options.link || "#null"}}">{{options.learnMore}}</a> <a id="cookieChoiceDismiss" href="#null" data-cc-event="click:dismiss"  class="cookie-choices-button">{{options.dismiss}}</a></span></div></div>',
+            '</div>',
+            '</div>',
+            '</div>'
+        ],
+        cookieName: 'gocomics_cookieconsent_dismissed',
+        readystate: 'interactive'
+    };
+</script>
+  <script src="http://assets.gocomics.com/javascripts/uu-cookieconsent.js?1446735942" type="text/javascript"></script>
+</head>
+<body class="main">
+  <!-- Google Universal Analytics Start -->
+<script>
+  (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+  (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+  m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+  })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+
+  // UU Tracking Object
+  ga('create', 'UA-273330-9', 'auto', {'name': 'trackerUU9'});
+  ga('trackerUU9.require', 'displayfeatures');
+  ga('trackerUU9.require', 'linkid');
+  ga('trackerUU9.set', 'dimension1', "casual");
+  ga('trackerUU9.set', 'dimension2', "Gocomics Mobile");
+  ga('trackerUU9.set', 'dimension3', "");
+  ga('trackerUU9.set', '&uid', "");
+  ga('trackerUU9.send', 'pageview');
+
+  // UU Tracking Object
+  ga('create', 'UA-273330-4', 'auto', {'name': 'trackerUU4'});
+  ga('trackerUU4.require', 'displayfeatures');
+  ga('trackerUU4.require', 'linkid');
+  ga('trackerUU4.set', 'dimension1', "casual");
+  ga('trackerUU4.set', 'dimension2', "Gocomics Mobile");
+  ga('trackerUU4.set', 'dimension3', "");
+  ga('trackerUU4.set', '&uid', "");
+  ga('trackerUU4.send', 'pageview');
+
+  function trackAppDownloadLink() {
+    ga('trackerUU4.send', 'event', 'Mobile', 'Downloaded App', 'Banner Link');
+  }
+
+</script>
+<!-- Google Universal Analytics End -->
+
+
+  <div id='leaderboard1' class="ad ad-leaderboard">
+  <script type='text/javascript'>
+    googletag.cmd.push(function() { googletag.display('leaderboard1'); });
+  </script>
+</div>
+  <div id="logo">
+    <a href="/" name="a_to_b"><img alt="Logo-mobile" src="http://assets.gocomics.com/images/mobile/logo-mobile.png?1446735942" /></a>
+  </div>
+      <div id="topbar">
+      <a href="/" class="btnBack">Home</a>
+      <a href="/search" class="search">Search</a>
+
+      <p>Editorial Cartoons</p>
+    </div>
+    <div id="cookieconsent-container"></div>
+
+  
+  
+    
+<ul class="comicsList" selected="true">
+  <li class="az-nav">
+  
+      <a href="#a_to_b" name="a_to_b"><span>A to B</span></a>
+  <a href="/explore/editorials#c_to_f">C to F</a>  <a href="/explore/editorials#g_to_l">G to L</a>  <a href="/explore/editorials#m_to_q">M to Q</a>  <a href="/explore/editorials#r_to_z">R to Z</a></li>
+
+      
+      <li>
+        <a href="/laloalcaraz">
+          <img alt="Lalo Alcaraz" class="thumb" height="60" src="http://avatar.amuniversal.com/feature_avatars/avatars_large/features/la/tiny_avatar.png" title="Lalo Alcaraz" width="60" />
+          <span class="title">Lalo Alcaraz</span>
+          
+          <span class="viewBtn"></span>
+        </a>
+      </li>
+      
+      <li>
+        <a href="/nickanderson">
+          <img alt="Nick Anderson" class="thumb" height="60" src="http://avatar.amuniversal.com/feature_avatars/avatars_large/features/wpnan/tiny_avatar.png" title="Nick Anderson" width="60" />
+          <span class="title">Nick Anderson</span>
+          
+          <span class="viewBtn"></span>
+        </a>
+      </li>
+      
+      <li>
+        <a href="/robert-ariail">
+          <img alt="Robert Ariail" class="thumb" height="60" src="http://avatar.amuniversal.com/feature_avatars/avatars_large/features/aria/tiny_avatar.png" title="Robert Ariail" width="60" />
+          <span class="title">Robert Ariail</span>
+          
+          <span class="viewBtn"></span>
+        </a>
+      </li>
+      
+      <li>
+        <a href="/darrin-bell">
+          <img alt="Darrin Bell" class="thumb" height="60" src="http://avatar.amuniversal.com/feature_avatars/avatars_large/features/dbell/tiny_avatar.png" title="Darrin Bell" width="60" />
+          <span class="title">Darrin Bell</span>
+          
+          <span class="viewBtn"></span>
+        </a>
+      </li>
+      
+      <li>
+        <a href="/claybennett">
+          <img alt="Clay Bennett" class="thumb" height="60" src="http://avatar.amuniversal.com/feature_avatars/avatars_large/features/wpcbe/tiny_avatar.png" title="Clay Bennett" width="60" />
+          <span class="title">Clay Bennett</span>
+          
+          <span class="viewBtn"></span>
+        </a>
+      </li>
+      
+      <li>
+        <a href="/lisabenson">
+          <img alt="Lisa Benson" class="thumb" height="60" src="http://avatar.amuniversal.com/feature_avatars/avatars_large/features/wplbe/tiny_avatar.png" title="Lisa Benson" width="60" />
+          <span class="title">Lisa Benson</span>
+          
+          <span class="viewBtn"></span>
+        </a>
+      </li>
+      
+      <li>
+        <a href="/stevebenson">
+          <img alt="Steve Benson" class="thumb" height="60" src="http://avatar.amuniversal.com/feature_avatars/avatars_large/features/crsbe/tiny_avatar.png" title="Steve Benson" width="60" />
+          <span class="title">Steve Benson</span>
+          
+          <span class="viewBtn"></span>
+        </a>
+      </li>
+      
+      <li>
+        <a href="/chipbok">
+          <img alt="Chip Bok" class="thumb" height="60" src="http://avatar.amuniversal.com/feature_avatars/avatars_large/features/crcbo/tiny_avatar.png" title="Chip Bok" width="60" />
+          <span class="title">Chip Bok</span>
+          
+          <span class="viewBtn"></span>
+        </a>
+      </li>
+      
+      <li>
+        <a href="/matt-bors">
+          <img alt="Matt Bors" class="thumb" height="60" src="http://avatar.amuniversal.com/feature_avatars/avatars_large/features/bor/tiny_avatar.png" title="Matt Bors" width="60" />
+          <span class="title">Matt Bors</span>
+          
+          <span class="viewBtn"></span>
+        </a>
+      </li>
+      
+      <li>
+        <a href="/stevebreen">
+          <img alt="Steve Breen" class="thumb" height="60" src="http://avatar.amuniversal.com/feature_avatars/avatars_large/features/crsbr/tiny_avatar.png" title="Steve Breen" width="60" />
+          <span class="title">Steve Breen</span>
+          
+          <span class="viewBtn"></span>
+        </a>
+      </li>
+      
+      <li>
+        <a href="/chrisbritt">
+          <img alt="Chris Britt" class="thumb" height="60" src="http://avatar.amuniversal.com/feature_avatars/avatars_large/features/crcbr/tiny_avatar.png" title="Chris Britt" width="60" />
+          <span class="title">Chris Britt</span>
+          
+          <span class="viewBtn"></span>
+        </a>
+      </li>
+      <li class="az-nav">
+  <a href="/explore/editorials#a_to_b">A to B</a>  
+      <a href="#c_to_f" name="c_to_f"><span>C to F</span></a>
+  <a href="/explore/editorials#g_to_l">G to L</a>  <a href="/explore/editorials#m_to_q">M to Q</a>  <a href="/explore/editorials#r_to_z">R to Z</a></li>
+  <li class="az-ads">
+    <div id='leaderboard2' class="ad ad-banner">
+  <script type='text/javascript'>
+    googletag.cmd.push(function() { googletag.display('leaderboard2'); });
+  </script>
+</div>
+  </li>
+
+      <li>
+        <a href="/stuartcarlson">
+          <img alt="Stuart Carlson" class="thumb" height="60" src="http://avatar.amuniversal.com/feature_avatars/avatars_large/features/sc/tiny_avatar.png" title="Stuart Carlson" width="60" />
+          <span class="title">Stuart Carlson</span>
+          
+          <span class="viewBtn"></span>
+        </a>
+      </li>
+      
+      <li>
+        <a href="/kencatalino">
+          <img alt="Ken Catalino" class="thumb" height="60" src="http://avatar.amuniversal.com/feature_avatars/avatars_large/features/crkca/tiny_avatar.png" title="Ken Catalino" width="60" />
+          <span class="title">Ken Catalino</span>
+          
+          <span class="viewBtn"></span>
+        </a>
+      </li>
+      
+      <li>
+        <a href="/jeffdanziger">
+          <img alt="Jeff Danziger" class="thumb" height="60" src="http://avatar.amuniversal.com/feature_avatars/avatars_large/features/jd/tiny_avatar.png" title="Jeff Danziger" width="60" />
+          <span class="title">Jeff Danziger</span>
+          
+          <span class="viewBtn"></span>
+        </a>
+      </li>
+      
+      <li>
+        <a href="/mattdavies">
+          <img alt="Matt Davies" class="thumb" height="60" src="http://avatar.amuniversal.com/feature_avatars/avatars_large/features/tmmda/tiny_avatar.png" title="Matt Davies" width="60" />
+          <span class="title">Matt Davies</span>
+          
+          <span class="viewBtn"></span>
+        </a>
+      </li>
+      
+      <li>
+        <a href="/johndeering">
+          <img alt="John Deering" class="thumb" height="60" src="http://avatar.amuniversal.com/feature_avatars/avatars_large/features/crjde/tiny_avatar.png" title="John Deering" width="60" />
+          <span class="title">John Deering</span>
+          
+          <span class="viewBtn"></span>
+        </a>
+      </li>
+      
+      <li>
+        <a href="/tim-eagan">
+          <img alt="Tim Eagan" class="thumb" height="60" src="http://avatar.amuniversal.com/feature_avatars/avatars_large/features/deep/tiny_avatar.png" title="Tim Eagan" width="60" />
+          <span class="title">Tim Eagan</span>
+          
+          <span class="viewBtn"></span>
+        </a>
+      </li>
+      <li class="az-nav">
+  <a href="/explore/editorials#a_to_b">A to B</a>  <a href="/explore/editorials#c_to_f">C to F</a>  
+      <a href="#g_to_l" name="g_to_l"><span>G to L</span></a>
+  <a href="/explore/editorials#m_to_q">M to Q</a>  <a href="/explore/editorials#r_to_z">R to Z</a></li>
+  <li class="az-ads">
+    <div id='leaderboard2' class="ad ad-banner">
+  <script type='text/javascript'>
+    googletag.cmd.push(function() { googletag.display('leaderboard2'); });
+  </script>
+</div>
+  </li>
+
+      <li>
+        <a href="/bobgorrell">
+          <img alt="Bob Gorrell" class="thumb" height="60" src="http://avatar.amuniversal.com/feature_avatars/avatars_large/features/crbgo/tiny_avatar.png" title="Bob Gorrell" width="60" />
+          <span class="title">Bob Gorrell</span>
+          
+          <span class="viewBtn"></span>
+        </a>
+      </li>
+      
+      <li>
+        <a href="/walthandelsman">
+          <img alt="Walt Handelsman" class="thumb" height="60" src="http://avatar.amuniversal.com/feature_avatars/avatars_large/features/tmwha/tiny_avatar.png" title="Walt Handelsman" width="60" />
+          <span class="title">Walt Handelsman</span>
+          
+          <span class="viewBtn"></span>
+        </a>
+      </li>
+      
+      <li>
+        <a href="/phil-hands">
+          <img alt="Phil Hands" class="thumb" height="60" src="http://avatar.amuniversal.com/feature_avatars/avatars_large/features/ph/tiny_avatar.png" title="Phil Hands" width="60" />
+          <span class="title">Phil Hands</span>
+          
+          <span class="viewBtn"></span>
+        </a>
+      </li>
+      
+      <li>
+        <a href="/joe-heller">
+          <img alt="Joe Heller" class="thumb" height="60" src="http://avatar.amuniversal.com/feature_avatars/avatars_large/features/jhe/tiny_avatar.png" title="Joe Heller" width="60" />
+          <span class="title">Joe Heller</span>
+          
+          <span class="viewBtn"></span>
+        </a>
+      </li>
+      
+      <li>
+        <a href="/rebecca-hendin">
+          <img alt="Rebecca Hendin" class="thumb" height="60" src="http://avatar.amuniversal.com/feature_avatars/avatars_large/features/reb/tiny_avatar.png" title="Rebecca Hendin" width="60" />
+          <span class="title">Rebecca Hendin</span>
+          
+          <span class="viewBtn"></span>
+        </a>
+      </li>
+      
+      <li>
+        <a href="/jerryholbert">
+          <img alt="Jerry Holbert" class="thumb" height="60" src="http://avatar.amuniversal.com/feature_avatars/avatars_large/features/holb/tiny_avatar.png" title="Jerry Holbert" width="60" />
+          <span class="title">Jerry Holbert</span>
+          
+          <span class="viewBtn"></span>
+        </a>
+      </li>
+      
+      <li>
+        <a href="/jen-sorensen">
+          <img alt="Jen Sorensen" class="thumb" height="60" src="http://avatar.amuniversal.com/feature_avatars/avatars_large/features/slow/tiny_avatar.png" title="Jen Sorensen" width="60" />
+          <span class="title">Jen Sorensen</span>
+          
+          <span class="viewBtn"></span>
+        </a>
+      </li>
+      
+      <li>
+        <a href="/clayjones">
+          <img alt="Clay Jones" class="thumb" height="60" src="http://avatar.amuniversal.com/feature_avatars/avatars_large/features/crcjo/tiny_avatar.png" title="Clay Jones" width="60" />
+          <span class="title">Clay Jones</span>
+          
+          <span class="viewBtn"></span>
+        </a>
+      </li>
+      
+      <li>
+        <a href="/kevinkallaugher">
+          <img alt="Kevin Kallaugher" class="thumb" height="60" src="http://avatar.amuniversal.com/feature_avatars/avatars_large/features/cwkal/tiny_avatar.png" title="Kevin Kallaugher" width="60" />
+          <span class="title">Kevin Kallaugher</span>
+          
+          <span class="viewBtn"></span>
+        </a>
+      </li>
+      
+      <li>
+        <a href="/stevekelley">
+          <img alt="Steve Kelley" class="thumb" height="60" src="http://avatar.amuniversal.com/feature_avatars/avatars_large/features/crske/tiny_avatar.png" title="Steve Kelley" width="60" />
+          <span class="title">Steve Kelley</span>
+          
+          <span class="viewBtn"></span>
+        </a>
+      </li>
+      
+      <li>
+        <a href="/mike-lester">
+          <img alt="Mike Lester" class="thumb" height="60" src="http://avatar.amuniversal.com/feature_avatars/avatars_large/features/wpmle/tiny_avatar.png" title="Mike Lester" width="60" />
+          <span class="title">Mike Lester</span>
+          
+          <span class="viewBtn"></span>
+        </a>
+      </li>
+      
+      <li>
+        <a href="/drewlitton">
+          <img alt="Win, Lose, Drew" class="thumb" height="60" src="http://avatar.amuniversal.com/feature_avatars/avatars_large/features/litt/tiny_avatar.png" title="Win, Lose, Drew" width="60" />
+          <span class="title">Win, Lose, Drew</span>
+          <span class="author">Drew Litton</span>
+          <span class="viewBtn"></span>
+        </a>
+      </li>
+      
+      <li>
+        <a href="/chanlowe">
+          <img alt="Chan Lowe" class="thumb" height="60" src="http://avatar.amuniversal.com/feature_avatars/avatars_large/features/tmclo/tiny_avatar.png" title="Chan Lowe" width="60" />
+          <span class="title">Chan Lowe</span>
+          
+          <span class="viewBtn"></span>
+        </a>
+      </li>
+      
+      <li>
+        <a href="/mikeluckovich">
+          <img alt="Mike Luckovich" class="thumb" height="60" src="http://avatar.amuniversal.com/feature_avatars/avatars_large/features/crmlu/tiny_avatar.png" title="Mike Luckovich" width="60" />
+          <span class="title">Mike Luckovich</span>
+          
+          <span class="viewBtn"></span>
+        </a>
+      </li>
+      <li class="az-nav">
+  <a href="/explore/editorials#a_to_b">A to B</a>  <a href="/explore/editorials#c_to_f">C to F</a>  <a href="/explore/editorials#g_to_l">G to L</a>  
+      <a href="#m_to_q" name="m_to_q"><span>M to Q</span></a>
+  <a href="/explore/editorials#r_to_z">R to Z</a></li>
+  <li class="az-ads">
+    <div id='leaderboard2' class="ad ad-banner">
+  <script type='text/javascript'>
+    googletag.cmd.push(function() { googletag.display('leaderboard2'); });
+  </script>
+</div>
+  </li>
+
+      <li>
+        <a href="/garymarkstein">
+          <img alt="Gary Markstein" class="thumb" height="60" src="http://avatar.amuniversal.com/feature_avatars/avatars_large/features/crgma/tiny_avatar.png" title="Gary Markstein" width="60" />
+          <span class="title">Gary Markstein</span>
+          
+          <span class="viewBtn"></span>
+        </a>
+      </li>
+      
+      <li>
+        <a href="/glennmccoy">
+          <img alt="Glenn McCoy" class="thumb" height="60" src="http://avatar.amuniversal.com/feature_avatars/avatars_large/features/gm/tiny_avatar.png" title="Glenn McCoy" width="60" />
+          <span class="title">Glenn McCoy</span>
+          
+          <span class="viewBtn"></span>
+        </a>
+      </li>
+      
+      <li>
+        <a href="/brian-mcfadden">
+          <img alt="Brian McFadden" class="thumb" height="60" src="http://avatar.amuniversal.com/feature_avatars/avatars_large/features/bm/tiny_avatar.png" title="Brian McFadden" width="60" />
+          <span class="title">Brian McFadden</span>
+          
+          <span class="viewBtn"></span>
+        </a>
+      </li>
+      
+      <li>
+        <a href="/jimmorin">
+          <img alt="Jim Morin" class="thumb" height="60" src="http://avatar.amuniversal.com/feature_avatars/avatars_large/features/cwjmo/tiny_avatar.png" title="Jim Morin" width="60" />
+          <span class="title">Jim Morin</span>
+          
+          <span class="viewBtn"></span>
+        </a>
+      </li>
+      
+      <li>
+        <a href="/jackohman">
+          <img alt="Jack Ohman" class="thumb" height="60" src="http://avatar.amuniversal.com/feature_avatars/avatars_large/features/tmjoh/tiny_avatar.png" title="Jack Ohman" width="60" />
+          <span class="title">Jack Ohman</span>
+          
+          <span class="viewBtn"></span>
+        </a>
+      </li>
+      
+      <li>
+        <a href="/patoliphant">
+          <img alt="Pat Oliphant" class="thumb" height="60" src="http://avatar.amuniversal.com/feature_avatars/avatars_large/features/po/tiny_avatar.png" title="Pat Oliphant" width="60" />
+          <span class="title">Pat Oliphant</span>
+          
+          <span class="viewBtn"></span>
+        </a>
+      </li>
+      
+      <li>
+        <a href="/henrypayne">
+          <img alt="Henry Payne" class="thumb" height="60" src="http://avatar.amuniversal.com/feature_avatars/avatars_large/features/payn/tiny_avatar.png" title="Henry Payne" width="60" />
+          <span class="title">Henry Payne</span>
+          
+          <span class="viewBtn"></span>
+        </a>
+      </li>
+      
+      <li>
+        <a href="/joelpett">
+          <img alt="Joel Pett" class="thumb" height="60" src="http://avatar.amuniversal.com/feature_avatars/avatars_large/features/jp/tiny_avatar.png" title="Joel Pett" width="60" />
+          <span class="title">Joel Pett</span>
+          
+          <span class="viewBtn"></span>
+        </a>
+      </li>
+      <li class="az-nav">
+  <a href="/explore/editorials#a_to_b">A to B</a>  <a href="/explore/editorials#c_to_f">C to F</a>  <a href="/explore/editorials#g_to_l">G to L</a>  <a href="/explore/editorials#m_to_q">M to Q</a>  
+      <a href="# =r_to_z" name="r_to_z"><span>R to Z</span></a>
+</li>
+  <li class="az-ads">
+    <div id='leaderboard2' class="ad ad-banner">
+  <script type='text/javascript'>
+    googletag.cmd.push(function() { googletag.display('leaderboard2'); });
+  </script>
+</div>
+  </li>
+
+      <li>
+        <a href="/tedrall">
+          <img alt="Ted Rall" class="thumb" height="60" src="http://avatar.amuniversal.com/feature_avatars/avatars_large/features/tr/tiny_avatar.png" title="Ted Rall" width="60" />
+          <span class="title">Ted Rall</span>
+          
+          <span class="viewBtn"></span>
+        </a>
+      </li>
+      
+      <li>
+        <a href="/michaelramirez">
+          <img alt="Michael Ramirez" class="thumb" height="60" src="http://avatar.amuniversal.com/feature_avatars/avatars_large/features/crmrm/tiny_avatar.png" title="Michael Ramirez" width="60" />
+          <span class="title">Michael Ramirez</span>
+          
+          <span class="viewBtn"></span>
+        </a>
+      </li>
+      
+      <li>
+        <a href="/marshallramsey">
+          <img alt="Marshall Ramsey" class="thumb" height="60" src="http://avatar.amuniversal.com/feature_avatars/avatars_large/features/crmra/tiny_avatar.png" title="Marshall Ramsey" width="60" />
+          <span class="title">Marshall Ramsey</span>
+          
+          <span class="viewBtn"></span>
+        </a>
+      </li>
+      
+      <li>
+        <a href="/robrogers">
+          <img alt="Rob Rogers" class="thumb" height="60" src="http://avatar.amuniversal.com/feature_avatars/avatars_large/features/roge/tiny_avatar.png" title="Rob Rogers" width="60" />
+          <span class="title">Rob Rogers</span>
+          
+          <span class="viewBtn"></span>
+        </a>
+      </li>
+      
+      <li>
+        <a href="/drewsheneman">
+          <img alt="Drew Sheneman" class="thumb" height="60" src="http://avatar.amuniversal.com/feature_avatars/avatars_large/features/tmdsh/tiny_avatar.png" title="Drew Sheneman" width="60" />
+          <span class="title">Drew Sheneman</span>
+          
+          <span class="viewBtn"></span>
+        </a>
+      </li>
+      
+      <li>
+        <a href="/jeffstahler">
+          <img alt="Jeff Stahler" class="thumb" height="60" src="http://avatar.amuniversal.com/feature_avatars/avatars_large/features/stah/tiny_avatar.png" title="Jeff Stahler" width="60" />
+          <span class="title">Jeff Stahler</span>
+          
+          <span class="viewBtn"></span>
+        </a>
+      </li>
+      
+      <li>
+        <a href="/scottstantis">
+          <img alt="Scott Stantis" class="thumb" height="60" src="http://avatar.amuniversal.com/feature_avatars/avatars_large/features/crsst/tiny_avatar.png" title="Scott Stantis" width="60" />
+          <span class="title">Scott Stantis</span>
+          
+          <span class="viewBtn"></span>
+        </a>
+      </li>
+      
+      <li>
+        <a href="/danasummers">
+          <img alt="Dana Summers" class="thumb" height="60" src="http://avatar.amuniversal.com/feature_avatars/avatars_large/features/tmdsu/tiny_avatar.png" title="Dana Summers" width="60" />
+          <span class="title">Dana Summers</span>
+          
+          <span class="viewBtn"></span>
+        </a>
+      </li>
+      
+      <li>
+        <a href="/paulszep">
+          <img alt="Paul Szep" class="thumb" height="60" src="http://avatar.amuniversal.com/feature_avatars/avatars_large/features/crpsz/tiny_avatar.png" title="Paul Szep" width="60" />
+          <span class="title">Paul Szep</span>
+          
+          <span class="viewBtn"></span>
+        </a>
+      </li>
+      
+      <li>
+        <a href="/think">
+          <img alt="(th)ink" class="thumb" height="60" src="http://avatar.amuniversal.com/feature_avatars/avatars_large/features/tk/tiny_avatar.png" title="(th)ink" width="60" />
+          <span class="title">(th)ink</span>
+          <span class="author">Keith Knight</span>
+          <span class="viewBtn"></span>
+        </a>
+      </li>
+      
+      <li>
+        <a href="/tomtoles">
+          <img alt="Tom Toles" class="thumb" height="60" src="http://avatar.amuniversal.com/feature_avatars/avatars_large/features/tt/tiny_avatar.png" title="Tom Toles" width="60" />
+          <span class="title">Tom Toles</span>
+          
+          <span class="viewBtn"></span>
+        </a>
+      </li>
+      
+      <li>
+        <a href="/garyvarvel">
+          <img alt="Gary Varvel" class="thumb" height="60" src="http://avatar.amuniversal.com/feature_avatars/avatars_large/features/crgva/tiny_avatar.png" title="Gary Varvel" width="60" />
+          <span class="title">Gary Varvel</span>
+          
+          <span class="viewBtn"></span>
+        </a>
+      </li>
+      
+      <li>
+        <a href="/viewsafrica">
+          <img alt="ViewsAfrica" class="thumb" height="60" src="http://avatar.amuniversal.com/feature_avatars/avatars_large/features/cwvaf/tiny_avatar.png" title="ViewsAfrica" width="60" />
+          <span class="title">ViewsAfrica</span>
+          <span class="author">CartoonArts International</span>
+          <span class="viewBtn"></span>
+        </a>
+      </li>
+      
+      <li>
+        <a href="/viewsamerica">
+          <img alt="ViewsAmerica" class="thumb" height="60" src="http://avatar.amuniversal.com/feature_avatars/avatars_large/features/cwvam/tiny_avatar.png" title="ViewsAmerica" width="60" />
+          <span class="title">ViewsAmerica</span>
+          <span class="author">CartoonArts International</span>
+          <span class="viewBtn"></span>
+        </a>
+      </li>
+      
+      <li>
+        <a href="/viewsasia">
+          <img alt="ViewsAsia" class="thumb" height="60" src="http://avatar.amuniversal.com/feature_avatars/avatars_large/features/cwvas/tiny_avatar.png" title="ViewsAsia" width="60" />
+          <span class="title">ViewsAsia</span>
+          <span class="author">CartoonArts International</span>
+          <span class="viewBtn"></span>
+        </a>
+      </li>
+      
+      <li>
+        <a href="/viewsbusiness">
+          <img alt="ViewsBusiness" class="thumb" height="60" src="http://avatar.amuniversal.com/feature_avatars/avatars_large/features/cwbus/tiny_avatar.png" title="ViewsBusiness" width="60" />
+          <span class="title">ViewsBusiness</span>
+          <span class="author">CartoonArts International</span>
+          <span class="viewBtn"></span>
+        </a>
+      </li>
+      
+      <li>
+        <a href="/viewseurope">
+          <img alt="ViewsEurope" class="thumb" height="60" src="http://avatar.amuniversal.com/feature_avatars/avatars_large/features/cwveu/tiny_avatar.png" title="ViewsEurope" width="60" />
+          <span class="title">ViewsEurope</span>
+          <span class="author">CartoonArts International</span>
+          <span class="viewBtn"></span>
+        </a>
+      </li>
+      
+      <li>
+        <a href="/viewslatinamerica">
+          <img alt="ViewsLatinAmerica" class="thumb" height="60" src="http://avatar.amuniversal.com/feature_avatars/avatars_large/features/cwvla/tiny_avatar.png" title="ViewsLatinAmerica" width="60" />
+          <span class="title">ViewsLatinAmerica</span>
+          <span class="author">CartoonArts International</span>
+          <span class="viewBtn"></span>
+        </a>
+      </li>
+      
+      <li>
+        <a href="/viewsmideast">
+          <img alt="ViewsMidEast" class="thumb" height="60" src="http://avatar.amuniversal.com/feature_avatars/avatars_large/features/cwvme/tiny_avatar.png" title="ViewsMidEast" width="60" />
+          <span class="title">ViewsMidEast</span>
+          <span class="author">CartoonArts International</span>
+          <span class="viewBtn"></span>
+        </a>
+      </li>
+      
+      <li>
+        <a href="/viewsoftheworld">
+          <img alt="Views of the World" class="thumb" height="60" src="http://avatar.amuniversal.com/feature_avatars/avatars_large/features/cwvwo/tiny_avatar.png" title="Views of the World" width="60" />
+          <span class="title">Views of the World</span>
+          <span class="author">CartoonArts International</span>
+          <span class="viewBtn"></span>
+        </a>
+      </li>
+      
+      <li>
+        <a href="/facesinthenews">
+          <img alt="Faces of the News by Kerry Waghorn" class="thumb" height="60" src="http://avatar.amuniversal.com/feature_avatars/avatars_large/features/kw/tiny_avatar.png" title="Faces of the News by Kerry Waghorn" width="60" />
+          <span class="title">Faces of the News by Kerry Waghorn</span>
+          <span class="author">Kerry Waghorn</span>
+          <span class="viewBtn"></span>
+        </a>
+      </li>
+      
+      <li>
+        <a href="/danwasserman">
+          <img alt="Dan Wasserman" class="thumb" height="60" src="http://avatar.amuniversal.com/feature_avatars/avatars_large/features/tmdwa/tiny_avatar.png" title="Dan Wasserman" width="60" />
+          <span class="title">Dan Wasserman</span>
+          
+          <span class="viewBtn"></span>
+        </a>
+      </li>
+      
+      <li>
+        <a href="/signewilkinson">
+          <img alt="Signe Wilkinson" class="thumb" height="60" src="http://avatar.amuniversal.com/feature_avatars/avatars_large/features/wpswi/tiny_avatar.png" title="Signe Wilkinson" width="60" />
+          <span class="title">Signe Wilkinson</span>
+          
+          <span class="viewBtn"></span>
+        </a>
+      </li>
+      
+      <li>
+        <a href="/witoftheworld">
+          <img alt="Wit of the World" class="thumb" height="60" src="http://avatar.amuniversal.com/feature_avatars/avatars_large/features/cwwit/tiny_avatar.png" title="Wit of the World" width="60" />
+          <span class="title">Wit of the World</span>
+          <span class="author">CartoonArts International</span>
+          <span class="viewBtn"></span>
+        </a>
+      </li>
+      
+      <li>
+        <a href="/mattwuerker">
+          <img alt="Matt Wuerker" class="thumb" height="60" src="http://avatar.amuniversal.com/feature_avatars/avatars_large/features/wu/tiny_avatar.png" title="Matt Wuerker" width="60" />
+          <span class="title">Matt Wuerker</span>
+          
+          <span class="viewBtn"></span>
+        </a>
+      </li>
+</ul>
+
+
+  <div id="footer">
+  <p class="footerLinks">
+    <a href="http://www.gocomics.com/">home</a>&nbsp;&nbsp;<a href="/help/about">about</a>&nbsp;&nbsp;<a href="/features/search">search</a>
+  </p>
+  <br/>
+
+  <p class="footerLinks">
+    <a href="/explore/comics">comics</a>&nbsp;&nbsp;<a href="/explore/editorials">political</a>&nbsp;&nbsp;<a href="/explore/sherpa">sherpa</a>&nbsp;&nbsp;<a href="/explore/espanol">espanol</a>
+    <a href="/explore/app_store">apps</a>&nbsp;&nbsp;
+  </p>
+
+  <p>
+    <a href="/?view=full" class="desktopLink" data-confirm="You are switching to the version of GoComics for the desktop. To switch back, select the link in the top right corner." onClick="javascript: pageTracker._trackPageview(&#x27;/outgoing/viewDesktopVersion&#x27;);">switch to desktop version</a>
+  </p>
+
+  <p class="copyright">&copy; 2015 Universal Uclick</p>
+</div>
+
+  <!-- Start Quantcast tag -->
+<script type="text/javascript">
+    _qoptions = {
+        qacct:"p-5bhew76JBcfq6",
+        labels:"editorial"
+    };
+</script>
+<script type="text/javascript" src="http://edge.quantserve.com/quant.js"></script>
+<noscript>
+  <img src="http://pixel.quantserve.com/pixel/p-5bhew76JBcfq6.gif" style="display: none;" border="0" height="1" width="1" alt="Quantcast"/>
+</noscript>
+<!-- End Quantcast tag -->
+
+
+  </body>
+</html>
+
+

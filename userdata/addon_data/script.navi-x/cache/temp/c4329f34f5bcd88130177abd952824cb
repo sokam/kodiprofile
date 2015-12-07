@@ -1,0 +1,13 @@
+version=1
+title=Sonstiges
+
+# 932526
+type=rss
+name=Fernsehkritik.tv
+thumb=http://www.podcast.de/images/Feed/Channel/11566/2/11566.png
+URL=http://www.fernsehkritik.tv/index.php?feed=podcast
+player=default
+rating=-1.00
+
+
+# cached

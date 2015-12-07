@@ -1,0 +1,204 @@
+version=1
+background=http://s18.postimg.org/5g4m9xrqx/gbravo.jpg
+title=Girls Bravo [dub]
+logo=http://s17.postimg.org/ytqsq4szz/gbravo_logo.png
+
+type=playlist
+name=Sorted by user-assigned order
+icon=http://media.navi-x.org/images/icons/2downarrow.png
+URL=http://www.navixtreme.com/playlist/136556/girls_bravo_dub.plx?action=sortsel&cur=ord
+
+# 2246982
+type=video
+name=Girls Bravo e1
+URL=http://vidup.org/embed.php?file=c18d586a&w=550&h=420
+processor=http://www.navixtreme.com/text/2243333/vidup.org.txt
+player=default
+rating=-1.00
+
+# 2246983
+type=video
+name=Girls Bravo e2
+URL=http://vidup.org/embed.php?file=5aa0f335&w=550&h=420
+processor=http://www.navixtreme.com/text/2243333/vidup.org.txt
+player=default
+rating=-1.00
+
+# 2246984
+type=video
+name=Girls Bravo e3
+URL=http://vidup.org/embed.php?file=cf54fc62&w=550&h=420
+processor=http://www.navixtreme.com/text/2243333/vidup.org.txt
+player=default
+rating=-1.00
+
+# 2246985
+type=video
+name=Girls Bravo e4
+URL=http://vidup.org/embed.php?file=99490770&w=550&h=420
+processor=http://www.navixtreme.com/text/2243333/vidup.org.txt
+player=default
+rating=-1.00
+
+# 2246986
+type=video
+name=Girls Bravo e5
+URL=http://vidup.org/embed.php?file=99413cc0&w=550&h=420
+processor=http://www.navixtreme.com/text/2243333/vidup.org.txt
+player=default
+rating=-1.00
+
+# 2246987
+type=video
+name=Girls Bravo e6
+URL=http://vidup.org/embed.php?file=fc620e4f&w=550&h=420
+processor=http://www.navixtreme.com/text/2243333/vidup.org.txt
+player=default
+rating=-1.00
+
+# 2246988
+type=video
+name=Girls Bravo e7
+URL=http://vidup.org/embed.php?file=ace1d7cd&w=550&h=420
+processor=http://www.navixtreme.com/text/2243333/vidup.org.txt
+player=default
+rating=-1.00
+
+# 2246989
+type=video
+name=Girls Bravo e8
+URL=http://vidup.org/embed.php?file=0640aac2&w=550&h=420
+processor=http://www.navixtreme.com/text/2243333/vidup.org.txt
+player=default
+rating=-1.00
+
+# 2246990
+type=video
+name=Girls Bravo e9
+URL=http://vidup.org/embed.php?file=b6e395f8&w=550&h=420
+processor=http://www.navixtreme.com/text/2243333/vidup.org.txt
+player=default
+rating=-1.00
+
+# 2246991
+type=video
+name=Girls Bravo e10
+URL=http://vidup.org/embed.php?file=fe4ea59e&w=550&h=420
+processor=http://www.navixtreme.com/text/2243333/vidup.org.txt
+player=default
+rating=-1.00
+
+# 2246992
+type=video
+name=Girls Bravo e11
+URL=http://vidup.org/embed.php?file=6f52ad92&w=550&h=420
+processor=http://www.navixtreme.com/text/2243333/vidup.org.txt
+player=default
+rating=-1.00
+
+# 2246993
+type=video
+name=Girls Bravo e12
+URL=http://vidup.org/embed.php?file=0c521089&w=550&h=420
+processor=http://www.navixtreme.com/text/2243333/vidup.org.txt
+player=default
+rating=-1.00
+
+# 2246994
+type=video
+name=Girls Bravo e13
+URL=http://vidup.org/embed.php?file=3a230fa5&w=550&h=420
+processor=http://www.navixtreme.com/text/2243333/vidup.org.txt
+player=default
+rating=-1.00
+
+# 2246995
+type=video
+name=Girls Bravo e14
+URL=http://vidup.org/embed.php?file=e794e4a9&w=550&h=420
+processor=http://www.navixtreme.com/text/2243333/vidup.org.txt
+player=default
+rating=-1.00
+
+# 2246996
+type=video
+name=Girls Bravo e15
+URL=http://vidup.org/embed.php?file=2643074b&w=550&h=420
+processor=http://www.navixtreme.com/text/2243333/vidup.org.txt
+player=default
+rating=-1.00
+
+# 2246997
+type=video
+name=Girls Bravo e16
+URL=http://vidup.org/embed.php?file=436bdd3e&w=550&h=420
+processor=http://www.navixtreme.com/text/2243333/vidup.org.txt
+player=default
+rating=-1.00
+
+# 2246998
+type=video
+name=Girls Bravo e17
+URL=http://vidup.org/embed.php?file=1af115a2&w=550&h=420
+processor=http://www.navixtreme.com/text/2243333/vidup.org.txt
+player=default
+rating=-1.00
+
+# 2246999
+type=video
+name=Girls Bravo e18
+URL=http://vidup.org/embed.php?file=1bbb0207&w=550&h=420
+processor=http://www.navixtreme.com/text/2243333/vidup.org.txt
+player=default
+rating=-1.00
+
+# 2247000
+type=video
+name=Girls Bravo e19
+URL=http://vidup.org/embed.php?file=b22120a2&w=550&h=420
+processor=http://www.navixtreme.com/text/2243333/vidup.org.txt
+player=default
+rating=-1.00
+
+# 2247001
+type=video
+name=Girls Bravo e20
+URL=http://vidup.org/embed.php?file=52c4d55c&w=550&h=420
+processor=http://www.navixtreme.com/text/2243333/vidup.org.txt
+player=default
+rating=-1.00
+
+# 2247002
+type=video
+name=Girls Bravo e21
+URL=http://vidup.org/embed.php?file=1b107296&w=550&h=420
+processor=http://www.navixtreme.com/text/2243333/vidup.org.txt
+player=default
+rating=-1.00
+
+# 2247003
+type=video
+name=Girls Bravo e22
+URL=http://vidup.org/embed.php?file=64b543ae&w=550&h=420
+processor=http://www.navixtreme.com/text/2243333/vidup.org.txt
+player=default
+rating=-1.00
+
+# 2247004
+type=video
+name=Girls Bravo e23
+URL=http://vidup.org/embed.php?file=4dd40670&w=550&h=420
+processor=http://www.navixtreme.com/text/2243333/vidup.org.txt
+player=default
+rating=-1.00
+
+# 2247005
+type=video
+name=Girls Bravo e24
+URL=http://vidup.org/embed.php?file=eba1a188&w=550&h=420
+processor=http://www.navixtreme.com/text/2243333/vidup.org.txt
+player=default
+rating=-1.00
+
+
+# cached

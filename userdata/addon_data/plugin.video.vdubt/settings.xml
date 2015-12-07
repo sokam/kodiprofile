@@ -1,0 +1,7 @@
+<settings>
+    <setting id="auto-view" value="false" />
+    <setting id="default" value="50" />
+    <setting id="movies" value="500" />
+    <setting id="parental" value="false" />
+    <setting id="sort" value="false" />
+</settings>

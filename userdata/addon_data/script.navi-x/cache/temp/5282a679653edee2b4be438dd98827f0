@@ -1,0 +1,529 @@
+version=1
+background=http://ftp2.ie.freesbie.org/pub/superrepo/v5/addons/plugin.video.ukturk.jpg
+title=Uk Turks Sports TV Channels
+logo=http://www.redeneobux.com/wp-content/uploads/2015/04/uk-turks-playlists-addon-plugin-xbmc-kodi.png
+description=NOTICE : It has become more harder to maintain my addon, my section @ aaa & here, I will not be deleting these Playlists but i will not be updating them regularly, So if you want to enjoy my playlist all under one roof come & join me at my addon which you can download at metal kettles repo or @ aaa where i have my own section & loads more stuff like films & tv shows
+If you need help follow me on Twitter @uk_turk
+
+Here is my selection of live Sports Tv Channels, lots of these channels show football from all over Europe especially the premiership & all cup comps which i have marked , new channels will be added all the time and dead channels will be deleted. 
+Hope you enjoy
+
+
+P.S The channels marked (Shows Premier League) & (Shows Various Football) you can get the fixture channel list from liveonsat.com also some channels are just General foreign & Sports Channels but still televise matches & you can find out what games from the same website
+
+follow me on twitter @uk_turk
+
+/description
+
+type=playlist
+name=Sorted [COLOR=FF00FF00][COLOR=FF00FF00]by user-assigned order[/COLOR][/COLOR]
+icon=http://media.navi-x.org/images/icons/2downarrow.png
+URL=http://www.navixtreme.com/playlist/134035/uk_turks_sports_tv_channels.plx?action=sortsel&cur=ord
+
+# 2504522
+type=video
+name=nb
+URL=rtmp://nl.iguide.to/iguide playpath=ourpk0w2g6jjly1 swfUrl=http://cdn.iguide.to/player/secure_player_iguide_embed_token.swf live=1 pageUrl=http://www.iguide.to/embedplayer_new.php?width=650&height=400&channel=30410&autoplay=true
+player=default
+rating=-1.00
+
+# 2504521
+type=video
+name=b1
+URL=rtmp://31.220.2.149:80/live/ playpath=bt1 token=%Zrey(nKa@#Z swfUrl=http://p.jwpcdn.com/6/12/jwplayer.flash.swf live=1 timeout=13 pageUrl=http://yotv.co
+player=default
+rating=-1.00
+
+# 2504518
+type=video
+name=b2
+URL=rtmp://31.220.2.149:80/live/ playpath=bt2 token=%Zrey(nKa@#Z swfUrl=http://p.jwpcdn.com/6/12/jwplayer.flash.swf live=1 timeout=13 pageUrl=http://yotv.co
+player=default
+rating=-1.00
+
+# 2504392
+type=video
+name=s1
+URL=rtmp://31.220.2.149:80/live/ playpath=sky1 token=%Zrey(nKa@#Z swfUrl=http://p.jwpcdn.com/6/12/jwplayer.flash.swf live=1 timeout=13 pageUrl=http://yotv.co
+player=default
+rating=-1.00
+
+# 2446504
+type=video
+name=Sky Sports 1 (Updated 12.05.15)
+thumb=http://www.protv24.com/img/sky-sports-1.png
+URL=rtmp://178.18.31.64:443/liverepeater playpath=194541 pageUrl=http://biggestplayer.me token=Fo5_n0w?U.rA6l3-70w47ch
+player=default
+rating=-1.00
+
+# 2446508
+type=video
+name=Sky Sports 2 (Updated 03.05.15)
+thumb=http://1.bp.blogspot.com/_m0VMopGnxUw/S6_SDfF-uBI/AAAAAAAACtE/tsVP4D-c_lc/s320/bay6.gif
+URL=rtmp://80.82.78.15:443/liverepeater/ playpath=48 token=#atd%#$ZH pageUrl=http://popeoftheplayers.eu/ token=#atd%#$ZH
+player=default
+rating=-1.00
+
+# 2446506
+type=video
+name=Sky Sports 3 (Updated 03.05.15)
+thumb=http://2.bp.blogspot.com/-Dv8hJXaRhFs/TnnFcx7LiNI/AAAAAAAAEas/sKOi_2hP0mo/s1600/SkySports3.gif
+URL=rtmp://80.82.78.15:443/liverepeater/ playpath=10 token=#atd%#$ZH pageUrl=http://popeoftheplayers.eu/ token=#atd%#$ZH
+player=default
+rating=-1.00
+
+# 2393329
+type=video
+name=Sky Sports 4 (Updated 03.05.15)
+thumb=http://i2.cdnds.net/09/53/160x120_broadcasting_ss4logo.jpg
+URL=rtmp://80.82.78.15:443/liverepeater/ playpath=16 token=#atd%#$ZH pageUrl=http://popeoftheplayers.eu/ token=#atd%#$ZH
+player=default
+rating=-1.00
+
+# 2446507
+type=video
+name=Sky Sports 5 (Updated 03.05.15)
+thumb=http://www.broadbandtvnews.com/wp-content/uploads/2014/08/Sky-Sports-5-300x167.jpeg
+URL=rtmp://80.82.78.15:443/liverepeater/ playpath=11 token=#atd%#$ZH pageUrl=http://popeoftheplayers.eu/ token=#atd%#$ZH
+player=default
+rating=-1.00
+
+# 2426983
+type=video
+name=Sky Sports F1 (Updated 03.05.15)
+thumb=http://www.frocus.net/images/logotv/original/Sky_Sports_F1.jpg
+URL=rtmp://80.82.78.15:443/liverepeater/ playpath=35 token=#atd%#$ZH pageUrl=http://popeoftheplayers.eu/ token=#atd%#$ZH
+player=default
+rating=-1.00
+
+# 2441024
+type=video
+name=Sky Sports News
+thumb=http://1.bp.blogspot.com/_zoNhg4XuEno/Szl74wY2vPI/AAAAAAAAACM/JaiqRTUV0W8/s200/logoSkySportsNews.gif
+URL=rtmp://109.123.70.38:80/live playpath=snc swfUrl=http://p.jwpcdn.com/6/12/jwplayer.flash.swf live=1 pageUrl=http://reytv.co/embedo.php?live=snc&vw=620&vh=490 token=%Zrey(nKa@#Z
+player=default
+rating=-1.00
+
+# 2422925
+type=video
+name=BT Sports 1 (Shows Premier League) (Updated 27.04.15)
+thumb=http://sport.bt.com/images/bt-sport-1-logo-136381974803410401-130801120118.jpg
+URL=rtmp://46.246.29.135:1935/stream/ playpath=NdTaX9Epd0.stream swfUrl=http://thecdn.04stream.com/p/ooolo1.swf live=1 pageUrl=http://www.04stream.com/ebb.php?adsp=other&width=600&height=460&st=v45465i595f4d3j4m524n2b4w214x2o244a4x2q2p2v213&adx=&stream=14v2o5m58484w2r2742474i5r2h5d4n2x4k5u354s343h3y5m564t29403q264s2t2x2u234r21413u2v45465i595f4d3j4m5u373v5j4r5d4a225h5c454i4g4p2345634t2y3s2a4a4z284y2v2c4w2i5y21324p2b4a4m5a464y2f4j5w2k574b4z2q254a4b484x2s2t2343434t2y3s2p2&sooor=MTU=&str=is&ok=&cat=1&link=1&idom=ifirstrow.eu
+player=default
+rating=-1.00
+
+# 2434678
+type=video
+name=BT Sports 2 (Updated 15.03.15)
+thumb=http://sport.bt.com/images/bt-sport-2-logo-136381974821910401-130801120415.jpg
+URL=rtmp://89.248.172.159:443/liverepeater playpath=15 swfUrl=http://popeoftheplayers.eu/atdedead.swf pageUrl=http://popeoftheplayers.eu/player3.php?id=23&width=600&height=450 token=#atd%#$ZH
+player=default
+rating=-1.00
+
+# 2437000
+type=video
+name=NBCSN (Shows Premier League) (Updated 22.054.15)
+thumb=http://www.broadcastingcable.com/photo/266/266263-nbcsn_logo_jpg.jpg
+URL=rtmp://31.220.0.195:80/live playpath=premiersport swfUrl=http://p.jwpcdn.com/6/11/jwplayer.flash.swf pageUrl=http://reytv.co/embedo.php?live=skysports2&vw=620&vh=490 token=%Zrey(nKa@#Z
+player=default
+rating=-1.00
+
+# 2430566
+type=video
+name=Sportsnet World (Shows Premier League) (Updated 26.03.15)
+thumb=http://www.canadasoccertv.ca/img/channel_snetworld.jpeg
+URL=rtmp://178.18.31.61:443/liverepeater playpath=191304 swfUrl=http://bernardotv.club/atdedead.swf pageUrl=http://biggestplayer.me/streamcr.php?id=183055&width=620&height=490 token=#atd%#$ZH
+player=default
+rating=-1.00
+
+# 2430570
+type=video
+name=Sportsnet Ontario (Shows Premier League) (Updated 16.03.15)
+thumb=https://encrypted-tbn1.gstatic.com/images?q=tbn:ANd9GcQJ4ogwW4QbrS9UDwqCTUgDRgRuWtNCA1saSDJfxZY_Oha1ryA_jQ
+URL=rtmp://31.220.0.195:80/live playpath=sno swfUrl=http://p.jwpcdn.com/6/11/jwplayer.flash.swf pageUrl=http://reytv.co/embedo.php?live=skysports2&vw=620&vh=490 token=%Zrey(nKa@#Z
+player=default
+rating=-1.00
+
+# 2424223
+type=video
+name=Sportsnet 360 (Shows Premier League)
+thumb=http://photos.newswire.ca/images/download/20130604_C5201_PHOTO_EN_27536.jpg
+URL=http://nlds187.cdnak.neulion.com/nlds/sportsnetnow/sn_360/as/live/sn_360_hd_ipad.m3u8
+player=default
+rating=-1.00
+
+# 2447652
+type=video
+name=Sportsnet 360 HD  (Shows Premier League)
+thumb=http://www.thestar.com/content/dam/thestar/sports/2013/06/07/rogers_unveils_sportsnet_360_details_mudhar/sportsnet_360.jpg.size.xxlarge.letterbox.jpg
+URL=http://nlds187.cdnak.neulion.com/nlds/sportsnetnow/sn_360/as/live/sn_360_hd_ipad.m3u8
+player=default
+rating=-1.00
+
+# 2448231
+type=video
+name=TSN 1 SD (Alternative) (Updated 28.04.15)
+thumb=http://img2.wikia.nocookie.net/__cb20141107210248/logopedia/images/thumb/7/76/Tsn_1.jpg/400px-Tsn_1.jpg
+URL=rtmp://31.220.0.195:80/live/ playpath=tx1 token=%Zrey(nKa@#Z swfUrl=http://p.jwpcdn.com/6/11/jwplayer.flash.swf live=1 timeout=13 pageUrl=http://reytv.co/ UKTurk
+player=default
+rating=-1.00
+
+# 2448230
+type=video
+name=TSN 2 SD (Alternative)
+thumb=http://www.ctv.ca/getmedia/41771834-8ee4-45f1-9bcb-e6314fc91219/tsn2_lg.jpg.aspx
+URL=rtmp://178.18.31.56:443/liverepeater/ playpath=191784 token=#atd%#$ZH swfUrl=http://static.surk.tv/atdedead.swf live=1 pageUrl=http://biggestplayer.me/ UKTurk
+player=default
+rating=-1.00
+
+# 2439679
+type=video
+name=Silk Sports 1 HD (Shows Premier League)
+thumb=http://www.gmg-tv.com/storage/uploads/channels/1409040638409c5c.png
+URL=rtmpe://134.19.185.252:1935/livedge/mamahdskysport1
+player=default
+rating=-1.00
+
+# 2439680
+type=video
+name=Silk Sports 2 HD (Shows Various Football)
+thumb=http://www.gmg-tv.com/storage/uploads/channels/1409040640081f3a.png
+URL=rtmp://edge01-01.nl.myvideo.ge/dvrh264/silk_sport/mp4:silk_sport swfUrl=http://www.myvideo.ge/dvr/dvrStretch2.swf?v=1.91 live=1 pageUrl=http://www.myvideo.ge
+player=default
+rating=-1.00
+
+# 2444715
+type=video
+name=Silk Sports 3 HD (Shows Premier League)
+thumb=https://fbcdn-profile-a.akamaihd.net/hprofile-ak-xap1/v/t1.0-1/p160x160/1800405_812922002067675_17807395_n.jpg?oh=12d086c052cd535e096e3a5a0e929f1a&oe=55AEA3C2&__gda__=1436997756_fe481d9fbff29d5d866def021be2cf53
+URL=rtmp://edge01-03.nl.myvideo.ge/dvrh264/silk_sport2/mp4:silk_sport2 swfUrl=http://www.myvideo.ge/dvr/dvrStretch2.swf?v=1.91 live=1 pageUrl=http://www.myvideo.ge/
+player=default
+rating=-1.00
+
+# 2243846
+type=video
+name=Sport 1 Russia (Shows Various Football)
+thumb=http://www.frosat.net/images/logotv/original/Sport-1_ru.jpg
+URL=http://hls.novotelecom.ru/streaming/sport1/tvrec/playlist.m3u8
+player=default
+rating=-1.00
+
+# 2384135
+type=video
+name=Sport Ukraine (Shows Various Football)
+thumb=https://encrypted-tbn2.gstatic.com/images?q=tbn:ANd9GcTMM85asbVgp-HcT0NlAsEY5qI4rkuKMmymfyAUN9aZ6T_Y0BSa9g
+URL=rtmp://iptv1.sat-elit.net/iptv/123
+player=default
+rating=-1.00
+
+# 2245836
+type=video
+name=Our Football Ukraine (Shows Various Football)
+thumb=http://thewatchtv.com/wp-content/uploads/2013/05/Watch-NTV-Football-Live-TV-from-Russia.jpg
+URL=http://hls.novotelecom.ru/streaming/futbol/tvrec/playlist.m3u8
+player=default
+rating=-1.00
+
+# 2429920
+type=video
+name=KazSport  (ShowsVarious Football)
+thumb=http://en.glaz.tv/images/logos/tv/big/kazsport.jpg
+URL=http://vs1.cdn.ott.otautv.kz/dtv/id14_KTR_SG--KazSport/01/plst.m3u8
+player=default
+rating=-1.00
+
+# 2446512
+type=video
+name=MUTV
+thumb=http://img1.wikia.nocookie.net/__cb20140909134056/logopedia/images/7/7e/Mutv.jpg
+URL=rtmp://extondemand.livestream.com/ondemand playpath=trans/dv02/mogulus-user-files/chmymutv/2009/08/13/a5fba842-8f2f-4a15-b095-9dfd8ff29b45 swfUrl=http://cdn.livestream.com/chromelessPlayer/v21/playerapi.swf?jsEnabled=false&allowchat=false&showMoreVideos=false&lschannel=true&borderColor=0xCCCCCC&time=&allowChat=true&browseMode=false&showBorderControlBar=false&textLines=2&autoPlay=true&hideChannelBranding=true&iconColor=0x555555&hideInfo=true&t=428531&mode=false pageUrl=http://www.livestream.com/embed/mymutv?showMoreVideos=false&hideInfo=true&autoPlay=true&lschannel=true&browseMode=false&textLines=2&hideChannelBranding=true&mode=false&allowchat=false&layout=1&t=428531
+player=default
+rating=-1.00
+
+# 2437004
+type=video
+name=Sport TV1 (Shows Various Football)
+thumb=http://thestreamdb.com/tbn/Sport%20TV%201.tbn
+URL=rtmpe://5.153.233.106:443/share/ playpath=live1-rbi6c swfUrl=http://sharecast.to/player/player20.swf live=1 pageUrl=http://sharecast.to/
+player=default
+rating=-1.00
+
+# 2437005
+type=video
+name=Sport TV2 (Shows Various Football)
+thumb=http://nowwatchtvlive.me/wp-content/uploads/2011/07/sport_tv2_pt.jpg
+URL=rtmpe://5.153.233.106:443/share/ playpath=live2-bipmr swfUrl=http://sharecast.to/player/player20.swf live=1 pageUrl=http://sharecast.to/
+player=default
+rating=-1.00
+
+# 2437006
+type=video
+name=Sport TV3 (Shows Various Football)
+thumb=http://3.bp.blogspot.com/-mcQpj_qXZu4/TcU-5SkZRlI/AAAAAAAAAC0/4WU7sM4mcK0/s320/sport+tv3.jpg
+URL=rtmpe://5.153.233.106:443/share/ playpath=live3-qszlx swfUrl=http://sharecast.to/player/player20.swf live=1 timeout=10 pageUrl=http://sharecast.to/
+player=default
+rating=-1.00
+
+# 2450172
+type=video
+name=Premiere Sports
+thumb=https://my.virginmedia.com/content/dam/virgoBrowse/images/raw-html/premier-sports-logo.jpg
+URL=rtmp://31.220.0.195:80/live playpath=premiersport swfUrl=http://p.jwpcdn.com/6/11/jwplayer.flash.swf pageUrl=http://reytv.co/embedo.php?live=skysports2&vw=620&vh=490 token=%Zrey(nKa@#Z
+player=default
+rating=-1.00
+
+# 2442646
+type=video
+name=At The Races
+thumb=http://tgo-tv.com/images/tv/AtTheRaces.gif
+URL=rtmp://31.220.0.195:80/live playpath=atracessa swfUrl=http://p.jwpcdn.com/6/11/jwplayer.flash.swf pageUrl=http://reytv.co/embedo.php?live=skysports2&vw=620&vh=490 token=%Zrey(nKa@#Z
+player=default
+rating=-1.00
+
+# 2439681
+type=video
+name=Racing UK
+thumb=http://substantialfilms.co.uk/wp-content/uploads/2012/12/racing.uk_.logo_.jpg
+URL=rtmp://rrbalancer.broadcast.tneg.de:1935/pw/ruk/ playpath=ruk swfUrl=http://pferdewetten.broadcast.tneg.de/jwplayer/player.swf live=1 pageUrl=http://pferdewetten.broadcast.tneg.de/jwplayer/player.php?type=live&stream=ruk1&token=ccf6c54e62bc5bd667661d5af5d61e8664c75b11
+player=default
+rating=-1.00
+
+# 2444727
+type=video
+name=British Eurosport
+thumb=http://images.atlas.metabroadcast.com/pressassociation.com/channels/p131771.png
+URL=rtmp://80.82.64.140:443/liverepeater playpath=28 swfUrl=http://popeoftheplayers.eu/atdedead.swf pageUrl=http://popeoftheplayers.eu/player3.php?id=22&width=600&height=450 token=#atd%#$ZH
+player=default
+rating=-1.00
+
+# 2405276
+type=video
+name=Eurosport UK (Updated 01.02.15)
+thumb=http://www.livep2pstream.com/tv_channels/logo/british_eurosport.jpg
+URL=http://esioslive6-i.akamaihd.net/hls/live/202874/AL_P_ESP1_INTER_ENG/playlist_1000.m3u8
+player=default
+rating=-1.00
+
+# 2393314
+type=video
+name=Eurosport 2 UK (Updated 17.02.15)
+thumb=https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTKZrXpUBSWp7JSYxSIEB49jYiPQiu1O3l8JIOhaV7A3_7LC-Yf
+URL=rtmp://80.82.64.140:443/liverepeater playpath=21  swfUrl=http://popeoftheplayers.eu/atdedead.swf  pageUrl=http://popeoftheplayers.eu/player3.php?id=47&width=600&height=450 token=#atd%#$ZH
+player=default
+rating=-1.00
+
+# 2447479
+type=video
+name=WWE Network
+thumb=http://oyster.ignimgs.com/wordpress/stg.ign.com/2014/01/image0021.jpg
+URL=rtmp://80.82.78.26:443/liverepeater playpath=49 swfUrl=http://popeoftheplayers.eu/atdedead.swf pageUrl=http://popeoftheplayers.eu/crichd.php?id=49&width=600&height=450 token=#atd%#$ZH
+player=default
+rating=-1.00
+
+# 2436998
+type=video
+name=NBA TV
+thumb=http://www.allanhouston.com/wp-content/uploads/sites/7/2013/02/nba-tv-logo.png
+URL=rtmp://213.152.180.159:1935/stream/ playpath=0f5bZcQBIw.stream swfUrl=http://thecdn.04stream.com/p/ooolo1.swf live=1 pageUrl=http://www.04stream.com/ebb.php?adsp=other&width=600&height=460&st=1474b4j5b5l5p393v416n274s214y2s2b424w2u2v2t24394&adx=&stream=6474b4j554f4t2u2n5a4t2k5644443n234m5z264u3a4t3o4v456t254w2q274w203p2t274x2z34303y3p2o5a4j5c574o3o4r4i2k4j4v5k474n33574a414p4h4z33456t2y3s2p2l51313s274d4z284236324q264m554o5v2r2m5a4u274t254a484g54484z2o2y2t2343434t2y3s2p224&sooor=Ng==&str=is&ok=&cat=2&link=1&idom=ifirstrow.eu
+player=default
+rating=-1.00
+
+# 2447478
+type=video
+name=MLB Network
+thumb=http://upload.wikimedia.org/wikipedia/en/thumb/a/ac/MLBNetworkLogo.svg/993px-MLBNetworkLogo.svg.png
+URL=rtmp://109.123.70.38:80/live playpath=mlbxx swfUrl=http://p.jwpcdn.com/6/11/jwplayer.flash.swf pageUrl=http://reytv.co/embedu.php?live=mlbxx&vw=620&vh=490
+player=default
+rating=-1.00
+
+# 2355157
+type=video
+name=PAC 12 National
+thumb=http://hd-report.com/wp-content/uploads/2013/09/pac-12-logo-shield.jpg
+URL=http://xrxs.net/video/live-p12netw-4728.m3u8
+player=default
+rating=-1.00
+
+# 2446115
+type=video
+name=Pac 12 Encore
+thumb=http://static1.squarespace.com/static/509ac5d5e4b011ec8327ecea/t/540e03bde4b084aa62385e73/1410204606274/
+URL=http://xrxs.net/video/live-p12oreg-4728.m3u8
+player=default
+rating=-1.00
+
+# 2355165
+type=video
+name=Big Ten Network
+thumb=http://bigtennetworks.files.wordpress.com/2011/10/new-logo-square.jpg?w=582
+URL=http://bigten247.cdnak.bigtenhd.neulion.com/nlds/btn2go/btnnetwork/as/live/btnnetwork_hd_3000.m3u8
+player=default
+rating=-1.00
+
+# 2444745
+type=video
+name=PTV Sports
+thumb=http://sohail786.com/wp-content/uploads/2014/02/ptv-sports.png
+URL=rtmp://80.82.78.87:443/liverepeater playpath=33 swfUrl=http://popeoftheplayers.eu/atdedead.swf live=1 pageUrl=http://popeoftheplayers.eu/crichd.php?id=28&width=530&height=370 token=#atd%#$ZH
+player=default
+rating=-1.00
+
+# 2444716
+type=video
+name=NBC Golf
+thumb=http://www.protracer.se/wp-content/uploads/2014/01/golfchannel_logo.png
+URL=rtmp://31.220.0.195:80/live playpath=golf swfUrl=http://p.jwpcdn.com/6/11/jwplayer.flash.swf pageUrl=http://reytv.co/embedo.php?live=skysports2&vw=620&vh=490 token=%Zrey(nKa@#Z
+player=default
+rating=-1.00
+
+# 2395255
+type=video
+name=CDN Sportsmax Caribbean
+thumb=http://www.caribbeanlogos.com/wp-content/uploads/2013/08/sportmax-vector-logo.jpg
+URL=rtmp://108.168.206.90/cdnsm playpath=cdnsm swfUrl=http://cdn.com.do/wp-content/themes/cdn/js/player.swf live=1 timeout=13 pageUrl=http://cdn.com.do/
+player=default
+rating=-1.00
+
+# 2422871
+type=video
+name=Fox Sports Latino
+thumb=http://img4.wikia.nocookie.net/__cb20140414164158/logopedia/images/6/6f/Logo_fox_sports.png
+URL=rtmp://31.204.153.72/live/fsb
+player=default
+rating=-1.00
+
+# 2374332
+type=video
+name=Tile Sport
+thumb=http://www.freeetv.com/images/01_logo/tile_sport_tv.jpg
+URL=rtmp://tv1.streampulse.eu/tilesport/movie1
+player=default
+rating=-1.00
+
+# 2444746
+type=video
+name=Autosports TV
+thumb=http://www.haymarket.com/images/brands/media/name/Autosport_logo_Mar095.jpg
+URL=mms://100automoto.tv/100livesport
+player=default
+rating=-1.00
+
+# 2239239
+type=video
+name=Motorsport 7 Channel Australia
+URL=http://motorsport.hopto.org:8080/
+player=default
+rating=-1.00
+
+# 2247160
+type=video
+name=Classic Goals
+thumb=http://564ccca6a641eac6e5b0-38e3bbf162f44470d3635a7244f7971b.r55.cf3.rackcdn.com/classic-goals-channel-images-logo-large.png?1366109057
+URL=rtsp://46.249.213.93/broadcast/classicgoals-tablet.3gp
+player=default
+rating=-1.00
+
+# 2444743
+type=video
+name=Sevilla TV
+thumb=https://encrypted-tbn2.gstatic.com/images?q=tbn:ANd9GcTB4NnKOqN9UjyEXMN6ndg3yHcppwkkFDwLYTDE4v-QeUgy_r7T
+URL=rtmp://flash0.80137-live0.dna.qbrick.com:80/80137-live0/ playpath=sevillafc swfUrl=http://p.jwpcdn.com/6/11/jwplayer.flash.swf live=1 timeout=13 pageUrl=http://free-itv.com/
+player=default
+rating=-1.00
+
+# 2355194
+type=video
+name=Bursaspor TV
+thumb=http://spordostu.com/images/kanallar/spor%20kanllar%C4%B1/bstv.jpg
+URL=http://stream.yayindayiz.biz/Bursaspor/bursaspor/playlist.m3u8
+player=default
+rating=-1.00
+
+# 2441294
+type=video
+name=Galatasaray Tv
+thumb=https://lh4.ggpht.com/1jHV--dh1vx14Uhr9bmjTt4uJNT06IdqV9GMUvvwWlqsTFDGRyLKCHL0gDL-mTfb4w=w170
+URL=http://bit.do/Gstv
+player=default
+rating=-1.00
+
+# 2446565
+type=video
+name=NTV Spor
+thumb=http://resim.tekparcahdizle.com/ntv-spor-logo-resmi.jpg
+URL=http://origin.live.web.tv.streamprovider.net/streams/a820629b8abc43c73c76b091086c138a_live_0_0/index.m3u8
+player=default
+rating=-1.00
+
+# 2359117
+type=video
+name=Sports TV
+thumb=http://www.dream-box.tv/_Media/Images/ProjectBlock/Works/Logos/SportsTv/Big3.jpg
+URL=rtmp://stream.sportstv.com.tr/sportstv/SportsTV3
+player=default
+rating=-1.00
+
+# 2447569
+type=video
+name=Rai Sport 1
+thumb=http://www.stream2watch.com/images/thumbs/raisport1%20live%20stream.gif
+URL=mmsh://212.162.68.163:80/raisport+
+player=default
+rating=-1.00
+
+# 2447570
+type=video
+name=Rai Sport 2
+thumb=http://www.livep2ptvstream.com/logo/rai_sport_2.jpg
+URL=mmsh://212.162.68.163:80/raisport2
+player=default
+rating=-1.00
+
+# 2448232
+type=video
+name=The Fighter Channel HD
+URL=http://87.248.160.8/edge/smil:boet/playlist.m3u8
+player=default
+rating=-1.00
+
+# 2446187
+type=video
+name=Sports Tonight Live
+thumb=http://media15.tv/img/client-SportsTonight.jpg
+URL=rtmp://freeview.fms.visionip.tv/live/sports_tonight-sports_tonight-live-25f-16x9-HD
+player=default
+rating=-1.00
+
+# 2217748
+type=video
+name=SportTime Tv
+thumb=http://4.bp.blogspot.com/_zCEQKhb-j7A/SnwL-yO64AI/AAAAAAAAACM/1jMEY9veOJ8/s1600/sportime.jpg
+URL=rtmp://streamer.a1.net:1935/rtmplive/redundant/channels/Sporttime/SporttimeTV/mp4:channel3_1200
+player=default
+rating=-1.00
+
+# 2223163
+type=video
+name=SportTime Tv 1
+thumb=http://3.bp.blogspot.com/-EJ-hh3uLb3A/UQzRvI1_l0I/AAAAAAAADPg/Al-RFf-Mcuk/s1600/Sport%2BTime%2BTv.pngg
+URL=rtmp://streamer.a1.net:1935/rtmplive/redundant/channels/Sporttime/SporttimeTV/mp4:channel5_1200
+player=default
+rating=-1.00
+
+# 2446566
+type=video
+name=Dubai Sports
+thumb=http://cdnhwedubaitv.endavomedia.com/images/media/8/8ae799361a400ca58db9ea99e91ab463-8.png
+URL=rtmp://31.220.2.149:80/live/ playpath=tsnx5 token=%Zrey(nKa@#Z swfUrl=http://p.jwpcdn.com/6/12/jwplayer.flash.swf live=1 timeout=13 pageUrl=http://yotv.co
+player=default
+rating=-1.00
+
+# 2447472
+type=video
+name=Sports Night (Sports Debate Station)
+URL=rtmp://freeview.fms.visionip.tv/live/sports_tonight-sports_tonight-live-25f-16x9-SD
+player=default
+rating=-1.00
+
+
+# cached

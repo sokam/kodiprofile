@@ -1,0 +1,315 @@
+version=1
+title=Fuck it I'm gonna make my own with booze and gambling and hookers
+
+type=playlist
+name=Sorted by user-assigned order
+icon=http://media.navi-x.org/images/icons/2downarrow.png
+URL=http://www.navixtreme.com/playlist/145124/fuck_it_im_gonna_make_my_own_with_booze_and_gambling_and_hookers.plx?action=sortsel&cur=ord
+
+# 2495491
+type=playlist
+name=Sukis trukis
+URL=http://www.navixtreme.com/playlist/154367/sukis_trukis.plx
+player=default
+rating=-1.00
+
+# 2479819
+type=video
+name=falling skies 01
+URL=http://www.novamov.com/video/4ed350b1d6990
+processor=http://www.navixtreme.com/sproc/novamov
+player=default
+rating=-1.00
+
+# 2479818
+type=video
+name=Falling skies s1 e1
+URL=https://www.youtube.com/watch?v=dNjflVK1Scw
+processor=http://www.navixtreme.com/proc/youtube
+player=default
+rating=-1.00
+
+# 2479484
+type=video
+name=Dragon ball super 01
+URL=http://www.videoweed.es/file/e36f0d173a75c
+processor=http://www.navixtreme.com/justme4u2c/processors/Videoweed.php
+player=default
+rating=-1.00
+
+# 2479059
+type=video
+name=The blacklist s2 e1
+URL=http://daclips.in/au5x2xacud0j
+processor=http://www.navixtreme.com/boseman/static/daclips
+player=mplayer
+rating=-1.00
+
+# 2478071
+type=video
+name=Terminator Genesys
+URL=http://www.videoweed.es/file/e5ef6031f5e68
+processor=http://www.navixtreme.com/justme4u2c/processors/Videoweed.php
+player=default
+rating=-1.00
+
+# 2472806
+type=video
+name=got s5 e9
+URL=http://www.nowvideo.sx/video/69c4842fb1366
+processor=http://www.navixtreme.com/wlfwood/processors/nowvideo.txt
+player=default
+rating=-1.00
+
+# 2459880
+type=video
+name=tha flash ep 3
+URL=http://www.nowvideo.sx/video/8b72dd814c92c
+processor=http://www.navixtreme.com/wlfwood/processors/nowvideo.txt
+player=default
+rating=-1.00
+
+# 2459686
+type=video
+name=breaknig bad s5 e6 nova
+URL=http://www.novamov.com/video/a7b16559c4bbb
+processor=http://www.navixtreme.com/sproc/novamov
+player=default
+rating=-1.00
+
+# 2459685
+type=video
+name=breaking bad s5e6
+URL=http://www.thevideo.me/7c54iusxd8t7
+player=default
+rating=-1.00
+
+# 2459639
+type=image
+name=TPB
+URL=rtmp://$OPT:rtmp-raw=rtmpe://192.99.39.7/80901/tpb02 swfUrl=http://www.tgun.tv/embeds2/jwplayer.flash.swf pageUrl=http://www.tgun.tv/embeds2/index.html?tpb02 - See more at: http://ohaxo.blogspot.ca/2015/04/film-iptv-rtmp.html#sthash.VUfbJrOp.dpuf
+player=default
+rating=-1.00
+
+# 2459637
+type=image
+name=tbbt 2
+URL=rtmp://$OPT:rtmp-raw=rtmpe://192.99.45.55:1935/goLive/0UaLPa3s4FMdGVa9h8dh swfUrl=http://cdn.zerocast.tv/player/aaaaa.swf pageUrl=http://zerocast.tv/embed.php?a token=OOG17t.x#K9Vh#| - See more at: http://ohaxo.blogspot.ca/2015/04/film-iptv-rtmp.html#sthash.VUfbJrOp.dpuf
+player=default
+rating=-1.00
+
+# 2459635
+type=image
+name=tbbt
+URL=rtmp://$OPT:rtmp-raw=rtmp://192.99.21.184:1935/blink02202afghadfgfodfndanfkjncvnjvnkjfhfgjhadfvandkjcnbjkadgbutoarihn playpath=tbbt01 swfUrl=http://www.tgun.tv/embeds2/jwplayer.flash.swf pageUrl=http://www.tgun.tv/embeds2/index.html?tbbt01 - See more at: http://ohaxo.blogspot.ca/2015/04/film-iptv-rtmp.html#sthash.VUfbJrOp.dpuf
+player=default
+rating=-1.00
+
+# 2459634
+type=image
+name=Scrubs 2
+URL=rtmp://$OPT:rtmp-raw=rtmpe://167.114.157.191:1935/goLive/MtM1xpWzfFbdNvSK0mRo swfUrl=http://cdn.zerocast.tv/player/aaaaa.swf pageUrl=http://zerocast.in/embed.php?a=1 token=OOG17t.x#K9Vh#| - See more at: http://ohaxo.blogspot.ca/2015/04/film-iptv-rtmp.html#sthash.VUfbJrOp.dpuf
+player=default
+rating=-1.00
+
+# 2459633
+type=image
+name=Scrubs
+URL=rtmp://$OPT:rtmp-raw=rtmp://192.99.38.122/app playpath=scrubs02 swfUrl=http://www.tgun.tv/lock/player.swf live=1 pageUrl=http://www.tgun.tv/menus/players/playerindex3.php?scrubs01
+player=default
+rating=-1.00
+
+# 2459631
+type=image
+name=Futurama
+URL=rtmp://192.99.21.184/closing012//2501?byfreeiptvlinks.com
+player=default
+rating=-1.00
+
+# 2454272
+type=image
+name=Action Movies
+URL=http://veetle.com/index.php/hls/streamMbrFast/54742dbc2e6cf_/stream.m3u
+processor=http://www.navixtreme.com/boseman/static/veetle
+player=default
+rating=-1.00
+
+# 2452792
+type=image
+name=The Big Bang & Family Guy & American Friends
+URL=http://veetle.com/index.php/hls/streamMbrFast/5559d48924780_/stream.m3u
+processor=http://www.navixtreme.com/boseman/static/veetle
+player=default
+rating=-1.00
+
+# 2452728
+type=image
+name=Dragon Ball
+URL=rtmp://demo.iblups.com/demo playpath=buvRTQMUNQ swfUrl=http://iblups.com/playertvlive123456789.swf?autostart=true&config=configplayer%2Ephp%3Fid%3D8341 live=1 pageUrl=http://iblups.com/e_richenginner-610-420
+player=default
+rating=-1.00
+
+# 2452722
+type=image
+name=HBo 2
+URL=rtmp://178.18.31.61:443/liverepeater playpath=191881 swfUrl=http://biggestplayer.cachefly.net/gofuckyourself.swf live=1 pageUrl=http://biggestplayer.me/stream.php?id=191881&width=700&height=450   token=#atd%#$ZH
+player=default
+rating=-1.00
+
+# 2452430
+type=image
+name=Big Bang
+URL=http://veetle.com/index.php/hls/streamMbrFast/554a6d1378e9c_/stream.m3u
+processor=http://www.navixtreme.com/boseman/static/veetle
+player=default
+rating=-1.00
+
+# 2452382
+type=image
+name=Top Gear
+URL=http://veetle.com/index.php/hls/streamMbrFast/5285079c2c9e5_/stream.m3u
+processor=http://www.navixtreme.com/boseman/static/veetle
+player=default
+rating=-1.00
+
+# 2452381
+type=image
+name=King of the Hill
+URL=http://veetle.com/index.php/hls/streamMbrFast/4f9436ece56e2_/stream.m3u
+processor=http://www.navixtreme.com/boseman/static/veetle
+player=default
+rating=-1.00
+
+# 2452173
+type=image
+name=The Office
+URL=http://veetle.com/index.php/hls/streamMbrFast/5294e75c5cbd6_/stream.m3u
+processor=http://www.navixtreme.com/boseman/static/veetle
+player=default
+rating=-1.00
+
+# 2452136
+type=image
+name=South Park
+URL=http://veetle.com/index.php/hls/streamMbrFast/541c316fe8423_/stream.m3u
+processor=http://www.navixtreme.com/boseman/static/veetle
+player=default
+rating=-1.00
+
+# 2451877
+type=image
+name=Paradise
+URL=http://46.249.213.93/iPhone/HLS_TS/broadcast/hotshots-tablet.3gp/hotshots-tablet.3gp-mr649k.m3u8
+player=default
+rating=-1.00
+
+# 2448319
+type=video
+name=Dead Race 3 inferno
+URL=http://www.nowvideo.sx/video/b95pjtulicv9f
+processor=http://www.navixtreme.com/wlfwood/processors/nowvideo.txt
+player=default
+rating=-1.00
+
+# 2446794
+type=playlist
+name=Dragon Ball Latino
+URL=http://www.navixtreme.com/playlist/151117/dragon_ball_latino.plx
+player=default
+rating=-1.00
+
+# 2446788
+type=video
+name=Solteron Sin Compromiso
+URL=https://www.youtube.com/watch?v=1SpfWTu15uc&list=PLK6sQGoYxVgc2aR3AdY1jQsPjeJsE2qbJ&index=1
+processor=http://www.navixtreme.com/proc/youtube
+player=default
+rating=-1.00
+
+# 2443973
+type=image
+name=Trailer Park Boys
+URL=rtmpe://192.99.38.122/rizla01/tpb02 swfUrl=http://www.tgun.tv/embeds2/jwplayer.flash.swf pageUrl=http://www.tgun.tv/embeds2/index.html?tpb02
+player=default
+rating=-1.00
+
+# 2443972
+type=image
+name=That 70's show
+URL=rtmp://$OPT:rtmp-raw=rtmp://192.99.21.184:1935/blink02202afghadfgfodfndanfkjncvnjvnkjfhfgjhadfvandkjcnbjkadgbutoarihn playpath=that70sshow swfUrl=http://www.tgun.tv/embeds2/jwplayer.flash.swf pageUrl=http://www.tgun.tv/embeds2/index.html?that70sshow - See more at: http://ohaxo.blogspot.ca/2015/04/film-iptv-rtmp.html#sthash.VUfbJrOp.dpuf
+player=default
+rating=-1.00
+
+# 2443971
+type=image
+name=How I met your mother
+URL=rtmp://$OPT:rtmp-raw=rtmpe://192.99.39.7/80901/himym02 swfUrl=http://www.tgun.tv/embeds2/jwplayer.flash.swf pageUrl=http://www.tgun.tv/embeds2/index.html?himym02 - See more at: http://ohaxo.blogspot.ca/2015/04/film-iptv-rtmp.html#sthash.VUfbJrOp.dpuf
+player=default
+rating=-1.00
+
+# 2443970
+type=image
+name=Big Bang Theory
+URL=rtmp://watch4.streamlive.to:1935/edge/_definst_
+player=default
+rating=-1.00
+
+# 2443969
+type=image
+name=Anger Management
+URL=rtmp://$OPT:rtmp-raw=rtmp://192.99.21.184:1935/blink02202afghadfgfodfndanfkjncvnjvnkjfhfgjhadfvandkjcnbjkadgbutoarihn playpath=anger02 swfUrl=http://www.tgun.tv/embeds2/jwplayer.flash.swf pageUrl=http://www.tgun.tv/embeds2/index.html?anger02 - See more at: http://ohaxo.blogspot.ca/2015/04/film-iptv-rtmp.html#sthash.VUfbJrOp.dpuf
+player=default
+rating=-1.00
+
+# 2443636
+type=image
+name=Cp24
+URL=rtmpe://ams-lp3.9c9media.com/hls-live/livepkgr/_definst_/liveeventNoDRM/cp24Open8.m3u8
+player=default
+rating=-1.00
+
+# 2443585
+type=image
+name=Live Pop
+URL=rtmpe://91.201.78.3:1935/live playpath=pophd swfUrl=http://www.livehd.tv/player/player.swf pageUrl=http://www.livehd.tv/live.php?stream=rock&resolution=hd token= timeout=15 live=true
+player=default
+rating=-1.00
+
+# 2443479
+type=image
+name=Showtime
+URL=rtmpe://167.114.65.139:1935/goLive playpath=kbMD64czDshAmjDd4kxQ swfUrl=http://p.jwpcdn.com/6/11/jwplayer.flash.swf flashver=WIN/16,0,0,305 timeout=15 token=OOG17t.x#K9Vh#| live=1swfVfy=1 pageUrl=http://zerocast.tv/
+player=default
+rating=-1.00
+
+# 2443476
+type=image
+name=HBO HD
+URL=rtmpe://167.114.65.139:1935/goLive playpath=qKmzUdRhBM73njBBDFyL swfUrl=http://p.jwpcdn.com/6/11/jwplayer.flash.swf flashver=WIN/16,0,0,305 timeout=15 token=OOG17t.x#K9Vh#| live=1swfVfy=1 pageUrl=http://zerocast.tv/
+player=default
+rating=-1.00
+
+# 2443475
+type=image
+name=AMC
+URL=rtmpe://167.114.65.139:1935/goLive playpath=TfRQx7deUAuncJwM047m swfUrl=http://p.jwpcdn.com/6/11/jwplayer.flash.swf flashver=WIN/16,0,0,305 timeout=15 live=1swfVfy=1 pageUrl=http://zerocast.tv/ token=OOG17t.x#K9Vh#|
+player=default
+rating=-1.00
+
+# 2443451
+type=image
+name=Cartoon Network
+URL=http://hls.svc.moyo.tv/hls/CH_CARTOON/variant.m3u8?version=2
+player=default
+rating=-1.00
+
+# 2443430
+type=image
+name=mtv
+URL=rtmpe://167.114.65.139:1935/goLive playpath=7U8HX14EnQVGCFy swfUrl=http://p.jwpcdn.com/6/11/jwplayer.flash.swf flashver=WIN/16,0,0,305 timeout=15 token=OOG17t.x#K9Vh#| live=1swfVfy=1 pageUrl=http://zerocast.tv/
+processor=http://www.navixtreme.com/proc/simple/72746d70653a2f2f3136372e3131342e36352e3133393a313933352f676f4c69766520706c6179706174683d37553848583134456e5156474346792073776655726c3d687474703a2f2f702e6a777063646e2e636f6d2f362f31312f6a77706c617965722e666c6173682e737
+player=dvdplayer
+rating=-1.00
+
+
+# cached

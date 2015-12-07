@@ -1,0 +1,13 @@
+version=1
+title=bbc
+
+# 979407
+type=video
+name=bbc
+URL=rtmp://media2.lsops.net/live/playpath=bbcnews_en_high.sdp
+playpath=http://www.livestation.com/flash/player/5.4/player.swf
+player=default
+rating=-1.00
+
+
+# cached

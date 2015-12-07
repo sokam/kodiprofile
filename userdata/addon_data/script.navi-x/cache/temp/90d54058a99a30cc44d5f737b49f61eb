@@ -1,0 +1,254 @@
+version=1
+background=http://f0.pepst.com/c/9C5AF4/342032/ssc3/home/080/pravinsatpute/live_tv_5134713877728624213.gif_480_480_0_64000_0_1_0.gif
+title=Live tv X
+logo=http://www.livestream.com/filestore/logos/6a941358-6c7f-2ebf-e8ac-b05f4f338270-banner.png
+icon_playlist=https://pbs.twimg.com/profile_images/1819814350/tv.png
+
+type=playlist
+name=Sorted [COLOR=FF00FF00]by user-assigned order[/COLOR]
+icon=http://media.navi-x.org/images/icons/2downarrow.png
+URL=http://www.navixtreme.com/playlist/146444/live_tv_x.plx?action=sortsel&cur=ord
+
+# 2410165
+type=video
+name=ABC
+thumb=http://nowwatchtvlive.com/wp-content/uploads/2011/07/ABC-channel-logo.jpeg
+URL=rtmp://rtmp.zerocast.tv:1935/live/ playpath=rGCi7bg0Qxvs8q7Sl13l swfUrl=http://p.jwpcdn.com/6/10/jwplayer.flash.swf live=1 flashver=WIN\202012,0,0,77 timeout=15 token=8964316ec8772dfa live=1swfVfy=1 pageUrl=http://zerocast.tv
+player=default
+rating=-1.00
+
+# 2410166
+type=video
+name=AMC
+thumb=http://ecx.images-amazon.com/images/I/81bThs35TbL.png
+URL=rtmp://rtmp.zerocast.tv:1935/live/ playpath=TfRQx7deUAuncJwM047m swfUrl=http://p.jwpcdn.com/6/10/jwplayer.flash.swf live=1 flashver=WIN\202012,0,0,77 timeout=15 token=8964316ec8772dfa live=1swfVfy=1 pageUrl=http://zerocast.tv
+player=default
+rating=-1.00
+
+# 2410950
+type=video
+name=American Dad
+thumb=http://fc06.deviantart.net/fs71/f/2011/100/d/1/icon_folders_tv_series_by_euterpemusa-d3dputg.png
+URL=http://www.videoweed.es/file/4z7blifw3kngw
+processor=http://www.navixtreme.com/justme4u2c/processors/Videoweed.php
+player=default
+rating=-1.00
+
+# 2410175
+type=video
+name=BOX NATION
+thumb=http://mvp.tribesgds.com/dyn/nL/dP/nLdPmgTVCgE/_/tIIyubfFgL0/3vlg/box-nation-logo.png
+URL=rtmpe://46.246.124.26:1935/live/ playpath=sboxn  swfUrl=http://www.hdcast.org/j2/jwplayer.flash.swf pageUrl=http://www.hdcast.org/ live=1 token=#yw%tt#w@kku
+player=default
+rating=-1.00
+
+# 2410176
+type=video
+name=THE BOX
+thumb=http://www.vodprofessional.com/media/718429/boxtv.jpg
+URL=http://goo.gl/MCBwlo
+player=default
+rating=0.00
+
+# 2410183
+type=video
+name=CBS
+thumb=http://www.wired.com/images_blogs/photos/uncategorized/2007/05/30/cbs_logo.jpg
+URL=rtmp://rtmp.zerocast.tv:1935/live/ playpath=Ger61uLQ4fedzvjRjrB7   swfUrl=http://p.jwpcdn.com/6/10/jwplayer.flash.swf live=1 flashver=WIN\202012,0,0,77 timeout=15 token=8964316ec8772dfa live=1swfVfy=1 pageUrl=http://zerocast.tv
+player=default
+rating=-1.00
+
+# 2410184
+type=video
+name=CINEMAX
+thumb=http://cdn3-www.craveonline.com/assets/uploads/2012/11/file_200527_0_Cinemax_Originals.jpg
+URL=rtmp://nonamehdfree.dyndns.org:443/limelight?t=guest49.213.28.72 playpath=00_cinemaxhd_360p?t=guest49.213.28.72 swfUrl=https://nonamehd.com/playerv3.swf live=1 pageUrl=https://nonamehd.com/users/get_your_stream_free/3/185/360p
+player=default
+rating=-1.00
+
+# 2410200
+type=video
+name=FOX 5 USA
+thumb=http://rsm.haber365.com/H/16_fox-tv-logo.jpg
+URL=rtmp://rtmp.zerocast.tv:1935/live/ playpath=9pxGCtP3aEnJYgoBFFH8 swfUrl=http://p.jwpcdn.com/6/10/jwplayer.flash.swf live=1 flashver=WIN\202012,0,0,77 timeout=15 token=8964316ec8772dfa live=1swfVfy=1 pageUrl=http://zerocast.tv
+player=default
+rating=-1.00
+
+# 2410202
+type=video
+name=FOX MOVIES FAMILY
+thumb=http://www.carbon.tv/blog/wp-content/uploads/2010/06/FOX_Family_STILLs_04.jpg
+URL=rtmp://nonamehdfree.dyndns.org:443/limelight?t=guest49.213.28.72 playpath=02_foxfamilyhd_360p?t=guest49.213.28.72 swfUrl=https://nonamehd.com/playerv3.swf live=1 pageUrl=https://nonamehd.com/users/get_your_stream_free/3/188/360p
+player=default
+rating=-1.00
+
+# 2410203
+type=video
+name=FOX MOVIES PREMIUM
+thumb=http://upload.wikimedia.org/wikipedia/vi/thumb/d/de/Fox_Movies_Premium.png/111px-Fox_Movies_Premium.png
+URL=rtmp://nonamehdfree.dyndns.org:443/limelight app=limelight?t=guest playpath=02_foxmovies_360p swfUrl=https://nonamehd.com/playerv3.swf flashver=WIN\2013,0,0,214 pageUrl=https://nonamehd.com l
+player=default
+rating=-1.00
+
+# 2410206
+type=video
+name=FX USA
+thumb=http://i2.cdnds.net/10/04/M/tv_fx_logo.jpg
+URL=rtmp://rtmp.zerocast.tv:1935/live/ playpath=VCV8SViFVBv2nX5RQwKI swfUrl=http://p.jwpcdn.com/6/10/jwplayer.flash.swf live=1 flashver=WIN\202012,0,0,77 timeout=15 token=3a439185c0f4b61f swfVfy=1 pageUrl=http://zerocast.tv
+player=default
+rating=-1.00
+
+# 2410209
+type=video
+name=HBO HD
+thumb=http://3.bp.blogspot.com/-6EMMjlNCkJ4/UZWSF6IMgeI/AAAAAAAAAb0/bfp2kPO8i3I/s1600/hbohd.jpg
+URL=rtmp://nonamehdfree.dyndns.org:443/limelight?t=guest49.213.28.72 playpath=02_hbohd_360p?t=guest49.213.28.72 swfUrl=https://nonamehd.com/playerv3.swf live=1 pageUrl=https://nonamehd.com/users/get_your_stream_free/3/188/360p
+player=default
+rating=-1.00
+
+# 2410945
+type=video
+name=HBO USA
+thumb=http://www.homeboxoffice.com/bulkmarkets/img/logos/HBO_MakeRoom_Black.jpg
+URL=rtmp://rtmp.zerocast.tv:1935/live playpath=qKmzUdRhBM73njBBDFyL swfUrl=http://p.jwpcdn.com/6/10/jwplayer.flash.swf live=1 flashver=WIN\202012,0,0,77 timeout=15 token=8964316ec8772dfa live=1swfVfy=1 pageUrl=http://zerocast.tv
+player=default
+rating=-1.00
+
+# 2410229
+type=video
+name=MAN UTD TV
+thumb=http://i2.cdnds.net/13/04/300x225/media-mutv-logo.jpg
+URL=rtmp://nonamehdfree.dyndns.org:443/limelight app=limelight?t=guest playpath=99_mutv_360p swfUrl=https://nonamehd.com/playerv3.swf flashver=WIN\2013,0,0,214 pageUrl=https://nonamehd.com live=1 timeout=15
+player=default
+rating=-1.00
+
+# 2410230
+type=video
+name=MARRIED WITH CHILDREN 24/7
+thumb=http://cdn2.hellogiggles.com/wp-content/uploads/2013/12/08/Married-With-Children-Cast.jpg
+URL=rtmp://192.99.38.122/app/ playpath=mwc02 swfUrl=http://www.tgun.tv/lock/player.swf pageUrl=http://tgun.tv/shows/ch1/?b?b*t$ playpath=mwc02
+player=default
+rating=-1.00
+
+# 2410163
+type=video
+name=MBC 2
+thumb=http://b.vimeocdn.com/ts/347/553/347553907_640.jpg
+URL=rtmp://94.102.56.186:1936/live2 playpath=Hi_mbc2 swfUrl=http://iptv-planet.com/swfs/player.swf live=1 pageUrl=http://iptv-planet.com/embed.php?id=Hi_mbc2&width=600&height=400
+player=default
+rating=-1.00
+
+# 2410231
+type=video
+name=MGM
+thumb=http://www.lyngsat-logo.com/logo/tv/mm/mgm_channel_pt.jpg
+URL=rtmp://109.200.202.124/live playpath=mgm swfUrl=http://www.tv-msn.com/player5.swf pageUrl=http://tv-msn.com/mgm.html
+player=default
+rating=-1.00
+
+# 2410238
+type=video
+name=NBC
+thumb=http://4.bp.blogspot.com/-ue454B078eU/UXu8y2e3k5I/AAAAAAAAIFg/1VJnwWI0V7E/s400/110113100008_NBC+Logo.jpg
+URL=rtmp://rtmp.zerocast.tv:1935/live/ playpath=3GdoAHRAxgZNzmQZL29l  swfUrl=http://p.jwpcdn.com/6/10/jwplayer.flash.swf live=1 flashver=WIN\202012,0,0,77 timeout=15 token=8964316ec8772dfa live=1swfVfy=1 pageUrl=http://zerocast.tv
+player=default
+rating=-1.00
+
+# 2410239
+type=video
+name=NBCSN
+thumb=http://www.milb.com/assets/images/5/3/0/56738530/cuts/NBCSN_onm95p8a_g6notz62.jpg
+URL=rtmpe://46.246.124.24:1935/live/ playpath=snbcsports swfUrl=http://www.hdcast.org/j2/jwplayer.flash.swf live=1 pageUrl=http://www.hdcast.org/embedlive.php?u=snbcsports&vw=854&vh=480&domain=streamhd.eu token=#yw%tt#w@kku --live
+player=default
+rating=-1.00
+
+# 2410242
+type=video
+name=NICKELODEON USA
+thumb=https://yt3.ggpht.com/-IFYZiHpYx30/AAAAAAAAAAI/AAAAAAAAAAA/POV6RKgJrtY/s88-c-k-no/photo.jpg
+URL=rtmp://rtmp.zerocast.tv:1935/live/ playpath=fCqfhb14WwwFbAsDbV3Z swfUrl=http://p.jwpcdn.com/6/10/jwplayer.flash.swf live=1 flashver=WIN\202012,0,0,77 timeout=15 token=8964316ec8772dfa live=1swfVfy=1 pageUrl=http://zerocast.tv
+player=default
+rating=-1.00
+
+# 2410953
+type=video
+name=Showtime
+thumb=http://cdn3-www.craveonline.com/assets/uploads/2012/12/file_202059_0_Showtime_Logo.jpg
+URL=rtmpe://46.246.124.87:1935/live/ playpath=show99 swfUrl=http://prvservers.com/j/jwplayer.flash.swf pageUrl=http://prvservers.com/ token=#yw%tt#w@kku
+player=default
+rating=-1.00
+
+# 2410955
+type=video
+name=Showtime
+thumb=http://cdn3-www.craveonline.com/assets/uploads/2012/12/file_202059_0_Showtime_Logo.jpg
+URL=rtmp://rtmp.zerocast.tv:1935/live/ playpath=kbMD64czDshAmjDd4kxQ  swfurl=http://p.jwpcdn.com/6/10/jwplayer.flash.swf live=1 flashver=WIN\202012,0,0,77 timeout=15 token=8964316ec8772dfa swfVfy=1  pageurl=http://zerocast.tv/
+player=default
+rating=0.00
+
+# 2410258
+type=video
+name=SKY MOVIES CRIME&THRILLER
+thumb=http://img1.wikia.nocookie.net/__cb20100803181019/logopedia/images/d/d5/Sky_Movies_2010.png
+URL=rtmp://109.123.70.15:80/live playpath=mov3 swfUrl=http://www.flashtv.co/ePlayerr.swf live=1 pageUrl=http://www.flashtv.co/embed.php?live=mov3&vw=620&vh=490 token=%ZZri(nKa@#Z
+player=default
+rating=-1.00
+
+# 2410266
+type=video
+name=SKYMOVIES SCI-FI
+thumb=http://img1.wikia.nocookie.net/__cb20100803181019/logopedia/images/d/d5/Sky_Movies_2010.png
+URL=rtmp://109.123.70.15:80/live playpath=mov2 swfUrl=http://www.flashtv.co/ePlayerr.swf live=1 pageUrl=http://www.flashtv.co/embed.php?live=mov2&vw=620&vh=490 token=%ZZri(nKa@#Z
+player=default
+rating=-1.00
+
+# 2410270
+type=video
+name=SPIKE
+thumb=http://www.marketingshift.com/resources/spike_logo.gif
+URL=rtmp://rtmp.zerocast.tv:1935/live/ playpath=5MHkm6cQaL5rJZpCSL1C swfUrl=http://p.jwpcdn.com/6/10/jwplayer.flash.swf live=1 flashver=WIN\202012,0,0,77 timeout=15 token=8964316ec8772dfa live=1swfVfy=1 pageUrl=http://zerocast.tv
+player=default
+rating=-1.00
+
+# 2410957
+type=video
+name=SYFY
+thumb=http://www.primetime2go.com/images/network_logos/Syfy_Network_Icon_150x112.png
+URL=rtmpe://46.246.124.87:1935/live/ playpath=syfi9 swfUrl=http://prvservers.com/j/jwplayer.flash.swf pageUrl=http://prvservers.com/ token=#yw%tt#w@kku
+player=default
+rating=-1.00
+
+# 2410280
+type=video
+name=TNT
+thumb=http://static.tvgcdn.net/MediaBin/Content/120514/News/3_wed/tnt-logo1.jpg
+URL=rtmp://rtmp.zerocast.tv:1935/live/ playpath=Waz0WqvbqNHmt0gdzrsm swfUrl=http://p.jwpcdn.com/6/10/jwplayer.flash.swf live=1 flashver=WIN\202012,0,0,77 timeout=15 token=8964316ec8772dfa live=1swfVfy=1 pageUrl=http://zerocast.tv
+player=default
+rating=-1.00
+
+# 2410282
+type=video
+name=TRU TV
+thumb=http://static.twcableuntangled.com/wp-content/uploads/2011/03/trutv_logo1.jpg
+URL=rtmp://107.161.31.7/live//test3
+player=default
+rating=-1.00
+
+# 2410295
+type=video
+name=USA NETWORK
+thumb=http://14bb18348568cf6c48ec-cde16cf5c35d33e882e13bbe648f334c.r8.cf2.rackcdn.com/wp-content/uploads/2012/06/USA_characters_welcome_logo.jpg
+URL=rtmp://rtmp.zerocast.tv:1935/live/ playpath=jvZXQUYQmlsPirfiVK1G  swfUrl=http://p.jwpcdn.com/6/10/jwplayer.flash.swf live=1 flashver=WIN\202012,0,0,77 timeout=15 token=8964316ec8772dfa live=1swfVfy=1 pageUrl=http://zerocast.tv
+player=default
+rating=-1.00
+
+# 2410946
+type=video
+name=WGN CHICAGO
+thumb=http://www.integralcorp.com/images/wgntv-c.jpg
+URL=http://wgntribune-lh.akamaihd.net/i/WGNTribune_1@109089/master.m3u8
+player=default
+rating=-1.00
+
+
+# cached

@@ -1,0 +1,28 @@
+version=3
+background=previous
+logo=http://havana.navixtreme.com/Playlists/navixlogo.png
+title=Navi-X updates
+
+
+type=script:navi-x
+name=Navi-X v4.0 (All XBMC platforms)
+URL=https://offshoregit.com/xbmchub/xbmc-hub-repo/raw/master/script.navi-x/script.navi-x-4.0.zip
+
+type=script:navi-x
+name=Navi-X v3.8.2 (All XBMC platforms)
+URL=http://offshoregit.com/navixtreme/navi-x-support-files/raw/master/files/Navi-X-3.8.2.zip
+
+type=script:navi-x
+name=Navi-X v3.8.1 (All XBMC platforms)
+URL=http://offshoregit.com/navixtreme/navi-x-support-files/raw/master/files/Navi-X-3.8.1.zip
+
+
+type=script:navi-x
+name=Navi-X v3.8.0 (All XBMC platforms)
+URL=http://offshoregit.com/navixtreme/navi-x-support-files/raw/master/files/Navi-X-3.8.0.zip
+
+
+type=text
+name=Release Notes
+URL=http://havana.navixtreme.com/Playlists//releasenotes.txt
+

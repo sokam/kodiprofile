@@ -1,0 +1,896 @@
+version=1
+background=http://s2.desktopia.net/wp-content/uploads/walls/thumbs/Home-Cinema-575x359.jpg
+title=[COLOR=FF33ffff] Live TV Channels[/COLOR] for XMBC ONLY
+logo=http://farm8.staticflickr.com/7077/7245034036_1cbd93f3cc_m.jpg
+icon_playlist=http://farm8.staticflickr.com/7077/7245034036_1cbd93f3cc_m.jpg
+
+type=playlist
+name=Sorted by user-assigned order
+icon=http://media.navi-x.org/images/icons/2downarrow.png
+URL=http://www.navixtreme.com/playlist/71062/_live_tv_channels_for_xmbc_only.plx?action=sortsel&cur=ord
+
+# 1193739
+type=video
+name=trans tv
+URL=rtmp://us.live.mytrans.com/live/ playpath= trans7@3.sdp swfUrl: http://us.mytrans.com/js/player2.swf pageUrl: http://us.mytrans.com/live_streaming/trans7/
+player=default
+rating=-1.00
+
+# 1177843
+type=video
+name=TEST
+URL=rtmp://ioslivetv.net/stream/z990103.stream swfUrl=http://www.xuuby.com/player/player-licensed.swf
+player=default
+rating=-1.00
+
+# 1177844
+type=video
+name=FX
+URL=rtmp://74.63.88.206:1935/live playpath=00003.stream swfUrl=http://www.xuuby.com/player/player-licensed.swf   swfUrl=http://www.skyhdone.com/player/skyonehd.com.swf pageUrl=http://www.skyhdone.com/stream.php?n=00003.stream live=1
+player=default
+rating=-1.00
+
+# 1177845
+type=video
+name=Nat Geo SD
+URL=rtmp://tv02.hdvnbits.org/live/NaGeoHD.stream swfUrl=http://tv.hdvnbits.org/plugins/player.swf live=true pageURL=http://tv.hdvnbits.org/nageo-hd.17.html 10;VN - Thao
+player=default
+rating=-1.00
+
+# 1177846
+type=video
+name=AXN HD
+URL=rtmp://tv02.hdvnbits.org/live/AXNHD.stream swfUrl=http://tv.hdvnbits.org/plugins/player.swf live=true pageURL=http://tv.hdvnbits.org/axn-hd.16.html 9;VN - NaGeo
+player=default
+rating=-1.00
+
+# 1177847
+type=video
+name=Star Movies HD
+URL=rtmp://tv02.hdvnbits.org/live/StarMovieHD.stream swfUrl=http://tv.hdvnbits.org/plugins/player.swf live=true pageURL=http://tv.hdvnbits.org/star-movie-hd.3.html 3;
+player=default
+rating=-1.00
+
+# 1177848
+type=video
+name=Disney Channel
+URL=rtmp://tv02.hdvnbits.org/live/DisneyHD.stream swfUrl=http://tv.hdvnbits.org/plugins/player.swf live=true pageURL=http://tv.hdvnbits.org/disney-hd.4.html 5;VN - HBO
+player=default
+rating=-1.00
+
+# 1177849
+type=video
+name=1 -- BBC HD
+thumb=http://upload.wikimedia.org/wikipedia/commons/thumb/a/a4/BBC_HD.svg/1000px-BBC_HD.svg.png
+URL=rtmp://tv.webport.tv/ilt/z010201.stream swfUrl=http://www.tvsector.com/wp-content/uploads/jw-player-plugin-for-wordpress/player/player.swf live=true pageURL=http://www.futubox.com/
+player=default
+rating=-1.00
+
+# 1177850
+type=video
+name=2 -- BBC Two
+thumb=http://www.lyngsat-logo.com/hires/bb/bbc2_scotland.png
+URL=rtmp://rtsp-02.g-box.tv/tv2mobile/ playpath=bbc2_4228.sdp swfurl=http://static.ilive.to/jwplayer/player.swf pageurl=rtmp://rtsp-02.g-box.tv/BBC 2 on k1m05 Live TV
+player=default
+rating=-1.00
+
+# 1177851
+type=video
+name=Channel 4
+thumb=http://www.google.ca/url?source=imglanding&ct=img&q=http://flowtv.org/wp-content/uploads/2009/04/channel4.png&sa=X&ei=nSZtT-LzH-ff0QGXppSyBg&ved=0CAkQ8wc&usg=AFQjCNEfv1re3OtO9Q7lO_-0dMEfBBfZww
+URL=rtmp://rtsp-02.g-box.tv/tv2mobile/c4_8384.sdp swfUrl=http://www.shadownet.ro/webplayer/player1.swf live=true pageUrl=http://www.shadow-net.info/Channel 4 on k1m05 Live TV
+rating=-1.00
+
+# 1177852
+type=video
+name=Animal Planet HD
+thumb=http://upload.wikimedia.org/wikipedia/en/7/71/287px-Animal_Planet_HD.png
+URL=rtmp://tv.webport.tv/ilt/z050001.stream swfUrl=http://www.tvsector.com/wp-content/uploads/jw-player-plugin-for-wordpress/player/player.swf live=true pageURL=http://www.futubox.com/
+player=default
+rating=-1.00
+
+# 1177853
+type=video
+name=Bio HD (CI HD after 6)
+thumb=http://upload.wikimedia.org/wikipedia/commons/thumb/f/fc/The_Biography_Channel.svg/1000px-The_Biography_Channel.svg.png
+URL=rtmp://tv.webport.tv/stream/z050239.stream swfUrl=http://www.tvsector.com/wp-content/uploads/jw-player-plugin-for-wordpress/player/player.swf live=true pageURL=http://www.futubox.com/
+player=default
+rating=-1.00
+
+# 1177854
+type=video
+name=Cartoon Network
+thumb=default
+URL=rtmp://121.241.249.136:1935/livefeed/CARTOONNETWORK_QVGA.sdp swfUrl=http://bubastvshack.com/jwplayer/player.swf live=true timeout=10 swfVfy=true pageUrl=http://www.bubastv shack.com/html/live_tv/cartoon_network_embed.html
+player=default
+rating=-1.00
+description=Poor Quality/description
+
+# 1177855
+type=video
+name=CBS 1
+thumb=http://www.lyngsat-logo.com/hires/cc/cbs.png
+URL=rtmp://178.33.225.75/edge/gatal7q1rxxzdbf swfUrl=http://static.ilive.to/jwplayer/player.swf pageUrl=http://www.ilive.to/CBS on k1m05 Live TV
+player=default
+rating=-1.00
+description=Not the best quality :)/description
+
+# 1177856
+type=video
+name=CBS 2
+thumb=http://www.lyngsat-logo.com/hires/cc/cbs.png
+URL=rtmp://176.31.231.57/edge/b0vlexgcfalvrc0 swfUrl=http://static.ilive.to/jwplayer/player.swf pageUrl=http://www.ilive.to/CBS on k1m05 Live TV
+player=default
+rating=-1.00
+description=Poor Quality/description
+
+# 1177857
+type=video
+name=CCTV News
+URL=rtmp://tv.webport.tv/ilt/z050222.stream swfUrl=http://www.tvsector.com/wp-content/uploads/jw-player-plugin-for-wordpress/player/player.swf live=true pageURL=http://www.futubox.com/
+player=default
+rating=-1.00
+
+# 1177858
+type=video
+name=Chelsea TV
+thumb=http://www.yes.tv/image/logo/chelseatv_logo.png
+URL=rtmp://cp96798.live.edgefcs.net/live/ playpath=ChelTV_Ch01_1000k@26291 swfUrl=http://player.tv-stream.to/player.swf live=1 pageUrl=http://www.lagerassassin.eu/Chelsea TV on k1m05 Live TV
+rating=1.00
+
+# 1177859
+type=video
+name=Cinemax HD
+URL=rtmp://tv.webport.tv/ilt/z050221.stream swfUrl=http://www.tvsector.com/wp-content/uploads/jw-player-plugin-for-wordpress/player/player.swf live=true pageURL=http://www.futubox.com/
+player=default
+rating=-1.00
+
+# 1177860
+type=video
+name=Comedy Central HD
+thumb=http://upload.wikimedia.org/wikipedia/en/thumb/3/34/Comedy_Central_UK.svg/1000px-Comedy_Central_UK.svg.png
+URL=rtmp://tv.webport.tv/ilt/z020503.stream swfUrl=http://www.tvsector.com/wp-content/uploads/jw-player-plugin-for-wordpress/player/player.swf live=true pageURL=http://www.futubox.com/
+player=default
+rating=-1.00
+
+# 1177861
+type=video
+name=Comedy Central US
+thumb=http://www.lyngsat-logo.com/hires/cc/comedy_central.png
+URL=rtmp://c51.webcaston.com/live/channel/ playpath=comdy swfUrl=http://www.webcaston.com/player/player.swf live=true pageUrl=http://www.webcaston.com/embed.php
+player=default
+rating=-1.00
+description=Currently Stutters :(/description
+
+# 1177862
+type=video
+name=Crafts
+URL=rtmp://live.simplestreamcdn.net/idealworld/chan=createandcraft playpath=createandcraft2 swfUrl=http://www.idealworld.tv/common/flash/showpage/liveplayer.swf live=true pageURL=http://www.idealworld.tv/WatchTvLive.aspx
+player=default
+rating=-1.00
+
+# 1177863
+type=video
+name=The CW (USA)
+thumb=http://www.lyngsat-logo.com/hires/kk/kjct_dt3_cw_grand_junction.png
+URL=rtmp://109.163.236.116/streamhq/122811 swfUrl=http://streamhq.tv/player/skin2/player.swf live=true pageUrl=http://streamhq.tv/CW on k1m05 Live TV
+player=default
+rating=-1.00
+description=Poor Quality!/description
+
+# 1177864
+type=video
+name=Discovery Channel US
+thumb=http://www.lyngsat-logo.com/hires/dd/discovery.png
+URL=rtmp://122.160.220.49/live/DISCOVERYCHANNEL_HVGA.sdp playpath=DISCOVERYCHANNEL_HVGA.sdp live=1 pageurl=http://www.google.com/Discovery Channel on k1m05 Live TV
+player=default
+rating=-1.00
+description=Poor quality/description
+
+# 1177865
+type=video
+name=Discovery HD
+thumb=http://www.mhptv.com/images/discoveryLogo.jpg
+URL=rtmp://tv.webport.tv/ilt/z050240.stream swfUrl=http://www.tvsector.com/wp-content/uploads/jw-player-plugin-for-wordpress/player/player.swf live=true pageURL=http://www.futubox.com/
+player=default
+rating=-1.00
+
+# 1177866
+type=video
+name=Discovery Science
+thumb=http://www.lyngsat-logo.com/hires/dd/discovery_science_ca.png
+URL=rtmp://122.160.220.49:1935/live/DISCOVERYSCIENCE_HVGA.sdp pageurl=http://www.google.ca/Discovery Science on k1m05 Live TV
+player=default
+rating=-1.00
+description=Poor quality/description
+
+# 1177867
+type=video
+name=Discovery Turbo US
+thumb=http://www.lyngsat-logo.com/hires/dd/discovery_turbo_uk.png
+URL=rtmp://122.160.220.49/live/DISCOVERYTURBO_HVGA.sdp playpath=DISCOVERYTURBO_HVGA.sdp swfurl=none pageurl=http://www.google.ca/Discovery Turbo on k1m05 Live TV
+player=default
+rating=-1.00
+description=Poor quality/description
+
+# 1177868
+type=video
+name=Disney  HD
+thumb=http://upload.wikimedia.org/wikipedia/commons/a/aa/Disney_XD_HD.png
+URL=rtmp://tv.webport.tv/ilt/z020101.stream swfUrl=http://www.tvsector.com/wp-content/uploads/jw-player-plugin-for-wordpress/player/player.swf live=true pageURL=http://www.futubox.com/
+player=default
+rating=-1.00
+
+# 1177869
+type=video
+name=Disney Channel US
+URL=rtmp://46.105.109.122:1935/edge playpath=4x4lgo51isxpur0 swfUrl=http://cdn.static.ilive.to/jwplayer/player.swf live=true pageURL=http://www.ilive.to/
+player=default
+rating=-1.00
+
+# 1177870
+type=video
+name=DIY Network
+thumb=http://www.lyngsat-logo.com/hires/dd/diy_network_ca.png
+URL=rtmp://76.10.210.209/streami/streamdoiturself-yqkj.flv live=1 swfUrl=http://streami.tv/files/fp/flowplayer.securestreaming.swfswfVfy=true token=VyPxYFDj4BvxtVv7 pageUrl=http://streami.tv/DIY Network on k1m05 Live TV
+player=default
+rating=-1.00
+
+# 1177871
+type=video
+name=Dolce Sport
+thumb=default
+URL=rtmp://fms30.mediadirect.ro:1935/live3?id=14703526/dolcesport_low swfurl=http://static.mediadirect.ro/player-preload/swf/preloader/preloader.swf live=true
+player=default
+rating=-1.00
+description=Mainly football (foreign language)/description
+
+# 1177872
+type=video
+name=E4 HD
+thumb=http://upload.wikimedia.org/wikipedia/en/thumb/1/18/E4_%28channel%29_logo.svg/1000px-E4_%28channel%29_logo.svg.png
+URL=rtmp://tv.webport.tv/ilt/z050233.stream swfUrl=http://www.tvsector.com/wp-content/uploads/jw-player-plugin-for-wordpress/player/player.swf live=true pageURL=http://www.futubox.com/
+player=default
+rating=-1.00
+
+# 1177873
+type=video
+name=ESPN 2 US
+thumb=http://www.lyngsat-logo.com/hires/ee/espn_2.png
+URL=rtmp://176.31.231.124/edge/lcqno4fe87bgfps.flv swfUrl=http://cdn.static.ilive.to/jwplayer/player.swf live=true pageUrl=http://www.ilive.to/ESPN 2
+player=default
+rating=-1.00
+description=poor quality/description
+
+# 1177874
+type=video
+name=ESPN America HD
+thumb=http://upload.wikimedia.org/wikipedia/de/thumb/d/db/ESPN_America.svg/1000px-ESPN_America.svg.png
+URL=rtmp://tv.webport.tv/ilt/z050201.stream swfUrl=http://www.tvsector.com/wp-content/uploads/jw-player-plugin-for-wordpress/player/player.swf live=true pageURL=http://www.futubox.com/
+player=default
+rating=-1.00
+
+# 1177875
+type=video
+name=Eurosport HD
+thumb=http://upload.wikimedia.org/wikipedia/de/thumb/c/cb/Eurosport_2_HD.svg/1000px-Eurosport_2_HD.svg.png
+URL=rtmp://tv.webport.tv/ilt/z010601.stream swfUrl=http://www.tvsector.com/wp-content/uploads/jw-player-plugin-for-wordpress/player/player.swf live=true pageURL=http://www.futubox.com/
+player=default
+rating=-1.00
+
+# 1177876
+type=video
+name=Eurosport 2 HD
+thumb=http://upload.wikimedia.org/wikipedia/de/thumb/c/cb/Eurosport_2_HD.svg/1000px-Eurosport_2_HD.svg.png
+URL=rtmp://tv.webport.tv/ilt/z010301.stream swfUrl=http://www.tvsector.com/wp-content/uploads/jw-player-plugin-for-wordpress/player/player.swf live=true pageURL=http://www.futubox.com/
+player=default
+rating=-1.00
+
+# 1177877
+type=video
+name=Film 4 HD
+thumb=http://www.lyngsat-logo.com/hires/ff/film4.png
+URL=rtmp://tv.webport.tv/ilt/ playpath=z050230.stream swfUrl=http://www.tvsector.com/wp-content/uploads/jw-player-plugin-for-wordpress/player/player.swf pageUrl=http://www.tvsector.com/Film HD on k1m05 Live TV
+player=default
+rating=-1.00
+
+# 1177878
+type=video
+name=Food Network US
+thumb=default
+URL=rtmp://live.zcast.us:1935/liveorigin/_definst_/ playpath=arecibo-6642 swfUrl=http://player.zcast.us/player.swf live=true swfVfy=true timeout=10 pageUrl=http://domitv.com/?p=231
+player=default
+rating=-1.00
+description=Poor quality/description
+
+# 1177879
+type=video
+name=FOX 11
+thumb=http://www.lyngsat-logo.com/hires/kk/krxi_fox11_reno.png
+URL=rtmp://31.193.12.66/histreamEd2/televisafox swfUrl=http://www.xuuby.com/player/player-licensed.swf live=true pageUrl=http://www.xuuby.com/Fox on k1m05 Live TV
+player=default
+rating=-1.00
+
+# 1177880
+type=video
+name=FOX 13
+thumb=http://www.lyngsat-logo.com/hires/ff/fox.png
+URL=rtmp://176.31.231.57/edge/ju1xg67bcmshy6r swfUrl=http://www.ilive.to/jwplayer/player.swf live=true pageUrl=http://www.ilive.to/Fox on k1m05 Live TV
+player=default
+rating=-1.00
+
+# 1177881
+type=video
+name=Fox Crime HD
+URL=rtmp://tv.webport.tv/ilt/z050209.stream swfUrl=http://www.tvsector.com/wp-content/uploads/jw-player-plugin-for-wordpress/player/player.swf live=true pageURL=http://www.futubox.com/
+player=default
+rating=-1.00
+
+# 1177882
+type=video
+name=Fox Crime US
+thumb=http://www.lyngsat-logo.com/hires/ff/fox_crime.png
+URL=rtmp://31.193.12.66/histreamEd2/televisafoxcrime swfUrl=http://www.xuuby.com/player/player-licensed.swf live=true pageUrl=http://www.xuuby.com/Fox Crime on k1m05 Live TV
+player=default
+rating=-1.00
+
+# 1177883
+type=video
+name=Fox HD (Native)
+thumb=default
+URL=rtmp://tv.webport.tv/ilt/z050224.stream swfUrl=http://www.tvsector.com/wp-content/uploads/jw-player-plugin-for-wordpress/player/player.swf  pageUrl=http://www.tvsector.com/fox-hd  live=true
+player=default
+rating=-1.00
+description=Could be some english?/description
+
+# 1177884
+type=video
+name=FOX Life
+thumb=http://www.lyngsat-logo.com/hires/ff/fox_life_pt.png
+URL=rtmp://31.193.12.66/histreamEd2/televisafoxlife swfUrl=http://www.xuuby.com/player/player-licensed.swf live=true pageUrl=http://www.xuuby.com/Fox Lifeon k1m05 Live TV
+player=default
+rating=-1.00
+
+# 1177885
+type=video
+name=Fox Movies
+thumb=http://www.lyngsat-logo.com/hires/ff/fox_movies_middle_east.png
+URL=rtmp://31.193.12.66/histreamEd2/televisafoxmovies swfUrl=http://www.xuuby.com/player/player-licensed.swf live=true pageUrl=http://www.xuuby.com/Fox Movies on k1m05 Live TV
+player=default
+rating=-1.00
+description=Poor quality/description
+
+# 1177886
+type=video
+name=Fox HD
+URL=rtmp://s7.webport.tv/live playpath=z050210.stream pageUrl=http://www.tvsector.com live=1 swfUrl=http://www.tvsector.com/wp-content/uploads/jw-player-plugin-for-wordpress/player/player.swf
+player=default
+rating=-1.00
+
+# 1177887
+type=video
+name=Fuel TV
+thumb=http://www.lyngsat-logo.com/hires/ff/fuel_tv_au.png
+URL=rtmp://31.193.12.66/histreamEd2/ playpath=televisafueltv  swfUrl=http://www.xuuby.com/player/player-licensed.swf live=true pageUrl=http://www.xuuby.com/Fuel TV
+rating=-1.00
+
+# 1177888
+type=video
+name=FX HD
+thumb=http://upload.wikimedia.org/wikipedia/commons/thumb/e/e3/FX_2008_logo.svg/1000px-FX_2008_logo.svg.png
+URL=rtmp://tv.webport.tv/ilt/z050232.stream swfUrl=http://www.tvsector.com/wp-content/uploads/jw-player-plugin-for-wordpress/player/player.swf live=true pageURL=http://www.futubox.com/
+player=default
+rating=-1.00
+
+# 1177889
+type=video
+name=HBO Max
+thumb=http://www.hbomax.tv/temas/ribbons/imagenes/log_hbomax.png
+URL=rtmp://streamer.istreamlive.net/133_182/ playpath=maxhd swfUrl=http://tv-msn.com/player/player.swf live=true pageUrl=http://tv-msn.com/MAX on k1m05 Live TV
+rating=-1.00
+
+# 1177890
+type=video
+name=HBO Plus
+thumb=http://upload.wikimedia.org/wikipedia/commons/3/3d/HBO_Plus.png
+URL=rtmp://streamer.istreamlive.net/133_182/ playpath=hboplus swfUrl=http://cdnmastertv.net/flash/header4_fv8.swf live=1 pageUrl=http://www.tv-msn.com/HBO Plus on k1m05 Live TV
+rating=0.00
+
+# 1177891
+type=video
+name=HGTV HD
+thumb=default
+URL=rtmp://fms3.tikilive.com:1935/view/25503_121/stream25503 playpath=stream25503 swfurl=http://www.tikilive.com/public/flash/viewerModules/player/PlayerModule.swf live=true pageUrl=http://www.tikilive.com
+rating=-1.00
+
+# 1177892
+type=video
+name=History HD
+thumb=http://www.logotypes101.com/files/887/7b701cb3925e9d0ca391256e9a1588de/lrg_History_Channel.gif
+URL=rtmp://tv.webport.tv/ilt playpath=z050248.stream pageUrl=http://ioslivetv.net swfUrl=http://ioslivetv.net/wp-content/uploads/jw-player-plugin-for-wordpress/player/player.swf live=1
+player=default
+rating=-1.00
+
+# 1177893
+type=video
+name=India TV
+thumb=default
+URL=rtmp://109.163.236.116/streamhq/127591.flv swfUrl=http://streamhq.tv/player/skin2/player.swf live=true pageUrl=http://streamhq.tv/
+player=default
+rating=-1.00
+
+# 1177894
+type=video
+name=Irish TV
+thumb=http://upload.wikimedia.org/wikipedia/commons/thumb/f/f4/Showcase2009.svg/1000px-Showcase2009.svg.png
+URL=rtmp://109.169.29.6/ShowcaseTV/livestream/ playpath=livestream swfUrl=http://109.169.29.6/jw/player-licensed.swf live=true pageURL=http://www.information.tv/WatchLive/FlashPlayer/
+player=default
+rating=-1.00
+description=Poor quality (Funny shit though)/description
+
+# 1177895
+type=video
+name=ITV2 HD
+thumb=http://upload.wikimedia.org/wikipedia/en/thumb/3/3c/ITV2_HD.svg/1000px-ITV2_HD.svg.png
+URL=rtmp://tv.webport.tv/ilt/z020102.stream swfUrl=http://www.tvsector.com/wp-content/uploads/jw-player-plugin-for-wordpress/player/player.swf live=true pageURL=http://www.futubox.com/
+player=default
+rating=-1.00
+
+# 1177896
+type=video
+name=ITV3 HD
+thumb=http://upload.wikimedia.org/wikipedia/en/thumb/e/ef/ITV3_HD.svg/1000px-ITV3_HD.svg.png
+URL=rtmp://tv.webport.tv/ilt/z020103.stream swfUrl=http://www.tvsector.com/wp-content/uploads/jw-player-plugin-for-wordpress/player/player.swf live=true pageURL=http://www.futubox.com
+player=default
+rating=-1.00
+
+# 1177897
+type=video
+name=M6 HD
+URL=rtmp://tv.webport.tv/ilt/z010106.stream swfUrl=http://www.tvsector.com/wp-content/uploads/jw-player-plugin-for-wordpress/player/player.swf live=true pageURL=http://www.futubox.com/
+player=default
+rating=-1.00
+
+# 1177898
+type=video
+name=MGM HD
+thumb=http://www.contentasia.tv/TBLlogo/MGM.jpg
+URL=rtmp://tv.webport.tv/ilt/z020401.stream swfUrl=http://www.tvsector.com/wp-content/uploads/jw-player-plugin-for-wordpress/player/player.swf live=true pageURL=http://www.futubox.com/
+player=default
+rating=-1.00
+
+# 1177899
+type=video
+name=Motors TV
+thumb=http://www.lyngsat-logo.com/hires/mm/motors_tv.png
+URL=rtmp://31.193.12.66/histreamEd2/ playpath=televisamotorstv swfurl=http://www.xuuby.com/player/p.swf app=histreamEd2 live=true pageUrl=http://www.xuuby.com/Motors TV on k1m05 Live TV
+rating=-1.00
+
+# 1177900
+type=video
+name=MTV Live HD
+thumb=http://upload.wikimedia.org/wikipedia/commons/f/f1/Mtv_live_hd_new_logo.png
+URL=rtmp://tv.webport.tv/ilt/z010001.stream swfUrl=http://www.tvsector.com/wp-content/uploads/jw-player-plugin-for-wordpress/player/player.swf live=true pageURL=http://www.futubox.com/
+player=default
+rating=-1.00
+
+# 1177901
+type=video
+name=MTV US
+thumb=http://www.lyngsat-logo.com/hires/mm/mtv_fr.png
+URL=rtmp://178.33.225.72/edge/k82tj57n564mf8t swfurl=http://static.ilive.to/jwplayer/player.swf pageurl=http://www.ilive.to/MTV on k1m05 Live TV
+player=default
+rating=-1.00
+description=Poor Quality/description
+
+# 1177902
+type=video
+name=N24 HD
+URL=rtmp://tv.webport.tv/ilt/z050008.stream swfUrl=http://www.tvsector.com/wp-content/uploads/jw-player-plugin-for-wordpress/player/player.swf live=true pageURL=http://www.futubox.com/
+player=default
+rating=-1.00
+
+# 1177903
+type=video
+name=National Geographic Wild HD
+URL=rtmp://tv.webport.tv/ilt/z050238.stream swfUrl=http://www.tvsector.com/wp-content/uploads/jw-player-plugin-for-wordpress/player/player.swf live=true pageURL=http://www.futubox.com/
+player=default
+rating=-1.00
+
+# 1177904
+type=video
+name=National Geographic Adventure HD
+thumb=http://dagfilmfest.org/img/sponsor/basin/3.png
+URL=rtmp://s5.futubox.com:1935/ilt/z050249.stream swfUrl=http://www.tvsector.com/wp-content/uploads/jw-player-plugin-for-wordpress/player/player.swf live=true pageURL=http://www.futubox.com/
+player=default
+rating=-1.00
+
+# 1177905
+type=video
+name=National Geographic HD
+thumb=http://upload.wikimedia.org/wikipedia/commons/2/22/Nat_Geo_HD.png
+URL=rtmp://tv.webport.tv/ilt/z050225.stream swfUrl=http://www.tvsector.com/wp-content/uploads/jw-player-plugin-for-wordpress/player/player.swf live=true pageURL=http://www.futubox.com/
+player=default
+rating=-1.00
+
+# 1177906
+type=video
+name=National Geographic US
+thumb=http://www.lyngsat-logo.com/hires/nn/nat_geo_tw.png
+URL=rtmp://31.193.12.66/histreamEd2/televisanationalgeographic swfUrl=http://www.xuuby.com/player/player-licensed.swf live=true pageUrl=http://www.xuuby.com/National Geographic on k1m05 Live TV
+player=default
+rating=-1.00
+description=Poor Quality/description
+
+# 1177907
+type=video
+name=NBA TV
+thumb=http://www.lyngsat-logo.com/hires/nn/nba_tv.png
+URL=rtmp://31.7.58.122:1935/stream/I8s9S4H7.stream playpath=N1V3R0h8.stream swfUrl=http://thecdn.04stream.com/p/bbp.swf live=true  pageUrl=http://www.04stream.com/NBA TV
+player=default
+rating=-1.00
+description=Poor Quality/description
+
+# 1177908
+type=video
+name=NBC
+thumb=http://www.lyngsat-logo.com/hires/nn/nbc.png
+URL=rtmp://176.31.237.177/edge/z6xnl2o41o50qjz swfUrl=http://www.ilive.to/jwplayer/player.swf pageUrl=http://www.ilive.to/NBC on k1m05 Live TV
+player=default
+rating=-1.00
+description=Poor Quality/description
+
+# 1177909
+type=video
+name=NHK World HD
+thumb=http://www.lyngsat-logo.com/hires/nn/nhk_world.png
+URL=rtmp://216.155.128.59:1935/2e2cd playpath=nhkworldhd.sdp swfUrl=http://www.livestation.com/flash/player/5.4/player.swf pageUrl=http://www3.nhk.or.jp/NHK World on k1m05 Live TV
+player=default
+rating=-1.00
+
+# 1177910
+type=video
+name=Nickelodeon
+thumb=http://www.lyngsat-logo.com/hires/nn/nick_pk.png
+URL=rtmp://cp108478.live.edgefcs.net/live/ swfUrl=http://tv.hdvnbits.org/plugins/player.swf live=true pageURL=http://www.wilmaa.com
+player=default
+rating=-1.00
+
+# 1177911
+type=video
+name=Press  TV
+URL=rtmp://presstv.fc.llnwd.net/presstv playpath=presstv_800 swfUrl=http://www.presstv.ir/live/llnw/LLNWPlayer.swf live=true pageURL=http://www.presstv.ir/live/llnw/
+player=default
+rating=-1.00
+
+# 1177912
+type=video
+name=Redbull Channel
+thumb=http://www.lyngsat-logo.com/hires/rr/red_bull_tv.png
+URL=rtmp://cp93704.live.edgefcs.net:443/live/redbull2@21839 playpath=redbull2@21839 swfurl=http://www.shadownet.ro/webplayer/player1.swf live=true swfVfy=true pageurl=http://www.1tv4u.net/Redbull on k1m05 Live TV
+player=default
+rating=-1.00
+
+# 1177913
+type=video
+name=RTE One
+thumb=http://www.lyngsat-logo.com/hires/rr/rte_one_plus1.png
+URL=rtmp://fmsod.rte.ie/live/rte1 swfUrl=http://www.rte.ie/player/assets/player_454.swf swfVfy=true live=true pageUrl=http://http://www.rte.ie/RTE 1 on k1m05 Live TV
+player=default
+rating=-1.00
+
+# 1177914
+type=video
+name=RTE Two
+thumb=http://www.lyngsat-logo.com/hires/rr/rte_two.png
+URL=rtmp://fmsod.rte.ie/live/rte2 swfUrl=http://www.rte.ie/player/assets/player_454.swf swfVfy=true live=true pageUrl=http://http://www.rte.ie/RTE 2 on k1m05 Live TV
+player=default
+rating=-1.00
+
+# 1177915
+type=video
+name=Showcase
+thumb=http://upload.wikimedia.org/wikipedia/commons/thumb/f/f4/Showcase2009.svg/1000px-Showcase2009.svg.png
+URL=rtmp://109.169.29.6/ShowcTV/livestream/ playpath=livestream swfUrl=http://109.169.29.6/jw/player-licensed.swf live=true pageURL=http://www.information.tv/WatchLive/FlashPlayer/
+player=default
+rating=-1.00
+description=Poor Quality/description
+
+# 1177916
+type=video
+name=Showtime Extreme
+thumb=http://www.lyngsat-logo.com/hires/ss/showtime_extreme.png
+URL=rtmp://38.96.175.173:1935/live/00011.stream swfUrl=http://www.skyonetv.com/player/skyonetv.com.swf live=true swfVfy=true pageUrl=http://www.skyonetv.com/Showtime Extreme on k1m05 Live TV
+player=default
+rating=-1.00
+
+# 1177917
+type=video
+name=Sky Action HD
+thumb=http://upload.wikimedia.org/wikipedia/en/thumb/8/8d/Sky_Movies.svg/1000px-Sky_Movies.svg.png
+URL=rtmp://s7.futubox.com:1935/ilt/z050237.stream swfUrl=http://www.tvsector.com/wp-content/uploads/jw-player-plugin-for-wordpress/player/player.swf live=true pageURL=http://www.futubox.com/
+player=default
+rating=-1.00
+
+# 1177918
+type=video
+name=Sky Arts
+URL=rtmp://s6.futubox.com:1935/ilt/z050242.stream swfUrl=http://www.tvsector.com/wp-content/uploads/jw-player-plugin-for-wordpress/player/player.swf live=true pageURL=http://www.futubox.com/
+player=default
+rating=-1.00
+
+# 1177919
+type=video
+name=Sky Cinema 1 HD
+URL=rtmp://s7.webport.tv/live playpath=z050207.stream pageUrl=http://www.tvsector.com live=1 swfUrl=http://www.tvsector.com/wp-content/uploads/jw-player-plugin-for-wordpress/player/player.swf
+player=default
+rating=-1.00
+
+# 1177920
+type=video
+name=Sky Cinema Hits HD
+URL=rtmp://s7.webport.tv/live playpath=z050211.stream pageUrl=http://www.tvsector.com live=1 swfUrl=http://www.tvsector.com/wp-content/uploads/jw-player-plugin-for-wordpress/player/player.swf
+player=default
+rating=-1.00
+
+# 1177921
+type=video
+name=Sky Cinema Max HD
+URL=rtmp://s7.webport.tv/live playpath=z050206.stream pageUrl=http://www.tvsector.com live=1 swfUrl=http://www.tvsector.com/wp-content/uploads/jw-player-plugin-for-wordpress/player/player.swf
+player=default
+rating=-1.00
+
+# 1177922
+type=video
+name=Sky Comedy HD
+thumb=http://upload.wikimedia.org/wikipedia/en/thumb/8/8d/Sky_Movies.svg/1000px-Sky_Movies.svg.png
+URL=rtmp://s5.futubox.com:1935/ilt/z050231.stream swfUrl=http://www.tvsector.com/wp-content/uploads/jw-player-plugin-for-wordpress/player/player.swf live=true pageURL=http://www.futubox.com/
+player=default
+rating=-1.00
+
+# 1177923
+type=video
+name=Sky Drama/Romance HD
+thumb=http://upload.wikimedia.org/wikipedia/en/thumb/8/8d/Sky_Movies.svg/1000px-Sky_Movies.svg.png
+URL=rtmp://s5.futubox.com:1935/ilt/z050229.stream swfUrl=http://www.tvsector.com/wp-content/uploads/jw-player-plugin-for-wordpress/player/player.swf live=true pageURL=http://www.futubox.com/
+player=default
+rating=-1.00
+
+# 1177924
+type=video
+name=Sky Family HD
+thumb=http://upload.wikimedia.org/wikipedia/en/thumb/8/8d/Sky_Movies.svg/1000px-Sky_Movies.svg.png
+URL=rtmp://s6.futubox.com:1935/ilt/z050234.stream swfUrl=http://www.tvsector.com/wp-content/uploads/jw-player-plugin-for-wordpress/player/player.swf live=true pageURL=http://www.futubox.com/
+player=default
+rating=-1.00
+
+# 1177925
+type=video
+name=Sky Modern Greats HD
+thumb=http://upload.wikimedia.org/wikipedia/en/thumb/8/8d/Sky_Movies.svg/1000px-Sky_Movies.svg.png
+URL=rtmp://s7.futubox.com:1935/ilt/z050228.stream swfUrl=http://www.tvsector.com/wp-content/uploads/jw-player-plugin-for-wordpress/player/player.swf live=true pageURL=http://www.futubox.com/
+player=default
+rating=-1.00
+
+# 1177926
+type=video
+name=Sky News HD
+thumb=http://upload.wikimedia.org/wikipedia/commons/thumb/c/c7/Sky_News.svg/1000px-Sky_News.svg.png
+URL=rtmp://s6.futubox.com:1935/ilt/z050227.stream swfUrl=http://www.tvsector.com/wp-content/uploads/jw-player-plugin-for-wordpress/player/player.swf live=true pageURL=http://www.futubox.com/
+player=default
+rating=-1.00
+
+# 1177927
+type=video
+name=Sky SciFi/Horror HD
+thumb=http://upload.wikimedia.org/wikipedia/en/thumb/8/8d/Sky_Movies.svg/1000px-Sky_Movies.svg.png
+URL=rtmp://s6.futubox.com:1935/ilt/z050230.stream swfUrl=http://www.tvsector.com/wp-content/uploads/jw-player-plugin-for-wordpress/player/player.swf live=true pageURL=http://www.futubox.com/
+player=default
+rating=-1.00
+
+# 1177928
+type=video
+name=Sky Sports 1 HD
+thumb=http://www.lyngsat-logo.com/hires/ss/sky_uk_sports_hd1.png
+URL=rtmp://s5.webport.tv/fb/z050241.stream swfUrl=http://www.tvsector.com/wp-content/uploads/jw-player-plugin-for-wordpress/player/player.swf live=true pageURL=http://www.futubox.com/
+player=default
+rating=-1.00
+
+# 1177929
+type=video
+name=Sky Sports 2
+thumb=http://cricfree.tv/images/sky2.png
+URL=rtmp://176.31.231.14/?rtmp://91.121.9.48/live/ playpath=channel5 swfUrl=http://247hdsports.net/P/player.swf app=?rtmp://91.121.9.48/live/ pageUrl=http://wrestle-zone.net.pk/f116/wrestle-zone-net-channel-5-a-105210/ live=1 timeout=10
+rating=-1.00
+
+# 1177930
+type=video
+name=Sky Sports F1
+thumb=http://www.lyngsat-logo.com/hires/ss/sky_uk_sports_f1.png
+URL=rtmp://176.31.105.140/liverepeater/_definst_/1F1247_13813swfUrl=http://tvbay.org/player4.0.swf live=true timeout=10 pageUrl=http://surk.tv/
+player=default
+rating=-1.00
+
+# 1177931
+type=video
+name=Sky Thriller HD
+thumb=http://upload.wikimedia.org/wikipedia/en/thumb/8/8d/Sky_Movies.svg/1000px-Sky_Movies.svg.png
+URL=rtmp://s5.futubox.com:1935/ilt/z050236.stream swfUrl=http://www.tvsector.com/wp-content/uploads/jw-player-plugin-for-wordpress/player/player.swf live=true pageURL=http://www.futubox.com/
+player=default
+rating=-1.00
+
+# 1177932
+type=video
+name=SkyPoker
+thumb=http://upload.wikimedia.org/wikipedia/en/6/64/Sky_Poker.png
+URL=rtmp://cp67698.live.edgefcs.net/live playpath=SkyPoker_500k@9124 swfUrl=http://www.estadio.in/player.swf live=true pageURL=http://www.estadio.in/skypoker
+player=default
+rating=-1.00
+
+# 1177933
+type=video
+name=Spike TV
+thumb=http://www.lyngsat-logo.com/hires/ss/spike_tv.png
+URL=rtmp://46.105.109.122/edge/ playpath=i2upqwwvgtqem6p swfurl=http://static.ilive.to/jwplayer/player.swf pageurl=http://www.ilive.to/Spike
+player=default
+rating=-1.00
+
+# 1177934
+type=video
+name=Sport Channel 1 HD
+URL=rtmp://s5.futubox.com:1935/ilt/z030103.stream swfUrl=http://www.tvsector.com/wp-content/uploads/jw-player-plugin-for-wordpress/player/player.swf live=true pageURL=http://www.futubox.com/
+player=default
+rating=-1.00
+
+# 1177935
+type=video
+name=Sport Time TV
+thumb=default
+URL=rtmp://flash.speednet.at:80/sporttime_playlist/Sporttime/ playpath=sporttimetv-1100 swfUrl=http://www.hdtvizle.com/proplayer/players/player.swf live=true pageUrl=http://www.hdtvizle.com
+rating=-1.00
+
+# 1177936
+type=video
+name=Sportitalia 24
+thumb=default
+URL=rtmp://213.205.44.145:1935/streamit/_definst_/solocalciolive
+rating=-1.00
+
+# 1177937
+type=video
+name=Sports 1
+thumb=default
+URL=rtmp://217.23.8.232/live/Paul2012 pageUrl=http://streamsdirect.info/forums/index.php swfurl=http://playerdump.99k.org/play.swf live=1
+player=default
+rating=-1.00
+description=Live sports feeds/description
+
+# 1177938
+type=video
+name=Sports 2
+thumb=default
+URL=rtmp://91.121.81.15:2195/live/?/Paulqwerty555432 pageUrl=http://streamsdirect.info/forums/index.php swfurl=http://sdflashplayer.comuf.com/flash/player.swf timeout=10 live=true
+player=default
+rating=-1.00
+description=Live sports feeds/description
+
+# 1177939
+type=video
+name=Sports Ukraine 1
+thumb=default
+URL=rtmp://212.40.43.10/sport1/sport1i1.stream
+rating=-1.00
+
+# 1177940
+type=video
+name=Sports Ukraine 2
+thumb=default
+URL=rtmp://212.40.43.10/sport1/sport2i1.stream
+rating=-1.00
+
+# 1177941
+type=video
+name=SYFY 2
+thumb=http://www.lyngsat-logo.com/hires/ss/syfy.png
+URL=rtmp://31.193.12.66/histreamEd2/televisasyfy swfUrl=http://www.xuuby.com/player/player-licensed.swf live=true pageUrl=http://www.xuuby.com/SYFY
+player=default
+rating=-1.00
+
+# 1177942
+type=video
+name=SYFY HD
+thumb=default
+URL=rtmp://s5.futubox.com:1935/ilt/z050241.stream swfUrl=http://www.tvsector.com/wp-content/uploads/jw-player-plugin-for-wordpress/player/player.swf live=true pageURL=http://www.futubox.com/
+player=default
+rating=-1.00
+
+# 1177943
+type=video
+name=SYFY
+thumb=http://www.lyngsat-logo.com/hires/ss/syfy_de.png
+URL=rtmp://178.33.225.75/edge/waq8p0r4sf8no28 swfurl=http://static.ilive.to/jwplayer/player.swf pageurl=http://www.ilive.to/SYFY
+player=default
+rating=-1.00
+
+# 1177944
+type=video
+name=TLC
+thumb=http://www.lyngsat-logo.com/hires/tt/tlc_balkan.png
+URL=rtmp://122.160.220.49:1935/live/TLC_HVGA.sdp
+player=default
+rating=-1.00
+description=Poor Quality/description
+
+# 1177945
+type=video
+name=TNT US
+thumb=http://www.lyngsat-logo.com/hires/tt/tnt.png
+URL=rtmp://46.19.141.138:1935/stream/ playpath=I8s9S4H7.stream swfUrl=http://thecdn.04stream.com/p/bbp.swf live=true pageUrl=http://04stream.com/TNT
+player=default
+rating=-1.00
+description=Poor quality/description
+
+# 1177946
+type=video
+name=TruTV
+thumb=http://www.lyngsat-logo.com/hires/tt/tru_tv.png
+URL=rtmp://178.33.225.75/edge/ftm1f5tw03fhfgd swfUrl=http://www.ilive.to/jwplayer/player.swf pageUrl=http://www.ilive.to/truTV
+player=default
+rating=-1.00
+
+# 1177947
+type=video
+name=Two and a Half Men 24/7
+thumb=http://img78.imageshack.us/img78/6424/twohalfmen.png
+URL=rtmp://176.31.231.124:1935/edge/b0vlexgcfalvrc0 swfUrl=http://cdn.static.ilive.to/jwplayer/player.swf swfVfy=1 live=true pageUrl=http://www.ilive.to/Two and a Half Men on k1m05 Live TV
+player=default
+rating=-1.00
+description=Poor Quality/description
+
+# 1177948
+type=video
+name=USA 1
+thumb=http://www.lyngsat-logo.com/hires/uu/usa_network.png
+URL=rtmp://176.31.231.57/edge/ playpath=1842npoa9yindpz swfurl=http://static.ilive.to/jwplayer/player.swf pageurl=http://www.ilive.to/USA
+player=default
+rating=-1.00
+
+# 1177949
+type=video
+name=USA 2
+thumb=http://www.lyngsat-logo.com/hires/uu/usa_network.png
+URL=rtmp://176.31.231.57/edge/xh9ce8u1sasscsg swfUrl=http://www.ilive.to/jwplayer/player.swf pageUrl=http://www.ilive.to/15761/USA_Networks tcUrl=rtmp://176.31.231.57/edge timeout=10
+player=default
+rating=-1.00
+
+# 1177950
+type=video
+name=VH1
+thumb=http://www.lyngsat-logo.com/hires/vv/vh1.png
+URL=rtmp://31.193.12.66/histreamEd2/televisavh1 swfUrl=http://www.xuuby.com/player/player-licensed.swf live=true pageUrl=http://www.xuuby.com/VH1 on k1m05 Live TV
+rating=-1.00
+
+# 1177951
+type=video
+name=Warner US
+thumb=http://www.lyngsat-logo.com/hires/ww/warner_channel_in.png
+URL=rtmp://liveflash.tv:1935/stream/_definst_/uarnerbroders07
+player=default
+rating=-1.00
+
+# 1177952
+type=video
+name=Viasat Hockey
+thumb=default
+URL=rtmp://91.121.81.15:2195/live/?/channel9 pageUrl=http://streamsdirect.info/forums/index.php swfurl=http://sdflashplayer.comuf.com/flash/player.swf live=1
+rating=-1.00
+
+# 1177953
+type=video
+name=Virgin 1
+thumb=http://www.lyngsat-logo.com/hires/vv/virgin_1_plus1.png
+URL=rtmp://fms.105.net:1935/live/virgin1 playpath=virgin1 swfurl=http://www.highermedia.com/assets/flash/jw_player.swf live=1 pageurl=http://www.google.com/Virgin 1
+rating=-1.00
+
+
+# cached

@@ -1,0 +1,13 @@
+version=1
+title=LP-Fox
+
+# 2290570
+type=video
+name=Fox 8 Cleveland
+URL=http://new.livestream.com/Fox8News/live
+processor=livestream
+player=default
+rating=-1.00
+
+
+# cached

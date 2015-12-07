@@ -1,0 +1,298 @@
+version=1
+background=http://jagwirefchs.com/wp-content/uploads/2015/02/Sports.png
+title=[COLOR  yellow]SPORTS TV CHANNELS[/COLOR]
+logo=http://jagwirefchs.com/wp-content/uploads/2015/02/Sports.png
+description=We show all the live football,  premiership, and other sports events. For full access please donate for 1 month subscription at http://easystreams.net/subscription/description
+
+type=playlist
+name=Sorted by user-assigned order
+icon=http://media.navi-x.org/images/icons/2downarrow.png
+URL=http://www.navixtreme.com/playlist/150825/sports_tv_channels.plx?action=sortsel&cur=ord
+
+# 2442033
+type=video
+name=Sky Sports 1  (Shows Premier League)
+thumb=http://www.goalzz.com/images/tv/sky_sports1.jpg
+URL=rtmpe://46.246.29.160:1935/l swfUrl=http://hdcast.org/eplayer.swf live=1 pageUrl=http://www.hdcast.org/embedlive4.php?u=sskys1&vw=650&vh=470&domain=cricbox.tv/amine1313dz token=Fo5_n0w?U.rA6l3-70w47ch playpath=sskys1
+player=default
+rating=-1.00
+
+# 2442034
+type=video
+name=Sky Sports 2.
+URL=rtmpe://46.246.29.160:1935/l swfUrl=http://hdcast.org/eplayer.swf live=1 pageUrl=http://www.hdcast.org/embedlive4.php?u=sskys2&vw=650&vh=470&domain=cricbox.tv/amine1313dz token=Fo5_n0w?U.rA6l3-70w47ch playpath=sskys2
+player=default
+rating=-1.00
+
+# 2442035
+type=video
+name=Sky Sports 3
+thumb=http://2.bp.blogspot.com/-Dv8hJXaRhFs/TnnFcx7LiNI/AAAAAAAAEas/sKOi_2hP0mo/s1600/SkySports3.gif
+URL=rtmpe://46.246.29.160:1935/l swfUrl=http://hdcast.org/eplayer.swf live=1 pageUrl=http://www.hdcast.org/embedlive4.php?u=sskys3&vw=650&vh=470&domain=cricbox.tv/amine1313dz token=Fo5_n0w?U.rA6l3-70w47ch playpath=sskys3
+player=default
+rating=-1.00
+
+# 2442036
+type=video
+name=Sky Sports 4
+thumb=http://i2.cdnds.net/09/53/160x120_broadcasting_ss4logo.jpg
+URL=rtmpe://46.246.29.160:1935/l swfUrl=http://hdcast.org/eplayer.swf live=1 pageUrl=http://www.hdcast.org/embedlive4.php?u=sskys4&vw=650&vh=470&domain=cricbox.tv/amine1313dz token=Fo5_n0w?U.rA6l3-70w47ch playpath=sskys4
+player=default
+rating=-1.00
+
+# 2442037
+type=video
+name=Sky Sports 5  (Shows Various Football)
+thumb=http://www.broadbandtvnews.com/wp-content/uploads/2014/08/Sky-Sports-5-300x167.jpeg
+URL=rtmp://80.82.64.140:443/liverepeater playpath=23 swfUrl=http://popeoftheplayers.pw/atdedead.swf live=1  token=#atd%#$ZH timeout=10 pageUrl=http://popeoftheplayers.eu/
+player=default
+rating=-1.00
+
+# 2442038
+type=video
+name=Sky Sports F1
+thumb=http://www.frocus.net/images/logotv/original/Sky_Sports_F1.jpg
+URL=rtmpe://46.246.29.160:1935/l playpath=sskysf1 swfUrl=http://hdcast.org/eplayer.swf live=1 pageUrl=http://www.hdcast.org/ token=Fo5_n0w?U.rA6l3-70w47ch
+player=default
+rating=-1.00
+
+# 2442039
+type=video
+name=Box Nation
+thumb=http://upload.wikimedia.org/wikipedia/commons/c/c3/BoxNation_logo.jpg
+URL=rtmpe://46.246.29.160:1935/l swfUrl=http://hdcast.org/eplayer.swf live=1 pageUrl=http://www.hdcast.org/embedlive4.php?u=sskys3&vw=650&vh=470&domain=cricbox.tv/amine1313dz token=Fo5_n0w?U.rA6l3-70w47ch playpath=sboxn
+player=default
+rating=-1.00
+
+# 2442040
+type=video
+name=BT Sports 1 (Shows Premier League)
+thumb=http://sport.bt.com/images/bt-sport-1-logo-136381974803410401-130801120118.jpg
+URL=rtmp://89.248.172.159:443/liverepeater playpath=13 swfUrl=http://popeoftheplayers.eu/atdedead.swf pageUrl=http://popeoftheplayers.eu/player3.php?id=13&width=600&height=450 token=#atd%#$ZH
+player=default
+rating=-1.00
+
+# 2442041
+type=video
+name=BT Sport 2
+thumb=http://sport.bt.com/images/bt-sport-2-logo-136381974821910401-130801120415.jpg
+URL=rtmp://89.248.172.159:443/liverepeater playpath=15 swfUrl=http://popeoftheplayers.eu/atdedead.swf pageUrl=http://popeoftheplayers.eu/player3.php?id=23&width=600&height=450 token=#atd%#$ZH
+player=default
+rating=-1.00
+
+# 2442042
+type=video
+name=NBCSN (Shows Premier League)
+thumb=http://www.broadcastingcable.com/photo/266/266263-nbcsn_logo_jpg.jpg
+URL=rtmp://w3.vmnode.pw:2195/live playpath=nbcsn swfUrl=http://skyaccess.se/vb/jwplayer/player-licensed.swf pageUrl=http://nodetower.com/7-SFE-SZE-HOSTACCESS/media/nbcsn1.php live=true timeout=20
+player=default
+rating=-1.00
+
+# 2442043
+type=video
+name=Premier Sports
+thumb=https://my.virginmedia.com/content/dam/virgoBrowse/images/raw-html/premier-sports-logo.jpg
+URL=rtmp://31.220.0.195:80/live playpath=premiersport swfUrl=http://p.jwpcdn.com/6/11/jwplayer.flash.swf pageUrl=http://reytv.co/embedo.php?live=skysports2&vw=620&vh=490 token=%Zrey(nKa@#Z
+player=default
+rating=-1.00
+
+# 2442044
+type=video
+name=Sportsnet World (Shows Premier League)
+thumb=http://www.canadasoccertv.ca/img/channel_snetworld.jpeg
+URL=rtmp://178.18.31.59:443/liverepeater/ playpath=191304 token=#atd%#$ZH swfUrl=http://static.surk.tv/atdedead.swf live=1 pageUrl=http://biggestplayer.me
+player=default
+rating=-1.00
+
+# 2442045
+type=video
+name=Sportsnet Ontario (Shows Premier League)
+thumb=https://encrypted-tbn1.gstatic.com/images?q=tbn:ANd9GcQJ4ogwW4QbrS9UDwqCTUgDRgRuWtNCA1saSDJfxZY_Oha1ryA_jQ
+URL=rtmp://31.220.0.195:80/live playpath=sno swfUrl=http://p.jwpcdn.com/6/11/jwplayer.flash.swf pageUrl=http://reytv.co/embedo.php?live=skysports2&vw=620&vh=490 token=%Zrey(nKa@#Z
+player=default
+rating=-1.00
+
+# 2442047
+type=video
+name=TSN2 (Shows Premier League)
+thumb=http://www.ctv.ca/getmedia/41771834-8ee4-45f1-9bcb-e6314fc91219/tsn2_lg.jpg.aspx
+URL=rtmp://31.220.0.195:80/live/ playpath=tsnx2 token=%Zrey(nKa@#Z swfUrl=http://p.jwpcdn.com/6/11/jwplayer.flash.swf live=1 timeout=13 pageUrl=http://reytv.co
+player=default
+rating=-1.00
+
+# 2442051
+type=video
+name=Silk Sports 1 HD (Shows Premier League)
+thumb=http://www.gmg-tv.com/storage/uploads/channels/1409040638409c5c.png
+URL=rtmp://edge01-01.nl.myvideo.ge/dvrh264/silk_football/mp4:silk_football swfUrl=http://www.myvideo.ge/dvr/dvrStretch2.swf?v=1.91 live=1 pageUrl=http://www.myvideo.ge/
+player=default
+rating=-1.00
+
+# 2442052
+type=video
+name=Silk Sports 2 HD (Shows Various Football)
+thumb=http://www.gmg-tv.com/storage/uploads/channels/1409040640081f3a.png
+URL=rtmp://edge01-01.nl.myvideo.ge/dvrh264/silk_sport/mp4:silk_sport swfUrl=http://www.myvideo.ge/dvr/dvrStretch2.swf?v=1.91 live=1 pageUrl=http://www.myvideo.ge
+player=default
+rating=-1.00
+
+# 2442058
+type=video
+name=Sport 1 Russia (Shows Various Football)
+thumb=http://www.frosat.net/images/logotv/original/Sport-1_ru.jpg
+URL=http://hls.novotelecom.ru/streaming/sport1/tvrec/playlist.m3u8
+player=default
+rating=-1.00
+
+# 2442061
+type=video
+name=Sport TV1 (Shows Various Football)
+thumb=http://thestreamdb.com/tbn/Sport%20TV%201.tbn
+URL=rtmpe://5.153.233.106:443/share/ playpath=live1-rbi6c swfUrl=http://sharecast.to/player/player20.swf live=1 pageUrl=http://sharecast.to/
+player=default
+rating=-1.00
+
+# 2442062
+type=video
+name=Sport TV2 (Shows Various Football)
+thumb=http://nowwatchtvlive.me/wp-content/uploads/2011/07/sport_tv2_pt.jpg
+URL=rtmpe://5.153.233.106:443/share/ playpath=live2-bipmr swfUrl=http://sharecast.to/player/player20.swf live=1 pageUrl=http://sharecast.to/
+player=default
+rating=-1.00
+
+# 2442063
+type=video
+name=Sport TV3 (Shows Various Football)
+thumb=http://3.bp.blogspot.com/-mcQpj_qXZu4/TcU-5SkZRlI/AAAAAAAAAC0/4WU7sM4mcK0/s320/sport+tv3.jpg
+URL=rtmpe://5.153.233.106:443/share/ playpath=live3-qszlx swfUrl=http://sharecast.to/player/player20.swf live=1 timeout=10 pageUrl=http://sharecast.to/
+player=default
+rating=-1.00
+
+# 2442064
+type=video
+name=ArenaSport 1 (Shows Various Football)
+thumb=http://www.tv14.net/wp-content/uploads/2010/10/Arena-Sport-1.jpg
+URL=http://89.212.240.49:11980/live/smil:365_0.smil/playlist.m3u8?authorization_key=hNj0mnLtB9O5rfIKuCVsX7oWASQayqZg&stream_id=0
+player=default
+rating=-1.00
+
+# 2442065
+type=video
+name=Arenasport 2 (Shows Various Football)
+thumb=http://www.mojatv.ba/fileadmin/template/bht2008.1/mojatv/arenasport2.png
+URL=http://89.212.240.49:11980/live/smil:366_0.smil/playlist.m3u8?authorization_key=hNj0mnLtB9O5rfIKuCVsX7oWASQayqZg&stream_id=0
+player=default
+rating=-1.00
+
+# 2442066
+type=video
+name=ArenaSport 3 (Shows Various Matches)
+thumb=http://3.bp.blogspot.com/-yOVpyQDlxM0/Ubxq4dBHq_I/AAAAAAAAA14/lzj0edxemp8/s320/1.png
+URL=http://89.212.240.49:11980/live/smil:367_0.smil/playlist.m3u8?authorization_key=hNj0mnLtB9O5rfIKuCVsX7oWASQayqZg&stream_id=0
+player=default
+rating=-1.00
+
+# 2442067
+type=video
+name=ArenaSport 4 (Shows Various Football)
+thumb=http://s9.postimg.org/l0kyc73q3/arenasport4.png
+URL=http://89.212.240.49:11980/live/smil:368_0.smil/playlist.m3u8?authorization_key=hNj0mnLtB9O5rfIKuCVsX7oWASQayqZg&stream_id=0
+player=default
+rating=-1.00
+
+# 2442068
+type=video
+name=Arenasports 5 (Shows Various Football)
+thumb=http://www.tvarenasport.com/themes/3way/img/logo.png
+URL=http://89.212.240.49:11980/live/smil:369_0.smil/playlist.m3u8?authorization_key=hNj0mnLtB9O5rfIKuCVsX7oWASQayqZg&stream_id=0
+player=default
+rating=-1.00
+
+# 2442069
+type=video
+name=Racing UK
+thumb=http://substantialfilms.co.uk/wp-content/uploads/2012/12/racing.uk_.logo_.jpg
+URL=rtmp://rrbalancer.broadcast.tneg.de:1935/pw/ruk/ playpath=ruk swfUrl=http://pferdewetten.broadcast.tneg.de/jwplayer/player.swf live=1 pageUrl=http://pferdewetten.broadcast.tneg.de/jwplayer/player.php?type=live&stream=ruk1&token=ccf6c54e62bc5bd667661d5af5d61e8664c75b11
+player=default
+rating=-1.00
+
+# 2442070
+type=video
+name=NBA TV
+thumb=http://www.allanhouston.com/wp-content/uploads/sites/7/2013/02/nba-tv-logo.png
+URL=rtmp://213.152.180.159:1935/stream/ playpath=0f5bZcQBIw.stream swfUrl=http://thecdn.04stream.com/p/ooolo1.swf live=1 pageUrl=http://www.04stream.com/ebb.php?adsp=other&width=600&height=460&st=1474b4j5b5l5p393v416n274s214y2s2b424w2u2v2t24394&adx=&stream=6474b4j554f4t2u2n5a4t2k5644443n234m5z264u3a4t3o4v456t254w2q274w203p2t274x2z34303y3p2o5a4j5c574o3o4r4i2k4j4v5k474n33574a414p4h4z33456t2y3s2p2l51313s274d4z284236324q264m554o5v2r2m5a4u274t254a484g54484z2o2y2t2343434t2y3s2p224&sooor=Ng==&str=is&ok=&cat=2&link=1&idom=ifirstrow.eu
+player=default
+rating=-1.00
+
+# 2442071
+type=video
+name=Eurosport UK
+thumb=http://www.livep2pstream.com/tv_channels/logo/british_eurosport.jpg
+URL=http://esioslive6-i.akamaihd.net/hls/live/202874/AL_P_ESP1_INTER_ENG/playlist_1000.m3u8
+player=default
+rating=-1.00
+
+# 2442072
+type=video
+name=Eurosport 2 UK
+thumb=https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTKZrXpUBSWp7JSYxSIEB49jYiPQiu1O3l8JIOhaV7A3_7LC-Yf
+URL=rtmp://80.82.64.140:443/liverepeater playpath=21  swfUrl=http://popeoftheplayers.eu/atdedead.swf  pageUrl=http://popeoftheplayers.eu/player3.php?id=47&width=600&height=450 token=#atd%#$ZH
+player=default
+rating=-1.00
+
+# 2442073
+type=video
+name=Sportsnet 360
+thumb=http://photos.newswire.ca/images/download/20130604_C5201_PHOTO_EN_27536.jpg
+URL=http://nlds187.cdnak.neulion.com/nlds/sportsnetnow/sn_360/as/live/sn_360_hd_ipad.m3u8
+player=default
+rating=-1.00
+
+# 2442075
+type=video
+name=Willow Cricket
+thumb=http://cdn.comcast.com/~/Media/ImageLibrary/Vanity/Cricket/Willow-large.jpg?vs=1
+URL=rtmp://80.82.70.106:443/liverepeater playpath=38 swfUrl=http://popeoftheplayers.pw/atdedead.swf live=1 pageUrl=http://popeoftheplayers.pw/huraivza token=#atd%#$ZH
+player=default
+rating=-1.00
+
+# 2442077
+type=video
+name=WWE Network
+thumb=http://www.prorasslin.net/wp-content/uploads/2012/06/wwenetworknewlogo.jpg
+URL=rtmp://80.82.78.39:443/liverepeater playpath=32 swfUrl=http://popeoftheplayers.pw/atdedead.swf live=1 pageUrl=http://popeoftheplayers.pw/player3.php?id=32&width=600&height=450 token=#atd%#$ZH
+player=default
+rating=-1.00
+
+# 2442080
+type=video
+name=Motorsport 7 Channel Australia
+URL=http://motorsport.hopto.org:8080/
+player=default
+rating=-1.00
+
+# 2442081
+type=video
+name=Sports TV
+thumb=http://www.dream-box.tv/_Media/Images/ProjectBlock/Works/Logos/SportsTv/Big3.jpg
+URL=rtmp://stream.sportstv.com.tr/sportstv/SportsTV3
+player=default
+rating=-1.00
+
+# 2442082
+type=video
+name=SportTime Tv 1
+thumb=http://3.bp.blogspot.com/-EJ-hh3uLb3A/UQzRvI1_l0I/AAAAAAAADPg/Al-RFf-Mcuk/s1600/Sport%2BTime%2BTv.pngg
+URL=rtmp://streamer.a1.net:1935/rtmplive/redundant/channels/Sporttime/SporttimeTV/mp4:channel5_1200
+player=default
+rating=-1.00
+
+# 2445404
+type=video
+name=test1234
+URL=http://www.filmon.com/tvguide/pick-tv?affid=2028Na
+player=default
+rating=-1.00
+
+
+# cached

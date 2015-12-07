@@ -1,0 +1,13 @@
+{ "version" : "3", "time" : "1437871016.93", "genres" : {  
+"*" : {"alias":"All", "title":"All"}, 
+"8" : {"alias":"business", "title":"business"}, 
+"3" : {"alias":"children's", "title":"children's"}, 
+"4" : {"alias":"cinema", "title":"cinema"}, 
+"9" : {"alias":"culture", "title":"culture"}, 
+"2" : {"alias":"entertainments", "title":"entertainments"}, 
+"10" : {"alias":"for adults", "title":"for adults"}, 
+"1" : {"alias":"information", "title":"information"}, 
+"7" : {"alias":"music", "title":"music"}, 
+"5" : {"alias":"science", "title":"science"}, 
+"6" : {"alias":"sports", "title":"sports"}
+}}

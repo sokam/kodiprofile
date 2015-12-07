@@ -1,0 +1,379 @@
+version=1
+title=Live Cams [private]
+description=Cams from around the globe /description
+
+type=playlist
+name=Sorted [COLOR=FF00FF00]by user-assigned order[/COLOR]
+icon=http://media.navi-x.org/images/icons/2downarrow.png
+URL=http://www.navixtreme.com/playlist/64545/live_cams_private.plx?action=sortsel&cur=ord
+
+# 1066952
+type=video
+name=The International Space Station (ISS)
+thumb=http://community-links.googlecode.com/svn/icons/nasa.png
+URL=http://www.nasa.gov/multimedia/isslivestream.asx
+player=default
+rating=-1.00
+
+# 1066953
+type=video
+name=Anguilla \ Meads Bay Beach
+thumb=http://media.merchantcircle.com/18979061/EarthCam%20Logo%20(Webcam%20Tech)_full.gif
+URL=rtmp://63.229.55.59/fecnetwork swfUrl=http://earthcam.com/swf/cam_player_v2/ecnPlayer.swf playpath=anguilla.flv live=true timeout=180
+player=default
+rating=-1.00
+
+# 1066954
+type=video
+name=Brazil \ Rio de Janeiro
+thumb=http://media.merchantcircle.com/18979061/EarthCam%20Logo%20(Webcam%20Tech)_full.gif
+URL=rtmp://63.229.55.59/fecnetwork swfUrl=http://earthcam.com/swf/cam_player_v2/ecnPlayer.swf playpath=brazil1.flv live=true timeout=180
+player=default
+rating=-1.00
+
+# 1066955
+type=video
+name=Brazil \ SÃ£o Paulo \ Avenida Paulista
+thumb=http://media.merchantcircle.com/18979061/EarthCam%20Logo%20(Webcam%20Tech)_full.gif
+URL=rtmp://63.229.55.59/fecnetwork swfUrl=http://earthcam.com/swf/cam_player_v2/ecnPlayer.swf playpath=saopaulo.flv live=true timeout=180
+player=default
+rating=-1.00
+
+# 1066956
+type=video
+name=France \ Paris \ Eiffel Tower
+thumb=http://media.merchantcircle.com/18979061/EarthCam%20Logo%20(Webcam%20Tech)_full.gif
+URL=rtmp://63.229.55.59/ app=fecnetwork swfUrl=http://www.earthcam.com/swf/cam_player_v2/ecnPlayer.swf playpath=eiffelcamHD.flv live=true timeout=180
+player=default
+rating=-1.00
+
+# 1066957
+type=video
+name=Canada \ Newfoundland \ Outside Larrys Place
+thumb=http://search.earthcam.com/camshots/120x90/274a9fe53a881423b2f5b7570fef52d7.jpg
+URL=http://www.camstreams.com/asx.asp?user=larrytuck
+player=default
+rating=-1.00
+
+# 1066958
+type=video
+name=Japan \ Tokyo \ Chuo City
+thumb=http://media.merchantcircle.com/18979061/EarthCam%20Logo%20(Webcam%20Tech)_full.gif
+URL=rtmp://63.229.55.59/ app=fecnetwork swfUrl=http://www.earthcam.com/swf/cam_player_v2/ecnPlayer.swf playpath=tokyo1.flv live=true timeout=180
+player=default
+rating=-1.00
+
+# 1066959
+type=video
+name=Netherlands \ Amsterdam \ Koningsplein HD
+thumb=none
+URL=rtmp://media.terena.org/rtplive/mp4:stream2.mp4 swfURL="http://www.terena.org/javascript/mediaplayer/player.swf" pageURL="http://www.terena.org/webcam/" swfVfy=true live=true timeout=180
+player=default
+rating=-1.00
+
+# 1066960
+type=video
+name=Netherlands \ Blue Tit Bird House
+thumb=http://search.earthcam.com/camshots/120x90/274a9fe53a881423b2f5b7570fef52d7.jpg
+URL=http://www.camstreams.com/asx.asp?user=pa3aui
+player=default
+rating=-1.00
+
+# 1066962
+type=video
+name=Philippines \ Boracay Island \ White Beach
+thumb=http://media.merchantcircle.com/18979061/EarthCam%20Logo%20(Webcam%20Tech)_full.gif
+URL=rtmp://63.229.55.59/ app=fecnetwork swfUrl=http://www.earthcam.com/swf/cam_player_v2/ecnPlayer.swf playpath=philippinesHD1.flv live=true timeout=180
+player=default
+rating=-1.00
+
+# 1066963
+type=video
+name=Russia \ Moscow \ Skyline
+thumb=http://media.merchantcircle.com/18979061/EarthCam%20Logo%20(Webcam%20Tech)_full.gif
+URL=rtmp://63.229.55.59/ app=fecnetwork swfUrl=http://www.earthcam.com/swf/cam_player_v2/ecnPlayer.swf playpath=moscowHD1.flv live=true timeout=180
+player=default
+rating=-1.00
+
+# 1066964
+type=video
+name=United Kingdom \ Cumberland \ Cats at rest in garden
+thumb=http://www.pinksaint.com/wp-content/uploads/2009/04/wall-puppy.bmp/thumbnail>
+URL=http://www.camstreams.com/asx.asp?user=hopinpop
+player=default
+rating=-1.00
+
+# 1066965
+type=video
+name=United Kingdom \ London \ Abbey Road
+thumb=http://media.merchantcircle.com/18979061/EarthCam%20Logo%20(Webcam%20Tech)_full.gif
+URL=rtmp://63.229.55.59/fecnetwork swfUrl=http://earthcam.com/swf/cam_player_v2/ecnPlayer.swf playpath=AbbeyRoadHD1.flv live=true timeout=180
+player=default
+rating=-1.00
+
+# 1066966
+type=video
+name=United Kingdom \ West Sussex \ Flys \ Ants \
+thumb=http://pested.ifas.ufl.edu/newsletters/november2006/flies.jpg
+URL=http://www.camstreams.com/asx.asp?user=dickbowyer
+player=default
+rating=-1.00
+
+# 1066967
+type=video
+name=United Kingdom \ Devizes \ Wiltshire \ Budgie Tweet Teeeeet
+thumb=http://i733.photobucket.com/albums/ww332/jjlothin/Ian%20and%20Marshall/IanMarshallfluffballs.jpg
+URL=http://www.camstreams.com/asx.asp?user=jjlothin
+player=default
+rating=-1.00
+
+# 1066968
+type=video
+name=United Kingdom \ Bronte Country \ West Yorkshire \ Baird Feeder Outside Live Cam
+thumb=http://www.camstreams.com/img/awnopic.jpg
+URL=http://www.camstreams.com/asx.asp?user=natureoncam
+player=default
+rating=-1.00
+
+# 1066969
+type=video
+name=United Kingdom \ Towcester \ Northants \ Towcester Blue tit nest box 2011
+thumb=http://www.camstreams.com/img/awnopic.jpg
+URL=http://www.camstreams.com/asx.asp?user=mello58
+player=default
+rating=-1.00
+
+# 1066970
+type=video
+name=United Kingdom \ Leeds \ Wetherby \ Wetherby Racecourse
+thumb=http://www.carbuyingguide.org.uk/webcam/capture1.jpg
+URL=http://www.carbuyingguide.org.uk/webcam/capture1.jpg?1308221095035
+player=default
+rating=-1.00
+
+# 1066971
+type=video
+name=United Kingdom \ Bristol \ Avonmouth \ Live Weather conditions
+thumb=http://www.clevedonweather.co.uk/images/eastcam.jpg
+URL=http://www.clevedonweather.co.uk/images/eastcam.jpg
+player=default
+rating=-1.00
+
+# 1066973
+type=video
+name=United States \ Chicago \ Wrigley Field
+thumb=http://media.merchantcircle.com/18979061/EarthCam%20Logo%20(Webcam%20Tech)_full.gif
+URL=rtmp://63.229.55.59/fecnetwork swfUrl=http://earthcam.com/swf/cam_player_v2/ecnPlayer.swf playpath=wrigleyfieldcamHD.flv live=true timeout=180
+player=default
+rating=-1.00
+
+# 1066974
+type=video
+name=United States \ Fort Lauderdale
+thumb=http://media.merchantcircle.com/18979061/EarthCam%20Logo%20(Webcam%20Tech)_full.gif
+URL=rtmp://63.229.55.59/fecnetwork swfUrl=http://earthcam.com/swf/cam_player_v2/ecnPlayer.swf playpath=windjammerHD.flv live=true timeout=180
+player=default
+rating=-1.00
+
+# 1066975
+type=video
+name=United States \ Las Vegas \ Monte Carlo
+thumb=http://media.merchantcircle.com/18979061/EarthCam%20Logo%20(Webcam%20Tech)_full.gif
+URL=rtmp://63.229.55.59/fecnetwork swfUrl=http://earthcam.com/swf/cam_player_v2/ecnPlayer.swf playpath=monte_carlo.flv live=true timeout=180
+player=default
+rating=-1.00
+
+# 1066976
+type=video
+name=United States \ Las Vegas \ Wedding Chapel
+thumb=http://media.merchantcircle.com/18979061/EarthCam%20Logo%20(Webcam%20Tech)_full.gif
+URL=rtmp://63.229.55.59/fecnetwork swfUrl=http://earthcam.com/swf/cam_player_v2/ecnPlayer.swf playpath=wedding_chapel.flv live=true timeout=180
+player=default
+rating=-1.00
+
+# 1066977
+type=video
+name=United States \ Las Vegas \ Welcome Sign
+thumb=http://media.merchantcircle.com/18979061/EarthCam%20Logo%20(Webcam%20Tech)_full.gif
+URL=rtmp://63.229.55.59/fecnetwork swfUrl=http://earthcam.com/swf/cam_player_v2/ecnPlayer.swf playpath=eclasvegas.flv live=true timeout=180
+player=default
+rating=-1.00
+
+# 1066978
+type=video
+name=United States \ Los Angeles \ Hollywood Blvd
+thumb=http://media.merchantcircle.com/18979061/EarthCam%20Logo%20(Webcam%20Tech)_full.gif
+URL=rtmp://63.229.55.59/ app=fecnetwork swfUrl=http://www.earthcam.com/swf/cam_player_v2/ecnPlayer.swf playpath=lacitytours1.flv live=true timeout=180
+player=default
+rating=-1.00
+
+# 1066979
+type=video
+name=United States \ Miami \ Bayfront Park
+thumb=http://media.merchantcircle.com/18979061/EarthCam%20Logo%20(Webcam%20Tech)_full.gif
+URL=rtmp://63.229.55.59/fecnetwork swfUrl=http://earthcam.com/swf/cam_player_v2/ecnPlayer.swf playpath=miamivishd5.flv live=true timeout=180
+player=default
+rating=-1.00
+
+# 1066980
+type=video
+name=United States \ Miami \ Biscayne Beach
+thumb=http://media.merchantcircle.com/18979061/EarthCam%20Logo%20(Webcam%20Tech)_full.gif
+URL=rtmp://63.229.55.59/fecnetwork swfUrl=http://earthcam.com/swf/cam_player_v2/ecnPlayer.swf playpath=miamivishd4.flv live=true timeout=180
+player=default
+rating=-1.00
+
+# 1066981
+type=video
+name=United States \ Miami \ Coconut Grove
+thumb=http://media.merchantcircle.com/18979061/EarthCam%20Logo%20(Webcam%20Tech)_full.gif
+URL=rtmp://63.229.55.59/fecnetwork swfUrl=http://earthcam.com/swf/cam_player_v2/ecnPlayer.swf playpath=miamivishd3.flv live=true timeout=180
+player=default
+rating=-1.00
+
+# 1066982
+type=video
+name=United States \ Miami \ South Beach
+thumb=http://media.merchantcircle.com/18979061/EarthCam%20Logo%20(Webcam%20Tech)_full.gif
+URL=rtmp://63.229.55.59/fecnetwork swfUrl=http://earthcam.com/swf/cam_player_v2/ecnPlayer.swf playpath=miamivishd1.flv live=true timeout=180
+player=default
+rating=-1.00
+
+# 1066983
+type=video
+name=United States \ Miami \ Sunny Isles Beach
+thumb=http://media.merchantcircle.com/18979061/EarthCam%20Logo%20(Webcam%20Tech)_full.gif
+URL=rtmp://63.229.55.59/fecnetwork swfUrl=http://earthcam.com/swf/cam_player_v2/ecnPlayer.swf playpath=miamivishd2.flv live=true timeout=180
+player=default
+rating=-1.00
+
+# 1066984
+type=video
+name=United States \ Myrtle Beach
+thumb=http://media.merchantcircle.com/18979061/EarthCam%20Logo%20(Webcam%20Tech)_full.gif
+URL=rtmp://63.229.55.59/fecnetwork swfUrl=http://earthcam.com/swf/cam_player_v2/ecnPlayer.swf playpath=3635.flv live=true timeout=180
+player=default
+rating=-1.00
+
+# 1066985
+type=video
+name=United States \ New York \ 43rd & Broadway
+thumb=http://media.merchantcircle.com/18979061/EarthCam%20Logo%20(Webcam%20Tech)_full.gif
+URL=rtmp://63.229.55.59/ app=fecnetwork swfUrl=http://www.earthcam.com/swf/cam_player_v2/ecnPlayer.swf playpath=tsoneHD1.flv live=true timeout=180
+player=default
+rating=-1.00
+
+# 1066986
+type=video
+name=United States \ New York \ 46th & Broadway
+thumb=http://media.merchantcircle.com/18979061/EarthCam%20Logo%20(Webcam%20Tech)_full.gif
+URL=rtmp://63.229.55.59/ app=fecnetwork swfUrl=http://www.earthcam.com/swf/cam_player_v2/ecnPlayer.swf playpath=fridaysHD1.flv live=true timeout=180
+player=default
+rating=-1.00
+
+# 1066987
+type=video
+name=United States \ New York \ 7th & Broadway
+thumb=http://media.merchantcircle.com/18979061/EarthCam%20Logo%20(Webcam%20Tech)_full.gif
+URL=rtmp://63.229.55.59/ app=fecnetwork swfUrl=http://www.earthcam.com/swf/cam_player_v2/ecnPlayer.swf playpath=hdtimes.flv live=true timeout=180
+player=default
+rating=-1.00
+
+# 1066988
+type=video
+name=United States \ New York \ Liberty Island
+thumb=http://media.merchantcircle.com/18979061/EarthCam%20Logo%20(Webcam%20Tech)_full.gif
+URL=rtmp://63.229.55.59/ app=fecnetwork swfUrl=http://www.earthcam.com/swf/cam_player_v2/ecnPlayer.swf playpath=sliberty.flv live=true timeout=180
+player=default
+rating=-1.00
+
+# 1066989
+type=video
+name=United States \ Palm Beach
+thumb=http://media.merchantcircle.com/18979061/EarthCam%20Logo%20(Webcam%20Tech)_full.gif
+URL=rtmp://63.229.55.59/fecnetwork swfUrl=http://earthcam.com/swf/cam_player_v2/ecnPlayer.swf playpath=breakerhd.flv live=true timeout=180
+player=default
+rating=-1.00
+
+# 1066990
+type=video
+name=United States \ Panama City
+thumb=http://media.merchantcircle.com/18979061/EarthCam%20Logo%20(Webcam%20Tech)_full.gif
+URL=rtmp://63.229.55.59/ app=fecnetwork swfUrl=http://www.earthcam.com/swf/cam_player_v2/ecnPlayer.swf playpath=pinewill.flv live=true timeout=180
+player=default
+rating=-1.00
+
+# 1066991
+type=video
+name=United States \ San Diego \ Mission Beach
+thumb=http://media.merchantcircle.com/18979061/EarthCam%20Logo%20(Webcam%20Tech)_full.gif
+URL=rtmp://63.229.55.59/fecnetwork swfUrl=http://earthcam.com/swf/cam_player_v2/ecnPlayer.swf playpath=3478.flv live=true timeout=180
+player=default
+rating=-1.00
+
+# 1066992
+type=video
+name=United States \ Florida \ 7 Puppies Live Cam
+thumb=http://i54.tinypic.com/5v3zbo.jpg
+URL=http://www.camstreams.com/asx.asp?user=bitsy7puppycam
+player=default
+rating=-1.00
+
+# 1066993
+type=video
+name=United States \ Florida \ Horses Barn CCTV Cam &lt;!-- 10sec changes--&lt;
+thumb=http://c2429732.cdn.cloudfiles.rackspacecloud.com/14445
+URL=http://www.camstreams.com/asx.asp?user=byluc2
+player=default
+rating=-1.00
+
+# 1066994
+type=video
+name=United States \ Watttsburg \ Bird AND Squirrel Feeder
+thumb=http://mysite.verizon.net/resvqdon/pictures/feeder2.jpg
+URL=http://www.camstreams.com/asx.asp?user=ken6262
+player=default
+rating=-1.00
+
+# 1066995
+type=video
+name=United States \ St. Louis
+thumb=http://media.merchantcircle.com/18979061/EarthCam%20Logo%20(Webcam%20Tech)_full.gif
+URL=rtmp://63.229.55.59/fecnetwork swfUrl=http://earthcam.com/swf/cam_player_v2/ecnPlayer.swf playpath=stlouis.flv live=true timeout=180
+player=default
+rating=-1.00
+
+# 1066997
+type=video
+name=Pentagon Channel
+thumb=http://thestreamdb.com/images/8gglz3.jpg
+URL=rtmp://cp114761.live.edgefcs.net:443/live/ playpath=tpc-live_1@44263 swfUrl="http://www.pentagonchannel.mil/swf/flvPlayer.swf" pageUrl="http://www.pentagonchannel.mil/library.html" swfVfy=true live=true
+player=default
+rating=-1.00
+
+# 1066998
+type=video
+name=America's Auction Network
+thumb=http://www.aantv.com/images/cache/155_aantvrealtylogo.png
+URL=rtmp://fml.dca.1179.edgecastcdn.net/201179 playpath=webcast swfUrl="http://www.aantv.com/flash/flowplayerC/flowplayer.commercial-3.1.2.swf?0.6917299595661461" pageUrl="http://www.aantv.com/" swfVfy=true live=true
+player=default
+rating=-1.00
+
+# 1066999
+type=video
+name=oc16 Hawaii
+thumb=http://www.satlogo.com/logo/hires/flag/us-hi.png
+URL=rtmp://24.165.45.209/oc16live/ playpath=oc16 swfUrl=http://www.oc16.tv/videoplayer/jw/player.swf pageURL=http://www.oc16.tv/ app=oc16live/ buffer=5000 live=true swfVfy=true
+player=default
+rating=-1.00
+
+# 1067000
+type=video
+name=US \ Los Angeles \ Hollywood Blvd
+thumb=http://media.merchantcircle.com/18979061/EarthCam%20Logo%20(Webcam%20Tech)_full.gif
+URL=rtmp://63.229.55.59/ app=fecnetwork swfUrl=http://www.earthcam.com/swf/cam_player_v2/ecnPlayer.swf playpath=lacitytours1.flv live=true
+player=default
+rating=-1.00
+
+
+# cached

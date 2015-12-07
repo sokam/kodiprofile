@@ -1,0 +1,692 @@
+version=1
+background=http://wallpoper.com/images/00/45/10/12/black-background-metal_00451012.jpg
+title=[COLOR=FFFFFF00] FELVER's[/COLOR][COLOR=FF0198E1] PINOY TV[/COLOR][COLOR=FFFF0000] CHANNELS[/COLOR][COLOR=FF00FF00] + [/COLOR][COLOR=FFFFFF00] LIVE[/COLOR][COLOR=FF0198E1] TV[/COLOR][COLOR=FFFF0000] STREAMS[/COLOR] updated 05/30
+logo=https://scontent-b-iad.xx.fbcdn.net/hphotos-ash3/q71/s720x720/9879_10153261904035206_630141554_n.jpg
+icon_playlist=http://i42.tinypic.com/jph4rd.png
+description=[COLOR=FF00FF00]WELCOME to FELVER's Playlists![/COLOR]
+
+[COLOR=FFFE22EE]*****PLAYLISTS*****[/COLOR]
+[COLOR=FF00FF00]NET[/COLOR][COLOR=FFFF0000]25[/COLOR]
+[COLOR=FF00FF00]INC[/COLOR]MEDIA.[COLOR=FFFF0000]ORG[/COLOR]
+[COLOR=FFFF0000]PINOY[/COLOR][COLOR=FFFFFF00] TV[/COLOR][COLOR=FF0198E1] REPLAY[/COLOR]
+[COLOR=FFFFFF00]Sari-Saring[/COLOR][COLOR=FF0198E1] KWENTO[/COLOR][COLOR=FFFF0000] MUSIC at VIDEO[/COLOR]
+[COLOR=FFFFFF00]TRADEWINDS[/COLOR][COLOR=FF0198E1] SPECIAL[/COLOR][COLOR=FFFF0000] REQUEST[/COLOR]
+[COLOR=FFFFFF00]FEATURED[/COLOR] [COLOR=FF0198E1]+++[/COLOR][COLOR=FFFF0000] VIDEO[/COLOR]
+
+[COLOR=FF00FF00]For dead links or requests, pls contact me at[/COLOR][COLOR=FFFFFF00] androidtv4free@gmail.com[/COLOR]
+
+[COLOR=FFFE22EE]BIG THANKS TO my XBMCHUB and XBMCTALK fam...Thank YOU wlfwood, Mash2k3, and Crusader88 for the guidance!!![/COLOR] 
+
+[COLOR=FF00FF00]ENJOY WATCHING!!![/COLOR]
+
+[COLOR=FFFFFF00] Check Out Our PHOTO BOOTH New Website![/COLOR]
+[COLOR=FFFF0000]www.partypixxphotobooth.com[/COLOR]/description
+
+type=playlist
+name=Sorted by user-assigned order
+icon=http://media.navi-x.org/images/icons/2downarrow.png
+URL=http://www.navixtreme.com/playlist/124518/_felvers_pinoy_tv_channels_live_tv_streams_updated_0530.plx?action=sortsel&cur=ord
+
+# 2493642
+type=video
+name=Net25
+date=2015-09-23
+URL=https://www.youtube.com/watch?v=4KElarDyZDM
+processor=http://www.navixtreme.com/proc/youtube
+player=default
+rating=-1.00
+
+# 2003622
+type=
+name=[COLOR=FFFFFF00] FELVER's[/COLOR][COLOR=FF0198E1] PINOY TV[/COLOR][COLOR=FFFF0000] CHANNELS[/COLOR][COLOR=FF00FF00] + [/COLOR][COLOR=FFFFFF00] LIVE[/COLOR][COLOR=FF0198E1] TV[/COLOR][COLOR=FFFF0000] STREAMS[/COLOR][COLOR=FF00FF00] UPDATED!! [/COLOR]
+thumb=https://scontent-b-iad.xx.fbcdn.net/hphotos-ash3/q71/s720x720/9879_10153261904035206_630141554_n.jpg
+player=default
+rating=-1.00
+
+# 2004086
+type=playlist
+name=[COLOR=FFFF0000]CLICK[/COLOR][COLOR=FFFFFF00] HERE[/COLOR][COLOR=FF0198E1] FOR[/COLOR] [COLOR=FF00FF00]NAVI-Xtreme[/COLOR] Portal
+thumb=http://i42.tinypic.com/jph4rd.png
+URL=http://www.navixtreme.com/playlist/50242/navi-xtreme_nxportal_home.plx
+player=default
+rating=-1.00
+
+# 2002238
+type=
+name=[COLOR=FF00FF00] *************** [/COLOR][COLOR=FFFFFF00]PILING[/COLOR] [COLOR=FF0198E1]PILING[/COLOR][COLOR=FFFF0000] PELIKULA[/COLOR][COLOR=FF00FF00] *************** [/COLOR]
+thumb=http://3.bp.blogspot.com/-VhVTdrDZXTA/TmauehM8fqI/AAAAAAAAAYQ/mRWGPno09oE/s690/OFW%2BMOVIES%2BLOGO.jpg
+player=default
+rating=-1.00
+
+# 2002204
+type=rss:
+name=[COLOR=FF00FF00] *************** [/COLOR][COLOR=FFFFFF00]TUNOG PINOY[/COLOR] [COLOR=FF0198E1]MIXCRATE[/COLOR][COLOR=FFFF0000] PLAYLISTS[/COLOR][COLOR=FF00FF00] *************** [/COLOR]
+thumb=http://b.vimeocdn.com/ts/349/599/34959976_640.jpg
+URL=http://partypixxphotobooth.com/navi/mixcrate.plx
+player=default
+rating=-1.00
+description=CREDIT TO DJ Egin!!! Thanks for SHARING!!!
+Mixcrate is an online audio distribution platform based in California, United States that enables its users to upload, promote and share their DJ mixes to a worldwide audience and to help DJs promote and grow their careers as a professional DJ. It is a community-based platform aimed at DJs to promote their mixes and for fans to follow the work of their favorite DJs, but also caters to music listeners, club promoters, radio stations and event organizers to discover new talent./description
+
+# 2011917
+type=audio
+name=OPM KLASIKS PT. 04 OF 04 - MGA SENTI NAMAN EDITION
+thumb=http://www.mixcrate.com/img/ugc/covers/1/1/113055_l.jpg?v=807201354
+URL=http://cdn1.mixcrate.com/audio/1/1/113052-Innp1xnm.mp3
+player=default
+rating=-1.00
+
+# 2011914
+type=audio
+name=OPM KLASIKS PT. 03 OF 04 - MGA SENTI NAMAN AT MEJO MABILIS EDI...
+thumb=http://www.mixcrate.com/img/ugc/covers/1/1/113052_l.jpg?v=616201220
+URL=http://cdn1.mixcrate.com/audio/1/1/113052-Innp1xnm.mp3
+player=default
+rating=-1.00
+
+# 2011912
+type=audio
+name=OPM KLASIKS PT. 02 OF 04 - MGA SENTI NAMAN EDITION :-)
+thumb=http://www.mixcrate.com/img/ugc/covers/1/1/112089_l.jpg?v=616201220
+URL=http://cdn1.mixcrate.com/audio/1/1/112089-Sns4bilu.mp3
+player=default
+rating=-1.00
+
+# 2011908
+type=audio
+name=FOR OPM BAND LOVERS ONLY...ONLY...ONLY....PT. 02 OF 02
+thumb=http://www.mixcrate.com/img/ugc/covers/1/0/101094_l.jpg?v=616201220
+URL=http://cdn1.mixcrate.com/audio/1/0/101094-Hs7x0zg8.mp3
+player=default
+rating=-1.00
+description=Ang kalahating bahagi ng ating ni-rectify na upload nuon na mga OPM Band soundtrip...Mejo mabagal na to kesa Part 01 kasi sila na ang nasa lower BPM group...Sana magustuhan pa rin ng mga listeners na solid OPM lovers..Enjoy kabayans !!!
+
+Listahan ng mga kanta : (From 72 to 85 BPM)
+
+Muli po, in outro/intro format lang to pero meron din ilang songs in mix form...At sempre pa, mga pang-foreplay songs muna uunahin natin sa line-up :-)
+
+1&lt; Haplos - SHAMROCK
+
+2&lt; Your love - ALAMID
+
+3&lt; Suntok sa buwan - SESSION ROAD
+
+4&lt; Wag na wag mong sasabihin - KITCHIE NADAL
+
+5&lt; Sundo - IMAGO
+
+6&lt; Running away - ANG TUNAY NA AMO
+
+7&lt; Take my hand - CALLALILY
+
+8&lt; Love me now, hate me soon - CUESHE
+
+9&lt; Jeepney - SPONGE COLA
+
+10&lt; Kasalanan - ORIENT PEARL (Meron pa silang isang magandang kanta, ung "Cry in the rain" kaso ala available for DL sa site na kinukunan ko)
+
+11&lt; Tulog na - SUGARFREE
+
+12&lt; Pasubali - SPONGE COLA
+
+13&lt; Sorry - CUESHE
+
+14&lt; Borrowed time - CUESHE
+
+15&lt; Nobela - JOIN D' CLUB
+
+16&lt; Once in a lifetime - FREESTYLE
+
+17&lt; Pasensya na - CUESHE
+
+18&lt; Pagbabalik - CALLALILY
+
+19&lt; Anghel sa lupa - STONEFREE
+
+20&lt; Upside down - 6 CYCLEMIND
+
+21&lt; Lunod - DANITA PANER
+
+22&lt; Sayang - STONEFREE
+
+23&lt; I - 6 CYCLEMIND
+
+24&lt; Makita kang muli - SUGARFREE
+
+25&lt; If - RIVERMAYA (si Bamboo pa bokalista dito)
+
+26&lt; Ang pag-ibig kong ito - MOONSTAR 88
+
+27&lt; Alapaap - ERASERHEADS
+
+28&lt; Same ground - KITCHIE NADAL
+
+29&lt; Pare ko - ERASERHEADS/description
+
+# 2003943
+type=audio
+name=OPM KLASIKS - MGA MANILA SOUNDS AT SENTI EDITION...PT. 06
+thumb=http://www.mixcrate.com/img/ugc/covers/1/5/156066_l.jpg?v=616201220
+URL=http://cdn1.mixcrate.com/audio/1/5/156066-Dmm962jm.mp3
+player=default
+rating=-1.00
+
+# 2002213
+type=audio
+name=FOR OPM BAND LUVERZ ONLY..ONLY...ONLY...PT. 04 JUL 2012
+thumb=http://www.mixcrate.com/img/ugc/covers/1/8/180501_l.jpg?v=722201217
+URL=http://cdn1.mixcrate.com/audio/1/8/180501-A01vsylr.mp3
+player=default
+rating=-1.00
+description=Tracklists : Intro/Outro format po ang karamihan mga bossings !!!
+
+As before, pang foreplay ang mga nasa unahang tracks, bibilis na lng later hehehe....Round 2 na po,Teng !!!
+
+1&lt; Puting ilaw - ADVENT CALL
+
+2&lt; Hihintayin kita sa langit - MOONSTAR 88
+
+3&lt; Emily - PARALUMAN
+
+4&lt; Don't leave me - SUGAR HICCUP
+
+5&lt; More than that - MOONSTAR 88
+
+6&lt; Another day - MOJOFLY
+
+7&lt; Bakit ? - ROCKSTAR
+
+8&lt; Wala ng mas sasakit pa - GENERAL LUNA
+
+9&lt; Patawarin mo - ROCKSTAR 2
+
+10&lt; Womb - SUGAR HICCUP
+
+11&lt; Iisa lang - PAROKYA NI EDGAR
+
+12&lt; Sabado nights - RIZAL UNDERGROUND
+
+13&lt; Manila girl - PUT3SKA
+
+14&lt; Tropa (Remix version) - SIAKOL
+
+15&lt; Segundo (Panalo talaga gumawa ng song ang dating bokalista ng YANO, la ka pa ring kupas idol!) - DONG ABAY
+
+16&lt; Payaso - RAZORBACK
+
+17&lt; Ingat ka - SILENT SANCTUARY
+
+18&lt; Matulog ka na ! - SIAKOL
+
+19&lt; Internal Revenue Man - RIZAL UNDERGROUND
+
+20&lt; Lakambini bottom - DATU'S TRIBE
+
+21&lt; Tabi ng bulkan - RAZORBACK
+
+22&lt; Mata ng Diyos (Nice at astig na song mga tsongs !) - WOLFGANG
+
+23&lt; Espasyo - DONG ABAY
+
+24&lt; Yugyugan na - P.O.T.
+
+25&lt; Kanto - SIAKOL
+
+26&lt; Leslie - ROCKSTEDDY
+
+27&lt; Hoy hoy hoy ! - PHILIPPINE VIOLATORS
+
+28&lt; Memories of our dreams - ADVENT CALL
+
+29&lt; Reklamo ng reklamo - The JERKS/description
+
+# 2002235
+type=audio
+name=OPM KLASIKS - MANILA SOUNDS AT SENTI EDITION...PT. 07
+thumb=http://www.mixcrate.com/img/ugc/covers/1/6/161363_l.jpg?v=616201220
+URL=http://cdn2.mixcrate.com/audio/1/6/161363-Msdah647.mp3
+player=mplayer
+rating=-1.00
+description=1&lt; Without you - JOEY ALBERT
+
+2&lt; Love me - SAMANTHA CHAVEZ (Anak po ng dating Senator Frank "Suspenders" Chavez :-)
+
+3&lt; Sandali na lang - AGOT ISIDRO
+
+4&lt; Someone's always saying goodbye - ALLONAH
+
+5&lt; Beginning today - AGOT ISIDRO
+
+6&lt; I'll never let you go - JOANNE LORENZANA
+
+7&lt; Kaibigan lang pala - LILET (Remember the Pepsi commercial?)
+
+8&lt; This song's dedicated to you - JUDY ANN SANTOS ( Wehhhh, di nga !!!, songer din pla si Juday hehe)
+
+9&lt; Sabi ko na nga ba - SHERYL CRUZ
+
+10&lt; Sakayan ng jeep - NIKKI GIL
+
+11&lt; Nag-iisang ikaw - LOUIE HEREDIA
+
+12&lt; Ikaw pa rin - MANILYN REYNES
+
+13&lt; Lagi na lang - BASIL VALDEZ & LEAH NAVARRO
+
+14&lt; Falling in love again - RAYMOND LAUNCHENGCO & IWI LAUREL
+
+15&lt; It's a crazy feeling...love is - ODETTE QUESADA
+
+16&lt; Ikaw lang ang mamahalin - JOEY ALBERT
+
+17&lt; Please be careful with my heart - JAM MORALES (revival lang po yung kina Regine V. at Jose Mari Chan hehehe)
+
+18&lt; Pinay - FLORANTE
+
+19&lt; Suddenly love - LEAH SALONGA & ARIEL RIVERA
+
+20&lt; We've only just begun - AGOT ISIDRO
+
+21&lt; Sa Diyos lamang - SAMPAGUITA
+
+22&lt; Will of the wind - JAMIE RIVERA
+
+23&lt; Nais ko'y kapiling ka - AGOT ISIDRO
+
+24&lt; Stay - CAROL BANAWA
+
+25&lt; When you say nothing at all - AGOT ISIDRO
+
+26&lt; Anak - FREDDIE AGUILAR
+
+27&lt; Inibig kita - WADAB
+
+28&lt; Always - MARCO SISON
+
+29&lt; For the rest of my life - LOUIE HEREDIA
+
+30&lt; Somewhere along the way - MANILYN REYNES/description
+
+# 2002217
+type=audio
+name=FOR OPM BAND LUVERZ ONLY..ONLY...ONLY...PT. 03 JUL 2012
+thumb=http://www.mixcrate.com/img/ugc/covers/1/7/179135_l.jpg?v=720201228
+URL=http://cdn2.mixcrate.com/audio/1/7/179135-Agfjl3ph.mp3
+player=default
+rating=-1.00
+description=Tracklists : Intro/Outro format po ang karamihan mga bossings !!!
+
+Fans ng Siakol, blow out ko senyu to !!!
+
+1&lt; Ang himig natin - BACKDRAFT
+
+2&lt; Cry in the rain - ORIENT PEARL
+
+3&lt; Ala-ala mo (Sensya na sa quality ng sound, wala ako ma DL na mas matino pa jan!) - WHITE LIES
+
+4&lt; Ika'y mahal pa rin (Yung ni-revive ni Jovit Baldivino) - ROCKSTAR 2
+
+5&lt; Sana kung ayaw mo na - MAYONNAISE
+
+6&lt; Matututuhan mo rin - ROCKSTEDDY
+
+7&lt; Feelings (Kulit ng kanta na to haha!) - DATU'S TRIBE
+
+8&lt; Luha - KAPATID
+
+9&lt; Tagpuan (Acoustic version) - KAMIKAZEE
+
+10&lt; Narda (Acoustic version) - KAMIKAZEE
+
+11&lt; Peksman - SIAKOL
+
+12&lt; Sa isang bote ng alak - SIAKOL
+
+13&lt; Blanko - SESSION ROAD
+
+14&lt; Yakap - SIAKOL
+
+15&lt; Umayos ka ! - SIAKOL
+
+16&lt; Time space warp (Original version) - BALAHIBUMPOOZA
+
+17&lt; When i met you - BARBIE ALMALBIS
+
+18&lt; Torpe - HUNGRY YOUNG POETS
+
+19&lt; San man patungo - PAROKYA NI EDGAR
+
+20&lt; Basted - SIAKOL
+
+21&lt; Aso - SIAKOL
+
+22&lt; Uh oh - TAKEN BY CARS
+
+23&lt; Tigas ulo - GNASH
+
+24&lt; Gabay - SIAKOL
+
+25&lt; Timeless peace - MOONSTAR 88
+
+26&lt; All for a Tuesday - TAKEN BY CARS
+
+27&lt; Usok - GENERAL LUNA/description
+
+# 2002211
+type=audio
+name=FOR OPM BAND LUVERZ ONLY..ONLY...ONLY...PT. 05 AUG 2012
+thumb=http://www.mixcrate.com/img/ugc/covers/1/8/185304_l.jpg?v=802201205
+URL=http://cdn1.mixcrate.com/audio/1/8/185304-Koerilxi.mp3
+player=default
+rating=-1.00
+description=Tracklists :
+
+This time uunahin natin ang mabibilis at yung mejo emo eh sa bandang huli na....Happy weekend to all !!!
+
+1&lt; Wanliteltu - AGAW AGIMAT
+
+2&lt; Sige na please ! - JUANA
+
+3&lt; Ikot ng mundo - RAZORBACK
+
+4&lt; W.W. 2 - DONG ABAY
+
+5&lt; Hanggang dito na lang - FRIO 
+
+6&lt; Magpakailanman - ROCKSTEDDY
+
+7&lt; Psycho love - KAPATID
+
+8&lt; Ulitin - P.O.T.
+
+9&lt; Tuyo - DONG ABAY
+
+10&lt; Maala-ala mo kaya ? - ADVENT CALL
+
+11&lt; Dala ng ulan - GENERAL LUNA
+
+12&lt; Mis kol - CRAEONS
+
+13&lt; I - CRAEONS
+
+14&lt; Hangin' out - KAPATID
+
+15&lt; Perpekto - DONG ABAY
+
+16&lt; Natutulog kong mundo - WOLFGANG
+
+17&lt; Solb - DONG ABAY
+
+18&lt; Balewala - SIAKOL
+
+19&lt; Dyad - DONG ABAY
+
+20&lt; Nais ko - AGAW AGIMAT
+
+21&lt; SMB - BACKDRAFT
+
+22&lt; Nakaturo sayo - RAZORBACK
+
+23&lt; Mikaela - SUGAR HICCUP
+
+24&lt; Walang bintana - GENERAL LUNA
+
+25&lt; Imposible - ROCKSTEDDY
+
+26&lt; Teka - PARALUMAN
+
+27&lt; Huwag ka ng umiyak - CRAEONS
+
+28&lt; Red heaven - GENERAL LUNA/description
+
+# 2002220
+type=audio
+name=OPM KLASIKS - MGA SENTI AT ILANG ALTERNATIBS ED. PT. 1
+thumb=http://www.mixcrate.com/img/ugc/covers/1/6/163571_l.jpg?v=807201317
+URL=http://cdn2.mixcrate.com/audio/1/6/163571-I85ju4qt.mp3
+player=default
+rating=-1.00
+
+# 2002227
+type=audio
+name=OPM SAYAW KLASIKS - NIYUGYUG NA, NIRAKRAK PA &lt;&lt;&lt; PT. 11
+thumb=http://www.mixcrate.com/img/ugc/covers/1/6/164180_l.jpg?v=616201220
+URL=http://cdn2.mixcrate.com/audio/1/6/164180-Twsvf02b.mp3
+player=default
+rating=-1.00
+description=Tracklists :
+
+1&lt; Ang tindi - PRETTIER than PINK....2&lt; Working girls - CHONA CRUZ....3&lt; Baleleng - ROEL CORTEZ &lt; REMIXED BY Dj JHON &lt;....4&lt; Feel na feel - MANILYN REYNES....5&lt; Hala sige bira - FOJ (Kung di ako nagkakamali, First Of June ibig sabihin neto, sila yung naging Vannah Vannah later :-)....6&lt; Bikining itim - BERT DOMINIC &lt; REMIXED BY OPM BASTOS &lt;....7&lt; Stereolove - TAKEN by CARS....8&lt; No worries - PRETTIER than PINK....9&lt; Pumapatak na naman ang ulan - APO HIKING SOCIETY....10&lt; Prinsesa - APO HIKING SOCIETY....11&lt; Unphotographable* - CHRISTIAN BAUTISTA....12&lt; Bawal na gamot - WILLIE GARTE &lt; REMIXED BY Dj ROWEL &lt;....13&lt; You turn me on - CHONA CRUZ....14&lt; Ang boyfriend kong baduy - PRETTIER THAN PINK....15&lt; Tatlong beinte singko - DINGDONG AVANZADO....16&lt; Doo bidoo bidoo - APO HIKING SOCIETY....17&lt; Found my smile again* - KARYLLE....18&lt; Tila - GENERAL LUNA....19&lt; Iniibig kita - ROEL CORTEZ &lt; REMIXED BY Dj JHON &lt;....20&lt; Soft dancing - VERNIE VARGA....21&lt; Ayaw na kung ayaw* - CATHY GO....22&lt; Larger than life - JOEY ALBERT....23&lt; Shut up* - NEY &lt; Sya po yung dating bokalista ng 6CYCLEMIND &lt;....24&lt; Iyong-iyo - MARIZ....25&lt; Akala mo - PRETTIER than PINK....26&lt; Red heaven - GENERAL LUNA....27&lt; Kahit bata pa ako - LILET &lt; REMIXED VERSION - ALA Dj NA NKLAGAY SA FILE HEHEHE &lt;....28&lt; Magbabalik ka pa ba ? - NIKKI GIL....29&lt; Anna - APO HIKING SOCIETY....30&lt; I need your love - FOJ....31&lt; Salawikain - APO HIKING SOCIETY....32&lt; A Little kiss, a little hug - VERNIE VARGA/description
+
+# 1986494
+type=
+name=[COLOR=FF00FF00] *************** [/COLOR][COLOR=FFFFFF00]LIVE[/COLOR] [COLOR=FF0198E1] TV[/COLOR][COLOR=FFFF0000] STREAMS[/COLOR][COLOR=FF00FF00] *************** [/COLOR]
+thumb=https://fbcdn-sphotos-g-a.akamaihd.net/hphotos-ak-prn2/q71/s720x720/1235115_10153261934030206_1933617593_n.jpg
+player=default
+rating=-1.00
+
+# 1997819
+type=video
+name=Discovery Channel US
+thumb=http://fc00.deviantart.net/fs70/f/2012/274/e/7/discovery_channel___shark_month____by_toth_art__by_crooked1987-d5gg79p.jpg
+URL=rtmp://ny.iguide.to/edge playpath=it82brayqtelkyi swfUrl=http://player.ilive.to/player_ilive.swf live=1 timeout=15 swfVfy=1 pageUrl=http://www.ilive.to/embedplayer.php?width=640&height=400&channel=38810&autoplay=true token=87adjuljlsadkf87HD
+player=default
+rating=-1.00
+
+# 1997818
+type=video
+name=CNN US
+thumb=http://www.zanda.com/resources/item/73070270000069/1024x768/CNN_logo.png
+URL=rtmp://a.cdn.livenewschat.eu/edge playpath=cnn_live swfUrl=http://msnbclive.eu/player.swf pageUrl=http://weplaylive.tv/live-news-stream/
+player=default
+rating=-1.00
+
+# 2003586
+type=video
+name=FOX NEWS
+thumb=http://3.bp.blogspot.com/-GLeOeNL3bBc/T3YRRB1RsRI/AAAAAAAABwY/i0v8ojq-79E/s1600/fox-news-logo-1.jpg
+URL=rtmp://live.iguide.to/edge playpath=ohn58e97er36vjr swfUrl=http://player.ilive.to/secure_player_ilive_z.swf pageUrl=http://www.ilive.to/view/46465/watch-live-Fox_News-streaming-channel-for-free  token=I8772LDKksadhGHGagf#
+player=default
+rating=-1.00
+
+# 1986535
+type=video
+name=Euro News UK
+thumb=http://www.parameter.sk/sites/default/files/photos/promoted/euronews.jpg
+URL=http://fw01.livem3u8.me.totiptv.com/live/3f35c4428a0d4004a38ff0adba7664f4.m3u8?bitrate=800
+player=default
+rating=-1.00
+
+# 1986533
+type=video
+name=FOX News US
+thumb=http://www.hdwallpaperstop.com/wp-content/uploads/2013/08/113491300_1a05c451b8_o.jpg
+URL=http://fw01.livem3u8.me.totiptv.com/live/1e2041858ca543fa90ec95d28197e907.m3u8?bitrate=800
+player=default
+rating=-1.00
+
+# 1986534
+type=video
+name=FOXNEWS.COM Live US
+thumb=http://www.hdwallpaperstop.com/wp-content/uploads/2013/08/113491300_1a05c451b8_o.jpg
+URL=http://foxhdlive-f.akamaihd.net/DCL_1_600@6475?%20v=2.11.3&fp=WIN%2011,5,31,137&r=NSUNU&g=PRPGTWWACWEM
+player=default
+rating=-1.00
+
+# 1997821
+type=video
+name=Food Network US
+thumb=http://blog.foodnetwork.com/fn-dish/files/2009/05/newlogosmontage.jpg
+URL=rtmp://live.iguide.to/edge playpath=ibnnu7537h3ax6e swfUrl=http://player.ilive.to/player_ilive.swf live=1 timeout=15 swfVfy=1 pageUrl=http://www.ilive.to/embedplayer.php?width=640&height=400&channel=52506&autoplay=true token=I8772LDKksadhGHGagf#
+player=default
+rating=-1.00
+
+# 2002193
+type=video
+name=Heart TV
+thumb=http://assets5.heart.co.uk/2012/41/heart-tv-smooth-1349970784-article-0.jpg
+URL=rtmp://cdn-the-2.musicradio.com:80/LiveVideo playpath=Heart swfUrl=http://heart.gcstatic.com/gusto/a/tv/swf/player.swf pageUrl=http://www.heart.co.uk/tv/player/
+player=default
+rating=-1.00
+
+# 2003592
+type=video
+name=National Geographic
+thumb=http://www.thequ.co/wp-content/uploads/2013/01/national-geographic-channel.png
+URL=rtmp://live.iguide.to/edge playpath=yszd60jgsxxtgmj swfUrl=http://player.ilive.to/secure_player_ilive_z.swf pageUrl=http://www.ilive.to/view/41426/watch-live-National_Geographic-streaming-channel-for-free    token=I8772LDKksadhGHGagf#
+player=default
+rating=-1.00
+
+# 1986525
+type=video
+name=NBA TV
+thumb=http://sportsmediajournal.com/wp-content/uploads/2011/06/NBA-TV-Logo.jpg
+URL=rtmp://31.7.58.122:1935/stream/I8s9S4H7.stream playpath=N1V3R0h8.stream swfUrl=http://thecdn.04stream.com/p/bbp.swf live=true  pageUrl=http://www.04stream.com/NBA TV
+player=default
+rating=-1.00
+
+# 1986528
+type=video
+name=NFL Network
+thumb=http://www.ryanmdschmidt.com/work/wp-content/uploads/2013/03/nfl-network.jpg
+URL=rtmp://46.246.29.130:1935/stream/bdpZdSfpz0.stream swfUrl=http://thecdn.04stream.com/p/boopo.swf live=true timeout=15 swfVfy=1 pageUrl=http://www.04stream.com
+player=default
+rating=-1.00
+
+# 2002156
+type=video
+name=Rouge TV
+thumb=https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRgs2d_6sHVH6DqKLkuXSOg4_pkE38CURn1nzgC1YmIcL1BGY_G
+URL=rtmp://rtmp.infomaniak.ch/livecast playpath=rougetv swfUrl=http://static.infomaniak.ch/livetv/playerMain-v4.2.36.swf?bLd=0&sTitle=&sVersion=4%2E2%2E36&sDescription= pageUrl=http://www.rougetv.ch/
+player=default
+rating=-1.00
+
+# 2003597
+type=video
+name=TNT
+thumb=http://www.sat.dm/chlineup/images/tnt.png
+URL=rtmp://live.iguide.to/edge playpath=s7d8wd96rhebpng swfUrl=http://player.ilive.to/secure_player_ilive_z.swf pageUrl=http://www.ilive.to/view/46736/watch-live-TNT-streaming-channel-for-free token=I8772LDKksadhGHGagf#
+player=default
+rating=-1.00
+
+# 2003589
+type=video
+name=Travel Channel
+thumb=http://www.lyngsat-logo.com/hires/tt/travel_channel_europe.png
+URL=rtmp://live.iguide.to/edge playpath=oeiigxxv1gbeqq9 swfUrl=http://player.ilive.to/secure_player_ilive_z.swf pageUrl=http://www.ilive.to/view/52988/watch-live-Travel_Channel-streaming-channel-for-free  token=I8772LDKksadhGHGagf#
+player=default
+rating=-1.00
+
+# 1992588
+type=
+name=[COLOR=FF00FF00] *************** [/COLOR][COLOR=FFFFFF00] 24/7[/COLOR] [COLOR=FF0198E1] Streaming[/COLOR][COLOR=FFFF0000] TV Shows[/COLOR][COLOR=FF00FF00] *************** [/COLOR]
+thumb=https://fbcdn-sphotos-a-a.akamaihd.net/hphotos-ak-ash3/1235451_10153270785870206_147574351_n.jpg
+player=default
+rating=-1.00
+
+# 1992585
+type=video
+name=Breaking Bad
+thumb=http://www.filmforlife.org/wp-content/uploads/2013/06/breaking_bad_wallpaper.jpg
+URL=rtmp://198.27.74.25/app playpath=bad01 swfUrl=http://www.tgun.tv/jwplayer/player.swf live=1 pageUrl=http://www.tgun.tv/menus/players/playerindex.php
+player=default
+rating=-1.00
+
+# 1996444
+type=video
+name=Curb Your Enthusiasm
+thumb=http://seriesandtv.com/wp-content/uploads/2010/08/Curb-Your-Enthusiasm-casting-call-open-audition.jpg
+URL=rtmp://198.27.74.25/app playpath=curbs02 swfUrl=http://tgun.tv/jwplayer/player.swf pageUrl=http://tgun.tv/shows/playerindex.php?  swfVfy=true live=true
+player=default
+rating=-1.00
+
+# 1992593
+type=video
+name=House
+thumb=http://images1.fanpop.com/images/image_uploads/House-MD-house-md-971782_1280_800.jpg
+URL=rtmp://live.iguide.to/edge/vampcgkmpaun6at swfUrl=http://static.ilive.to/jwplayer/player_embed.swf pageUrl=http://www.ilive.to/embedplayer.php?width=600&height=530&channel=40783&autoplay=true live=1 token=UYDk93k#09sdafjJDHJKAD873
+player=default
+rating=-1.00
+
+# 1992136
+type=video
+name=Seinfeld
+thumb=http://images.fanpop.com/images/image_uploads/Seinfeld-seinfeld-633458_1024_768.jpg
+URL=rtmp://198.27.74.25/app playpath=seinfeld02 pageURL=http://www.tgun.tv/shows/ch1.php swfUrl=http://www.tgun.tv/jwplayer/player.swf live=true
+player=default
+rating=-1.00
+
+# 1992594
+type=video
+name=Modern Family
+thumb=http://hdwpapers.com/walls/modern_family_wallpaper_5-normal.jpg
+URL=rtmp://198.27.74.25:1935/app playpath=mfamily01 swfUrl=http://www.tgun.tv/jwplayer/player.swf live=1 pageUrl=http://www.tgun.tv/menus/players/playerindex.php?mfamily
+player=default
+rating=-1.00
+
+# 1992596
+type=video
+name=Star Trek
+thumb=http://pixelperfectmag.com/wp-content/uploads/2012/06/startrek2009-logo-2.jpg
+URL=rtmp://46.19.140.242/app playpath=15434 app=app pageURL=http://www.shidurlive.com/stream/4e7a51334d6a59314e6d493d/ad43acf57612 swfUrl=http://www.udemy.com/static/flash/player5.9.swf
+player=default
+rating=-1.00
+
+# 1992597
+type=video
+name=Star Trek Deep Space Nine
+thumb=http://pixelperfectmag.com/wp-content/uploads/2012/06/startrek2009-logo-2.jpg
+URL=rtmp://198.27.74.25/app playpath=ds901 swfUrl=http://www.tgun.tv/jwplayer/player.swf pageUrl=http://www.tgun.tv/menus/players/playerindex3.php?ds9
+player=default
+rating=-1.00
+
+# 1992616
+type=video
+name=Star Trek Enterprise
+thumb=http://pixelperfectmag.com/wp-content/uploads/2012/06/startrek2009-logo-2.jpg
+URL=rtmp://198.27.74.25/app playpath=trekent01 swfUrl=http://tgun.tv/jwplayer/player.swf live=1 pageUrl=http://tgun.tv/shows/playerindex.php?%74%72%65%6B%65%6E%74
+player=default
+rating=-1.00
+
+# 1992627
+type=video
+name=Star Trek The Next Generation
+thumb=http://pixelperfectmag.com/wp-content/uploads/2012/06/startrek2009-logo-2.jpg
+URL=rtmp://198.27.74.25/app playpath=tng01 swfUrl=http://tgun.tv/jwplayer/player.swf live=1 pageUrl=http://tgun.tv/shows/playerindex.php?%74%6E%67
+player=default
+rating=-1.00
+
+# 1992632
+type=video
+name=The Simpsons
+thumb=http://www.justdesktopwallpapers.com/images/filmstv/simpsons/1280/SimpsonsClouds.jpg
+URL=rtmp://198.27.74.25/app playpath=simpsons01 swfUrl=http://www.tgun.tv/jwplayer/player.swf live=1 pageUrl=http://www.tgun.tv/menus/players/playerindex.php
+player=default
+rating=-1.00
+
+# 1992634
+type=video
+name=The Walking Dead
+thumb=http://hdwpapers.com/walls/the_walking_dead_wallpaper_18-wide.jpg
+URL=rtmp://173.193.197.46/flash playpath=15884 app=flash pageURL=http://www.sawlive.tv/embed/funnybone swfUrl=http://udemy.com/static/flash/player5.9.swf live=true
+player=default
+rating=-1.00
+
+# 1992635
+type=video
+name=The X Files
+thumb=http://2eq9hztv2wc1k6odx469m9znq0.wpengine.netdna-cdn.com/wp-content/uploads/xfiles.jpg
+URL=rtmp://198.27.74.25/app playpath=xfiles01 swfUrl=http://tgun.tv/jwplayer/player.swf  pageUrl=http://tgun.tv/shows/playerindex.php?%78%66%69%6C%65%73
+player=default
+rating=-1.00
+
+# 1986538
+type=playlist
+name=[COLOR=FF00FF00] *************** [/COLOR][COLOR=FFFFFF00] MOST[/COLOR] [COLOR=FF0198E1] VISITED[/COLOR][COLOR=FFFF0000] PLAYLISTS[/COLOR][COLOR=FF00FF00] *************** [/COLOR]
+thumb=https://scontent-a-iad.xx.fbcdn.net/hphotos-prn1/q71/s720x720/524062_10153263155835206_1217482146_n.jpg
+URL=http://www.navixtreme.com/playlist/day.plx
+player=default
+rating=2.00
+
+
+# cached

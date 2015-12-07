@@ -1,0 +1,171 @@
+version=1
+title=NEW USA CABLE
+description=contains USA, UK, CABLE & international SAT music & entertainment LIVE TV/description
+
+# 2330556
+type=video
+name=Cartoon Network
+date=2014-08-20
+URL=http://mobi3.ibrod.tv:1935/ibusa/cn.stream/playlist.m3u8
+player=default
+rating=-1.00
+
+# 2329839
+type=video
+name=MTV
+date=2014-08-18
+URL=http://mobi3.ibrod.tv:1935/ibusa/mtv.stream/playlist.m3u8
+player=default
+rating=-1.00
+
+# 2329830
+type=video
+name=TBS
+date=2014-08-18
+URL=http://mobi3.ibrod.tv:1935/ibusa/tbs.stream/playlist.m3u8
+player=default
+rating=-1.00
+
+# 2329798
+type=video
+name=FOX
+date=2014-08-18
+URL=http://mobi3.ibrod.tv:1935/ibusa/fox.stream/playlist.m3u8
+player=default
+rating=-1.00
+
+# 2328868
+type=video
+name=ABC Family
+date=2014-08-17
+URL=http://mobi3.ibrod.tv:1935/ibusa/abcfam.stream/playlist.m3u8
+player=default
+rating=-1.00
+
+# 2328867
+type=video
+name=FX
+date=2014-08-17
+URL=http://mobi3.ibrod.tv:1935/ibusa/fx.stream/playlist.m3u8
+player=default
+rating=-1.00
+
+# 2328860
+type=video
+name=Nickelodeon
+date=2014-08-17
+URL=http://mobi3.ibrod.tv:1935/ibusa/nick.stream/playlist.m3u8
+player=default
+rating=-1.00
+
+# 2330556
+type=video
+name=ABC
+date=2014-08-20
+URL=http://mobi3.ibrod.tv:1935/ibusa/abc.stream/playlist.m3u8
+player=default
+rating=-1.00
+
+# 2329839
+type=video
+name=Bravo
+date=2014-08-18
+URL=http://mobi3.ibrod.tv:1935/ibusa/bravo.stream/playlist.m3u8
+player=default
+rating=-1.00
+
+# 2329830
+type=video
+name=CW
+date=2014-08-18
+URL=http://mobi3.ibrod.tv:1935/ibusa/cw.stream/playlist.m3u8
+player=default
+rating=-1.00
+
+# 2329798
+type=video
+name=CBS
+date=2014-08-18
+URL=http://mobi3.ibrod.tv:1935/ibusa/cbs.stream/playlist.m3u8
+player=default
+rating=-1.00
+
+# 2328868
+type=video
+name=USA
+date=2014-08-17
+URL=http://mobi3.ibrod.tv:1935/ibusa/usa.stream/playlist.m3u8
+player=default
+rating=-1.00
+
+# 2328867
+type=video
+name=ESPN
+date=2014-08-17
+URL=http://mobi3.ibrod.tv:1935/ibusa/espn.stream/playlist.m3u8
+player=default
+rating=-1.00
+
+# 2328860
+type=video
+name=AMC
+date=2014-08-17
+URL=http://mobi3.ibrod.tv:1935/ibusa/amc.stream/playlist.m3u8
+player=default
+rating=-1.00
+
+# 2330556
+type=video
+name=SY-FY Channel
+date=2014-08-20
+URL=http://mobi3.ibrod.tv:1935/ibusa/syfy.stream/playlist.m3u8
+player=default
+rating=-1.00
+
+# 2329839
+type=video
+name=TNT
+date=2014-08-18
+URL=http://mobi3.ibrod.tv:1935/ibusa/tnt.stream/playlist.m3u8
+player=default
+rating=-1.00
+
+# 2329830
+type=video
+name=HBO
+date=2014-08-18
+URL=http://mobi3.ibrod.tv:1935/ibusa/hbo.stream/playlist.m3u8
+player=default
+rating=-1.00
+
+# 2329798
+type=video
+name=Spike TV
+date=2014-08-18
+URL=http://mobi3.ibrod.tv:1935/ibusa/spike.stream/playlist.m3u8
+player=default
+rating=-1.00
+
+# 2328868
+type=video
+name=NBC
+date=2014-08-17
+URL=http://mobi3.ibrod.tv:1935/ibusa/nbc.stream/playlist.m3u8
+player=default
+rating=-1.00
+
+# 2328867
+type=video
+name=AETV
+date=2014-08-17
+URL=http://mobi3.ibrod.tv:1935/ibusa/aetv.stream/playlist.m3u8
+player=default
+rating=-1.00
+
+# 2328860
+type=video
+name=NBA
+date=2014-08-17
+URL=http://mobi3.ibrod.tv:1935/ibusa/nbatv.stream/playlist.m3u8
+player=default
+rating=-1.00

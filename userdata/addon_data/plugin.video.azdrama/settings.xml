@@ -1,0 +1,15 @@
+<settings>
+    <setting id="display_mirrors" value="true" />
+    <setting id="domainurl" value="3" />
+    <setting id="ga_privacy" value="false" />
+    <setting id="ga_time" value="2015-11-08 19:14:32" />
+    <setting id="ga_visitor" value="836798799" />
+    <setting id="list_english_subtitles" value="true" />
+    <setting id="list_hk_dramas" value="true" />
+    <setting id="list_hk_movies" value="true" />
+    <setting id="list_hk_shows" value="true" />
+    <setting id="list_korean_dramas" value="true" />
+    <setting id="list_mainlan_dramas" value="true" />
+    <setting id="list_recent_updates" value="true" />
+    <setting id="list_taiwanese_dramas" value="true" />
+</settings>

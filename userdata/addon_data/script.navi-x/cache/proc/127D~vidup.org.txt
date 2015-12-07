@@ -1,0 +1,25 @@
+v2
+
+cacheable='1
+#verbose 2
+
+url_ori=s_url
+
+s_referer='http://vidup.org/
+s_url=url_ori
+regex='url: "(http://vidup.org/videos/[^"]+)"
+scrape
+
+if v1='
+regex='url: "(http://server[^"]+)"
+scrape
+endif
+
+if v1>'
+  unescape v1
+  url=v1
+  play
+endif
+
+print htmRaw
+error 'Unable to parse media URL.

@@ -1,0 +1,195 @@
+version=7
+title=CBS [COLOR=FF888888]»[/COLOR] All Current Shows
+logo=http://www.navixtreme.com/images/backgrounds/thumb_cbs.png
+# http://www.cbs.com/carousels/showsByCategory/0/offset/0/limit/40/
+
+type=playlist
+name=2015 Fall Previews
+thumb=http://wwwimage.cbsstatic.com/base/files/device/cbsfallpreview2015_thm_ios_367x208_0.jpg
+URL=http://www.navixtreme.com/scrape/cbs/show/cbs-fall-previews-2015
+
+type=playlist
+name=2015 Summer Premieres
+thumb=http://wwwimage.cbsstatic.com/base/files/device/2015summerpremieres_ios_367x208.jpg
+URL=http://www.navixtreme.com/scrape/cbs/show/2015-summer-premieres
+
+type=playlist
+name=2 Broke Girls
+thumb=http://wwwimage.cbsstatic.com/base/files/device/2brokegirls_367x208.jpg
+URL=http://www.navixtreme.com/scrape/cbs/show/2_broke_girls
+
+type=playlist
+name=48 Hours
+thumb=http://wwwimage.cbsstatic.com/base/files/device/48hours_367_x_208.jpg
+URL=http://www.navixtreme.com/scrape/cbs/show/48_hours
+
+type=playlist
+name=60 Minutes
+thumb=http://wwwimage.cbsstatic.com/base/files/device/60minutes_367x208.jpg
+URL=http://www.navixtreme.com/scrape/cbs/show/60_minutes
+
+type=playlist
+name=The Amazing Race
+thumb=http://wwwimage.cbsstatic.com/base/files/device/ar_thm_ios_367x208.jpg
+URL=http://www.navixtreme.com/scrape/cbs/show/amazing_race
+
+type=playlist
+name=The Big Bang Theory
+thumb=http://wwwimage.cbsstatic.com/base/files/device/bigbangtheory_367x208.jpg
+URL=http://www.navixtreme.com/scrape/cbs/show/big_bang_theory
+
+type=playlist
+name=Big Brother
+thumb=http://wwwimage.cbsstatic.com/base/files/device/bigbrother_thm_ios_367x208.jpg
+URL=http://www.navixtreme.com/scrape/cbs/show/big_brother
+
+type=playlist
+name=Blue Bloods
+thumb=http://wwwimage.cbsstatic.com/base/files/device/bluebloods_367x208.jpg
+URL=http://www.navixtreme.com/scrape/cbs/show/blue_bloods
+
+type=playlist
+name=Criminal Minds
+thumb=http://wwwimage.cbsstatic.com/base/files/device/criminalminds_367x208.jpg
+URL=http://www.navixtreme.com/scrape/cbs/show/criminal_minds
+
+type=playlist
+name=CSI: Crime Scene Investigation
+thumb=http://wwwimage.cbsstatic.com/base/files/device/csi_367x208.jpg
+URL=http://www.navixtreme.com/scrape/cbs/show/csi
+
+type=playlist
+name=CSI: Cyber
+thumb=http://wwwimage.cbsstatic.com/base/files/device/csicyber_thm_ios_367x208.jpg
+URL=http://www.navixtreme.com/scrape/cbs/show/csi-cyber
+
+type=playlist
+name=Elementary
+thumb=http://wwwimage.cbsstatic.com/base/files/device/elementary_367x208.jpg
+URL=http://www.navixtreme.com/scrape/cbs/show/elementary
+
+type=playlist
+name=Extant
+thumb=http://wwwimage.cbsstatic.com/base/files/device/extant_367x208.jpg
+URL=http://www.navixtreme.com/scrape/cbs/show/extant
+
+type=playlist
+name=The Good Wife
+thumb=http://wwwimage.cbsstatic.com/base/files/device/goodwife_367x208.jpg
+URL=http://www.navixtreme.com/scrape/cbs/show/the_good_wife
+
+type=playlist
+name=Hawaii Five-0
+thumb=http://wwwimage.cbsstatic.com/base/files/device/h50_367x208.jpg
+URL=http://www.navixtreme.com/scrape/cbs/show/hawaii_five_0
+
+type=playlist
+name=Madam Secretary
+thumb=http://wwwimage.cbsstatic.com/base/files/device/m_secretary_367x208.jpg
+URL=http://www.navixtreme.com/scrape/cbs/show/madam-secretary
+
+type=playlist
+name=Mike & Molly
+thumb=http://wwwimage.cbsstatic.com/base/files/device/mikeandmolly_367x208_0.jpg
+URL=http://www.navixtreme.com/scrape/cbs/show/mike_and_molly
+
+type=playlist
+name=Mom
+thumb=http://wwwimage.cbsstatic.com/base/files/device/mom_367x208_0.jpg
+URL=http://www.navixtreme.com/scrape/cbs/show/mom
+
+type=playlist
+name=NCIS
+thumb=http://wwwimage.cbsstatic.com/base/files/device/ncis_367x208_1.jpg
+URL=http://www.navixtreme.com/scrape/cbs/show/ncis
+
+type=playlist
+name=NCIS: Los Angeles
+thumb=http://wwwimage.cbsstatic.com/base/files/device/ncisla_367x208.jpg
+URL=http://www.navixtreme.com/scrape/cbs/show/ncis_los_angeles
+
+type=playlist
+name=NCIS: New Orleans
+thumb=http://wwwimage.cbsstatic.com/base/files/device/ncis_nola_367x208.jpg
+URL=http://www.navixtreme.com/scrape/cbs/show/ncis-new-orleans
+
+type=playlist
+name=The Odd Couple
+thumb=http://wwwimage.cbsstatic.com/base/files/device/theoddcouple_thm_ios_367x208.jpg
+URL=http://www.navixtreme.com/scrape/cbs/show/the-odd-couple
+
+type=playlist
+name=Person of Interest
+thumb=http://wwwimage.cbsstatic.com/base/files/device/personofinterest_thm_ios_367x208.jpg
+URL=http://www.navixtreme.com/scrape/cbs/show/person_of_interest
+
+type=playlist
+name=Scorpion
+thumb=http://wwwimage.cbsstatic.com/base/files/device/scorpion_367x208.jpg
+URL=http://www.navixtreme.com/scrape/cbs/show/scorpion
+
+type=playlist
+name=SURVIVOR™
+thumb=http://wwwimage.cbsstatic.com/base/files/device/survivor31_thm_ios_367x208.jpg
+URL=http://www.navixtreme.com/scrape/cbs/show/survivor
+
+type=playlist
+name=Undercover Boss
+thumb=http://wwwimage.cbsstatic.com/base/files/device/undercoverboss_367x208_0.jpg
+URL=http://www.navixtreme.com/scrape/cbs/show/undercover_boss
+
+type=playlist
+name=Under The Dome
+thumb=http://wwwimage.cbsstatic.com/base/files/device/underthedome_367x208.jpg
+URL=http://www.navixtreme.com/scrape/cbs/show/under-the-dome
+
+type=playlist
+name=Zoo
+thumb=http://wwwimage.cbsstatic.com/base/files/device/zoo_thm_ios_367x208.jpg
+URL=http://www.navixtreme.com/scrape/cbs/show/zoo
+
+type=playlist
+name=The Bold and the Beautiful
+thumb=http://wwwimage.cbsstatic.com/base/files/device/boldandbeautiful_367x208.jpg
+URL=http://www.navixtreme.com/scrape/cbs/show/the_bold_and_the_beautiful
+
+type=playlist
+name=CBS This Morning
+thumb=http://wwwimage.cbsstatic.com/base/files/device/keyart_367x208_cbsthismorning.jpg
+URL=http://www.navixtreme.com/scrape/cbs/show/cbs_this_morning
+
+type=playlist
+name=Let's Make a Deal
+thumb=http://wwwimage.cbsstatic.com/base/files/device/letsmakeadeal_367x208.jpg
+URL=http://www.navixtreme.com/scrape/cbs/show/lets_make_a_deal
+
+type=playlist
+name=The Price Is Right
+thumb=http://wwwimage.cbsstatic.com/base/files/device/keyart_367x208_priceisright.jpg
+URL=http://www.navixtreme.com/scrape/cbs/show/the_price_is_right
+
+type=playlist
+name=The Talk
+thumb=http://wwwimage.cbsstatic.com/base/files/device/thetalk_367x208_1.jpg
+URL=http://www.navixtreme.com/scrape/cbs/show/the_talk
+
+type=playlist
+name=The Young and the Restless
+thumb=http://wwwimage.cbsstatic.com/base/files/device/youngandrestless_367x208.jpg
+URL=http://www.navixtreme.com/scrape/cbs/show/the_young_and_the_restless
+
+type=playlist
+name=The CBS Dream Team...It's Epic
+thumb=http://wwwimage.cbsstatic.com/base/files/device/dreamteam_367x208.jpg
+URL=http://www.navixtreme.com/scrape/cbs/show/cbs-dream-team
+
+type=playlist
+name=The Late Show with Stephen Colbert
+thumb=http://wwwimage.cbsstatic.com/base/files/device/lateshow_thm_web_367x208_1.jpg
+URL=http://www.navixtreme.com/scrape/cbs/show/the-late-show-with-stephen-colbert
+
+type=playlist
+name=The Late Late Show with James Corden
+thumb=http://wwwimage.cbsstatic.com/base/files/device/latelateshow_thm_ios_367x208_0.jpg
+URL=http://www.navixtreme.com/scrape/cbs/show/late-late-show
+

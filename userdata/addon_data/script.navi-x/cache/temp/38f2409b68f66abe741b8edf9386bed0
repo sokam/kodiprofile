@@ -1,0 +1,40 @@
+version=1
+title=Deutsche Podcasts von Samfro
+logo=http://fun24online.de/xbmc/navix/logo2.jpg
+description=Hier findet ihr deutsche Podcasts, Serien, Filme, Clips u.s.w.
+Ich werde die Liste nach und nach vervollstaendigen!
+
+Die TV Live Streams funktionieren noch nicht (dauerhaft)
+Aber ich arbeite daran/description
+
+# 932523
+type=playlist
+name=TV Sender
+URL=http://www.navixtreme.com/playlist/53944/test.plx
+player=default
+rating=-1.00
+
+# 932508
+type=playlist
+name=Nachrichten
+URL=http://www.navixtreme.com/playlist/53943/test.plx
+player=default
+rating=-1.00
+
+# 932529
+type=playlist
+name=Sonstiges
+URL=http://www.navixtreme.com/playlist/53946/test.plx
+player=default
+rating=-1.00
+
+# 932568
+type=playlist
+name=Meine YouTube Videos
+thumb=http://fun24online.de/xbmc/navix/ytlogo.jpg
+URL=http://www.navixtreme.com/playlist/53950/meine_youtube_videos.plx
+player=default
+rating=-1.00
+
+
+# cached

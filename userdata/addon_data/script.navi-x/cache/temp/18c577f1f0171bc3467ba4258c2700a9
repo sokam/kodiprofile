@@ -1,0 +1,20 @@
+version=1
+title=xoox's Live TV
+description=TV Serbia, Srbija, Ex YU, Srpska/description
+
+# 2209342
+type=playlist
+name=B92
+URL=http://elit9.com/TV/B92.xspf
+player=default
+rating=-1.00
+
+# 1282047
+type=xml_shoutcast
+name=Prva TV Serbia
+URL=http://4.31.30.135:1935/st3fstv/8ios_PrvaTV_4525478/halilou.m3u8?
+player=default
+rating=-1.00
+
+
+# cached

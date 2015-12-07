@@ -1,0 +1,6 @@
+<settings>
+    <setting id="noteImage" value="9" />
+    <setting id="noteMessage" value="There have been some massive updates take place within the addon community this&#x0A;past week that we thought you could greatly benefit from hearing about...&#x0A;&#x0A;If you&apos;re interested in [B][COLOR white]LIVE TV[/COLOR][/B], [B][COLOR white]NHL Hockey[/COLOR][/B], [B][COLOR white]MLB Baseball[/COLOR][/B], or just want to have the&#x0A;fastest Kodi setup around, we&apos;d highly suggest reading our blog immediately!&#x0A;&#x0A;Check our blog at the following link for the best of live TV for Kodi and more:&#x0A;[B][COLOR white]www.tvaddons.ag/kodi-reviews/[/COLOR][/B]&#x0A;&#x0A;We&apos;d also really [COLOR white]appreciate if you could take the time to visit our sponsors[/COLOR]&#x0A;regularly so that we can keep the lights on! It would also be very cool if you could&#x0A;share our link over social media so others can find out about us too!" />
+    <setting id="noteType" value="t" />
+    <setting id="notifications-on-startup" value="false" />
+</settings>

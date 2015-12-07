@@ -1,0 +1,8 @@
+<settings>
+    <setting id="eBooksFolder" value="/media/Backup/Backup2/Books/" />
+    <setting id="logEnabled" value="false" />
+    <setting id="markReadWhenNavToNextChapter" value="false" />
+    <setting id="onlyShowWholeBookIfChapters" value="true" />
+    <setting id="usePageNumbersForPdf" value="false" />
+    <setting id="useWhiteBackground" value="false" />
+</settings>

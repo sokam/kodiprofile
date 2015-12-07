@@ -1,0 +1,363 @@
+version=1
+background=http://i236.photobucket.com/albums/ff307/beerpuppet/AssyWP.jpg
+title=Assy McGee
+logo=http://i.cdn.turner.com/adultswim/shows/assy-mcgee/img/show-image.jpg
+description=Animated cop drama satire focusing on a grizzled, short tempered cop and his straight man partner, the former of which is simply a lower male torso./description
+
+type=playlist
+name=Sorted by user-assigned order
+icon=http://media.navi-x.org/images/icons/2downarrow.png
+URL=http://www.navixtreme.com/playlist/25750/assy_mcgee.plx?action=sortsel&cur=ord
+
+# 506921
+type=video
+name=Assy McGee_1_1of2_Murder by the Docks
+thumb=http://i.adultswim.com/asfix/repository/8a25c3920e3cd4c5010e3d2f005f006d/thumbnail_33148.jpg
+URL=http://http-trd-l3.cdn.turner.com/adultswim/big/protected_auth/adultswimfix/2007/05/assy_101_pt1_dy6Hb_ASFIX_dl.flv
+player=default
+rating=-1.00
+description=An unsolved murder that threatens to derail the Mayor's re-election campaign./description
+
+# 506922
+type=video
+name=Assy McGee_1_2of2_Murder by the Docks
+thumb=http://i.adultswim.com/asfix/repository/8a25c3920e3cd4c5010e3d2f005f006d/thumbnail_33149.jpg
+URL=http://http-trd-l3.cdn.turner.com/adultswim/big/protected_auth/adultswimfix/2007/05/assy_101_pt2_u3nAe_ASFIX_dl.flv
+player=default
+rating=-1.00
+description=An unsolved murder that threatens to derail the Mayor's re-election campaign./description
+
+# 506923
+type=video
+name=Assy McGee_2_1of2_Game of Death
+thumb=http://i.adultswim.com/asfix/repository/8a25c3920e3cd4c5010e3d2f005f006d/thumbnail_18359.jpg
+URL=http://http-trd-l3.cdn.turner.com/adultswim/big/protected_auth/adultswimfix/2007/05/assy_102_pt1_s9k2B_ASFIX_dl.flv
+player=default
+rating=-1.00
+description=Detective McGee is assigned to protect a foreign dignitary targeted for assassination./description
+
+# 506924
+type=video
+name=Assy McGee_2_2of2_Game of Death
+thumb=http://i.adultswim.com/asfix/repository/8a25c3920e3cd4c5010e3d2f005f006d/thumbnail_18360.jpg
+URL=http://http-trd-l3.cdn.turner.com/adultswim/big/protected_auth/adultswimfix/2007/05/assy_102_pt2_d0i2F_ASFIX_dl.flv
+player=default
+rating=-1.00
+description=Detective McGee is assigned to protect a foreign dignitary targeted for assassination./description
+
+# 506925
+type=video
+name=Assy McGee_3_1of2_Busted
+thumb=http://i.adultswim.com/asfix/repository/8a25c3920e3cd4c5010e3d2f005f006d/thumbnail_33779.jpg
+URL=http://http-trd-l3.cdn.turner.com/adultswim/big/protected_auth/adultswimfix/2007/05/assy_103_pt1_mi4go_ASFIX_dl.flv
+player=default
+rating=-1.00
+description=Detective McGee defies orders to thwart a plague of bus robberies that terrorizes the city./description
+
+# 506926
+type=video
+name=Assy McGee_3_2of2_Busted
+thumb=http://i.adultswim.com/asfix/repository/8a25c3920e3cd4c5010e3d2f005f006d/thumbnail_33780.jpg
+URL=http://http-trd-l3.cdn.turner.com/adultswim/big/protected_auth/adultswimfix/2007/05/assy_103_pt2_u7Bg2_ASFIX_dl.flv
+player=default
+rating=-1.00
+description=Detective McGee defies orders to thwart a plague of bus robberies that terrorizes the city./description
+
+# 506927
+type=video
+name=Assy McGee_4_1of2_The Flirty Black Man
+thumb=http://i.adultswim.com/asfix/repository/8a25c3920e3cd4c5010e3d2f005f006d/thumbnail_47905.jpg
+URL=http://http-trd-l3.cdn.turner.com/adultswim/big/protected_auth/adultswimfix/2007/05/assy_104_pt1_ls8bD_ASFIX_dl.flv
+player=default
+rating=-1.00
+description=The Mayor faces humiliation when a famous painting is stolen from the town's art gallery./description
+
+# 506928
+type=video
+name=Assy McGee_4_2of2_The Flirty Black Man
+thumb=http://i.adultswim.com/asfix/repository/8a25c3920e3cd4c5010e3d2f005f006d/thumbnail_47906.jpg
+URL=http://http-trd-l3.cdn.turner.com/adultswim/big/protected_auth/adultswimfix/2007/05/assy_104_pt2_t8sAv_ASFIX_dl.flv
+player=default
+rating=-1.00
+description=The Mayor faces humiliation when a famous painting is stolen from the town's art gallery./description
+
+# 506929
+type=video
+name=Assy McGee_5_1of2_Conviction
+thumb=http://i.adultswim.com/asfix/repository/8a25c3920e3cd4c5010e3d2f005f006d/thumbnail_43546.jpg
+URL=http://http-trd-l3.cdn.turner.com/adultswim/big/protected_auth/adultswimfix/2007/05/assy_105_pt1_hf2Vs_as_dl.flv
+player=default
+rating=-1.00
+description=A local drug epidemic overtakes the city and puts Detective McGee's life at stake./description
+
+# 506930
+type=video
+name=Assy McGee_5_2of2_Conviction
+thumb=http://i.adultswim.com/asfix/repository/8a25c3920e3cd4c5010e3d2f005f006d/thumbnail_43548.jpg
+URL=http://http-trd-l3.cdn.turner.com/adultswim/big/protected_auth/adultswimfix/2007/05/assy_105_pt2_ydml2_as_dl.flv
+player=default
+rating=-1.00
+description=A local drug epidemic overtakes the city and puts Detective McGee's life at stake./description
+
+# 506931
+type=video
+name=Assy McGee_6_1of2_Mexican Rain
+thumb=http://i.adultswim.com/asfix/repository/8a25c3920e3cd4c5010e3d2f005f006d/thumbnail_53987.jpg
+URL=http://http-trd-l3.cdn.turner.com/adultswim/big/protected_auth/adultswimfix/2007/06/Assy_106_pt1_s9eVb_ASFIX_dl.flv
+player=default
+rating=-1.00
+description=Detective McGee is assigned to break up an international immigrant smuggling ring./description
+
+# 506932
+type=video
+name=Assy McGee_6_2of2_Mexican Rain
+thumb=http://i.adultswim.com/asfix/repository/8a25c3920e3cd4c5010e3d2f005f006d/thumbnail_53988.jpg
+URL=http://http-trd-l3.cdn.turner.com/adultswim/big/protected_auth/adultswimfix/2007/06/Assy_106_pt2_0nba7_ASFIX_dl.flv
+player=default
+rating=-1.00
+description=Detective McGee is assigned to break up an international immigrant smuggling ring./description
+
+# 506933
+type=video
+name=Assy McGee_7_1of2_Ring of Fire
+thumb=http://i.adultswim.com/asfix/repository/8a25c3920e3cd4c5010e3d2f005f006d/thumbnail_44359.jpg
+URL=http://http-trd-l3.cdn.turner.com/adultswim/big/protected_auth/adultswimfix/2008/04/assy_007_pt1_Bfje9_ASFIX_dl.flv
+player=default
+rating=-1.00
+description=Someone -- or something -- is killing the city's most promising boxers and Detective McGee finds himself in a fight for his life./description
+
+# 506934
+type=video
+name=Assy McGee_7_2of2_Ring of Fire
+thumb=http://i.adultswim.com/asfix/repository/8a25c3920e3cd4c5010e3d2f005f006d/thumbnail_44360.jpg
+URL=http://http-trd-l3.cdn.turner.com/adultswim/big/protected_auth/adultswimfix/2008/04/assy_007_pt2_Px31Z_ASFIX_dl.flv
+player=default
+rating=-1.00
+description=Someone -- or something -- is killing the city's most promising boxers and Detective McGee finds himself in a fight for his life./description
+
+# 506935
+type=video
+name=Assy McGee_8_1of2_Pegfinger
+thumb=http://i.adultswim.com/asfix/repository/8a25c3920e3cd4c5010e3d2f005f006d/thumbnail_26181.jpg
+URL=http://http-trd-l3.cdn.turner.com/adultswim/big/protected_auth/adultswimfix/2008/04/assy_008_pt1_qt93j_ASFIX_dl.flv
+player=default
+rating=-1.00
+description=After a series of violent assaults, Detective McGee must rely on an unlikely ally -- a criminal he put behind bars long ago./description
+
+# 506936
+type=video
+name=Assy McGee_8_2of2_Pegfinger
+thumb=http://i.adultswim.com/asfix/repository/8a25c3920e3cd4c5010e3d2f005f006d/thumbnail_26183.jpg
+URL=http://http-trd-l3.cdn.turner.com/adultswim/big/protected_auth/adultswimfix/2008/05/assy_008_pt2_joia9_2_asfix_dl.flv
+player=default
+rating=-1.00
+description=After a series of violent assaults, Detective McGee must rely on an unlikely ally -- a criminal he put behind bars long ago./description
+
+# 506937
+type=video
+name=Assy McGee_9_1of2_Pharmassy
+thumb=http://i.adultswim.com/asfix/repository/8a25c3920e3cd4c5010e3d2f005f006d/thumbnail_46073.jpg
+URL=http://http-trd-l3.cdn.turner.com/adultswim/big/protected_auth/adultswimfix/2008/04/assy_109_pt1_A9djN_ASFIX_dl.flv
+player=default
+rating=-1.00
+description=A hostage situation gets even scarier when it's revealed the Mayor of Exeter is one of the hostages./description
+
+# 506938
+type=video
+name=Assy McGee_9_2of2_Pharmassy
+thumb=http://i.adultswim.com/asfix/repository/8a25c3920e3cd4c5010e3d2f005f006d/thumbnail_46074.jpg
+URL=http://http-trd-l3.cdn.turner.com/adultswim/big/protected_auth/adultswimfix/2008/04/assy_109_pt2_PRacB_ASFIX_dl.flv
+player=default
+rating=-1.00
+description=A hostage situation gets even scarier when it's revealed the Mayor of Exeter is one of the hostages./description
+
+# 506939
+type=video
+name=Assy McGee_10_1of2_Mile High Mayhem
+thumb=http://i.adultswim.com/asfix/repository/8a25c3920e3cd4c5010e3d2f005f006d/thumbnail_286.jpg
+URL=http://http-trd-l3.cdn.turner.com/adultswim/big/protected_auth/adultswimfix/2008/04/assy_010_pt1_Sl1Ni_ASFIX_dl.flv
+player=default
+rating=-1.00
+description=Detective McGee volunteers for the Federal Air Marshall program and accidentally stumbles upon a drug smuggling ring./description
+
+# 506940
+type=video
+name=Assy McGee_10_2of2_Mile High Mayhem
+thumb=http://i.adultswim.com/asfix/repository/8a25c3920e3cd4c5010e3d2f005f006d/thumbnail_287.jpg
+URL=http://http-trd-l3.cdn.turner.com/adultswim/big/protected_auth/adultswimfix/2008/04/assy_010_pt2_BrewX_ASFIX_dl.flv
+player=default
+rating=-1.00
+description=Detective McGee volunteers for the Federal Air Marshall program and accidentally stumbles upon a drug smuggling ring./description
+
+# 506941
+type=video
+name=Assy McGee_11_1of2_Murder On The Midway
+thumb=http://i.adultswim.com/asfix/repository/8a25c3920e3cd4c5010e3d2f005f006d/thumbnail_62479.jpg
+URL=http://http-trd-l3.cdn.turner.com/adultswim/big/protected_auth/adultswimfix/2008/04/assy_011_pt1_XMD82_ASFIX_dl.flv
+player=default
+rating=-1.00
+description=Trouble hits close to home for Detective Sanchez when a cold-blooded saboteur targets the Exeter Fireman's Carnival./description
+
+# 506942
+type=video
+name=Assy McGee_11_2of2_Murder On The Midway
+thumb=http://i.adultswim.com/asfix/repository/8a25c3920e3cd4c5010e3d2f005f006d/thumbnail_62480.jpg
+URL=http://http-trd-l3.cdn.turner.com/adultswim/big/protected_auth/adultswimfix/2008/04/assy_011_pt2_Pre2L_ASFIX_dl.flv
+player=default
+rating=-1.00
+
+# 506943
+type=video
+name=Assy McGee_12_1of2_Bikes for Bombs
+thumb=http://i.adultswim.com/asfix/repository/8a25c3920e3cd4c5010e3d2f005f006d/thumbnail_57602.jpg
+URL=http://http-trd-l3.cdn.turner.com/adultswim/big/protected_auth/adultswimfix/2008/05/assy_012_pt1_Sjf9B_ASFIX_dl.flv
+player=default
+rating=-1.00
+description=National security is at risk when Detective McGee uncovers a rogue government organization intent on destabilizing foreign regimes./description
+
+# 506944
+type=video
+name=Assy McGee_12_2of2_Bikes for Bombs
+thumb=http://i.adultswim.com/asfix/repository/8a25c3920e3cd4c5010e3d2f005f006d/thumbnail_57603.jpg
+URL=http://http-trd-l3.cdn.turner.com/adultswim/big/protected_auth/adultswimfix/2008/05/assy_012_pt2_PAdeX_ASFIX_dl.flv
+player=default
+rating=-1.00
+
+# 506945
+type=video
+name=Assy McGee_13_1of2_Vowel Play
+thumb=http://i.adultswim.com/asfix/repository/8a25c3920e3cd4c5010e3d2f005f006d/thumbnail_43697.jpg
+URL=http://http-trd-l3.cdn.turner.com/adultswim/big/protected_auth/adultswimfix/2008/05/assy_013_pt1_FJCO4_ASFIX_dl.flv
+player=default
+rating=-1.00
+description=A foreign crime syndicate's extortion scheme causes chaos at the annual Exeter Spelling Bee./description
+
+# 506946
+type=video
+name=Assy McGee_13_2of2_Vowel Play
+thumb=http://i.adultswim.com/asfix/repository/8a25c3920e3cd4c5010e3d2f005f006d/thumbnail_43698.jpg
+URL=http://http-trd-l3.cdn.turner.com/adultswim/big/protected_auth/adultswimfix/2008/05/assy_013_pt2_FKXXX_ASFIX_dl.flv
+player=default
+rating=-1.00
+
+# 506947
+type=video
+name=Assy McGee_14_1of2_Irish Wake
+thumb=http://i.adultswim.com/asfix/repository/8a25c3920e3cd4c5010e3d2f005f006d/thumbnail_35977.jpg
+URL=http://http-trd-l3.cdn.turner.com/adultswim/big/protected_auth/adultswimfix/2008/05/assy_ep014_pt1_8j1lk_asfix_dl.flv
+player=default
+rating=-1.00
+description=When a beloved member of the community is murdered, the Exeter P.D. must set aside their grief until justice can be served./description
+
+# 506948
+type=video
+name=Assy McGee_14_2of2_Irish Wake
+thumb=http://i.adultswim.com/asfix/repository/8a25c3920e3cd4c5010e3d2f005f006d/thumbnail_36015.jpg
+URL=http://http-trd-l3.cdn.turner.com/adultswim/big/protected_auth/adultswimfix/2008/05/assy_ep014_pt2_981jA_asfix_dl.flv
+player=default
+rating=-1.00
+
+# 506949
+type=video
+name=Assy McGee_15_1of2_Hands Up
+thumb=http://i.adultswim.com/asfix/repository/8a25c3920e3cd4c5010e3d2f005f006d/thumbnail_36063.jpg
+URL=http://http-trd-l3.cdn.turner.com/adultswim/big/protected_auth/adultswimfix/2008/05/assy_015_pt1_HD82Z_ASFIX_dl.flv
+player=default
+rating=-1.00
+description=After a freak accident upends his personal life, Detective McGee considers a career change - until disaster strikes./description
+
+# 506950
+type=video
+name=Assy McGee_15_2of2_Hands Up
+thumb=http://i.adultswim.com/asfix/repository/8a25c3920e3cd4c5010e3d2f005f006d/thumbnail_36064.jpg
+URL=http://http-trd-l3.cdn.turner.com/adultswim/big/protected_auth/adultswimfix/2008/05/assy_015_pt2_Muer2_ASFIX_dl.flv
+player=default
+rating=-1.00
+
+# 506951
+type=video
+name=Assy McGee_16_1of2_The Ballad of Blind Anthony
+thumb=http://i.adultswim.com/asfix/repository/8a25c3920e3cd4c5010e3d2f005f006d/thumbnail_40168.jpg
+URL=http://http-trd-l3.cdn.turner.com/adultswim/big/protected_auth/adultswimfix/2008/06/assy_116_pt1_ALCOR_ASFIX_dl.flv
+player=default
+rating=-1.00
+description=When a legendary entertainer is assaulted, Detective McGee finds himself locked in a deadly battle with a familiar foe./description
+
+# 506952
+type=video
+name=Assy McGee_16_2of2_The Ballad of Blind Anthony
+thumb=http://i.adultswim.com/asfix/repository/8a25c3920e3cd4c5010e3d2f005f006d/thumbnail_40169.jpg
+URL=http://http-trd-l3.cdn.turner.com/adultswim/big/protected_auth/adultswimfix/2008/06/assy_116_pt2_WOXMD_ASFIX_dl.flv
+player=default
+rating=-1.00
+
+# 506953
+type=video
+name=Assy McGee_17_1of2_Showdown in Magic City
+thumb=http://i.adultswim.com/asfix/repository/8a25c3920e3cd4c5010e3d2f005f006d/thumbnail_11737.jpg
+URL=http://http-trd-l3.cdn.turner.com/adultswim/big/protected_auth/adultswimfix/2008/05/assy_117_pt1_PQADK_ASFIX_dl.flv
+player=default
+rating=-1.00
+description=Out-of-state thugs infiltrate a local sports arena and Detective McGee must deliver a to-go order of Exeter justice./description
+
+# 506954
+type=video
+name=Assy McGee_17_2of2_Showdown in Magic City
+thumb=http://i.adultswim.com/asfix/repository/8a25c3920e3cd4c5010e3d2f005f006d/thumbnail_11739.jpg
+URL=http://http-trd-l3.cdn.turner.com/adultswim/big/protected_auth/adultswimfix/2008/05/assy_117_pt2_APEMC_ASFIX_dl.flv
+player=default
+rating=-1.00
+
+# 506955
+type=video
+name=Assy McGee_18_1of2_Johnny Arson
+thumb=http://i.adultswim.com/asfix/repository/8a25c3920e3cd4c5010e3d2f005f006d/thumbnail_25977.jpg
+URL=http://http-trd-l3.cdn.turner.com/adultswim/big/protected_auth/adultswimfix/2008/06/assy_118_pt1_KSLCV_asfix_dl.flv
+player=default
+rating=-1.00
+description=A serial arsonist targets Exeter and Detective McGee's online lover is suspect number one./description
+
+# 506956
+type=video
+name=Assy McGee_18_2of2_Johnny Arson
+thumb=http://i.adultswim.com/asfix/repository/8a25c3920e3cd4c5010e3d2f005f006d/thumbnail_58081.jpg
+URL=http://http-trd-l3.cdn.turner.com/adultswim/big/protected_auth/adultswimfix/2008/06/assy_118_pt2_QKZLR_ASFIX_dl.flv
+player=default
+rating=-1.00
+
+# 506957
+type=video
+name=Assy McGee_19_1of2_The Assy Diaries
+thumb=http://i.adultswim.com/asfix/repository/8a25c3920e3cd4c5010e3d2f005f006d/thumbnail_17185.jpg
+URL=http://http-trd-l3.cdn.turner.com/adultswim/big/protected_auth/adultswimfix/2008/06/assy_119_pt1_APEKV_asfix_dl.flv
+player=default
+rating=-1.00
+description=The stink of corruption wafts through the Exeter P.D. forcing Detective McGee to make some tough decisions./description
+
+# 506958
+type=video
+name=Assy McGee_19_2of2_The Assy Diaries
+thumb=http://i.adultswim.com/asfix/repository/8a25c3920e3cd4c5010e3d2f005f006d/thumbnail_17186.jpg
+URL=http://http-trd-l3.cdn.turner.com/adultswim/big/protected_auth/adultswimfix/2008/06/assy_119_pt2_PSPDP_asfix_dl.flv
+player=default
+rating=-1.00
+
+# 506959
+type=video
+name=Assy McGee_20_1of2_Squirrels
+thumb=http://i.adultswim.com/asfix/repository/8a25c3920e3cd4c5010e3d2f005f006d/thumbnail_6562.jpg
+URL=http://http-trd-l3.cdn.turner.com/adultswim/big/protected_auth/adultswimfix/2008/06/assy_120_pt1_QODPC_asfix_dl.flv
+player=default
+rating=-1.00
+description=Detective McGee stumbles across a bizarre and grotesque underground criminal enterprise./description
+
+# 506960
+type=video
+name=Assy McGee_20_2of2_Squirrels
+thumb=http://i.adultswim.com/asfix/repository/8a25c3920e3cd4c5010e3d2f005f006d/thumbnail_6563.jpg
+URL=http://http-trd-l3.cdn.turner.com/adultswim/big/protected_auth/adultswimfix/2008/06/assy_120_pt2_PSPXP_asfix_dl.flv
+player=default
+rating=-1.00
+
+
+# cached

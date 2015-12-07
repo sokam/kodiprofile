@@ -1,0 +1,46 @@
+version=1
+title=strip tease
+
+# 504188
+type=video
+name=allo police
+thumb=http://img.youtube.com/vi/0nmgiWY4AKE/default.jpg
+URL=http://www.youtube.com/watch?v=0nmgiWY4AKE
+player=default
+rating=-1.00
+
+# 504189
+type=video
+name=allo police ta kette
+thumb=http://img.youtube.com/vi/SWgfj9XLi14/default.jpg
+URL=http://www.youtube.com/watch?v=SWgfj9XLi14
+player=default
+rating=-1.00
+
+# 504199
+type=video
+name=allo police je suis ici
+thumb=http://img.youtube.com/vi/OIXYIBEMhbM/default.jpg
+URL=http://www.youtube.com/watch?v=OIXYIBEMhbM
+player=default
+rating=-1.00
+
+# 504190
+type=video
+name=elle est nikel 1/2
+thumb=http://img.youtube.com/vi/2bUB93NEjy4/default.jpg
+URL=http://www.youtube.com/watch?v=2bUB93NEjy4
+processor=http://www.navixtreme.com/proc/youtube_movies
+player=default
+rating=-1.00
+
+# 504193
+type=video
+name=le tuning
+thumb=http://img.youtube.com/vi/yT6FAvuxY-4/default.jpg
+URL=http://www.youtube.com/watch?v=yT6FAvuxY-4
+player=default
+rating=-1.00
+
+
+# cached

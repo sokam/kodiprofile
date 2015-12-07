@@ -1,0 +1,59 @@
+########################################################################
+# # 网星电视 rodney
+########################################################################
+# Version 0.0.18 2014-01-17
+# - Fix a double quote bug in video url arrays
+#
+# Version 0.0.17 2014-01-05
+# - Fix bug and update to include all categories
+#
+# Version 0.0.16 2014-01-01
+# - Website domain name change, update
+#
+# Version 0.0.15 2013-09-28
+# - Fix regex due to HTML change and several bugs, simplified the code
+#
+# Version 0.0.14 2013-09-07
+# - Fix regex due to HTML change, and added video title in the video list
+#
+# Version 0.0.13 2013-07-13
+# - Add Total in catergories so it includes some new programs
+#   for example, the Voice of China Season 2
+#
+# Version 0.0.12 2013-07-12
+# - Fix catergories list after page HTML minor changed
+#
+# Version 0.0.11 2013-07-06
+# - Change after page HTML href minor changed
+#
+# Version 0.0.10 2013-04-28
+# - Change after the categories are updated
+#
+# Version 0.0.9 2013-03-03
+# - Big change after the HTML site is reorganized
+#
+# Version 0.0.8 2013-02-23
+# - Update to combine 4 pages into 1 page
+#
+# Version 0.0.7 2013-02-22
+# - Fix a paging bug, default to thumbnail view,
+#   and directly show the list if the totalPageNumber = 1
+#
+# Version 0.0.6 2013-02-20
+# - Fixed bug in paging
+#
+# Version 0.0.5 2013-02-20
+# - Big change after the HTML site is reorganized
+#
+# Version 0.0.4 2013-01-09
+# - convert to auto-update version
+
+# Version 0.0.3 2013-01-05
+# - Fixed a bug when the playlist contains longer channel strings
+
+# Version 0.0.2 2013-01-04
+# - Frodo tested
+
+# Version 0.0.1 2013-01-04
+# - Eden tested
+########################################################################

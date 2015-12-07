@@ -1,0 +1,9 @@
+version=7
+title=ABC
+logo=http://www.navixtreme.com/images/backgrounds/thumb_abc.png
+
+type=playlist
+name=Max bitrate: 300 kbps
+icon=http://www.navixtreme.com/images/icons/network.png
+URL=http://www.navixtreme.com/scrape/abc/br/300
+

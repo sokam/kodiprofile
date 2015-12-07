@@ -1,0 +1,1406 @@
+version=1
+background=http://www.urthecast.com/img/community/v2/scientific-research.jpg
+title=[COLOR=FF00CCFF]SPORTS TV [/COLOR][COLOR=FFFF0000]HD[/COLOR] [|] [COLOR=FFFFFF00]BACK IN THE GAME[/COLOR] [|] [COLOR=FF00CCFF]AnisotropicTV[/COLOR]
+logo=http://i.imgur.com/hToyk4S.jpg
+icon_playlist=http://www.userlogos.org/files/logos/igor23/livetv_black.png
+description=[COLOR=FF00FFFF]---[/COLOR][COLOR=FFFF0000] HD=True [/COLOR][COLOR=FFFFFFFF][COLOR=FF00FFFF]--[/COLOR][COLOR=FFFFFFFF] HD=Broadcast [/COLOR][COLOR=FF00FFFF]--[/COLOR][COLOR=FFFFFF00] ND=Near HD [/COLOR][COLOR=FF00FFFF]--[/COLOR][COLOR=FF00CCFF] SD=Standard[/COLOR][COLOR=FF00FFFF] ---
+      --- Links Tested / Added / Replaced / Updated  Weekly ---[/COLOR] 
+        /description
+
+type=playlist
+name=Sorted by user-assigned order
+icon=http://media.navi-x.org/images/icons/2downarrow.png
+URL=http://www.navixtreme.com/playlist/136690/sports_tv_hd_back_in_the_game_anisotropictv.plx?action=sortsel&cur=ord
+
+# 2270491
+type=video
+name=[COLOR=FF00FF00]         * * * * * * * * ATTENTION ACTION REQUESTED * * * * * * * *[/COLOR]
+thumb=http://4.bp.blogspot.com/-Hoz5h7cJjlw/UqnduqtQEOI/AAAAAAAAC54/__MX-jNxla4/s1600/Transparent+Layer.PNG
+URL=http://goo.gl/hCQbKJ
+player=default
+rating=3.00
+
+# 2284848
+type=video
+name=[COLOR=FF00FF00]        WELCOME to   [COLOR=FFFF0000]- [/COLOR][COLOR=FF00CCFF]    AnisotropicTV    [/COLOR][COLOR=FFFF0000]- [/COLOR]  The Source For Sports[/COLOR]
+thumb=http://4.bp.blogspot.com/-Hoz5h7cJjlw/UqnduqtQEOI/AAAAAAAAC54/__MX-jNxla4/s1600/Transparent+Layer.PNG
+URL=http://goo.gl/hCQbKJ
+player=default
+rating=3.00
+
+# 2254501
+type=text
+name=[COLOR=FFFF0000]CLICK HERE[/COLOR]     Channel Rating System Definitions      [COLOR=FFFF0000]CLICK HERE[/COLOR]
+thumb=http://4.bp.blogspot.com/-Hoz5h7cJjlw/UqnduqtQEOI/AAAAAAAAC54/__MX-jNxla4/s1600/Transparent+Layer.PNG
+URL=http://www.navixtreme.com/text/2254501/click_here_channel_rating_system_definitions_click_here.txt
+player=default
+rating=-1.00
+
+# 2284849
+type=video
+name=[COLOR=FF00FFFF]                             Make My Day [COLOR=FFFF0000]-[/COLOR] Donate TODAY!![/COLOR]
+thumb=http://4.bp.blogspot.com/-Hoz5h7cJjlw/UqnduqtQEOI/AAAAAAAAC54/__MX-jNxla4/s1600/Transparent+Layer.PNG
+URL=http://goo.gl/hCQbKJ
+player=default
+rating=3.00
+
+# 2254486
+type=text
+name=[COLOR=FF00CCFF]              VISIT:[COLOR=FFFFFF00]      Temporarily CLOSED to New Donor's[/COLOR]
+thumb=http://www.project150.org/wp-content/uploads/2013/11/paypal_logo_donate.gif
+URL=http://www.navixtreme.com/text/2254486/_visit_temporarily_closed_to_new_donors.txt
+player=default
+rating=-1.00
+
+# 2286015
+type=video
+name=[COLOR=FF00FFFF] Your Donations Help "INSPIRE" Me To Keep These Links UPDATED!![/COLOR]
+thumb=http://4.bp.blogspot.com/-Hoz5h7cJjlw/UqnduqtQEOI/AAAAAAAAC54/__MX-jNxla4/s1600/Transparent+Layer.PNG
+URL=http://goo.gl/hCQbKJ
+player=default
+rating=3.00
+
+# 2312501
+type=video
+name=[COLOR=FF00FF00]  Notice: [COLOR=FFFFFFFF] As of 06:00am DST (UTC -5) [/COLOR][COLOR=FF00FFFF]Ongoing - Repair - Replace - Delete, then start again.  Never ends. [/COLOR]
+thumb=http://4.bp.blogspot.com/-Hoz5h7cJjlw/UqnduqtQEOI/AAAAAAAAC54/__MX-jNxla4/s1600/Transparent+Layer.PNG
+URL=http://goo.gl/hCQbKJ
+player=default
+rating=3.00
+
+# 2286017
+type=video
+name=[COLOR=FF00FF00]   Want Access To: [COLOR=FF00FFFF]AnisotropicTVb Private?[/COLOR] Click On [COLOR=FF00CCFF]VISIT[/COLOR] ABOVE!![/COLOR]
+thumb=http://4.bp.blogspot.com/-Hoz5h7cJjlw/UqnduqtQEOI/AAAAAAAAC54/__MX-jNxla4/s1600/Transparent+Layer.PNG
+URL=http://goo.gl/hCQbKJ
+player=default
+rating=3.00
+
+# 2270760
+type=text
+name=[COLOR=FF00FFFF]CLICK IT!![COLOR=FFFFFF00] Testimonials for the NEW AnisotropicTVb Private![/COLOR] CLICK IT!![/COLOR]
+thumb=http://4.bp.blogspot.com/-Hoz5h7cJjlw/UqnduqtQEOI/AAAAAAAAC54/__MX-jNxla4/s1600/Transparent+Layer.PNG
+URL=http://www.navixtreme.com/text/2270760/click_it_testimonials_for_the_new_anisotropictvb_private_click_it.txt
+player=default
+rating=3.00
+
+# 2286016
+type=video
+name=[COLOR=FF00FFFF]Open, 1 Year Now! [COLOR=FF00FF00]NEW PRIVATE ACCESS[/COLOR] page. Not Perfect Yet.[/COLOR]
+thumb=http://4.bp.blogspot.com/-Hoz5h7cJjlw/UqnduqtQEOI/AAAAAAAAC54/__MX-jNxla4/s1600/Transparent+Layer.PNG
+URL=http://goo.gl/hCQbKJ
+player=default
+rating=3.00
+
+# 2270762
+type=video
+name=[COLOR=FF00FF00]Featured Link [COLOR=FF00FFFF][COLOR=FFFF0000] HD[/COLOR] | AnisotropicTV[/COLOR]
+thumb=http://img4.wikia.nocookie.net/__cb20131130004857/ifunny/images/f/fe/Featured.jpg
+URL=http://goo.gl/UeTCiJ
+player=default
+rating=-1.00
+
+# 2272060
+type=video
+name=[COLOR=FF00FF00]Featured Link [COLOR=FF00FFFF][COLOR=FFFF0000] HD[/COLOR] | AnisotropicTV[/COLOR]
+thumb=http://img4.wikia.nocookie.net/__cb20131130004857/ifunny/images/f/fe/Featured.jpg
+URL=http://testlivestream.rfn.ru/live/smil:sport1hd.smil/chunklist_b3000000.m3u8
+player=default
+rating=-1.00
+
+# 2312502
+type=video
+name=[COLOR=FF00FFFF]Abu Dhabi |[COLOR=FF00FF00] Al Riyadia [COLOR=FFFFFF00]ND[/COLOR][COLOR=FF00FFFF] | AnisotropicTV[/COLOR]
+thumb=http://www.fraja-maroc.net/TV/img/img16.jpg
+URL=http://arriadia-tv.scdn.arkena.com/arriadia.isml/playlist.m3u8
+player=default
+rating=-1.00
+
+# 2254578
+type=video
+name=[COLOR=FF00FFFF]Albania |[COLOR=FF00FF00] SuperSports 2 [COLOR=FFFFFF00]ND[/COLOR][COLOR=FF00FFFF] | AnisotropicTV[/COLOR][COLOR=FFFFFF00] Private[/COLOR]
+thumb=http://www.vatra.co.uk/foto/supersport.jpg
+URL=http://goo.gl/hCQbKJ
+player=default
+rating=0.00
+
+# 2254459
+type=video
+name=[COLOR=FF00FFFF]Albania |[COLOR=FF00FF00] SuperSports News [COLOR=FFFFFF00]ND[/COLOR][COLOR=FF00FFFF] | AnisotropicTV[/COLOR][COLOR=FFFFFF00] Private[/COLOR]
+thumb=http://www.vatra.co.uk/foto/supersport.jpg
+URL=http://goo.gl/hCQbKJ
+player=default
+rating=0.00
+
+# 2312493
+type=video
+name=[COLOR=FF00FFFF]Argentina |[COLOR=FF00FF00] TyC Sports [COLOR=FF00CCFF]SD[/COLOR][COLOR=FF00FFFF] | AnisotropicTV[/COLOR][COLOR=FFFFFF00] Private[/COLOR]
+thumb=http://1.bp.blogspot.com/-HU02cV35PrM/UXCUCLN1UJI/AAAAAAAAZdM/YDa9gwnuOsw/s1600/tycsports.png
+URL=http://goo.gl/hCQbKJ
+player=default
+rating=0.00
+
+# 2254574
+type=video
+name=[COLOR=FF00FFFF]Australia |[COLOR=FF00FF00] Sky At The Races [COLOR=FFFFFF00]ND[/COLOR][COLOR=FF00FFFF] | AnisotropicTV[/COLOR]
+thumb=http://equuslive.com/wp-content/uploads/2013/03/ATR-Logo.jpg
+URL=rtmp://31.220.0.195:80/live/ playpath=atrc token=%Zrey(nKa@#Z swfUrl=http://p.jwpcdn.com/6/11/jwplayer.flash.swf live=1 timeout=13 pageUrl=http://reytv.co/ AnisotropicTV
+player=default
+rating=-1.00
+
+# 2270495
+type=video
+name=[COLOR=FF00FFFF]Australia |[COLOR=FF00FF00] SBS One [COLOR=FFFFFF00]ND[/COLOR][COLOR=FF00FFFF] | AnisotropicTV[/COLOR][COLOR=FFFFFF00] Private[/COLOR]
+thumb=http://ausdroid.net/wp-content/uploads/2012/08/sbs-logo.jpg
+URL=http://goo.gl/hCQbKJ
+player=default
+rating=0.00
+
+# 2254473
+type=video
+name=[COLOR=FF00FFFF]Austria |[COLOR=FF00FF00] Servus TV [COLOR=FFFF0000]HD[/COLOR][COLOR=FF00FFFF] | AnisotropicTV[/COLOR] [COLOR=FFFFFF00]Private[/COLOR]
+thumb=http://www.diebaeckerei.at/uploads/pics/servus_tv_de_hd_02.jpg
+URL=http://goo.gl/hCQbKJ
+player=dvdplayer
+rating=3.00
+
+# 2254587
+type=video
+name=[COLOR=FF00FFFF]Brazil |[COLOR=FF00FF00] SporTV [COLOR=FF00CCFF]SD[/COLOR][COLOR=FF00FFFF] | AnisotropicTV[/COLOR]
+thumb=http://3.bp.blogspot.com/-FE1EYYW5K2g/UiVf4Hytk1I/AAAAAAAAEOc/_zEj7X1eEF4/s1600/sportv.png
+URL=http://37.203.209.34:443/mobile/bob05sd/playlist.m3u8
+player=default
+rating=-1.00
+
+# 2269490
+type=video
+name=[COLOR=FF00FFFF]Canada |[COLOR=FF00FF00] Sportsnet One [COLOR=FF00CCFF]SD[/COLOR][COLOR=FF00FFFF] | AnisotropicTV[/COLOR] [COLOR=FFFFFF00]Private[/COLOR]
+thumb=http://www.graphicsmafia.com/wp-content/uploads/2011/10/Sportsnet8.jpg
+URL=http://goo.gl/hCQbKJ
+player=default
+rating=3.00
+
+# 2272797
+type=video
+name=[COLOR=FF00FFFF]Canada |[COLOR=FF00FF00] Sportsnet Ontario [COLOR=FF00CCFF]SD[/COLOR][COLOR=FF00FFFF] | AnisotropicTV[/COLOR]
+thumb=http://www.graphicsmafia.com/wp-content/uploads/2011/10/Sportsnet8.jpg
+URL=rtmp://31.220.2.149:80/live/ playpath=ontario token=%Zrey(nKa@#Z swfUrl=http://p.jwpcdn.com/6/12/jwplayer.flash.swf live=1 timeout=13 pageUrl=http://yotv.co/ AnisotropicTV
+player=default
+rating=-1.00
+
+# 2274470
+type=video
+name=[COLOR=FF00FFFF]Canada |[COLOR=FF00FF00] Sportsnet World [COLOR=FF00CCFF]SD[/COLOR][COLOR=FF00FFFF] | AnisotropicTV[/COLOR]
+thumb=http://www.graphicsmafia.com/wp-content/uploads/2011/10/Sportsnet8.jpg
+URL=rtmp://31.220.2.149:80/live/ playpath=world token=%Zrey(nKa@#Z swfUrl=http://p.jwpcdn.com/6/12/jwplayer.flash.swf live=1 timeout=13 pageUrl=http://yotv.co/ AnisotropicTV
+player=default
+rating=-1.00
+
+# 2254458
+type=video
+name=[COLOR=FF00FFFF]Caribbean |[COLOR=FF00FF00] SportMax [COLOR=FF00CCFF]SD[/COLOR][COLOR=FF00FFFF] | AnisotropicTV[/COLOR]
+thumb=http://564ccca6a641eac6e5b0-38e3bbf162f44470d3635a7244f7971b.r55.cf3.rackcdn.com/sport-max-channel-images-logo-large.png?1362388705
+URL=http://goo.gl/Qr3sHG
+player=default
+rating=-1.00
+
+# 2254514
+type=video
+name=[COLOR=FF00FFFF]Chile |[COLOR=FF00FF00] TVN [COLOR=FFFF0000]HD[/COLOR][COLOR=FF00FFFF] | AnisotropicTV[/COLOR] [COLOR=FFFFFF00]Private[/COLOR]
+thumb=http://www.elciudadano.cl/wp-content/uploads/tvn1.jpg
+URL=http://goo.gl/hCQbKJ
+player=mplayer
+rating=3.00
+
+# 2284000
+type=video
+name=[COLOR=FF00FFFF]China |[COLOR=FF00FF00] CCTV 5 Sports [COLOR=FFFF0000]HD[/COLOR][COLOR=FF00FFFF] | AnisotropicTV[/COLOR]
+thumb=http://p5.img.cctvpic.com/photoAlbum/page/performance/img/2013/12/30/1388388622093_446.jpg
+URL=rtmp://202.117.80.19/live/ playpath=live4 swfUrl=http://p.jwpcdn.com/6/10/jwplayer.flash.swf live=1 timeout=13 pageUrl=http://www.indosports.tv/sports/ AnisotropicTV
+player=default
+rating=-1.00
+
+# 2312488
+type=video
+name=[COLOR=FF00FFFF]China |[COLOR=FF00FF00] Quangdong Sports [COLOR=FFFFFF00]ND[/COLOR][COLOR=FF00FFFF] | AnisotropicTV[/COLOR][COLOR=FFFFFF00] Private[/COLOR]
+thumb=http://upload.wikimedia.org/wikipedia/en/f/fc/Gdtv.png
+URL=http://goo.gl/hCQbKJ
+player=default
+rating=-1.00
+
+# 2254456
+type=video
+name=[COLOR=FF00FFFF]Croatia |[COLOR=FF00FF00] Fight Channel [COLOR=FFFFFF00]ND[/COLOR][COLOR=FF00FFFF] | AnisotropicTV[/COLOR][COLOR=FFFFFF00] Private[/COLOR]
+thumb=http://www.fightchannel.hr/fightchannel.hr/wp-content/uploads/fc-logo.jpg
+URL=http://goo.gl/hCQbKJ
+player=default
+rating=0.00
+
+# 2312513
+type=video
+name=[COLOR=FF00FFFF]Croatia |[COLOR=FF00FF00] HRT 1 [COLOR=FFFFFF00]ND[/COLOR][COLOR=FF00FFFF] | AnisotropicTV[/COLOR][COLOR=FFFFFF00] Private[/COLOR]
+thumb=http://escxtra.com/wp-content/uploads/HRT1.jpg
+URL=http://goo.gl/hCQbKJ
+player=default
+rating=0.00
+
+# 2286025
+type=video
+name=[COLOR=FF00FFFF]Croatia |[COLOR=FF00FF00] HRT 2 [COLOR=FFFFFF00]ND[/COLOR][COLOR=FF00FFFF] | AnisotropicTV[/COLOR][COLOR=FFFFFF00] Private[/COLOR]
+thumb=http://escxtra.com/wp-content/uploads/HRT1.jpg
+URL=http://goo.gl/hCQbKJ
+player=default
+rating=0.00
+
+# 2254550
+type=video
+name=[COLOR=FF00FFFF]Croatia |[COLOR=FF00FF00] Spotska TV [COLOR=FFFFFF00]ND[/COLOR][COLOR=FF00FFFF] | AnisotropicTV[/COLOR][COLOR=FFFFFF00] Private[/COLOR]
+thumb=http://zg-magazin.com.hr/wp-content/uploads/2013/11/sportska-tv-300x109.jpg
+URL=http://goo.gl/hCQbKJ
+player=default
+rating=0.00
+
+# 2254572
+type=video
+name=[COLOR=FF00FFFF]Czech Republic |[COLOR=FF00FF00] CT4 Sport [COLOR=FFFFFF00]ND[/COLOR][COLOR=FF00FFFF] | AnisotropicTV[/COLOR] [COLOR=FFFFFF00]Private[/COLOR]
+thumb=http://img.ct24.cz/loga/ctsport_58.png?v=20130902
+URL=http://goo.gl/hCQbKJ
+player=default
+rating=3.00
+
+# 2254593
+type=video
+name=[COLOR=FF00FFFF]Czech Republic |[COLOR=FF00FF00] Sport 5 [COLOR=FFFFFF00]ND[/COLOR][COLOR=FF00FFFF] | AnisotropicTV[/COLOR] [COLOR=FFFFFF00]Private[/COLOR]
+thumb=http://i.iinfo.cz/urs/Sport5-120957757150943.jpg
+URL=http://goo.gl/hCQbKJ
+player=default
+rating=3.00
+
+# 2254538
+type=video
+name=[COLOR=FF00FFFF]Dominican Republic |[COLOR=FF00FF00] CDN SportsMax [COLOR=FF00CCFF]SD[/COLOR][COLOR=FF00FFFF] | AnisotropicTV[/COLOR]
+thumb=http://canalesdominicanosenvivo.com/wp-content/uploads/2013/09/cdn-sport-max.jpg
+URL=rtmp://108.168.206.90/cdnsm playpath=cdnsm swfUrl=http://cdn.com.do/wp-content/themes/cdn/js/player.swf live=1 timeout=13 pageUrl=http://cdn.com.do/ AnisotropicTV
+player=default
+rating=-1.00
+
+# 2284004
+type=video
+name=[COLOR=FF00FFFF]Dubai |[COLOR=FF00FF00] Racing [COLOR=FFFFFF00]ND[/COLOR][COLOR=FF00FFFF] | AnisotropicTV[/COLOR] [COLOR=FFFFFF00]Private[/COLOR]
+thumb=http://cdnhwedubaitv.endavomedia.com/images/media/a/a882eb90135f163e4877617f48620309.png
+URL=http://goo.gl/hCQbKJ
+player=default
+rating=3.00
+
+# 2284003
+type=video
+name=[COLOR=FF00FFFF]Dubai |[COLOR=FF00FF00] Sports 3 [COLOR=FFFFFF00]ND[/COLOR][COLOR=FF00FFFF] | AnisotropicTV[/COLOR] [COLOR=FFFFFF00]Private[/COLOR]
+thumb=http://cdnhwedubaitv.endavomedia.com/images/media/8/8ae799361a400ca58db9ea99e91ab463-8.png
+URL=http://goo.gl/hCQbKJ
+player=default
+rating=3.00
+
+# 2254534
+type=video
+name=[COLOR=FF00FFFF]Egypt |[COLOR=FF00FF00] Al Nahar Sport [COLOR=FF00CCFF]SD[/COLOR][COLOR=FF00FFFF] | AnisotropicTV[/COLOR]
+thumb=http://magictvcanada.com/wp-content/uploads/2013/07/Al-Nahar-Sport.jpg
+URL=rtmp://50.7.180.18:1935/elnahar_tv/ playpath=nahar_sportprofile2.stream swfUrl=http://p.jwpcdn.com/6/12/jwplayer live=1 timeout=13 pageUrl=http://freetv247.com/ AnisotropicTV
+player=default
+rating=-1.00
+
+# 2277048
+type=video
+name=[COLOR=FF00FFFF]Egypt |[COLOR=FF00FF00] Nile Sports [COLOR=FF00CCFF]SD[/COLOR][COLOR=FF00FFFF] | AnisotropicTV[/COLOR]
+thumb=https://lh4.ggpht.com/-EnR0fYQ--_x5d5m42i44g9PqgXmfzovux2awYEP32QkEcGdZ3cc_n96gMqfVzc0p7Q=w300
+URL=rtmp://livestreaming5.onlinehorizons.net/NTNNileSport playpath=livestream swfUrl=http://niletc.tv/player/player.swf live=1 timeout=13 pageUrl=http://www.niletc.tv/ AnisotropicTV
+player=default
+rating=-1.00
+
+# 2286028
+type=video
+name=[COLOR=FF00FFFF]France |[COLOR=FF00FF00] Le TROT [COLOR=FFFFFF00]ND[/COLOR][COLOR=FF00FFFF] | AnisotropicTV[/COLOR][COLOR=FFFFFF00] Private[/COLOR]
+thumb=http://www.letrot.com/templates/rhuk_milkyway/images/logoLeTrot.jpg
+URL=http://goo.gl/hCQbKJ
+player=default
+rating=-1.00
+
+# 2254448
+type=video
+name=[COLOR=FF00FFFF]France |[COLOR=FF00FF00] OL TV [COLOR=FFFFFF00]ND[/COLOR][COLOR=FF00FFFF] | AnisotropicTV[/COLOR] [COLOR+FFFFFF00]Private[/COLOR]
+thumb=http://www.olangelles.com/wp-content/uploads/2014/03/ol-tv.png
+URL=http://goo.gl/hCQbKJ
+player=dvdplayer
+rating=3.00
+
+# 2254561
+type=video
+name=[COLOR=FF00FFFF]Georgian |[COLOR=FF00FF00] Silk Football [COLOR=FFFFFF00]ND[/COLOR][COLOR=FF00FFFF] | AnisotropicTV[/COLOR][COLOR=FFFFFF00] Private[/COLOR]
+thumb=http://www.silk-tv.com/site/content/images/logo.gif
+URL=http://goo.gl/hCQbKJ
+player=default
+rating=0.00
+
+# 2254499
+type=video
+name=[COLOR=FF00FFFF]Georgian |[COLOR=FF00FF00] Silk Sport 2 [COLOR=FFFFFF00]ND[/COLOR][COLOR=FF00FFFF] | AnisotropicTV[/COLOR][COLOR=FFFFFF00] Private[/COLOR]
+thumb=http://www.silk-tv.com/site/content/images/logo.gif
+URL=http://goo.gl/hCQbKJ
+player=default
+rating=0.00
+
+# 2254449
+type=video
+name=[COLOR=FF00FFFF]Germany |[COLOR=FF00FF00] SportTime.tv 1 [COLOR=FFFFFF00]ND[/COLOR][COLOR=FF00FFFF] | AnisotropicTV[/COLOR]
+thumb=http://i29.tinypic.com/2b7kgl.jpg
+URL=rtmp://streamer.a1.net:1935/rtmplive/redundant/channels/Sporttime/SporttimeTV/mp4:channel1_1200 AnisotropicTV
+player=default
+rating=-1.00
+
+# 2254450
+type=video
+name=[COLOR=FF00FFFF]Germany |[COLOR=FF00FF00] SportTime.tv 2 [COLOR=FFFFFF00]ND[/COLOR][COLOR=FF00FFFF] | AnisotropicTV[/COLOR]
+thumb=http://i29.tinypic.com/2b7kgl.jpg
+URL=rtmp://streamer.a1.net:1935/rtmplive/redundant/channels/Sporttime/SporttimeTV/mp4:channel2_1200 AnisotropicTV
+player=default
+rating=-1.00
+
+# 2254451
+type=video
+name=[COLOR=FF00FFFF]Germany |[COLOR=FF00FF00] SportTime.tv 3 [COLOR=FFFFFF00]ND[/COLOR][COLOR=FF00FFFF] | AnisotropicTV[/COLOR]
+thumb=http://i29.tinypic.com/2b7kgl.jpg
+URL=rtmp://streamer.a1.net:1935/rtmplive/redundant/channels/Sporttime/SporttimeTV/mp4:channel3_1200 AnisotropicTV
+player=default
+rating=-1.00
+
+# 2254452
+type=video
+name=[COLOR=FF00FFFF]Germany |[COLOR=FF00FF00] SportTime.tv 4 [COLOR=FFFFFF00]ND[/COLOR][COLOR=FF00FFFF] | AnisotropicTV[/COLOR]
+thumb=http://i29.tinypic.com/2b7kgl.jpg
+URL=rtmp://streamer.a1.net:1935/rtmplive/redundant/channels/Sporttime/SporttimeTV/mp4:channel4_1200 AnisotropicTV
+player=default
+rating=-1.00
+
+# 2254453
+type=video
+name=[COLOR=FF00FFFF]Germany |[COLOR=FF00FF00] SportTime.tv 5 [COLOR=FFFFFF00]ND[/COLOR][COLOR=FF00FFFF] | AnisotropicTV[/COLOR]
+thumb=http://i29.tinypic.com/2b7kgl.jpg
+URL=rtmp://streamer.a1.net:1935/rtmplive/redundant/channels/Sporttime/SporttimeTV/mp4:channel5_1200 AnisotropicTV
+player=default
+rating=-1.00
+
+# 2254454
+type=video
+name=[COLOR=FF00FFFF]Germany |[COLOR=FF00FF00] SportTime.tv 6 [COLOR=FFFFFF00]ND[/COLOR][COLOR=FF00FFFF] | AnisotropicTV[/COLOR]
+thumb=http://i29.tinypic.com/2b7kgl.jpg
+URL=rtmp://streamer.a1.net:1935/rtmplive/redundant/channels/Sporttime/SporttimeTV/mp4:channel6_1200 AnisotropicTV
+player=default
+rating=-1.00
+
+# 2254455
+type=video
+name=[COLOR=FF00FFFF]Germany |[COLOR=FF00FF00] SportTime.tv 7 [COLOR=FFFFFF00]ND[/COLOR][COLOR=FF00FFFF] | AnisotropicTV[/COLOR]
+thumb=http://i29.tinypic.com/2b7kgl.jpg
+URL=rtmp://streamer.a1.net:1935/rtmplive/redundant/channels/Sporttime/SporttimeTV/mp4:channel7_1200 AnisotropicTV
+player=default
+rating=-1.00
+
+# 2254536
+type=video
+name=[COLOR=FF00FFFF]Ghana |[COLOR=FF00FF00] GTV Sports+ [COLOR=FF00CCFF]SD[/COLOR][COLOR=FF00FFFF] | AnisotropicTV[/COLOR]
+thumb=http://www.streamafrik.com/public/files/shows/0/1/31-300x168-000000.jpg
+URL=http://wpc.12BC9.kappacdn.net/hls-live/2012BC9/default/GhanaTV/ghanatv_1200.m3u8?608edfab8a31cdb2906f767923e21035c7696807555fd6f720a8fbf339ecfd61dae2
+player=default
+rating=-1.00
+
+# 2254579
+type=video
+name=[COLOR=FF00FFFF]Greece |[COLOR=FF00FF00] Tilesport TV [COLOR=FF00CCFF]SD[/COLOR][COLOR=FF00FFFF] | AnisotropicTV[/COLOR]
+thumb=http://tv-online.in/wp-content/uploads/2012/11/TileSport-TV.jpg
+URL=rtmp://78.47.151.114/tilesport playpath=movie1 swfUrl=http://www.tilesport.tv/jwplayer/player.swf live=1 timeout=13 pageUrl=http://www.tilesport.tv/ AnisotropicTV
+player=default
+rating=-1.00
+
+# 2286027
+type=video
+name=[COLOR=FF00FFFF]India |[COLOR=FF00FF00] STAR Sports [COLOR=FF00CCFF]SD[/COLOR][COLOR=FF00FFFF] | AnisotropicTV[/COLOR][COLOR=FFFFFF00] Private[/COLOR]
+thumb=http://1.bp.blogspot.com/-11hLfAdkv4M/UxM_yLgKgNI/AAAAAAAAUKA/H5Iaple5PJY/s1600/Star+Sports+logo+new.jpg
+URL=http://goo.gl/hCQbKJ
+player=default
+rating=0.00
+
+# 2254466
+type=video
+name=[COLOR=FF00FFFF]India |[COLOR=FF00FF00] TEN Sports [COLOR=FF00CCFF]SD[/COLOR][COLOR=FF00FFFF] | AnisotropicTV[/COLOR][COLOR=FFFFFF00] Private[/COLOR]
+thumb=http://www.media247.co.uk/bizasia/wp-content/uploads/2014/06/tensports001.jpg
+URL=http://goo.gl/hCQbKJ
+player=default
+rating=0.00
+
+# 2254565
+type=video
+name=[COLOR=FF00FFFF]Ireland |[COLOR=FF00FF00] Setanta Sports [COLOR=FFFFFF00]ND[/COLOR][COLOR=FF00FFFF] | AnisotropicTV[/COLOR][COLOR=FFFFFF00] Private[/COLOR]
+thumb=http://www.bitterwallet.com/wp-content/uploads/2009/01/setanta_sports_rgb.jpg
+URL=http://goo.gl/hCQbKJ
+player=default
+rating=0.00
+
+# 2312507
+type=video
+name=[COLOR=FF00FFFF]Italy |[COLOR=FF00FF00] Rete 8 Sport [COLOR=FF00CCFF]SD[/COLOR][COLOR=FF00FFFF] | AnisotropicTV[/COLOR]
+thumb=https://fbcdn-sphotos-a-a.akamaihd.net/hphotos-ak-xaf1/t1.0-9/p160x160/400854_436917813016474_514414787_n.jpg
+URL=http://goo.gl/sdcp2h
+player=default
+rating=-1.00
+
+# 2254543
+type=video
+name=[COLOR=FF00FFFF]Italy |[COLOR=FF00FF00] Sky Italia Calcio [COLOR=FFFFFF00]ND[/COLOR][COLOR=FF00FFFF] | AnisotropicTV[/COLOR] [COLOR=FFFFFF00]Private[/COLOR]
+thumb=http://www.tafter.it/wp-content/uploads/2011/08/skyitalia.jpg
+URL=http://goo.gl/hCQbKJ
+player=default
+rating=3.00
+
+# 2254599
+type=video
+name=[COLOR=FF00FFFF]Italy |[COLOR=FF00FF00] Sky Italia 1 [COLOR=FF00CCFF]SD[/COLOR][COLOR=FF00FFFF] | AnisotropicTV[/COLOR][COLOR=FFFFFF00] Private[/COLOR]
+thumb=http://www.tafter.it/wp-content/uploads/2011/08/skyitalia.jpg
+URL=http://goo.gl/hCQbKJ
+player=default
+rating=0.00
+
+# 2254600
+type=video
+name=[COLOR=FF00FFFF]Italy |[COLOR=FF00FF00] Sky Italia 2 [COLOR=FF00CCFF]SD[/COLOR][COLOR=FF00FFFF] | AnisotropicTV[/COLOR][COLOR=FFFFFF00] Private[/COLOR]
+thumb=http://www.tafter.it/wp-content/uploads/2011/08/skyitalia.jpg
+URL=http://goo.gl/hCQbKJ
+player=default
+rating=0.00
+
+# 2254510
+type=video
+name=[COLOR=FF00FFFF]Italy |[COLOR=FF00FF00] Sky Italia 3 [COLOR=FF00CCFF]SD[/COLOR][COLOR=FF00FFFF] | AnisotropicTV[/COLOR][COLOR=FFFFFF00] Private[/COLOR]
+thumb=http://www.tafter.it/wp-content/uploads/2011/08/skyitalia.jpg
+URL=http://goo.gl/hCQbKJ
+player=default
+rating=0.00
+
+# 2286022
+type=video
+name=[COLOR=FF00FFFF]Korea |[COLOR=FF00FF00] KBS Sport TV [COLOR=FF00CCFF]SD[/COLOR][COLOR=FF00FFFF] | AnisotropicTV[/COLOR][COLOR=FFFFFF00] Private[/COLOR]
+thumb=http://lh6.googleusercontent.com/-o7HMfwF_TwY/UfvCMNXKI_I/AAAAAAAAAtg/UNne_88gWlM/h1600/kbs+n+sports.jpg
+URL=http://goo.gl/hCQbKJ
+player=default
+rating=0.00
+
+# 2272289
+type=video
+name=[COLOR=FF00FFFF]Korea |[COLOR=FF00FF00] Macau TDM Sport TV [COLOR=FF00CCFF]SD[/COLOR][COLOR=FF00FFFF] | AnisotropicTV[/COLOR]
+thumb=http://upload.wikimedia.org/wikipedia/en/thumb/4/4d/Teledifus%C3%A3o_de_Macau.png/150px-Teledifus%C3%A3o_de_Macau.png
+URL=http://live2.tdm.com.mo/tv/ch1.live/playlist.m3u8?wowzasessionid=777868537
+player=default
+rating=-1.00
+
+# 2254500
+type=video
+name=[COLOR=FF00FFFF]Korea |[COLOR=FF00FF00] J Golf [COLOR=00000000]HD[/COLOR][COLOR=FF00FFFF] | AnisotropicTV[/COLOR][COLOR=FFFFFF00] Private[/COLOR]
+thumb=http://www.kmug.co.kr/board/data/logo/1182494082/%B1%D7%B8%B2_2.jpg
+URL=http://goo.gl/hCQbKJ
+player=default
+rating=0.00
+
+# 2254444
+type=video
+name=[COLOR=FF00FFFF]Kuwait |[COLOR=FF00FF00] KTV Sport [COLOR=FF00CCFF]SD[/COLOR][COLOR=FF00FFFF] | AnisotropicTV[/COLOR]
+thumb=http://tv-online.im/wp-content/uploads/2013/07/KUWAIT-TV-SPORT-LIVE.jpeg
+URL=rtmp://91.140.238.7/ app=rtmplive/rtpencoder playpath=ch3.sdp swfUrl=http://www.media.gov.kw/tvradio/Portal/player.swf live=true timeout=13 pageUrl=http://www.media.gov.kw/ AnisotropicTV
+player=default
+rating=-1.00
+
+# 2273696
+type=video
+name=[COLOR=FF00FFFF]Pakistan |[COLOR=FF00FF00] PTV Sports [COLOR=FF00CCFF]SD[/COLOR][COLOR=FF00FFFF] | AnisotropicTV[/COLOR][COLOR=FFFFFF00] Private[/COLOR]
+thumb=http://www.wcup2015live.com/wp-content/uploads/2015/02/Ptv-sports-live-warm-up-matches-in-Pakistan.jpg
+URL=http://goo.gl/hCQbKJ
+player=default
+rating=0.00
+
+# 2254559
+type=video
+name=[COLOR=FF00FFFF]Peru |[COLOR=FF00FF00] Hipodromo-Monterrico Horse Racing [COLOR=FF00CCFF]SD[/COLOR][COLOR=FF00FFFF] | AnisotropicTV[/COLOR]
+thumb=http://www.hipodromodemonterrico.com.pe/sitio2005/articulos_html/fotos/LogoHipodromoMonterrico11.png
+URL=rtmp://live.opencaster.com/20100152275/ playpath=jcpstream swfUrl=http://fpdownload.adobe.com/strobe/FlashMediaPlayback_101.swf live=1 timeout=13 pageUrl=http://www.mytvonline.org/ AnisotropicTV
+player=default
+rating=-1.00
+
+# 2254460
+type=video
+name=[COLOR=FF00FFFF]Portugal |[COLOR=FF00FF00] Sport TV 1 [COLOR=00000000]HD[/COLOR][COLOR=FF00FFFF] | AnisotropicTV[/COLOR]
+thumb=http://2.bp.blogspot.com/-egqPz3rk2Vo/UC6oQEedvNI/AAAAAAAAAEg/MsRMtmCVKVQ/s1600/sport%2Btv.jpg
+URL=rtmpe://5.153.233.106:443/share/ playpath=live1-rbi6c swfUrl=http://sharecast.to/player/player20.swf live=1 timeout=13 pageUrl=http://sharecast.to/ AnisotropicTV
+player=default
+rating=-1.00
+
+# 2254461
+type=video
+name=[COLOR=FF00FFFF]Portugal |[COLOR=FF00FF00] Sport TV 2 [COLOR=FFFFFF00]ND[/COLOR][COLOR=FF00FFFF] | AnisotropicTV[/COLOR]
+thumb=http://2.bp.blogspot.com/-egqPz3rk2Vo/UC6oQEedvNI/AAAAAAAAAEg/MsRMtmCVKVQ/s1600/sport%2Btv.jpg
+URL=rtmpe://5.153.233.106:443/share/ playpath=live2-bipmr swfUrl=http://sharecast.to/player/player20.swf live=1 timeout=13 pageUrl=http://sharecast.to/ AnisotropicTV
+player=mplayer
+rating=-1.00
+
+# 2254584
+type=video
+name=[COLOR=FF00FFFF]Portugal |[COLOR=FF00FF00] Sport TV 3 [COLOR=FFFFFF00]ND[/COLOR][COLOR=FF00FFFF] | AnisotropicTV[/COLOR]
+thumb=http://2.bp.blogspot.com/-egqPz3rk2Vo/UC6oQEedvNI/AAAAAAAAAEg/MsRMtmCVKVQ/s1600/sport%2Btv.jpg
+URL=rtmpe://5.153.233.106:443/share/ playpath=live3-qszlx swfUrl=http://sharecast.to/player/player20.swf live=1 timeout=13 pageUrl=http://sharecast.to/ AnisotropicTV
+player=default
+rating=-1.00
+
+# 2284846
+type=video
+name=[COLOR=FF00FFFF]Qatar |[COLOR=FF00FF00] Al Kass Sports [COLOR=FF00CCFF]SD[/COLOR][COLOR=FF00FFFF] | AnisotropicTV[/COLOR]
+thumb=http://cdn8.staztic.com/app/i/1446/1446741/al-kass-app-1-0-bs-512x250.jpg
+URL=rtmp://AgendaStreamer2.qna.org.qa:1935/kas/ playpath=kas swfUrl=http://www.mytvonline.org/mediaplayer2/jwplayer.flash.swf live=1 timeout=13 pageUrl=http://www.mytvonline.org/ AnisotropicTV
+player=default
+rating=-1.00
+
+# 2284847
+type=video
+name=[COLOR=FF00FFFF]Qatar |[COLOR=FF00FF00] beIN Sports 1 [COLOR=00000000]HD[/COLOR][COLOR=FF00FFFF] | AnisotropicTV[/COLOR][COLOR=FFFFFF00] Private[/COLOR]
+thumb=http://vid.alarabiya.net/images/2013/12/31/dbdf4645-3e0b-449c-a54d-08bbb60dca3e/dbdf4645-3e0b-449c-a54d-08bbb60dca3e_16x9_788x442.jpg
+URL=http://goo.gl/hCQbKJ
+player=default
+rating=0.00
+
+# 2286021
+type=video
+name=[COLOR=FF00FFFF]Qatar |[COLOR=FF00FF00] beIN Sports 2 [COLOR=00000000]HD[/COLOR][COLOR=FF00FFFF] | AnisotropicTV[/COLOR] [COLOR=FFFFFF00]Private[/COLOR]
+thumb=http://vid.alarabiya.net/images/2013/12/31/dbdf4645-3e0b-449c-a54d-08bbb60dca3e/dbdf4645-3e0b-449c-a54d-08bbb60dca3e_16x9_788x442.jpg
+URL=http://goo.gl/hCQbKJ
+player=default
+rating=0.00
+
+# 2254474
+type=video
+name=[COLOR=FF00FFFF]Qatar |[COLOR=FF00FF00] beIN Sports 3 [COLOR=00000000]HD[/COLOR][COLOR=FF00FFFF] | AnisotropicTV[/COLOR] Private Preview
+thumb=http://vid.alarabiya.net/images/2013/12/31/dbdf4645-3e0b-449c-a54d-08bbb60dca3e/dbdf4645-3e0b-449c-a54d-08bbb60dca3e_16x9_788x442.jpg
+URL=rtmp://www1.iguide.to/iguide/ playpath=zqd4jye2ubzsk8g token=#ed%h0#w18623jsda6523lDGD swfUrl=http://www.iguide.to/player/secure_player_iguide_embed_token.swf live=1 timeout=13 pageUrl=http://www.iguide.to/ AnisotropicTV
+player=default
+rating=-1.00
+
+# 2254476
+type=video
+name=[COLOR=FF00FFFF]Qatar |[COLOR=FF00FF00] beIN Sports 4 [COLOR=00000000]HD[/COLOR][COLOR=FF00FFFF] | AnisotropicTV[/COLOR][COLOR=FFFFFF00] Private[/COLOR]
+thumb=http://vid.alarabiya.net/images/2013/12/31/dbdf4645-3e0b-449c-a54d-08bbb60dca3e/dbdf4645-3e0b-449c-a54d-08bbb60dca3e_16x9_788x442.jpg
+URL=http://goo.gl/hCQbKJ
+player=default
+rating=0.00
+
+# 2254478
+type=video
+name=[COLOR=FF00FFFF]Qatar |[COLOR=FF00FF00] beIN Sports 5 [COLOR=00000000]HD[/COLOR][COLOR=FF00FFFF] | AnisotropicTV[/COLOR][COLOR=FFFFFF00] Private[/COLOR]
+thumb=http://vid.alarabiya.net/images/2013/12/31/dbdf4645-3e0b-449c-a54d-08bbb60dca3e/dbdf4645-3e0b-449c-a54d-08bbb60dca3e_16x9_788x442.jpg
+URL=http://goo.gl/hCQbKJ
+player=default
+rating=0.00
+
+# 2254479
+type=video
+name=[COLOR=FF00FFFF]Qatar |[COLOR=FF00FF00] beIN Sports 6 [COLOR=00000000]HD[/COLOR][COLOR=FF00FFFF] | AnisotropicTV[/COLOR][COLOR=FFFFFF00] Private[/COLOR]
+thumb=http://vid.alarabiya.net/images/2013/12/31/dbdf4645-3e0b-449c-a54d-08bbb60dca3e/dbdf4645-3e0b-449c-a54d-08bbb60dca3e_16x9_788x442.jpg
+URL=http://goo.gl/hCQbKJ
+player=default
+rating=0.00
+
+# 2254484
+type=video
+name=[COLOR=FF00FFFF]Qatar |[COLOR=FF00FF00] beIN Sports 7 [COLOR=00000000]HD[/COLOR][COLOR=FF00FFFF] | AnisotropicTV[/COLOR][COLOR=FFFFFF00] Private[/COLOR]
+thumb=http://vid.alarabiya.net/images/2013/12/31/dbdf4645-3e0b-449c-a54d-08bbb60dca3e/dbdf4645-3e0b-449c-a54d-08bbb60dca3e_16x9_788x442.jpg
+URL=http://goo.gl/hCQbKJ
+player=default
+rating=0.00
+
+# 2254490
+type=video
+name=[COLOR=FF00FFFF]Qatar |[COLOR=FF00FF00] beIN Sports 8 [COLOR=00000000]HD[/COLOR][COLOR=FF00FFFF] | AnisotropicTV[/COLOR][COLOR=FF00FF00] Private Preview[/COLOR]
+thumb=http://vid.alarabiya.net/images/2013/12/31/dbdf4645-3e0b-449c-a54d-08bbb60dca3e/dbdf4645-3e0b-449c-a54d-08bbb60dca3e_16x9_788x442.jpg
+URL=rtmp://www1.iguide.to/iguide/ playpath=heh8qiagrxkwcm3 token=#ed%h0#w18623jsda6523lDGD swfUrl=http://www.iguide.to/player/secure_player_iguide_embed_token.swf live=1 timeout=13 pageUrl=http://www.iguide.to/ AnisotropicTV
+player=default
+rating=-1.00
+
+# 2254491
+type=video
+name=[COLOR=FF00FFFF]Qatar |[COLOR=FF00FF00] beIN Sports 9 [COLOR=00000000]HD[/COLOR][COLOR=FF00FFFF] | AnisotropicTV[/COLOR][COLOR=FFFFFF00] Private[/COLOR]
+thumb=http://vid.alarabiya.net/images/2013/12/31/dbdf4645-3e0b-449c-a54d-08bbb60dca3e/dbdf4645-3e0b-449c-a54d-08bbb60dca3e_16x9_788x442.jpg
+URL=http://goo.gl/hCQbKJ
+player=default
+rating=0.00
+
+# 2254492
+type=video
+name=[COLOR=FF00FFFF]Qatar |[COLOR=FF00FF00] beIN Sports 10 [COLOR=00000000]HD[/COLOR][COLOR=FF00FFFF] | AnisotropicTV[/COLOR][COLOR=FFFFFF00] Private[/COLOR]
+thumb=http://vid.alarabiya.net/images/2013/12/31/dbdf4645-3e0b-449c-a54d-08bbb60dca3e/dbdf4645-3e0b-449c-a54d-08bbb60dca3e_16x9_788x442.jpg
+URL=http://goo.gl/hCQbKJ
+player=default
+rating=0.00
+
+# 2254493
+type=video
+name=[COLOR=FF00FFFF]Qatar |[COLOR=FF00FF00] beIN Sports 11 [COLOR=00000000]HD[/COLOR][COLOR=FF00FFFF] | AnisotropicTV[/COLOR][COLOR=FFFFFF00] Private[/COLOR]
+thumb=http://vid.alarabiya.net/images/2013/12/31/dbdf4645-3e0b-449c-a54d-08bbb60dca3e/dbdf4645-3e0b-449c-a54d-08bbb60dca3e_16x9_788x442.jpg
+URL=http://goo.gl/hCQbKJ
+player=default
+rating=2.50
+
+# 2254494
+type=video
+name=[COLOR=FF00FFFF]Qatar |[COLOR=FF00FF00] beIN Sports 12 [COLOR=00000000]HD[/COLOR][COLOR=FF00FFFF] | AnisotropicTV[/COLOR][COLOR=FFFFFF00] Private[/COLOR]
+thumb=http://vid.alarabiya.net/images/2013/12/31/dbdf4645-3e0b-449c-a54d-08bbb60dca3e/dbdf4645-3e0b-449c-a54d-08bbb60dca3e_16x9_788x442.jpg
+URL=http://goo.gl/hCQbKJ
+player=default
+rating=0.00
+
+# 2254505
+type=video
+name=[COLOR=FF00FFFF]Qatar |[COLOR=FF00FF00] beIN Sports Spanish [COLOR=FFFF0000]HD[COLOR=FF00FFFF] | AnisotropicTV[/COLOR] [COLOR=FFFFFF00]Private[/COLOR]
+thumb=http://vid.alarabiya.net/images/2013/12/31/dbdf4645-3e0b-449c-a54d-08bbb60dca3e/dbdf4645-3e0b-449c-a54d-08bbb60dca3e_16x9_788x442.jpg
+URL=http://goo.gl/hCQbKJ
+player=default
+rating=3.00
+
+# 2254532
+type=video
+name=[COLOR=FF00FFFF]Qatar |[COLOR=FF00FF00] beIN Sports USA [COLOR=FFFF0000]HD[COLOR=FF00FFFF] | AnisotropicTV[/COLOR] [COLOR+FFFFFF00]Private[/COLOR]
+thumb=http://vid.alarabiya.net/images/2013/12/31/dbdf4645-3e0b-449c-a54d-08bbb60dca3e/dbdf4645-3e0b-449c-a54d-08bbb60dca3e_16x9_788x442.jpg
+URL=http://goo.gl/hCQbKJ
+player=default
+rating=3.00
+
+# 2312497
+type=video
+name=[COLOR=FF00FFFF]Romania |[COLOR=FF00FF00] DIGI Sport 1 [COLOR=FF00CCFF]SD[/COLOR][COLOR=FF00FFFF] | AnisotropicTV[/COLOR] [COLOR=FFFFFF00]Private[/COLOR]
+thumb=http://i.imgur.com/ZJRQuiT.jpg
+URL=http://goo.gl/hCQbKJ
+player=default
+rating=3.00
+
+# 2312503
+type=video
+name=[COLOR=FF00FFFF]Romania |[COLOR=FF00FF00] DIGI Sport 2 [COLOR=FF00CCFF]SD[/COLOR][COLOR=FF00FFFF] | AnisotropicTV[/COLOR] [COLOR=FFFFFF00]Private[/COLOR]
+thumb=http://i.imgur.com/ZJRQuiT.jpg
+URL=http://goo.gl/hCQbKJ
+player=default
+rating=3.00
+
+# 2312495
+type=video
+name=[COLOR=FF00FFFF]Romania |[COLOR=FF00FF00] dolce SPORT  [COLOR=FFFFFF00]ND[/COLOR][COLOR=FF00FFFF] | AnisotropicTV[/COLOR][COLOR=FFFFFF00] Private[/COLOR]
+thumb=http://www.dolce-sport.ro/img/logo.png
+URL=http://goo.gl/hCQbKJ
+player=default
+rating=0.00
+
+# 2272388
+type=video
+name=[COLOR=FF00FFFF]Romania |[COLOR=FF00FF00] dolce SPORT 2 [COLOR=FFFFFF00]ND[/COLOR][COLOR=FF00FFFF] | AnisotropicTV[/COLOR][COLOR=FFFFFF00] Private[/COLOR]
+thumb=http://www.dolce-sport.ro/img/logo.png
+URL=http://goo.gl/hCQbKJ
+player=default
+rating=0.00
+
+# 2286023
+type=video
+name=[COLOR=FF00FFFF]Russia |[COLOR=FF00FF00] KHL Sports [COLOR=FF00CCFF]SD[/COLOR][COLOR=FF00FFFF] | AnisotropicTV[/COLOR][COLOR=FFFFFF00] Private[/COLOR]
+thumb=http://russkie-prostori.com/blog/wp-content/uploads/2011/06/KHL-logo.gif
+URL=http://goo.gl/hCQbKJ
+player=default
+rating=0.00
+
+# 2254527
+type=video
+name=[COLOR=FF00FFFF]Russia |[COLOR=FF00FF00] Python Sports [COLOR=FFFFFF00]ND[/COLOR][COLOR=FF00FFFF] | AnisotropicTV[/COLOR]
+thumb=http://2.bp.blogspot.com/-p8LAJTnczB8/UE-8uaF2EqI/AAAAAAAAM7Q/8fFi0KuGyzQ/s1600/Futbol+logo+2012.png
+URL=http://goo.gl/36onDK
+player=default
+rating=-1.00
+
+# 2254533
+type=video
+name=[COLOR=FF00FFFF]Russia |[COLOR=FF00FF00] Rubin TV [COLOR=FF00CCFF]SD[/COLOR][COLOR=FF00FFFF] | AnisotropicTV[/COLOR]
+thumb=http://tunshow.bugs3.com/games/images/news_3997.jpg
+URL=rtmp://grey.ether.tv/live/rubin/broadcast4.flv swfUrl=http://www.planeta-online.tv/planeta_player.swf?ver=767 live=1 timeout=13 pageUrl=http://www.planeta-online.tv/ AnisotropicTV
+player=default
+rating=-1.00
+
+# 2254487
+type=video
+name=[COLOR=FF00FFFF]Russia |[COLOR=FF00FF00] Sport 1 [COLOR=FFFF0000]HD[/COLOR][COLOR=FF00FFFF] | AnisotropicTV[/COLOR]
+thumb=http://www.frosat.net/images/logotv/original/Sport-1_ru.jpg
+URL=http://testlivestream.rfn.ru/live/smil:sport1hd.smil/chunklist_b3000000.m3u8
+player=default
+rating=-1.00
+
+# 2254488
+type=video
+name=[COLOR=FF00FFFF]Russia |[COLOR=FF00FF00] Sport 2 [COLOR=FFFFFF00]ND[/COLOR][COLOR=FF00FFFF] | AnisotropicTV[/COLOR]
+thumb=http://supergags.com/wp-content/uploads/2013/02/sport-2.png
+URL=http://testlivestream.rfn.ru/live/smil:r2.smil/chunklist_b1600000.m3u8
+player=default
+rating=-1.00
+
+# 2254525
+type=video
+name=[COLOR=FF00FFFF]Serbia |[COLOR=FF00FF00] arenaSport 1 [COLOR=00000000]HD[/COLOR][COLOR=FF00FFFF] | AnisotropicTV[/COLOR][COLOR=FFFFFF00] Private[/COLOR]
+thumb=http://www.tvarenasport.com/image.php/slika?height=640&image=http://www.tvarenasport.com/files/vesti/arenasport_354477337.jpg
+URL=http://goo.gl/hCQbKJ
+player=default
+rating=0.00
+
+# 2284826
+type=video
+name=[COLOR=FF00FFFF]Serbia |[COLOR=FF00FF00] arenaSport 2 [COLOR=00000000]HD[/COLOR][COLOR=FF00FFFF] | AnisotropicTV[/COLOR][COLOR=FFFFFF00] Private[/COLOR]
+thumb=http://www.tvarenasport.com/image.php/slika?height=640&image=http://www.tvarenasport.com/files/vesti/arenasport_354477337.jpg
+URL=http://goo.gl/hCQbKJ
+player=default
+rating=0.00
+
+# 2286024
+type=video
+name=[COLOR=FF00FFFF]Serbia |[COLOR=FF00FF00] arenaSport 3 [COLOR=00000000]HD[/COLOR][COLOR=FF00FFFF] | AnisotropicTV[/COLOR][COLOR=FFFFFF00] Private[/COLOR]
+thumb=http://www.tvarenasport.com/image.php/slika?height=640&image=http://www.tvarenasport.com/files/vesti/arenasport_354477337.jpg
+URL=http://goo.gl/hCQbKJ
+player=default
+rating=0.00
+
+# 2284002
+type=video
+name=[COLOR=FF00FFFF]Serbia |[COLOR=FF00FF00] arenaSport 4 [COLOR=00000000]HD[/COLOR][COLOR=FF00FFFF] | AnisotropicTV[/COLOR][COLOR=FFFFFF00] Private[/COLOR]
+thumb=http://www.tvarenasport.com/image.php/slika?height=640&image=http://www.tvarenasport.com/files/vesti/arenasport_354477337.jpg
+URL=http://goo.gl/hCQbKJ
+player=default
+rating=0.00
+
+# 2269017
+type=video
+name=[COLOR=FF00FFFF]Serbia |[COLOR=FF00FF00] arenaSport 5 [COLOR=00000000]HD[/COLOR][COLOR=FF00FFFF] | AnisotropicTV[/COLOR][COLOR=FFFFFF00] Private[/COLOR]
+thumb=http://www.tvarenasport.com/image.php/slika?height=640&image=http://www.tvarenasport.com/files/vesti/arenasport_354477337.jpg
+URL=http://goo.gl/hCQbKJ
+player=default
+rating=3.00
+
+# 2254586
+type=video
+name=[COLOR=FF00FFFF]Serbia |[COLOR=FF00FF00] Sport Klub 1 [COLOR=FFFFFF00]ND[/COLOR][COLOR=FF00FFFF] | AnisotropicTV[/COLOR][COLOR=FFFFFF00] Private[/COLOR]
+thumb=http://www.sportklub.rs/img/Sport-Klub-novi-logo.png
+URL=http://goo.gl/hCQbKJ
+player=default
+rating=0.00
+
+# 2254588
+type=video
+name=[COLOR=FF00FFFF]Serbia |[COLOR=FF00FF00] Sport Klub 2 [COLOR=FFFFFF00]ND[/COLOR][COLOR=FF00FFFF] | AnisotropicTV[/COLOR][COLOR=FFFFFF00] Private[/COLOR]
+thumb=http://www.sportklub.rs/img/Sport-Klub-novi-logo.png
+URL=http://goo.gl/hCQbKJ
+player=default
+rating=0.00
+
+# 2286014
+type=video
+name=[COLOR=FF00FFFF]Serbia |[COLOR=FF00FF00] Sport Klub 3 [COLOR=FFFFFF00]ND[/COLOR][COLOR=FF00FFFF] | AnisotropicTV[/COLOR][COLOR=FFFFFF00] Private[/COLOR]
+thumb=http://www.sportklub.rs/img/Sport-Klub-novi-logo.png
+URL=http://goo.gl/hCQbKJ
+player=default
+rating=3.00
+
+# 2254545
+type=video
+name=[COLOR=FF00FFFF]Spain |[COLOR=FF00FF00] Esport3 [COLOR=FF00CCFF]SD[/COLOR][COLOR=FF00FFFF] | AnisotropicTV[/COLOR] [COLOR=FFFFFF00]Private[/COLOR]
+thumb=http://taylorhits.com/wp-content/uploads/ESPORT3.jpg
+URL=http://goo.gl/hCQbKJ
+player=default
+rating=0.00
+
+# 2254580
+type=video
+name=*[COLOR=FF00FFFF]Spain |[COLOR=FF00FF00] GOL T [COLOR=FFFFFF00]ND[/COLOR][COLOR=FF00FFFF] | AnisotropicTV[/COLOR] [COLOR=FFFFFF00]Private[/COLOR]
+thumb=http://b.vimeocdn.com/ts/191/093/191093595_640.jpg
+URL=http://goo.gl/hCQbKJ
+player=default
+rating=3.00
+
+# 2254470
+type=video
+name=[COLOR=FF00FFFF]Spain |[COLOR=FF00FF00] LaSexta Deportes [COLOR=FFFF0000]HD[/COLOR][COLOR=FF00FFFF] | AnisotropicTV[/COLOR] [COLOR=FFFFFF00]Private[/COLOR]
+thumb=http://www.lasexta.com/static/images/lasextacom_logotipo.jpg
+URL=http://goo.gl/hCQbKJ
+player=default
+rating=3.00
+
+# 2254511
+type=video
+name=[COLOR=FF00FFFF]Spain |[COLOR=FF00FF00] realMadrid CF [COLOR=FFFFFF00]ND[/COLOR][COLOR=FF00FFFF] | AnisotropicTV[/COLOR]
+thumb=http://megahdwall.com/wp-content/uploads/2014/06/Collages-Real-Madrid-Cf-Logo-Sugraphic-Masters-Of-Art-The-Best-373910.jpg
+URL=http://rmtvlive-lh.akamaihd.net/i/rmtv_1@154306/master.m3u8?sd=10&rebase=on
+player=default
+rating=-1.00
+
+# 2254577
+type=video
+name=[COLOR=FF00FFFF]Spain |[COLOR=FF00FF00] Sevilla FC [COLOR=FFFFFF00]ND[/COLOR][COLOR=FF00FFFF] | AnisotropicTV[/COLOR]
+thumb=http://i.imgur.com/K9BuMkM.jpg
+URL=http://gstudio_hls04-lh.akamaihd.net/i/hls04stream001_0@348222/master.m3u8
+player=default
+rating=-1.00
+
+# 2254502
+type=video
+name=[COLOR=FF00FFFF]Turkey |[COLOR=FF00FF00] BursaSpor [COLOR=FF00CCFF]SD[/COLOR][COLOR=FF00FFFF] | AnisotropicTV[/COLOR]
+thumb=http://image.cdn.haber7.com/haber/haber7/photos/bursaspor_5_transferini_geceklestirdi13594539190_h983223.jpg
+URL=http://goo.gl/fUiKKu
+player=default
+rating=-1.00
+
+# 2254503
+type=video
+name=[COLOR=FF00FFFF]Turkey |[COLOR=FF00FF00] Galatasaray SK Sport [COLOR=FF00CCFF]SD[/COLOR][COLOR=FF00FFFF] | AnisotropicTV[/COLOR][COLOR=FFFFFF00] Private[/COLOR]
+thumb=http://www.fm-base.co.uk/forum/attachments/football-manager-2014-manager-stories/504014d1392838200-galatasaray-sports-club-money-not-spoken-here-heart-galatasaray_wallpaper_by_sanchezdesign-d5zjp121.jpg
+URL=http://goo.gl/hCQbKJ
+player=default
+rating=0.00
+
+# 2254549
+type=video
+name=[COLOR=FF00FFFF]Turkey |[COLOR=FF00FF00] NTV Spor [COLOR=00000000]HD[/COLOR][COLOR=FF00FFFF] | AnisotropicTV[/COLOR] [COLOR=FFFFFF00]Private[/COLOR]
+thumb=http://i.imgur.com/AlQBti6.jpg
+URL=http://goo.gl/hCQbKJ
+player=default
+rating=3.00
+
+# 2254472
+type=video
+name=[COLOR=FF00FFFF]Turkey |[COLOR=FF00FF00] SportsTV 3 [COLOR=FF00CCFF]SD[/COLOR][COLOR=FF00FFFF] | AnisotropicTV[/COLOR]
+thumb=http://supergags.com/wp-content/uploads/2013/02/sportstv.jpg
+URL=rtmp://stream.sportstv.com.tr/sportstv playpath=SportsTV3 swfUrl=http://www.sportstv.com.tr/flowplayer.commercial-3.2.11.swf live=1 timeout=13 pageUrl=http://www.sportstv.com.tr/ AnisotropicTV
+player=default
+rating=-1.00
+
+# 2284844
+type=video
+name=[COLOR=FF00FFFF]Turkey |[COLOR=FF00FF00] TJK TV [COLOR=FF00CCFF]SD[/COLOR][COLOR=FF00FFFF] | AnisotropicTV[/COLOR]
+thumb=http://www.haberler.com/haber-resimleri/254/050714-tjk-tv-izle-canli-yayin-guncel-tjk-at-6227254_o.jpg
+URL=rtmp://stream.farm.cdnline.com/liveedge/mp4:tjk.stream_720p
+player=default
+rating=-1.00
+
+# 2254560
+type=video
+name=[COLOR=FF00FFFF]Turkey |[COLOR=FF00FF00] TRT Spor [COLOR=FFFFFF00]ND[/COLOR][COLOR=FF00FFFF] | AnisotropicTV[/COLOR][COLOR=FFFFFF00] Private[/COLOR]
+thumb=http://www.muammertunahan.com/wp-content/uploads/trtspor.jpg
+URL=http://goo.gl/hCQbKJ
+player=default
+rating=0.00
+
+# 2254556
+type=video
+name=[COLOR=FF00FFFF]UAE |[COLOR=FF00FF00] Sharjah Sports TV [COLOR=FF00CCFF]SD[/COLOR][COLOR=FF00FFFF] | AnisotropicTV[/COLOR][COLOR=FFFFFF00] Private[/COLOR]
+thumb=http://2.bp.blogspot.com/-4gC2GQq-EoY/Ujgk-5dk8ZI/AAAAAAAAXME/gG1_8kIrXxk/s1600/%D9%84%D9%82%D9%86%D8%A7%D8%A9+%D8%A7%D9%84%D8%B4%D8%B1%D9%82%D9%8A%D8%A9.jpg
+URL=http://goo.gl/hCQbKJ
+player=default
+rating=0.00
+
+# 2254553
+type=video
+name=[COLOR=FF00FFFF]UK |[COLOR=FF00FF00] AutoSport TV [COLOR=FFFFFF00]ND[/COLOR][COLOR=FF00FFFF] | AnisotropicTV[/COLOR]
+thumb=http://fourtitude.com/wp-content/uploads/2013/11/autosport-logo-600x241.jpg
+URL=mms://100automoto.tv/100livesport
+player=default
+rating=-1.00
+
+# 2271119
+type=video
+name=[COLOR=FF00FFFF]UK |[COLOR=FF00FF00] BBC 1 [COLOR=FFFFFF00]ND[/COLOR][COLOR=FF00FFFF] | AnisotropicTV[/COLOR][COLOR=FFFFFF00] Private[/COLOR]
+thumb=http://vozplus.com/wp-content/uploads/Watch-BBC-One.png
+URL=http://goo.gl/hCQbKJ
+player=default
+rating=0.50
+
+# 2254563
+type=video
+name=[COLOR=FF00FFFF]UK |[COLOR=FF00FF00] BOX Nation [COLOR=FFFFFF00]ND[/COLOR][COLOR=FF00FFFF] | AnisotropicTV[/COLOR] [COLOR=FFFFFF00]Private[/COLOR]
+thumb=http://upload.wikimedia.org/wikipedia/en/c/c8/BoxNation2014Logo.png
+URL=http://goo.gl/hCQbKJ
+player=default
+rating=3.00
+
+# 2254506
+type=video
+name=[COLOR=FF00FFFF]UK |[COLOR=FF00FF00] BT Sport 1 [COLOR=FFFFFF00]ND[/COLOR][COLOR=FF00FFFF] | AnisotropicTV[/COLOR][COLOR=FFFFFF00] Private[/COLOR]
+thumb=http://static.trustedreviews.com/94/0000286fc/7300/BT-Sport.jpg
+URL=http://goo.gl/hCQbKJ
+player=default
+rating=0.00
+
+# 2254507
+type=video
+name=[COLOR=FF00FFFF]UK |[COLOR=FF00FF00] BT Sport 2 [COLOR=FFFFFF00]ND[/COLOR][COLOR=FF00FFFF] | AnisotropicTV[/COLOR][COLOR=FFFFFF00] Private[/COLOR]
+thumb=http://static.trustedreviews.com/94/0000286fc/7300/BT-Sport.jpg
+URL=rtmpe://46.246.124.28:1935/live/ playpath=sbt2 token=#yw%tt#w@kku swfUrl=http://player.hdcast.org/player.swf live=1 timeout=13 pageUrl=http://www.hdcast.org/ AnisotropicTV
+player=default
+rating=-1.00
+
+# 2272073
+type=video
+name=[COLOR=FF00FFFF]UK |[COLOR=FF00FF00] ESPN UK [COLOR=FFFFFF00]ND[/COLOR][COLOR=FF00FFFF] | AnisotropicTV[/COLOR][COLOR=FFFFFF00] Private[/COLOR]
+thumb=http://talentmechanic.files.wordpress.com/2011/06/espn_3d.jpg
+URL=http://goo.gl/hCQbKJ
+player=default
+rating=0.00
+
+# 2284842
+type=video
+name=[COLOR=FF00FFFF]UK |[COLOR=FF00FF00] euroSport 1 [COLOR=FFFFFF00]ND[/COLOR][COLOR=FF00FFFF] | AnisotropicTV[/COLOR][COLOR=FFFFFF00] Private[/COLOR]
+thumb=http://ego-alterego.com/wp-content/uploads/2011/04/eurosport-2011-tv-idents-1.jpg
+URL=http://goo.gl/hCQbKJ
+player=default
+rating=0.00
+
+# 2284845
+type=video
+name=[COLOR=FF00FFFF]UK |[COLOR=FF00FF00] euroSport 2 [COLOR=FFFFFF00]ND[/COLOR][COLOR=FF00FFFF] | AnisotropicTV[/COLOR][COLOR=FFFFFF00] Private[/COLOR]
+thumb=http://ego-alterego.com/wp-content/uploads/2011/04/eurosport-2011-tv-idents-1.jpg
+URL=http://goo.gl/hCQbKJ
+player=default
+rating=0.00
+
+# 2254530
+type=video
+name=[COLOR=FF00FFFF]UK |[COLOR=FF00FF00] euroSport 1 British [COLOR=FFFFFF00]ND[/COLOR][COLOR=FF00FFFF] | AnisotropicTV[/COLOR]
+thumb=http://ego-alterego.com/wp-content/uploads/2011/04/eurosport-2011-tv-idents-1.jpg
+URL=rtmp://31.220.2.149:80/live/ playpath=euro1 token=%Zrey(nKa@#Z swfUrl=http://p.jwpcdn.com/6/12/jwplayer.flash.swf live=1 timeout=13 pageUrl=http://yotv.co/ AnisotropicTV
+player=default
+rating=-1.00
+
+# 2284001
+type=video
+name=[COLOR=FF00FFFF]UK |[COLOR=FF00FF00] euroSport 2 British [COLOR=FFFFFF00]ND[/COLOR][COLOR=FF00FFFF] | AnisotropicTV[/COLOR]
+thumb=http://ego-alterego.com/wp-content/uploads/2011/04/eurosport-2011-tv-idents-1.jpg
+URL=rtmp://80.82.78.23/live/ playpath=xxeuro2 token=%Zrey(nKa@#Z swfUrl=http://www.yocast.tv/myplayer/jwplayer.flash.swf live=1 timeout=13 pageUrl=http://www.yocast.tv/ AnisotropicTV
+player=default
+rating=-1.00
+
+# 2270758
+type=video
+name=[COLOR=FF00FFFF]UK |[COLOR=FF00FF00] iTV 1 [COLOR=FFFFFF00]ND[/COLOR][COLOR=FF00FFFF] | AnisotropicTV[/COLOR] [COLOR=FFFFFF00]Private[/COLOR]
+thumb=http://i4.mirror.co.uk/incoming/article1439323.ece/alternates/s615/New%20ITV%20logo
+URL=http://goo.gl/hCQbKJ
+player=default
+rating=0.00
+
+# 2254590
+type=video
+name=[COLOR=FF00FFFF]UK |[COLOR=FF00FF00] Manchester United TV [COLOR=FFFFFF00]ND[/COLOR][COLOR=FF00FFFF] | AnisotropicTV[/COLOR] [COLOR=FFFFFF00]Private[/COLOR]
+thumb=http://upload.wikimedia.org/wikipedia/en/thumb/7/7a/Manchester_United_FC_crest.svg/1010px-Manchester_United_FC_crest.svg.png
+URL=http://goo.gl/hCQbKJ
+player=default
+rating=3.00
+
+# 2312520
+type=video
+name=[COLOR=FF00FFFF]UK |[COLOR=FF00FF00] Premier Sports [COLOR=FF00CCFF]SD[/COLOR][COLOR=FF00FFFF] | AnisotropicTV[/COLOR] [COLOR=FFFFFF00]Private[/COLOR]
+thumb=https://www.cable.co.uk/images/news/virgin-media-adds-premier-sports-l-801654050.jpg
+URL=http://goo.gl/hCQbKJ
+player=default
+rating=3.00
+
+# 2254509
+type=video
+name=[COLOR=FF00FFFF]UK |[COLOR=FF00FF00] Racing UK [COLOR=FFFFFF00]ND[/COLOR][COLOR=FF00FFFF] | AnisotropicTV[/COLOR]
+thumb=http://www.racinguk.com/images/articles/Racing-UK-Logo.jpg
+URL=rtmp://31.220.0.195:80/live/ playpath=racinguks token=%Zrey(nKa@#Z swfUrl=http://p.jwpcdn.com/6/11/jwplayer.flash.swf live=1 timeout=13 pageUrl=http://reytv.co/ AnisotropicTV
+player=default
+rating=-1.00
+
+# 2254592
+type=video
+name=[COLOR=FF00FFFF]UK |[COLOR=FF00FF00] Sky Sports 1 [COLOR=FFFFFF00]ND[/COLOR][COLOR=FF00FFFF] | AnisotropicTV[/COLOR] [COLOR+FFFFFF00]Private[/COLOR]
+thumb=http://i.imgur.com/Dz7YYZi.jpg
+URL=http://goo.gl/hCQbKJ
+player=default
+rating=0.00
+
+# 2254535
+type=video
+name=[COLOR=FF00FFFF]UK |[COLOR=FF00FF00] Sky Sports 2 [COLOR=FFFFFF00]ND[/COLOR][COLOR=FF00FFFF] | AnisotropicTV[/COLOR] [COLOR=FFFFFF00]Private[/COLOR]
+thumb=http://i.imgur.com/Dz7YYZi.jpg
+URL=http://goo.gl/hCQbKJ
+player=default
+rating=0.00
+
+# 2254594
+type=video
+name=[COLOR=FF00FFFF]UK |[COLOR=FF00FF00] Sky Sports 3 [COLOR=FFFFFF00]ND[/COLOR][COLOR=FF00FFFF] | AnisotropicTV[/COLOR] [COLOR=FFFFFF00]Prvate[/COLOR]
+thumb=http://i.imgur.com/Dz7YYZi.jpg
+URL=http://goo.gl/hCQbKJ
+player=default
+rating=0.00
+
+# 2254595
+type=video
+name=[COLOR=FF00FFFF]UK |[COLOR=FF00FF00] Sky Sports 4 [COLOR=FFFFFF00]ND[/COLOR][COLOR=FF00FFFF] | AnisotropicTV[/COLOR] [COLOR=FFFFFF00]Private[/COLOR]
+thumb=http://i.imgur.com/Dz7YYZi.jpg
+URL=http://goo.gl/hCQbKJ
+player=default
+rating=0.00
+
+# 2312523
+type=video
+name=[COLOR=FF00FFFF]UK |[COLOR=FF00FF00] Sky Sports 5 [COLOR=FFFFFF00]ND[/COLOR][COLOR=FF00FFFF] | AnisotropicTV[/COLOR] [COLOR=FFFFFF00]Private[/COLOR]
+thumb=http://i.imgur.com/Dz7YYZi.jpg
+URL=http://goo.gl/hCQbKJ
+player=default
+rating=0.00
+
+# 2254537
+type=video
+name=[COLOR=FF00FFFF]UK |[COLOR=FF00FF00] Sky Sports F1 [COLOR=FFFFFF00]ND[/COLOR][COLOR=FF00FFFF] | AnisotropicTV[/COLOR] [COLOR=FF00FF00]Private Preview[/COLOR]
+thumb=http://i.imgur.com/Dz7YYZi.jpg
+URL=rtmp://80.82.78.23/live/ playpath=f1skys token=%Zrey(nKa@#Z swfUrl=http://www.yocast.tv/myplayer/jwplayer.flash.swf live=1 timeout=13 pageUrl=http://www.yocast.tv/ AnisotropicTV
+player=default
+rating=-1.00
+
+# 2254539
+type=video
+name=[COLOR=FF00FFFF]UK |[COLOR=FF00FF00] Sky Sports News [COLOR=FFFFFF00]ND[/COLOR][COLOR=FF00FFFF] | AnisotropicTV[/COLOR][COLOR=FFFFFF00] Private[/COLOR]
+thumb=http://i.imgur.com/Dz7YYZi.jpg
+URL=http://goo.gl/hCQbKJ
+player=default
+rating=0.00
+
+# 2254603
+type=video
+name=[COLOR=FF00FFFF]UK |[COLOR=FF00FF00] Sports Tonight [COLOR=FFFF0000]HD[/COLOR][COLOR=FF00FFFF] | AnisotropicTV[/COLOR] [COLOR=FFFFFF00]Private[/COLOR]
+thumb=http://i.imgur.com/nsEzVwr.png
+URL=http://goo.gl/hCQbKJ
+player=default
+rating=3.00
+
+# 2254589
+type=video
+name=[COLOR=FF00FFFF]USA |[COLOR=FF00FF00] Big Ten Network [COLOR=FFFF0000]HD[COLOR=FF00FFFF] | AnisotropicTV[/COLOR] [COLOR=FFFFFF00]Private[/COLOR]
+thumb=http://payload.cargocollective.com/1/3/109141/1518850/Big10_05.jpg
+URL=http://goo.gl/hCQbKJ
+player=default
+rating=3.00
+
+# 2254542
+type=video
+name=[COLOR=FF00FFFF]USA |[COLOR=FF00FF00] ESPN [COLOR=FF00CCFF]SD[/COLOR][COLOR=FF00FFFF] | AnisotropicTV[/COLOR]
+thumb=http://talentmechanic.files.wordpress.com/2011/06/espn_3d.jpg
+URL=rtmp://31.220.2.148/redirect/ playpath=espnusa token=%Zrey(nKa@#Z swfUrl=http://p.jwpcdn.com/6/12/jwplayer.flash.swf live=1 timeout=13 pageUrl=http://yotv.co/ AnisotropicTV
+player=default
+rating=-1.00
+
+# 2269018
+type=video
+name=[COLOR=FF00FFFF]USA |[COLOR=FF00FF00] ESPN2 [COLOR=FFFFFF00]ND[/COLOR][COLOR=FF00FFFF] | AnisotropicTV[/COLOR]
+thumb=http://talentmechanic.files.wordpress.com/2011/06/espn_3d.jpg
+URL=rtmp://31.220.2.148/redirect/ playpath=espn2 token=%Zrey(nKa@#Z swfUrl=http://p.jwpcdn.com/6/12/jwplayer.flash.swf live=1 timeout=13 pageUrl=http://yotv.co/ AnisotropicTV
+player=default
+rating=-1.00
+
+# 2254512
+type=video
+name=[COLOR=FF00FFFF]USA |[COLOR=FF00FF00] FOX Sports 1 [COLOR=FFFFFF00]ND[/COLOR][COLOR=FF00FFFF] | AnisotropicTV[/COLOR]
+thumb=http://msn.foxsports.com/speed/wp-content/uploads/2013/08/1129922_article_img_xlarge6.jpg
+URL=rtmp://31.220.2.149:80/live/ playpath=fxx1 token=%Zrey(nKa@#Z swfUrl=http://p.jwpcdn.com/6/12/jwplayer.flash.swf live=1 timeout=13 pageUrl=http://yotv.co/ AnisotropicTV
+player=default
+rating=-1.00
+
+# 2254546
+type=video
+name=[COLOR=FF00FFFF]USA |[COLOR=FF00FF00] MLB Network [COLOR=FF00CCFF]SD[/COLOR][COLOR=FF00FFFF] | AnisotropicTV[/COLOR][COLOR=FFFFFF00] Private[/COLOR]
+thumb=http://umsbc.com/wp-content/uploads/2013/08/mlbn_plate_logo_jpg.jpg
+URL=http://goo.gl/hCQbKJ
+player=default
+rating=3.00
+
+# 2254540
+type=video
+name=[COLOR=FF00FFFF]USA |[COLOR=FF00FF00] NBA Network [COLOR=FF00CCFF]SD[/COLOR][COLOR=FF00FFFF] | AnisotropicTV[/COLOR][COLOR=FFFFFF00] Private[/COLOR]
+thumb=http://s3files.core77.com/blog/images/2013/04/nbatv-set-02.jpg
+URL=http://goo.gl/hCQbKJ
+player=default
+rating=2.50
+
+# 2254551
+type=video
+name=[COLOR=FF00FFFF]USA |[COLOR=FF00FF00] NBC Golf Channel [COLOR=FFFF0000]HD[COLOR=FF00FFFF] | AnisotropicTV[/COLOR] [COLOR=FFFFFF00]Private[/COLOR]
+thumb=http://upload.wikimedia.org/wikipedia/en/9/98/Golf_Channel_old_logo.png
+URL=http://goo.gl/hCQbKJ
+player=default
+rating=3.00
+
+# 2254515
+type=video
+name=[COLOR=FF00FFFF]USA |[COLOR=FF00FF00] NBC Sports Network [COLOR=FFFFFF00]HD[/COLOR][COLOR=FF00FFFF] | AnisotropicTV[/COLOR][COLOR=FFFFFF00] Private[/COLOR]
+thumb=http://www.twcmedia.com/uploadedImages/SharedContent/Smartforms/Network/nbcusportsheroimage1.jpg
+URL=http://goo.gl/hCQbKJ
+player=default
+rating=0.00
+
+# 2254544
+type=video
+name=[COLOR=FF00FFFF]USA |[COLOR=FF00FF00] NFL Network [COLOR=FFFFFF00]ND[/COLOR][COLOR=FF00FFFF] | AnisotropicTV[/COLOR][COLOR=FFFFFF00] Private[/COLOR]
+thumb=http://m1.behance.net/rendition/modules/56004503/disp/ed1a828ae401ee36df7da07dc595bbe0.png
+URL=http://goo.gl/hCQbKJ
+player=default
+rating=0.00
+
+# 2254516
+type=video
+name=[COLOR=FF00FFFF]USA |[COLOR=FF00FF00] PAC 12 Arizona [COLOR=FFFF0000]HD[COLOR=FF00FFFF] | AnisotropicTV[/COLOR] [COLOR=FFFFFF00]Private[/COLOR]
+thumb=http://media.jrn.com/images/640*360/Pac+12.jpg
+URL=http://goo.gl/hCQbKJ
+player=default
+rating=3.00
+
+# 2254517
+type=video
+name=[COLOR=FF00FFFF]USA |[COLOR=FF00FF00] PAC 12 Bay Area [COLOR=FFFF0000]HD[COLOR=FF00FFFF] | AnisotropicTV[/COLOR] [COLOR=FFFFFF00]Private[/COLOR]
+thumb=http://media.jrn.com/images/640*360/Pac+12.jpg
+URL=http://goo.gl/hCQbKJ
+player=default
+rating=3.00
+
+# 2254518
+type=video
+name=[COLOR=FF00FFFF]USA |[COLOR=FF00FF00] PAC 12 Los Angeles [COLOR=FFFF0000]HD[/COLOR][COLOR=FF00FFFF] | AnisotropicTV[/COLOR] [COLOR=FFFFFF00]Private[/COLOR]
+thumb=http://media.jrn.com/images/640*360/Pac+12.jpg
+URL=http://goo.gl/hCQbKJ
+player=default
+rating=3.00
+
+# 2254519
+type=video
+name=[COLOR=FF00FFFF]USA |[COLOR=FF00FF00] PAC 12 Network [COLOR=FFFF0000]HD[/COLOR][COLOR=FF00FFFF] | AnisotropicTV[/COLOR]
+thumb=http://media.jrn.com/images/640*360/Pac+12.jpg
+URL=http://goo.gl/UeTCiJ
+player=default
+rating=-1.00
+description=BackUp:
+http://goo.gl/oyHLv5/description
+
+# 2254520
+type=video
+name=[COLOR=FF00FFFF]USA |[COLOR=FF00FF00] PAC 12 Oregon [COLOR=FFFF0000]HD[/COLOR][COLOR=FF00FFFF] | AnisotropicTV[/COLOR] [COLOR=FFFFFF00]Private[/COLOR]
+thumb=http://media.jrn.com/images/640*360/Pac+12.jpg
+URL=http://goo.gl/hCQbKJ
+player=default
+rating=3.00
+
+# 2254521
+type=video
+name=[COLOR=FF00FFFF]USA |[COLOR=FF00FF00] PAC 12 Washington [COLOR=FFFF0000]HD[/COLOR][COLOR=FF00FFFF] | AnisotropicTV[/COLOR] [COLOR=FFFFFF00]Private[/COLOR]
+thumb=http://media.jrn.com/images/640*360/Pac+12.jpg
+URL=http://goo.gl/hCQbKJ
+player=default
+rating=3.00
+
+# 2270494
+type=video
+name=[COLOR=FF00FFFF]USA |[COLOR=FF00FF00] Willow Cricket [COLOR=FF00CCFF]SD[/COLOR][COLOR=FF00FFFF] | AnisotropicTV[/COLOR]
+thumb=http://h2omedia.in/wp-content/uploads/2014/01/WillowNewLogo_420.png
+URL=rtmp://188.126.81.144:80/live playpath=wil00 token=%Zrey(nKa@#Z swfUrl=http://p.jwpcdn.com/6/12/jwplayer.flash.swf live=1 timeout=13 pageUrl=http://flashtv.co/ AnisotropicTV
+player=default
+rating=-1.00
+
+# 2254605
+type=video
+name=[COLOR=FFFF0000]|***LINKS BELOW ARE NOT STABLE OR RELIABLE BUT MAY WORK[/COLOR]
+thumb=http://thumbs.dreamstime.com/z/stop-sign-different-countries-illustration-traffic-descriptions-various-states-33352709.jpg
+URL=http://goo.gl/hCQbKJ
+player=default
+rating=3.00
+description=http://goo.gl/hCQbKJ/description
+
+# 2270759
+type=video
+name=[COLOR=FF00FF00]TEST TEST[COLOR=FF00FFFF][COLOR=FFFF0000=] HD[/COLOR] | AnisotropicTV[/COLOR]
+thumb=http://www.ournorthstar.com/wp-content/uploads/2013/10/test1.jpg
+URL=http://goo.gl/hCQbKJ
+player=default
+rating=0.00
+description=http://goo.gl/hCQbKJ
+OLD/description
+
+# 2254496
+type=video
+name=[COLOR=FF00FFFF]| AnisotropicTV[/COLOR]
+URL=http://cricfree.sx/update/tsn2.php
+processor=http://www.navixtreme.com/proc/simple/3c6c696e6b3e24646f72656765785b75726c5d3c2f6c696e6b3e3c72656765783e3c6e616d653e75726c3c2f6e616d653e3c6578707265733e66696c653a2022282e2a3f29223c2f6578707265733e3c706167653e687474703a2f2f62696767657374706c617965722e6d652
+player=default
+rating=-1.00
+
+# 2254575
+type=video
+name=[COLOR=FF00FFFF]| AnisotropicTV[/COLOR]
+URL=http://goo.gl/hCQbKJ
+player=default
+rating=3.00
+
+# 2312511
+type=video
+name=[COLOR=FF00FFFF]| AnisotropicTV[/COLOR]
+URL=http://goo.gl/hCQbKJ
+player=default
+rating=0.00
+
+# 2254468
+type=video
+name=[COLOR=FF00FFFF]| AnisotropicTV[/COLOR]
+URL=http://goo.gl/hCQbKJ
+player=default
+rating=0.00
+
+# 2272387
+type=video
+name=[COLOR=FF00FFFF]| AnisotropicTV[/COLOR]
+URL=http://goo.gl/hCQbKJ
+player=default
+rating=0.00
+
+# 2270968
+type=video
+name=[COLOR=FF00FFFF]| AnisotropicTV[/COLOR]
+URL=http://goo.gl/hCQbKJ
+player=default
+rating=0.00
+
+# 2286019
+type=video
+name=[COLOR=FF00FFFF]| AnisotropicTV[/COLOR]
+URL=http://goo.gl/hCQbKJ
+player=default
+rating=0.00
+
+# 2254571
+type=video
+name=[COLOR=FF00FFFF]| AnisotropicTV[/COLOR]
+URL=http://goo.gl/hCQbKJ
+player=default
+rating=3.00
+
+# 2254445
+type=video
+name=[COLOR=FF00FFFF]| AnisotropicTV[/COLOR]
+URL=http://goo.gl/hCQbKJ
+player=default
+rating=0.00
+
+# 2277046
+type=video
+name=[COLOR=FF00FFFF]| AnisotropicTV[/COLOR]
+URL=http://goo.gl/hCQbKJ
+player=default
+rating=3.00
+
+# 2254447
+type=video
+name=[COLOR=FF00FFFF]| AnisotropicTV[/COLOR]
+URL=http://goo.gl/hCQbKJ
+player=default
+rating=0.00
+
+# 2269488
+type=video
+name=[COLOR=FF00FFFF]| AnisotropicTV[/COLOR]
+URL=http://goo.gl/hCQbKJ
+player=default
+rating=0.00
+
+# 2254526
+type=video
+name=[COLOR=FF00FFFF]| AnisotropicTV[/COLOR]
+URL=http://goo.gl/hCQbKJ
+player=default
+rating=0.00
+
+# 2254495
+type=video
+name=[COLOR=FF00FFFF]| AnisotropicTV[/COLOR]
+URL=http://goo.gl/hCQbKJ
+player=default
+rating=0.00
+
+# 2254541
+type=video
+name=[COLOR=FF00FFFF]| AnisotropicTV[/COLOR]
+URL=http://goo.gl/hCQbKJ
+player=default
+rating=3.00
+
+# 2254569
+type=video
+name=[COLOR=FF00FFFF]| AnisotropicTV[/COLOR]
+URL=http://goo.gl/hCQbKJ
+player=default
+rating=3.00
+
+# 2312505
+type=video
+name=[COLOR=FF00FFFF]| AnisotropicTV[/COLOR]
+URL=http://goo.gl/hCQbKJ
+player=default
+rating=0.00
+
+# 2254475
+type=video
+name=[COLOR=FF00FFFF]| AnisotropicTV[/COLOR]
+URL=http://goo.gl/hCQbKJ
+player=default
+rating=3.00
+
+# 2254497
+type=video
+name=[COLOR=FF00FFFF]| AnisotropicTV[/COLOR]
+URL=http://goo.gl/hCQbKJ
+player=default
+rating=0.00
+
+# 2312516
+type=video
+name=[COLOR=FF00FFFF]| AnisotropicTV[/COLOR]
+URL=http://goo.gl/hCQbKJ
+player=default
+rating=3.00
+
+# 2312515
+type=video
+name=[COLOR=FF00FFFF]| AnisotropicTV[/COLOR]
+URL=http://goo.gl/hCQbKJ
+player=default
+rating=3.00
+
+# 2312498
+type=video
+name=[COLOR=FF00FFFF]| AnisotropicTV[/COLOR]
+URL=http://goo.gl/ICCgry
+player=default
+rating=-1.00
+
+# 2254548
+type=video
+name=[COLOR=FF00FFFF]| AnisotropicTV[/COLOR]
+URL=http://goo.gl/ICCgry
+player=default
+rating=0.00
+
+# 2254463
+type=video
+name=[COLOR=FF00FFFF]| AnisotropicTV[/COLOR]
+URL=http://goo.gl/ICCgry
+player=default
+rating=-1.00
+
+
+# cached
