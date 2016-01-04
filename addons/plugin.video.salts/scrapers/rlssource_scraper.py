@@ -19,9 +19,9 @@ import scraper
 import urllib
 import urlparse
 import re
-import xbmcaddon
-from salts_lib import log_utils
+from salts_lib import kodi
 from salts_lib.constants import VIDEO_TYPES
+from salts_lib.constants import FORCE_NO_MATCH
 
 BASE_URL = 'http://rlssource.net'
 
@@ -30,7 +30,7 @@ class RLSSource_Scraper(scraper.Scraper):
 
     def __init__(self, timeout=scraper.DEFAULT_TIMEOUT):
         self.timeout = timeout
-        self.base_url = xbmcaddon.Addon().getSetting('%s-base_url' % (self.get_name()))
+        self.base_url = kodi.get_setting('%s-base_url' % (self.get_name()))
 
     @classmethod
     def provides(cls):
@@ -49,7 +49,7 @@ class RLSSource_Scraper(scraper.Scraper):
     def get_sources(self, video):
         source_url = self.get_url(video)
         hosters = []
-        if source_url:
+        if source_url and source_url != FORCE_NO_MATCH:
             url = urlparse.urljoin(self.base_url, source_url)
             html = self._http_get(url, cache_limit=.5)
             
@@ -79,8 +79,8 @@ class RLSSource_Scraper(scraper.Scraper):
         settings = super(RLSSource_Scraper, cls).get_settings()
         settings = cls._disable_sub_check(settings)
         name = cls.get_name()
-        settings.append('         <setting id="%s-filter" type="slider" range="0,180" option="int" label="     Filter results older than (0=No Filter) (days)" default="30" visible="eq(-6,true)"/>' % (name))
-        settings.append('         <setting id="%s-select" type="enum" label="     Automatically Select" values="Most Recent|Highest Quality" default="0" visible="eq(-7,true)"/>' % (name))
+        settings.append('         <setting id="%s-filter" type="slider" range="0,180" option="int" label="     Filter results older than (0=No Filter) (days)" default="30" visible="eq(-4,true)"/>' % (name))
+        settings.append('         <setting id="%s-select" type="enum" label="     Automatically Select" values="Most Recent|Highest Quality" default="0" visible="eq(-5,true)"/>' % (name))
         return settings
 
     def search(self, video_type, title, year):
@@ -89,6 +89,3 @@ class RLSSource_Scraper(scraper.Scraper):
         pattern = 'href="(?P<url>[^"]+)[^>]+rel="bookmark">(?P<post_title>[^<]+).*?class="entry-date">(?P<date>\d+/\d+/\d+)'
         date_format = '%m/%d/%Y'
         return self._blog_proc_results(html, pattern, date_format, video_type, title, year)
-
-    def _http_get(self, url, data=None, cache_limit=8):
-        return super(RLSSource_Scraper, self)._cached_http_get(url, self.base_url, self.timeout, data=data, cache_limit=cache_limit)

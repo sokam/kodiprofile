@@ -19,9 +19,10 @@ import scraper
 import urllib
 import urlparse
 import re
-import xbmcaddon
+from salts_lib import kodi
 import base64
 from salts_lib.constants import VIDEO_TYPES
+from salts_lib.constants import FORCE_NO_MATCH
 from salts_lib.constants import QUALITIES
 
 QUALITY_MAP = {'DVD': QUALITIES.HIGH, 'CAM': QUALITIES.LOW}
@@ -32,7 +33,7 @@ class Movie25_Scraper(scraper.Scraper):
 
     def __init__(self, timeout=scraper.DEFAULT_TIMEOUT):
         self.timeout = timeout
-        self.base_url = xbmcaddon.Addon().getSetting('%s-base_url' % (self.get_name()))
+        self.base_url = kodi.get_setting('%s-base_url' % (self.get_name()))
 
     @classmethod
     def provides(cls):
@@ -64,7 +65,7 @@ class Movie25_Scraper(scraper.Scraper):
     def get_sources(self, video):
         source_url = self.get_url(video)
         hosters = []
-        if source_url:
+        if source_url and source_url != FORCE_NO_MATCH:
             url = urlparse.urljoin(self.base_url, source_url)
             html = self._http_get(url, cache_limit=.5)
 
@@ -75,7 +76,6 @@ class Movie25_Scraper(scraper.Scraper):
 
             for match in re.finditer('id="link_name">\s*([^<]+).*?href="([^"]+)', html, re.DOTALL):
                 host, url = match.groups()
-                host = host.lower().strip()
                 hoster = {'multi-part': False, 'host': host, 'class': self, 'url': url, 'quality': self._get_quality(video, host, quality), 'rating': None, 'views': None, 'direct': False}
                 hosters.append(hoster)
         return hosters
@@ -92,9 +92,6 @@ class Movie25_Scraper(scraper.Scraper):
         results = []
         for match in re.finditer(pattern, html, re.DOTALL):
             url, title, year = match.groups('')
-            result = {'url': url, 'title': title, 'year': year}
+            result = {'url': self._pathify_url(url), 'title': title, 'year': year}
             results.append(result)
         return results
-
-    def _http_get(self, url, cache_limit=8):
-        return super(Movie25_Scraper, self)._cached_http_get(url, self.base_url, self.timeout, cache_limit=cache_limit)

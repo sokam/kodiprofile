@@ -20,11 +20,11 @@ import urllib
 import urlparse
 import re
 import json
-import xbmcaddon
-import xbmc
+from salts_lib import kodi
 from salts_lib import log_utils
 from salts_lib.trans_utils import i18n
 from salts_lib.constants import VIDEO_TYPES
+from salts_lib.constants import FORCE_NO_MATCH
 from salts_lib.constants import QUALITIES
 
 BASE_URL = 'http://niter.co'
@@ -36,9 +36,9 @@ class Niter_Scraper(scraper.Scraper):
 
     def __init__(self, timeout=scraper.DEFAULT_TIMEOUT):
         self.timeout = timeout
-        self.base_url = xbmcaddon.Addon().getSetting('%s-base_url' % (self.get_name()))
-        self.username = xbmcaddon.Addon().getSetting('%s-username' % (self.get_name()))
-        self.password = xbmcaddon.Addon().getSetting('%s-password' % (self.get_name()))
+        self.base_url = kodi.get_setting('%s-base_url' % (self.get_name()))
+        self.username = kodi.get_setting('%s-username' % (self.get_name()))
+        self.password = kodi.get_setting('%s-password' % (self.get_name()))
 
     @classmethod
     def provides(cls):
@@ -57,7 +57,7 @@ class Niter_Scraper(scraper.Scraper):
     def get_sources(self, video):
         source_url = self.get_url(video)
         hosters = []
-        if source_url:
+        if source_url and source_url != FORCE_NO_MATCH:
             url = urlparse.urljoin(self.base_url, source_url)
             html = self._http_get(url, cache_limit=.5)
 
@@ -72,11 +72,11 @@ class Niter_Scraper(scraper.Scraper):
                         quality = self._get_quality(video, host, QUALITIES.HD1080)
                     elif stream_url.startswith('pic='):
                         data = {'url': stream_url[4:]}
-                        html = self._http_get(PHP_URL, data=data, auth=False, cache_limit=0)
+                        html = self._http_get(PHP_URL, data=data, auth=False, cache_limit=1)
                         try:
                             js_data = json.loads(html)
                         except ValueError:
-                            log_utils.log('Invalid JSON returned: %s (%s): %s' % (PHP_URL, stream_url, html), xbmc.LOGWARNING)
+                            log_utils.log('Invalid JSON returned: %s (%s): %s' % (PHP_URL, stream_url, html), log_utils.LOGWARNING)
                             continue
                         else:
                             host = self._get_direct_hostname(stream_url)
@@ -111,7 +111,7 @@ class Niter_Scraper(scraper.Scraper):
         pattern = 'data-name="([^"]+).*?href="([^"]+)'
         for match in re.finditer(pattern, html, re.DOTALL):
             match_title, url = match.groups()
-            result = {'title': match_title, 'year': '', 'url': url.replace(self.base_url, '')}
+            result = {'title': match_title, 'year': '', 'url': self._pathify_url(url)}
             results.append(result)
         return results
 
@@ -119,8 +119,8 @@ class Niter_Scraper(scraper.Scraper):
     def get_settings(cls):
         settings = super(Niter_Scraper, cls).get_settings()
         name = cls.get_name()
-        settings.append('         <setting id="%s-username" type="text" label="     %s" default="" visible="eq(-6,true)"/>' % (name, i18n('username')))
-        settings.append('         <setting id="%s-password" type="text" label="     %s" option="hidden" default="" visible="eq(-7,true)"/>' % (name, i18n('password')))
+        settings.append('         <setting id="%s-username" type="text" label="     %s" default="" visible="eq(-4,true)"/>' % (name, i18n('username')))
+        settings.append('         <setting id="%s-password" type="text" label="     %s" option="hidden" default="" visible="eq(-5,true)"/>' % (name, i18n('password')))
         return settings
 
     def _http_get(self, url, data=None, auth=True, cache_limit=8):
@@ -130,7 +130,7 @@ class Niter_Scraper(scraper.Scraper):
 
         html = super(Niter_Scraper, self)._cached_http_get(url, self.base_url, self.timeout, data=data, cache_limit=cache_limit)
         if auth and not re.search('href="[^"]+/logout"', html):
-            log_utils.log('Logging in for url (%s)' % (url), xbmc.LOGDEBUG)
+            log_utils.log('Logging in for url (%s)' % (url), log_utils.LOGDEBUG)
             self.__login()
             html = super(Niter_Scraper, self)._cached_http_get(url, self.base_url, self.timeout, data=data, cache_limit=0)
 

@@ -18,34 +18,36 @@
 import scraper
 import urllib
 import urlparse
-import xbmcaddon
 import json
-import xbmc
+from salts_lib import kodi
 from salts_lib import log_utils
+from salts_lib.trans_utils import i18n
 from salts_lib.constants import VIDEO_TYPES
+from salts_lib.constants import FORCE_NO_MATCH
 from salts_lib.constants import QUALITIES
 from salts_lib.constants import Q_ORDER
 
 Q_LIST = [item[0] for item in sorted(Q_ORDER.items(), key=lambda x:x[1])]
 
-
 BASE_URL = 'http://www.alluc.com'
-SEARCH_URL = '/api/search/%s/?apikey=%s&query=%s+lang%%3Aen&count=100&from=0&getmeta=0'
+SEARCH_URL = '/api/search/%s/?query=%s+lang%%3Aen&count=100&from=0&getmeta=0'
 SEARCH_TYPES = ['stream', 'download']
-API_KEY = '02216ecc1bf4bcc83a1ee6c72a5f0eda'
+API_KEY = '&apikey=02216ecc1bf4bcc83a1ee6c72a5f0eda'
 QUALITY_MAP = {
-               QUALITIES.LOW: ['DVDSCR', 'CAMRIP', 'HDCAM'],
-               QUALITIES.MEDIUM: [],
-               QUALITIES.HIGH: ['BDRIP', 'BRRIP', 'HDRIP'],
-               QUALITIES.HD720: ['720P'],
-               QUALITIES.HD1080: ['1080P']}
+    QUALITIES.LOW: ['DVDSCR', 'CAMRIP', 'HDCAM'],
+    QUALITIES.MEDIUM: [],
+    QUALITIES.HIGH: ['BDRIP', 'BRRIP', 'HDRIP'],
+    QUALITIES.HD720: ['720P'],
+    QUALITIES.HD1080: ['1080P']}
 
 class Alluc_Scraper(scraper.Scraper):
     base_url = BASE_URL
 
     def __init__(self, timeout=scraper.DEFAULT_TIMEOUT):
         self.timeout = timeout
-        self.base_url = xbmcaddon.Addon().getSetting('%s-base_url' % (self.get_name()))
+        self.base_url = kodi.get_setting('%s-base_url' % (self.get_name()))
+        self.username = kodi.get_setting('%s-username' % (self.get_name()))
+        self.password = kodi.get_setting('%s-password' % (self.get_name()))
 
     @classmethod
     def provides(cls):
@@ -63,7 +65,7 @@ class Alluc_Scraper(scraper.Scraper):
 
     def get_sources(self, video):
         source_url = self.get_url(video)
-        if source_url:
+        if source_url and source_url != FORCE_NO_MATCH:
             params = urlparse.parse_qs(urlparse.urlparse(source_url).query)
             if video.video_type == VIDEO_TYPES.MOVIE:
                 query = urllib.quote_plus('%s %s' % (params['title'][0], params['year'][0]))
@@ -88,7 +90,7 @@ class Alluc_Scraper(scraper.Scraper):
                 try:
                     js_result = json.loads(html)
                 except ValueError:
-                    log_utils.log('Invalid JSON returned: %s: %s' % (search_url, html), xbmc.LOGWARNING)
+                    log_utils.log('Invalid JSON returned: %s: %s' % (search_url, html), log_utils.LOGWARNING)
                 else:
                     if js_result['status'] == 'success':
                         for result in js_result['result']:
@@ -97,33 +99,17 @@ class Alluc_Scraper(scraper.Scraper):
                             
                             stream_url = result['hosterurls'][0]['url']
                             if stream_url not in seen_urls:
-                                if self.__title_check(video, result['title']):
-                                    host = urlparse.urlsplit(stream_url).hostname.lower()
+                                if self._title_check(video, result['title']):
+                                    host = urlparse.urlsplit(stream_url).hostname
                                     quality = self._get_quality(video, host, self._get_title_quality(result['title']))
                                     hoster = {'multi-part': False, 'class': self, 'views': None, 'url': stream_url, 'rating': None, 'host': host, 'quality': quality, 'direct': False}
                                     hosters.append(hoster)
                                     seen_urls.add(stream_url)
+                    else:
+                        log_utils.log('Alluc API Error: %s: %s' % (search_url, js_result['message']), log_utils.LOGWARNING)
+
         return hosters
         
-    def __title_check(self, video, title):
-        title = self._normalize_title(title)
-        if video.video_type == VIDEO_TYPES.MOVIE:
-            return self._normalize_title(video.title) in title and video.year in title
-        else:
-            sxe = 'S%02dE%02d' % (int(video.season), int(video.episode))
-            se = '%d%02d' % (int(video.season), int(video.episode))
-            air_date = video.ep_airdate.strftime('%Y%m%d')
-            if sxe in title:
-                show_title = title.split(sxe)[0]
-            elif air_date in title:
-                show_title = title.split(air_date)[0]
-            elif se in title:
-                show_title = title.split(se)[0]
-            else:
-                show_title = title
-            #log_utils.log('%s - %s - %s - %s - %s' % (self._normalize_title(video.title), show_title, title, sxe, air_date), xbmc.LOGDEBUG)
-            return self._normalize_title(video.title) in show_title and (sxe in title or se in title or air_date in title)
-    
     def _get_title_quality(self, title):
         post_quality = QUALITIES.HIGH
         title = title.upper()
@@ -131,7 +117,7 @@ class Alluc_Scraper(scraper.Scraper):
             if any(q in title for q in QUALITY_MAP[key]):
                 post_quality = key
 
-        #log_utils.log('Setting |%s| to |%s|' % (title, post_quality), xbmc.LOGDEBUG)
+        # log_utils.log('Setting |%s| to |%s|' % (title, post_quality), log_utils.LOGDEBUG)
         return post_quality
     
     def get_url(self, video):
@@ -153,9 +139,19 @@ class Alluc_Scraper(scraper.Scraper):
     def search(self, video_type, title, year):
         return []
 
-    def _http_get(self, url, cache_limit=8):
-        return super(Alluc_Scraper, self)._cached_http_get(url, self.base_url, self.timeout, cache_limit=cache_limit)
+    @classmethod
+    def get_settings(cls):
+        settings = super(Alluc_Scraper, cls).get_settings()
+        name = cls.get_name()
+        settings.append('         <setting id="%s-username" type="text" label="     %s" default="" visible="eq(-4,true)"/>' % (name, i18n('username')))
+        settings.append('         <setting id="%s-password" type="text" label="     %s" option="hidden" default="" visible="eq(-5,true)"/>' % (name, i18n('password')))
+        return settings
 
     def __translate_search(self, url, search_type):
         query = urlparse.parse_qs(urlparse.urlparse(url).query)
-        return urlparse.urljoin(self.base_url, SEARCH_URL % (search_type, API_KEY, urllib.quote_plus(query['query'][0])))
+        url = urlparse.urljoin(self.base_url, SEARCH_URL % (search_type, urllib.quote_plus(query['query'][0])))
+        if self.username and self.password:
+            url += '&user=%s&password=%s' % (self.username, self.password)
+        else:
+            url += API_KEY
+        return url

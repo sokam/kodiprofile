@@ -19,18 +19,19 @@ import scraper
 import urllib
 import urlparse
 import re
-import xbmcaddon
+from salts_lib import kodi
 from salts_lib.constants import VIDEO_TYPES
+from salts_lib.constants import FORCE_NO_MATCH
 from salts_lib.constants import QUALITIES
 
-BASE_URL = 'https://movieshd.eu'
+BASE_URL = 'http://movieshd.eu'
 
 class MoviesHD_Scraper(scraper.Scraper):
     base_url = BASE_URL
 
     def __init__(self, timeout=scraper.DEFAULT_TIMEOUT):
         self.timeout = timeout
-        self.base_url = xbmcaddon.Addon().getSetting('%s-base_url' % (self.get_name()))
+        self.base_url = kodi.get_setting('%s-base_url' % (self.get_name()))
 
     @classmethod
     def provides(cls):
@@ -55,7 +56,7 @@ class MoviesHD_Scraper(scraper.Scraper):
     def get_sources(self, video):
         source_url = self.get_url(video)
         hosters = []
-        if source_url:
+        if source_url and source_url != FORCE_NO_MATCH:
             url = urlparse.urljoin(self.base_url, source_url)
             html = self._http_get(url, cache_limit=.5)
 
@@ -89,9 +90,6 @@ class MoviesHD_Scraper(scraper.Scraper):
             for match in re.finditer(pattern, html):
                 url, title, match_year = match.groups('')
                 if not year or not match_year or year == match_year:
-                    result = {'url': url.replace(self.base_url, ''), 'title': title, 'year': match_year}
+                    result = {'url': self._pathify_url(url), 'title': title, 'year': match_year}
                     results.append(result)
         return results
-
-    def _http_get(self, url, cache_limit=8):
-        return super(MoviesHD_Scraper, self)._cached_http_get(url, self.base_url, self.timeout, cache_limit=cache_limit)

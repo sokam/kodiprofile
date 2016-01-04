@@ -19,21 +19,22 @@ import scraper
 import urllib
 import urlparse
 import re
-import xbmcaddon
+from salts_lib import kodi
 from salts_lib.constants import VIDEO_TYPES
+from salts_lib.constants import FORCE_NO_MATCH
 
-BASE_URL = 'http://losmovies.is'
+BASE_URL = 'http://losmovies.ws'
 
 class LosMovies_Scraper(scraper.Scraper):
     base_url = BASE_URL
 
     def __init__(self, timeout=scraper.DEFAULT_TIMEOUT):
         self.timeout = timeout
-        self.base_url = xbmcaddon.Addon().getSetting('%s-base_url' % (self.get_name()))
+        self.base_url = kodi.get_setting('%s-base_url' % (self.get_name()))
 
     @classmethod
     def provides(cls):
-        return frozenset([VIDEO_TYPES.TVSHOW, VIDEO_TYPES.SEASON, VIDEO_TYPES.EPISODE, VIDEO_TYPES.MOVIE])
+        return frozenset([VIDEO_TYPES.TVSHOW, VIDEO_TYPES.EPISODE, VIDEO_TYPES.MOVIE])
 
     @classmethod
     def get_name(cls):
@@ -48,7 +49,7 @@ class LosMovies_Scraper(scraper.Scraper):
     def get_sources(self, video):
         source_url = self.get_url(video)
         hosters = []
-        if source_url:
+        if source_url and source_url != FORCE_NO_MATCH:
             url = urlparse.urljoin(self.base_url, source_url)
             html = self._http_get(url, cache_limit=.5)
             fragment = ''
@@ -91,12 +92,9 @@ class LosMovies_Scraper(scraper.Scraper):
                 match_year = ''
 
             if not year or not match_year or year == match_year:
-                result = {'url': url.replace(self.base_url, ''), 'title': title, 'year': match_year}
+                result = {'url': self._pathify_url(url), 'title': title, 'year': match_year}
                 results.append(result)
         return results
 
     def _get_episode_url(self, show_url, video):
         return show_url
-
-    def _http_get(self, url, cache_limit=8):
-        return super(LosMovies_Scraper, self)._cached_http_get(url, self.base_url, self.timeout, cache_limit=cache_limit)

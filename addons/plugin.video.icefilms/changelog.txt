@@ -1,3 +1,10 @@
+[B]v1.20.0 (Wednesday, 23 December 2015):[/B]
+  - Added UploadX resolver
+
+[B]v1.19.0 (Friday, 19 December 2015):[/B]
+  - Fixed HugeFiles resolver
+  - Fixed Upload.af resolver
+
 [B]v1.18.0 (Tuesday, 24 November 2015):[/B]
   - Fixed HugeFiles resolver
   

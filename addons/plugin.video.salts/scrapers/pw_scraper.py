@@ -19,10 +19,10 @@ import scraper
 import re
 import urllib
 import urlparse
-import xbmcaddon
-import xbmc
+from salts_lib import kodi
 from salts_lib import log_utils
 from salts_lib.constants import VIDEO_TYPES
+from salts_lib.constants import FORCE_NO_MATCH
 from salts_lib.constants import QUALITIES
 
 QUALITY_MAP = {'DVD': QUALITIES.HIGH, 'TS': QUALITIES.MEDIUM, 'CAM': QUALITIES.LOW}
@@ -33,11 +33,11 @@ class PW_Scraper(scraper.Scraper):
 
     def __init__(self, timeout=scraper.DEFAULT_TIMEOUT):
         self.timeout = timeout
-        self.base_url = xbmcaddon.Addon().getSetting('%s-base_url' % (self.get_name()))
+        self.base_url = kodi.get_setting('%s-base_url' % (self.get_name()))
 
     @classmethod
     def provides(cls):
-        return frozenset([VIDEO_TYPES.TVSHOW, VIDEO_TYPES.SEASON, VIDEO_TYPES.EPISODE, VIDEO_TYPES.MOVIE])
+        return frozenset([VIDEO_TYPES.TVSHOW, VIDEO_TYPES.EPISODE, VIDEO_TYPES.MOVIE])
 
     @classmethod
     def get_name(cls):
@@ -54,7 +54,7 @@ class PW_Scraper(scraper.Scraper):
     def get_sources(self, video):
         source_url = self.get_url(video)
         hosters = []
-        if source_url:
+        if source_url and source_url != FORCE_NO_MATCH:
             url = urlparse.urljoin(self.base_url, source_url)
             html = self._http_get(url, cache_limit=.5)
 
@@ -71,7 +71,7 @@ class PW_Scraper(scraper.Scraper):
 
                     if host == 'ZnJhbWVndGZv': continue  # filter out promo hosts
 
-                    item = {'host': host.decode('base-64').lower(), 'url': url.decode('base-64')}
+                    item = {'host': host.decode('base-64'), 'url': url.decode('base-64')}
                     item['verified'] = source.group(0).find('star.gif') > -1
                     item['quality'] = self._get_quality(video, item['host'], QUALITY_MAP.get(qual.upper()))
                     item['views'] = int(views)
@@ -122,12 +122,12 @@ class PW_Scraper(scraper.Scraper):
             for match in re.finditer(pattern, html):
                 result = {}
                 url, title, year = match.groups('')
-                result['url'] = url
+                result['url'] = self._pathify_url(url)
                 result['title'] = title
                 result['year'] = year
                 results.append(result)
         else:
-            log_utils.log('Unable to locate PW search key', xbmc.LOGWARNING)
+            log_utils.log('Unable to locate PW search key', log_utils.LOGWARNING)
         return results
 
     def _get_episode_url(self, show_url, video):
@@ -135,6 +135,3 @@ class PW_Scraper(scraper.Scraper):
         title_pattern = 'class="tv_episode_item".*?href="([^"]+).*?class="tv_episode_name">\s+-\s+([^<]+)'
         airdate_pattern = 'class="tv_episode_item">\s*<a\s+href="([^"]+)(?:[^<]+<){3}span\s+class="tv_episode_airdate">\s+-\s+{year}-{p_month}-{p_day}'
         return super(PW_Scraper, self)._default_get_episode_url(show_url, video, episode_pattern, title_pattern, airdate_pattern)
-
-    def _http_get(self, url, cache_limit=8):
-        return super(PW_Scraper, self)._cached_http_get(url, self.base_url, self.timeout, cache_limit=cache_limit)

@@ -1,3 +1,4 @@
+# -*- coding: utf-8 -*-
 """
     SALTS XBMC Addon
     Copyright (C) 2014 tknorris
@@ -18,25 +19,23 @@
 import scraper
 import re
 import urlparse
-import xbmcaddon
-import time
-from salts_lib.trans_utils import i18n
+from salts_lib import kodi
 from salts_lib.constants import VIDEO_TYPES
+from salts_lib.constants import FORCE_NO_MATCH
 from salts_lib.constants import QUALITIES
 
-BASE_URL = 'http://watchseries-online.ch'
+BASE_URL = 'http://watchseries-online.li'
 
 class WSO_Scraper(scraper.Scraper):
     base_url = BASE_URL
 
     def __init__(self, timeout=scraper.DEFAULT_TIMEOUT):
         self.timeout = timeout
-        self.base_url = xbmcaddon.Addon().getSetting('%s-base_url' % (self.get_name()))
-        self.max_pages = int(xbmcaddon.Addon().getSetting('%s-max_pages' % (self.get_name())))
+        self.base_url = kodi.get_setting('%s-base_url' % (self.get_name()))
 
     @classmethod
     def provides(cls):
-        return frozenset([VIDEO_TYPES.TVSHOW, VIDEO_TYPES.SEASON, VIDEO_TYPES.EPISODE])
+        return frozenset([VIDEO_TYPES.TVSHOW, VIDEO_TYPES.EPISODE])
 
     @classmethod
     def get_name(cls):
@@ -58,26 +57,19 @@ class WSO_Scraper(scraper.Scraper):
     def get_sources(self, video):
         source_url = self.get_url(video)
         hosters = []
-        if source_url:
+        if source_url and source_url != FORCE_NO_MATCH:
             url = urlparse.urljoin(self.base_url, source_url)
             html = self._http_get(url, cache_limit=.5)
 
             pattern = 'class="[^"]*tdhost".*?href="([^"]+)">([^<]+)'
             for match in re.finditer(pattern, html, re.DOTALL):
                 stream_url, host = match.groups()
-                hoster = {'multi-part': False, 'host': host.lower(), 'class': self, 'url': stream_url, 'quality': self._get_quality(video, host, QUALITIES.HIGH), 'views': None, 'rating': None, 'direct': False}
+                hoster = {'multi-part': False, 'host': host, 'class': self, 'url': stream_url, 'quality': self._get_quality(video, host, QUALITIES.HIGH), 'views': None, 'rating': None, 'direct': False}
                 hosters.append(hoster)
         return hosters
 
     def get_url(self, video):
         return super(WSO_Scraper, self)._default_get_url(video)
-
-    @classmethod
-    def get_settings(cls):
-        settings = super(WSO_Scraper, cls).get_settings()
-        name = cls.get_name()
-        settings.append('         <setting id="%s-max_pages" type="slider" range="1,50" option="int" label="     %s" default="1" visible="eq(-6,true)"/>' % (name, i18n('max_pages')))
-        return settings
 
     def search(self, video_type, title, year):
         url = urlparse.urljoin(self.base_url, '/index')
@@ -91,28 +83,11 @@ class WSO_Scraper(scraper.Scraper):
             for match in re.finditer(pattern, list_frag):
                 url, match_title = match.groups('')
                 if norm_title in self._normalize_title(match_title):
-                    result = {'url': url.replace(self.base_url, ''), 'title': match_title, 'year': ''}
+                    result = {'url': self._pathify_url(url), 'title': match_title, 'year': ''}
                     results.append(result)
 
         return results
 
     def _get_episode_url(self, show_url, video):
-        episode_pattern = '<h2>\s*<a\s+href="([^"]+)[^>]+title="[^"]+[Ss]%02d[Ee]%02d[ "]' % (int(video.season), int(video.episode))
-        title_pattern = ''
-        airdate_pattern = '<h2>\s*<a\s+href="([^"]+)[^>]+title="[^"]+{year} {p_month} {p_day}[ \)"]'
-
-        for page in xrange(1, self.max_pages + 1):
-            url = show_url
-            if page > 1: url += '%s/page/%s' % (show_url, page)
-            # if page is blank, don't continue getting pages
-            url = urlparse.urljoin(self.base_url, url)
-            html = self._http_get(url, cache_limit=2)
-            if not html:
-                return
-
-            ep_url = super(WSO_Scraper, self)._default_get_episode_url(url, video, episode_pattern, title_pattern, airdate_pattern)
-            if ep_url is not None:
-                return ep_url
-
-    def _http_get(self, url, data=None, cache_limit=8):
-        return super(WSO_Scraper, self)._cached_http_get(url, self.base_url, self.timeout, data=data, cache_limit=cache_limit)
+        episode_pattern = "href='([^']+)'>(?:[^<]*(?:[Ss]%02d[Ee]%02d |-\s*%s(?:[×xX]|&#215;)%s\s*-))" % (int(video.season), int(video.episode), video.season, video.episode)
+        return super(WSO_Scraper, self)._default_get_episode_url(show_url, video, episode_pattern)

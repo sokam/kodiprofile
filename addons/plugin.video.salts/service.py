@@ -16,8 +16,8 @@
     along with this program.  If not, see <http://www.gnu.org/licenses/>.
 """
 import xbmc
-import xbmcaddon
 import xbmcgui
+from salts_lib import kodi
 from salts_lib import log_utils
 from salts_lib import utils
 from salts_lib.constants import MODES
@@ -25,11 +25,9 @@ from salts_lib.db_utils import DB_Connection
 
 MAX_ERRORS = 10
 
-kodi = xbmcaddon.Addon(id='plugin.video.salts')
-log_utils.log('Service: Installed Version: %s' % (kodi.getAddonInfo('version')))
-
+log_utils.log('Service: Installed Version: %s' % (kodi.get_version()))
 db_connection = DB_Connection()
-if kodi.getSetting('use_remote_db') == 'false' or kodi.getSetting('enable_upgrade') == 'true':
+if kodi.get_setting('use_remote_db') == 'false' or kodi.get_setting('enable_upgrade') == 'true':
     db_connection.init_database()
 
 class Service(xbmc.Player):
@@ -46,7 +44,8 @@ class Service(xbmc.Player):
         self.win.clearProperty('salts.playing.season')
         self.win.clearProperty('salts.playing.episode')
         self.win.clearProperty('salts.playing.srt')
-        self.win.clearProperty('salts.playing.resume')
+        self.win.clearProperty('salts.playing.trakt_resume')
+        self.win.clearProperty('salts.playing.salts_resume')
         self.tracked = False
         self._totalTime = 999999
         self.trakt_id = None
@@ -61,7 +60,8 @@ class Service(xbmc.Player):
         self.season = self.win.getProperty('salts.playing.season')
         self.episode = self.win.getProperty('salts.playing.episode')
         srt_path = self.win.getProperty('salts.playing.srt')
-        resume_point = self.win.getProperty('salts.playing.trakt_resume')
+        trakt_resume = self.win.getProperty('salts.playing.trakt_resume')
+        salts_resume = self.win.getProperty('salts.playing.salts_resume')
         if playing:   # Playback is ours
             log_utils.log('Service: tracking progress...')
             self.tracked = True
@@ -80,9 +80,12 @@ class Service(xbmc.Player):
                 break
             xbmc.sleep(1000)
 
-        if resume_point:
-            resume_time = float(resume_point) * self._totalTime / 100
-            log_utils.log("Resume Percent: %s, Resume Time: %s Total Time: %s" % (resume_point, resume_time, self._totalTime), log_utils.LOGDEBUG)
+        if salts_resume:
+            log_utils.log("Salts Local Resume: Resume Time: %s Total Time: %s" % (salts_resume, self._totalTime), log_utils.LOGDEBUG)
+            self.seekTime(float(salts_resume))
+        elif trakt_resume:
+            resume_time = float(trakt_resume) * self._totalTime / 100
+            log_utils.log("Salts Trakt Resume: Percent: %s, Resume Time: %s Total Time: %s" % (trakt_resume, resume_time, self._totalTime), log_utils.LOGDEBUG)
             self.seekTime(resume_time)
 
     def onPlayBackStopped(self):

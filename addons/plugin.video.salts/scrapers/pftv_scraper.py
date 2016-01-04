@@ -18,8 +18,9 @@
 import scraper
 import re
 import urlparse
-import xbmcaddon
+from salts_lib import kodi
 from salts_lib.constants import VIDEO_TYPES
+from salts_lib.constants import FORCE_NO_MATCH
 from salts_lib.constants import QUALITIES
 
 BASE_URL = 'http://projectfreetv.so'
@@ -29,7 +30,7 @@ class PFTV_Scraper(scraper.Scraper):
 
     def __init__(self, timeout=scraper.DEFAULT_TIMEOUT):
         self.timeout = timeout
-        self.base_url = xbmcaddon.Addon().getSetting('%s-base_url' % (self.get_name()))
+        self.base_url = kodi.get_setting('%s-base_url' % (self.get_name()))
 
     @classmethod
     def provides(cls):
@@ -55,13 +56,13 @@ class PFTV_Scraper(scraper.Scraper):
     def get_sources(self, video):
         source_url = self.get_url(video)
         hosters = []
-        if source_url:
+        if source_url and source_url != FORCE_NO_MATCH:
             url = urlparse.urljoin(self.base_url, source_url)
             html = self._http_get(url, cache_limit=.5)
 
             for match in re.finditer('<td>\s*<a\s+href="([^"]+)(?:[^>]+>){2}\s*(?:&nbsp;)*\s*([^<]+)', html):
                 url, host = match.groups()
-                hoster = {'multi-part': False, 'host': host, 'class': self, 'quality': self._get_quality(video, host, QUALITIES.HIGH), 'views': None, 'rating': None, 'url': url.replace(self.base_url, ''), 'direct': False}
+                hoster = {'multi-part': False, 'host': host, 'class': self, 'quality': self._get_quality(video, host, QUALITIES.HIGH), 'views': None, 'rating': None, 'url': self._pathify_url(url), 'direct': False}
                 hosters.append(hoster)
 
         return hosters
@@ -89,10 +90,7 @@ class PFTV_Scraper(scraper.Scraper):
         for match in re.finditer(pattern, html):
             match_title, url = match.groups()
             if norm_title in self._normalize_title(match_title):
-                result = {'url': url.replace(self.base_url, ''), 'title': match_title, 'year': ''}
+                result = {'url': self._pathify_url(url), 'title': match_title, 'year': ''}
                 results.append(result)
 
         return results
-
-    def _http_get(self, url, data=None, cache_limit=8):
-        return super(PFTV_Scraper, self)._cached_http_get(url, self.base_url, self.timeout, data=data, cache_limit=cache_limit)

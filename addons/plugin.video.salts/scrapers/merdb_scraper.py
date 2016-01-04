@@ -19,9 +19,10 @@ import scraper
 import re
 import urllib
 import urlparse
-import xbmcaddon
+from salts_lib import kodi
 from salts_lib import dom_parser
 from salts_lib.constants import VIDEO_TYPES
+from salts_lib.constants import FORCE_NO_MATCH
 from salts_lib.constants import QUALITIES
 
 QUALITY_MAP = {'DVD': QUALITIES.HIGH, 'TS': QUALITIES.MEDIUM, 'CAM': QUALITIES.LOW}
@@ -32,11 +33,11 @@ class MerDB_Scraper(scraper.Scraper):
 
     def __init__(self, timeout=scraper.DEFAULT_TIMEOUT):
         self.timeout = timeout
-        self.base_url = xbmcaddon.Addon().getSetting('%s-base_url' % (self.get_name()))
+        self.base_url = kodi.get_setting('%s-base_url' % (self.get_name()))
 
     @classmethod
     def provides(cls):
-        return frozenset([VIDEO_TYPES.TVSHOW, VIDEO_TYPES.SEASON, VIDEO_TYPES.EPISODE, VIDEO_TYPES.MOVIE])
+        return frozenset([VIDEO_TYPES.TVSHOW, VIDEO_TYPES.EPISODE, VIDEO_TYPES.MOVIE])
 
     @classmethod
     def get_name(cls):
@@ -53,7 +54,7 @@ class MerDB_Scraper(scraper.Scraper):
     def get_sources(self, video):
         source_url = self.get_url(video)
         hosters = []
-        if source_url:
+        if source_url and source_url != FORCE_NO_MATCH:
             url = urlparse.urljoin(self.base_url, source_url)
             html = self._http_get(url, cache_limit=.5)
 
@@ -111,10 +112,10 @@ class MerDB_Scraper(scraper.Scraper):
         html = self._http_get(search_url, cache_limit=.25)
         results = []
         for element in dom_parser.parse_dom(html, 'div', {'class': 'list_box_title'}):
-            match = re.search('href="([^"]+)"\s+title="Watch ([^"]+)', element)
+            match = re.search('href="([^"]+)"\s+title="(?:Watch )?([^"]+)', element)
             if match:
                 url, match_title_year = match.groups()
-                match = re.search('(.*?)(?:\s+\(?(\d{4})\)?)', match_title_year)
+                match = re.search('(.*?)(?:\s+\(?\s*(\d{4})\s*\)?)', match_title_year)
                 if match:
                     match_title, match_year = match.groups()
                 else:
@@ -122,7 +123,7 @@ class MerDB_Scraper(scraper.Scraper):
                     match_year = ''
                 
                 if not year or not match_year or year == match_year:
-                    result = {'url': urlparse.urljoin('/', url), 'title': match_title, 'year': match_year}
+                    result = {'url': self._pathify_url(url), 'title': match_title, 'year': match_year}
                     results.append(result)
         return results
 
@@ -131,6 +132,3 @@ class MerDB_Scraper(scraper.Scraper):
         title_pattern = 'class="tv_episode_item">\s*<a\s+href="([^"]+).*?class="tv_episode_name">\s+-\s+([^<]+)'
         airdate_pattern = 'href="([^"]+)(?:[^<]+<){3}span class="tv_episode_airdate">\s*-\s*{year}-{p_month}-{p_day}'
         return super(MerDB_Scraper, self)._default_get_episode_url(show_url, video, episode_pattern, title_pattern, airdate_pattern)
-
-    def _http_get(self, url, cache_limit=8):
-        return super(MerDB_Scraper, self)._cached_http_get(url, self.base_url, self.timeout, cache_limit=cache_limit)

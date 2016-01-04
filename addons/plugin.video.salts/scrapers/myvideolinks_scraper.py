@@ -19,19 +19,19 @@ import scraper
 import urllib
 import urlparse
 import re
-import xbmcaddon
-from salts_lib import log_utils
+from salts_lib import kodi
 from salts_lib.trans_utils import i18n
 from salts_lib.constants import VIDEO_TYPES
+from salts_lib.constants import FORCE_NO_MATCH
 
-BASE_URL = 'http://movies.myvideolinks.xyz'
+BASE_URL = 'http://site.mvlgroup.xyz'
 
 class MyVidLinks_Scraper(scraper.Scraper):
     base_url = BASE_URL
 
     def __init__(self, timeout=scraper.DEFAULT_TIMEOUT):
         self.timeout = timeout
-        self.base_url = xbmcaddon.Addon().getSetting('%s-base_url' % (self.get_name()))
+        self.base_url = kodi.get_setting('%s-base_url' % (self.get_name()))
 
     @classmethod
     def provides(cls):
@@ -50,7 +50,7 @@ class MyVidLinks_Scraper(scraper.Scraper):
     def get_sources(self, video):
         source_url = self.get_url(video)
         hosters = []
-        if source_url:
+        if source_url and source_url != FORCE_NO_MATCH:
             url = urlparse.urljoin(self.base_url, source_url)
             html = self._http_get(url, cache_limit=.5)
 
@@ -67,7 +67,7 @@ class MyVidLinks_Scraper(scraper.Scraper):
         return hosters
 
     def __get_movie_links(self, video, views, html):
-        pattern = '<h1>[^>]*>([^<]+)'
+        pattern = '<h4>([^<]+)'
         match = re.search(pattern, html)
         q_str = ''
         if match:
@@ -116,9 +116,6 @@ class MyVidLinks_Scraper(scraper.Scraper):
         search_url = urlparse.urljoin(self.base_url, '/?s=')
         search_url += urllib.quote_plus(title)
         html = self._http_get(search_url, cache_limit=1)
-        pattern = '<h\d+>.*?<a\s+href="(?P<url>[^"]*/(?P<date>\d{4}/\d{2}/\d{2})/[^"]*)"\s+rel="bookmark"\s+title="(?P<post_title>[^"]+)'
+        pattern = '<h\d+>.*?<a\s+href="(?P<url>[^"]*/(?P<date>\d{4}/\d{2}/\d{2})/[^"]*)"\s+rel="bookmark"\s+title="(?:Permanent Link to )?(?P<post_title>[^"]+)'
         date_format = '%Y/%m/%d'
         return self._blog_proc_results(html, pattern, date_format, video_type, title, year)
-
-    def _http_get(self, url, data=None, cache_limit=8):
-        return super(MyVidLinks_Scraper, self)._cached_http_get(url, self.base_url, self.timeout, data=data, cache_limit=cache_limit)

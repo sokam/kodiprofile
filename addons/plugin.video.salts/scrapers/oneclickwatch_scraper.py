@@ -19,10 +19,11 @@ import scraper
 import urllib
 import urlparse
 import re
-import xbmcaddon
+from salts_lib import kodi
 from salts_lib import log_utils
 from salts_lib.trans_utils import i18n
 from salts_lib.constants import VIDEO_TYPES
+from salts_lib.constants import FORCE_NO_MATCH
 
 BASE_URL = 'http://oneclickwatch.ws'
 
@@ -31,7 +32,7 @@ class OneClickWatch_Scraper(scraper.Scraper):
 
     def __init__(self, timeout=scraper.DEFAULT_TIMEOUT):
         self.timeout = timeout
-        self.base_url = xbmcaddon.Addon().getSetting('%s-base_url' % (self.get_name()))
+        self.base_url = kodi.get_setting('%s-base_url' % (self.get_name()))
 
     @classmethod
     def provides(cls):
@@ -50,9 +51,10 @@ class OneClickWatch_Scraper(scraper.Scraper):
     def get_sources(self, video):
         source_url = self.get_url(video)
         hosters = []
-        if source_url:
+        if source_url and source_url != FORCE_NO_MATCH:
+            headers = {'Referer': self.base_url}
             url = urlparse.urljoin(self.base_url, source_url)
-            html = self._http_get(url, cache_limit=.5)
+            html = self._http_get(url, headers=headers, cache_limit=.5)
 
             q_str = ''
             match = re.search('class="title">([^<]+)', html)
@@ -77,22 +79,29 @@ class OneClickWatch_Scraper(scraper.Scraper):
         settings = super(OneClickWatch_Scraper, cls).get_settings()
         settings = cls._disable_sub_check(settings)
         name = cls.get_name()
-        settings.append('         <setting id="%s-filter" type="slider" range="0,180" option="int" label="     %s" default="30" visible="eq(-6,true)"/>' % (name, i18n('filter_results_days')))
-        settings.append('         <setting id="%s-select" type="enum" label="     %s" lvalues="30636|30637" default="0" visible="eq(-7,true)"/>' % (name, i18n('auto_select')))
+        settings.append('         <setting id="%s-filter" type="slider" range="0,180" option="int" label="     %s" default="30" visible="eq(-4,true)"/>' % (name, i18n('filter_results_days')))
+        settings.append('         <setting id="%s-select" type="enum" label="     %s" lvalues="30636|30637" default="0" visible="eq(-5,true)"/>' % (name, i18n('auto_select')))
         return settings
 
     def search(self, video_type, title, year):
-        html = self._http_get(self.base_url, cache_limit=.25)
-        match = re.search('id="ocw_once_search[^>]*value="([^"]+)', html)
-        if match:
-            token = match.group(1)
-            search_url = urlparse.urljoin(self.base_url, '/?s=%s&ocw_once_search=%s' % (urllib.quote_plus(title), token))
-            headers = {'Referer': self.base_url}
-            html = self._http_get(search_url, headers=headers, cache_limit=.25)
+        html = self._http_get(self.base_url, cache_limit=0)
+        extra = ''
+        for match in re.finditer('<input\s+type=[\'"]hidden[\'"][^>]+name=[\'"]([^\'"]+)[\'"][^>]+value=[\'"]([^\'"]+)', html):
+            extra += '&%s=%s' % (match.group(1), urllib.quote(match.group(2)))
+
+        search_url = urlparse.urljoin(self.base_url, '/?s=%s' % (urllib.quote_plus(title)))
+        search_url += extra
+        headers = {'Referer': self.base_url}
+        html = self._http_get(search_url, headers=headers, cache_limit=.25)
 
         pattern = 'class="title"><a href="(?P<url>[^"]+)[^>]+>(?P<post_title>[^<]+).*?rel="bookmark">(?P<date>[^<]+)'
         date_format = '%B %d, %Y'
         return self._blog_proc_results(html, pattern, date_format, video_type, title, year)
 
     def _http_get(self, url, headers=None, cache_limit=8):
-        return super(OneClickWatch_Scraper, self)._cached_http_get(url, self.base_url, self.timeout, headers=headers, cache_limit=cache_limit)
+        html = super(OneClickWatch_Scraper, self)._cached_http_get(url, self.base_url, self.timeout, headers=headers, cache_limit=cache_limit)
+        cookie = self._get_sucuri_cookie(html)
+        if cookie:
+            log_utils.log('Setting OCW cookie: %s' % (cookie), log_utils.LOGDEBUG)
+            html = super(OneClickWatch_Scraper, self)._cached_http_get(url, self.base_url, self.timeout, cookies=cookie, headers=headers, cache_limit=0)
+        return html

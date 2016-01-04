@@ -19,21 +19,24 @@ import scraper
 import urllib
 import urlparse
 import re
-import xbmcaddon
-import xbmc
 import json
+from salts_lib import kodi
 from salts_lib import dom_parser
 from salts_lib import log_utils
 from salts_lib.constants import VIDEO_TYPES
+from salts_lib.constants import FORCE_NO_MATCH
+from salts_lib.constants import USER_AGENT
+from salts_lib.constants import XHR
 
 BASE_URL = 'http://movie.pubfilmno1.com'
+GK_URL = 'http://player.pubfilm.com/smplayer/plugins/gkphp/plugins/gkpluginsphp.php'
 
 class PubFilm_Scraper(scraper.Scraper):
     base_url = BASE_URL
 
     def __init__(self, timeout=scraper.DEFAULT_TIMEOUT):
         self.timeout = timeout
-        self.base_url = xbmcaddon.Addon().getSetting('%s-base_url' % (self.get_name()))
+        self.base_url = kodi.get_setting('%s-base_url' % (self.get_name()))
 
     @classmethod
     def provides(cls):
@@ -55,7 +58,7 @@ class PubFilm_Scraper(scraper.Scraper):
     def get_sources(self, video):
         source_url = self.get_url(video)
         hosters = []
-        if source_url:
+        if source_url and source_url != FORCE_NO_MATCH:
             url = urlparse.urljoin(self.base_url, source_url)
             html = self._http_get(url, cache_limit=.5)
             
@@ -78,15 +81,27 @@ class PubFilm_Scraper(scraper.Scraper):
         return hosters
 
     def __get_links(self, url):
+        links = {}
         url = url.replace('&#038;', '&')
         html = self._http_get(url, cache_limit=.5)
-        links = {}
-        for match in re.finditer('file\s*:\s*"([^"]+)"\s*,\s*label\s*:\s*"([^"]+)p', html):
-            links[match.group(1)] = match.group(2)
-        
-        for match in re.finditer('<source\s+src=\'([^\']+)[^>]*data-res="([^"]+)P', html):
-            links[match.group(1)] = match.group(2)
-        
+        log_utils.log(html)
+        if 'gkpluginsphp' in html:
+            match = re.search('link\s*:\s*"([^"]+)', html)
+            if match:
+                data = {'link': match.group(1)}
+                headers = XHR
+                headers['Referer'] = url
+                html = self._http_get(GK_URL, data=data, headers=headers, cache_limit=.25)
+                if html:
+                    try:
+                        js_result = json.loads(html)
+                    except ValueError:
+                        log_utils.log('Invalid JSON returned: %s: %s' % (url, html), log_utils.LOGWARNING)
+                    else:
+                        if 'link' in js_result:
+                            for link in js_result['link']:
+                                links[link['link']] = link['label']
+                
         return links
 
     def get_url(self, video):
@@ -104,7 +119,7 @@ class PubFilm_Scraper(scraper.Scraper):
                 try:
                     js_data = json.loads(js_data)
                 except ValueError:
-                    log_utils.log('Invalid JSON returned: %s: %s' % (search_url, html), xbmc.LOGWARNING)
+                    log_utils.log('Invalid JSON returned: %s: %s' % (search_url, html), log_utils.LOGWARNING)
                 else:
                     if 'feed' in js_data and 'entry' in js_data['feed']:
                         for entry in js_data['feed']['entry']:
@@ -125,14 +140,14 @@ class PubFilm_Scraper(scraper.Scraper):
                                         match_year = ''
                                     
                                     if not year or not match_year or year == match_year:
-                                        result = {'url': link['href'].replace(self.base_url, ''), 'title': match_title, 'year': match_year}
+                                        result = {'url': self._pathify_url(link['href']), 'title': match_title, 'year': match_year}
                                         results.append(result)
         return results
 
-    def _http_get(self, url, cache_limit=8):
-        html = super(PubFilm_Scraper, self)._cached_http_get(url, self.base_url, self.timeout, cache_limit=cache_limit)
+    def _http_get(self, url, data=None, headers=None, cache_limit=8):
+        html = super(PubFilm_Scraper, self)._cached_http_get(url, self.base_url, self.timeout, data=data, cache_limit=cache_limit)
         cookie = self._get_sucuri_cookie(html)
         if cookie:
-            log_utils.log('Setting Pubfilm cookie: %s' % (cookie), xbmc.LOGDEBUG)
-            html = super(PubFilm_Scraper, self)._cached_http_get(url, self.base_url, self.timeout, cookies=cookie, cache_limit=0)
+            log_utils.log('Setting Pubfilm cookie: %s' % (cookie), log_utils.LOGDEBUG)
+            html = super(PubFilm_Scraper, self)._cached_http_get(url, self.base_url, self.timeout, cookies=cookie, data=data, headers=headers, cache_limit=0)
         return html

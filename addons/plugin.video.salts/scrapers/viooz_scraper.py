@@ -19,19 +19,23 @@ import scraper
 import urllib
 import urlparse
 import re
-import xbmcaddon
-import base64
+import json
+from salts_lib import kodi
+from salts_lib import log_utils
 from salts_lib.constants import VIDEO_TYPES
+from salts_lib.constants import FORCE_NO_MATCH
 from salts_lib.constants import QUALITIES
+from salts_lib.constants import XHR
 
 BASE_URL = 'http://viooz.ac'
+GK_URL = '/p7/plugins/gkpluginsphp.php'
 
 class VioozAc_Scraper(scraper.Scraper):
     base_url = BASE_URL
 
     def __init__(self, timeout=scraper.DEFAULT_TIMEOUT):
         self.timeout = timeout
-        self.base_url = xbmcaddon.Addon().getSetting('%s-base_url' % (self.get_name()))
+        self.base_url = kodi.get_setting('%s-base_url' % (self.get_name()))
 
     @classmethod
     def provides(cls):
@@ -50,7 +54,7 @@ class VioozAc_Scraper(scraper.Scraper):
     def get_sources(self, video):
         source_url = self.get_url(video)
         hosters = []
-        if source_url:
+        if source_url and source_url != FORCE_NO_MATCH:
             url = urlparse.urljoin(self.base_url, source_url)
             html = self._http_get(url, cache_limit=.5)
 
@@ -58,39 +62,30 @@ class VioozAc_Scraper(scraper.Scraper):
                 quality = QUALITIES.LOW
             else:
                 quality = QUALITIES.HIGH
-
-            pattern = '<div id="cont(.*?)</div>'
-            for match in re.finditer(pattern, html, re.DOTALL):
-                link_fragment = match.group(1)
-                stream_url = ''
-                match = re.search('<iframe.*?src="([^"]+)', link_fragment)
-                if match:
-                    stream_url = match.group(1)
-                    direct = False
-                else:
-                    match = re.search('href="([^"]+)"', link_fragment)
-                    if match:
-                        stream_url = match.group(1)
-                        direct = False
+            
+            for match in re.finditer('gkpluginsphp.*?link\s*:\s*"([^"]+)', html):
+                data = {'link': match.group(1)}
+                headers = XHR
+                headers['Referer'] = url
+                gk_url = urlparse.urljoin(self.base_url, GK_URL)
+                html = self._http_get(gk_url, data=data, headers=headers, cache_limit=.25)
+                if html:
+                    try:
+                        js_result = json.loads(html)
+                    except ValueError:
+                        log_utils.log('Invalid JSON returned: %s: %s' % (url, html), log_utils.LOGWARNING)
                     else:
-                        match = re.search('proxy\.link=([^"&]+)', link_fragment)
-                        if match:
-                            proxy_link = match.group(1)
-                            proxy_link = proxy_link.split('*', 1)[-1]
-                            stream_url = self._gk_decrypt(base64.urlsafe_b64decode('Y0t3RERKc1ZpQ3NtWndET2p6UlU='), proxy_link)
-                            direct = False
-
-                # skip these for now till I work out how to extract them
-                if not stream_url or 'hqq.tv' in stream_url:
-                    continue
-
-                try:
-                    host = urlparse.urlsplit(stream_url).hostname.lower()
-                except AttributeError:
-                    pass
-                else:
-                    hoster = {'multi-part': False, 'url': stream_url, 'class': self, 'quality': self._get_quality(video, host, quality), 'host': host, 'rating': None, 'views': None, 'direct': direct}
-                    hosters.append(hoster)
+                        log_utils.log(js_result)
+                        if 'link' in js_result and 'func' not in js_result:
+                            if isinstance(js_result['link'], list):
+                                sources = dict((link['link'], self._height_get_quality(link['label'])) for link in js_result['link'])
+                            else:
+                                sources = {js_result['link']: quality}
+                            
+                            for source in sources:
+                                host = self._get_direct_hostname(source)
+                                hoster = {'multi-part': False, 'url': source, 'class': self, 'quality': sources[source], 'host': host, 'rating': None, 'views': None, 'direct': True}
+                                hosters.append(hoster)
         return hosters
 
     def get_url(self, video):
@@ -106,9 +101,6 @@ class VioozAc_Scraper(scraper.Scraper):
         for match in re.finditer(pattern, html):
             url, title, match_year = match.groups('')
             if not year or not match_year or year == match_year:
-                result = {'url': url.replace(self.base_url, ''), 'title': title, 'year': match_year}
+                result = {'url': self._pathify_url(url), 'title': title, 'year': match_year}
                 results.append(result)
         return results
-
-    def _http_get(self, url, cache_limit=8):
-        return super(VioozAc_Scraper, self)._cached_http_get(url, self.base_url, self.timeout, cache_limit=cache_limit)

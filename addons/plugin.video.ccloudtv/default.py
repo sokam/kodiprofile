@@ -17,7 +17,7 @@ You should have received a copy of the GNU General Public License
 along with this program. If not, see <http://www.gnu.org/licenses/>
 """
 
-import urllib, urllib2, sys, re, os, unicodedata
+import urllib, urllib2, sys, re, os, unicodedata, cookielib
 import xbmc, xbmcgui, xbmcplugin, xbmcaddon, base64
 
 plugin_handle = int(sys.argv[1])
@@ -293,7 +293,7 @@ def adult():
 			match = re.compile(m3u_regex).findall(content)
 			for thumb, name, url in match:
 				if re.search(searchText, removeAccents(name.replace('Đ', 'D')), re.IGNORECASE):
-					m3u_playlist(name, url, thumb)	
+					adult_playlist(name, url, thumb)	
 	except:
 		pass
 	
@@ -646,14 +646,39 @@ def international():
 	
 		
 def text_online():		
-	content = make_request(text)
-	match = re.compile(m3u_regex).findall(content)
-	for thumb, name, url in match:
-		try:
-			m3u_playlist(name, url, thumb)
-		except:
-			pass
+	text = '[COLOR royalblue][B]***Latest Announcements***[/B][/COLOR]'
+	newstext = 'http://pastebin.com/raw.php?i=7K3zDiZ2'
+	req = urllib2.Request(newstext)
+	req.add_header('User-Agent', 'Mozilla/5.0 (Windows; U; Windows NT 5.1; en-GB; rv:1.9.0.3) Gecko/2008092417 Firefox/3.0.3')
+	response = urllib2.urlopen(req)
+	link=response.read()
+	response.close()
+	match=re.compile("<START>(.+?)<END>",re.DOTALL).findall(link)
+	for status in match:
+	    try:
+			    status = status.decode('ascii', 'ignore')
+	    except:
+			    status = status.decode('utf-8','ignore')
+	    status = status.replace('&amp;','')
+	    text = status
+	showText('[COLOR royalblue][B]***Latest Announcements***[/B][/COLOR]', text)
 
+def showText(heading, text):
+    id = 10147
+    xbmc.executebuiltin('ActivateWindow(%d)' % id)
+    xbmc.sleep(100)
+    win = xbmcgui.Window(id)
+    retry = 50
+    while (retry > 0):
+	try:
+	    xbmc.sleep(10)
+	    retry -= 1
+	    win.getControl(1).setLabel(heading)
+	    win.getControl(5).setText(text)
+	    return
+	except:
+	    pass
+	
 	
 def m3u_online():		
 	content = make_request(List)
@@ -664,6 +689,7 @@ def m3u_online():
 		except:
 			pass
 		
+
 def m3u_playlist(name, url, thumb):	
 	name = re.sub('\s+', ' ', name).strip()			
 	url = url.replace('"', ' ').replace('&amp;', '&').strip()
@@ -671,6 +697,34 @@ def m3u_playlist(name, url, thumb):
 		if 'tvg-logo' in thumb:
 			thumb = re.compile(m3u_thumb_regex).findall(str(thumb))[0].replace(' ', '%20')			
 			addDir(name, url, '', thumb, thumb)			
+		else:	
+			addDir(name, url, '', icon, fanart)
+	else:
+		if '(Adult)' in name:
+			name = 'ADULTS ONLY'.url = 'http://ignoreme.com'
+		if 'youtube.com/watch?v=' in url:
+			url = 'plugin://plugin.video.youtube/play/?video_id=%s' % (url.split('=')[-1])
+		elif 'dailymotion.com/video/' in url:
+			url = url.split('/')[-1].split('_')[0]
+			url = 'plugin://plugin.video.dailymotion_com/?mode=playVideo&url=%s' % url	
+		else:			
+			url = url
+		if 'tvg-logo' in thumb:				
+			thumb = re.compile(m3u_thumb_regex).findall(str(thumb))[0].replace(' ', '%20')
+			addLink(name, url, 1, thumb, thumb)			
+		else:				
+			addLink(name, url, 1, icon, fanart)	
+			
+			
+def adult_playlist(name, url, thumb):	
+	name = re.sub('\s+', ' ', name).strip()			
+	url = url.replace('"', ' ').replace('&amp;', '&').strip()
+	if ('youtube.com/user/' in url) or ('youtube.com/channel/' in url) or ('youtube/user/' in url) or ('youtube/channel/' in url):
+		if 'tvg-logo' in thumb:
+			thumb = re.compile(m3u_thumb_regex).findall(str(thumb))[0].replace(' ', '%20')			
+			addDir(name, url, '', thumb, thumb)		
+		if ',Adult Swim' in url:
+			name = ''.url = 'http://ignoreme.com'
 		else:	
 			addDir(name, url, '', icon, fanart)
 	else:

@@ -19,11 +19,11 @@ import scraper
 import urllib
 import urlparse
 import re
-import xbmcaddon
-import xbmc
 import json
+from salts_lib import kodi
 from salts_lib import log_utils
 from salts_lib.constants import VIDEO_TYPES
+from salts_lib.constants import FORCE_NO_MATCH
 from salts_lib.constants import QUALITIES
 
 BASE_URL = 'http://directdownload.tv'
@@ -40,7 +40,7 @@ class DirectDownload_Scraper(scraper.Scraper):
 
     def __init__(self, timeout=scraper.DEFAULT_TIMEOUT):
         self.timeout = timeout
-        self.base_url = xbmcaddon.Addon().getSetting('%s-base_url' % (self.get_name()))
+        self.base_url = kodi.get_setting('%s-base_url' % (self.get_name()))
 
     @classmethod
     def provides(cls):
@@ -48,7 +48,7 @@ class DirectDownload_Scraper(scraper.Scraper):
 
     @classmethod
     def get_name(cls):
-        return 'DirectDownload.tv'
+        return 'DD.tv'
 
     def resolve_link(self, link):
         return link
@@ -66,10 +66,10 @@ class DirectDownload_Scraper(scraper.Scraper):
                 try:
                     js_result = json.loads(html)
                 except ValueError:
-                    log_utils.log('Invalid JSON returned: %s: %s' % (url, html), xbmc.LOGWARNING)
+                    log_utils.log('Invalid JSON returned: %s: %s' % (url, html), log_utils.LOGWARNING)
                 else:
                     if 'error' in js_result:
-                        log_utils.log('DD.tv API error: "%s" @ %s' % (js_result['error'], url), xbmc.LOGWARNING)
+                        log_utils.log('DD.tv API error: "%s" @ %s' % (js_result['error'], url), log_utils.LOGWARNING)
                         return hosters
 
                     query = urlparse.parse_qs(urlparse.urlparse(url).query)
@@ -79,7 +79,11 @@ class DirectDownload_Scraper(scraper.Scraper):
                         match_quality = temp_quality.split(',')
     
                     sxe_str = '.S%02dE%02d.' % (int(video.season), int(video.episode))
-                    airdate_str = video.ep_airdate.strftime('.%Y.%m.%d.')
+                    try:
+                        airdate_str = video.ep_airdate.strftime('.%Y.%m.%d.')
+                    except:
+                        airdate_str = ''
+                        
                     for result in js_result:
                         if sxe_str not in result['release'] and airdate_str not in result['release']:
                             continue
@@ -92,7 +96,7 @@ class DirectDownload_Scraper(scraper.Scraper):
                                 
                                 hostname = urlparse.urlparse(url).hostname
                                 hoster = {'multi-part': False, 'class': self, 'views': None, 'url': url, 'rating': None, 'host': hostname,
-                                        'quality': QUALITY_MAP[result['quality']], 'dd_qual': result['quality'], 'direct': False}
+                                          'quality': QUALITY_MAP[result['quality']], 'dd_qual': result['quality'], 'direct': False}
                                 hosters.append(hoster)
 
         return hosters
@@ -139,21 +143,21 @@ class DirectDownload_Scraper(scraper.Scraper):
             try:
                 js_result = json.loads(html)
             except ValueError:
-                log_utils.log('Invalid JSON returned: %s: %s' % (search_url, html), xbmc.LOGWARNING)
+                log_utils.log('Invalid JSON returned: %s: %s' % (search_url, html), log_utils.LOGWARNING)
             else:
                 if 'error' in js_result:
-                    log_utils.log('DD.tv API error: "%s" @ %s' % (js_result['error'], search_url), xbmc.LOGWARNING)
+                    log_utils.log('DD.tv API error: "%s" @ %s' % (js_result['error'], search_url), log_utils.LOGWARNING)
                     return results
                 
                 for match in js_result:
                     url = search_url + '&quality=%s' % match['quality']
-                    result = {'url': url.replace(self.base_url, ''), 'title': match['release'], 'quality': match['quality'], 'year': ''}
+                    result = {'url': self._pathify_url(url), 'title': match['release'], 'quality': match['quality'], 'year': ''}
                     results.append(result)
         return results
 
     def _http_get(self, url, data=None, cache_limit=8):
         if 'search?query' in url:
-            log_utils.log('Translating Search Url: %s' % (url), xbmc.LOGDEBUG)
+            log_utils.log('Translating Search Url: %s' % (url), log_utils.LOGDEBUG)
             url = self.__translate_search(url)
 
         return super(DirectDownload_Scraper, self)._cached_http_get(url, self.base_url, self.timeout, data=data, cache_limit=cache_limit)

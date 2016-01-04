@@ -1,5 +1,5 @@
-# XBMCHUB.com / TVADDONS.ag - Addon Installer - Module By: Blazetamer (2013-2014)
-# Thanks to Blazetamer, Eleazar Coding, Showgun, TheHighway, ....
+# TVADDONS.ag / TVADDONS.ag - Addon Installer - Module By: Blazetamer (2013-2014)
+# Thanks to Blazetamer, Eleazar Coding, Showgun,  ....
 siteTitle="TVADDONS.AG"; #siteTitle="XBMCHUB.COM"; 
 addon_id='plugin.program.addoninstaller'; import urllib,urllib2,re,xbmcplugin,xbmcgui,xbmc,xbmcaddon,os,sys,time,shutil,downloader,extract
 base_url2='http://addons.tvaddons.ag'; #'http://addons.xbmchub.com'
@@ -29,8 +29,8 @@ def MAININDEX():
     hubpath=xbmc.translatePath(os.path.join('special://home','addons','repository.xbmchub'))
     hubnotespath=xbmc.translatePath(os.path.join('special://home','addons','plugin.program.xbmchub.notifications'))
     try:
-        if not os.path.exists(hubpath): HUBINSTALL('TVADDONS.AG.Repository','http://offshoregit.com/xbmchub/xbmc-hub-repo/raw/master/repository.xbmchub/repository.xbmchub-1.0.3.zip','','addon','none')
-        if not os.path.exists(hubnotespath): HUBINSTALL('TVADDONS.AG.Notifications','http://offshoregit.com/xbmchub/xbmc-hub-repo/raw/master/plugin.program.xbmchub.notifications/plugin.program.xbmchub.notifications-1.0.1.zip','','addon','none')
+        if not os.path.exists(hubpath): HUBINSTALL('TVADDONS.AG.Repository','http://offshoregit.com/xbmchub/xbmc-hub-repo/raw/master/repository.xbmchub/repository.xbmchub-1.0.6.zip','','addon','none')
+        if not os.path.exists(hubnotespath): HUBINSTALL('TVADDONS.AG.Notifications','http://offshoregit.com/xbmchub/xbmc-hub-repo/raw/master/plugin.program.xbmchub.notifications/plugin.program.xbmchub.notifications-1.0.2.zip','','addon','none')
     except: pass
     addDir('Search by: Addon/Author',base_url+'search/?keyword=','searchaddon',getArtworkJ('Search')) #catArtwork('webinterface')) #
     #if settings.getSetting('newest')=='true':  addDir('Newest Addons',base_url,'innertabs',getArtworkJ('NewestAddons'))
@@ -43,14 +43,28 @@ def MAININDEX():
     if settings.getSetting('program')=='true':        	addDir('Program Addons',base_url+'category/programs/','addonlist',getArtworkJ('ProgramAddons')) #catArtwork('programs')) #
     if settings.getSetting('services')=='true':       	addDir('Service Addons',base_url+'category/services/','addonlist',getArtworkJ('ServiceAddons')) #catArtwork('services')) #
     if settings.getSetting('repositories')=='true':   	addDir('Repositories',base_url+'category/repositories/','addonlist',getArtworkJ('Repositories')) #catArtwork('repositories')) #
-    if settings.getSetting('world')=='true':          	addDir('World Section',tribeca_url+'world.php','worldlist',getArtworkJ('WorldSection')) #catArtwork('metadata')) #
+    #if settings.getSetting('world')=='true':          	addDir('World Section',tribeca_url+'world.php','worldlist',getArtworkJ('WorldSection')) #catArtwork('metadata')) #
+    if settings.getSetting('world')=='true':          	addDir('World Section',base_url+'category/international/repositories','interlist',getArtworkJ('WorldSection')) #catArtwork('video')) #
     if settings.getSetting('adult')=='true':          	addDir('Adult Addons',tribeca_url+'xxx.php','adultlist',getArtworkJ('AdultAddons')) #catArtwork('pictures')) #
+    
     ForPrimeWire(); 
     #addDir(TxtAddonUpdater,base_url+'category/featured/','autoupdate',ImgAddonUpdater); 
     ##addDir(TxtAddonUpdater,'...','autoupdate2',ImgAddonUpdater); 
     addDir('Installer Settings','none','settings',getArtworkJ('InstallerSettings')); #catArtwork('programs')) #
     AUTO_VIEW('addons')
 #****************************************************************
+def INTERNATIONAL(url):
+    if not '://' in url: url=base_url2+url
+    link=OPEN_URL(url); match=GetListItems(link); CMi=[]; #AUTO_VIEW('list'); 
+    #CMi.append(['Information',"XBMC.Action(Info)"]); 
+    if 'repository' in url: ToMode='interrepolist'
+    else: ToMode='addonlist'
+    for url,image,name, in match: iconimage=base_url+image; add2HELPDir(name,url,ToMode,iconimage,fanart,'','addon',CMi,True)
+    nmatch=GetListNextPage(link); 
+    if len(nmatch) > 0: addDir('Next Page',(nmatch[0]),'interrepolist',getArtworkJ('NextPage'))
+    AUTO_VIEW('list')
+    return
+
 def nolines(t): return t.replace('\r','').replace('\n','').replace('\t','').replace('\a','')
 def ForPrimeWire():
     html=nolines(OPEN_URL(tribeca_url2+'wizard/links.txt')); #print html
@@ -158,6 +172,19 @@ def List_Addons_Inner_Tabs(Name,url):
     match=re.compile("<li><a href='(.+?)'><img src='(.+?)' width='60' height='60' alt='(.+?)' class='pic alignleft' /><b>\s*(.+?)\s*</b></a><span class='date'>\s*(\d\d\d\d-\d\d-\d\d)\s*</span></li").findall(link)
     for url,image,name,name2,released in match: iconimage=base_url+image; add2HELPDir('[COLOR FF0077D7]%s [COLOR FFFFFFFF][[COLOR FFFFFFFF]%s[/COLOR]][/COLOR][/COLOR]'%(name,released),url,'addonindex',iconimage,fanart,'','addon')                    
     AUTO_VIEW('list')
+    
+def List_Inter_Addons(url):
+    if not '://' in url: url=base_url2+url
+    link=OPEN_URL(url); match=GetListItems(link); CMi=[]; #AUTO_VIEW('list'); 
+    #CMi.append(['Information',"XBMC.Action(Info)"]); 
+    if '/category/repositories/' in url: ToMode='addonlist'
+    else: ToMode='addonindex'
+    for url,image,name, in match: iconimage=base_url+image; add2HELPDir(name,url,ToMode,iconimage,fanart,'','addon',CMi,True)
+    nmatch=GetListNextPage(link); 
+    if len(nmatch) > 0: addDir('Next Page',(nmatch[0]),'addonlist',getArtworkJ('NextPage'))
+    AUTO_VIEW('list')
+
+    
 def List_Addons(url):
     if not '://' in url: url=base_url2+url
     link=OPEN_URL(url); match=GetListItems(link); CMi=[]; #AUTO_VIEW('list'); 
@@ -375,6 +402,7 @@ def AUTO_VIEW(content='',viewmode=''): # Set View
      if len(viewmode)==0: 
          if settings.getSetting('auto-view')=='true': 
              if content=='addons':  viewmode=settings.getSetting('addon-view')
+             if content=='list':  viewmode=settings.getSetting('list-view')
              else:                  viewmode=settings.getSetting('default-view')
          else: viewmode='500'
      if len(content) > 0: xbmcplugin.setContent(int(sys.argv[1]),str(content))
@@ -445,6 +473,8 @@ elif mode=='autoupdate': 			items=AutoUpdate(url) 																	#
 elif mode=='autoupdate2': 		 																												# Featured
 	AutoUpdate(tribeca_url+'featured-addons.php')
 	AutoUpdate(tribeca_url+'featured-repos.php')
+elif mode=='interrepolist': 			items=List_Inter_Addons(url)	
+elif mode=='interlist': 			items=INTERNATIONAL(url)	
 elif mode=='innertabs': 			items=List_Addons_Inner_Tabs(name,url)									# Newest / Updated
 elif mode=='addonlist': 			items=List_Addons(url)																	# List Addons
 elif mode=='worldlist': 			items=List_Tribeca_WorldList(url)												# World Addons - Temp

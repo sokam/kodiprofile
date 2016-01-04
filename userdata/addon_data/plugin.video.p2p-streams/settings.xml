@@ -37,7 +37,7 @@
     <setting id="parser_disclaimer_three" value="false" />
     <setting id="parser_sync" value="true" />
     <setting id="parser_sync_cron" value="3" />
-    <setting id="parsers_last_sync_two" value="2015-11-07 17:16:35.713833" />
+    <setting id="parsers_last_sync_two" value="2015-12-06 15:48:42.910244" />
     <setting id="pausable" value="false" />
     <setting id="playerport" value="6878" />
     <setting id="python_cmd" value="python" />

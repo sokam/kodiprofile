@@ -1751,7 +1751,7 @@ rating=-1.00
 description=bad neighbours 2014 ENJOY THE MOVIE GUYS/description
 
 type=playlist
-name=Sorted by user-assigned order
+name=Sorted [COLOR=FF00FF00][COLOR=FF00FF00][COLOR=FF00FF00][COLOR=FF00FF00]by user-assigned order[/COLOR][/COLOR][/COLOR][/COLOR]
 icon=http://media.navi-x.org/images/icons/2downarrow.png
 URL=http://www.navixtreme.com/playlist/146122/live_streams.plx?action=sortsel&cur=ord
 
@@ -1801,20 +1801,6 @@ processor=http://www.navixtreme.com/wlfwood/processors/nowvideo.txt
 player=default
 rating=-1.00
 
-# 2404950
-type=video
-name=EDGE OF TOMMOROW  2014  **WEB DL**
-URL=http://mightyupload.com/3dpt4ooifwxe/Edge.of.Tomorrow.2014.CHSSUB.WEB-DL.x264.AAC-lwn.mp4.html
-player=default
-rating=-1.00
-
-# 2404958
-type=video
-name=GODZILLA 2014  **1080p FULL HD**
-URL=http://mightyupload.com/vi97qcny499k/TwoDDL_Godzilla.2014.1080p.BluRay.x264.YIFY.mp4.html
-player=default
-rating=-1.00
-
 # 2404959
 type=video
 name=GODZILLA 2014
@@ -1828,13 +1814,6 @@ type=video
 name=A HAUNTED HOUSE  2014
 URL=http://www.nowvideo.sx/video/7425ebcbc9c9a
 processor=http://www.navixtreme.com/wlfwood/processors/nowvideo.txt
-player=default
-rating=-1.00
-
-# 2404974
-type=video
-name=KILLERS 2014  18 RATING
-URL=http://mightyupload.com/89k9hhar955l/Killers.2014.WEBRiP.READNFO.XViD.Rock.avi.html
 player=default
 rating=-1.00
 

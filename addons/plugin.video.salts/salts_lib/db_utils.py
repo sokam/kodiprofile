@@ -29,8 +29,9 @@ def enum(**enums):
 
 DB_TYPES = enum(MYSQL='mysql', SQLITE='sqlite')
 CSV_MARKERS = enum(REL_URL='***REL_URL***', OTHER_LISTS='***OTHER_LISTS***', SAVED_SEARCHES='***SAVED_SEARCHES***', BOOKMARKS='***BOOKMARKS***')
-TRIG_DB_UPG = False
+TRIG_DB_UPG = True
 MAX_TRIES = 5
+MYSQL_DATA_SIZE = 512
 
 class DB_Connection():
     def __init__(self):
@@ -44,8 +45,7 @@ class DB_Connection():
         self.progress = None
 
         if kodi.get_setting('use_remote_db') == 'true':
-            if self.address is not None and self.username is not None \
-            and self.password is not None and self.dbname is not None:
+            if self.address is not None and self.username is not None and self.password is not None and self.dbname is not None:
                 import mysql.connector as db_lib
                 from mysql.connector import OperationalError as OperationalError
                 log_utils.log('Loading MySQL as DB engine', log_utils.LOGDEBUG)
@@ -65,6 +65,8 @@ class DB_Connection():
     def flush_cache(self):
         sql = 'DELETE FROM url_cache'
         self.__execute(sql)
+        if self.db_type == DB_TYPES.SQLITE:
+            self.__execute('VACUUM')
 
     def get_bookmark(self, trakt_id, season='', episode=''):
         if not trakt_id: return None
@@ -93,36 +95,48 @@ class DB_Connection():
         sql = 'DELETE FROM bookmark WHERE slug=? and season=? and episode=?'
         self.__execute(sql, (trakt_id, season, episode))
 
-    def cache_url(self, url, body):
+    def cache_url(self, url, body, data=''):
+        if data is None: data = ''
+        # truncate data if running mysql and greater than col size
+        if self.db_type == DB_TYPES.MYSQL and len(data) > MYSQL_DATA_SIZE:
+            data = data[:MYSQL_DATA_SIZE]
         now = time.time()
-        sql = 'REPLACE INTO url_cache (url,response,timestamp) VALUES(?, ?, ?)'
-        self.__execute(sql, (url, body, now))
+        sql = 'REPLACE INTO url_cache (url,data,response,timestamp) VALUES(?, ?, ?, ?)'
+        self.__execute(sql, (url, data, body, now))
 
-    def delete_cached_url(self, url):
-        sql = 'DELETE FROM url_cache WHERE url = ?'
-        self.__execute(sql, (url,))
+    def delete_cached_url(self, url, data=''):
+        if data is None: data = ''
+        # truncate data if running mysql and greater than col size
+        if self.db_type == DB_TYPES.MYSQL and len(data) > MYSQL_DATA_SIZE:
+            data = data[:MYSQL_DATA_SIZE]
+        sql = 'DELETE FROM url_cache WHERE url = ? and data= ?'
+        self.__execute(sql, (url, data))
 
-    def get_cached_url(self, url, cache_limit=8):
+    def get_cached_url(self, url, data='', cache_limit=8):
+        if data is None: data = ''
+        # truncate data if running mysql and greater than col size
+        if self.db_type == DB_TYPES.MYSQL and len(data) > MYSQL_DATA_SIZE:
+            data = data[:MYSQL_DATA_SIZE]
         html = ''
         created = 0
         now = time.time()
         limit = 60 * 60 * cache_limit
-        sql = 'SELECT * FROM url_cache WHERE url = ?'
-        rows = self.__execute(sql, (url,))
+        sql = 'SELECT timestamp, response FROM url_cache WHERE url = ? and data=?'
+        rows = self.__execute(sql, (url, data))
 
         if rows:
-            created = float(rows[0][2])
+            created = float(rows[0][0])
             age = now - created
             if age < limit:
                 html = rows[0][1]
-        log_utils.log('DB Cache: Url: %s, Cache Hit: %s, created: %s, age: %s, limit: %s' % (url, bool(html), created, now - created, limit), log_utils.LOGDEBUG)
+        log_utils.log('DB Cache: Url: %s, Data: %s, Cache Hit: %s, created: %s, age: %s, limit: %s' % (url, data, bool(html), created, now - created, limit), log_utils.LOGDEBUG)
         return created, html
 
     def get_all_urls(self, include_response=False, order_matters=False):
-        sql = 'SELECT url'
+        sql = 'SELECT url, data'
         if include_response: sql += ',response'
         sql += ' FROM url_cache'
-        if order_matters: sql += ' ORDER BY url'
+        if order_matters: sql += ' ORDER BY url, data'
         rows = self.__execute(sql)
         return rows
 
@@ -216,19 +230,19 @@ class DB_Connection():
             if self.__table_exists('rel_url'):
                 f.write(CSV_MARKERS.REL_URL + '\n')
                 for fav in self.get_all_rel_urls():
-                    writer.writerow(fav)
+                    writer.writerow(self.__utf8_encode(fav))
             if self.__table_exists('other_lists'):
                 f.write(CSV_MARKERS.OTHER_LISTS + '\n')
                 for sub in self.get_all_other_lists():
-                    writer.writerow(sub)
+                    writer.writerow(self.__utf8_encode(sub))
             if self.__table_exists('saved_searches'):
                 f.write(CSV_MARKERS.SAVED_SEARCHES + '\n')
                 for sub in self.get_all_searches():
-                    writer.writerow(sub)
+                    writer.writerow(self.__utf8_encode(sub))
             if self.__table_exists('bookmark'):
                 f.write(CSV_MARKERS.BOOKMARKS + '\n')
                 for sub in self.get_bookmarks():
-                    writer.writerow(sub)
+                    writer.writerow(self.__utf8_encode(sub))
 
         log_utils.log('Copying export file from: |%s| to |%s|' % (temp_path, full_path), log_utils.LOGDEBUG)
         if not xbmcvfs.copy(temp_path, full_path):
@@ -237,6 +251,18 @@ class DB_Connection():
         if not xbmcvfs.delete(temp_path):
             raise Exception('Export: Delete of %s failed.' % (temp_path))
 
+    def __utf8_encode(self, items):
+        l = []
+        for i in items:
+            if isinstance(i, basestring):
+                try:
+                    l.append(i.encode('utf-8'))
+                except UnicodeDecodeError:
+                    l.append(i)
+            else:
+                l.append(i)
+        return l
+        
     def import_into_db(self, full_path):
         temp_path = os.path.join(xbmc.translatePath("special://profile"), 'temp_import_%s.csv' % (int(time.time())))
         log_utils.log('Copying import file from: |%s| to |%s|' % (full_path, temp_path), log_utils.LOGDEBUG)
@@ -257,6 +283,7 @@ class DB_Connection():
                     _ = f.readline()  # read header
                     i = 0
                     for line in reader:
+                        line = self.__unicode_encode(line)
                         progress.update(i * 100 / num_lines, line3='Importing %s of %s' % (i, num_lines))
                         if progress.iscanceled():
                             return
@@ -279,7 +306,21 @@ class DB_Connection():
             if not xbmcvfs.delete(temp_path):
                 raise Exception('Import: Delete of %s failed.' % (temp_path))
             progress.close()
+            if self.db_type == DB_TYPES.SQLITE:
+                self.__execute('VACUUM')
 
+    def __unicode_encode(self, items):
+        l = []
+        for i in items:
+            if isinstance(i, basestring):
+                try:
+                    l.append(unicode(i, 'utf-8'))
+                except UnicodeDecodeError:
+                    l.append(i)
+            else:
+                l.append(i)
+        return l
+        
     def execute_sql(self, sql):
         self.__execute(sql)
 
@@ -299,7 +340,7 @@ class DB_Connection():
 
         log_utils.log('Building SALTS Database', log_utils.LOGDEBUG)
         if self.db_type == DB_TYPES.MYSQL:
-            self.__execute('CREATE TABLE IF NOT EXISTS url_cache (url VARCHAR(255) NOT NULL, response MEDIUMBLOB, timestamp TEXT, PRIMARY KEY(url))')
+            self.__execute('CREATE TABLE IF NOT EXISTS url_cache (url VARBINARY(255) NOT NULL, data VARBINARY(%s) NOT NULL, response MEDIUMBLOB, timestamp TEXT, PRIMARY KEY(url, data))' % (MYSQL_DATA_SIZE))
             self.__execute('CREATE TABLE IF NOT EXISTS db_info (setting VARCHAR(255) NOT NULL, value TEXT, PRIMARY KEY(setting))')
             self.__execute('CREATE TABLE IF NOT EXISTS rel_url \
             (video_type VARCHAR(15) NOT NULL, title VARCHAR(255) NOT NULL, year VARCHAR(4) NOT NULL, season VARCHAR(5) NOT NULL, episode VARCHAR(5) NOT NULL, source VARCHAR(50) NOT NULL, rel_url VARCHAR(255), \
@@ -312,7 +353,7 @@ class DB_Connection():
             PRIMARY KEY(slug, season, episode))')
         else:
             self.__create_sqlite_db()
-            self.__execute('CREATE TABLE IF NOT EXISTS url_cache (url VARCHAR(255) NOT NULL, response, timestamp, PRIMARY KEY(url))')
+            self.__execute('CREATE TABLE IF NOT EXISTS url_cache (url VARCHAR(255) NOT NULL, data VARCHAR(255), response, timestamp, PRIMARY KEY(url, data))')
             self.__execute('CREATE TABLE IF NOT EXISTS db_info (setting VARCHAR(255), value TEXT, PRIMARY KEY(setting))')
             self.__execute('CREATE TABLE IF NOT EXISTS rel_url \
             (video_type TEXT NOT NULL, title TEXT NOT NULL, year TEXT NOT NULL, season TEXT NOT NULL, episode TEXT NOT NULL, source TEXT NOT NULL, rel_url TEXT, \
@@ -365,7 +406,7 @@ class DB_Connection():
         while True:
             try:
                 cur = self.db.cursor()
-                #log_utils.log('Running: %s with %s' % (sql, params), log_utils.LOGDEBUG)
+                # log_utils.log('Running: %s with %s' % (sql, params), log_utils.LOGDEBUG)
                 cur.execute(sql, params)
                 if sql[:6].upper() == 'SELECT' or sql[:4].upper() == 'SHOW':
                     rows = cur.fetchall()

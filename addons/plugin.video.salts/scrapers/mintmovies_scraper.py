@@ -19,10 +19,10 @@ import scraper
 import urllib
 import urlparse
 import re
-import xbmcaddon
-import urllib2
+from salts_lib import kodi
 from salts_lib import dom_parser
 from salts_lib.constants import VIDEO_TYPES
+from salts_lib.constants import FORCE_NO_MATCH
 from salts_lib.constants import QUALITIES
 
 BASE_URL = 'http://www.mintmovies.net'
@@ -32,7 +32,7 @@ class MintMovies_Scraper(scraper.Scraper):
 
     def __init__(self, timeout=scraper.DEFAULT_TIMEOUT):
         self.timeout = timeout
-        self.base_url = xbmcaddon.Addon().getSetting('%s-base_url' % (self.get_name()))
+        self.base_url = kodi.get_setting('%s-base_url' % (self.get_name()))
 
     @classmethod
     def provides(cls):
@@ -46,54 +46,103 @@ class MintMovies_Scraper(scraper.Scraper):
         return link
 
     def format_source_label(self, item):
-        return '[%s] %s' % (item['quality'], item['host'])
+        label = '[%s] %s' % (item['quality'], item['host'])
+        if item['views'] is not None:
+            label += ' (%s Views)' % (item['views'])
+        if item['rating'] is not None:
+            label += ' (%s/100)' % (item['rating'])
+        return label
 
     def get_sources(self, video):
-        source_url = self.get_url(video)
         hosters = []
-        if source_url:
+        source_url = self.get_url(video)
+        if source_url and source_url != FORCE_NO_MATCH:
             url = urlparse.urljoin(self.base_url, source_url)
             html = self._http_get(url, cache_limit=.5)
-            fragment = ''
-            match = re.search("replaceWith\('([^']+)", html)
-            if match:
-                fragment = match.group(1).replace('\\x', '').decode('hex')
-            else:
-                element = dom_parser.parse_dom(html, 'video')
-                if element:
-                    fragment = element[0]
-                
-            match = re.search('src="([^"]+)', fragment)
-            if match:
-                link = match.group(1)
-                hoster = {'multi-part': False, 'host': self._get_direct_hostname(link), 'class': self, 'quality': self._gv_get_quality(link), 'views': None, 'rating': None, 'url': link, 'direct': True}
-                hosters.append(hoster)
+            hosters += self.__get_links(html)
+            fragment = dom_parser.parse_dom(html, 'div', {'class': 'keremiya_part'})
+            if fragment:
+                for match in re.finditer('href="([^"]+)', fragment[0]):
+                    html = self._http_get(match.group(1), cache_limit=.5)
+                    hosters += self.__get_links(html)
+                    
         return hosters
 
+    def __get_links(self, html):
+        hosters = []
+        streams = []
+        fragment = dom_parser.parse_dom(html, 'div', {'class': 'video-embed'})
+        if fragment:
+            match = re.search("id='(engima[^']+)", fragment[0])
+            if match:
+                enigma_id = match.group(1)
+                match = re.search('<script[^>]+src="(http[^"]+mintmovies[^"]+)', html)
+                if match:
+                    js_html = self._http_get(match.group(1), cache_limit=.5)
+                    pattern = "\('#%s'\)\.replaceWith\('([^']+)" % (enigma_id)
+                else:
+                    js_html = html
+                    pattern = "\('#engimadiv[^']+'\)\.replaceWith\('([^']+)"
+                    
+                match = re.search(pattern, js_html)
+                if match:
+                    fragment = [match.group(1).decode('unicode_escape')]
+            
+            match = re.search('src="([^"]+)', fragment[0])
+            if match:
+                streams.append(match.group(1))
+            
+            for match in re.finditer("window.open\('([^']+)", fragment[0]):
+                streams.append(match.group(1))
+
+        for stream_url in streams:
+            if self._get_direct_hostname(stream_url) == 'gvideo':
+                quality = self._gv_get_quality(stream_url)
+                host = self._get_direct_hostname(stream_url)
+                direct = True
+            else:
+                host = urlparse.urlparse(stream_url).hostname
+                if host is None: continue
+                quality = QUALITIES.HIGH
+                direct = False
+
+            hoster = {'multi-part': False, 'host': host, 'class': self, 'quality': quality, 'views': None, 'rating': None, 'url': stream_url, 'direct': direct}
+            
+            match = re.search('class="views-infos">(\d+)', html, re.DOTALL)
+            if match:
+                hoster['views'] = int(match.group(1))
+    
+            match = re.search('class="rating">(\d+)%', html, re.DOTALL)
+            if match:
+                hoster['rating'] = match.group(1)
+            hosters.append(hoster)
+        return hosters
+    
     def get_url(self, video):
         return super(MintMovies_Scraper, self)._default_get_url(video)
 
     def search(self, video_type, title, year):
         search_url = urlparse.urljoin(self.base_url, '/?s=')
-        search_url += urllib.quote_plus(title)
+        search_url += urllib.quote_plus('%s %s' % (title, year))
         html = self._http_get(search_url, cache_limit=.25)
         results = []
-        elements = dom_parser.parse_dom(html, 'div', {'class': 'movief'})
-        for element in elements:
-            match = re.search('href="([^"]+)">([^<]+)', element, re.DOTALL)
-            if match:
-                url, match_title_year = match.groups()
-                match = re.search('(.*?)(?:\s+\(?(\d{4})\)?)', match_title_year)
+        if not re.search('Sorry, but nothing matched', html):
+            norm_title = self._normalize_title(title)
+            for item in dom_parser.parse_dom(html, 'li', {'class': '[^"]*box-shadow[^"]*'}):
+                match = re.search('href="([^"]+)"\s+title="([^"]+)', item)
                 if match:
-                    match_title, match_year = match.groups()
-                else:
-                    match_title = match_title_year
-                    match_year = ''
+                    url, match_title_year = match.groups()
+                    if re.search('S\d{2}E\d{2}', match_title_year): continue  # skip episodes
+                    if re.search('TV\s*SERIES', match_title_year, re.I): continue  # skip shows
+                    match = re.search('(.*?)\s+\(?(\d{4})\)?', match_title_year)
+                    if match:
+                        match_title, match_year = match.groups()
+                    else:
+                        match_title = match_title_year
+                        match_year = ''
 
-                if not year or not match_year or year == match_year:
-                    result = {'title': match_title, 'year': match_year, 'url': url.replace(self.base_url, '')}
-                    results.append(result)
+                    if (not year or not match_year or year == match_year) and norm_title in self._normalize_title(match_title):
+                        result = {'title': match_title, 'year': match_year, 'url': self._pathify_url(url)}
+                        results.append(result)
+
         return results
-
-    def _http_get(self, url, data=None, cache_limit=8):
-        return super(MintMovies_Scraper, self)._cached_http_get(url, self.base_url, self.timeout, data=data, cache_limit=cache_limit)

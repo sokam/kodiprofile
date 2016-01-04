@@ -74,7 +74,7 @@ def solve(url, cj, wait=True):
         vc = vc_match.group(1)
         password = pass_match.group(1)
 
-        #log_utils.log("VC is: %s" % (vc), xbmc.LOGDEBUG)
+        # log_utils.log("VC is: %s" % (vc), xbmc.LOGDEBUG)
         varname = (init_dict, init_var)
         result = int(solve_equation(init_equation.rstrip()))
         log_utils.log('Initial value: |%s| Result: |%s|' % (init_equation, result), log_utils.LOGDEBUG)

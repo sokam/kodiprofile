@@ -20,9 +20,10 @@ import re
 import urllib2
 import urllib
 import urlparse
-import xbmcaddon
+from salts_lib import kodi
 from salts_lib import dom_parser
 from salts_lib.constants import VIDEO_TYPES
+from salts_lib.constants import FORCE_NO_MATCH
 from salts_lib.constants import QUALITIES
 from salts_lib.constants import USER_AGENT
 
@@ -33,11 +34,11 @@ class Vidics_Scraper(scraper.Scraper):
 
     def __init__(self, timeout=scraper.DEFAULT_TIMEOUT):
         self.timeout = timeout
-        self.base_url = xbmcaddon.Addon().getSetting('%s-base_url' % (self.get_name()))
+        self.base_url = kodi.get_setting('%s-base_url' % (self.get_name()))
 
     @classmethod
     def provides(cls):
-        return frozenset([VIDEO_TYPES.TVSHOW, VIDEO_TYPES.SEASON, VIDEO_TYPES.EPISODE, VIDEO_TYPES.MOVIE])
+        return frozenset([VIDEO_TYPES.TVSHOW, VIDEO_TYPES.EPISODE, VIDEO_TYPES.MOVIE])
 
     @classmethod
     def get_name(cls):
@@ -59,7 +60,7 @@ class Vidics_Scraper(scraper.Scraper):
     def get_sources(self, video):
         source_url = self.get_url(video)
         hosters = []
-        if source_url:
+        if source_url and source_url != FORCE_NO_MATCH:
             url = urlparse.urljoin(self.base_url, source_url)
             html = self._http_get(url, cache_limit=.5)
 
@@ -69,7 +70,7 @@ class Vidics_Scraper(scraper.Scraper):
 
                 for match in re.finditer('class="movie_link.*?href="([^"]+)[^>]+>([^<]+)', fragment, re.DOTALL):
                     media_url, host = match.groups()
-                    hosters.append({'multi-part': False, 'url': media_url, 'class': self, 'quality': self._get_quality(video, host.lower(), QUALITIES.HIGH), 'host': host.lower(), 'rating': None, 'views': None, 'direct': False})
+                    hosters.append({'multi-part': False, 'url': media_url, 'class': self, 'quality': self._get_quality(video, host, QUALITIES.HIGH), 'host': host, 'rating': None, 'views': None, 'direct': False})
 
         return hosters
 
@@ -81,7 +82,7 @@ class Vidics_Scraper(scraper.Scraper):
             search_url = urlparse.urljoin(self.base_url, '/Category-Movies/Genre-Any/Letter-Any/ByPopularity/1/Search-')
         else:
             search_url = urlparse.urljoin(self.base_url, '/Category-TvShows/Genre-Any/Letter-Any/ByPopularity/1/Search-')
-        search_url += '%s.html' % (urllib.quote_plus(title))
+        search_url += '%s.htm' % (urllib.quote_plus(title))
         html = self._http_get(search_url, cache_limit=.25)
 
         results = []
@@ -95,7 +96,7 @@ class Vidics_Scraper(scraper.Scraper):
                 match_year = ''
             
             if url and match_title and (not year or not match_year or year == match_year):
-                result = {'url': url[0].replace(self.base_url, ''), 'title': match_title[0], 'year': match_year}
+                result = {'url': self._pathify_url(url[0]), 'title': match_title[0], 'year': match_year}
                 results.append(result)
         return results
 
@@ -104,6 +105,3 @@ class Vidics_Scraper(scraper.Scraper):
         title_pattern = 'class="episode"\s+href="([^"]+).*?class="episode_title">\s*-\s*(.*?) \('
         airdate_pattern = 'class="episode"\s+(?:style="[^"]+")?\s+href="([^"]+)(?:[^>]+>){2}[^<]+\s+\({year} {month_name} {p_day}\)'
         return super(Vidics_Scraper, self)._default_get_episode_url(show_url, video, episode_pattern, title_pattern, airdate_pattern)
-
-    def _http_get(self, url, data=None, cache_limit=8):
-        return super(Vidics_Scraper, self)._cached_http_get(url, self.base_url, self.timeout, data=data, cache_limit=cache_limit)

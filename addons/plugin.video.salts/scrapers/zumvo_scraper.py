@@ -19,22 +19,25 @@ import scraper
 import urllib
 import urlparse
 import re
-import xbmcaddon
-import xbmc
 import base64
+import time
+from salts_lib import kodi
 from salts_lib import log_utils
 from salts_lib.constants import VIDEO_TYPES
+from salts_lib.constants import FORCE_NO_MATCH
 from salts_lib.constants import QUALITIES
 
-BASE_URL = 'http://zumvo.me'
+BASE_URL = 'http://zumvo.so'
 QUALITY_MAP = {'HD': QUALITIES.HIGH, 'CAM': QUALITIES.LOW, 'BR-RIP': QUALITIES.HD720, 'UNKNOWN': QUALITIES.MEDIUM, 'SD': QUALITIES.HIGH}
+AJAX_URL = '/ajax/?episode_id=%s&film_id=%s&episode-time=%s'
 
 class Zumvo_Scraper(scraper.Scraper):
     base_url = BASE_URL
 
     def __init__(self, timeout=scraper.DEFAULT_TIMEOUT):
         self.timeout = timeout
-        self.base_url = xbmcaddon.Addon().getSetting('%s-base_url' % (self.get_name()))
+        self.base_url = kodi.get_setting('%s-base_url' % (self.get_name()))
+        self.ajax_url = urlparse.urljoin(self.base_url, AJAX_URL)
 
     @classmethod
     def provides(cls):
@@ -48,38 +51,63 @@ class Zumvo_Scraper(scraper.Scraper):
         return link
 
     def format_source_label(self, item):
-        return '[%s] %s (%s views)' % (item['quality'], item['host'], item['views'])
+        label = '[%s] %s' % (item['quality'], item['host'])
+        if item['views'] is not None:
+            label += ' (%s views)' % (item['views'])
+        return label
 
     def get_sources(self, video):
         source_url = self.get_url(video)
         hosters = []
-        if source_url:
+        if source_url and source_url != FORCE_NO_MATCH:
             url = urlparse.urljoin(self.base_url, source_url)
-            html = self._http_get(url, cache_limit=0)
-            quality = QUALITIES.LOW
-            match = re.search('class="status">([^<]+)', html)
+            html = self._http_get(url, cache_limit=.5)
+            match = re.search('href="([^"]+)"\s*class="player_btn_big"', html)
             if match:
-                quality = QUALITY_MAP.get(match.group(1), QUALITIES.LOW)
-
-            views = None
-            match = re.search('Views:</dt>\s*<dd>(\d+)', html, re.DOTALL)
-            if match:
-                views = match.group(1)
-
-            match = re.search('href="([^"]+)"\s*class="btn-watch"', html)
-            if match:
-                html = self._http_get(match.group(1), cache_limit=0)
-                match = re.search('proxy\.link":\s*"([^"&]+)', html)
+                url = match.group(1)
+                html = self._http_get(url, cache_limit=.5)
+                            
+                q_str = ''
+                match = re.search('class="status">([^<]+)', html)
                 if match:
-                    proxy_link = match.group(1)
-                    proxy_link = proxy_link.split('*', 1)[-1]
-                    stream_url = self._gk_decrypt(base64.urlsafe_b64decode('NlFQU1NQSGJrbXJlNzlRampXdHk='), proxy_link)
-                    if 'picasa' in stream_url:
-                        for source in self._parse_google(stream_url):
-                            hoster = {'multi-part': False, 'url': source, 'class': self, 'quality': self._gv_get_quality(source), 'host': self._get_direct_hostname(source), 'rating': None, 'views': views, 'direct': True}
-                            hosters.append(hoster)
-                    else:
-                        hoster = {'multi-part': False, 'url': stream_url, 'class': self, 'quality': quality, 'host': urlparse.urlsplit(stream_url).hostname, 'rating': None, 'views': views, 'direct': False}
+                    q_str = match.group(1)
+                
+                views = None
+                match = re.search('Views:</dt>\s*<dd>(\d+)', html, re.DOTALL)
+                if match:
+                    views = match.group(1)
+                
+                match = re.search('data-film-id\s*=\s*"([^"]+)', html)
+                if match:
+                    film_id = match.group(1)
+                    for match in re.finditer('data-episode-id\s*=\s*"([^"]+)', html):
+                        episode_id = match.group(1)
+                        now = int(time.time() * 1000)
+                        ajax_url = self.ajax_url % (episode_id, film_id, now)
+                        ajax_html = self._http_get(ajax_url, cache_limit=.5)
+                        ajax_html = ajax_html.replace('\\"', '"').replace('\/', '/')
+                        match = re.search('<iframe[^>]+src="([^"]+)', ajax_html)
+                        if match:
+                            stream_url = match.group(1)
+                            host = urlparse.urlparse(stream_url).hostname
+                            direct = False
+                            quality = QUALITY_MAP.get(q_str, QUALITIES.HIGH)
+                        else:
+                            match = re.search('proxy\.link":\s*"([^"&]+)', html)
+                            if match:
+                                proxy_link = match.group(1)
+                                proxy_link = proxy_link.split('*', 1)[-1]
+                                stream_url = self._gk_decrypt(base64.urlsafe_b64decode('NlFQU1NQSGJrbXJlNzlRampXdHk='), proxy_link)
+                                if self._get_direct_hostname(stream_url) == 'gvideo':
+                                    host = self._get_direct_hostname(stream_url)
+                                    direct = True
+                                    quality = self._gv_get_quality(stream_url)
+                                else:
+                                    continue
+                            else:
+                                continue
+                                                
+                        hoster = {'multi-part': False, 'url': stream_url, 'class': self, 'quality': quality, 'host': host, 'rating': None, 'views': views, 'direct': direct}
                         hosters.append(hoster)
 
         return hosters
@@ -99,7 +127,7 @@ class Zumvo_Scraper(scraper.Scraper):
             for match in re.finditer(pattern, result_fragment, re.DOTALL):
                 url, title, match_year = match.groups('')
                 if not year or not match_year or year == match_year:
-                    result = {'url': url.replace(self.base_url, ''), 'title': title, 'year': match_year}
+                    result = {'url': self._pathify_url(url), 'title': title, 'year': match_year}
                     results.append(result)
         return results
 
@@ -107,6 +135,6 @@ class Zumvo_Scraper(scraper.Scraper):
         html = super(Zumvo_Scraper, self)._cached_http_get(url, self.base_url, self.timeout, cache_limit=cache_limit)
         cookie = self._get_sucuri_cookie(html)
         if cookie:
-            log_utils.log('Setting Zumvo cookie: %s' % (cookie), xbmc.LOGDEBUG)
+            log_utils.log('Setting Zumvo cookie: %s' % (cookie), log_utils.LOGDEBUG)
             html = super(Zumvo_Scraper, self)._cached_http_get(url, self.base_url, self.timeout, cookies=cookie, cache_limit=0)
         return html

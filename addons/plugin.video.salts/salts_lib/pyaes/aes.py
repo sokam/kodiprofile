@@ -1,3 +1,4 @@
+#@PydevCodeAnalysisIgnore
 # The MIT License (MIT)
 #
 # Copyright (c) 2014 Richard Moore
@@ -49,7 +50,6 @@
 
 
 # See the README.md for API details and general information.
-
 
 import copy
 import struct

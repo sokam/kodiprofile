@@ -1722,6 +1722,7 @@ def determine_source(search_string, is_domain=False):
                 ('clicknupload.com', 'ClicknUpload', 'resolve_clicknupload'),
                 ('clicknupload.me', 'ClicknUpload', 'resolve_clicknupload'),
                 ('upload.af', 'Upload', 'resolve_upload_af'),
+                ('uploadx.org', 'UploadX', 'resolve_uploadx'),
                 ('tusfiles.net', 'TusFiles', 'resolve_tusfiles'),
                 ('xfileload.com', 'XfileLoad', 'resolve_xfileload'),
                 ('mightyupload.com', 'MightyUpload', 'resolve_mightyupload'),

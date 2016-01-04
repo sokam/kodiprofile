@@ -17,22 +17,37 @@
 """
 import scraper
 import re
-import urllib
 import urlparse
-import xbmcaddon
 import json
+import random
+import time
+import urllib
+from salts_lib import kodi
+from salts_lib import dom_parser
+from salts_lib import log_utils
 from salts_lib.constants import VIDEO_TYPES
+from salts_lib.constants import FORCE_NO_MATCH
 from salts_lib.constants import QUALITIES
+from salts_lib.constants import XHR
+
 
 BASE_URL = 'http://movietv.to'
+SEASON_URL = '/series/season?id=%s&s=%s&_=%s'
 LINK_URL = '/series/getLink?id=%s&s=%s&e=%s'
+
+BR_VERS = [
+    ['%s.0' % i for i in xrange(18, 42)],
+    ['41.0.2228.0', '41.0.2227.1', '41.0.2227.0', '41.0.2226.0', '40.0.2214.93', '37.0.2062.124']]
+WIN_VERS = ['Windows NT 6.3', 'Windows NT 6.1', 'Windows NT 6.0', 'Windows NT 5.0', 'Windows 3.1']
+MV_UAS = ['Mozilla/5.0 ({win_ver}; WOW64; rv:{br_ver}) Gecko/20100101 Firefox/{br_ver}',
+          'Mozilla/5.0 ({win_ver}) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/{br_ver} Safari/537.36']
 
 class MovieTV_Scraper(scraper.Scraper):
     base_url = BASE_URL
 
     def __init__(self, timeout=scraper.DEFAULT_TIMEOUT):
         self.timeout = timeout
-        self.base_url = xbmcaddon.Addon().getSetting('%s-base_url' % (self.get_name()))
+        self.base_url = kodi.get_setting('%s-base_url' % (self.get_name()))
 
     @classmethod
     def provides(cls):
@@ -52,62 +67,97 @@ class MovieTV_Scraper(scraper.Scraper):
     def get_sources(self, video):
         source_url = self.get_url(video)
         hosters = []
-        if source_url:
+        if source_url and source_url != FORCE_NO_MATCH:
+            if video.video_type == VIDEO_TYPES.EPISODE:
+                source_url += '&_=%s' % (str(int(time.time()) * 1000))
             url = urlparse.urljoin(self.base_url, source_url)
-            html = self._http_get(url, cache_limit=1)
+            headers = {'Referer': self.base_url + '/'}
+            html = self._http_get(url, headers=headers, cache_limit=1)
+            sources = {}
             if video.video_type == VIDEO_TYPES.MOVIE:
-                pattern = '<source\s+src="([^"]+)'
-                match = re.search(pattern, html)
-                if match:
-                    html = '{"url":"%s"}' % (match.group(1))
-                else:
-                    return hosters
-                quality = QUALITIES.HD720
+                for match in re.finditer('var\s+(videolink[^\s]*)\s*=\s*"([^"]+)', html):
+                    var_name, stream_url = match.groups()
+                    if 'hd' in var_name:
+                        quality = QUALITIES.HD1080
+                    else:
+                        quality = QUALITIES.HD720
+                    sources[stream_url] = quality
             else:
-                quality = QUALITIES.HIGH
-
-            try:
-                js_data = json.loads(html)
-                if js_data['url']:
-                    stream_url = js_data['url'] + '|referer=%s' % (url)
-                    hoster = {'multi-part': False, 'host': self._get_direct_hostname(stream_url), 'class': self, 'url': stream_url, 'quality': quality, 'views': None, 'rating': None, 'direct': True}
-                    hosters.append(hoster)
-            except ValueError:
-                pass
+                try:
+                    js_data = json.loads(html)
+                except ValueError:
+                    log_utils.log('Invalid JSON returned: %s: %s' % (url, html), log_utils.LOGWARNING)
+                else:
+                    sources[js_data['url']] = QUALITIES.HD720
+                
+            for match in re.finditer('<source[^>]+src=["\']([^\'"]+)[^>]+type=[\'"]video', html):
+                sources[match.group(1)] = QUALITIES.HD720
+                
+            for source in sources:
+                stream_url = source + '|Referer=%s&Cookie=%s' % (urllib.quote(url), self.__get_stream_cookies())
+                hoster = {'multi-part': False, 'host': self._get_direct_hostname(stream_url), 'class': self, 'url': stream_url, 'quality': sources[source], 'views': None, 'rating': None, 'direct': True}
+                hosters.append(hoster)
 
         return hosters
+
+    def __get_stream_cookies(self):
+        cj = self._set_cookies(self.base_url, {})
+        cookies = []
+        for cookie in cj:
+            cookies.append('%s=%s' % (cookie.name, cookie.value))
+        return urllib.quote(';'.join(cookies))
 
     def get_url(self, video):
         return super(MovieTV_Scraper, self)._default_get_url(video)
 
     def _get_episode_url(self, show_url, video):
-        episode_pattern = 'playSeries\((\d+),%s,%s\)' % (video.season, video.episode)
-        title_pattern = ''
-        airdate_pattern = ''
-        result = super(MovieTV_Scraper, self)._default_get_episode_url(show_url, video, episode_pattern, title_pattern, airdate_pattern)
-        return LINK_URL % (result, video.season, video.episode)
-
+        url = urlparse.urljoin(self.base_url, show_url)
+        html = self._http_get(url, cache_limit=1)
+        match = re.search("var\s+id\s*=\s*'?(\d+)'?", html)
+        if match:
+            show_id = match.group(1)
+            season_url = SEASON_URL % (show_id, video.season, str(int(time.time()) * 1000))
+            season_url = urlparse.urljoin(self.base_url, season_url)
+            html = self._http_get(season_url, cache_limit=1)
+            try:
+                js_data = json.loads(html)
+            except ValueError:
+                log_utils.log('Invalid JSON returned: %s: %s' % (url, html), log_utils.LOGWARNING)
+            else:
+                force_title = self._force_title(video)
+                if not force_title:
+                    for episode in js_data:
+                            if int(episode['episode_number']) == int(video.episode):
+                                return LINK_URL % (show_id, video.season, episode['episode_number'])
+                
+                if (force_title or kodi.get_setting('title-fallback') == 'true') and video.ep_title:
+                    norm_title = self._normalize_title(video.ep_title)
+                    for episode in js_data:
+                        if norm_title == self._normalize_title(episode['title']):
+                            return LINK_URL % (show_id, video.season, episode['episode_number'])
+        
     def search(self, video_type, title, year):
         results = []
-        url = urlparse.urljoin(self.base_url, '/search/auto?q=')
-        url += urllib.quote_plus(title)
-        html = self._http_get(url, headers={'X-Requested-With': 'XMLHttpRequest'}, cache_limit=.25)
+        url = urlparse.urljoin(self.base_url, '/index/loadmovies')
         if video_type == VIDEO_TYPES.MOVIE:
-            url_frag = '/movies/'
+            query_type = 'movie'
         else:
-            url_frag = '/series/'
+            query_type = 'tv'
+        data = {'loadmovies': 'showData', 'page': 1, 'abc': 'All', 'genres': '', 'sortby': 'Popularity', 'quality': 'All', 'type': query_type, 'q': title}
+        html = self._http_get(url, data=data, headers=XHR, cache_limit=2)
 
-        if html:
-            try:
-                js_results = json.loads(html)
-                for item in js_results:
-                    if url_frag in item['link'] and (not year or not item['year'] or int(year) == int(item['year'])):
-                        result = {'url': item['link'], 'title': item['title'], 'year': item['year']}
-                        results.append(result)
-            except:
-                pass
+        for item in dom_parser.parse_dom(html, 'div', {'class': 'item'}):
+            match = re.search('href="([^"]+).*?class="movie-title">\s*([^<]+).*?movie-date">(\d+)', item, re.DOTALL)
+            if match:
+                link, match_title, match_year = match.groups()
+                if not year or not match_year or int(year) == int(match_year):
+                    result = {'url': self._pathify_url(link), 'title': match_title, 'year': match_year}
+                    results.append(result)
 
         return results
 
-    def _http_get(self, url, data=None, headers=None, cache_limit=8):
-        return super(MovieTV_Scraper, self)._cached_http_get(url, self.base_url, self.timeout, data=data, headers=headers, cache_limit=cache_limit)
+    def _http_get(self, url, data=None, headers=None, allow_redirect=True, cache_limit=8):
+        if headers is None: headers = {}
+        index = random.randrange(len(MV_UAS))
+        headers['User-Agent'] = MV_UAS[index].format(win_ver=random.choice(WIN_VERS), br_ver=random.choice(BR_VERS[index]))
+        return super(MovieTV_Scraper, self)._cached_http_get(url, self.base_url, self.timeout, data=data, headers=headers, allow_redirect=allow_redirect, cache_limit=cache_limit)

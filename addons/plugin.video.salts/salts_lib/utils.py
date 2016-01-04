@@ -40,11 +40,13 @@ from db_utils import DB_Connection
 import threading
 
 ICON_PATH = os.path.join(kodi.get_path(), 'icon.png')
-SORT_FIELDS = [(SORT_LIST[int(kodi.get_setting('sort1_field'))], SORT_SIGNS[kodi.get_setting('sort1_order')]),
-                (SORT_LIST[int(kodi.get_setting('sort2_field'))], SORT_SIGNS[kodi.get_setting('sort2_order')]),
-                (SORT_LIST[int(kodi.get_setting('sort3_field'))], SORT_SIGNS[kodi.get_setting('sort3_order')]),
-                (SORT_LIST[int(kodi.get_setting('sort4_field'))], SORT_SIGNS[kodi.get_setting('sort4_order')]),
-                (SORT_LIST[int(kodi.get_setting('sort5_field'))], SORT_SIGNS[kodi.get_setting('sort5_order')])]
+SORT_FIELDS = [
+    (SORT_LIST[int(kodi.get_setting('sort1_field'))], SORT_SIGNS[kodi.get_setting('sort1_order')]),
+    (SORT_LIST[int(kodi.get_setting('sort2_field'))], SORT_SIGNS[kodi.get_setting('sort2_order')]),
+    (SORT_LIST[int(kodi.get_setting('sort3_field'))], SORT_SIGNS[kodi.get_setting('sort3_order')]),
+    (SORT_LIST[int(kodi.get_setting('sort4_field'))], SORT_SIGNS[kodi.get_setting('sort4_order')]),
+    (SORT_LIST[int(kodi.get_setting('sort5_field'))], SORT_SIGNS[kodi.get_setting('sort5_order')]),
+    (SORT_LIST[int(kodi.get_setting('sort6_field'))], SORT_SIGNS[kodi.get_setting('sort6_order')])]
 
 last_check = datetime.datetime.fromtimestamp(0)
 
@@ -56,7 +58,7 @@ trakt_api = Trakt_API(TOKEN, use_https, list_size, trakt_timeout)
 db_connection = DB_Connection()
 
 THEME_LIST = ['Shine', 'Luna_Blue', 'Iconic', 'Simple', 'SALTy', 'SALTy (Blended)', 'SALTy (Blue)', 'SALTy (Frog)', 'SALTy (Green)',
-              'SALTy (Macaw)', 'SALTier (Green)', 'SALTier (Orange)', 'SALTier (Red)', 'IGDB', 'Simply Elegant']
+              'SALTy (Macaw)', 'SALTier (Green)', 'SALTier (Orange)', 'SALTier (Red)', 'IGDB', 'Simply Elegant', 'IGDB Redux']
 THEME = THEME_LIST[int(kodi.get_setting('theme'))]
 if xbmc.getCondVisibility('System.HasAddon(script.salts.themepak)'):
     themepak_path = xbmcaddon.Addon('script.salts.themepak').getAddonInfo('path')
@@ -109,7 +111,7 @@ def show_id(show):
     return queries
 
 def update_url(video_type, title, year, source, old_url, new_url, season, episode):
-    log_utils.log('Setting Url: |%s|%s|%s|%s|%s|%s|%s|%s|' % (video_type, title, year, source, old_url, new_url, season, episode), log_utils.LOGDEBUG)
+    log_utils.log('Setting Url: |%s|%s|%s|%s|%s|%s|%s|%s|' % (video_type, title.decode('utf-8').encode('ascii', 'xmlcharrefreplace'), year, source, old_url, new_url, season, episode), log_utils.LOGDEBUG)
     if new_url:
         db_connection.set_related_url(video_type, title, year, source, new_url, season, episode)
     else:
@@ -185,7 +187,7 @@ def make_info(item, show=None, people=None):
     info = {}
     info['title'] = item['title']
     if 'overview' in item: info['plot'] = info['plotoutline'] = item['overview']
-    if 'runtime' in item: info['duration'] = item['runtime']
+    if 'runtime' in item and item['runtime'] is not None: info['duration'] = item['runtime'] * 60
     if 'certification' in item: info['mpaa'] = item['certification']
     if 'year' in item: info['year'] = item['year']
     if 'season' in item: info['season'] = item['season']  # needs check
@@ -216,7 +218,7 @@ def make_info(item, show=None, people=None):
     # override item params with show info if it exists
     if 'certification' in show: info['mpaa'] = show['certification']
     if 'year' in show: info['year'] = show['year']
-    if 'runtime' in show: info['duration'] = show['runtime']
+    if 'runtime' in show and show['runtime'] is not None: info['duration'] = show['runtime'] * 60
     if 'title' in show: info['tvshowtitle'] = show['title']
     if 'network' in show: info['studio'] = show['network']
     if 'status' in show: info['status'] = show['status']
@@ -321,15 +323,11 @@ def filter_exclusions(hosters):
     return filtered_hosters
 
 def filter_quality(video_type, hosters):
-    qual_filter = int(kodi.get_setting('%s_quality' % video_type))
-    if qual_filter == 0:
+    qual_filter = 5 - int(kodi.get_setting('%s_quality' % video_type))  # subtract to match Q_ORDER
+    if qual_filter == 5:
         return hosters
-    elif qual_filter == 1:
-        keep_qual = [QUALITIES.HD720, QUALITIES.HD1080]
     else:
-        keep_qual = [QUALITIES.LOW, QUALITIES.MEDIUM, QUALITIES.HIGH]
-
-    return [hoster for hoster in hosters if hoster['quality'] in keep_qual]
+        return [hoster for hoster in hosters if Q_ORDER[hoster['quality']] <= qual_filter]
 
 def get_sort_key(item):
     item_sort_key = []
@@ -345,6 +343,11 @@ def get_sort_key(item):
             if value in SORT_KEYS[field]:
                 item_sort_key.append(sign * int(SORT_KEYS[field][value]))
             else:  # assume all unlisted values sort as worst
+                item_sort_key.append(sign * -1)
+        elif field == 'debrid':
+            if field in item:
+                item_sort_key.append(sign * bool(item[field]))
+            else:
                 item_sort_key.append(sign * -1)
         else:
             if item[field] is None:
@@ -413,8 +416,12 @@ def parallel_get_sources(q, scraper, video):
     worker = threading.current_thread()
     log_utils.log('Worker: %s (%s) for %s sources' % (worker.name, worker, scraper.get_name()), log_utils.LOGDEBUG)
     hosters = scraper.get_sources(video)
+    if hosters is None: hosters = []
     if kodi.get_setting('filter_direct') == 'true':
         hosters = [hoster for hoster in hosters if not hoster['direct'] or test_stream(hoster)]
+    for hoster in hosters:
+        if not hoster['direct']:
+            hoster['host'] = hoster['host'].lower().strip()
     log_utils.log('%s returned %s sources from %s' % (scraper.get_name(), len(hosters), worker), log_utils.LOGDEBUG)
     result = {'name': scraper.get_name(), 'hosters': hosters}
     q.put(result)
@@ -425,7 +432,11 @@ def parallel_get_url(q, scraper, video):
     url = scraper.get_url(video)
     log_utils.log('%s returned url %s from %s' % (scraper.get_name(), url, worker), log_utils.LOGDEBUG)
     if not url: url = ''
-    related = {'class': scraper, 'url': url, 'name': scraper.get_name(), 'label': '[%s] %s' % (scraper.get_name(), url)}
+    if url == FORCE_NO_MATCH:
+        label = '[%s] [COLOR green]%s[/COLOR]' % (scraper.get_name(), i18n('force_no_match'))
+    else:
+        label = '[%s] %s' % (scraper.get_name(), url)
+    related = {'class': scraper, 'url': url, 'name': scraper.get_name(), 'label': label}
     q.put(related)
 
 def parallel_get_progress(q, trakt_id, cached):
@@ -438,12 +449,17 @@ def parallel_get_progress(q, trakt_id, cached):
 
 def test_stream(hoster):
     # parse_qsl doesn't work because it splits elements by ';' which can be in a non-quoted UA
-    try: headers = dict([item.split('=') for item in (hoster['url'].split('|')[1]).split('&')])
-    except: headers = {}
+    try:
+        headers = dict([item.split('=') for item in (hoster['url'].split('|')[1]).split('&')])
+        for key in headers: headers[key] = urllib.unquote(headers[key])
+    except:
+        headers = {}
     log_utils.log('Testing Stream: %s from %s using Headers: %s' % (hoster['url'], hoster['class'].get_name(), headers), xbmc.LOGDEBUG)
     request = urllib2.Request(hoster['url'].split('|')[0], headers=headers)
 
-    #  set urlopen timeout to 10 seconds
+    opener = urllib2.build_opener(urllib2.HTTPRedirectHandler)
+    urllib2.install_opener(opener)
+    #  set urlopen timeout to 1 seconds
     try: http_code = urllib2.urlopen(request, timeout=1).getcode()
     except urllib2.URLError as e:
         # treat an unhandled url type as success
@@ -481,14 +497,14 @@ def do_scheduled_task(task, isPlaying):
     now = datetime.datetime.now()
     if kodi.get_setting('auto-%s' % task) == 'true':
         if last_check < now - datetime.timedelta(minutes=1):
-            #log_utils.log('Check Triggered: Last: %s Now: %s' % (last_check, now), log_utils.LOGDEBUG)
+            # log_utils.log('Check Triggered: Last: %s Now: %s' % (last_check, now), log_utils.LOGDEBUG)
             next_run = get_next_run(task)
             last_check = now
         else:
             # hack next_run to be in the future
             next_run = now + datetime.timedelta(seconds=1)
 
-        #log_utils.log("Update Status on [%s]: Currently: %s Will Run: %s Last Check: %s" % (task, now, next_run, last_check), xbmc.LOGDEBUG)
+        # log_utils.log("Update Status on [%s]: Currently: %s Will Run: %s Last Check: %s" % (task, now, next_run, last_check), xbmc.LOGDEBUG)
         if now >= next_run:
             is_scanning = xbmc.getCondVisibility('Library.IsScanningVideo')
             if not is_scanning:
@@ -649,6 +665,16 @@ def format_sub_label(sub):
     label = '[COLOR %s]%s[/COLOR]' % (color, label)
     return label
 
+def format_source_label(item):
+    label = item['class'].format_source_label(item)
+    label = '[%s] %s' % (item['class'].get_name(), label)
+    if kodi.get_setting('show_debrid') == 'true' and 'debrid' in item and item['debrid']:
+        label = '[COLOR green]%s[/COLOR]' % (label)
+    if 'debrid' in item and item['debrid']:
+        label += ' (%s)' % (', '.join(item['debrid']))
+    item['label'] = label
+    return label
+    
 def srt_indicators_enabled():
     return (kodi.get_setting('enable-subtitles') == 'true' and (kodi.get_setting('subtitle-indicator') == 'true'))
 
@@ -700,54 +726,64 @@ def get_force_title_list():
     filter_list = filter_str.split('|') if filter_str else []
     return filter_list
 
-def calculate_success(name):
-    tries = kodi.get_setting('%s_try' % (name))
-    fail = kodi.get_setting('%s_fail' % (name))
-    tries = int(tries) if tries else 0
-    fail = int(fail) if fail else 0
-    rate = int(round((fail * 100.0) / tries)) if tries > 0 else 0
-    rate = 100 - rate
-    return rate
+def get_progress_skip_list():
+    filter_str = kodi.get_setting('progress_skip_cache')
+    filter_list = filter_str.split('|') if filter_str else []
+    return filter_list
 
-def record_timeouts(fails):
-    for key in fails:
-        if fails[key] == True:
-            log_utils.log('Recording Timeout of %s' % (key), log_utils.LOGWARNING)
-            increment_setting('%s_fail' % key)
+def get_force_progress_list():
+    filter_str = kodi.get_setting('force_include_progress')
+    filter_list = filter_str.split('|') if filter_str else []
+    return filter_list
+
+def record_failures(fails, counts=None):
+    if counts is None: counts = {}
+
+    for name in fails:
+        setting = '%s_last_results' % (name)
+        # remove timeouts from counts so they aren't double counted
+        if name in counts: del counts[name]
+        if int(kodi.get_setting(setting)) > -1:
+            accumulate_setting(setting, 5)
+    
+    for name in counts:
+        setting = '%s_last_results' % (name)
+        if counts[name]:
+            kodi.set_setting(setting, '0')
+        elif int(kodi.get_setting(setting)) > -1:
+            accumulate_setting(setting)
 
 def do_disable_check():
-    scrapers = relevant_scrapers()
     auto_disable = kodi.get_setting('auto-disable')
-    check_freq = int(kodi.get_setting('disable-freq'))
-    disable_thresh = int(kodi.get_setting('disable-thresh'))
-    for cls in scrapers:
-        last_check = db_connection.get_setting('%s_check' % (cls.get_name()))
-        last_check = int(last_check) if last_check else 0
-        tries = kodi.get_setting('%s_try' % (cls.get_name()))
-        tries = int(tries) if tries else 0
-        if tries > 0 and tries / check_freq > last_check / check_freq:
-            kodi.set_setting('%s_check' % (cls.get_name()), str(tries))
-            success_rate = calculate_success(cls.get_name())
-            if success_rate < disable_thresh:
-                if auto_disable == DISABLE_SETTINGS.ON:
+    disable_limit = int(kodi.get_setting('disable-limit'))
+    for cls in relevant_scrapers():
+        setting = '%s_last_results' % (cls.get_name())
+        fails = kodi.get_setting(setting)
+        fails = int(fails) if fails else 0
+        if fails >= disable_limit:
+            if auto_disable == DISABLE_SETTINGS.ON:
+                kodi.set_setting('%s-enable' % (cls.get_name()), 'false')
+                kodi.notify(msg='[COLOR blue]%s[/COLOR] %s' % (cls.get_name(), i18n('scraper_disabled')), duration=5000)
+                kodi.set_setting(setting, '0')
+            elif auto_disable == DISABLE_SETTINGS.PROMPT:
+                dialog = xbmcgui.Dialog()
+                line1 = i18n('disable_line1') % (cls.get_name(), fails)
+                line2 = i18n('disable_line2')
+                line3 = i18n('disable_line3')
+                ret = dialog.yesno('SALTS', line1, line2, line3, i18n('keep_enabled'), i18n('disable_it'))
+                if ret:
                     kodi.set_setting('%s-enable' % (cls.get_name()), 'false')
-                    kodi.notify(msg='[COLOR blue]%s[/COLOR] %s' % (i18n('scraper_disabled')), duration=5000)
-                elif auto_disable == DISABLE_SETTINGS.PROMPT:
-                    dialog = xbmcgui.Dialog()
-                    line1 = i18n('disable_line1') % (cls.get_name(), 100 - success_rate, tries)
-                    line2 = i18n('disable_line2')
-                    line3 = i18n('disable_line3')
-                    ret = dialog.yesno('SALTS', line1, line2, line3, i18n('keep_enabled'), i18n('disable_it'))
-                    if ret:
-                        kodi.set_setting('%s-enable' % (cls.get_name()), 'false')
+                    kodi.set_setting(setting, '0')
+                else:
+                    kodi.set_setting(setting, '-1')
 
 def menu_on(menu):
     return kodi.get_setting('show_%s' % (menu)) == 'true'
 
-def increment_setting(setting):
+def accumulate_setting(setting, addend=1):
     cur_value = kodi.get_setting(setting)
     cur_value = int(cur_value) if cur_value else 0
-    kodi.set_setting(setting, cur_value + 1)
+    kodi.set_setting(setting, cur_value + addend)
 
 def show_requires_source(trakt_id):
     show_str = kodi.get_setting('exists_list')
@@ -803,7 +839,6 @@ def format_time(seconds):
 def download_media(url, path, file_name):
     try:
         progress = int(kodi.get_setting('down_progress'))
-        import urllib2
         request = urllib2.Request(url)
         request.add_header('User-Agent', USER_AGENT)
         request.add_unredirected_header('Host', request.get_host())

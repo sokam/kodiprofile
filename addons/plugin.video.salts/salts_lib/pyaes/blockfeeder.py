@@ -63,10 +63,7 @@ AESBlockModeOfOperation._can_consume = _block_can_consume
 AESBlockModeOfOperation._final_encrypt = _block_final_encrypt
 AESBlockModeOfOperation._final_decrypt = _block_final_decrypt
 
-
-
 # CFB is a segment cipher
-
 def _segment_can_consume(self, size):
     return self.segment_bytes * int(size // self.segment_bytes)
 
@@ -86,10 +83,7 @@ AESSegmentModeOfOperation._can_consume = _segment_can_consume
 AESSegmentModeOfOperation._final_encrypt = _segment_final_encrypt
 AESSegmentModeOfOperation._final_decrypt = _segment_final_decrypt
 
-
-
 # OFB and CTR are stream ciphers
-
 def _stream_can_consume(self, size):
     return size
 
@@ -103,8 +97,6 @@ AESStreamModeOfOperation._can_consume = _stream_can_consume
 AESStreamModeOfOperation._final_encrypt = _stream_final_encrypt
 AESStreamModeOfOperation._final_decrypt = _stream_final_decrypt
 
-
-
 class BlockFeeder(object):
     '''The super-class for objects to handle chunking a stream of bytes
        into the appropriate block size for the underlying mode of operation
@@ -116,7 +108,7 @@ class BlockFeeder(object):
         self._final = final
         self._buffer = to_bufferable("")
 
-    def feed(self, data = None):
+    def feed(self, data=None):
         '''Provide bytes to encrypt (or decrypt), returning any bytes
            possible from this or any previous calls to feed.
 
@@ -163,7 +155,7 @@ class Decrypter(BlockFeeder):
 # 8kb blocks
 BLOCK_SIZE = (1 << 13)
 
-def _feed_stream(feeder, in_stream, out_stream, block_size = BLOCK_SIZE):
+def _feed_stream(feeder, in_stream, out_stream, block_size=BLOCK_SIZE):
     'Uses feeder to read and convert from in_stream and write to out_stream.'
 
     while True:
@@ -176,14 +168,14 @@ def _feed_stream(feeder, in_stream, out_stream, block_size = BLOCK_SIZE):
     out_stream.write(converted)
 
 
-def encrypt_stream(mode, in_stream, out_stream, block_size = BLOCK_SIZE):
+def encrypt_stream(mode, in_stream, out_stream, block_size=BLOCK_SIZE):
     'Encrypts a stream of bytes from in_stream to out_stream using mode.'
 
     encrypter = Encrypter(mode)
     _feed_stream(encrypter, in_stream, out_stream, block_size)
 
 
-def decrypt_stream(mode, in_stream, out_stream, block_size = BLOCK_SIZE):
+def decrypt_stream(mode, in_stream, out_stream, block_size=BLOCK_SIZE):
     'Decrypts a stream of bytes from in_stream to out_stream using mode.'
 
     decrypter = Decrypter(mode)
