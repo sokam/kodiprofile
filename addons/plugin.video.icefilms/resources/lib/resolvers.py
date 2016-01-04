@@ -385,7 +385,8 @@ def resolve_upload_af(url):
 
         #Get download link
         dialog.update(100)
-        link = re.search('<a href="(.+?)" class="downloadbtn btn btn-success btn-lg">Download</a>', html)
+
+        link = re.search('<a href="(.+?)".+?>Download</a>', html)
         if link:
             return link.group(1) + '|User-Agent=%s' % USER_AGENT
         else:
@@ -398,6 +399,72 @@ def resolve_upload_af(url):
         dialog.close()
         
 
+def resolve_uploadx(url):
+
+    try:
+
+        headers = {'Referer': url}
+        
+        #Show dialog box so user knows something is happening
+        dialog = xbmcgui.DialogProgress()
+        dialog.create('Resolving', 'Resolving Uploadx Link...')       
+        dialog.update(0)
+        
+        addon.log('Uploadx - Requesting GET URL: %s' % url)
+        html = net.http_GET(url).content
+        
+        dialog.update(33)
+        
+        #Check page for any error msgs
+        if re.search('<b>File Not Found</b>', html):
+            addon.log_error('***** Uploadx - File is deleted')
+            raise Exception('File has been deleted from the host')
+
+        #Set POST data values
+        data = {}
+        r = re.findall('type="(hidden|submit)" name="(.+?)" value="(.*?)">', html)
+        if r:
+            for none, name, value in r:
+                data[name] = value
+
+        data['method_free'] = 'Free Download >>'                
+        
+        addon.log('Uploadx - Requesting POST URL: %s DATA: %s' % (url, data))                
+        html = net.http_POST(url, data, headers=headers).content
+        dialog.update(66)
+
+        data = {}
+        r = re.findall('type="(hidden|submit)" name="(.+?)" value="(.*?)">', html)
+        if r:
+            for none, name, value in r:
+                data[name] = value
+
+        #Check for captcha
+        data = handle_captchas(url, html, data, dialog)                
+        
+        # wait_string = re.search('<div class="btn btn-danger" id="countdown">Wait <b class="seconds">([0-9]+)</b> seconds</div>', html)
+        # if wait_string:
+            # xbmc.sleep(int(wait_string.group(1)) * 1000)
+    
+        addon.log('Uploadx - Requesting POST URL: %s DATA: %s' % (url, data))                                
+        html = net.http_POST(url, data, headers=headers).content
+
+        #Get download link
+        dialog.update(100)
+
+        link = re.search('<a href="(.+?)".+?>Download</a>', html)
+        if link:
+            return link.group(1) + '|User-Agent=%s' % USER_AGENT
+        else:
+            raise Exception("Unable to find final link")
+
+    except Exception, e:
+        addon.log_error('**** Uploadx Error occured: %s' % e)
+        raise
+    finally:
+        dialog.close()
+
+        
 def resolve_vidhog(url):
 
     try:
@@ -561,7 +628,7 @@ def resolve_hugefiles(url):
 
     try:
             
-        headers = {'Referer': 'http://www.icefilms.info/'}
+        headers = {'Referer': 'http://www.icefilms.info/', 'host': 'hugefiles.net'}
         
         puzzle_img = os.path.join(datapath, "hugefiles_puzzle.png")
         
@@ -585,6 +652,8 @@ def resolve_hugefiles(url):
 
         wrong_captcha = True
         
+        headers = {'Referer': web_url, 'host': 'hugefiles.net'}
+        
         while wrong_captcha:
         
             #Set POST data values
@@ -599,6 +668,8 @@ def resolve_hugefiles(url):
                 raise Exception('Unable to resolve HugeFiles Link')
             
             data['method_free'] = 'Free Download'
+            data['w'] = ""
+            data['h'] = ""
 
             #Handle captcha
             data.update(handle_captchas(web_url, html, data, dialog))

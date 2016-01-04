@@ -19,9 +19,12 @@ import scraper
 import urllib
 import urlparse
 import re
-import xbmcaddon
+from salts_lib import kodi
+from salts_lib import log_utils
 from salts_lib.constants import VIDEO_TYPES
+from salts_lib.constants import FORCE_NO_MATCH
 from salts_lib.constants import QUALITIES
+from salts_lib import dom_parser
 
 BASE_URL = 'http://film-streaming.in'
 
@@ -30,7 +33,7 @@ class FilmStreaming_Scraper(scraper.Scraper):
 
     def __init__(self, timeout=scraper.DEFAULT_TIMEOUT):
         self.timeout = timeout
-        self.base_url = xbmcaddon.Addon().getSetting('%s-base_url' % (self.get_name()))
+        self.base_url = kodi.get_setting('%s-base_url' % (self.get_name()))
 
     @classmethod
     def provides(cls):
@@ -41,35 +44,34 @@ class FilmStreaming_Scraper(scraper.Scraper):
         return 'FilmStreaming.in'
 
     def resolve_link(self, link):
-        if 'videomega' in link:
-            html = self._http_get(link, cache_limit=.5)
-            match = re.search('ref="([^"]+)', html)
-            if match:
-                return 'http://videomega.tv/iframe.php?ref=%s' % (match.group(1))
-        else:
-            return link
+        return link
 
     def format_source_label(self, item):
-        return '[%s] %s (%s views)' % (item['quality'], item['host'], item['views'])
+        return '[%s] %s' % (item['quality'], item['host'])
 
     def get_sources(self, video):
         source_url = self.get_url(video)
         hosters = []
-        if source_url:
+        if source_url and source_url != FORCE_NO_MATCH:
             url = urlparse.urljoin(self.base_url, source_url)
             html = self._http_get(url, cache_limit=.5)
-
-            views = None
-            match = re.search('class="sirala">([,\d]+) views', html, re.DOTALL)
-            if match:
-                views = match.group(1)
-                views = views.replace(',', '')
-
-            for match in re.finditer('class="tab_part".*?src=["\']([^\'"]+)', html, re.I):
-                url = match.group(1)
-                host = urlparse.urlparse(url).hostname
-                if 'youtube' not in host:
-                    hoster = {'multi-part': False, 'url': url, 'host': host, 'class': self, 'quality': QUALITIES.HIGH, 'views': views, 'rating': None, 'direct': False}
+            q_str = dom_parser.parse_dom(html, 'span', {'class': 'calidad\d*'})
+            if q_str:
+                if q_str[0].upper() == 'COMING SOON':
+                    return hosters
+                
+                try:
+                    quality = self._height_get_quality(q_str[0])
+                except:
+                    quality = QUALITIES.HIGH
+            else:
+                quality = QUALITIES.HIGH
+            fragment = dom_parser.parse_dom(html, 'div', {'id': 'player\d+'})
+            if fragment:
+                for match in re.finditer('<iframe[^>]+src="([^"]+)', fragment[0], re.I):
+                    stream_url = match.group(1)
+                    host = urlparse.urlparse(stream_url).hostname
+                    hoster = {'multi-part': False, 'url': stream_url, 'host': host, 'class': self, 'quality': quality, 'views': None, 'rating': None, 'direct': False}
                     hosters.append(hoster)
         return hosters
 
@@ -81,21 +83,22 @@ class FilmStreaming_Scraper(scraper.Scraper):
         search_url += urllib.quote_plus('%s %s' % (title, year))
         html = self._http_get(search_url, cache_limit=.25)
         results = []
-        if not re.search('I am sorry, what are you looking for', html, re.I):
-            pattern = 'FilmBaslik">.*?href="([^"]+)"\s+title="([^"]+)'
-            for match in re.finditer(pattern, html, re.DOTALL):
+        for item in dom_parser.parse_dom(html, 'div', {'class': 'item'}):
+            match = re.search('href="([^"]+).*?alt="([^"]+)', item, re.DOTALL)
+            if match:
                 url, match_title_year = match.groups()
                 match = re.search('(.*?)(?:\s+\(?(\d{4})\)?)', match_title_year)
                 if match:
                     match_title, match_year = match.groups()
                 else:
                     match_title = match_title_year
-                    match_year = ''
+                    year_fragment = dom_parser.parse_dom(item, 'span', {'class': 'year'})
+                    if year_fragment:
+                        match_year = year_fragment[0]
+                    else:
+                        match_year = ''
                 
                 if not year or not match_year or year == match_year:
-                    result = {'url': url.replace(self.base_url, ''), 'title': match_title, 'year': match_year}
+                    result = {'url': self._pathify_url(url), 'title': match_title, 'year': match_year}
                     results.append(result)
         return results
-
-    def _http_get(self, url, cache_limit=8):
-        return super(FilmStreaming_Scraper, self)._cached_http_get(url, self.base_url, self.timeout, cache_limit=cache_limit)

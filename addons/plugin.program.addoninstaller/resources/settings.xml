@@ -16,5 +16,6 @@
 		<setting visible="true" id="auto-view"    type="bool"   label="Enable Auto View" default="true"/>
 		<setting visible="true" id="default-view" type="number" label="Default View"  default="500" enable="!eq(-1,false)"/>
 		<setting visible="true" id="addon-view"   type="number" label="Addon View"    default="500" enable="!eq(-2,false)"/>
+		<setting visible="true" id="list-view"   type="number" label="List View"    default="50" enable="!eq(-3,false)"/>
 	</category>
 </settings>

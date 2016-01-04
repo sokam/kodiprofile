@@ -19,8 +19,9 @@ import scraper
 import urllib
 import urlparse
 import re
-import xbmcaddon
+from salts_lib import kodi
 from salts_lib.constants import VIDEO_TYPES
+from salts_lib.constants import FORCE_NO_MATCH
 
 BASE_URL = 'https://afdah.org'
 INFO_URL = BASE_URL + '/video_info'
@@ -30,7 +31,7 @@ class AfdahOrg_Scraper(scraper.Scraper):
 
     def __init__(self, timeout=scraper.DEFAULT_TIMEOUT):
         self.timeout = timeout
-        self.base_url = xbmcaddon.Addon().getSetting('%s-base_url' % (self.get_name()))
+        self.base_url = kodi.get_setting('%s-base_url' % (self.get_name()))
 
     @classmethod
     def provides(cls):
@@ -49,14 +50,14 @@ class AfdahOrg_Scraper(scraper.Scraper):
     def get_sources(self, video):
         source_url = self.get_url(video)
         hosters = []
-        if source_url:
+        if source_url and source_url != FORCE_NO_MATCH:
             url = urlparse.urljoin(self.base_url, source_url)
             html = self._http_get(url, cache_limit=.5)
             match = re.search('var\s*video_id="([^"]+)', html)
             if match:
                 video_id = match.group(1)
                 data = {'video_id': video_id}
-                html = self._http_get(INFO_URL, data=data, cache_limit=0)
+                html = self._http_get(INFO_URL, data=data, cache_limit=.5)
                 sources = self.__parse_fmt(html)
                 for width in sources:
                     hoster = {'multi-part': False, 'host': self._get_direct_hostname(sources[width]), 'class': self, 'quality': self._width_get_quality(width), 'views': None, 'rating': None, 'url': sources[width], 'direct': True}
@@ -100,9 +101,6 @@ class AfdahOrg_Scraper(scraper.Scraper):
         for match in re.finditer(pattern, html, re.DOTALL):
             url, match_title, match_year = match.groups()
             if not year or not match_year or year == match_year:
-                result = {'title': match_title, 'year': match_year, 'url': url.replace(self.base_url, '')}
+                result = {'title': match_title, 'year': match_year, 'url': self._pathify_url(url)}
                 results.append(result)
         return results
-
-    def _http_get(self, url, data=None, cache_limit=8):
-        return super(AfdahOrg_Scraper, self)._cached_http_get(url, self.base_url, self.timeout, data=data, cache_limit=cache_limit)

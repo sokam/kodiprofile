@@ -18,95 +18,152 @@
 import scraper
 import urllib
 import urlparse
+import base64
+import hashlib
+import json
 import re
-import xbmcaddon
+from salts_lib import kodi
 from salts_lib import log_utils
 from salts_lib.constants import VIDEO_TYPES
+from salts_lib.constants import FORCE_NO_MATCH
 from salts_lib.constants import QUALITIES
 
 BASE_URL = 'http://watchseries.ag'
+REAL_URL = base64.decodestring('aHR0cDovL3dzLm1n')
+WS_USER_AGENT = base64.decodestring('V1MgTW9iaWxl')
+HASH_PART1 = base64.decodestring('MzI4aiVHdVMq')
+HASH_PART2 = base64.decodestring('ZkEyNDMxNDJmbyMyMyU=')
 
 class WS_Scraper(scraper.Scraper):
     base_url = BASE_URL
 
     def __init__(self, timeout=scraper.DEFAULT_TIMEOUT):
         self.timeout = timeout
-        self.base_url = xbmcaddon.Addon().getSetting('%s-base_url' % (self.get_name()))
+        self.base_url = kodi.get_setting('%s-base_url' % (self.get_name()))
 
     @classmethod
     def provides(cls):
-        return frozenset([VIDEO_TYPES.TVSHOW, VIDEO_TYPES.SEASON, VIDEO_TYPES.EPISODE])
+        return frozenset([VIDEO_TYPES.TVSHOW, VIDEO_TYPES.EPISODE])
 
     @classmethod
     def get_name(cls):
         return 'WatchSeries'
 
     def resolve_link(self, link):
-        url = urlparse.urljoin(self.base_url, link)
-        html = self._http_get(url, cache_limit=0)
-        match = re.search('class\s*=\s*"myButton"\s+href\s*=\s*"(.*?)"', html)
-        if match:
-            return match.group(1)
-
+        return link
+    
     def format_source_label(self, item):
-        return '[%s] %s (%s/100)' % (item['quality'], item['host'], item['rating'])
+        return '[%s] %s' % (item['quality'], item['host'])
 
     def get_sources(self, video):
         source_url = self.get_url(video)
-        sources = []
-        if source_url:
-            url = urlparse.urljoin(self.base_url, source_url)
-            html = self._http_get(url, cache_limit=.5)
-            try:
-                match = re.search('>English Audio.*?</tbody>\s*</table>', html, re.DOTALL)
-                if match:
-                    fragment = match.group(0)
-                    pattern = 'href\s*=\s*"([^"]*)"\s+class\s*=\s*"buttonlink"\s+title\s*=([^\s]*).*?<span class="percent"[^>]+>\s+(\d+)%\s+</span>'
-                    for match in re.finditer(pattern, fragment, re.DOTALL):
-                        url, host, rating = match.groups()
-                        source = {'multi-part': False, 'url': url, 'host': host, 'quality': self._get_quality(video, host, QUALITIES.HIGH), 'class': self, 'views': None, 'direct': False}
-                        source['rating'] = int(rating)
-                        sources.append(source)
-            except Exception as e:
-                log_utils.log('Failure During %s get sources: %s' % (self.get_name(), str(e)))
-
-        return sources
+        hosters = []
+        if source_url and source_url != FORCE_NO_MATCH:
+            html = self._http_get(source_url, cache_limit=.5)
+            if html:
+                try:
+                    js_result = json.loads(html)
+                except ValueError:
+                    log_utils.log('Invalid JSON returned: %s: %s' % (source_url, html), log_utils.LOGWARNING)
+                else:
+                    if 'results' in js_result and '0' in js_result['results'] and 'links' in js_result['results']['0']:
+                        for link in js_result['results']['0']['links']:
+                            if 'lang' not in link or link['lang'].lower() == 'english':
+                                host = urlparse.urlparse(link['url']).hostname
+                                hoster = {'multi-part': False, 'url': link['url'], 'class': self, 'quality': self._get_quality(video, host, QUALITIES.HIGH), 'host': host, 'rating': None, 'views': None, 'direct': False}
+                                hosters.append(hoster)
+            
+        return hosters
 
     def get_url(self, video):
         return super(WS_Scraper, self)._default_get_url(video)
 
     def search(self, video_type, title, year):
-        search_url = urlparse.urljoin(self.base_url, '/search/')
-        search_url += urllib.quote_plus(title)
-        html = self._http_get(search_url, cache_limit=.25)
-
-        pattern = '<a title="watch[^"]+"\s+href="(.*?)"><b>(.*?)</b>'
         results = []
-        for match in re.finditer(pattern, html):
-            url, title_year = match.groups()
-            match = re.search('(.*?)\s+\((\d{4})\)', title_year)
-            if match:
-                title = match.group(1)
-                res_year = match.group(2)
+        search_url = '/search/%s/page/1' % (urllib.quote_plus(title))
+        html = self._http_get(search_url, cache_limit=.25)
+        if html:
+            try:
+                js_result = json.loads(html)
+            except ValueError:
+                log_utils.log('Invalid JSON returned: %s: %s' % (search_url, html), log_utils.LOGWARNING)
             else:
-                title = title_year
-                res_year = ''
-            if not year or year == res_year:
-                result = {'url': url, 'title': title, 'year': res_year}
-                results.append(result)
+                if 'results' in js_result:
+                    matches = [item[1] for item in sorted(js_result['results'].items(), key=lambda x:x[0])]
+                    for match in matches:
+                        url, match_title, match_year = match['href'], match['name'], match['year']
+                        if not year or not match_year or year == match_year:
+                            url = self._pathify_url(url)
+                            url = url.replace('/json', '')
+                            result = {'url': url, 'title': match_title, 'year': match_year}
+                            results.append(result)
         return results
 
     def _get_episode_url(self, show_url, video):
-        episode_pattern = 'href="(/episode/[^"]*_s%s_e%s\..*?)"' % (video.season, video.episode)
-        title_pattern = 'href="(/episode[^"]+).*?(?:&nbsp;)+([^<]+)'
-        airdate_pattern = 'href="(/episode/[^"]+)(?:[^>]+>){4}\s+{p_day}/{p_month}/{year}'
-        return super(WS_Scraper, self)._default_get_episode_url(show_url, video, episode_pattern, title_pattern, airdate_pattern)
+        log_utils.log('WS Episode Url: |%s|%s|' % (show_url, str(video).decode('utf-8', 'replace')), log_utils.LOGDEBUG)
+        html = self._http_get(show_url, cache_limit=2)
+        if html:
+            try:
+                js_result = json.loads(html)
+            except ValueError:
+                log_utils.log('Invalid JSON returned: %s: %s' % (show_url, html), log_utils.LOGWARNING)
+            else:
+                if 'results' in js_result and '0' in js_result['results'] and 'episodes' in js_result['results']['0']:
+                    seasons = js_result['results']['0']['episodes']
+                    force_title = self._force_title(video)
+                    if not force_title:
+                        if str(video.season) in seasons:
+                            season = seasons[str(video.season)]
+                            if isinstance(season, list):
+                                season = dict((ep['episode'], ep) for ep in season)
 
-    def _http_get(self, url, cache_limit=8):
-        return super(WS_Scraper, self)._cached_http_get(url, self.base_url, self.timeout, cache_limit=cache_limit)
+                            if str(video.episode) in season:
+                                url = season[str(video.episode)]['url']
+                                return self._pathify_url(url.replace('/json', ''))
+    
+                        if kodi.get_setting('airdate-fallback') == 'true' and video.ep_airdate:
+                            airdate_pattern = video.ep_airdate.strftime('%d/%M/%Y')
+                            for season in seasons:
+                                if season.lower() == 'epcount': continue
+                                episodes = seasons[season]
+                                if isinstance(episodes, dict):
+                                    episodes = [episodes[key] for key in episodes]
+                                for episode in episodes:
+                                    if airdate_pattern == episode['release']:
+                                        url = episode['url']
+                                        return self._pathify_url(url.replace('/json', ''))
+                    else:
+                        log_utils.log('Skipping S&E matching as title search is forced on: %s' % (video.trakt_id), log_utils.LOGDEBUG)
+     
+                    if (force_title or kodi.get_setting('title-fallback') == 'true') and video.ep_title:
+                        norm_title = self._normalize_title(video.ep_title)
+                        for season in seasons:
+                            if season.lower() == 'epcount': continue
+                            episodes = seasons[season]
+                            if isinstance(episodes, dict):
+                                episodes = [episodes[key] for key in episodes]
+                            for episode in episodes:
+                                if episode['name'] is not None and norm_title == self._normalize_title(episode['name']):
+                                    url = episode['url']
+                                    return self._pathify_url(url.replace('/json', ''))
 
     @classmethod
     def get_settings(cls):
         settings = super(WS_Scraper, cls).get_settings()
         settings = cls._disable_sub_check(settings)
         return settings
+    
+    def _http_get(self, url, cache_limit=8):
+        url = self.__translate_url(url)
+        headers = {'User-Agent': WS_USER_AGENT}
+        result = super(WS_Scraper, self)._http_get(url, headers=headers, cache_limit=cache_limit)
+        result = re.sub('<script.*?</script>', '', result)
+        return result
+    
+    def __translate_url(self, url):
+        if not url.startswith('/json'):
+            url = '/json' + url
+        
+        url_hash = hashlib.md5(HASH_PART1 + url + HASH_PART2).hexdigest()
+        url = '/' + url_hash + url
+        return urlparse.urljoin(REAL_URL, url)

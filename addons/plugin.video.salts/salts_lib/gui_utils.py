@@ -21,6 +21,7 @@ import os
 import kodi
 from trans_utils import i18n
 from trakt_api import Trakt_API
+from salts_lib import log_utils
 
 ICON_PATH = os.path.join(kodi.get_path(), 'icon.png')
 use_https = kodi.get_setting('use_https') == 'true'
@@ -53,20 +54,20 @@ def get_pin():
             never.controlRight(self.pin_edit_control)
             
         def onAction(self, action):
-            #print 'Action: %s' % (action.getId())
+            # print 'Action: %s' % (action.getId())
             if action == ACTION_PREVIOUS_MENU or action == ACTION_BACK:
                 self.close()
 
         def onControl(self, control):
-            #print 'onControl: %s' % (control)
+            # print 'onControl: %s' % (control)
             pass
 
         def onFocus(self, control):
-            #print 'onFocus: %s' % (control)
+            # print 'onFocus: %s' % (control)
             pass
 
         def onClick(self, control):
-            #print 'onClick: %s' % (control)
+            # print 'onClick: %s' % (control)
             if control == AUTH_BUTTON:
                 if not self.__get_token():
                     kodi.notify(msg=i18n('pin_auth_failed'), duration=5000)
@@ -95,7 +96,8 @@ def get_pin():
                     profile = trakt_api.get_user_profile(cached=False)
                     kodi.set_setting('trakt_user', '%s (%s)' % (profile['username'], profile['name']))
                     return True
-                except:
+                except Exception as e:
+                    log_utils.log('Trakt Authorization Failed: %s' % (e), log_utils.LOGDEBUG)
                     return False
             return False
         
@@ -117,17 +119,28 @@ def get_pin():
     del dialog
 
 class ProgressDialog(object):
-    def __init__(self, heading, line1=None, line2=None, line3=None):
-        self.pd = xbmcgui.DialogProgress()
-        self.pd.create(heading, line1, line2, line3)
-        self.pd.update(0)
+    def __init__(self, heading, line1=None, line2=None, line3=None, active=True):
+        if active:
+            self.pd = xbmcgui.DialogProgress()
+            self.pd.create(heading, line1, line2, line3)
+            self.pd.update(0)
+        else:
+            self.pd = None
 
     def __enter__(self):
         return self
     
     def __exit__(self, type, value, traceback):
-        self.pd.close()
-        del self.pd
+        if self.pd is not None:
+            self.pd.close()
+            del self.pd
     
+    def is_canceled(self):
+        if self.pd is not None:
+            return self.pd.iscanceled()
+        else:
+            return False
+        
     def update(self, percent, line1=None, line2=None, line3=None):
-        self.pd.update(percent, line1, line2, line3)
+        if self.pd is not None:
+            self.pd.update(percent, line1, line2, line3)

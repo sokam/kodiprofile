@@ -19,8 +19,9 @@ import scraper
 import urllib
 import urlparse
 import re
-import xbmcaddon
+from salts_lib import kodi
 from salts_lib.constants import VIDEO_TYPES
+from salts_lib.constants import FORCE_NO_MATCH
 from salts_lib.constants import QUALITIES
 
 BASE_URL = 'http://www.movie4k.to'
@@ -31,11 +32,11 @@ class Movie4K_Scraper(scraper.Scraper):
 
     def __init__(self, timeout=scraper.DEFAULT_TIMEOUT):
         self.timeout = timeout
-        self.base_url = xbmcaddon.Addon().getSetting('%s-base_url' % (self.get_name()))
+        self.base_url = kodi.get_setting('%s-base_url' % (self.get_name()))
 
     @classmethod
     def provides(cls):
-        return frozenset([VIDEO_TYPES.TVSHOW, VIDEO_TYPES.SEASON, VIDEO_TYPES.EPISODE, VIDEO_TYPES.MOVIE])
+        return frozenset([VIDEO_TYPES.TVSHOW, VIDEO_TYPES.EPISODE, VIDEO_TYPES.MOVIE])
 
     @classmethod
     def get_name(cls):
@@ -54,7 +55,7 @@ class Movie4K_Scraper(scraper.Scraper):
     def get_sources(self, video):
         source_url = self.get_url(video)
         hosters = []
-        if source_url:
+        if source_url and source_url != FORCE_NO_MATCH:
             url = urlparse.urljoin(self.base_url, source_url)
             html = self._http_get(url, cache_limit=.5)
 
@@ -68,7 +69,7 @@ class Movie4K_Scraper(scraper.Scraper):
                 else:
                     smiley = None
 
-                hoster = {'multi-part': False, 'host': host.lower(), 'class': self, 'quality': self._get_quality(video, host, QUALITY_MAP[smiley]), 'views': None, 'rating': None, 'url': url, 'direct': False}
+                hoster = {'multi-part': False, 'host': host, 'class': self, 'quality': self._get_quality(video, host, QUALITY_MAP[smiley]), 'views': None, 'rating': None, 'url': url, 'direct': False}
                 hosters.append(hoster)
         return hosters
 
@@ -97,9 +98,7 @@ class Movie4K_Scraper(scraper.Scraper):
                 match_year = ''
 
             if not year or not match_year or year == match_year:
-                url = url.replace(self.base_url, '')
-                if not url.startswith('/'): url = '/' + url
-                result = {'url': url, 'title': title, 'year': match_year}
+                result = {'url': self._pathify_url(url), 'title': title, 'year': match_year}
                 results.append(result)
         return results
 
@@ -113,10 +112,4 @@ class Movie4K_Scraper(scraper.Scraper):
                 pattern = 'value="([^"]+)">Episode %s<' % (video.episode)
                 match = re.search(pattern, fragment)
                 if match:
-                    url = match.group(1)
-                    url = url.replace(self.base_url, '')
-                    if not url.startswith('/'): url = '/' + url
-                    return url
-
-    def _http_get(self, url, cookies=None, data=None, cache_limit=8):
-        return super(Movie4K_Scraper, self)._cached_http_get(url, self.base_url, self.timeout, cookies=cookies, data=data, cache_limit=cache_limit)
+                    return self._pathify_url(match.group(1))

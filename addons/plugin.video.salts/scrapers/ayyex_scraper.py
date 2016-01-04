@@ -19,9 +19,10 @@ import scraper
 import urllib
 import urlparse
 import re
-import xbmcaddon
+from salts_lib import kodi
 from salts_lib import dom_parser
 from salts_lib.constants import VIDEO_TYPES
+from salts_lib.constants import FORCE_NO_MATCH
 from salts_lib.constants import QUALITIES
 
 BASE_URL = 'http://ayyex.com'
@@ -32,7 +33,7 @@ class Ayyex_Scraper(scraper.Scraper):
 
     def __init__(self, timeout=scraper.DEFAULT_TIMEOUT):
         self.timeout = timeout
-        self.base_url = xbmcaddon.Addon().getSetting('%s-base_url' % (self.get_name()))
+        self.base_url = kodi.get_setting('%s-base_url' % (self.get_name()))
 
     @classmethod
     def provides(cls):
@@ -54,7 +55,7 @@ class Ayyex_Scraper(scraper.Scraper):
     def get_sources(self, video):
         source_url = self.get_url(video)
         hosters = []
-        if source_url:
+        if source_url and source_url != FORCE_NO_MATCH:
             url = urlparse.urljoin(self.base_url, source_url)
             html = self._http_get(url, cache_limit=.5)
             fragment = dom_parser.parse_dom(html, 'div', {'id': 'player2'})
@@ -74,18 +75,14 @@ class Ayyex_Scraper(scraper.Scraper):
         results = []
         search_url = urlparse.urljoin(self.base_url, '/?s=%s')
         search_url = search_url % (urllib.quote_plus(title))
-        html = self._http_get(search_url, cache_limit=0)
+        html = self._http_get(search_url, cache_limit=.5)
         norm_title = self._normalize_title(title)
         for item in dom_parser.parse_dom(html, 'div', {'class': 'item'}):
             match = re.search('href="([^"]+).*?<h2>([^<]+).*?class="year">\s*(\d+)', item, re.DOTALL)
             if match:
                 url, match_title, match_year = match.groups('')
                 if norm_title in self._normalize_title(match_title) and (not year or not match_year or year == match_year):
-                    result = {'url': url.replace(self.base_url, ''), 'title': match_title, 'year': match_year}
+                    result = {'url': self._pathify_url(url), 'title': match_title, 'year': match_year}
                     results.append(result)
                 
-        
         return results
-
-    def _http_get(self, url, cache_limit=8):
-        return super(Ayyex_Scraper, self)._cached_http_get(url, self.base_url, self.timeout, cache_limit=cache_limit)

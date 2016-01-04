@@ -86,8 +86,8 @@
         <addonforeignfilter default="true">false</addonforeignfilter>
         <addonnotifications default="true">true</addonnotifications>
         <addonupdates default="true">0</addonupdates>
-        <settinglevel>3</settinglevel>
-        <systemtotaluptime>63968</systemtotaluptime>
+        <settinglevel>1</settinglevel>
+        <systemtotaluptime>76459</systemtotaluptime>
     </general>
     <input>
         <enablejoystick default="true">true</enablejoystick>
@@ -380,7 +380,7 @@
         <vsync default="true">3</vsync>
     </videoscreen>
     <weather>
-        <addon>weather.openweathermap.extended</addon>
+        <addon>weather.yahoo</addon>
         <currentlocation default="true">1</currentlocation>
     </weather>
     <window>
@@ -418,7 +418,7 @@
         <setting type="bool" name="skin.confluence.WindowedTrailer">false</setting>
         <setting type="string" name="skin.confluence.CustomBackgroundPath">special://home/media/SKINDEFAULT.jpg</setting>
         <setting type="string" name="skin.confluence.HomeVideosButton1">plugin.video.channelpear</setting>
-        <setting type="string" name="skin.confluence.HomeVideosButton2">plugin.video.vdubt</setting>
+        <setting type="string" name="skin.confluence.HomeVideosButton2">plugin.video.salts</setting>
         <setting type="string" name="skin.confluence.HomeVideosButton3">plugin.video.genesis</setting>
         <setting type="string" name="skin.confluence.HomeVideosButton4">script.navi-x</setting>
         <setting type="string" name="skin.confluence.HomeVideosButton5">plugin.video.SportsDevil</setting>

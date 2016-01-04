@@ -57,18 +57,19 @@ class SRT_Scraper():
         site_matches = []
         for item in regex.finditer(html):
             tvshow_id, site_title = item.groups()
-            site_year = None
 
             # strip year off title and assign it to year if it exists
             r = re.search('(\s*\((\d{4})\))$', site_title)
             if r:
                 site_title = site_title.replace(r.group(1), '')
                 site_year = r.group(2)
+            else:
+                site_year = None
 
             # print 'show: |%s|%s|%s|' % (tvshow_id, site_title, site_year)
             if match_title == site_title.lower():
                 if year is None or year == site_year:
-                    db_connection.set_tvshow_id(title, year, tvshow_id)
+                    db_connection.set_related_url(VIDEO_TYPES.TVSHOW, title, year, SRT_SOURCE, tvshow_id)
                     return tvshow_id
 
                 site_matches.append((tvshow_id, site_title, site_year))
@@ -94,7 +95,7 @@ class SRT_Scraper():
         req_hd = kodi.get_setting('subtitle-hd') == 'true'
         items = []
         regex = re.compile('<td>(\d+)</td><td>(\d+)</td><td>.*?</td><td>(.*?)</td><td.*?>(.*?)</td>.*?<td.*?>(.+?)</td><td.*?>(.*?)</td><td.*?>(.*?)</td><td.*?>(.*?)</td><td.*?><a\s+href="(.*?)">.+?</td>',
-                         re.DOTALL)
+                           re.DOTALL)
         for match in regex.finditer(html):
             season, episode, srt_lang, version, completed, hi, corrected, hd, srt_url = match.groups()
             if not language or language == srt_lang and (not req_hi or hi) and (not req_hd or hd):
@@ -180,7 +181,7 @@ class SRT_Scraper():
         log_utils.log('Fetching Cached URL: %s' % url, log_utils.LOGDEBUG)
         before = time.time()
 
-        _, html = db_connection.get_cached_url(url, cache)
+        _, html = db_connection.get_cached_url(url, cache_limit=cache)
         if html:
             log_utils.log('Returning cached result for: %s' % (url), log_utils.LOGDEBUG)
             return html

@@ -1,3 +1,7 @@
 #LWP-Cookies-2.0
-Set-Cookie3: PHPSESSID=3drob0dh8k8irdpn2dem4ndqg1; path="/"; domain="www.flixanity.tv"; path_spec; discard; version=0
-Set-Cookie3: __utmx="JDEkNWZ0N2UxcXAkTTNEeXhMR3JzU3RRUFlHc2RpeUxFLw%3D%3D"; path="/"; domain="www.flixanity.tv"; path_spec; expires="2015-11-26 21:27:32Z"; version=0
+Set-Cookie3: PHPSESSID=pf4g7m26qtrpvd6do5c3s2la92; path="/"; domain="www.flixanity.is"; path_spec; discard; version=0
+Set-Cookie3: __utmx="JDEkNWZ0N2UxcXAkTTNEeXhMR3JzU3RRUFlHc2RpeUxFLw%3D%3D"; path="/"; domain="www.flixanity.is"; path_spec; expires="2016-01-04 19:53:29Z"; version=0
+Set-Cookie3: loggedOut=74; path="/"; domain="www.flixanity.is"; path_spec; expires="2315-10-24 19:23:29Z"; version=0
+Set-Cookie3: PHPSESSID=pf4g7m26qtrpvd6do5c3s2la92; path="/"; domain="www.flixanity.tv"; path_spec; discard; version=0
+Set-Cookie3: __utmx="JDEkNWZ0N2UxcXAkTTNEeXhMR3JzU3RRUFlHc2RpeUxFLw%3D%3D"; path="/"; domain="www.flixanity.tv"; path_spec; expires="2016-01-04 19:53:29Z"; version=0
+Set-Cookie3: loggedOut=74; path="/"; domain="www.flixanity.tv"; path_spec; expires="2315-10-24 19:23:29Z"; version=0

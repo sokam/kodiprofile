@@ -21,7 +21,7 @@ import urllib
 import urlparse
 import cookielib
 import xbmc
-import xbmcaddon
+from salts_lib import kodi
 import xbmcgui
 import os
 import re
@@ -38,23 +38,25 @@ from salts_lib import cloudflare
 from salts_lib import pyaes
 from salts_lib.db_utils import DB_Connection
 from salts_lib.constants import VIDEO_TYPES
+from salts_lib.constants import FORCE_NO_MATCH
 from salts_lib.constants import USER_AGENT
 from salts_lib.constants import QUALITIES
 from salts_lib.constants import HOST_Q
 from salts_lib.constants import Q_ORDER
 from salts_lib.constants import BLOG_Q_MAP
+from salts_lib.constants import SHORT_MONS
 import threading
 
 BASE_URL = ''
 CAPTCHA_BASE_URL = 'http://www.google.com/recaptcha/api'
-COOKIEPATH = xbmc.translatePath(xbmcaddon.Addon().getAddonInfo('profile'))
+COOKIEPATH = xbmc.translatePath(kodi.get_profile())
 MONTHS = ['January', 'February', 'March', 'April', 'May', 'June', 'July', 'August', 'September', 'October', 'November', 'December']
-SHORT_MONS = ['Jan', 'Feb', 'Mar', 'Apr', 'May', 'Jun', 'Jul', 'Aug', 'Sep', 'Oct', 'Nov', 'Dec']
 Q_LIST = [item[0] for item in sorted(Q_ORDER.items(), key=lambda x:x[1])]
+MAX_RESPONSE = 1024 * 1024 * 2
 
 class NoRedirection(urllib2.HTTPErrorProcessor):
     def http_response(self, request, response):
-        log_utils.log('Stopping Redirect', xbmc.LOGDEBUG)
+        log_utils.log('Stopping Redirect', log_utils.LOGDEBUG)
         return response
 
     https_response = http_response
@@ -187,12 +189,12 @@ class Scraper(object):
         the existing settings.xml fragment is removed and replaced by the new string
         """
         name = cls.get_name()
-        return ['         <setting id="%s-enable" type="bool" label="%s %s" default="true" visible="true"/>' % (name, name, i18n('enabled')),
-                    '         <setting id="%s-base_url" type="text" label="    %s" default="%s" visible="eq(-1,true)"/>' % (name, i18n('base_url'), cls.base_url),
-                    '         <setting id="%s-sub_check" type="bool" label="    %s" default="true" visible="eq(-2,true)"/>' % (name, i18n('page_existence')),
-                    '         <setting id="%s_try" type="number" default="0" visible="false"/>' % (name),
-                    '         <setting id="%s_fail" type="number" default="0" visible="false"/>' % (name),
-                    '         <setting id="%s_check" type="number" default="0" visible="false"/>' % (name), ]
+        return [
+            '         <setting id="%s-enable" type="bool" label="%s %s" default="true" visible="true"/>' % (name, name, i18n('enabled')),
+            '         <setting id="%s-base_url" type="text" label="    %s" default="%s" visible="eq(-1,true)"/>' % (name, i18n('base_url'), cls.base_url),
+            '         <setting id="%s-sub_check" type="bool" label="    %s" default="true" visible="eq(-2,true)"/>' % (name, i18n('page_existence')),
+            '         <setting id="%s_last_results" type="number" default="0" visible="false"/>' % (name),
+        ]
 
     @classmethod
     def _disable_sub_check(cls, settings):
@@ -217,38 +219,50 @@ class Scraper(object):
                 url = results[0]['url']
                 self.db_connection.set_related_url(temp_video_type, video.title, video.year, self.get_name(), url)
 
-        if url and video.video_type == VIDEO_TYPES.EPISODE:
-            result = self.db_connection.get_related_url(VIDEO_TYPES.EPISODE, video.title, video.year, self.get_name(), video.season, video.episode)
-            if result:
-                url = result[0][0]
-                log_utils.log('Got local related url: |%s|%s|%s|' % (video, self.get_name(), url))
-            else:
-                show_url = url
-                url = self._get_episode_url(show_url, video)
-                if url:
-                    self.db_connection.set_related_url(VIDEO_TYPES.EPISODE, video.title, video.year, self.get_name(), url, video.season, video.episode)
+        if video.video_type == VIDEO_TYPES.EPISODE:
+            if url == FORCE_NO_MATCH:
+                url = None
+            elif url:
+                result = self.db_connection.get_related_url(VIDEO_TYPES.EPISODE, video.title, video.year, self.get_name(), video.season, video.episode)
+                if result:
+                    url = result[0][0]
+                    log_utils.log('Got local related url: |%s|%s|%s|' % (video, self.get_name(), url))
+                else:
+                    show_url = url
+                    url = self._get_episode_url(show_url, video)
+                    if url:
+                        self.db_connection.set_related_url(VIDEO_TYPES.EPISODE, video.title, video.year, self.get_name(), url, video.season, video.episode)
 
         return url
 
+    def _http_get(self, url, cookies=None, data=None, multipart_data=None, headers=None, allow_redirect=True, cache_limit=8):
+        return self._cached_http_get(url, self.base_url, self.timeout, cookies=cookies, data=data, multipart_data=multipart_data,
+                                     headers=headers, allow_redirect=allow_redirect, cache_limit=cache_limit)
+    
     def _cached_http_get(self, url, base_url, timeout, cookies=None, data=None, multipart_data=None, headers=None, allow_redirect=True, cache_limit=8):
         if cookies is None: cookies = {}
         if timeout == 0: timeout = None
         if headers is None: headers = {}
         referer = headers['Referer'] if 'Referer' in headers else url
         log_utils.log('Getting Url: %s cookie=|%s| data=|%s| extra headers=|%s|' % (url, cookies, data, headers))
+        if data is not None:
+            if isinstance(data, basestring):
+                data = data
+            else:
+                data = urllib.urlencode(data, True)
+
+        if multipart_data is not None:
+            headers['Content-Type'] = 'multipart/form-data; boundary=X-X-X'
+            data = multipart_data
+
         self.create_db_connection()
-        _, html = self.db_connection.get_cached_url(url, cache_limit)
+        _, html = self.db_connection.get_cached_url(url, data, cache_limit)
         if html:
-            log_utils.log('Returning cached result for: %s' % (url), xbmc.LOGDEBUG)
+            log_utils.log('Returning cached result for: %s' % (url), log_utils.LOGDEBUG)
             return html
 
         try:
             self.cj = self._set_cookies(base_url, cookies)
-            if data is not None: data = urllib.urlencode(data, True)
-            if multipart_data is not None:
-                headers['Content-Type'] = 'multipart/form-data; boundary=X-X-X'
-                data = multipart_data
-
             request = urllib2.Request(url, data=data)
             request.add_header('User-Agent', USER_AGENT)
             request.add_unredirected_header('Host', request.get_host())
@@ -261,35 +275,45 @@ class Scraper(object):
             else:
                 opener = urllib2.build_opener(urllib2.HTTPRedirectHandler)
                 urllib2.install_opener(opener)
+                opener2 = urllib2.build_opener(urllib2.HTTPCookieProcessor(self.cj))
+                urllib2.install_opener(opener2)
 
             response = urllib2.urlopen(request, timeout=timeout)
             self.cj.extract_cookies(response, request)
-            if xbmcaddon.Addon().getSetting('cookie_debug') == 'true':
-                log_utils.log('Response Cookies: %s - %s' % (url, self.cookies_as_str(self.cj)), xbmc.LOGDEBUG)
+            if kodi.get_setting('cookie_debug') == 'true':
+                log_utils.log('Response Cookies: %s - %s' % (url, self.cookies_as_str(self.cj)), log_utils.LOGDEBUG)
             self.__fix_bad_cookies()
             self.cj.save(ignore_discard=True)
-            if not allow_redirect and response.getcode() in [301, 302, 303, 307]:
-                return response.info().getheader('Location')
+            if not allow_redirect and (response.getcode() in [301, 302, 303, 307] or response.info().getheader('Refresh')):
+                if response.info().getheader('Refresh') is not None:
+                    refresh = response.info().getheader('Refresh')
+                    return refresh.split(';')[-1].split('url=')[-1]
+                else:
+                    return response.info().getheader('Location')
+            
+            content_length = response.info().getheader('Content-Length', 0)
+            if int(content_length) > MAX_RESPONSE:
+                log_utils.log('Response exceeded allowed size. %s => %s / %s' % (url, content_length, MAX_RESPONSE), log_utils.LOGWARNING)
             
             if response.info().get('Content-Encoding') == 'gzip':
-                buf = StringIO(response.read())
+                buf = StringIO(response.read(MAX_RESPONSE))
                 f = gzip.GzipFile(fileobj=buf)
                 html = f.read()
             else:
-                html = response.read()
+                html = response.read(MAX_RESPONSE)
         except urllib2.HTTPError as e:
             if e.code == 503 and 'cf-browser-verification' in e.read():
                 html = cloudflare.solve(url, self.cj)
                 if not html:
                     return ''
             else:
-                log_utils.log('Error (%s) during scraper http get: %s' % (str(e), url), xbmc.LOGWARNING)
+                log_utils.log('Error (%s) during scraper http get: %s' % (str(e), url), log_utils.LOGWARNING)
                 return ''
         except Exception as e:
-            log_utils.log('Error (%s) during scraper http get: %s' % (str(e), url), xbmc.LOGWARNING)
+            log_utils.log('Error (%s) during scraper http get: %s' % (str(e), url), log_utils.LOGWARNING)
             return ''
 
-        self.db_connection.cache_url(url, html)
+        self.db_connection.cache_url(url, html, data)
         return html
 
     def _set_cookies(self, base_url, cookies):
@@ -297,17 +321,17 @@ class Scraper(object):
         cj = cookielib.LWPCookieJar(cookie_file)
         try: cj.load(ignore_discard=True)
         except: pass
-        if xbmcaddon.Addon().getSetting('cookie_debug') == 'true':
-            log_utils.log('Before Cookies: %s - %s' % (self, self.cookies_as_str(cj)), xbmc.LOGDEBUG)
+        if kodi.get_setting('cookie_debug') == 'true':
+            log_utils.log('Before Cookies: %s - %s' % (self, self.cookies_as_str(cj)), log_utils.LOGDEBUG)
         domain = urlparse.urlsplit(base_url).hostname
         for key in cookies:
             c = cookielib.Cookie(0, key, str(cookies[key]), port=None, port_specified=False, domain=domain, domain_specified=True,
-                                domain_initial_dot=False, path='/', path_specified=True, secure=False, expires=None, discard=False, comment=None,
-                                comment_url=None, rest={})
+                                 domain_initial_dot=False, path='/', path_specified=True, secure=False, expires=None, discard=False, comment=None,
+                                 comment_url=None, rest={})
             cj.set_cookie(c)
         cj.save(ignore_discard=True)
-        if xbmcaddon.Addon().getSetting('cookie_debug') == 'true':
-            log_utils.log('After Cookies: %s - %s' % (self, self.cookies_as_str(cj)), xbmc.LOGDEBUG)
+        if kodi.get_setting('cookie_debug') == 'true':
+            log_utils.log('After Cookies: %s - %s' % (self, self.cookies_as_str(cj)), log_utils.LOGDEBUG)
         return cj
 
     def cookies_as_str(self, cj):
@@ -355,20 +379,19 @@ class Scraper(object):
         wdlg.close()
         return {'recaptcha_challenge_field': match.group(1), 'recaptcha_response_field': solution}
 
-    def _default_get_episode_url(self, show_url, video, episode_pattern, title_pattern='', airdate_pattern=''):
-        log_utils.log('Default Episode Url: |%s|%s|%s|' % (self.base_url, show_url, str(video).decode('utf-8', 'replace')), xbmc.LOGDEBUG)
+    def _default_get_episode_url(self, show_url, video, episode_pattern, title_pattern='', airdate_pattern='', data=None, headers=None):
+        log_utils.log('Default Episode Url: |%s|%s|%s|%s|' % (self.base_url, show_url, str(video).decode('utf-8', 'replace'), data), log_utils.LOGDEBUG)
         url = urlparse.urljoin(self.base_url, show_url)
-        html = self._http_get(url, cache_limit=2)
+        html = self._http_get(url, data=data, headers=headers, cache_limit=2)
         if html:
             force_title = self._force_title(video)
 
             if not force_title:
                 match = re.search(episode_pattern, html, re.DOTALL)
                 if match:
-                    url = match.group(1)
-                    return url.replace(self.base_url, '')
+                    return self._pathify_url(match.group(1))
 
-                if xbmcaddon.Addon().getSetting('airdate-fallback') == 'true' and airdate_pattern and video.ep_airdate:
+                if kodi.get_setting('airdate-fallback') == 'true' and airdate_pattern and video.ep_airdate:
                     airdate_pattern = airdate_pattern.replace('{year}', str(video.ep_airdate.year))
                     airdate_pattern = airdate_pattern.replace('{month}', str(video.ep_airdate.month))
                     airdate_pattern = airdate_pattern.replace('{p_month}', '%02d' % (video.ep_airdate.month))
@@ -376,47 +399,49 @@ class Scraper(object):
                     airdate_pattern = airdate_pattern.replace('{short_month}', SHORT_MONS[video.ep_airdate.month - 1])
                     airdate_pattern = airdate_pattern.replace('{day}', str(video.ep_airdate.day))
                     airdate_pattern = airdate_pattern.replace('{p_day}', '%02d' % (video.ep_airdate.day))
-                    log_utils.log('Air Date Pattern: %s' % (airdate_pattern), xbmc.LOGDEBUG)
+                    log_utils.log('Air Date Pattern: %s' % (airdate_pattern), log_utils.LOGDEBUG)
 
                     match = re.search(airdate_pattern, html, re.DOTALL | re.I)
                     if match:
-                        url = match.group(1)
-                        return url.replace(self.base_url, '')
+                        return self._pathify_url(match.group(1))
             else:
-                log_utils.log('Skipping S&E matching as title search is forced on: %s' % (video.trakt_id), xbmc.LOGDEBUG)
+                log_utils.log('Skipping S&E matching as title search is forced on: %s' % (video.trakt_id), log_utils.LOGDEBUG)
 
-            if (force_title or xbmcaddon.Addon().getSetting('title-fallback') == 'true') and video.ep_title and title_pattern:
+            if (force_title or kodi.get_setting('title-fallback') == 'true') and video.ep_title and title_pattern:
                 norm_title = self._normalize_title(video.ep_title)
                 for match in re.finditer(title_pattern, html, re.DOTALL | re.I):
                     url, title = match.groups()
                     if norm_title == self._normalize_title(title):
-                        return url.replace(self.base_url, '')
+                        return self._pathify_url(url)
 
     def _force_title(self, video):
-            trakt_str = xbmcaddon.Addon().getSetting('force_title_match')
+            trakt_str = kodi.get_setting('force_title_match')
             trakt_list = trakt_str.split('|') if trakt_str else []
             return str(video.trakt_id) in trakt_list
 
     def _normalize_title(self, title):
         new_title = title.upper()
         new_title = re.sub('[^A-Za-z0-9]', '', new_title)
-        # log_utils.log('In title: |%s| Out title: |%s|' % (title,new_title), xbmc.LOGDEBUG)
+        # log_utils.log('In title: |%s| Out title: |%s|' % (title,new_title), log_utils.LOGDEBUG)
         return new_title
 
     def _blog_proc_results(self, html, post_pattern, date_format, video_type, title, year):
         results = []
-        match = re.search('(.*?)\s*S\d+E\d+\s*', title)
+        search_date = ''
+        search_sxe = ''
+        match = re.search('(.*?)\s*(S\d+E\d+)\s*', title)
         if match:
-            show_title = match.group(1)
+            show_title, search_sxe = match.groups()
         else:
-            match = re.search('(.*?)\s*\d{4}\.\d{2}\.\d{2}\s*', title)
+            match = re.search('(.*?)\s*(\d{4})[ .]?(\d{2})[ .]?(\d{2})\s*', title)
             if match:
-                show_title = match.group(1)
+                show_title, search_year, search_month, search_day = match.groups()
+                search_date = '%s%s%s' % (search_year, search_month, search_day)
             else:
                 show_title = title
         norm_title = self._normalize_title(show_title)
 
-        filter_days = datetime.timedelta(days=int(xbmcaddon.Addon().getSetting('%s-filter' % (self.get_name()))))
+        filter_days = datetime.timedelta(days=int(kodi.get_setting('%s-filter' % (self.get_name()))))
         today = datetime.date.today()
         for match in re.finditer(post_pattern, html, re.DOTALL):
             post_data = match.groupdict()
@@ -424,7 +449,7 @@ class Scraper(object):
             if 'quality' in post_data:
                 post_title += '- [%s]' % (post_data['quality'])
 
-            if filter_days:
+            if filter_days and date_format and 'date' in post_data:
                 try: post_date = datetime.datetime.strptime(post_data['date'], date_format).date()
                 except TypeError: post_date = datetime.datetime(*(time.strptime(post_data['date'], date_format)[0:6])).date()
                 if today - post_date > filter_days:
@@ -432,6 +457,8 @@ class Scraper(object):
 
             match_year = ''
             match_title = ''
+            match_date = ''
+            match_sxe = ''
             post_title = post_title.replace('&#8211;', '-')
             post_title = post_title.replace('&#8217;', "'")
             full_title = post_title
@@ -441,19 +468,23 @@ class Scraper(object):
                     match_title, match_year, extra_title = match.groups()
                     full_title = '%s [%s]' % (match_title, extra_title)
             else:
-                match = re.search('(.*?)\s*S\d+E\d+\s*(.*)', post_title)
+                match = re.search('(.*?)\s*(S\d+E\d+)\s*(.*)', post_title)
                 if match:
-                    match_title, extra_title = match.groups()
+                    match_title, match_sxe, extra_title = match.groups()
                     full_title = '%s [%s]' % (match_title, extra_title)
                 else:
-                    match = re.search('(.*?)\s*\d{4}[ .]?\d{2}[ .]?\d{2}\s*(.*)', post_title)
+                    match = re.search('(.*?)\s*(\d{4})[ .]?(\d{2})[ .]?(\d{2})\s*(.*)', post_title)
                     if match:
-                        match_title, extra_title = match.groups()
+                        match_title, match_year2, match_month, match_day, extra_title = match.groups()
+                        match_date = '%s%s%s' % (match_year2, match_month, match_day)
                         full_title = '%s [%s]' % (match_title, extra_title)
 
             match_norm_title = self._normalize_title(match_title)
-            if (match_norm_title in norm_title or norm_title in match_norm_title) and (not year or not match_year or year == match_year):
-                result = {'url': post_data['url'].replace(self.base_url, ''), 'title': full_title, 'year': match_year}
+            log_utils.log('Blog Results: |%s|%s| - |%s|%s| - |%s|%s| - |%s|%s|' % (match_norm_title, norm_title, year, match_year, search_date, match_date, search_sxe, match_sxe),
+                          log_utils.LOGDEBUG)
+            if (match_norm_title in norm_title or norm_title in match_norm_title) and (not year or not match_year or year == match_year) \
+                    and (not search_date or (search_date == match_date)) and (not search_sxe or (search_sxe == match_sxe)):
+                result = {'url': self._pathify_url(post_data['url']), 'title': full_title, 'year': match_year}
                 results.append(result)
         return results
     
@@ -465,12 +496,15 @@ class Scraper(object):
             url = result[0][0]
             log_utils.log('Got local related url: |%s|%s|%s|%s|%s|' % (video.video_type, video.title, video.year, self.get_name(), url))
         else:
-            select = int(xbmcaddon.Addon().getSetting('%s-select' % (self.get_name())))
+            select = int(kodi.get_setting('%s-select' % (self.get_name())))
             if video.video_type == VIDEO_TYPES.EPISODE:
                 temp_title = re.sub('[^A-Za-z0-9 ]', '', video.title)
                 if not self._force_title(video):
                     search_title = '%s S%02dE%02d' % (temp_title, int(video.season), int(video.episode))
-                    fallback_search = '%s %s' % (temp_title, video.ep_airdate.strftime('%Y{0}%m{0}%d'.format(delim)))
+                    if isinstance(video.ep_airdate, datetime.date):
+                        fallback_search = '%s %s' % (temp_title, video.ep_airdate.strftime('%Y{0}%m{0}%d'.format(delim)))
+                    else:
+                        fallback_search = ''
                 else:
                     if not video.ep_title: return None
                     search_title = '%s %s' % (temp_title, video.ep_title)
@@ -519,6 +553,7 @@ class Scraper(object):
         return self._get_quality(video, host, post_quality)
 
     def _get_quality(self, video, host, base_quality=None):
+        host = host.lower()
         # Assume movies are low quality, tv shows are high quality
         if base_quality is None:
             if video.video_type == VIDEO_TYPES.MOVIE:
@@ -530,13 +565,12 @@ class Scraper(object):
 
         host_quality = None
         if host:
-            hl = host.lower()
             for key in HOST_Q:
-                if any(hostname in hl for hostname in HOST_Q[key]):
+                if any(hostname in host for hostname in HOST_Q[key]):
                     host_quality = key
                     break
 
-        # log_utils.log('q_str: %s, host: %s, post q: %s, host q: %s' % (q_str, host, post_quality, host_quality), xbmc.LOGDEBUG)
+        # log_utils.log('q_str: %s, host: %s, post q: %s, host q: %s' % (q_str, host, post_quality, host_quality), log_utils.LOGDEBUG)
         if host_quality is not None and Q_ORDER[host_quality] < Q_ORDER[quality]:
             quality = host_quality
 
@@ -557,6 +591,9 @@ class Scraper(object):
         return quality
 
     def _height_get_quality(self, height):
+        if str(height)[-1] in ['p', 'P']:
+            height = str(height)[:-1]
+            
         height = int(height)
         if height > 800:
             quality = QUALITIES.HD1080
@@ -571,6 +608,7 @@ class Scraper(object):
         return quality
 
     def _gv_get_quality(self, stream_url):
+        stream_url = urllib.unquote(stream_url)
         if 'itag=18' in stream_url or '=m18' in stream_url:
             return QUALITIES.MEDIUM
         elif 'itag=22' in stream_url or '=m22' in stream_url:
@@ -604,7 +642,7 @@ class Scraper(object):
                     if match:
                         return {match.group(1): match.group(2)}
                 except Exception as e:
-                    log_utils.log('Exception during sucuri js: %s' % (e), xbmc.LOGWARNING)
+                    log_utils.log('Exception during sucuri js: %s' % (e), log_utils.LOGWARNING)
         
         return {}
         
@@ -617,22 +655,33 @@ class Scraper(object):
     
     def _parse_google(self, link):
         sources = []
+        html = self._http_get(link, cache_limit=.5)
         i = link.rfind('#')
         if i > -1:
             link_id = link[i + 1:]
-            html = self._http_get(link, cache_limit=.5)
             match = re.search('feedPreload:\s*(.*}]}})},', html, re.DOTALL)
             if match:
                 try:
                     js = json.loads(match.group(1))
                 except ValueError:
-                    log_utils.log('Invalid JSON returned for: %s' % (link), xbmc.LOGWARNING)
+                    log_utils.log('Invalid JSON returned for: %s' % (link), log_utils.LOGWARNING)
                 else:
                     for item in js['feed']['entry']:
                         if item['gphoto$id'] == link_id:
                             for media in item['media']['content']:
                                 if media['type'].startswith('video'):
                                     sources.append(media['url'].replace('%3D', '='))
+        else:
+            match = re.search('preload\'?:\s*(.*}})},', html, re.DOTALL)
+            if match:
+                try:
+                    js = json.loads(match.group(1))
+                except ValueError:
+                    log_utils.log('Invalid JSON returned for: %s' % (link), log_utils.LOGWARNING)
+                else:
+                    for media in js['feed']['media']['content']:
+                        if media['type'].startswith('video'):
+                            sources.append(media['url'].replace('%3D', '='))
 
         return sources
 
@@ -644,10 +693,66 @@ class Scraper(object):
             plain_text += decrypter.feed()
             plain_text = plain_text.split('\0', 1)[0]
         except Exception as e:
-            log_utils.log('Exception (%s) during %s gk decrypt: cipher_link: %s' % (e, self.get_name(), cipher_link), xbmc.LOGWARNING)
+            log_utils.log('Exception (%s) during %s gk decrypt: cipher_link: %s' % (e, self.get_name(), cipher_link), log_utils.LOGWARNING)
             plain_text = ''
 
         return plain_text
+    
+    def _parse_episode_link(self, link):
+        link = urllib.unquote(link)
+        match = re.match('(.*?)(?:\.|_| )S(\d+)(?:\.|_| )?E(\d+)(?:E\d+)*.*?(?:(?:_|\.)(\d+)p(?:_|\.))(.*)', link, re.I)
+        if match:
+            return match.groups()
+        else:
+            match = re.match('(.*?)(?:\.|_| )S(\d+)(?:\.|_| )?E(\d+)(?:E\d+)*(.*)', link, re.I)
+            if match:
+                return match.groups()[:-1] + ('480', ) + (match.groups()[-1],)  # assume no height = 480
+            else:
+                return ('', '-1', '-1', '-1', '')
+    
+    def _parse_movie_link(self, link):
+        file_name = link.split('/')[-1]
+        match = re.match('(.*?)(?:(?:\.|_)(\d{4})(?:(?:\.|_).*?)*)?(?:\.|_)(\d+)p(?:\.|_)(.*)', file_name)
+        if match:
+            return match.groups()
+        else:
+            return ('', '', '480', '')  # make 480p when unknown
+    
+    def _title_check(self, video, title):
+        title = self._normalize_title(title)
+        if video.video_type == VIDEO_TYPES.MOVIE:
+            return self._normalize_title(video.title) in title and (not video.year or video.year in title)
+        else:
+            sxe = 'S%02dE%02d' % (int(video.season), int(video.episode))
+            se = '%d%02d' % (int(video.season), int(video.episode))
+            try:
+                air_date = video.ep_airdate.strftime('%Y%m%d')
+            except:
+                air_date = ''
+                
+            if sxe in title:
+                show_title = title.split(sxe)[0]
+            elif air_date and air_date in title:
+                show_title = title.split(air_date)[0]
+            elif se in title:
+                show_title = title.split(se)[0]
+            else:
+                show_title = title
+            # log_utils.log('%s - %s - %s - %s - %s' % (self._normalize_title(video.title), show_title, title, sxe, air_date), log_utils.LOGDEBUG)
+            return self._normalize_title(video.title) in show_title and (sxe in title or se in title or air_date in title)
+    
+    def _pathify_url(self, url):
+        url = url.replace('\/', '/')
+        pieces = urlparse.urlparse(url)
+        if pieces.scheme:
+            strip = pieces.scheme + ':'
+        else:
+            strip = ''
+        strip += '//' + pieces.netloc
+        url = url.replace(strip, '')
+        if not url.startswith('/'): url = '/' + url
+        url = url.replace('/./', '/')
+        return url
     
     def create_db_connection(self):
         worker_id = threading.current_thread().ident

@@ -19,8 +19,9 @@ import scraper
 import re
 import urllib
 import urlparse
-import xbmcaddon
+from salts_lib import kodi
 from salts_lib.constants import VIDEO_TYPES
+from salts_lib.constants import FORCE_NO_MATCH
 from salts_lib.constants import QUALITIES
 
 QUALITY_MAP = {'HD': QUALITIES.HIGH, 'DVD': QUALITIES.HIGH, 'TV': QUALITIES.HIGH, 'LQ DVD': QUALITIES.MEDIUM, 'CAM': QUALITIES.LOW}
@@ -31,11 +32,11 @@ class Solar_Scraper(scraper.Scraper):
 
     def __init__(self, timeout=scraper.DEFAULT_TIMEOUT):
         self.timeout = timeout
-        self.base_url = xbmcaddon.Addon().getSetting('%s-base_url' % (self.get_name()))
+        self.base_url = kodi.get_setting('%s-base_url' % (self.get_name()))
 
     @classmethod
     def provides(cls):
-        return frozenset([VIDEO_TYPES.TVSHOW, VIDEO_TYPES.SEASON, VIDEO_TYPES.EPISODE, VIDEO_TYPES.MOVIE])
+        return frozenset([VIDEO_TYPES.TVSHOW, VIDEO_TYPES.EPISODE, VIDEO_TYPES.MOVIE])
 
     @classmethod
     def get_name(cls):
@@ -55,7 +56,7 @@ class Solar_Scraper(scraper.Scraper):
     def get_sources(self, video):
         source_url = self.get_url(video)
         hosters = []
-        if source_url:
+        if source_url and source_url != FORCE_NO_MATCH:
             url = urlparse.urljoin(self.base_url, source_url)
             html = self._http_get(url, cache_limit=.5)
 
@@ -94,8 +95,7 @@ class Solar_Scraper(scraper.Scraper):
             for match in re.finditer('class="name">\s*<a\s+title="([^"]+)\s+\((\d{4})\)"\s+href="([^"]+)', html):
                 title, year, url = match.groups('')
                 if re.search('/season-\d+/episode-\d+', url): continue  # exclude episodes
-
-                result = {'url': url, 'title': title, 'year': year}
+                result = {'url': self._pathify_url(url), 'title': title, 'year': year}
                 results.append(result)
         return results
 
@@ -104,6 +104,3 @@ class Solar_Scraper(scraper.Scraper):
         title_pattern = 'href="([^"]+/season-\d+/episode-\d+/)"\s+title="([^"]+)'
         airdate_pattern = '<em>{month_name}\s+{day},\s+{year}</em>\s*<span\s+class="epnomber">\s*<a\s+href="([^"]+)'
         return super(Solar_Scraper, self)._default_get_episode_url(show_url, video, episode_pattern, title_pattern, airdate_pattern)
-
-    def _http_get(self, url, cache_limit=8):
-        return super(Solar_Scraper, self)._cached_http_get(url, self.base_url, self.timeout, cache_limit=cache_limit)

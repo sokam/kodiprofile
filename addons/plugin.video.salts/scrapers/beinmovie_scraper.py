@@ -19,9 +19,10 @@ import scraper
 import urllib
 import urlparse
 import re
-import xbmcaddon
+from salts_lib import kodi
 from salts_lib import dom_parser
 from salts_lib.constants import VIDEO_TYPES
+from salts_lib.constants import FORCE_NO_MATCH
 from salts_lib.constants import QUALITIES
 
 BASE_URL = 'https://beinmovie.com'
@@ -35,7 +36,7 @@ class BeinMovie_Scraper(scraper.Scraper):
 
     def __init__(self, timeout=scraper.DEFAULT_TIMEOUT):
         self.timeout = timeout
-        self.base_url = xbmcaddon.Addon().getSetting('%s-base_url' % (self.get_name()))
+        self.base_url = kodi.get_setting('%s-base_url' % (self.get_name()))
 
     @classmethod
     def provides(cls):
@@ -64,7 +65,7 @@ class BeinMovie_Scraper(scraper.Scraper):
     def get_sources(self, video):
         source_url = self.get_url(video)
         hosters = []
-        if source_url:
+        if source_url and source_url != FORCE_NO_MATCH:
             url = urlparse.urljoin(self.base_url, source_url)
             html = self._http_get(url, cache_limit=.5)
             
@@ -112,6 +113,3 @@ class BeinMovie_Scraper(scraper.Scraper):
                     result = {'url': DETAIL_URL % (match.group(1)), 'title': title[0], 'year': ''}
                     results.append(result)
         return results
-
-    def _http_get(self, url, cache_limit=8):
-        return super(BeinMovie_Scraper, self)._cached_http_get(url, self.base_url, self.timeout, cache_limit=cache_limit)

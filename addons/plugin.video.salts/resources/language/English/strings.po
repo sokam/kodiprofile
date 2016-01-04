@@ -206,7 +206,7 @@ msgid "be effective. The following settings will be changed:"
 msgstr ""
 
 msgctxt "#30048"
-msgid "[COLOR red]Scraper Sort Order, Source Sorting, Calendar Start Day, Trakt Timeout, Scraper Timeout[/COLOR]"
+msgid "[COLOR red]Scraper Sort Order, Source Sorting, Calendar Start Day, Trakt Timeout, Scraper Timeout, Watchlist in MNE, Test Direct[/COLOR]"
 msgstr ""
 
 msgctxt "#30049"
@@ -607,15 +607,15 @@ msgid "Scraper Automatically Disabled"
 msgstr ""
 
 msgctxt "#30148"
-msgid "The [COLOR blue]%s[/COLOR] scraper timed out on [COLOR red]%s%%[/COLOR] of %s requests"
+msgid "[COLOR blue]%s[/COLOR] returned no results %s times in a row."
 msgstr ""
 
 msgctxt "#30149"
-msgid "Each timeout wastes system resources and time."
+msgid "This wastes system resources and time."
 msgstr ""
 
 msgctxt "#30150"
-msgid "([I]If you keep it enabled, consider increasing the scraper timeout.[/I])"
+msgid "([I]If you keep it enabled, consider increasing your scraper timeout.[/I])"
 msgstr ""
 
 msgctxt "#30151"
@@ -856,6 +856,86 @@ msgstr ""
 
 msgctxt "#30210"
 msgid "Local Exists"
+msgstr ""
+
+msgctxt "#30211"
+msgid "Scraper Download Url"
+msgstr ""
+
+msgctxt "#30212"
+msgid "Scraper Decryption Key"
+msgstr ""
+
+msgctxt "#30213"
+msgid "Trakt On Deck"
+msgstr ""
+
+msgctxt "#30214"
+msgid "on"
+msgstr ""
+
+msgctxt "#30215"
+msgid "Delete Bookmark"
+msgstr ""
+
+msgctxt "#30216"
+msgid "Bookmark Deleted"
+msgstr ""
+
+msgctxt "#30217"
+msgid "Force No Match"
+msgstr ""
+
+msgctxt "#30218"
+msgid "Getting Sources"
+msgstr ""
+
+msgctxt "#30219"
+msgid "Requested Sources from: %s"
+msgstr ""
+
+msgctxt "#30220"
+msgid "Received %s Sources from: %s"
+msgstr ""
+
+msgctxt "#30221"
+msgid "Filtering Out Unusable Sources"
+msgstr ""
+
+msgctxt "#30222"
+msgid "Include Links from Comments"
+msgstr ""
+
+msgctxt "#30223"
+msgid "My Watched History"
+msgstr ""
+
+msgctxt "#30224"
+msgid "Trying Sources for Auto-Play"
+msgstr ""
+
+msgctxt "#30225"
+msgid "Trying: [%s] %s from %s"
+msgstr ""
+
+msgctxt "#30226"
+msgid "Failed: [%s] %s from %s"
+msgstr ""
+
+msgctxt "#30227"
+msgid "Scraper Timeouts: [COLOR blue]%s[/COLOR]"
+msgstr ""
+
+msgctxt "#30228"
+msgid "Reset Failures"
+msgstr ""
+
+msgctxt "#30229"
+msgid "Maximum Source Results"
+msgstr ""
+
+msgctxt "#30230"
+msgid "Include in My Next Episodes"
 msgstr ""
 
 msgctxt "#30500"
@@ -1188,7 +1268,7 @@ msgid "Maximum Source Results (0=No Limit)"
 msgstr ""
 
 msgctxt "#30580"
-msgid "Filter Top Unusable Sources (0=None)"
+msgid "Filter Out Unusable Sources"
 msgstr ""
 
 msgctxt "#30581"
@@ -1196,11 +1276,11 @@ msgid "Source Exclusion List"
 msgstr ""
 
 msgctxt "#30582"
-msgid "Allowed TV Show Quality"
+msgid "Maximum Allowed TV Show Quality"
 msgstr ""
 
 msgctxt "#30583"
-msgid "Allowed Movie Quality"
+msgid "Maximum Allowed Movie Quality"
 msgstr ""
 
 msgctxt "#30584"
@@ -1212,7 +1292,7 @@ msgid "Match episode title when season & episode fails"
 msgstr ""
 
 msgctxt "#30586"
-msgid "Automatically disable slow scrapers"
+msgid "Automatically disable ineffective scrapers"
 msgstr ""
 
 #. Keep 4 spaces at the beginning of string 
@@ -1458,3 +1538,81 @@ msgstr ""
 msgctxt "#30645"
 msgid "Skip movies/episodes that exist locally"
 msgstr ""
+
+msgctxt "#30646"
+msgid "Include Watchlist in My Next Episodes"
+msgstr ""
+
+msgctxt "#30647"
+msgid "Show Trakt On Deck"
+msgstr ""
+
+msgctxt "#30648"
+msgid "Show Custom Progress Dialog from Library"
+msgstr ""
+
+msgctxt "#30649"
+msgid "Create tvshow/movie nfo file for?"
+msgstr ""
+
+msgctxt "#30650"
+msgid "Won't scrape"
+msgstr ""
+
+msgctxt "#30651"
+msgid "All"
+msgstr ""
+
+msgctxt "#30652"
+msgid "Show Debrid Supported Sources in Green"
+msgstr ""
+
+msgctxt "#30653"
+msgid "6th Sort Key"
+msgstr ""
+
+msgctxt "#30654"
+msgid "6th Sort Key Order"
+msgstr ""
+
+msgctxt "#30655"
+msgid "Debrid"
+msgstr ""
+
+msgctxt "#30656"
+msgid "Show My Watched History"
+msgstr ""
+
+#. Keep 4 spaces at the beginning of string 
+msgctxt "#30657"
+msgid "    Consecutive Failure Level Limit"
+msgstr ""
+
+msgctxt "#30658"
+msgid "Mute Notifications"
+msgstr ""
+
+msgctxt "#30659"
+msgid "Exclude Completed, Ended Shows from My Next Episodes"
+msgstr ""
+
+msgctxt "#30660"
+msgid "HD1080"
+msgstr ""
+
+msgctxt "#30661"
+msgid "HD720"
+msgstr ""
+
+msgctxt "#30662"
+msgid "High"
+msgstr ""
+
+msgctxt "#30663"
+msgid "Medium"
+msgstr ""
+
+msgctxt "#30664"
+msgid "Low"
+msgstr ""
+

@@ -1,3 +1,244 @@
+[B]Version 1.0.82[/B]
+- Fix CouchTunerV1 scraper
+- Fix filmstreaming.in scraper
+- Update MoviesOnline7 scraper
+- Fix occasional kodi freeze using Select Source
+
+[B]Version 1.0.81[/B]
+- Fix LosMovies scraper
+- Fix Flixanity scraper
+- Fix uflix scraper
+- Fix pubfilm scraper
+- Fix viooz scraper
+- Remove scrapers for sites that have gone offline
+
+[B]Version 1.0.80[/B]
+- Fix 123movies search
+- Fix playback failed message (maybe)
+- Fix watchseries scraper
+- Add discrete max quality filter
+
+[B]Version 1.0.79[/B]
+- Improve dizigold scraper
+- Add xmovies8.v2 scraper
+- Fix unicode error that sometimes occured during sub update
+- Translation updates
+- Fix flixanity scraper
+- Fix ororo.tv login 
+
+[B]Version 1.0.78[/B]
+- Add dizipas scraper
+- Add moviehut scraper
+- Fix 2movies scraper
+- Fix mvl movie matching
+- Fix yify-streaming scraper
+- Fix filmstreaming.in scraper
+- Fix 123movies scraper
+- Improve couchtuner and watch8now scraper
+
+[B]Version 1.0.77[/B]
+- Furk scraper fixes (session timeouts; invalid login)
+- Improve moviestorm scraper
+- Handle liked list removal
+- Add progress exclusion cache
+- Fix MVL scraper
+
+[B]Version 1.0.76[/B]
+- Fix unicode in username
+- Improve urlresolver filter
+- Change disable algorithm (timeout = 5, 0 results = 1)
+- Add furk.net scraper
+- Fix srt scraper
+- Add option to mute notifications
+- Add miradetodo scraper
+- Rename directdownload.tv to dd.tv
+- Fix iwatchonline scraper
+
+[B]Version 1.0.75[/B]
+- Add diziay scraper
+- Add viewmovies scraper
+- Fix timeout notification
+
+[B]Version 1.0.74[/B]
+- Fix yify-streaming scraper
+- Fix 123movies scraper
+- Fix wso scraper
+- Fix ocw scraper
+- Semi-randomize auto-configure scraper sort order
+- Replace old disable check with simpler version
+- Show scraper name on get sources when <=5 scraper timeouts
+
+[B]Version 1.0.73[/B]
+- Improve DDLValley scraper
+- Fix menu items in Watched History
+- Add Auto-Play progress dialog is custom dialogs are on
+- Remove non-working scrapers
+
+[B]Version 1.0.72[/B]
+- Fix vidics scraper
+- Add ddlvaley scraper
+- Add rlsbb scraper
+- Add Watch History menu item
+- Improvements to Local, Dizist, and Dizibox scrapers
+
+[B]Version 1.0.71[/B]
+- Improve watchseries scraper
+- Show indicator on debrid sources
+- Add debrid sort key
+- Add new settings to auto-conf
+
+[B]Version 1.0.70[/B]
+- Add vacuum at strategy places to reduce SQLITE DB size
+- Attempt #1 at "Stream Failed to Play" bug.
+- Code Cleanup
+
+[B]Version 1.0.69[/B]
+- Add dizist scraper
+- Fix mysql data length
+- Stop prompting for resume points when PTVL running
+- Fix torba.se scraper audio
+- Add current translations for alternate languages
+
+[B]Version 1.0.67[/B]
+- Fix 2movies scraper
+- Improve putlocker scraper
+- Fix dizimag scraper
+- Fix moviefarsi movie search
+- Fix mvl scraper
+- Increase allowed space for data column
+
+[B]Version 1.0.66[/B]
+- Minor settings fix
+- Fix afdah scraper
+- Allow cancelled button in custom progress dialog
+- New function to include nfo files for strm files (thanks smokdpi!)
+- Add trakt auth failure logging
+- Fix slow scraper disable notification
+- Respect progress dialog setting for select & download source
+
+[B]Version 1.0.65[/B]
+- Fix ocw scraper
+- Add custom get sources dialog
+- Fix movietv.to scraper
+- Remove popcorntimefree scraper
+- Remove istreamhd.org scraper
+- Add easynews scraper
+- Add torba.se scraper
+- Improve dizimag scraper
+
+[B]Version 1.0.64[/B]
+- Allow caching of data in url requests
+- Add option to Force No Match
+- Update quality settings for IceFilms
+- Fix yify-streaming scraper
+- Fix view47 scraper
+- Fix popcorntime scraper
+- Make shush scraper private
+
+[B]Version 1.0.61[/B]
+- Fix 2movies scraper
+- Fix popcorntimefree scraper
+- Fix stream-tv
+- Fix yify.tv
+- Remove GVCenter
+- Remove MegaboxHD
+- Remove VKBox
+- Remove HDMZ
+- Fix movietv.to
+
+[B]Version 1.0.60[/B]
+- Fix xmovies8 scraper
+- Fix movietv.to scraper
+- fix yify-streaming scraper
+- Fix pctf scraper
+- Fix moviestorm.eu scraper
+- Improve clickplay.to scraper
+
+[B]Version 1.0.59[/B]
+- Add delete trakt bookmark function
+- Fix trakt resume when 0
+- Improve sezon scraper
+- Improve alluc scraper
+- Improve dd.tv scraper
+- Fix dizigold scraper
+- Fix movietv.to scraper
+- Fix moviesonline7 scraper
+- Fix mintmovies scraper
+- Fix pubfilm scraper
+- Fix 2movies scraper
+- Fix flixanity scraper
+- Fix zumvo scraper
+- Improve moviefarsi scraper
+- Fix/Improve xmovies8  scraper
+- Fix exception when runtime is None
+- Only import urlresolver when needed
+- Fix path building for movies
+
+[B]Version 1.0.57[/B]
+- Add putlocker scraper
+- Add yshows scraper
+- Fix funtastic-vids scraper
+- Improve/Fix ororo.tv scraper
+- Minor code fixes
+
+[B]Version 1.0.56[/B]
+- Add funtastic-vids scraper
+- Fix movietv.to scraper
+- Fix moviesonline7 scraper
+- Fix flixanity scraper
+- Fix rainierland scraper
+- Fix dizlab scraper
+- Fix duration infolabel for Isengard
+- Exclude episode titles from listitem labels when null
+
+[B]Version 1.0.55[/B]
+- Add option to include watchlist in My Next Episodes
+- Add "On Deck" menu item based on trakt bookmarks
+- Limit all fetches to 1MB
+- Improve episode matching for all dizi scrapers
+- Improve dizibox scraper
+- Fix ororo.tv (sorta?)
+- Fix sezonlukdizi
+- Fix moviefarsi search
+- Fix dizimag
+- pep8 code cleanup
+
+[B]Version 1.0.52[/B]
+- Fix movietv
+- Fix mvsnap
+- Fix onlinemovies.is
+
+[B]Version 1.0.51[/B]
+- Add year to TV Show folders
+- Add rainierland scraper
+- Add dizibox scraper
+- Add Sezonlukdizi scraper
+- Add IzlemeyeDeger scraper
+- Add movietube scraper
+- Fix calendar views misisng last day
+- Fix trakt bookmarks
+- Fix oneclickwatch scraper
+- Fix dizimag scraper
+
+[B]Version 1.0.50[/B]
+- Add onlinemoviespro scraper
+- Add onlinemoviesis scraper
+- Add 123Movies scraper
+- Fix moviefarsi
+
+[B]Version 1.0.48[/B]
+- Add moviefarsi scraper
+- Remove playbox scraper
+- Fix yify-streaming
+- Add oneclicktvshows scraper
+- Add dizigold scraper
+- Fix mvsnap scraper
+- Fix xmovies8 scraper
+- Fix losmovies scraper
+- Fix zumvo scraper
+- Add uid/pw option to alluc
+- Start on megabox and gvc proxies
+
 [B]Version 1.0.47[/B]
 - More icefilms ad testing
 - Add dizimag scraper

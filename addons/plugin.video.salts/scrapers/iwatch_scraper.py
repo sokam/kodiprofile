@@ -20,8 +20,9 @@ import re
 import urllib
 import urlparse
 import time
-import xbmcaddon
+from salts_lib import kodi
 from salts_lib.constants import VIDEO_TYPES
+from salts_lib.constants import FORCE_NO_MATCH
 from salts_lib.constants import QUALITIES
 
 QUALITY_MAP = {'HD': QUALITIES.HIGH, 'HDTV': QUALITIES.HIGH, 'DVD': QUALITIES.HIGH, '3D': QUALITIES.HIGH, 'CAM': QUALITIES.LOW}
@@ -32,11 +33,11 @@ class IWatchOnline_Scraper(scraper.Scraper):
 
     def __init__(self, timeout=scraper.DEFAULT_TIMEOUT):
         self.timeout = timeout
-        self.base_url = xbmcaddon.Addon().getSetting('%s-base_url' % (self.get_name()))
+        self.base_url = kodi.get_setting('%s-base_url' % (self.get_name()))
 
     @classmethod
     def provides(cls):
-        return frozenset([VIDEO_TYPES.TVSHOW, VIDEO_TYPES.SEASON, VIDEO_TYPES.EPISODE, VIDEO_TYPES.MOVIE])
+        return frozenset([VIDEO_TYPES.TVSHOW, VIDEO_TYPES.EPISODE, VIDEO_TYPES.MOVIE])
 
     @classmethod
     def get_name(cls):
@@ -44,10 +45,13 @@ class IWatchOnline_Scraper(scraper.Scraper):
 
     def resolve_link(self, link):
         url = urlparse.urljoin(self.base_url, link)
-        html = self._http_get(url, cache_limit=.5)
-        match = re.search('<iframe name="frame" class="frame" src="([^"]+)', html)
-        if match:
-            return match.group(1)
+        html = self._http_get(url, allow_redirect=False, cache_limit=.5)
+        if html.startswith('http'):
+            return html
+        else:
+            match = re.search('<iframe name="frame" class="frame" src="([^"]+)', html)
+            if match:
+                return match.group(1)
 
     def format_source_label(self, item):
         label = '[%s] %s (%s/100)' % (item['quality'], item['host'], item['rating'])
@@ -56,7 +60,7 @@ class IWatchOnline_Scraper(scraper.Scraper):
     def get_sources(self, video):
         source_url = self.get_url(video)
         hosters = []
-        if source_url:
+        if source_url and source_url != FORCE_NO_MATCH:
             url = urlparse.urljoin(self.base_url, source_url)
             html = self._http_get(url, cache_limit=.5)
 
@@ -75,8 +79,8 @@ class IWatchOnline_Scraper(scraper.Scraper):
                     quality = quality.upper()
                     if age > max_age: max_age = age
                     if age < min_age: min_age = age
-                    hoster = {'multi-part': False, 'class': self, 'url': url.replace(self.base_url, ''), 'host': host.lower(), 'age': age, 'views': None, 'rating': None, 'direct': False}
-                    hoster['quality'] = self._get_quality(video, host.lower(), QUALITY_MAP.get(quality, QUALITIES.HIGH))
+                    hoster = {'multi-part': False, 'class': self, 'url': self._pathify_url(url), 'host': host, 'age': age, 'views': None, 'rating': None, 'direct': False}
+                    hoster['quality'] = self._get_quality(video, host, QUALITY_MAP.get(quality, QUALITIES.HIGH))
                     hosters.append(hoster)
 
                 unit = (max_age - min_age) / 100
@@ -113,7 +117,7 @@ class IWatchOnline_Scraper(scraper.Scraper):
                 num = 0
                 mult = 0
             age = now - (num * mult)
-                # print '%s, %s, %s, %s' % (num, unit, mult, age)
+            # print '%s, %s, %s, %s' % (num, unit, mult, age)
         return age
 
     def get_url(self, video):
@@ -126,7 +130,6 @@ class IWatchOnline_Scraper(scraper.Scraper):
         else:
             data = {'searchin': '2'}
         data.update({'searchquery': title})
-        search_url += '?' + urllib.urlencode(data)  # add criteria to url to make cache work
         html = self._http_get(search_url, data=data, cache_limit=.25)
 
         results = []
@@ -135,7 +138,7 @@ class IWatchOnline_Scraper(scraper.Scraper):
             url, title, match_year = match.groups('')
             if not year or not match_year or year == match_year:
                 url = url.replace('/episode/', '/tv-shows/')  # fix wrong url returned from search results
-                result = {'url': url.replace(self.base_url, ''), 'title': title, 'year': match_year}
+                result = {'url': self._pathify_url(url), 'title': title, 'year': match_year}
                 results.append(result)
         return results
 
@@ -143,6 +146,3 @@ class IWatchOnline_Scraper(scraper.Scraper):
         episode_pattern = 'href="([^"]+-s%02de%02d)"' % (int(video.season), int(video.episode))
         title_pattern = 'href="([^"]+)"><i class="icon-play-circle">.*?<td>([^<]+)</td>'
         return super(IWatchOnline_Scraper, self)._default_get_episode_url(show_url, video, episode_pattern, title_pattern)
-
-    def _http_get(self, url, data=None, cache_limit=8):
-        return super(IWatchOnline_Scraper, self)._cached_http_get(url, self.base_url, self.timeout, data=data, cache_limit=cache_limit)

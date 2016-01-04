@@ -67,8 +67,8 @@ class Cipher(object):
             raise Exception('Signature function not found')
 
         function = self._find_function_body(function_name, java_script)
-        function_parameter = function[0].split(',')
-        function_body = function[1].split(';')
+        function_parameter = function[0].replace('\n', '').split(',')
+        function_body = function[1].replace('\n', '').split(';')
 
         json_script = {'actions': []}
         for line in function_body:
@@ -154,7 +154,7 @@ class Cipher(object):
     def _find_function_body(self, function_name, java_script):
         # normalize function name
         function_name = function_name.replace('$', '\$')
-        match = re.search(r'(?:var\s+%s=function|function\s+%s)\((?P<parameter>[^)]+)\)\s?\{\s?(?P<body>[^}]+)\s?\}' % (function_name, function_name), java_script)
+        match = re.search(r'\s?%s=function\((?P<parameter>[^)]+)\)\s?\{\s?(?P<body>[^}]+)\s?\}' % function_name, java_script)
         if match:
             return match.group('parameter'), match.group('body')
 

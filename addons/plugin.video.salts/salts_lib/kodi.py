@@ -35,8 +35,12 @@ show_settings = addon.openSettings
 def get_path():
     return addon.getAddonInfo('path')
 
+def get_profile():
+    return addon.getAddonInfo('profile')
+
 def set_setting(id, value):
-    addon.setSetting(id, str(value))
+    if not isinstance(value, basestring): value = str(value)
+    addon.setSetting(id, value)
 
 def get_version():
     return addon.getAddonInfo('version')
@@ -93,11 +97,11 @@ def parse_query(query):
             q[key] = queries[key]
     return q
 
-def notify(header=None, msg='', duration=2000):
+def notify(header=None, msg='', duration=2000, sound=None):
     if header is None: header = get_name()
-    builtin = "XBMC.Notification(%s,%s, %s, %s)" % (header, msg, duration, ICON_PATH)
-    xbmc.executebuiltin(builtin)
-
+    if sound is None: sound = get_setting('mute_notifications') == 'false'
+    xbmcgui.Dialog().notification(header, msg, ICON_PATH, duration, sound)
+    
 def get_current_view():
     skinPath = xbmc.translatePath('special://skin/')
     xml = os.path.join(skinPath, 'addon.xml')

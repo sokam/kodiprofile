@@ -20,11 +20,11 @@ import re
 import urllib
 import urllib2
 import urlparse
-import xbmcaddon
-import xbmc
+from salts_lib import kodi
 from salts_lib import log_utils
 from salts_lib.trans_utils import i18n
 from salts_lib.constants import VIDEO_TYPES
+from salts_lib.constants import FORCE_NO_MATCH
 from salts_lib.constants import QUALITIES
 from salts_lib.constants import USER_AGENT
 
@@ -35,14 +35,14 @@ class NoobRoom_Scraper(scraper.Scraper):
 
     def __init__(self, timeout=scraper.DEFAULT_TIMEOUT):
         self.timeout = timeout
-        self.base_url = xbmcaddon.Addon().getSetting('%s-base_url' % (self.get_name()))
-        self.username = xbmcaddon.Addon().getSetting('%s-username' % (self.get_name()))
-        self.password = xbmcaddon.Addon().getSetting('%s-password' % (self.get_name()))
-        self.include_paid = xbmcaddon.Addon().getSetting('%s-include_premium' % (self.get_name())) == 'true'
+        self.base_url = kodi.get_setting('%s-base_url' % (self.get_name()))
+        self.username = kodi.get_setting('%s-username' % (self.get_name()))
+        self.password = kodi.get_setting('%s-password' % (self.get_name()))
+        self.include_paid = kodi.get_setting('%s-include_premium' % (self.get_name())) == 'true'
 
     @classmethod
     def provides(cls):
-        return frozenset([VIDEO_TYPES.TVSHOW, VIDEO_TYPES.SEASON, VIDEO_TYPES.EPISODE, VIDEO_TYPES.MOVIE])
+        return frozenset([VIDEO_TYPES.TVSHOW, VIDEO_TYPES.EPISODE, VIDEO_TYPES.MOVIE])
 
     @classmethod
     def get_name(cls):
@@ -71,7 +71,7 @@ class NoobRoom_Scraper(scraper.Scraper):
     def get_sources(self, video):
         source_url = self.get_url(video)
         hosters = []
-        if source_url:
+        if source_url and source_url != FORCE_NO_MATCH:
             url = urlparse.urljoin(self.base_url, source_url)
             html = self._http_get(url, cache_limit=.5)
 
@@ -131,7 +131,7 @@ class NoobRoom_Scraper(scraper.Scraper):
             for match in re.finditer(pattern, container):
                 url, match_title, match_year = match.groups('')
                 if not year or not match_year or year == match_year:
-                    result = {'url': url, 'title': match_title, 'year': match_year}
+                    result = {'url': self._pathify_url(url), 'title': match_title, 'year': match_year}
                     results.append(result)
 
         return results
@@ -140,21 +140,21 @@ class NoobRoom_Scraper(scraper.Scraper):
     def get_settings(cls):
         settings = super(NoobRoom_Scraper, cls).get_settings()
         name = cls.get_name()
-        settings.append('         <setting id="%s-username" type="text" label="     %s" default="" visible="eq(-6,true)"/>' % (name, i18n('username')))
-        settings.append('         <setting id="%s-password" type="text" label="     %s" option="hidden" default="" visible="eq(-7,true)"/>' % (name, i18n('password')))
-        settings.append('         <setting id="%s-include_premium" type="bool" label="     %s" default="false" visible="eq(-8,true)"/>' % (name, i18n('include_premium')))
+        settings.append('         <setting id="%s-username" type="text" label="     %s" default="" visible="eq(-4,true)"/>' % (name, i18n('username')))
+        settings.append('         <setting id="%s-password" type="text" label="     %s" option="hidden" default="" visible="eq(-5,true)"/>' % (name, i18n('password')))
+        settings.append('         <setting id="%s-include_premium" type="bool" label="     %s" default="false" visible="eq(-6,true)"/>' % (name, i18n('include_premium')))
         return settings
 
-    def _http_get(self, url, data=None, cache_limit=8):
+    def _http_get(self, url, data=None, headers=None, cache_limit=8):
         # return all uncached blank pages if no user or pass
         if not self.username or not self.password:
             return ''
 
-        html = super(NoobRoom_Scraper, self)._cached_http_get(url, self.base_url, self.timeout, data=data, cache_limit=cache_limit)
-        if not 'href="logout.php"' in html:
-            log_utils.log('Logging in for url (%s)' % (url), xbmc.LOGDEBUG)
+        html = super(NoobRoom_Scraper, self)._cached_http_get(url, self.base_url, self.timeout, data=data, headers=headers, cache_limit=cache_limit)
+        if 'href="logout.php"' not in html:
+            log_utils.log('Logging in for url (%s)' % (url), log_utils.LOGDEBUG)
             self.__login(html)
-            html = super(NoobRoom_Scraper, self)._cached_http_get(url, self.base_url, self.timeout, data=data, cache_limit=0)
+            html = super(NoobRoom_Scraper, self)._cached_http_get(url, self.base_url, self.timeout, data=data, headers=headers, cache_limit=0)
 
         return html
 

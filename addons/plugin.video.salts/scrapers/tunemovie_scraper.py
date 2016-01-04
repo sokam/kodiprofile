@@ -19,12 +19,12 @@ import scraper
 import urllib
 import urlparse
 import re
-import xbmcaddon
+from salts_lib import kodi
 import base64
 from salts_lib import dom_parser
 from salts_lib.constants import VIDEO_TYPES
+from salts_lib.constants import FORCE_NO_MATCH
 from salts_lib.constants import QUALITIES
-from salts_lib.constants import Q_ORDER
 
 BASE_URL = 'http://tunemovie.is'
 GK_KEY = base64.b64decode('Q05WTmhPSjlXM1BmeFd0UEtiOGg=')
@@ -34,7 +34,7 @@ class TuneMovie_Scraper(scraper.Scraper):
 
     def __init__(self, timeout=scraper.DEFAULT_TIMEOUT):
         self.timeout = timeout
-        self.base_url = xbmcaddon.Addon().getSetting('%s-base_url' % (self.get_name()))
+        self.base_url = kodi.get_setting('%s-base_url' % (self.get_name()))
 
     @classmethod
     def provides(cls):
@@ -62,7 +62,7 @@ class TuneMovie_Scraper(scraper.Scraper):
     def get_sources(self, video):
         source_url = self.get_url(video)
         hosters = []
-        if source_url:
+        if source_url and source_url != FORCE_NO_MATCH:
             url = urlparse.urljoin(self.base_url, source_url)
             html = self._http_get(url, cache_limit=.5)
             
@@ -76,7 +76,7 @@ class TuneMovie_Scraper(scraper.Scraper):
             
             for item in zip(hosts, links):
                 host, link_text = item
-                host = host.lower().replace('server', '').strip()
+                host = host.replace('server', '').strip()
                 match = re.search('href="([^"]+)', link_text)
                 if match:
                     link = match.group(1)
@@ -121,9 +121,6 @@ class TuneMovie_Scraper(scraper.Scraper):
             if match:
                 match_title, url = match.groups()
                 if not year or not match_year or year == match_year:
-                    result = {'url': url.replace(self.base_url, ''), 'title': match_title, 'year': match_year}
+                    result = {'url': self._pathify_url(url), 'title': match_title, 'year': match_year}
                     results.append(result)
         return results
-
-    def _http_get(self, url, cache_limit=8):
-        return super(TuneMovie_Scraper, self)._cached_http_get(url, self.base_url, self.timeout, cache_limit=cache_limit)

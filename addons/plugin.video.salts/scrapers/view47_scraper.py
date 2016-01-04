@@ -19,10 +19,11 @@ import scraper
 import urllib
 import urlparse
 import re
-import xbmcaddon
+from salts_lib import kodi
 import time
 from salts_lib import dom_parser
 from salts_lib.constants import VIDEO_TYPES
+from salts_lib.constants import FORCE_NO_MATCH
 from salts_lib.constants import QUALITIES
 from salts_lib.constants import USER_AGENT
 
@@ -35,7 +36,7 @@ class View47_Scraper(scraper.Scraper):
 
     def __init__(self, timeout=scraper.DEFAULT_TIMEOUT):
         self.timeout = timeout
-        self.base_url = xbmcaddon.Addon().getSetting('%s-base_url' % (self.get_name()))
+        self.base_url = kodi.get_setting('%s-base_url' % (self.get_name()))
         if 'www' in self.base_url: self.base_url = BASE_URL  # hack base url to work
 
     @classmethod
@@ -67,14 +68,15 @@ class View47_Scraper(scraper.Scraper):
     def get_sources(self, video):
         source_url = self.get_url(video)
         hosters = []
-        if source_url:
+        if source_url and source_url != FORCE_NO_MATCH:
             url = urlparse.urljoin(self.base_url, source_url)
             html = self._http_get(url, cache_limit=.5)
-            div = dom_parser.parse_dom(html, 'ul', {'class': 'css_server'})
+            div = dom_parser.parse_dom(html, 'ul', {'class': 'css_server[^"]*'})
             if div:
-                for match in re.finditer('href="([^"]+).*?/>(.*?)</p>', div[0]):
+                div = re.sub('<img[^>]+>', '', div[0])
+                for match in re.finditer('href="([^"]+)">([^<]+)', div):
                     stream_url, host = match.groups()
-                    host = host.lower()
+                    host = re.sub('-\d+$', '', host)
                     if host == 'picasa':
                         stream_url = stream_url + '|User-Agent=%s' % (USER_AGENT)
                         direct = True
@@ -111,9 +113,6 @@ class View47_Scraper(scraper.Scraper):
                         match_title = match_title_year
                         match_year = ''
                     
-                    result = {'title': match_title, 'year': match_year, 'url': url.replace(self.base_url, '')}
+                    result = {'title': match_title, 'year': match_year, 'url': self._pathify_url(url)}
                     results.append(result)
         return results
-
-    def _http_get(self, url, data=None, cache_limit=8):
-        return super(View47_Scraper, self)._cached_http_get(url, self.base_url, self.timeout, data=data, cache_limit=cache_limit)

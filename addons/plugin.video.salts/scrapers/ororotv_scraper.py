@@ -18,29 +18,34 @@
 import scraper
 import re
 import urlparse
-import xbmcaddon
 import xbmc
+from salts_lib import kodi
 from salts_lib import log_utils
 from salts_lib.trans_utils import i18n
 from salts_lib.constants import VIDEO_TYPES
+from salts_lib.constants import FORCE_NO_MATCH
 from salts_lib.constants import QUALITIES
 from salts_lib.constants import USER_AGENT
 
 BASE_URL = 'http://ororo.tv'
+LANDING_URL = '/nl'
+LOGIN_URL = '/en/users/sign_in'
+MAX_REDIRECT = 10
 CATEGORIES = {VIDEO_TYPES.TVSHOW: '2,3', VIDEO_TYPES.MOVIE: '1,3,4'}
+ORORO_WAIT = 1000
 
 class OroroTV_Scraper(scraper.Scraper):
     base_url = BASE_URL
 
     def __init__(self, timeout=scraper.DEFAULT_TIMEOUT):
         self.timeout = timeout
-        self.base_url = xbmcaddon.Addon().getSetting('%s-base_url' % (self.get_name()))
-        self.username = xbmcaddon.Addon().getSetting('%s-username' % (self.get_name()))
-        self.password = xbmcaddon.Addon().getSetting('%s-password' % (self.get_name()))
+        self.base_url = kodi.get_setting('%s-base_url' % (self.get_name()))
+        self.username = kodi.get_setting('%s-username' % (self.get_name()))
+        self.password = kodi.get_setting('%s-password' % (self.get_name()))
 
     @classmethod
     def provides(cls):
-        return frozenset([VIDEO_TYPES.TVSHOW, VIDEO_TYPES.SEASON, VIDEO_TYPES.EPISODE, VIDEO_TYPES.MOVIE])
+        return frozenset([VIDEO_TYPES.TVSHOW, VIDEO_TYPES.EPISODE, VIDEO_TYPES.MOVIE])
 
     @classmethod
     def get_name(cls):
@@ -50,13 +55,13 @@ class OroroTV_Scraper(scraper.Scraper):
         return link
 
     def format_source_label(self, item):
-        label = '[%s] %s (%s) (%s/100) ' % (item['quality'], item['host'], item['format'], item['rating'])
+        label = '[%s] %s (%s)' % (item['quality'], item['host'], item['format'])
         return label
 
     def get_sources(self, video):
         source_url = self.get_url(video)
         hosters = []
-        if source_url:
+        if source_url and source_url != FORCE_NO_MATCH:
             url = urlparse.urljoin(self.base_url, source_url)
             html = self._http_get(url, cache_limit=.5)
             if video.video_type == VIDEO_TYPES.MOVIE:
@@ -91,14 +96,14 @@ class OroroTV_Scraper(scraper.Scraper):
         html = self._http_get(url, cache_limit=.25)
         results = []
         norm_title = self._normalize_title(title)
-        include_paid = xbmcaddon.Addon().getSetting('%s-include_premium' % (self.get_name())) == 'true'
+        include_paid = kodi.get_setting('%s-include_premium' % (self.get_name())) == 'true'
         for match in re.finditer('<span class=\'value\'>(\d{4})(.*?)href="([^"]+)[^>]+>([^<]+)', html, re.DOTALL):
             match_year, middle, url, match_title = match.groups()
             if not include_paid and video_type == VIDEO_TYPES.MOVIE and 'paid accounts' in middle:
                 continue
 
             if norm_title in self._normalize_title(match_title) and (not year or not match_year or year == match_year):
-                result = {'url': url, 'title': match_title, 'year': match_year}
+                result = {'url': self._pathify_url(url), 'title': match_title, 'year': match_year}
                 results.append(result)
 
         return results
@@ -107,27 +112,39 @@ class OroroTV_Scraper(scraper.Scraper):
     def get_settings(cls):
         settings = super(OroroTV_Scraper, cls).get_settings()
         name = cls.get_name()
-        settings.append('         <setting id="%s-username" type="text" label="     %s" default="" visible="eq(-6,true)"/>' % (name, i18n('username')))
-        settings.append('         <setting id="%s-password" type="text" label="     %s" option="hidden" default="" visible="eq(-7,true)"/>' % (name, i18n('password')))
-        settings.append('         <setting id="%s-include_premium" type="bool" label="     %s" default="false" visible="eq(-8,true)"/>' % (name, i18n('include_premium')))
+        settings.append('         <setting id="%s-username" type="text" label="     %s" default="" visible="eq(-4,true)"/>' % (name, i18n('username')))
+        settings.append('         <setting id="%s-password" type="text" label="     %s" option="hidden" default="" visible="eq(-5,true)"/>' % (name, i18n('password')))
+        settings.append('         <setting id="%s-include_premium" type="bool" label="     %s" default="false" visible="eq(-6,true)"/>' % (name, i18n('include_premium')))
         return settings
 
-    def _http_get(self, url, data=None, cache_limit=8):
+    def _http_get(self, url, auth=True, cookies=None, data=None, headers=None, allow_redirect=True, cache_limit=8):
         # return all uncached blank pages if no user or pass
         if not self.username or not self.password:
             return ''
 
-        html = super(OroroTV_Scraper, self)._cached_http_get(url, self.base_url, self.timeout, data=data, cache_limit=cache_limit)
-        if not re.search('href="/en/users/sign_out"', html):
-            log_utils.log('Logging in for url (%s)' % (url), xbmc.LOGDEBUG)
+        html = super(OroroTV_Scraper, self)._cached_http_get(url, self.base_url, self.timeout, cookies=cookies, data=data, headers=headers, allow_redirect=allow_redirect, cache_limit=cache_limit)
+        if auth and (not html or LOGIN_URL in html):
+            log_utils.log('Logging in for url (%s)' % (url), log_utils.LOGDEBUG)
             self.__login()
-            html = super(OroroTV_Scraper, self)._cached_http_get(url, self.base_url, self.timeout, data=data, cache_limit=0)
+            xbmc.sleep(ORORO_WAIT)
+            html = super(OroroTV_Scraper, self)._cached_http_get(url, self.base_url, self.timeout, data=data, headers=headers, cache_limit=0)
 
         return html
 
     def __login(self):
-        url = urlparse.urljoin(self.base_url, '/en/users/sign_in')
+        url = urlparse.urljoin(self.base_url, LANDING_URL)
+        tries = 0
+        while True:
+            html = self._http_get(url, auth=False, allow_redirect=False, cache_limit=0)
+            if html.startswith('http://') and tries < MAX_REDIRECT:
+                tries += 1
+                url = html
+            else:
+                break
+        
         data = {'user[email]': self.username, 'user[password]': self.password, 'user[remember_me]': 1}
-        html = super(OroroTV_Scraper, self)._cached_http_get(url, self.base_url, self.timeout, data=data, allow_redirect=False, cache_limit=0)
+        url = urlparse.urljoin(self.base_url, LOGIN_URL)
+        xbmc.sleep(ORORO_WAIT)
+        html = self._http_get(url, auth=False, data=data, allow_redirect=False, cache_limit=0)
         if html != 'http://ororo.tv/en':
             raise Exception('ororo.tv login failed: %s' % (html))
