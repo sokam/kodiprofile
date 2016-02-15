@@ -1,0 +1,34 @@
+version=1
+title=Onder Koffer
+description=vids/description
+
+# 2508771
+type=video
+name=VIDME
+URL=https://vid.me/onderkoffer
+player=mplayer
+rating=-1.00
+
+# 2508770
+type=video
+name=ZIPPCAST
+URL=http://www.zippcast.com/user/Onder_Koffer&view=videos
+player=default
+rating=-1.00
+
+# 2508769
+type=rss:
+name=Video Archive
+URL=http://$globals->{url_base}/ssl_proxy?url=https%3A%2F%2Farchive.org%2Fbookmarks%2Fonderkoffer%3Foutput%3Drss
+player=default
+rating=-1.00
+
+# 2508768
+type=video
+name=weebly vids
+URL=http://onderkoffer-2.weebly.com/3/feed
+player=default
+rating=-1.00
+
+
+# memcached

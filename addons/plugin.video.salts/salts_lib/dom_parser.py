@@ -111,7 +111,11 @@ def parse_dom(html, name=u"", attrs={}, ret=False):
             html = [html.decode("utf-8")]  # Replace with chardet thingy
         except:
             log_utils.log("Couldn't decode html binary string. Data length: " + repr(len(html)), log_utils.LOGWARNING)
-            html = [html]
+            try:
+                html = [html.decode("utf-8", "replace")]
+            except:
+                log_utils.log("Couldn't decode html binary string (replace). Data length: " + repr(len(html)), log_utils.LOGWARNING)
+                html = [html]
     elif isinstance(html, unicode):
         html = [html]
     elif not isinstance(html, list):

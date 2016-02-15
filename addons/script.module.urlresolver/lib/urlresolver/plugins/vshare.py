@@ -21,30 +21,17 @@ from t0mm0.common.net import Net
 from urlresolver.plugnplay.interfaces import UrlResolver
 from urlresolver.plugnplay.interfaces import PluginSettings
 from urlresolver.plugnplay import Plugin
-from urlresolver import common
 
 class VshareResolver(Plugin, UrlResolver, PluginSettings):
     implements = [UrlResolver, PluginSettings]
     name = "vshare"
     domains = ['vshare.io']
+    pattern = '(?://|\.)(vshare\.io)/\w?/(\w+)'
 
     def __init__(self):
         p = self.get_setting('priority') or 100
         self.priority = int(p)
         self.net = Net()
-        self.pattern = 'http://((?:www.)?vshare.io)/\w?/(\w+)(?:\/width-\d+/height-\d+/)?'
-
-    def get_url(self, host, media_id):
-        return 'http://vshare.io/v/%s/width-620/height-280/' % (media_id)
-
-    def get_host_and_id(self, url):
-        r = re.search(self.pattern, url)
-        if r: return r.groups()
-        else: return False
-
-    def valid_url(self, url, host):
-        if self.get_setting('enabled') == 'false': return False
-        return re.match(self.pattern, url) or self.name in host
 
     def get_media_url(self, host, media_id):
         web_url = self.get_url(host, media_id)
@@ -57,3 +44,16 @@ class VshareResolver(Plugin, UrlResolver, PluginSettings):
             return video_link
         else:
             raise UrlResolver.ResolverError('No playable video found.')
+
+    def get_url(self, host, media_id):
+        return 'http://vshare.io/v/%s/width-620/height-280/' % media_id
+
+    def get_host_and_id(self, url):
+        r = re.search(self.pattern, url)
+        if r:
+            return r.groups()
+        else:
+            return False
+
+    def valid_url(self, url, host):
+        return re.search(self.pattern, url) or self.name in host

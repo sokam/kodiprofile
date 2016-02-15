@@ -1,3 +1,4 @@
 #LWP-Cookies-2.0
-Set-Cookie3: __cfduid=d8f75c21388e6681d6fafe7de5a9ba4381450581489; path="/"; domain=".mintmovies.net"; path_spec; domain_dot; expires="2016-12-19 03:18:09Z"; HttpOnly=None; version=0
+Set-Cookie3: __cfduid=d6fb16285abd3c7e877e8a393d46e03bd1455340257; path="/"; domain=".mintmovies.net"; path_spec; domain_dot; expires="2017-02-12 05:10:57Z"; HttpOnly=None; version=0
+Set-Cookie3: cf_clearance="1043478222c26e0d738ccbe99e3ee38264283044-1455340257-604800"; path="/"; domain=".mintmovies.net"; path_spec; domain_dot; expires="2016-02-20 06:10:57Z"; HttpOnly=None; version=0
 Set-Cookie3: wordpress_test_cookie="WP+Cookie+check"; path="/"; domain=".www.mintmovies.net"; path_spec; discard; version=0

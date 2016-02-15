@@ -18,7 +18,11 @@ def log(msg, level=xbmc.LOGNOTICE):
     if addon.getSetting('addon_debug') == 'true' and level == xbmc.LOGDEBUG:
         level = xbmc.LOGNOTICE
     
-    try: xbmc.log('%s: %s' % (name, msg), level)
-    except:
-        try: xbmc.log('Logging Failure', level)
+    try:
+        if isinstance(msg, unicode):
+            msg = '%s (ENCODED)' % (msg.encode('utf-8'))
+
+        xbmc.log('%s: %s' % (name, msg), level)
+    except Exception as e:
+        try: xbmc.log('Logging Failure: %s' % (e), level)
         except: pass  # just give up

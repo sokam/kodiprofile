@@ -25,9 +25,13 @@
    <category label="Accounts">
       <setting id="hide-successful-login-messages" type="bool" label="30250" default="false" />
       <setting type="sep" />
-      <setting id="realdebrid-account" type="bool" label="30220" default="false"/>
-      <setting id="realdebrid-username" type="text" label="30221" default="" enable="!eq(-1,false)"/>
-      <setting id="realdebrid-password" type="text" label="30222" default="" option="hidden" enable="!eq(-2,false)"/> 
+      <setting id="realdebrid-account" type="bool" label="30220" default="false"/>      
+      <setting id="realdebrid_autopick" type="bool" label="30221" default="true" enable="!eq(-1,false)"/>
+      <setting id="realdebrid_reset" type="action" label="30222" option="close" action="RunPlugin(plugin://plugin.video.icefilms/default.py?mode=reset_rd)" enable="!eq(-2,false)"/>
+      <setting id="realdebrid_token" visible="false" type="text" default=""/>
+      <setting id="realdebrid_refresh" visible="false" type="text" default=""/>
+      <setting id="realdebrid_client_id" visible="false" type="text" default=""/>
+      <setting id="realdebrid_client_secret" visible="false" type="text" default=""/>
    </category>
    <category label="Meta Data">
     <setting id="meta-path" type="action" label="30601" option="close" action="RunPlugin(plugin://plugin.video.icefilms/default.py?mode=58)"/>    

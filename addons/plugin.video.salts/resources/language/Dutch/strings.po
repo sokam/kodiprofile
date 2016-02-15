@@ -2,15 +2,15 @@
 # Addon id: plugin.video.salts
 # Addon Provider: TV Addons
 # Translators:
-# Mike Bike, 2015
+# Mike Bike, 2015-2016
 # Rodrigo, 2015
 # tknorris, 2015
 msgid ""
 msgstr ""
 "Project-Id-Version: SALTS\n"
 "POT-Creation-Date: YEAR-MO-DA HO:MI+ZONE\n"
-"PO-Revision-Date: 2015-11-27 10:16+0000\n"
-"Last-Translator: Mike Bike\n"
+"PO-Revision-Date: 2016-02-03 09:48+0000\n"
+"Last-Translator: tknorris\n"
 "Language-Team: Dutch (http://www.transifex.com/tv-addons/salts/language/nl/)\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -52,7 +52,7 @@ msgstr "Add-on Instellingen"
 
 msgctxt "#30008"
 msgid "Auto-Configure SALTS"
-msgstr "Configureer Automatich SALTS"
+msgstr "Configureer Automatisch SALTS"
 
 msgctxt "#30009"
 msgid "Authorize SALTS to access my trakt.tv account"
@@ -148,7 +148,7 @@ msgstr "Ververs Forceren"
 
 msgctxt "#30032"
 msgid "Force Refresh Complete"
-msgstr "Complete Ververse Forceren"
+msgstr "Complete Ververs Forceren"
 
 msgctxt "#30033"
 msgid "Enable All Scrapers"
@@ -611,16 +611,16 @@ msgid "Scraper Automatically Disabled"
 msgstr "Scraper Automatisch Gedesactiveerd"
 
 msgctxt "#30148"
-msgid "[COLOR blue]%s[/COLOR] returned no results %s times in a row."
-msgstr "[COLOR blue]%s[/COLOR] toont geen resultaat %s keer achter elkaar."
+msgid "[COLOR blue]%s[/COLOR]'s FL of %s is over your Failure Level threshold"
+msgstr "[COLOR blue]%s[/COLOR]'s MP van de %s is meer dan jouw Mislukte Pogingen drempel"
 
 msgctxt "#30149"
-msgid "This wastes system resources and time."
-msgstr "Dit verbruikt systeem geheugen en tijd."
+msgid "Disabling it avoids wasting time and resources"
+msgstr "Uitschakelen voorkomt onodige tijd en middelen"
 
 msgctxt "#30150"
-msgid ""
-msgstr "([I]Als je deze actief houdt, is het aangeraden de Scraper Tijdslimiet hoger te zetten.[/I])"
+msgid "([I]If you Keep Enabled, consider increasing scraper timeout[/I])"
+msgstr "([I]Als u dit Actief laat, houd er rekening mee dat scrapers een hogere tijdslimiet hebben  [/I])"
 
 msgctxt "#30151"
 msgid "Keep Enabled"
@@ -903,8 +903,8 @@ msgid "Received %s Sources from: %s"
 msgstr "%s Bronnen Ontvangen Van: %s"
 
 msgctxt "#30221"
-msgid "Filtering Out Unusable Sources"
-msgstr "Filteren van Onbruikbare Bronnen"
+msgid "Applying Source Filters"
+msgstr "Bron Filters Toevoegen"
 
 msgctxt "#30222"
 msgid "Include Links from Comments"
@@ -941,6 +941,66 @@ msgstr "Maximaal Bron Resultaten"
 msgctxt "#30230"
 msgid "Include in My Next Episodes"
 msgstr "Invoegen in Mijn Volgende Afleveringen"
+
+msgctxt "#30231"
+msgid "Auto-Play"
+msgstr "Automatisch-Afspelen"
+
+msgctxt "#30232"
+msgid "Set Trakt.tv API timeout to 60 seconds"
+msgstr "Zet Trakt.tv API tijdslimiet naar 60 seconden"
+
+msgctxt "#30233"
+msgid "Set Calendar start day to Yesterday"
+msgstr "Zet Kalender start dag naar Gisteren"
+
+msgctxt "#30234"
+msgid "Show Episode Airtime on Calendar"
+msgstr "Toon Afleverings Zendtijd op Kalender"
+
+msgctxt "#30235"
+msgid "Set Scraper timeout to 20 seconds"
+msgstr "Set Scraper tijdslimiet naar 20 seconden"
+
+msgctxt "#30236"
+msgid "Include Watchlist in My Next Episodes"
+msgstr "Volglijst invoegen in Mijn Volgende Afleveringen"
+
+msgctxt "#30237"
+msgid "Remove Deleted Direct sources from results"
+msgstr "Verwijder Verwijderde Directe bronnen van restultaat"
+
+msgctxt "#30238"
+msgid "Remove Unusable Indirect sources from results"
+msgstr "Verwijder Onbruikbare Indirecte bronnen van resultaat "
+
+msgctxt "#30239"
+msgid "Show Debrid sources in Green"
+msgstr "Toon Debrid bronnen in het Groen"
+
+msgctxt "#30240"
+msgid "No Limit on Maximum Source Results"
+msgstr "Geen Limiet voor Maximaal Bron Resultaat"
+
+msgctxt "#30241"
+msgid "Set Source Sort Keys to default"
+msgstr "Zet Bron sorteer Keys naar standaard"
+
+msgctxt "#30242"
+msgid "Set Scraper Sort Order to default"
+msgstr "Zer Scraper volgorde naar standaard"
+
+msgctxt "#30243"
+msgid "Reset All Scraper Base Urls to Default"
+msgstr "Reset Alle Scraper Basis Urls naar standaard"
+
+msgctxt "#30244"
+msgid "Select All/None"
+msgstr "Slecteer Alles/Geen"
+
+msgctxt "#30245"
+msgid "Automatically Select Best Source"
+msgstr "Automatisch slecteren van Beste Bron"
 
 msgctxt "#30500"
 msgid "Addon Theme"
@@ -1154,14 +1214,6 @@ msgctxt "#30552"
 msgid "Use Trakt Bookmarks"
 msgstr "Gebruik Trakt Bladwijzers"
 
-msgctxt "#30553"
-msgid "Cache watched status"
-msgstr "Cache bekeken status "
-
-msgctxt "#30554"
-msgid "Cache Collection"
-msgstr "Cache Collectie"
-
 msgctxt "#30555"
 msgid "Include People"
 msgstr "Voeg Acteurs toe"
@@ -1271,12 +1323,12 @@ msgid "Source Exclusion List"
 msgstr "Uitgesloten Bron lijst"
 
 msgctxt "#30582"
-msgid "Allowed TV Show Quality"
-msgstr "Toegestaande Serie Kwaliteit"
+msgid "Maximum Allowed TV Show Quality"
+msgstr "Maximaal Toegestaande Serie Kwaliteit"
 
 msgctxt "#30583"
-msgid "Allowed Movie Quality"
-msgstr "Toegestaande Film Kwaliteit"
+msgid "Maximum Allowed Movie Quality"
+msgstr "Maximaal Toegestaande Film Kwaliteit"
 
 msgctxt "#30584"
 msgid "Match episode air date when season & episode fails"
@@ -1313,10 +1365,6 @@ msgstr "Bron Volgorde"
 msgctxt "#30592"
 msgid "Sort Sources"
 msgstr "Bronnen Sorteren"
-
-msgctxt "#30593"
-msgid "Drop Sources with unknown sort values"
-msgstr "Bronnen Uitschakelen met onbekende waarden"
 
 msgctxt "#30594"
 msgid "1st Sort Key"
@@ -1581,4 +1629,40 @@ msgstr "Meldingen Uitschakelen"
 msgctxt "#30659"
 msgid "Exclude Completed, Ended Shows from My Next Episodes"
 msgstr "Seizoenen Uitsluiten, die Beëindigd zijn van Mijn Volgende Afleveringen "
+
+msgctxt "#30660"
+msgid "HD1080"
+msgstr "HD1080"
+
+msgctxt "#30661"
+msgid "HD720"
+msgstr "HD720"
+
+msgctxt "#30662"
+msgid "High"
+msgstr "SD Hoog"
+
+msgctxt "#30663"
+msgid "Medium"
+msgstr "SD Gemiddeld"
+
+msgctxt "#30664"
+msgid "Low"
+msgstr "SD Laag"
+
+msgctxt "#30665"
+msgid "Automatically pick first matching subtitle"
+msgstr "Automatisch eerste Ondertiteling Selecteren"
+
+msgctxt "#30666"
+msgid "SALTS Auto Configuration"
+msgstr "SALTS Automatisch Configureren"
+
+msgctxt "#30667"
+msgid "Continue"
+msgstr "Volgende"
+
+msgctxt "#30668"
+msgid "Cancel"
+msgstr "Annuleren"
 

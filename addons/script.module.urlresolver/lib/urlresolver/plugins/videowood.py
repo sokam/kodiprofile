@@ -18,18 +18,16 @@
 
 import re
 from t0mm0.common.net import Net
-from urlresolver import common
+from lib import jsunpack
 from urlresolver.plugnplay.interfaces import UrlResolver
 from urlresolver.plugnplay.interfaces import PluginSettings
 from urlresolver.plugnplay import Plugin
-from lib import jsunpack
-
 
 class VideowoodResolver(Plugin, UrlResolver, PluginSettings):
     implements = [UrlResolver, PluginSettings]
     name = "videowood"
     domains = ['videowood.tv']
-    pattern = '//((?:www.)?videowood.tv)/(?:embed/|video/)([0-9a-z]+)'
+    pattern = '(?://|\.)(videowood\.tv)/(?:embed/|video/)([0-9a-z]+)'
 
     def __init__(self):
         p = self.get_setting('priority') or 100
@@ -59,7 +57,7 @@ class VideowoodResolver(Plugin, UrlResolver, PluginSettings):
             raise UrlResolver.ResolverError('File not found')
 
     def get_url(self, host, media_id):
-        return 'http://%s/embed/%s' % (host, media_id)
+        return 'http://videowood.tv/embed/%s' % media_id
 
     def get_host_and_id(self, url):
         r = re.search(self.pattern, url)
@@ -69,5 +67,4 @@ class VideowoodResolver(Plugin, UrlResolver, PluginSettings):
             return False
 
     def valid_url(self, url, host):
-        if self.get_setting('enabled') == 'false': return False
         return re.search(self.pattern, url) or self.name in host

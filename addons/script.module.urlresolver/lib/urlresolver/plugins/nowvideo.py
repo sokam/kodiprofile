@@ -16,19 +16,17 @@
     along with this program.  If not, see <http://www.gnu.org/licenses/>.
 """
 
-import re, urllib, urllib2, os
+import re
 from t0mm0.common.net import Net
-from urlresolver import common
 from urlresolver.plugnplay.interfaces import UrlResolver
 from urlresolver.plugnplay.interfaces import PluginSettings
 from urlresolver.plugnplay import Plugin
-from lib import unwise
 
 class NowvideoResolver(Plugin, UrlResolver, PluginSettings):
     implements = [UrlResolver, PluginSettings]
     name = "nowvideo"
-    domains = ["nowvideo.eu", "nowvideo.ch", "nowvideo.sx", "nowvideo.co", "nowvideo.li"]
-    pattern = '((?:http://|www.|embed.)?nowvideo.(?:eu|sx|ch|co|li))/(?:mobile/video\.php\?id=|video/|embed\.php\?.*?v=)([0-9a-z]+)'
+    domains = ['nowvideo.eu', 'nowvideo.ch', 'nowvideo.sx', 'nowvideo.co', 'nowvideo.li']
+    pattern = '(?://|\.)(nowvideo\.(?:eu|ch|sx|co|li))/(?:video/|embed\.php\?v=)([A-Za-z0-9]+)'
 
     def __init__(self):
         p = self.get_setting('priority') or 100
@@ -37,22 +35,29 @@ class NowvideoResolver(Plugin, UrlResolver, PluginSettings):
 
     def get_media_url(self, host, media_id):
         web_url = self.get_url(host, media_id)
+
         html = self.net.http_GET(web_url).content
-        match1 = re.search('flashvars\.file[_]*key\s*=\s*([^;]+)', html)
-        match2 = re.search('flashvars\.file\s*=\s*"([^"]+)', html)
-        
-        #get stream url from api
-        if match1 and match2:
-            match = re.search('var\s+%s\s*=\s*"([^"]+)' % (match1.group(1)), html)
-            if match:
-                api = 'http://www.nowvideo.sx/api/player.api.php?key=%s&file=%s' % (match.group(1), match2.group(1))
-                html = self.net.http_GET(api).content
-                r = re.search('url=([^&]+)', html)
-                if r:
-                    return urllib.unquote(r.group(1))
-                else:
-                    raise UrlResolver.ResolverError('File Not Found or removed')
-                
+
+        r = re.search('flashvars.filekey=(.+?);', html)
+        if r:
+            r = r.group(1)
+
+            try: filekey = re.compile('\s+%s="(.+?)"' % r).findall(html)[-1]
+            except: filekey = r
+
+            player_url = 'http://www.nowvideo.sx/api/player.api.php?key=%s&file=%s' % (filekey, media_id)
+
+            html = self.net.http_GET(player_url).content
+
+            r = re.search('url=(.+?)&', html)
+
+            if r:
+                stream_url = r.group(1)
+            else:
+                raise UrlResolver.ResolverError('File Not Found or removed')
+
+        return stream_url
+
     def get_url(self, host, media_id):
         return 'http://embed.nowvideo.sx/embed.php?v=%s' % media_id
 
@@ -62,7 +67,6 @@ class NowvideoResolver(Plugin, UrlResolver, PluginSettings):
             return r.groups()
         else:
             return False
-
+    
     def valid_url(self, url, host):
-        if self.get_setting('enabled') == 'false': return False
-        return re.search(self.pattern, url) or 'nowvideo' in host
+        return re.search(self.pattern, url) or self.name in host

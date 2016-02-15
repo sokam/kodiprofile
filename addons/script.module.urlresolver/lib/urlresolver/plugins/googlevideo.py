@@ -31,24 +31,12 @@ class GoogleResolver(Plugin, UrlResolver, PluginSettings):
     implements = [UrlResolver, PluginSettings]
     name = "googlevideo"
     domains = ["googlevideo.com", "picasaweb.google.com", "googleusercontent.com", "plus.google.com", "googledrive.com"]
+    pattern = 'http[s]*://(.*?(?:\.googlevideo|(?:picasaweb|plus)\.google|google(?:usercontent|drive))\.com)/(.*?(?:videoplayback\?|\?authkey|host/)*.+)'
 
     def __init__(self):
         p = self.get_setting('priority') or 100
         self.priority = int(p)
         self.net = Net()
-        self.pattern = 'http[s]*://(.*?(?:\.googlevideo|(?:picasaweb|plus)\.google|google(?:usercontent|drive))\.com)/(.*?(?:videoplayback\?|\?authkey|host/)*.+)'
-
-    def get_url(self, host, media_id):
-        return 'https://%s/%s' % (host, media_id)
-
-    def get_host_and_id(self, url):
-        r = re.search(self.pattern, url)
-        if r: return r.groups()
-        else: return False
-
-    def valid_url(self, url, host):
-        if self.get_setting('enabled') == 'false': return False
-        return re.match(self.pattern, url)
 
     def get_media_url(self, host, media_id):
         web_url = self.get_url(host, media_id)
@@ -107,6 +95,19 @@ class GoogleResolver(Plugin, UrlResolver, PluginSettings):
                 return stream_url
 
         raise UrlResolver.ResolverError('File not found')
+
+    def get_url(self, host, media_id):
+        return 'https://%s/%s' % (host, media_id)
+
+    def get_host_and_id(self, url):
+        r = re.search(self.pattern, url)
+        if r:
+            return r.groups()
+        else:
+            return False
+    
+    def valid_url(self, url, host):
+        return re.search(self.pattern, url) or self.name in host
 
     def get_settings_xml(self):
         xml = PluginSettings.get_settings_xml(self)

@@ -15,21 +15,25 @@
     You should have received a copy of the GNU General Public License
     along with this program.  If not, see <http://www.gnu.org/licenses/>.
 """
-import scraper
+import re
 import urllib
 import urlparse
-import re
-import base64
-import time
+
+from salts_lib import dom_parser
 from salts_lib import kodi
 from salts_lib import log_utils
-from salts_lib.constants import VIDEO_TYPES
+from salts_lib import scraper_utils
 from salts_lib.constants import FORCE_NO_MATCH
 from salts_lib.constants import QUALITIES
+from salts_lib.constants import Q_ORDER
+from salts_lib.constants import VIDEO_TYPES
+import scraper
 
+
+XHR = {'X-Requested-With': 'XMLHttpRequest'}
 BASE_URL = 'http://zumvo.so'
-QUALITY_MAP = {'HD': QUALITIES.HIGH, 'CAM': QUALITIES.LOW, 'BR-RIP': QUALITIES.HD720, 'UNKNOWN': QUALITIES.MEDIUM, 'SD': QUALITIES.HIGH}
-AJAX_URL = '/ajax/?episode_id=%s&film_id=%s&episode-time=%s'
+QUALITY_MAP = {'HD': QUALITIES.HD1080, 'CAM': QUALITIES.MEDIUM, 'BR-RIP': QUALITIES.HD720, 'UNKNOWN': QUALITIES.MEDIUM, 'SD': QUALITIES.HIGH}
+GK_URL = '/player/gkplayerphp/plugins/gkpluginsphp.php'
 
 class Zumvo_Scraper(scraper.Scraper):
     base_url = BASE_URL
@@ -37,7 +41,6 @@ class Zumvo_Scraper(scraper.Scraper):
     def __init__(self, timeout=scraper.DEFAULT_TIMEOUT):
         self.timeout = timeout
         self.base_url = kodi.get_setting('%s-base_url' % (self.get_name()))
-        self.ajax_url = urlparse.urljoin(self.base_url, AJAX_URL)
 
     @classmethod
     def provides(cls):
@@ -66,54 +69,45 @@ class Zumvo_Scraper(scraper.Scraper):
             if match:
                 url = match.group(1)
                 html = self._http_get(url, cache_limit=.5)
-                            
+            
                 q_str = ''
                 match = re.search('class="status">([^<]+)', html)
                 if match:
                     q_str = match.group(1)
-                
+                page_quality = QUALITY_MAP.get(q_str, QUALITIES.HIGH)
+                    
                 views = None
                 match = re.search('Views:</dt>\s*<dd>(\d+)', html, re.DOTALL)
                 if match:
                     views = match.group(1)
-                
-                match = re.search('data-film-id\s*=\s*"([^"]+)', html)
-                if match:
-                    film_id = match.group(1)
-                    for match in re.finditer('data-episode-id\s*=\s*"([^"]+)', html):
-                        episode_id = match.group(1)
-                        now = int(time.time() * 1000)
-                        ajax_url = self.ajax_url % (episode_id, film_id, now)
-                        ajax_html = self._http_get(ajax_url, cache_limit=.5)
-                        ajax_html = ajax_html.replace('\\"', '"').replace('\/', '/')
-                        match = re.search('<iframe[^>]+src="([^"]+)', ajax_html)
-                        if match:
-                            stream_url = match.group(1)
-                            host = urlparse.urlparse(stream_url).hostname
-                            direct = False
-                            quality = QUALITY_MAP.get(q_str, QUALITIES.HIGH)
-                        else:
-                            match = re.search('proxy\.link":\s*"([^"&]+)', html)
-                            if match:
-                                proxy_link = match.group(1)
-                                proxy_link = proxy_link.split('*', 1)[-1]
-                                stream_url = self._gk_decrypt(base64.urlsafe_b64decode('NlFQU1NQSGJrbXJlNzlRampXdHk='), proxy_link)
-                                if self._get_direct_hostname(stream_url) == 'gvideo':
-                                    host = self._get_direct_hostname(stream_url)
-                                    direct = True
-                                    quality = self._gv_get_quality(stream_url)
-                                else:
-                                    continue
+                    
+                for src in dom_parser.parse_dom(html, 'iframe', ret='SRC'):
+                    html = self._http_get(src, cache_limit=.5)
+                    for match in re.finditer('gkpluginsphp.*?link\s*:\s*"([^"]+)', html):
+                        data = {'link': match.group(1)}
+                        headers = XHR
+                        headers['Referer'] = url
+                        gk_url = urlparse.urljoin(src, GK_URL)
+                        html = self._http_get(gk_url, data=data, headers=headers, cache_limit=.25)
+                        js_result = scraper_utils.parse_json(html, gk_url)
+                        if 'link' in js_result and 'func' not in js_result:
+                            if isinstance(js_result['link'], list):
+                                sources = dict((link['link'], scraper_utils.height_get_quality(link['label'])) for link in js_result['link'])
                             else:
-                                continue
-                                                
-                        hoster = {'multi-part': False, 'url': stream_url, 'class': self, 'quality': quality, 'host': host, 'rating': None, 'views': views, 'direct': direct}
-                        hosters.append(hoster)
-
+                                sources = {js_result['link']: page_quality}
+                            
+                            for source in sources:
+                                host = self._get_direct_hostname(source)
+                                if Q_ORDER[page_quality] < Q_ORDER[sources[source]]:
+                                    quality = page_quality
+                                else:
+                                    quality = sources[source]
+                                hoster = {'multi-part': False, 'url': source, 'class': self, 'quality': quality, 'host': host, 'rating': None, 'views': views, 'direct': True}
+                                hosters.append(hoster)
         return hosters
 
     def get_url(self, video):
-        return super(Zumvo_Scraper, self)._default_get_url(video)
+        return self._default_get_url(video)
 
     def search(self, video_type, title, year):
         search_url = urlparse.urljoin(self.base_url, '/search/')
@@ -127,14 +121,14 @@ class Zumvo_Scraper(scraper.Scraper):
             for match in re.finditer(pattern, result_fragment, re.DOTALL):
                 url, title, match_year = match.groups('')
                 if not year or not match_year or year == match_year:
-                    result = {'url': self._pathify_url(url), 'title': title, 'year': match_year}
+                    result = {'url': scraper_utils.pathify_url(url), 'title': title, 'year': match_year}
                     results.append(result)
         return results
 
-    def _http_get(self, url, cache_limit=8):
-        html = super(Zumvo_Scraper, self)._cached_http_get(url, self.base_url, self.timeout, cache_limit=cache_limit)
-        cookie = self._get_sucuri_cookie(html)
+    def _http_get(self, url, data=None, headers=None, cache_limit=8):
+        html = self._cached_http_get(url, self.base_url, self.timeout, data=data, headers=headers, cache_limit=cache_limit)
+        cookie = scraper_utils.get_sucuri_cookie(html)
         if cookie:
             log_utils.log('Setting Zumvo cookie: %s' % (cookie), log_utils.LOGDEBUG)
-            html = super(Zumvo_Scraper, self)._cached_http_get(url, self.base_url, self.timeout, cookies=cookie, cache_limit=0)
+            html = self._cached_http_get(url, self.base_url, self.timeout, cookies=cookie, data=data, headers=headers, cache_limit=0)
         return html

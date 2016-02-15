@@ -28,9 +28,11 @@ class VeeHDResolver(Plugin, UrlResolver, SiteAuth, PluginSettings):
     implements = [UrlResolver, SiteAuth, PluginSettings]
     name = "VeeHD"
     domains = ["veehd.com"]
+    pattern = '(?://|\.)(veehd\.com)/video/([0-9A-Za-z]+)'
+
     profile_path = common.profile_path
     cookie_file = os.path.join(profile_path, '%s.cookies' % name)
-    
+
     def __init__(self):
         p = self.get_setting('priority') or 1
         self.priority = int(p)
@@ -73,17 +75,14 @@ class VeeHDResolver(Plugin, UrlResolver, SiteAuth, PluginSettings):
         return 'http://veehd.com/video/%s' % media_id
         
     def get_host_and_id(self, url):
-        r = re.search('//(.+?)/video/([0-9A-Za-z]+)', url)
+        r = re.search(self.pattern, url)
         if r:
             return r.groups()
         else:
             return False
 
     def valid_url(self, url, host):
-        if self.get_setting('enabled') == 'false': return False
-        return (re.match('http://(www.)?veehd.com/' +
-                         '[0-9A-Za-z]+', url) or
-                         'veehd' in host)
+        return re.search(self.pattern, url) or self.name in host
        
     #SiteAuth methods
     def login(self):
@@ -101,7 +100,7 @@ class VeeHDResolver(Plugin, UrlResolver, SiteAuth, PluginSettings):
             return True
         else:
             return False
-        
+
     #PluginSettings methods
     def get_settings_xml(self):
         xml = PluginSettings.get_settings_xml(self)

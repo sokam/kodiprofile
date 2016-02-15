@@ -16,18 +16,22 @@ You should have received a copy of the GNU General Public License
 along with this program. If not, see <http://www.gnu.org/licenses/>.
 '''
 
+import re
+import json
+import urllib
+import urlparse
 from t0mm0.common.net import Net
+from urlresolver import common
 from urlresolver.plugnplay.interfaces import UrlResolver
 from urlresolver.plugnplay.interfaces import PluginSettings
 from urlresolver.plugnplay import Plugin
-import re, os, xbmc, json
-from urlresolver import common
+import xbmc
 
 class AllmyvideosResolver(Plugin,UrlResolver,PluginSettings):
     implements=[UrlResolver,PluginSettings]
     name="allmyvideos"
     domains=[ "allmyvideos.net" ]
-
+    pattern = '(?://|\.)(allmyvideos\.net)/(?:embed-)?([0-9a-zA-Z]+)'
 
     def __init__(self):
         p=self.get_setting('priority') or 100
@@ -47,7 +51,7 @@ class AllmyvideosResolver(Plugin,UrlResolver,PluginSettings):
         headers={'User-Agent':common.IE_USER_AGENT,'Referer':url}
         html=self.net.http_GET(url,headers=headers).content
         
-        data={}; r=re.findall(r'type="hidden" name="(.+?)"\s* value="?(.+?)">',html)
+        data={}; r=re.findall(r'type="hidden"\s+name="(.+?)"\s+value="(.*?)"',html)
         for name,value in r: data[name]=value
         html=self.net.http_POST(url,data,headers=headers).content
         
@@ -65,10 +69,12 @@ class AllmyvideosResolver(Plugin,UrlResolver,PluginSettings):
             max_label = 0
             stream_url = ''
             for source in sources:
-                if 'label' in source and int(source['label'])>max_label:
+                if 'label' in source and int(re.sub('[^0-9]', '', source['label']))>max_label:
                     stream_url = source['file']
-                    max_label = int(source['label'])
-            if stream_url: return stream_url+'|User-Agent=%s'%(common.IE_USER_AGENT)
+                    max_label = int(re.sub('[^0-9]', '', source['label']))
+            if stream_url:
+                stream_url = '%s?%s&direct=false&ua=false' % (stream_url.split('?')[0], urlparse.urlparse(stream_url).query)
+                return stream_url + '|' + urllib.urlencode({ 'User-Agent': common.IE_USER_AGENT })
         
     def get_url(self,host,media_id):
         return 'http://allmyvideos.net/%s'%media_id 
@@ -77,11 +83,11 @@ class AllmyvideosResolver(Plugin,UrlResolver,PluginSettings):
         return 'http://allmyvideos.net/embed-%s.html'%media_id
      
     def get_host_and_id(self, url):
-        r=re.search('//(?:www.)?(allmyvideos.net)/(?:embed-)?([0-9a-zA-Z]+)',url)
-        if r: return r.groups()
-        else: return False
-        return('host','media_id')
+        r = re.search(self.pattern, url)
+        if r:
+            return r.groups()
+        else:
+            return False
     
-    def valid_url(self,url,host):
-        if self.get_setting('enabled')=='false': return False
-        return (re.match('http://(?:www.)?(allmyvideos.net)/(?:embed-)?([0-9A-Za-z]+)',url) or re.match('http://(www.)?(allmyvideos.net)/embed-([0-9A-Za-z]+)[\-]*\d*[x]*\d*.*[html]*',url) or 'allmyvideos' in host)
+    def valid_url(self, url, host):
+        return re.search(self.pattern, url) or self.name in host

@@ -1,0 +1,3575 @@
+<?xml version="1.0" encoding="utf-8"?>
+<tv cache-time="1453523298.85" cache-version="1453523298.85" generator-info-name="IPTV Plugin" generator-info-url="http://www.xmltv.org/">
+<channel id="ABC">
+<display-name>ABC</display-name>
+<display-name>ABC</display-name>
+<icon src="http://lv2.ustvnow.com/images/ABC.png"/>
+</channel>
+<channel id="CBS">
+<display-name>CBS</display-name>
+<display-name>CBS</display-name>
+<icon src="http://lv2.ustvnow.com/images/CBS.png"/>
+</channel>
+<channel id="CW">
+<display-name>CW</display-name>
+<display-name>CW</display-name>
+<icon src="http://lv2.ustvnow.com/images/CW.png"/>
+</channel>
+<channel id="FOX">
+<display-name>FOX</display-name>
+<display-name>FOX</display-name>
+<icon src="http://lv2.ustvnow.com/images/FOX.png"/>
+</channel>
+<channel id="NBC">
+<display-name>NBC</display-name>
+<display-name>NBC</display-name>
+<icon src="http://lv2.ustvnow.com/images/NBC.png"/>
+</channel>
+<channel id="PBS">
+<display-name>PBS</display-name>
+<display-name>PBS</display-name>
+<icon src="http://lv2.ustvnow.com/images/PBS.png"/>
+</channel>
+<channel id="MY9">
+<display-name>MY9</display-name>
+<display-name>MY9</display-name>
+<icon src="http://lv2.ustvnow.com/images/MY9.png"/>
+</channel>
+<channel id="AE">
+<display-name>AE</display-name>
+<display-name>AE</display-name>
+<icon src="http://lv2.ustvnow.com/images/AE.png"/>
+</channel>
+<channel id="AMC">
+<display-name>AMC</display-name>
+<display-name>AMC</display-name>
+<icon src="http://lv2.ustvnow.com/images/AMC.png"/>
+</channel>
+<channel id="Animal Planet">
+<display-name>Animal Planet</display-name>
+<display-name>Animal Planet</display-name>
+<icon src="http://lv2.ustvnow.com/images/Animal Planet.png"/>
+</channel>
+<channel id="Bravo">
+<display-name>Bravo</display-name>
+<display-name>Bravo</display-name>
+<icon src="http://lv2.ustvnow.com/images/Bravo.png"/>
+</channel>
+<channel id="Cartoon Network">
+<display-name>Cartoon Network</display-name>
+<display-name>Cartoon Network</display-name>
+<icon src="http://lv2.ustvnow.com/images/Cartoon Network.png"/>
+</channel>
+<channel id="CNBC">
+<display-name>CNBC</display-name>
+<display-name>CNBC</display-name>
+<icon src="http://lv2.ustvnow.com/images/CNBC.png"/>
+</channel>
+<channel id="CNN">
+<display-name>CNN</display-name>
+<display-name>CNN</display-name>
+<icon src="http://lv2.ustvnow.com/images/CNN.png"/>
+</channel>
+<channel id="Comedy Central">
+<display-name>Comedy Central</display-name>
+<display-name>Comedy Central</display-name>
+<icon src="http://lv2.ustvnow.com/images/Comedy Central.png"/>
+</channel>
+<channel id="Discovery">
+<display-name>Discovery</display-name>
+<display-name>Discovery</display-name>
+<icon src="http://lv2.ustvnow.com/images/Discovery.png"/>
+</channel>
+<channel id="ESPN">
+<display-name>ESPN</display-name>
+<display-name>ESPN</display-name>
+<icon src="http://lv2.ustvnow.com/images/ESPN.png"/>
+</channel>
+<channel id="Fox News">
+<display-name>Fox News</display-name>
+<display-name>Fox News</display-name>
+<icon src="http://lv2.ustvnow.com/images/Fox News.png"/>
+</channel>
+<channel id="FX">
+<display-name>FX</display-name>
+<display-name>FX</display-name>
+<icon src="http://lv2.ustvnow.com/images/FX.png"/>
+</channel>
+<channel id="History">
+<display-name>History</display-name>
+<display-name>History</display-name>
+<icon src="http://lv2.ustvnow.com/images/History.png"/>
+</channel>
+<channel id="Lifetime">
+<display-name>Lifetime</display-name>
+<display-name>Lifetime</display-name>
+<icon src="http://lv2.ustvnow.com/images/Lifetime.png"/>
+</channel>
+<channel id="National Geographic">
+<display-name>National Geographic</display-name>
+<display-name>National Geographic</display-name>
+<icon src="http://lv2.ustvnow.com/images/National Geographic.png"/>
+</channel>
+<channel id="Nickelodeon">
+<display-name>Nickelodeon</display-name>
+<display-name>Nickelodeon</display-name>
+<icon src="http://lv2.ustvnow.com/images/Nickelodeon.png"/>
+</channel>
+<channel id="SPIKE TV">
+<display-name>SPIKE TV</display-name>
+<display-name>SPIKE TV</display-name>
+<icon src="http://lv2.ustvnow.com/images/SPIKE TV.png"/>
+</channel>
+<channel id="Syfy">
+<display-name>Syfy</display-name>
+<display-name>Syfy</display-name>
+<icon src="http://lv2.ustvnow.com/images/Syfy.png"/>
+</channel>
+<channel id="TBS">
+<display-name>TBS</display-name>
+<display-name>TBS</display-name>
+<icon src="http://lv2.ustvnow.com/images/TBS.png"/>
+</channel>
+<channel id="TNT">
+<display-name>TNT</display-name>
+<display-name>TNT</display-name>
+<icon src="http://lv2.ustvnow.com/images/TNT.png"/>
+</channel>
+<channel id="USA Network">
+<display-name>USA Network</display-name>
+<display-name>USA Network</display-name>
+<icon src="http://lv2.ustvnow.com/images/USA Network.png"/>
+</channel>
+<programme channel="ABC" start="20160122200000 0" stop="20160122203500 0">
+<title lang="en">ABC27 News</title>
+<sub-title lang="en">
+</sub-title>
+<desc lang="en">No description available</desc>
+<date>20160122</date>
+<category>livehd</category>
+<length units="seconds">358</length>
+<episode-num system="dd_progid">SH003266420000</episode-num>
+<icon src="http://mc.ustvnow.com/gtv/1/live/viewposter?srsid=553214&amp;cs=ABC&amp;tid=SH"/>
+</programme>
+<programme channel="ABC" start="20160122203500 0" stop="20160122213700 0">
+<title lang="en">Jimmy Kimmel Live</title>
+<sub-title lang="en">
+</sub-title>
+<desc lang="en">Actors David Duchovny and Gillian Anderson; actor Jacob Tremblay; Leon Bridges performs.</desc>
+<date>20160122</date>
+<category>livehd</category>
+<length units="seconds">3720</length>
+<episode-num system="dd_progid">EP005455792496</episode-num>
+<icon src="http://mc.ustvnow.com/gtv/1/live/viewposter?srsid=184869&amp;cs=ABC&amp;tid=EP"/>
+</programme>
+<programme channel="ABC" start="20160122213700 0" stop="20160122220700 0">
+<title lang="en">Nightline</title>
+<sub-title lang="en">
+</sub-title>
+<desc lang="en">No description available</desc>
+<date>20160122</date>
+<category>livehd</category>
+<length units="seconds">1800</length>
+<episode-num system="dd_progid">EP000031384548</episode-num>
+<icon src="http://mc.ustvnow.com/gtv/1/live/viewposter?srsid=184465&amp;cs=ABC&amp;tid=EP"/>
+</programme>
+<programme channel="ABC" start="20160122220700 0" stop="20160122223700 0">
+<title lang="en">Larry King Special Report</title>
+<sub-title lang="en">
+</sub-title>
+<desc lang="en">Larry King investigates Omega XL, the ultimate all natural solution for pain and inflammation.</desc>
+<date>20160122</date>
+<category>livehd</category>
+<length units="seconds">1800</length>
+<episode-num system="dd_progid">SH017890940000</episode-num>
+<icon src="http://mc.ustvnow.com/gtv/1/live/viewposter?srsid=10177895&amp;cs=ABC&amp;tid=SH"/>
+</programme>
+<programme channel="ABC" start="20160122223700 0" stop="20160122230700 0">
+<title lang="en">The Insider</title>
+<sub-title lang="en">
+</sub-title>
+<desc lang="en">Singer Toni Braxton; personal trainer Jillian Michaels.</desc>
+<date>20160122</date>
+<category>livehd</category>
+<length units="seconds">1800</length>
+<episode-num system="dd_progid">EP006724493265</episode-num>
+<icon src="http://mc.ustvnow.com/gtv/1/live/viewposter?srsid=185176&amp;cs=ABC&amp;tid=EP"/>
+</programme>
+<programme channel="ABC" start="20160122230700 0" stop="20160122233700 0">
+<title lang="en">Fish Oil Benefits Examined</title>
+<sub-title lang="en">
+</sub-title>
+<desc lang="en">Say goodbye to bad cholesterol, joint pain, mood swings and brain fog in 30 days or less.</desc>
+<date>20160122</date>
+<category>livehd</category>
+<length units="seconds">1800</length>
+<episode-num system="dd_progid">SH022174020000</episode-num>
+<icon src="http://mc.ustvnow.com/gtv/1/live/viewposter?srsid=11904040&amp;cs=ABC&amp;tid=SH"/>
+</programme>
+<programme channel="ABC" start="20160122233700 0" stop="20160123000600 0">
+<title lang="en">Larry King Special Report</title>
+<sub-title lang="en">
+</sub-title>
+<desc lang="en">Larry King investigates Omega XL, the ultimate all natural solution for pain and inflammation.</desc>
+<date>20160122</date>
+<category>livehd</category>
+<length units="seconds">1740</length>
+<episode-num system="dd_progid">SH017472810000</episode-num>
+<icon src="http://mc.ustvnow.com/gtv/1/live/viewposter?srsid=10005060&amp;cs=ABC&amp;tid=SH"/>
+</programme>
+<programme channel="ABC" start="20160123000600 0" stop="20160123020000 0">
+<title lang="en">abc27 Stormtrack 24/7</title>
+<sub-title lang="en">
+</sub-title>
+<desc lang="en">No description available</desc>
+<date>20160123</date>
+<category>livehd</category>
+<length units="seconds">6840</length>
+<episode-num system="dd_progid">SH015791320000</episode-num>
+<icon src="http://mc.ustvnow.com/gtv/1/live/viewposter?srsid=9309253&amp;cs=ABC&amp;tid=SH"/>
+</programme>
+<programme channel="ABC" start="20160123020000 0" stop="20160123023000 0">
+<title lang="en">Paid Programming</title>
+<sub-title lang="en">
+</sub-title>
+<desc lang="en">Paid programming.</desc>
+<date>20160123</date>
+<category>livehd</category>
+<length units="seconds">1800</length>
+<episode-num system="dd_progid">SH000000010000</episode-num>
+<icon src="http://mc.ustvnow.com/gtv/1/live/viewposter?srsid=459763&amp;cs=ABC&amp;tid=SH"/>
+</programme>
+<programme channel="ABC" start="20160123023000 0" stop="20160123030000 0">
+<title lang="en">Paid Programming</title>
+<sub-title lang="en">
+</sub-title>
+<desc lang="en">Paid programming.</desc>
+<date>20160123</date>
+<category>livehd</category>
+<length units="seconds">1800</length>
+<episode-num system="dd_progid">SH000000010000</episode-num>
+<icon src="http://mc.ustvnow.com/gtv/1/live/viewposter?srsid=459763&amp;cs=ABC&amp;tid=SH"/>
+</programme>
+<programme channel="ABC" start="20160123030000 0" stop="20160123040000 0">
+<title lang="en">ABC27 News Saturday</title>
+<sub-title lang="en">
+</sub-title>
+<desc lang="en">No description available</desc>
+<date>20160123</date>
+<category>livehd</category>
+<length units="seconds">3600</length>
+<episode-num system="dd_progid">SH004648340000</episode-num>
+<icon src="http://mc.ustvnow.com/gtv/1/live/viewposter?srsid=553219&amp;cs=ABC&amp;tid=SH"/>
+</programme>
+<programme channel="ABC" start="20160123040000 0" stop="20160123050000 0">
+<title lang="en">Good Morning America</title>
+<sub-title lang="en">
+</sub-title>
+<desc lang="en">No description available</desc>
+<date>20160123</date>
+<category>livehd</category>
+<length units="seconds">3600</length>
+<episode-num system="dd_progid">EP000018937375</episode-num>
+<icon src="http://mc.ustvnow.com/gtv/1/live/viewposter?srsid=184220&amp;cs=ABC&amp;tid=EP"/>
+</programme>
+<programme channel="CBS" start="20160122200000 0" stop="20160122203500 0">
+<title lang="en">CBS CBS 21 News at 11</title>
+<sub-title lang="en">
+</sub-title>
+<desc lang="en">No description available</desc>
+<date>20160122</date>
+<category>livehd</category>
+<length units="seconds">358</length>
+<episode-num system="dd_progid">SH006906500000</episode-num>
+<icon src="http://mc.ustvnow.com/gtv/1/live/viewposter?srsid=984975&amp;cs=CBS&amp;tid=SH"/>
+</programme>
+<programme channel="CBS" start="20160122203500 0" stop="20160122213700 0">
+<title lang="en">The Late Show With Stephen Colbert</title>
+<sub-title lang="en">
+</sub-title>
+<desc lang="en">Musician Steven Tyler; actress Gaby Hoffmann; Låpsley performs.</desc>
+<date>20160122</date>
+<category>livehd</category>
+<length units="seconds">3720</length>
+<episode-num system="dd_progid">EP019062760077</episode-num>
+<icon src="http://mc.ustvnow.com/gtv/1/live/viewposter?srsid=10703384&amp;cs=CBS&amp;tid=EP"/>
+</programme>
+<programme channel="CBS" start="20160122213700 0" stop="20160122223700 0">
+<title lang="en">The Late Late Show With James Corden</title>
+<sub-title lang="en">
+</sub-title>
+<desc lang="en">Actress Taraji P. Henson; actor Justin Bartha; comic Jermaine Fowler.</desc>
+<date>20160122</date>
+<category>livehd</category>
+<length units="seconds">3600</length>
+<episode-num system="dd_progid">EP019952930126</episode-num>
+<icon src="http://mc.ustvnow.com/gtv/1/live/viewposter?srsid=11060317&amp;cs=CBS&amp;tid=EP"/>
+</programme>
+<programme channel="CBS" start="20160122223700 0" stop="20160122230700 0">
+<title lang="en">FREE UPGRADE to the NutriBullet Pro Whole Food Nutrition Extractor!</title>
+<sub-title lang="en">
+</sub-title>
+<desc lang="en">Unleash the power of food with a FREE UPGRADE to the NutriBullet Pro Whole Food Nutrition Extractor!</desc>
+<date>20160122</date>
+<category>livehd</category>
+<length units="seconds">1800</length>
+<episode-num system="dd_progid">SH022894720000</episode-num>
+<icon src="http://mc.ustvnow.com/gtv/1/live/viewposter?srsid=12233991&amp;cs=CBS&amp;tid=SH"/>
+</programme>
+<programme channel="CBS" start="20160122230700 0" stop="20160122233700 0">
+<title lang="en">Extra</title>
+<sub-title lang="en">
+</sub-title>
+<desc lang="en">Donald Trump; Selena Gomez and Ronda Rousey; Sundance.</desc>
+<date>20160122</date>
+<category>livehd</category>
+<length units="seconds">1800</length>
+<episode-num system="dd_progid">EP001152646790</episode-num>
+<icon src="http://mc.ustvnow.com/gtv/1/live/viewposter?srsid=184109&amp;cs=CBS&amp;tid=EP"/>
+</programme>
+<programme channel="CBS" start="20160122233700 0" stop="20160123000000 0">
+<title lang="en">Made in Hollywood</title>
+<sub-title lang="en">The 5th Wave, The Boy, Straight Outta Compton</sub-title>
+<desc lang="en">Ice Cube; O'Shea Jackson Jr.; Chloë Grace Moretz; Matthew Gray Gubler; Lauren Cohan.</desc>
+<date>20160122</date>
+<category>livehd</category>
+<length units="seconds">1380</length>
+<episode-num system="dd_progid">EP007701430662</episode-num>
+<icon src="http://mc.ustvnow.com/gtv/1/live/viewposter?srsid=196753&amp;cs=CBS&amp;tid=EP"/>
+</programme>
+<programme channel="CBS" start="20160123000000 0" stop="20160123020000 0">
+<title lang="en">Hardbodies</title>
+<sub-title lang="en">
+</sub-title>
+<desc lang="en">Aging swingers pay a beach bum and his sidekick to lure fit young women to their hot-tub party.</desc>
+<date>20160123</date>
+<category>livehd</category>
+<length units="seconds">7200</length>
+<episode-num system="dd_progid">MV000076050000</episode-num>
+<icon src="http://mc.ustvnow.com/gtv/1/live/viewposter?srsid=4465&amp;cs=CBS&amp;tid=MV"/>
+</programme>
+<programme channel="CBS" start="20160123020000 0" stop="20160123023000 0">
+<title lang="en">Paid Programming</title>
+<sub-title lang="en">
+</sub-title>
+<desc lang="en">Paid programming.</desc>
+<date>20160123</date>
+<category>livehd</category>
+<length units="seconds">1800</length>
+<episode-num system="dd_progid">SH000000010000</episode-num>
+<icon src="http://mc.ustvnow.com/gtv/1/live/viewposter?srsid=459763&amp;cs=CBS&amp;tid=SH"/>
+</programme>
+<programme channel="CBS" start="20160123023000 0" stop="20160123030000 0">
+<title lang="en">CIZE Dance Workout!</title>
+<sub-title lang="en">
+</sub-title>
+<desc lang="en">Dance your way to a super lean, super sexy body with Shaun T's dance workout revolution, Cize!</desc>
+<date>20160123</date>
+<category>livehd</category>
+<length units="seconds">1800</length>
+<episode-num system="dd_progid">SH022941750000</episode-num>
+<icon src="http://mc.ustvnow.com/gtv/1/live/viewposter?srsid=12263160&amp;cs=CBS&amp;tid=SH"/>
+</programme>
+<programme channel="CBS" start="20160123030000 0" stop="20160123033000 0">
+<title lang="en">Paid Programming</title>
+<sub-title lang="en">
+</sub-title>
+<desc lang="en">Paid programming.</desc>
+<date>20160123</date>
+<category>livehd</category>
+<length units="seconds">1800</length>
+<episode-num system="dd_progid">SH000000010000</episode-num>
+<icon src="http://mc.ustvnow.com/gtv/1/live/viewposter?srsid=459763&amp;cs=CBS&amp;tid=SH"/>
+</programme>
+<programme channel="CBS" start="20160123033000 0" stop="20160123040000 0">
+<title lang="en">21 Day Fix</title>
+<sub-title lang="en">
+</sub-title>
+<desc lang="en">No description available</desc>
+<date>20160123</date>
+<category>livehd</category>
+<length units="seconds">1800</length>
+<episode-num system="dd_progid">SH018990110000</episode-num>
+<icon src="http://mc.ustvnow.com/gtv/1/live/viewposter?srsid=10665566&amp;cs=CBS&amp;tid=SH"/>
+</programme>
+<programme channel="CBS" start="20160123040000 0" stop="20160123043000 0">
+<title lang="en">Lucky Dog</title>
+<sub-title lang="en">Darby</sub-title>
+<desc lang="en">A teacher wants to adopt her first dog, but 9-month-old Darby needs to learn common commands.</desc>
+<date>20160123</date>
+<category>livehd</category>
+<length units="seconds">1800</length>
+<episode-num system="dd_progid">EP017729500063</episode-num>
+<icon src="http://mc.ustvnow.com/gtv/1/live/viewposter?srsid=10110333&amp;cs=CBS&amp;tid=EP"/>
+</programme>
+<programme channel="CW" start="20160122200000 0" stop="20160122203000 0">
+<title lang="en">2 Broke Girls</title>
+<sub-title lang="en">And the Group Head</sub-title>
+<desc lang="en">Caroline and Max take side jobs as baristas in order to learn how to use their new cappuccino maker.</desc>
+<date>20160122</date>
+<category>livehd</category>
+<length units="seconds">58</length>
+<episode-num system="dd_progid">EP014198720053</episode-num>
+<icon src="http://mc.ustvnow.com/gtv/1/live/viewposter?srsid=8680648&amp;cs=CW&amp;tid=EP"/>
+</programme>
+<programme channel="CW" start="20160122203000 0" stop="20160122210000 0">
+<title lang="en">Mike &amp;amp; Molly</title>
+<sub-title lang="en">Mike Takes a Test</sub-title>
+<desc lang="en">When Molly encourages Mike to pursue a detective position, stress impacts their relationship.</desc>
+<date>20160122</date>
+<category>livehd</category>
+<length units="seconds">1800</length>
+<episode-num system="dd_progid">EP012800400057</episode-num>
+<icon src="http://mc.ustvnow.com/gtv/1/live/viewposter?srsid=8130329&amp;cs=CW&amp;tid=EP"/>
+</programme>
+<programme channel="CW" start="20160122210000 0" stop="20160122213000 0">
+<title lang="en">Cougar Town</title>
+<sub-title lang="en">Blue Sunday</sub-title>
+<desc lang="en">Grayson doesn't learn the rules of marriage in his first week with Jules.</desc>
+<date>20160122</date>
+<category>livehd</category>
+<length units="seconds">1800</length>
+<episode-num system="dd_progid">EP011580820064</episode-num>
+<icon src="http://mc.ustvnow.com/gtv/1/live/viewposter?srsid=3560220&amp;cs=CW&amp;tid=EP"/>
+</programme>
+<programme channel="CW" start="20160122213000 0" stop="20160122220000 0">
+<title lang="en">Anger Management</title>
+<sub-title lang="en">Charlie and Cee Lo</sub-title>
+<desc lang="en">Charlie runs into problems when Cee Lo Green hires him as his personal therapist.</desc>
+<date>20160122</date>
+<category>livehd</category>
+<length units="seconds">1800</length>
+<episode-num system="dd_progid">EP015084700022</episode-num>
+<icon src="http://mc.ustvnow.com/gtv/1/live/viewposter?srsid=8981323&amp;cs=CW&amp;tid=EP"/>
+</programme>
+<programme channel="CW" start="20160122220000 0" stop="20160122223000 0">
+<title lang="en">Anger Management</title>
+<sub-title lang="en">Charlie Is an Expert Witness</sub-title>
+<desc lang="en">Charlie and Kate face off as expert witnesses in the same trial.</desc>
+<date>20160122</date>
+<category>livehd</category>
+<length units="seconds">1800</length>
+<episode-num system="dd_progid">EP015084700021</episode-num>
+<icon src="http://mc.ustvnow.com/gtv/1/live/viewposter?srsid=8981323&amp;cs=CW&amp;tid=EP"/>
+</programme>
+<programme channel="CW" start="20160122223000 0" stop="20160122230000 0">
+<title lang="en">The Office</title>
+<sub-title lang="en">Viewing Party</sub-title>
+<desc lang="en">Erin and Gabe host a &amp;quot;Glee&amp;quot; viewing party; Michael is upset when people refer to Gabe as his boss.</desc>
+<date>20160122</date>
+<category>livehd</category>
+<length units="seconds">1800</length>
+<episode-num system="dd_progid">EP007261330149</episode-num>
+<icon src="http://mc.ustvnow.com/gtv/1/live/viewposter?srsid=185008&amp;cs=CW&amp;tid=EP"/>
+</programme>
+<programme channel="CW" start="20160122230000 0" stop="20160122233000 0">
+<title lang="en">Community</title>
+<sub-title lang="en">Basic Human Anatomy</sub-title>
+<desc lang="en">Annie and Shirley try to bring Leonard down; a scene from a body switching film.</desc>
+<date>20160122</date>
+<category>livehd</category>
+<length units="seconds">1800</length>
+<episode-num system="dd_progid">EP011541620086</episode-num>
+<icon src="http://mc.ustvnow.com/gtv/1/live/viewposter?srsid=3546220&amp;cs=CW&amp;tid=EP"/>
+</programme>
+<programme channel="CW" start="20160122233000 0" stop="20160123000000 0">
+<title lang="en">Friends</title>
+<sub-title lang="en">The One With Rachel's Book</sub-title>
+<desc lang="en">Monica's dreams of an extravagant wedding perish; Joey discovers Rachel's steamy late-night reading.</desc>
+<date>20160122</date>
+<category>livehd</category>
+<length units="seconds">1800</length>
+<episode-num system="dd_progid">EP001151270161</episode-num>
+<icon src="http://mc.ustvnow.com/gtv/1/live/viewposter?srsid=183931&amp;cs=CW&amp;tid=EP"/>
+</programme>
+<programme channel="CW" start="20160123000000 0" stop="20160123003000 0">
+<title lang="en">The Office</title>
+<sub-title lang="en">Money</sub-title>
+<desc lang="en">Michael tries to combat his growing debt by asking employees for loans.</desc>
+<date>20160123</date>
+<category>livehd</category>
+<length units="seconds">1800</length>
+<episode-num system="dd_progid">EP007261330072</episode-num>
+<icon src="http://mc.ustvnow.com/gtv/1/live/viewposter?srsid=185008&amp;cs=CW&amp;tid=EP"/>
+</programme>
+<programme channel="CW" start="20160123003000 0" stop="20160123010000 0">
+<title lang="en">Friends</title>
+<sub-title lang="en">The One Where Chandler Can't Remember Which Sister</sub-title>
+<desc lang="en">Ross becomes suspicious when Rachel meets a man who may help change her career.</desc>
+<date>20160123</date>
+<category>livehd</category>
+<length units="seconds">1800</length>
+<episode-num system="dd_progid">EP001151270064</episode-num>
+<icon src="http://mc.ustvnow.com/gtv/1/live/viewposter?srsid=183931&amp;cs=CW&amp;tid=EP"/>
+</programme>
+<programme channel="CW" start="20160123010000 0" stop="20160123013000 0">
+<title lang="en">The King of Queens</title>
+<sub-title lang="en">Dugan Groupie</sub-title>
+<desc lang="en">Jealous of Carrie's new job, Doug asks his boss for a promotion and gets put in charge of safety.</desc>
+<date>20160123</date>
+<category>livehd</category>
+<length units="seconds">1800</length>
+<episode-num system="dd_progid">EP002776100155</episode-num>
+<icon src="http://mc.ustvnow.com/gtv/1/live/viewposter?srsid=184408&amp;cs=CW&amp;tid=EP"/>
+</programme>
+<programme channel="CW" start="20160123013000 0" stop="20160123020000 0">
+<title lang="en">Community</title>
+<sub-title lang="en">Basic Rocket Science</sub-title>
+<desc lang="en">The study group accidentally launches the Greendale flight simulator.</desc>
+<date>20160123</date>
+<category>livehd</category>
+<length units="seconds">1800</length>
+<episode-num system="dd_progid">EP011541620031</episode-num>
+<icon src="http://mc.ustvnow.com/gtv/1/live/viewposter?srsid=3546220&amp;cs=CW&amp;tid=EP"/>
+</programme>
+<programme channel="CW" start="20160123020000 0" stop="20160123023000 0">
+<title lang="en">The Tim McCarver Show</title>
+<sub-title lang="en">
+</sub-title>
+<desc lang="en">Interviews from the sports world.</desc>
+<date>20160123</date>
+<category>livehd</category>
+<length units="seconds">1800</length>
+<episode-num system="dd_progid">SH003610630000</episode-num>
+<icon src="http://mc.ustvnow.com/gtv/1/live/viewposter?srsid=511658&amp;cs=CW&amp;tid=SH"/>
+</programme>
+<programme channel="CW" start="20160123023000 0" stop="20160123033000 0">
+<title lang="en">This Week in AgriBusiness</title>
+<sub-title lang="en">
+</sub-title>
+<desc lang="en">No description available</desc>
+<date>20160123</date>
+<category>livehd</category>
+<length units="seconds">3600</length>
+<episode-num system="dd_progid">SH016612280000</episode-num>
+<icon src="http://mc.ustvnow.com/gtv/1/live/viewposter?srsid=9642539&amp;cs=CW&amp;tid=SH"/>
+</programme>
+<programme channel="CW" start="20160123033000 0" stop="20160123040000 0">
+<title lang="en">Paid Programming</title>
+<sub-title lang="en">
+</sub-title>
+<desc lang="en">Paid programming.</desc>
+<date>20160123</date>
+<category>livehd</category>
+<length units="seconds">1800</length>
+<episode-num system="dd_progid">SH000000010000</episode-num>
+<icon src="http://mc.ustvnow.com/gtv/1/live/viewposter?srsid=459763&amp;cs=CW&amp;tid=SH"/>
+</programme>
+<programme channel="CW" start="20160123040000 0" stop="20160123043000 0">
+<title lang="en">Calling Dr. Pol</title>
+<sub-title lang="en">Camping With the Doctor</sub-title>
+<desc lang="en">A cow has an attitude; a fussy parrot; a dog has a baffling illness; Charles and his dad go camping.</desc>
+<date>20160123</date>
+<category>livehd</category>
+<length units="seconds">1800</length>
+<episode-num system="dd_progid">EP019349820001</episode-num>
+<icon src="http://mc.ustvnow.com/gtv/1/live/viewposter?srsid=10828391&amp;cs=CW&amp;tid=EP"/>
+</programme>
+<programme channel="FOX" start="20160122200000 0" stop="20160122203000 0">
+<title lang="en">Two and a Half Men</title>
+<sub-title lang="en">Meander to Your Dander</sub-title>
+<desc lang="en">Charlie offers Alan pointers on how to break up with a woman.</desc>
+<date>20160122</date>
+<category>livehd</category>
+<length units="seconds">58</length>
+<episode-num system="dd_progid">EP005927330111</episode-num>
+<icon src="http://mc.ustvnow.com/gtv/1/live/viewposter?srsid=184925&amp;cs=FOX&amp;tid=EP"/>
+</programme>
+<programme channel="FOX" start="20160122203000 0" stop="20160122210000 0">
+<title lang="en">Two and a Half Men</title>
+<sub-title lang="en">Oh Look! Al-Qaeda!</sub-title>
+<desc lang="en">Jake graduates and must decide what to do with his life.</desc>
+<date>20160122</date>
+<category>livehd</category>
+<length units="seconds">1800</length>
+<episode-num system="dd_progid">EP005927330210</episode-num>
+<icon src="http://mc.ustvnow.com/gtv/1/live/viewposter?srsid=184925&amp;cs=FOX&amp;tid=EP"/>
+</programme>
+<programme channel="FOX" start="20160122210000 0" stop="20160122213000 0">
+<title lang="en">Seinfeld</title>
+<sub-title lang="en">The Pie</sub-title>
+<desc lang="en">A date's refusal to eat pie obsesses Jerry; a mannequin resembles Elaine; guest Lane Davies.</desc>
+<date>20160122</date>
+<category>livehd</category>
+<length units="seconds">1800</length>
+<episode-num system="dd_progid">EP000169160092</episode-num>
+<icon src="http://mc.ustvnow.com/gtv/1/live/viewposter?srsid=183875&amp;cs=FOX&amp;tid=EP"/>
+</programme>
+<programme channel="FOX" start="20160122213000 0" stop="20160122220000 0">
+<title lang="en">Seinfeld</title>
+<sub-title lang="en">The Pilot</sub-title>
+<desc lang="en">Jerry and George produce their pilot, but George doesn't like the actor playing him.</desc>
+<date>20160122</date>
+<category>livehd</category>
+<length units="seconds">1800</length>
+<episode-num system="dd_progid">EP000169160128</episode-num>
+<icon src="http://mc.ustvnow.com/gtv/1/live/viewposter?srsid=183875&amp;cs=FOX&amp;tid=EP"/>
+</programme>
+<programme channel="FOX" start="20160122220000 0" stop="20160122223000 0">
+<title lang="en">Celebrity Name Game</title>
+<sub-title lang="en">
+</sub-title>
+<desc lang="en">No description available</desc>
+<date>20160122</date>
+<category>livehd</category>
+<length units="seconds">1800</length>
+<episode-num system="dd_progid">EP019581260055</episode-num>
+<icon src="http://mc.ustvnow.com/gtv/1/live/viewposter?srsid=10911965&amp;cs=FOX&amp;tid=EP"/>
+</programme>
+<programme channel="FOX" start="20160122223000 0" stop="20160122230000 0">
+<title lang="en">Dish Nation</title>
+<sub-title lang="en">
+</sub-title>
+<desc lang="en">No description available</desc>
+<date>20160122</date>
+<category>livehd</category>
+<length units="seconds">1800</length>
+<episode-num system="dd_progid">EP014284730911</episode-num>
+<icon src="http://mc.ustvnow.com/gtv/1/live/viewposter?srsid=8715038&amp;cs=FOX&amp;tid=EP"/>
+</programme>
+<programme channel="FOX" start="20160122230000 0" stop="20160122233000 0">
+<title lang="en">The Middle</title>
+<sub-title lang="en">The Potato</sub-title>
+<desc lang="en">Sue gets a job at a mall eatery; Axl spends nights at home to avoid his roommate.</desc>
+<date>20160122</date>
+<category>livehd</category>
+<length units="seconds">1800</length>
+<episode-num system="dd_progid">EP011581190103</episode-num>
+<icon src="http://mc.ustvnow.com/gtv/1/live/viewposter?srsid=3560344&amp;cs=FOX&amp;tid=EP"/>
+</programme>
+<programme channel="FOX" start="20160122233000 0" stop="20160123000000 0">
+<title lang="en">Just for Laughs Gags</title>
+<sub-title lang="en">Car of the Year</sub-title>
+<desc lang="en">&amp;quot;T-Bone Tot&amp;quot;; &amp;quot;Bride and Seek&amp;quot;; &amp;quot;Grandpa Flips Over It.&amp;quot;</desc>
+<date>20160122</date>
+<category>livehd</category>
+<length units="seconds">1800</length>
+<episode-num system="dd_progid">EP022413960015</episode-num>
+<icon src="http://mc.ustvnow.com/gtv/1/live/viewposter?srsid=12008947&amp;cs=FOX&amp;tid=EP"/>
+</programme>
+<programme channel="FOX" start="20160123000000 0" stop="20160123003000 0">
+<title lang="en">Cops Reloaded</title>
+<sub-title lang="en">
+</sub-title>
+<desc lang="en">No description available</desc>
+<date>20160123</date>
+<category>livehd</category>
+<length units="seconds">1800</length>
+<episode-num system="dd_progid">EP017109620054</episode-num>
+<icon src="http://mc.ustvnow.com/gtv/1/live/viewposter?srsid=9839777&amp;cs=FOX&amp;tid=EP"/>
+</programme>
+<programme channel="FOX" start="20160123003000 0" stop="20160123010000 0">
+<title lang="en">Cops Reloaded</title>
+<sub-title lang="en">
+</sub-title>
+<desc lang="en">A man that has been arrested soliciting money is doing it again; a disturbance call.</desc>
+<date>20160123</date>
+<category>livehd</category>
+<length units="seconds">1800</length>
+<episode-num system="dd_progid">EP017109620086</episode-num>
+<icon src="http://mc.ustvnow.com/gtv/1/live/viewposter?srsid=9839777&amp;cs=FOX&amp;tid=EP"/>
+</programme>
+<programme channel="FOX" start="20160123010000 0" stop="20160123013000 0">
+<title lang="en">Paid Programming</title>
+<sub-title lang="en">
+</sub-title>
+<desc lang="en">Paid programming.</desc>
+<date>20160123</date>
+<category>livehd</category>
+<length units="seconds">1800</length>
+<episode-num system="dd_progid">SH000000010000</episode-num>
+<icon src="http://mc.ustvnow.com/gtv/1/live/viewposter?srsid=459763&amp;cs=FOX&amp;tid=SH"/>
+</programme>
+<programme channel="FOX" start="20160123013000 0" stop="20160123020000 0">
+<title lang="en">Paid Programming</title>
+<sub-title lang="en">
+</sub-title>
+<desc lang="en">Paid programming.</desc>
+<date>20160123</date>
+<category>livehd</category>
+<length units="seconds">1800</length>
+<episode-num system="dd_progid">SH000000010000</episode-num>
+<icon src="http://mc.ustvnow.com/gtv/1/live/viewposter?srsid=459763&amp;cs=FOX&amp;tid=SH"/>
+</programme>
+<programme channel="FOX" start="20160123020000 0" stop="20160123023000 0">
+<title lang="en">Paid Programming</title>
+<sub-title lang="en">
+</sub-title>
+<desc lang="en">Paid programming.</desc>
+<date>20160123</date>
+<category>livehd</category>
+<length units="seconds">1800</length>
+<episode-num system="dd_progid">SH000000010000</episode-num>
+<icon src="http://mc.ustvnow.com/gtv/1/live/viewposter?srsid=459763&amp;cs=FOX&amp;tid=SH"/>
+</programme>
+<programme channel="FOX" start="20160123023000 0" stop="20160123030000 0">
+<title lang="en">Paid Programming</title>
+<sub-title lang="en">
+</sub-title>
+<desc lang="en">Paid programming.</desc>
+<date>20160123</date>
+<category>livehd</category>
+<length units="seconds">1800</length>
+<episode-num system="dd_progid">SH000000010000</episode-num>
+<icon src="http://mc.ustvnow.com/gtv/1/live/viewposter?srsid=459763&amp;cs=FOX&amp;tid=SH"/>
+</programme>
+<programme channel="FOX" start="20160123030000 0" stop="20160123033000 0">
+<title lang="en">BISSELL: New Year's Revolution</title>
+<sub-title lang="en">
+</sub-title>
+<desc lang="en">The BISSELL ProHeat 2X Revolution outcleans the leading rental at half the weight!</desc>
+<date>20160123</date>
+<category>livehd</category>
+<length units="seconds">1800</length>
+<episode-num system="dd_progid">SH023337670000</episode-num>
+<icon src="http://mc.ustvnow.com/gtv/1/live/viewposter?srsid=12447157&amp;cs=FOX&amp;tid=SH"/>
+</programme>
+<programme channel="FOX" start="20160123033000 0" stop="20160123040000 0">
+<title lang="en">Pete McTee's Clubhouse</title>
+<sub-title lang="en">
+</sub-title>
+<desc lang="en">No description available</desc>
+<date>20160123</date>
+<category>livehd</category>
+<length units="seconds">1800</length>
+<episode-num system="dd_progid">SH011857990000</episode-num>
+<icon src="http://mc.ustvnow.com/gtv/1/live/viewposter?srsid=7837202&amp;cs=FOX&amp;tid=SH"/>
+</programme>
+<programme channel="FOX" start="20160123040000 0" stop="20160123043000 0">
+<title lang="en">Zoo Clues</title>
+<sub-title lang="en">Animals Helping Animals</sub-title>
+<desc lang="en">Amazing and unexpected ways animals help each other.</desc>
+<date>20160123</date>
+<category>livehd</category>
+<length units="seconds">1800</length>
+<episode-num system="dd_progid">EP018074130007</episode-num>
+<icon src="http://mc.ustvnow.com/gtv/1/live/viewposter?srsid=10258691&amp;cs=FOX&amp;tid=EP"/>
+</programme>
+<programme channel="NBC" start="20160122200000 0" stop="20160122203500 0">
+<title lang="en">News 8 at 11:00</title>
+<sub-title lang="en">
+</sub-title>
+<desc lang="en">No description available</desc>
+<date>20160122</date>
+<category>livehd</category>
+<length units="seconds">358</length>
+<episode-num system="dd_progid">SH003281670000</episode-num>
+<icon src="http://mc.ustvnow.com/gtv/1/live/viewposter?srsid=826248&amp;cs=NBC&amp;tid=SH"/>
+</programme>
+<programme channel="NBC" start="20160122203500 0" stop="20160122213800 0">
+<title lang="en">The Tonight Show Starring Jimmy Fallon</title>
+<sub-title lang="en">
+</sub-title>
+<desc lang="en">Actor Jeff Daniels; comic Lilly Singh; St. Lucia performs.</desc>
+<date>20160122</date>
+<category>livehd</category>
+<length units="seconds">3780</length>
+<episode-num system="dd_progid">EP017211070509</episode-num>
+<icon src="http://mc.ustvnow.com/gtv/1/live/viewposter?srsid=9898935&amp;cs=NBC&amp;tid=EP"/>
+</programme>
+<programme channel="NBC" start="20160122213800 0" stop="20160122223900 0">
+<title lang="en">Late Night With Seth Meyers</title>
+<sub-title lang="en">
+</sub-title>
+<desc lang="en">Rashida Jones; Khloe Kardashian; Rachel Bloom; Glenn Kotche sits in with the 8G Band.</desc>
+<date>20160122</date>
+<category>livehd</category>
+<length units="seconds">3660</length>
+<episode-num system="dd_progid">EP018423000325</episode-num>
+<icon src="http://mc.ustvnow.com/gtv/1/live/viewposter?srsid=10409716&amp;cs=NBC&amp;tid=EP"/>
+</programme>
+<programme channel="NBC" start="20160122223900 0" stop="20160122230800 0">
+<title lang="en">Last Call With Carson Daly</title>
+<sub-title lang="en">
+</sub-title>
+<desc lang="en">Actor Bruce Campbell; Luna performs; actor Jesse Joyce.</desc>
+<date>20160122</date>
+<category>livehd</category>
+<length units="seconds">1740</length>
+<episode-num system="dd_progid">EP004847231700</episode-num>
+<icon src="http://mc.ustvnow.com/gtv/1/live/viewposter?srsid=184954&amp;cs=NBC&amp;tid=EP"/>
+</programme>
+<programme channel="NBC" start="20160122230800 0" stop="20160123000800 0">
+<title lang="en">The Meredith Vieira Show</title>
+<sub-title lang="en">What's Hot Now!, Supermodel Christie Brinkley, Room Star Jacob Tremblay, Singer Bryan Adams Performs</sub-title>
+<desc lang="en">Supermodel Christie Brinkley (&amp;quot;Timeless Beauty&amp;quot;); Jacob Tremblay (&amp;quot;Room&amp;quot;); Bryan Adams performs.</desc>
+<date>20160122</date>
+<category>livehd</category>
+<length units="seconds">3600</length>
+<episode-num system="dd_progid">EP019597580229</episode-num>
+<icon src="http://mc.ustvnow.com/gtv/1/live/viewposter?srsid=10919440&amp;cs=NBC&amp;tid=EP"/>
+</programme>
+<programme channel="NBC" start="20160123000800 0" stop="20160123010000 0">
+<title lang="en">Steve Harvey</title>
+<sub-title lang="en">Jorge Cruise and Lacey Stone's Fitness Face-Off! Which Team Will Win $50,000? Part II of Steve's Dating Intervention</sub-title>
+<desc lang="en">Trainers Jorge Cruise and Lacey Stone compete; a pole-dancing attorney's dating intervention.</desc>
+<date>20160123</date>
+<category>livehd</category>
+<length units="seconds">3120</length>
+<episode-num system="dd_progid">EP015223350628</episode-num>
+<icon src="http://mc.ustvnow.com/gtv/1/live/viewposter?srsid=9037504&amp;cs=NBC&amp;tid=EP"/>
+</programme>
+<programme channel="NBC" start="20160123010000 0" stop="20160123013000 0">
+<title lang="en">1st Look</title>
+<sub-title lang="en">Winter Getaways</sub-title>
+<desc lang="en">No description available</desc>
+<date>20160123</date>
+<category>livehd</category>
+<length units="seconds">1800</length>
+<episode-num system="dd_progid">EP015016220151</episode-num>
+<icon src="http://mc.ustvnow.com/gtv/1/live/viewposter?srsid=8953716&amp;cs=NBC&amp;tid=EP"/>
+</programme>
+<programme channel="NBC" start="20160123013000 0" stop="20160123020000 0">
+<title lang="en">Ron Hazelton's HouseCalls</title>
+<sub-title lang="en">
+</sub-title>
+<desc lang="en">No description available</desc>
+<date>20160123</date>
+<category>livehd</category>
+<length units="seconds">1800</length>
+<episode-num system="dd_progid">EP003298480332</episode-num>
+<icon src="http://mc.ustvnow.com/gtv/1/live/viewposter?srsid=478967&amp;cs=NBC&amp;tid=EP"/>
+</programme>
+<programme channel="NBC" start="20160123020000 0" stop="20160123023000 0">
+<title lang="en">Paid Programming</title>
+<sub-title lang="en">
+</sub-title>
+<desc lang="en">Paid programming.</desc>
+<date>20160123</date>
+<category>livehd</category>
+<length units="seconds">1800</length>
+<episode-num system="dd_progid">SH000000010000</episode-num>
+<icon src="http://mc.ustvnow.com/gtv/1/live/viewposter?srsid=459763&amp;cs=NBC&amp;tid=SH"/>
+</programme>
+<programme channel="NBC" start="20160123023000 0" stop="20160123030000 0">
+<title lang="en">On the Money</title>
+<sub-title lang="en">
+</sub-title>
+<desc lang="en">Bill Gates and Bono talk about philanthropy; falling oil prices might not be a good thing.</desc>
+<date>20160123</date>
+<category>livehd</category>
+<length units="seconds">1800</length>
+<episode-num system="dd_progid">EP016566900160</episode-num>
+<icon src="http://mc.ustvnow.com/gtv/1/live/viewposter?srsid=9627623&amp;cs=NBC&amp;tid=EP"/>
+</programme>
+<programme channel="NBC" start="20160123030000 0" stop="20160123040000 0">
+<title lang="en">News 8 Today/Weekend</title>
+<sub-title lang="en">
+</sub-title>
+<desc lang="en">No description available</desc>
+<date>20160123</date>
+<category>livehd</category>
+<length units="seconds">3600</length>
+<episode-num system="dd_progid">SH003281510000</episode-num>
+<icon src="http://mc.ustvnow.com/gtv/1/live/viewposter?srsid=826220&amp;cs=NBC&amp;tid=SH"/>
+</programme>
+<programme channel="NBC" start="20160123040000 0" stop="20160123053000 0">
+<title lang="en">Today</title>
+<sub-title lang="en">
+</sub-title>
+<desc lang="en">No description available</desc>
+<date>20160123</date>
+<category>livehd</category>
+<length units="seconds">5400</length>
+<episode-num system="dd_progid">EP019152141734</episode-num>
+<icon src="http://mc.ustvnow.com/gtv/1/live/viewposter?srsid=184072&amp;cs=NBC&amp;tid=EP"/>
+</programme>
+<programme channel="PBS" start="20160122180000 0" stop="20160122190000 0">
+<title lang="en">Great Performances at the Met</title>
+<sub-title lang="en">Il Trovatore</sub-title>
+<desc lang="en">Anna Netrebko portrays Leonora, the heroine of Verdi's &amp;quot;Il Trovatore.&amp;quot;</desc>
+<date>20160122</date>
+<category>livehd</category>
+<length units="seconds">1858</length>
+<episode-num system="dd_progid">EP008811450096</episode-num>
+<icon src="http://mc.ustvnow.com/gtv/1/live/viewposter?srsid=241428&amp;cs=PBS&amp;tid=EP"/>
+</programme>
+<programme channel="PBS" start="20160122210000 0" stop="20160122213000 0">
+<title lang="en">BBC World News</title>
+<sub-title lang="en">
+</sub-title>
+<desc lang="en">No description available</desc>
+<date>20160122</date>
+<category>livehd</category>
+<length units="seconds">1800</length>
+<episode-num system="dd_progid">SH003157890000</episode-num>
+<icon src="http://mc.ustvnow.com/gtv/1/live/viewposter?srsid=335785&amp;cs=PBS&amp;tid=SH"/>
+</programme>
+<programme channel="PBS" start="20160122213000 0" stop="20160122220000 0">
+<title lang="en">Tavis Smiley</title>
+<sub-title lang="en">
+</sub-title>
+<desc lang="en">A tribute to Glenn Frey.</desc>
+<date>20160122</date>
+<category>livehd</category>
+<length units="seconds">1800</length>
+<episode-num system="dd_progid">EP006228693076</episode-num>
+<icon src="http://mc.ustvnow.com/gtv/1/live/viewposter?srsid=186096&amp;cs=PBS&amp;tid=EP"/>
+</programme>
+<programme channel="PBS" start="20160122220000 0" stop="20160122223000 0">
+<title lang="en">Washington Week With Gwen Ifill</title>
+<sub-title lang="en">
+</sub-title>
+<desc lang="en">Rivalry between Donald Trump and Ted Cruz; close race between Hillary Clinton and Bernie Sanders.</desc>
+<date>20160122</date>
+<category>livehd</category>
+<length units="seconds">1800</length>
+<episode-num system="dd_progid">EP016539230158</episode-num>
+<icon src="http://mc.ustvnow.com/gtv/1/live/viewposter?srsid=9617375&amp;cs=PBS&amp;tid=EP"/>
+</programme>
+<programme channel="PBS" start="20160122223000 0" stop="20160122230000 0">
+<title lang="en">Charlie Rose -- The Week</title>
+<sub-title lang="en">
+</sub-title>
+<desc lang="en">No description available</desc>
+<date>20160122</date>
+<category>livehd</category>
+<length units="seconds">1800</length>
+<episode-num system="dd_progid">EP017476850133</episode-num>
+<icon src="http://mc.ustvnow.com/gtv/1/live/viewposter?srsid=10007006&amp;cs=PBS&amp;tid=EP"/>
+</programme>
+<programme channel="PBS" start="20160122230000 0" stop="20160123020000 0">
+<title lang="en">Great Performances at the Met</title>
+<sub-title lang="en">Il Trovatore</sub-title>
+<desc lang="en">Anna Netrebko portrays Leonora, the heroine of Verdi's &amp;quot;Il Trovatore.&amp;quot;</desc>
+<date>20160122</date>
+<category>livehd</category>
+<length units="seconds">10800</length>
+<episode-num system="dd_progid">EP008811450096</episode-num>
+<icon src="http://mc.ustvnow.com/gtv/1/live/viewposter?srsid=241428&amp;cs=PBS&amp;tid=EP"/>
+</programme>
+<programme channel="PBS" start="20160123020000 0" stop="20160123030000 0">
+<title lang="en">The This Old House Hour</title>
+<sub-title lang="en">This Old House: Gable Shingles; Tree House Build; Ask This Old House: Pedestal Sink; Outdoor Light</sub-title>
+<desc lang="en">Arched gable shingles; custom floor cloth; building a treehouse; replacing a pedestal sink.</desc>
+<date>20160123</date>
+<category>livehd</category>
+<length units="seconds">3600</length>
+<episode-num system="dd_progid">EP007674100282</episode-num>
+<icon src="http://mc.ustvnow.com/gtv/1/live/viewposter?srsid=186258&amp;cs=PBS&amp;tid=EP"/>
+</programme>
+<programme channel="PBS" start="20160123030000 0" stop="20160123033000 0">
+<title lang="en">Sit and Be Fit</title>
+<sub-title lang="en">Fun With the Large Ball</sub-title>
+<desc lang="en">Using a large ball for postural alignment and balance.</desc>
+<date>20160123</date>
+<category>livehd</category>
+<length units="seconds">1800</length>
+<episode-num system="dd_progid">EP000038470302</episode-num>
+<icon src="http://mc.ustvnow.com/gtv/1/live/viewposter?srsid=488574&amp;cs=PBS&amp;tid=EP"/>
+</programme>
+<programme channel="PBS" start="20160123033000 0" stop="20160123040000 0">
+<title lang="en">Bob the Builder</title>
+<sub-title lang="en">Aim for the Stars</sub-title>
+<desc lang="en">Bob and the team build a launch pad for a small rocket; Bob receives Spring City's star award.</desc>
+<date>20160123</date>
+<category>livehd</category>
+<length units="seconds">1800</length>
+<episode-num system="dd_progid">EP003260870456</episode-num>
+<icon src="http://mc.ustvnow.com/gtv/1/live/viewposter?srsid=186054&amp;cs=PBS&amp;tid=EP"/>
+</programme>
+<programme channel="PBS" start="20160123040000 0" stop="20160123043000 0">
+<title lang="en">Daniel Tiger's Neighborhood</title>
+<sub-title lang="en">Daniel Uses His Words; All Aboard!</sub-title>
+<desc lang="en">Mom teaches Daniel how to use words to express his feelings; Katerina gets upset playing train.</desc>
+<date>20160123</date>
+<category>livehd</category>
+<length units="seconds">1800</length>
+<episode-num system="dd_progid">EP015507510026</episode-num>
+<icon src="http://mc.ustvnow.com/gtv/1/live/viewposter?srsid=9175156&amp;cs=PBS&amp;tid=EP"/>
+</programme>
+<programme channel="MY9" start="20160122200000 0" stop="20160122203000 0">
+<title lang="en">Family Guy</title>
+<sub-title lang="en">Untitled Griffin Family History</sub-title>
+<desc lang="en">Peter narrates a chain of events in world history that explains the Griffin name.</desc>
+<date>20160122</date>
+<category>livesd</category>
+<length units="seconds">58</length>
+<episode-num system="dd_progid">EP002960010078</episode-num>
+<icon src="http://mc.ustvnow.com/gtv/1/live/viewposter?srsid=184483&amp;cs=MY9&amp;tid=EP"/>
+</programme>
+<programme channel="MY9" start="20160122203000 0" stop="20160122210000 0">
+<title lang="en">Family Guy</title>
+<sub-title lang="en">Let's Go to the Hop</sub-title>
+<desc lang="en">Peter infiltrates Quahog High School as a new student; guest voice Gregg Allman.</desc>
+<date>20160122</date>
+<category>livesd</category>
+<length units="seconds">1800</length>
+<episode-num system="dd_progid">EP002960010021</episode-num>
+<icon src="http://mc.ustvnow.com/gtv/1/live/viewposter?srsid=184483&amp;cs=MY9&amp;tid=EP"/>
+</programme>
+<programme channel="MY9" start="20160122210000 0" stop="20160122213000 0">
+<title lang="en">King of the Hill</title>
+<sub-title lang="en">Joust Like a Woman</sub-title>
+<desc lang="en">Peggy organizes female employees at a Renaissance fair to fight for their rights.</desc>
+<date>20160122</date>
+<category>livesd</category>
+<length units="seconds">1800</length>
+<episode-num system="dd_progid">EP002070020117</episode-num>
+<icon src="http://mc.ustvnow.com/gtv/1/live/viewposter?srsid=184316&amp;cs=MY9&amp;tid=EP"/>
+</programme>
+<programme channel="MY9" start="20160122213000 0" stop="20160122220000 0">
+<title lang="en">King of the Hill</title>
+<sub-title lang="en">Patch Boomhauer</sub-title>
+<desc lang="en">Boomhauer is thrown for a loop when his brother marries the love of Boomhauer's life, Katherine.</desc>
+<date>20160122</date>
+<category>livesd</category>
+<length units="seconds">1800</length>
+<episode-num system="dd_progid">EP002070020156</episode-num>
+<icon src="http://mc.ustvnow.com/gtv/1/live/viewposter?srsid=184316&amp;cs=MY9&amp;tid=EP"/>
+</programme>
+<programme channel="MY9" start="20160122220000 0" stop="20160122223000 0">
+<title lang="en">American Dad</title>
+<sub-title lang="en">News Glance With Genevieve Vavance</sub-title>
+<desc lang="en">Hayley takes a job as an intern at a local news station for a reporter.</desc>
+<date>20160122</date>
+<category>livesd</category>
+<length units="seconds">1800</length>
+<episode-num system="dd_progid">EP007164450181</episode-num>
+<icon src="http://mc.ustvnow.com/gtv/1/live/viewposter?srsid=185040&amp;cs=MY9&amp;tid=EP"/>
+</programme>
+<programme channel="MY9" start="20160122223000 0" stop="20160122230000 0">
+<title lang="en">American Dad</title>
+<sub-title lang="en">Jenny Fromdabloc</sub-title>
+<desc lang="en">Steve and Roger try to cheer up Snot after he is rejected by Hayley.</desc>
+<date>20160122</date>
+<category>livesd</category>
+<length units="seconds">1800</length>
+<episode-num system="dd_progid">EP007164450115</episode-num>
+<icon src="http://mc.ustvnow.com/gtv/1/live/viewposter?srsid=185040&amp;cs=MY9&amp;tid=EP"/>
+</programme>
+<programme channel="MY9" start="20160122230000 0" stop="20160122233000 0">
+<title lang="en">The Cleveland Show</title>
+<sub-title lang="en">From Bed to Worse</sub-title>
+<desc lang="en">Cleveland and Donna are excited to have the house to themselves.</desc>
+<date>20160122</date>
+<category>livesd</category>
+<length units="seconds">1800</length>
+<episode-num system="dd_progid">EP010591100008</episode-num>
+<icon src="http://mc.ustvnow.com/gtv/1/live/viewposter?srsid=186605&amp;cs=MY9&amp;tid=EP"/>
+</programme>
+<programme channel="MY9" start="20160122233000 0" stop="20160123000000 0">
+<title lang="en">ES.TV</title>
+<sub-title lang="en">
+</sub-title>
+<desc lang="en">Daniel Craig; Saoirse Ronan; John Goodman; Amy Poehler; Godfrey; Zendaya.</desc>
+<date>20160122</date>
+<category>livesd</category>
+<length units="seconds">1800</length>
+<episode-num system="dd_progid">EP011884550819</episode-num>
+<icon src="http://mc.ustvnow.com/gtv/1/live/viewposter?srsid=7847532&amp;cs=MY9&amp;tid=EP"/>
+</programme>
+<programme channel="MY9" start="20160123000000 0" stop="20160123010000 0">
+<title lang="en">Judge Mathis</title>
+<sub-title lang="en">
+</sub-title>
+<desc lang="en">The plaintiff says the defendant assaulted her when she was six months pregnant with his child.</desc>
+<date>20160123</date>
+<category>livesd</category>
+<length units="seconds">3600</length>
+<episode-num system="dd_progid">EP003242302978</episode-num>
+<icon src="http://mc.ustvnow.com/gtv/1/live/viewposter?srsid=185493&amp;cs=MY9&amp;tid=EP"/>
+</programme>
+<programme channel="MY9" start="20160123010000 0" stop="20160123013000 0">
+<title lang="en">The King of Queens</title>
+<sub-title lang="en">Dugan Groupie</sub-title>
+<desc lang="en">Jealous of Carrie's new job, Doug asks his boss for a promotion and gets put in charge of safety.</desc>
+<date>20160123</date>
+<category>livesd</category>
+<length units="seconds">1800</length>
+<episode-num system="dd_progid">EP002776100155</episode-num>
+<icon src="http://mc.ustvnow.com/gtv/1/live/viewposter?srsid=184408&amp;cs=MY9&amp;tid=EP"/>
+</programme>
+<programme channel="MY9" start="20160123013000 0" stop="20160123020000 0">
+<title lang="en">Paid Programming</title>
+<sub-title lang="en">
+</sub-title>
+<desc lang="en">Paid programming.</desc>
+<date>20160123</date>
+<category>livesd</category>
+<length units="seconds">1800</length>
+<episode-num system="dd_progid">SH000000010000</episode-num>
+<icon src="http://mc.ustvnow.com/gtv/1/live/viewposter?srsid=459763&amp;cs=MY9&amp;tid=SH"/>
+</programme>
+<programme channel="MY9" start="20160123020000 0" stop="20160123023000 0">
+<title lang="en">Paid Programming</title>
+<sub-title lang="en">
+</sub-title>
+<desc lang="en">Paid programming.</desc>
+<date>20160123</date>
+<category>livesd</category>
+<length units="seconds">1800</length>
+<episode-num system="dd_progid">SH000000010000</episode-num>
+<icon src="http://mc.ustvnow.com/gtv/1/live/viewposter?srsid=459763&amp;cs=MY9&amp;tid=SH"/>
+</programme>
+<programme channel="MY9" start="20160123023000 0" stop="20160123030000 0">
+<title lang="en">TMZ</title>
+<sub-title lang="en">
+</sub-title>
+<desc lang="en">No description available</desc>
+<date>20160123</date>
+<category>livesd</category>
+<length units="seconds">1800</length>
+<episode-num system="dd_progid">EP009528282627</episode-num>
+<icon src="http://mc.ustvnow.com/gtv/1/live/viewposter?srsid=185886&amp;cs=MY9&amp;tid=EP"/>
+</programme>
+<programme channel="MY9" start="20160123030000 0" stop="20160123033000 0">
+<title lang="en">Paid Programming</title>
+<sub-title lang="en">
+</sub-title>
+<desc lang="en">Paid programming.</desc>
+<date>20160123</date>
+<category>livesd</category>
+<length units="seconds">1800</length>
+<episode-num system="dd_progid">SH000000010000</episode-num>
+<icon src="http://mc.ustvnow.com/gtv/1/live/viewposter?srsid=459763&amp;cs=MY9&amp;tid=SH"/>
+</programme>
+<programme channel="MY9" start="20160123033000 0" stop="20160123040000 0">
+<title lang="en">College Tennis Report</title>
+<sub-title lang="en">
+</sub-title>
+<desc lang="en">No description available</desc>
+<date>20160123</date>
+<category>livesd</category>
+<length units="seconds">1800</length>
+<episode-num system="dd_progid">SH022878200000</episode-num>
+<icon src="http://mc.ustvnow.com/gtv/1/live/viewposter?srsid=12225019&amp;cs=MY9&amp;tid=SH"/>
+</programme>
+<programme channel="MY9" start="20160123040000 0" stop="20160123043000 0">
+<title lang="en">Paid Programming</title>
+<sub-title lang="en">
+</sub-title>
+<desc lang="en">Paid programming.</desc>
+<date>20160123</date>
+<category>livesd</category>
+<length units="seconds">1800</length>
+<episode-num system="dd_progid">SH000000010000</episode-num>
+<icon src="http://mc.ustvnow.com/gtv/1/live/viewposter?srsid=459763&amp;cs=MY9&amp;tid=SH"/>
+</programme>
+<programme channel="AE" start="20160122200200 0" stop="20160122210300 0">
+<title lang="en">Unforgettable</title>
+<sub-title lang="en">Paranoid Android</sub-title>
+<desc lang="en">The search for a wanted shooter triggers a flashback that conflicts with Carrie's perfect memory.</desc>
+<date>20160122</date>
+<category>livehd</category>
+<length units="seconds">1918</length>
+<episode-num system="dd_progid">EP014198070057</episode-num>
+<icon src="http://mc.ustvnow.com/gtv/1/live/viewposter?srsid=8680420&amp;cs=AE&amp;tid=EP"/>
+</programme>
+<programme channel="AE" start="20160122210100 0" stop="20160122220100 0">
+<title lang="en">Unforgettable</title>
+<sub-title lang="en">Game On</sub-title>
+<desc lang="en">Carrie and Al investigate after a man is found dead inside a haunted-house attraction.</desc>
+<date>20160122</date>
+<category>livehd</category>
+<length units="seconds">3600</length>
+<episode-num system="dd_progid">EP014198070067</episode-num>
+<icon src="http://mc.ustvnow.com/gtv/1/live/viewposter?srsid=8680420&amp;cs=AE&amp;tid=EP"/>
+</programme>
+<programme channel="AE" start="20160122220100 0" stop="20160122230200 0">
+<title lang="en">Unforgettable</title>
+<sub-title lang="en">About Face</sub-title>
+<desc lang="en">Carrie and Al follow a hot lead in a cold case involving a missing surgeon.</desc>
+<date>20160122</date>
+<category>livehd</category>
+<length units="seconds">3660</length>
+<episode-num system="dd_progid">EP014198070054</episode-num>
+<icon src="http://mc.ustvnow.com/gtv/1/live/viewposter?srsid=8680420&amp;cs=AE&amp;tid=EP"/>
+</programme>
+<programme channel="AE" start="20160122230200 0" stop="20160123000300 0">
+<title lang="en">Unforgettable</title>
+<sub-title lang="en">Bad Company</sub-title>
+<desc lang="en">Capt. Russo is suspected of murder; Carrie and Al play a cat-and-mouse game with a corrupt ex-cop.</desc>
+<date>20160122</date>
+<category>livehd</category>
+<length units="seconds">3660</length>
+<episode-num system="dd_progid">EP014198070068</episode-num>
+<icon src="http://mc.ustvnow.com/gtv/1/live/viewposter?srsid=8680420&amp;cs=AE&amp;tid=EP"/>
+</programme>
+<programme channel="AE" start="20160123000300 0" stop="20160123010200 0">
+<title lang="en">Unforgettable</title>
+<sub-title lang="en">Paranoid Android</sub-title>
+<desc lang="en">The search for a wanted shooter triggers a flashback that conflicts with Carrie's perfect memory.</desc>
+<date>20160123</date>
+<category>livehd</category>
+<length units="seconds">3540</length>
+<episode-num system="dd_progid">EP014198070057</episode-num>
+<icon src="http://mc.ustvnow.com/gtv/1/live/viewposter?srsid=8680420&amp;cs=AE&amp;tid=EP"/>
+</programme>
+<programme channel="AE" start="20160123010200 0" stop="20160123013000 0">
+<title lang="en">Paid Programming</title>
+<sub-title lang="en">
+</sub-title>
+<desc lang="en">Paid programming.</desc>
+<date>20160123</date>
+<category>livehd</category>
+<length units="seconds">1680</length>
+<episode-num system="dd_progid">SH000000010000</episode-num>
+<icon src="http://mc.ustvnow.com/gtv/1/live/viewposter?srsid=459763&amp;cs=AE&amp;tid=SH"/>
+</programme>
+<programme channel="AE" start="20160123013000 0" stop="20160123020000 0">
+<title lang="en">Fish Oil Benefits Examined</title>
+<sub-title lang="en">
+</sub-title>
+<desc lang="en">Say goodbye to bad cholesterol, joint pain, mood swings and brain fog in 30 days or less.</desc>
+<date>20160123</date>
+<category>livehd</category>
+<length units="seconds">1800</length>
+<episode-num system="dd_progid">SH022174020000</episode-num>
+<icon src="http://mc.ustvnow.com/gtv/1/live/viewposter?srsid=11904040&amp;cs=AE&amp;tid=SH"/>
+</programme>
+<programme channel="AE" start="20160123020000 0" stop="20160123023000 0">
+<title lang="en">Buy gold, at-cost!</title>
+<sub-title lang="en">
+</sub-title>
+<desc lang="en">No description available</desc>
+<date>20160123</date>
+<category>livehd</category>
+<length units="seconds">1800</length>
+<episode-num system="dd_progid">SH018595590000</episode-num>
+<icon src="http://mc.ustvnow.com/gtv/1/live/viewposter?srsid=10475088&amp;cs=AE&amp;tid=SH"/>
+</programme>
+<programme channel="AE" start="20160123023000 0" stop="20160123030000 0">
+<title lang="en">Guilt Free Frying By Philips</title>
+<sub-title lang="en">
+</sub-title>
+<desc lang="en">Fry, bake, roast and grill with little to no oil. Now you can eat healthier.</desc>
+<date>20160123</date>
+<category>livehd</category>
+<length units="seconds">1800</length>
+<episode-num system="dd_progid">SH020428030000</episode-num>
+<icon src="http://mc.ustvnow.com/gtv/1/live/viewposter?srsid=11222551&amp;cs=AE&amp;tid=SH"/>
+</programme>
+<programme channel="AE" start="20160123030000 0" stop="20160123033000 0">
+<title lang="en">No more wrinkles! Say ByeBye now and look younger!</title>
+<sub-title lang="en">
+</sub-title>
+<desc lang="en">No more wrinkles! Look younger with Bye Bye Foundation. Developed to correct and protect your skin.</desc>
+<date>20160123</date>
+<category>livehd</category>
+<length units="seconds">1800</length>
+<episode-num system="dd_progid">SH021056360000</episode-num>
+<icon src="http://mc.ustvnow.com/gtv/1/live/viewposter?srsid=11414309&amp;cs=AE&amp;tid=SH"/>
+</programme>
+<programme channel="AE" start="20160123033000 0" stop="20160123040000 0">
+<title lang="en">Fast Joint Relief</title>
+<sub-title lang="en">
+</sub-title>
+<desc lang="en">Smart Medicine Show: Medical breakthroughs for powerful evidence-based relief from joint problems.</desc>
+<date>20160123</date>
+<category>livehd</category>
+<length units="seconds">1800</length>
+<episode-num system="dd_progid">SH022199630000</episode-num>
+<icon src="http://mc.ustvnow.com/gtv/1/live/viewposter?srsid=11913805&amp;cs=AE&amp;tid=SH"/>
+</programme>
+<programme channel="AE" start="20160123040000 0" stop="20160123050000 0">
+<title lang="en">Tiny House Nation</title>
+<sub-title lang="en">204 Sq. Ft. Climbing Gym</sub-title>
+<desc lang="en">Vince and Sam work hard and play harder. They love to rock climb and go hiking with their dog.</desc>
+<date>20160123</date>
+<category>livehd</category>
+<length units="seconds">3600</length>
+<episode-num system="dd_progid">EP019366820013</episode-num>
+<icon src="http://mc.ustvnow.com/gtv/1/live/viewposter?srsid=10835641&amp;cs=AE&amp;tid=EP"/>
+</programme>
+<programme channel="AE" start="20160122200100 0" stop="20160122210200 0">
+<title lang="en">Criminal Minds</title>
+<sub-title lang="en">I Love You, Tommy Brown</sub-title>
+<desc lang="en">Multiple married couples fostering young children are murdered in Seattle.</desc>
+<date>20160122</date>
+<category>livehd</category>
+<length units="seconds">1918</length>
+<episode-num system="dd_progid">EP007537910166</episode-num>
+<icon src="http://mc.ustvnow.com/gtv/1/live/viewposter?srsid=185123&amp;cs=AE&amp;tid=EP"/>
+</programme>
+<programme channel="AMC" start="20160122170000 0" stop="20160122173000 0">
+<title lang="en">Armageddon</title>
+<sub-title lang="en">
+</sub-title>
+<desc lang="en">A NASA rep recruits an oil driller and his team of mavericks to save Earth from an asteroid.</desc>
+<date>20160122</date>
+<category>livehd</category>
+<length units="seconds">58</length>
+<episode-num system="dd_progid">MV000613650000</episode-num>
+<icon src="http://mc.ustvnow.com/gtv/1/live/viewposter?srsid=21422&amp;cs=AMC&amp;tid=MV"/>
+</programme>
+<programme channel="AMC" start="20160122203000 0" stop="20160122233000 0">
+<title lang="en">Live Free or Die Hard</title>
+<sub-title lang="en">
+</sub-title>
+<desc lang="en">A digital villain attacks the computer infrastructure of the United States.</desc>
+<date>20160122</date>
+<category>livehd</category>
+<length units="seconds">10800</length>
+<episode-num system="dd_progid">MV001935860000</episode-num>
+<icon src="http://mc.ustvnow.com/gtv/1/live/viewposter?srsid=166035&amp;cs=AMC&amp;tid=MV"/>
+</programme>
+<programme channel="AMC" start="20160122233000 0" stop="20160123020000 0">
+<title lang="en">Shanghai Knights</title>
+<sub-title lang="en">
+</sub-title>
+<desc lang="en">Two friends (Jackie Chan, Owen Wilson) travel to London to find a murderer.</desc>
+<date>20160122</date>
+<category>livehd</category>
+<length units="seconds">9000</length>
+<episode-num system="dd_progid">MV001225870000</episode-num>
+<icon src="http://mc.ustvnow.com/gtv/1/live/viewposter?srsid=29999&amp;cs=AMC&amp;tid=MV"/>
+</programme>
+<programme channel="AMC" start="20160123020000 0" stop="20160123030000 0">
+<title lang="en">CSI: Miami</title>
+<sub-title lang="en">L.A.</sub-title>
+<desc lang="en">Jesse faces accusations of evidence tampering, so Horatio and Eric go to Los Angeles to clear him.</desc>
+<date>20160123</date>
+<category>livehd</category>
+<length units="seconds">3600</length>
+<episode-num system="dd_progid">EP005240610193</episode-num>
+<icon src="http://mc.ustvnow.com/gtv/1/live/viewposter?srsid=184820&amp;cs=AMC&amp;tid=EP"/>
+</programme>
+<programme channel="AMC" start="20160123030000 0" stop="20160123033000 0">
+<title lang="en">The Rifleman</title>
+<sub-title lang="en">A Friend in Need</sub-title>
+<desc lang="en">Lucas is stunned when Mark is kidnapped and a $5,000 ransom is asked.</desc>
+<date>20160123</date>
+<category>livehd</category>
+<length units="seconds">1800</length>
+<episode-num system="dd_progid">EP000186270074</episode-num>
+<icon src="http://mc.ustvnow.com/gtv/1/live/viewposter?srsid=510365&amp;cs=AMC&amp;tid=EP"/>
+</programme>
+<programme channel="AMC" start="20160123033000 0" stop="20160123040000 0">
+<title lang="en">The Rifleman</title>
+<sub-title lang="en">Skull</sub-title>
+<desc lang="en">Outlaws force Lucas to help with a prison break.</desc>
+<date>20160123</date>
+<category>livehd</category>
+<length units="seconds">1800</length>
+<episode-num system="dd_progid">EP000186270083</episode-num>
+<icon src="http://mc.ustvnow.com/gtv/1/live/viewposter?srsid=510365&amp;cs=AMC&amp;tid=EP"/>
+</programme>
+<programme channel="AMC" start="20160123040000 0" stop="20160123043000 0">
+<title lang="en">The Rifleman</title>
+<sub-title lang="en">The Princess</sub-title>
+<desc lang="en">A young girl asks refuge at the McCain ranch for herself and her ill brother.</desc>
+<date>20160123</date>
+<category>livehd</category>
+<length units="seconds">1800</length>
+<episode-num system="dd_progid">EP000186270090</episode-num>
+<icon src="http://mc.ustvnow.com/gtv/1/live/viewposter?srsid=510365&amp;cs=AMC&amp;tid=EP"/>
+</programme>
+<programme channel="Animal Planet" start="20160122200200 0" stop="20160122210400 0">
+<title lang="en">Treehouse Masters</title>
+<sub-title lang="en">Most Mind-Blowing Builds 6</sub-title>
+<desc lang="en">Pete and Seanix look back on the giant bird's nest they built in Horseshoe Lake, Ark.</desc>
+<date>20160122</date>
+<category>livesd</category>
+<length units="seconds">1978</length>
+<episode-num system="dd_progid">EP017209790070</episode-num>
+<icon src="http://mc.ustvnow.com/gtv/1/live/viewposter?srsid=9898313&amp;cs=Animal Planet&amp;tid=EP"/>
+</programme>
+<programme channel="Animal Planet" start="20160122210200 0" stop="20160122220200 0">
+<title lang="en">Treehouse Masters</title>
+<sub-title lang="en">Rustic English Re-tree-t</sub-title>
+<desc lang="en">A heard of goats stand in the way of Pete building an elegant English retreat in Waxhaw, N.C.</desc>
+<date>20160122</date>
+<category>livesd</category>
+<length units="seconds">3600</length>
+<episode-num system="dd_progid">EP017209790062</episode-num>
+<icon src="http://mc.ustvnow.com/gtv/1/live/viewposter?srsid=9898313&amp;cs=Animal Planet&amp;tid=EP"/>
+</programme>
+<programme channel="Animal Planet" start="20160122220200 0" stop="20160122230200 0">
+<title lang="en">Treehouse Masters: Out on a Limb</title>
+<sub-title lang="en">Sunrise Day Camp Clubhouse</sub-title>
+<desc lang="en">Pete looks back on an amazing clubhouse for kids fighting cancer at Sunrise Day Camp.</desc>
+<date>20160122</date>
+<category>livesd</category>
+<length units="seconds">3600</length>
+<episode-num system="dd_progid">EP018477280026</episode-num>
+<icon src="http://mc.ustvnow.com/gtv/1/live/viewposter?srsid=9898313&amp;cs=Animal Planet&amp;tid=EP"/>
+</programme>
+<programme channel="Animal Planet" start="20160122230200 0" stop="20160123000000 0">
+<title lang="en">Treehouse Masters</title>
+<sub-title lang="en">Kentucky Climber's Cottage</sub-title>
+<desc lang="en">Pete creates a treehouse with 17-foot-high ceilings for a couple with a love of tree-climbing.</desc>
+<date>20160122</date>
+<category>livesd</category>
+<length units="seconds">3480</length>
+<episode-num system="dd_progid">EP017209790036</episode-num>
+<icon src="http://mc.ustvnow.com/gtv/1/live/viewposter?srsid=9898313&amp;cs=Animal Planet&amp;tid=EP"/>
+</programme>
+<programme channel="Animal Planet" start="20160123000000 0" stop="20160123010000 0">
+<title lang="en">Treehouse Masters: Out on a Limb</title>
+<sub-title lang="en">Sunrise Day Camp Clubhouse</sub-title>
+<desc lang="en">Pete looks back on an amazing clubhouse for kids fighting cancer at Sunrise Day Camp.</desc>
+<date>20160123</date>
+<category>livesd</category>
+<length units="seconds">3600</length>
+<episode-num system="dd_progid">EP018477280026</episode-num>
+<icon src="http://mc.ustvnow.com/gtv/1/live/viewposter?srsid=9898313&amp;cs=Animal Planet&amp;tid=EP"/>
+</programme>
+<programme channel="Animal Planet" start="20160123010000 0" stop="20160123020000 0">
+<title lang="en">Treehouse Masters</title>
+<sub-title lang="en">Most Mind-Blowing Builds 6</sub-title>
+<desc lang="en">Pete and Seanix look back on the giant bird's nest they built in Horseshoe Lake, Ark.</desc>
+<date>20160123</date>
+<category>livesd</category>
+<length units="seconds">3600</length>
+<episode-num system="dd_progid">EP017209790070</episode-num>
+<icon src="http://mc.ustvnow.com/gtv/1/live/viewposter?srsid=9898313&amp;cs=Animal Planet&amp;tid=EP"/>
+</programme>
+<programme channel="Animal Planet" start="20160123020000 0" stop="20160123030000 0">
+<title lang="en">Treehouse Masters</title>
+<sub-title lang="en">Rustic English Re-tree-t</sub-title>
+<desc lang="en">A heard of goats stand in the way of Pete building an elegant English retreat in Waxhaw, N.C.</desc>
+<date>20160123</date>
+<category>livesd</category>
+<length units="seconds">3600</length>
+<episode-num system="dd_progid">EP017209790062</episode-num>
+<icon src="http://mc.ustvnow.com/gtv/1/live/viewposter?srsid=9898313&amp;cs=Animal Planet&amp;tid=EP"/>
+</programme>
+<programme channel="Animal Planet" start="20160123030000 0" stop="20160123033000 0">
+<title lang="en">Big Cat Diary</title>
+<sub-title lang="en">Buffalo Standoff</sub-title>
+<desc lang="en">No description available</desc>
+<date>20160123</date>
+<category>livesd</category>
+<length units="seconds">1800</length>
+<episode-num system="dd_progid">EP001968810109</episode-num>
+<icon src="http://mc.ustvnow.com/gtv/1/live/viewposter?srsid=186278&amp;cs=Animal Planet&amp;tid=EP"/>
+</programme>
+<programme channel="Animal Planet" start="20160123033000 0" stop="20160123040000 0">
+<title lang="en">Big Cat Diary</title>
+<sub-title lang="en">They Are Cheetahs</sub-title>
+<desc lang="en">No description available</desc>
+<date>20160123</date>
+<category>livesd</category>
+<length units="seconds">1800</length>
+<episode-num system="dd_progid">EP001968810108</episode-num>
+<icon src="http://mc.ustvnow.com/gtv/1/live/viewposter?srsid=186278&amp;cs=Animal Planet&amp;tid=EP"/>
+</programme>
+<programme channel="Animal Planet" start="20160123040000 0" stop="20160123050000 0">
+<title lang="en">My Cat From Hell: Scratch Tracks</title>
+<sub-title lang="en">Max Hates My Family</sub-title>
+<desc lang="en">Hellish feline destroys an Italian family's bonds; a woman's roommate owns a psychotic cat.</desc>
+<date>20160123</date>
+<category>livesd</category>
+<length units="seconds">3600</length>
+<episode-num system="dd_progid">EP017078010022</episode-num>
+<icon src="http://mc.ustvnow.com/gtv/1/live/viewposter?srsid=9826835&amp;cs=Animal Planet&amp;tid=EP"/>
+</programme>
+<programme channel="Bravo" start="20160122200000 0" stop="20160122220000 0">
+<title lang="en">Men in Black II</title>
+<sub-title lang="en">
+</sub-title>
+<desc lang="en">Interstellar agents (Tommy Lee Jones, Will Smith) fight an alien who is in disguise.</desc>
+<date>20160122</date>
+<category>livehd</category>
+<length units="seconds">5458</length>
+<episode-num system="dd_progid">MV001173520000</episode-num>
+<icon src="http://mc.ustvnow.com/gtv/1/live/viewposter?srsid=29160&amp;cs=Bravo&amp;tid=MV"/>
+</programme>
+<programme channel="Bravo" start="20160122220000 0" stop="20160123000000 0">
+<title lang="en">Men in Black II</title>
+<sub-title lang="en">
+</sub-title>
+<desc lang="en">Interstellar agents (Tommy Lee Jones, Will Smith) fight an alien who is in disguise.</desc>
+<date>20160122</date>
+<category>livehd</category>
+<length units="seconds">7200</length>
+<episode-num system="dd_progid">MV001173520000</episode-num>
+<icon src="http://mc.ustvnow.com/gtv/1/live/viewposter?srsid=29160&amp;cs=Bravo&amp;tid=MV"/>
+</programme>
+<programme channel="Bravo" start="20160123000000 0" stop="20160123010000 0">
+<title lang="en">The People's Couch</title>
+<sub-title lang="en">
+</sub-title>
+<desc lang="en">No description available</desc>
+<date>20160123</date>
+<category>livehd</category>
+<length units="seconds">3600</length>
+<episode-num system="dd_progid">EP017976670040</episode-num>
+<icon src="http://mc.ustvnow.com/gtv/1/live/viewposter?srsid=10216545&amp;cs=Bravo&amp;tid=EP"/>
+</programme>
+<programme channel="Bravo" start="20160123010000 0" stop="20160123013000 0">
+<title lang="en">Try Total Gym for $14.95</title>
+<sub-title lang="en">
+</sub-title>
+<desc lang="en">Total Gym Fit is the only piece of fitness equipment you need to get into the best shape.</desc>
+<date>20160123</date>
+<category>livehd</category>
+<length units="seconds">1800</length>
+<episode-num system="dd_progid">SH021533420000</episode-num>
+<icon src="http://mc.ustvnow.com/gtv/1/live/viewposter?srsid=11628983&amp;cs=Bravo&amp;tid=SH"/>
+</programme>
+<programme channel="Bravo" start="20160123013000 0" stop="20160123020000 0">
+<title lang="en">Perricone MD Cold Plasma Sub-D</title>
+<sub-title lang="en">
+</sub-title>
+<desc lang="en">One's neck can make someone look too old; looking visibly younger with Cold Plasma Sub-D.</desc>
+<date>20160123</date>
+<category>livehd</category>
+<length units="seconds">1800</length>
+<episode-num system="dd_progid">SH019982120000</episode-num>
+<icon src="http://mc.ustvnow.com/gtv/1/live/viewposter?srsid=11068489&amp;cs=Bravo&amp;tid=SH"/>
+</programme>
+<programme channel="Bravo" start="20160123020000 0" stop="20160123023000 0">
+<title lang="en">Help Me Sleep</title>
+<sub-title lang="en">
+</sub-title>
+<desc lang="en">Finally a peaceful night's sleep every night.</desc>
+<date>20160123</date>
+<category>livehd</category>
+<length units="seconds">1800</length>
+<episode-num system="dd_progid">SH023536640000</episode-num>
+<icon src="http://mc.ustvnow.com/gtv/1/live/viewposter?srsid=12537906&amp;cs=Bravo&amp;tid=SH"/>
+</programme>
+<programme channel="Bravo" start="20160123023000 0" stop="20160123030000 0">
+<title lang="en">Jane Seymour's Secret to Youthful-looking skin</title>
+<sub-title lang="en">
+</sub-title>
+<desc lang="en">Smooth, firm, and lift the look of dry, wrinkly, crepe paper-looking skin. www.CrepeErase.com.</desc>
+<date>20160123</date>
+<category>livehd</category>
+<length units="seconds">1800</length>
+<episode-num system="dd_progid">SH020480970000</episode-num>
+<icon src="http://mc.ustvnow.com/gtv/1/live/viewposter?srsid=11240602&amp;cs=Bravo&amp;tid=SH"/>
+</programme>
+<programme channel="Bravo" start="20160123030000 0" stop="20160123035800 0">
+<title lang="en">The People's Couch</title>
+<sub-title lang="en">
+</sub-title>
+<desc lang="en">Amanda, Kenya, Blake, Scott, Emerson, Julie, Brandy, and others provide commentary on TV shows.</desc>
+<date>20160123</date>
+<category>livehd</category>
+<length units="seconds">3480</length>
+<episode-num system="dd_progid">EP017976670039</episode-num>
+<icon src="http://mc.ustvnow.com/gtv/1/live/viewposter?srsid=10216545&amp;cs=Bravo&amp;tid=EP"/>
+</programme>
+<programme channel="Bravo" start="20160123035800 0" stop="20160123045600 0">
+<title lang="en">The People's Couch</title>
+<sub-title lang="en">
+</sub-title>
+<desc lang="en">No description available</desc>
+<date>20160123</date>
+<category>livehd</category>
+<length units="seconds">3480</length>
+<episode-num system="dd_progid">EP017976670040</episode-num>
+<icon src="http://mc.ustvnow.com/gtv/1/live/viewposter?srsid=10216545&amp;cs=Bravo&amp;tid=EP"/>
+</programme>
+<programme channel="Cartoon Network" start="20160122201500 0" stop="20160122204500 0">
+<title lang="en">Newsreaders</title>
+<sub-title lang="en">Journey of an iPhone; The Restaurant Plague</sub-title>
+<desc lang="en">Tracing the path an iPhone takes from the mines to the consumer; a new kind of theme restaurant.</desc>
+<date>20160122</date>
+<category>livehd</category>
+<length units="seconds">58</length>
+<episode-num system="dd_progid">EP016687050027</episode-num>
+<icon src="http://mc.ustvnow.com/gtv/1/live/viewposter?srsid=9665045&amp;cs=Cartoon Network&amp;tid=EP"/>
+</programme>
+<programme channel="Cartoon Network" start="20160122203000 0" stop="20160122210000 0">
+<title lang="en">Neon Joe, Werewolf Hunter</title>
+<sub-title lang="en">Made Ya Look</sub-title>
+<desc lang="en">After a rash of werewolf killings in a Vermont town, Neon Joe arrives.</desc>
+<date>20160122</date>
+<category>livehd</category>
+<length units="seconds">1800</length>
+<episode-num system="dd_progid">EP023142130001</episode-num>
+<icon src="http://mc.ustvnow.com/gtv/1/live/viewposter?srsid=12361692&amp;cs=Cartoon Network&amp;tid=EP"/>
+</programme>
+<programme channel="Cartoon Network" start="20160122210000 0" stop="20160122211500 0">
+<title lang="en">The Eric Andre Show</title>
+<sub-title lang="en">
+</sub-title>
+<desc lang="en">Musician Wiz Khalifa; actress Aubrey Peeples; Travis Jackson performs.</desc>
+<date>20160122</date>
+<category>livehd</category>
+<length units="seconds">900</length>
+<episode-num system="dd_progid">EP015632430027</episode-num>
+<icon src="http://mc.ustvnow.com/gtv/1/live/viewposter?srsid=9232976&amp;cs=Cartoon Network&amp;tid=EP"/>
+</programme>
+<programme channel="Cartoon Network" start="20160122211500 0" stop="20160122213000 0">
+<title lang="en">Tim and Eric's Awesome Show, Great Job</title>
+<sub-title lang="en">Lucky</sub-title>
+<desc lang="en">Tim wears a Cinco Musky Tusk Necklace for good luck, while Eric's rabbit foot has no effect.</desc>
+<date>20160122</date>
+<category>livehd</category>
+<length units="seconds">900</length>
+<episode-num system="dd_progid">EP008994530047</episode-num>
+<icon src="http://mc.ustvnow.com/gtv/1/live/viewposter?srsid=185464&amp;cs=Cartoon Network&amp;tid=EP"/>
+</programme>
+<programme channel="Cartoon Network" start="20160122213000 0" stop="20160122214500 0">
+<title lang="en">Aqua Teen Hunger Force</title>
+<sub-title lang="en">Party All the Time</sub-title>
+<desc lang="en">Master Shake attempts to learn how to play the electric guitar.</desc>
+<date>20160122</date>
+<category>livehd</category>
+<length units="seconds">900</length>
+<episode-num system="dd_progid">EP004662930062</episode-num>
+<icon src="http://mc.ustvnow.com/gtv/1/live/viewposter?srsid=185307&amp;cs=Cartoon Network&amp;tid=EP"/>
+</programme>
+<programme channel="Cartoon Network" start="20160122214500 0" stop="20160122220000 0">
+<title lang="en">Squidbillies</title>
+<sub-title lang="en">Class of '86</sub-title>
+<desc lang="en">The Sheriff settles an old score at his high school reunion.</desc>
+<date>20160122</date>
+<category>livehd</category>
+<length units="seconds">900</length>
+<episode-num system="dd_progid">EP007008180063</episode-num>
+<icon src="http://mc.ustvnow.com/gtv/1/live/viewposter?srsid=186427&amp;cs=Cartoon Network&amp;tid=EP"/>
+</programme>
+<programme channel="Cartoon Network" start="20160122220000 0" stop="20160122221500 0">
+<title lang="en">Superjail</title>
+<sub-title lang="en">Mr. Grumpy-Pants</sub-title>
+<desc lang="en">The inmates discover a little girl inside the jail.</desc>
+<date>20160122</date>
+<category>livehd</category>
+<length units="seconds">900</length>
+<episode-num system="dd_progid">EP009235020008</episode-num>
+<icon src="http://mc.ustvnow.com/gtv/1/live/viewposter?srsid=189510&amp;cs=Cartoon Network&amp;tid=EP"/>
+</programme>
+<programme channel="Cartoon Network" start="20160122221500 0" stop="20160122223000 0">
+<title lang="en">Metalocalypse</title>
+<sub-title lang="en">Dethkomedy</sub-title>
+<desc lang="en">Dethklok attempts standup comedy and learns that comedy is all about embracing the hate.</desc>
+<date>20160122</date>
+<category>livehd</category>
+<length units="seconds">900</length>
+<episode-num system="dd_progid">EP008519090005</episode-num>
+<icon src="http://mc.ustvnow.com/gtv/1/live/viewposter?srsid=185773&amp;cs=Cartoon Network&amp;tid=EP"/>
+</programme>
+<programme channel="Cartoon Network" start="20160122223000 0" stop="20160122230000 0">
+<title lang="en">Bob's Burgers</title>
+<sub-title lang="en">My Big Fat Greek Bob</sub-title>
+<desc lang="en">When Bob gets a job cooking at a frat house, he finds himself in the middle of a prank war.</desc>
+<date>20160122</date>
+<category>livehd</category>
+<length units="seconds">1800</length>
+<episode-num system="dd_progid">EP012792980052</episode-num>
+<icon src="http://mc.ustvnow.com/gtv/1/live/viewposter?srsid=8127591&amp;cs=Cartoon Network&amp;tid=EP"/>
+</programme>
+<programme channel="Cartoon Network" start="20160122230000 0" stop="20160122233000 0">
+<title lang="en">Bob's Burgers</title>
+<sub-title lang="en">Purple Rain-Union</sub-title>
+<desc lang="en">A woman who had a crush on Bob in high school attempts to impress him.</desc>
+<date>20160122</date>
+<category>livehd</category>
+<length units="seconds">1800</length>
+<episode-num system="dd_progid">EP012792980054</episode-num>
+<icon src="http://mc.ustvnow.com/gtv/1/live/viewposter?srsid=8127591&amp;cs=Cartoon Network&amp;tid=EP"/>
+</programme>
+<programme channel="Cartoon Network" start="20160122233000 0" stop="20160123000000 0">
+<title lang="en">Family Guy</title>
+<sub-title lang="en">Peter's Two Dads</sub-title>
+<desc lang="en">Stewie realizes that he likes when Lois spanks him, so he purposely gets into trouble.</desc>
+<date>20160122</date>
+<category>livehd</category>
+<length units="seconds">1800</length>
+<episode-num system="dd_progid">EP002960010092</episode-num>
+<icon src="http://mc.ustvnow.com/gtv/1/live/viewposter?srsid=184483&amp;cs=Cartoon Network&amp;tid=EP"/>
+</programme>
+<programme channel="Cartoon Network" start="20160123000000 0" stop="20160123001500 0">
+<title lang="en">Childrens Hospital</title>
+<sub-title lang="en">Kids Hospital</sub-title>
+<desc lang="en">After being fired, the doctors find new jobs at a crosstown hospital.</desc>
+<date>20160123</date>
+<category>livehd</category>
+<length units="seconds">900</length>
+<episode-num system="dd_progid">EP012984440084</episode-num>
+<icon src="http://mc.ustvnow.com/gtv/1/live/viewposter?srsid=8185913&amp;cs=Cartoon Network&amp;tid=EP"/>
+</programme>
+<programme channel="Cartoon Network" start="20160123001500 0" stop="20160123003000 0">
+<title lang="en">Newsreaders</title>
+<sub-title lang="en">Journey of an iPhone; The Restaurant Plague</sub-title>
+<desc lang="en">Tracing the path an iPhone takes from the mines to the consumer; a new kind of theme restaurant.</desc>
+<date>20160123</date>
+<category>livehd</category>
+<length units="seconds">900</length>
+<episode-num system="dd_progid">EP016687050027</episode-num>
+<icon src="http://mc.ustvnow.com/gtv/1/live/viewposter?srsid=9665045&amp;cs=Cartoon Network&amp;tid=EP"/>
+</programme>
+<programme channel="Cartoon Network" start="20160123003000 0" stop="20160123010000 0">
+<title lang="en">Neon Joe, Werewolf Hunter</title>
+<sub-title lang="en">Made Ya Look</sub-title>
+<desc lang="en">After a rash of werewolf killings in a Vermont town, Neon Joe arrives.</desc>
+<date>20160123</date>
+<category>livehd</category>
+<length units="seconds">1800</length>
+<episode-num system="dd_progid">EP023142130001</episode-num>
+<icon src="http://mc.ustvnow.com/gtv/1/live/viewposter?srsid=12361692&amp;cs=Cartoon Network&amp;tid=EP"/>
+</programme>
+<programme channel="Cartoon Network" start="20160123010000 0" stop="20160123011500 0">
+<title lang="en">Live Forever as You Are Now With Alan Resnick</title>
+<sub-title lang="en">
+</sub-title>
+<desc lang="en">No description available</desc>
+<date>20160123</date>
+<category>livehd</category>
+<length units="seconds">900</length>
+<episode-num system="dd_progid">SH018336810000</episode-num>
+<icon src="http://mc.ustvnow.com/gtv/1/live/viewposter?srsid=10376313&amp;cs=Cartoon Network&amp;tid=SH"/>
+</programme>
+<programme channel="Cartoon Network" start="20160123011500 0" stop="20160123013000 0">
+<title lang="en">You're Whole</title>
+<sub-title lang="en">Tools; Drawing Comics; Spin Class</sub-title>
+<desc lang="en">No description available</desc>
+<date>20160123</date>
+<category>livehd</category>
+<length units="seconds">900</length>
+<episode-num system="dd_progid">EP016415740003</episode-num>
+<icon src="http://mc.ustvnow.com/gtv/1/live/viewposter?srsid=9571075&amp;cs=Cartoon Network&amp;tid=EP"/>
+</programme>
+<programme channel="Cartoon Network" start="20160123013000 0" stop="20160123014500 0">
+<title lang="en">Superjail</title>
+<sub-title lang="en">Mr. Grumpy-Pants</sub-title>
+<desc lang="en">The inmates discover a little girl inside the jail.</desc>
+<date>20160123</date>
+<category>livehd</category>
+<length units="seconds">900</length>
+<episode-num system="dd_progid">EP009235020008</episode-num>
+<icon src="http://mc.ustvnow.com/gtv/1/live/viewposter?srsid=189510&amp;cs=Cartoon Network&amp;tid=EP"/>
+</programme>
+<programme channel="Cartoon Network" start="20160123014500 0" stop="20160123020000 0">
+<title lang="en">Metalocalypse</title>
+<sub-title lang="en">Dethkomedy</sub-title>
+<desc lang="en">Dethklok attempts standup comedy and learns that comedy is all about embracing the hate.</desc>
+<date>20160123</date>
+<category>livehd</category>
+<length units="seconds">900</length>
+<episode-num system="dd_progid">EP008519090005</episode-num>
+<icon src="http://mc.ustvnow.com/gtv/1/live/viewposter?srsid=185773&amp;cs=Cartoon Network&amp;tid=EP"/>
+</programme>
+<programme channel="Cartoon Network" start="20160123020000 0" stop="20160123023000 0">
+<title lang="en">The Cleveland Show</title>
+<sub-title lang="en">The Hurricane</sub-title>
+<desc lang="en">A storm hits Stoolbend, Langley Falls and Quahog; Cleveland Jr. makes a shocking proclamation.</desc>
+<date>20160123</date>
+<category>livehd</category>
+<length units="seconds">1800</length>
+<episode-num system="dd_progid">EP010591100044</episode-num>
+<icon src="http://mc.ustvnow.com/gtv/1/live/viewposter?srsid=186605&amp;cs=Cartoon Network&amp;tid=EP"/>
+</programme>
+<programme channel="Cartoon Network" start="20160123023000 0" stop="20160123030000 0">
+<title lang="en">King of the Hill</title>
+<sub-title lang="en">The Good Buck</sub-title>
+<desc lang="en">Buck turns to Luanne for Bible tutoring after his past catches up with him.</desc>
+<date>20160123</date>
+<category>livehd</category>
+<length units="seconds">1800</length>
+<episode-num system="dd_progid">EP002070020148</episode-num>
+<icon src="http://mc.ustvnow.com/gtv/1/live/viewposter?srsid=184316&amp;cs=Cartoon Network&amp;tid=EP"/>
+</programme>
+<programme channel="Cartoon Network" start="20160123030000 0" stop="20160123033000 0">
+<title lang="en">Teen Titans Go!</title>
+<sub-title lang="en">No Power; Sidekick</sub-title>
+<desc lang="en">Robin challenges the others to go 24-hours without using their powers; the Titans tease Robin.</desc>
+<date>20160123</date>
+<category>livehd</category>
+<length units="seconds">1800</length>
+<episode-num system="dd_progid">EP017123260055</episode-num>
+<icon src="http://mc.ustvnow.com/gtv/1/live/viewposter?srsid=9843808&amp;cs=Cartoon Network&amp;tid=EP"/>
+</programme>
+<programme channel="Cartoon Network" start="20160123033000 0" stop="20160123040000 0">
+<title lang="en">Transformers: Robots in Disguise</title>
+<sub-title lang="en">Battlegrounds</sub-title>
+<desc lang="en">Bee and his team must use all they've learned to stop the annihilation of both Earth and Cybertron.</desc>
+<date>20160123</date>
+<category>livehd</category>
+<length units="seconds">1800</length>
+<episode-num system="dd_progid">EP021393650033</episode-num>
+<icon src="http://mc.ustvnow.com/gtv/1/live/viewposter?srsid=11563905&amp;cs=Cartoon Network&amp;tid=EP"/>
+</programme>
+<programme channel="Cartoon Network" start="20160123040000 0" stop="20160123043000 0">
+<title lang="en">Pokémon: XY</title>
+<sub-title lang="en">An Oasis of Hope!</sub-title>
+<desc lang="en">Many helpless Pokémon are depending on our heroes for their freedom from a bully.</desc>
+<date>20160123</date>
+<category>livehd</category>
+<length units="seconds">1800</length>
+<episode-num system="dd_progid">EP018076430063</episode-num>
+<icon src="http://mc.ustvnow.com/gtv/1/live/viewposter?srsid=8310449&amp;cs=Cartoon Network&amp;tid=EP"/>
+</programme>
+<programme channel="CNBC" start="20160122200000 0" stop="20160122210000 0">
+<title lang="en">American Greed</title>
+<sub-title lang="en">The Lawyer Lies; Black Gold Bust</sub-title>
+<desc lang="en">An Indianapolis attorney helps desperate families recover money, but pockets the winnings.</desc>
+<date>20160122</date>
+<category>livehd</category>
+<length units="seconds">1858</length>
+<episode-num system="dd_progid">EP009370080144</episode-num>
+<icon src="http://mc.ustvnow.com/gtv/1/live/viewposter?srsid=185958&amp;cs=CNBC&amp;tid=EP"/>
+</programme>
+<programme channel="CNBC" start="20160122210000 0" stop="20160122220000 0">
+<title lang="en">American Greed</title>
+<sub-title lang="en">Hackers: Operation Get Rich Or Die Tryin'</sub-title>
+<desc lang="en">Gang led by Albert Gonzalez has feverent appetite for sex, drugs, and encrypted credit card data.</desc>
+<date>20160122</date>
+<category>livehd</category>
+<length units="seconds">3600</length>
+<episode-num system="dd_progid">EP009370080092</episode-num>
+<icon src="http://mc.ustvnow.com/gtv/1/live/viewposter?srsid=185958&amp;cs=CNBC&amp;tid=EP"/>
+</programme>
+<programme channel="CNBC" start="20160122220000 0" stop="20160122230000 0">
+<title lang="en">American Greed</title>
+<sub-title lang="en">Deadly Payout</sub-title>
+<desc lang="en">A trio of Texas conmen score $100 million in the life settlement insurance business.</desc>
+<date>20160122</date>
+<category>livehd</category>
+<length units="seconds">3600</length>
+<episode-num system="dd_progid">EP009370080099</episode-num>
+<icon src="http://mc.ustvnow.com/gtv/1/live/viewposter?srsid=185958&amp;cs=CNBC&amp;tid=EP"/>
+</programme>
+<programme channel="CNBC" start="20160122230000 0" stop="20160122233000 0">
+<title lang="en">Identity theft protection and important things to know about it</title>
+<sub-title lang="en">
+</sub-title>
+<desc lang="en">Identity theft protection: learn about America's fastest growing crime &amp;amp; how LifeLock can help you.</desc>
+<date>20160122</date>
+<category>livehd</category>
+<length units="seconds">1800</length>
+<episode-num system="dd_progid">SH022774240000</episode-num>
+<icon src="http://mc.ustvnow.com/gtv/1/live/viewposter?srsid=12176459&amp;cs=CNBC&amp;tid=SH"/>
+</programme>
+<programme channel="CNBC" start="20160122233000 0" stop="20160123000000 0">
+<title lang="en">Phil Collins, Rod Stewart, Celine Dion, Lionel Richie</title>
+<sub-title lang="en">
+</sub-title>
+<desc lang="en">The most romantic songs - bring home the most influential love songs of the 70s, 80s and 90s.</desc>
+<date>20160122</date>
+<category>livehd</category>
+<length units="seconds">1800</length>
+<episode-num system="dd_progid">SH016817460000</episode-num>
+<icon src="http://mc.ustvnow.com/gtv/1/live/viewposter?srsid=9713804&amp;cs=CNBC&amp;tid=SH"/>
+</programme>
+<programme channel="CNBC" start="20160123000000 0" stop="20160123003000 0">
+<title lang="en">Jane Seymour's Secret to Youthful-looking skin</title>
+<sub-title lang="en">
+</sub-title>
+<desc lang="en">Smooth, firm, and lift the look of dry, wrinkly, crepe paper-looking skin. www.CrepeErase.com.</desc>
+<date>20160123</date>
+<category>livehd</category>
+<length units="seconds">1800</length>
+<episode-num system="dd_progid">SH020480970000</episode-num>
+<icon src="http://mc.ustvnow.com/gtv/1/live/viewposter?srsid=11240602&amp;cs=CNBC&amp;tid=SH"/>
+</programme>
+<programme channel="CNBC" start="20160123003000 0" stop="20160123010000 0">
+<title lang="en">Got Hair?</title>
+<sub-title lang="en">
+</sub-title>
+<desc lang="en">Discover the latest advancements in hair restoration - hair transplantation procedures and more.</desc>
+<date>20160123</date>
+<category>livehd</category>
+<length units="seconds">1800</length>
+<episode-num system="dd_progid">SH018999290000</episode-num>
+<icon src="http://mc.ustvnow.com/gtv/1/live/viewposter?srsid=10670789&amp;cs=CNBC&amp;tid=SH"/>
+</programme>
+<programme channel="CNBC" start="20160123010000 0" stop="20160123020000 0">
+<title lang="en">American Greed</title>
+<sub-title lang="en">Crash and Burn</sub-title>
+<desc lang="en">A profile of Marcus Schrenker.</desc>
+<date>20160123</date>
+<category>livehd</category>
+<length units="seconds">3600</length>
+<episode-num system="dd_progid">EP009370080040</episode-num>
+<icon src="http://mc.ustvnow.com/gtv/1/live/viewposter?srsid=185958&amp;cs=CNBC&amp;tid=EP"/>
+</programme>
+<programme channel="CNBC" start="20160123020000 0" stop="20160123023000 0">
+<title lang="en">American Greed</title>
+<sub-title lang="en">The Cunning Cowgirl Crook</sub-title>
+<desc lang="en">A small town comptroller steals $53 million from her city to fund a horse-breeding empire.</desc>
+<date>20160123</date>
+<category>livehd</category>
+<length units="seconds">1800</length>
+<episode-num system="dd_progid">EP009370080129</episode-num>
+<icon src="http://mc.ustvnow.com/gtv/1/live/viewposter?srsid=185958&amp;cs=CNBC&amp;tid=EP"/>
+</programme>
+<programme channel="CNBC" start="20160123023000 0" stop="20160123030000 0">
+<title lang="en">On the Money</title>
+<sub-title lang="en">
+</sub-title>
+<desc lang="en">Bill Gates and Bono talk about philanthropy; falling oil prices might not be a good thing.</desc>
+<date>20160123</date>
+<category>livehd</category>
+<length units="seconds">1800</length>
+<episode-num system="dd_progid">EP016566900160</episode-num>
+<icon src="http://mc.ustvnow.com/gtv/1/live/viewposter?srsid=9627623&amp;cs=CNBC&amp;tid=EP"/>
+</programme>
+<programme channel="CNBC" start="20160123030000 0" stop="20160123033000 0">
+<title lang="en">Options Action</title>
+<sub-title lang="en">
+</sub-title>
+<desc lang="en">Option traders discuss how to profit from the news of the week using options.</desc>
+<date>20160123</date>
+<category>livehd</category>
+<length units="seconds">1800</length>
+<episode-num system="dd_progid">SH011120960000</episode-num>
+<icon src="http://mc.ustvnow.com/gtv/1/live/viewposter?srsid=195409&amp;cs=CNBC&amp;tid=SH"/>
+</programme>
+<programme channel="CNBC" start="20160123033000 0" stop="20160123040000 0">
+<title lang="en">CIZE Dance Workout!</title>
+<sub-title lang="en">
+</sub-title>
+<desc lang="en">Dance your way to a super lean, super sexy body with Shaun T's dance workout revolution CIZE!</desc>
+<date>20160123</date>
+<category>livehd</category>
+<length units="seconds">1800</length>
+<episode-num system="dd_progid">SH022940200000</episode-num>
+<icon src="http://mc.ustvnow.com/gtv/1/live/viewposter?srsid=12262077&amp;cs=CNBC&amp;tid=SH"/>
+</programme>
+<programme channel="CNBC" start="20160123040000 0" stop="20160123043000 0">
+<title lang="en">Jillian Michaels BODYSHRED: Get a Strong, Sexy and SHREDDED Body</title>
+<sub-title lang="en">
+</sub-title>
+<desc lang="en">Jillian Michaels BODYSHRED is 10 incredible 30-minute workouts to totally transform your body.</desc>
+<date>20160123</date>
+<category>livehd</category>
+<length units="seconds">1800</length>
+<episode-num system="dd_progid">SH020672520000</episode-num>
+<icon src="http://mc.ustvnow.com/gtv/1/live/viewposter?srsid=11302533&amp;cs=CNBC&amp;tid=SH"/>
+</programme>
+<programme channel="CNN" start="20160122200000 0" stop="20160122210000 0">
+<title lang="en">Anthony Bourdain: Parts Unknown</title>
+<sub-title lang="en">Detroit</sub-title>
+<desc lang="en">Exploration into the past and present days of the Packard Plant.</desc>
+<date>20160122</date>
+<category>livehd</category>
+<length units="seconds">1858</length>
+<episode-num system="dd_progid">EP017123500016</episode-num>
+<icon src="http://mc.ustvnow.com/gtv/1/live/viewposter?srsid=9843844&amp;cs=CNN&amp;tid=EP"/>
+</programme>
+<programme channel="CNN" start="20160122210000 0" stop="20160122220000 0">
+<title lang="en">Anthony Bourdain: Parts Unknown</title>
+<sub-title lang="en">The Bronx</sub-title>
+<desc lang="en">Superstars Afrika Bambaataa, Melle Mel, and Baron Ambrosia help guide Anthony through the Bronx.</desc>
+<date>20160122</date>
+<category>livehd</category>
+<length units="seconds">3600</length>
+<episode-num system="dd_progid">EP017123500031</episode-num>
+<icon src="http://mc.ustvnow.com/gtv/1/live/viewposter?srsid=9843844&amp;cs=CNN&amp;tid=EP"/>
+</programme>
+<programme channel="CNN" start="20160122220000 0" stop="20160122230000 0">
+<title lang="en">Anthony Bourdain: Parts Unknown</title>
+<sub-title lang="en">South Africa</sub-title>
+<desc lang="en">Exploration into the suburb of Hillbrow and explore the food that make up Johannesburg.</desc>
+<date>20160122</date>
+<category>livehd</category>
+<length units="seconds">3600</length>
+<episode-num system="dd_progid">EP017123500017</episode-num>
+<icon src="http://mc.ustvnow.com/gtv/1/live/viewposter?srsid=9843844&amp;cs=CNN&amp;tid=EP"/>
+</programme>
+<programme channel="CNN" start="20160122230000 0" stop="20160123000000 0">
+<title lang="en">Anthony Bourdain: Parts Unknown</title>
+<sub-title lang="en">Copenhagen</sub-title>
+<desc lang="en">Exploration into the natural beauty and economic culture of Denmark.</desc>
+<date>20160122</date>
+<category>livehd</category>
+<length units="seconds">3600</length>
+<episode-num system="dd_progid">EP017123500014</episode-num>
+<icon src="http://mc.ustvnow.com/gtv/1/live/viewposter?srsid=9843844&amp;cs=CNN&amp;tid=EP"/>
+</programme>
+<programme channel="CNN" start="20160123000000 0" stop="20160123010000 0">
+<title lang="en">Anthony Bourdain: Parts Unknown</title>
+<sub-title lang="en">Scotland</sub-title>
+<desc lang="en">Deep-fried haggis, a knife defense lesson and a trip to the Scottish Highlands are on the menu.</desc>
+<date>20160123</date>
+<category>livehd</category>
+<length units="seconds">3600</length>
+<episode-num system="dd_progid">EP017123500045</episode-num>
+<icon src="http://mc.ustvnow.com/gtv/1/live/viewposter?srsid=9843844&amp;cs=CNN&amp;tid=EP"/>
+</programme>
+<programme channel="CNN" start="20160123010000 0" stop="20160123020000 0">
+<title lang="en">CNN Newsroom Live</title>
+<sub-title lang="en">
+</sub-title>
+<desc lang="en">The latest, up-to-date news stories from around the globe.</desc>
+<date>20160123</date>
+<category>livehd</category>
+<length units="seconds">3600</length>
+<episode-num system="dd_progid">SH022088510000</episode-num>
+<icon src="http://mc.ustvnow.com/gtv/1/live/viewposter?srsid=11873759&amp;cs=CNN&amp;tid=SH"/>
+</programme>
+<programme channel="CNN" start="20160123020000 0" stop="20160123030000 0">
+<title lang="en">CNN Newsroom Live</title>
+<sub-title lang="en">
+</sub-title>
+<desc lang="en">The latest, up-to-date news stories from around the globe.</desc>
+<date>20160123</date>
+<category>livehd</category>
+<length units="seconds">3600</length>
+<episode-num system="dd_progid">SH022088510000</episode-num>
+<icon src="http://mc.ustvnow.com/gtv/1/live/viewposter?srsid=11873759&amp;cs=CNN&amp;tid=SH"/>
+</programme>
+<programme channel="CNN" start="20160123030000 0" stop="20160123040000 0">
+<title lang="en">New Day Saturday</title>
+<sub-title lang="en">
+</sub-title>
+<desc lang="en">CNN presents the latest news, weather and high interest stories to stat your day.</desc>
+<date>20160123</date>
+<category>livehd</category>
+<length units="seconds">3600</length>
+<episode-num system="dd_progid">SH017498040000</episode-num>
+<icon src="http://mc.ustvnow.com/gtv/1/live/viewposter?srsid=10014090&amp;cs=CNN&amp;tid=SH"/>
+</programme>
+<programme channel="CNN" start="20160123040000 0" stop="20160123050000 0">
+<title lang="en">New Day Saturday</title>
+<sub-title lang="en">
+</sub-title>
+<desc lang="en">CNN presents the latest news, weather and high interest stories to stat your day.</desc>
+<date>20160123</date>
+<category>livehd</category>
+<length units="seconds">3600</length>
+<episode-num system="dd_progid">SH017498040000</episode-num>
+<icon src="http://mc.ustvnow.com/gtv/1/live/viewposter?srsid=10014090&amp;cs=CNN&amp;tid=SH"/>
+</programme>
+<programme channel="Comedy Central" start="20160122200000 0" stop="20160122210000 0">
+<title lang="en">Crash Test With Rob Huebel and Paul Scheer</title>
+<sub-title lang="en">
+</sub-title>
+<desc lang="en">Comedy performed on a moving bus in Los Angeles. With Rob Corddry, Aubrey Plaza and others.</desc>
+<date>20160122</date>
+<category>livehd</category>
+<length units="seconds">1858</length>
+<episode-num system="dd_progid">SH023394670000</episode-num>
+<icon src="http://mc.ustvnow.com/gtv/1/live/viewposter?srsid=12148885&amp;cs=Comedy Central&amp;tid=SH"/>
+</programme>
+<programme channel="Comedy Central" start="20160122210000 0" stop="20160122230500 0">
+<title lang="en">The Comedy Central Roast</title>
+<sub-title lang="en">Justin Bieber</sub-title>
+<desc lang="en">Hannibal Buress, Chris D'Elia, Snoop Dogg, Natasha Leggero and Ludacris roast Justin Bieber.</desc>
+<date>20160122</date>
+<category>livehd</category>
+<length units="seconds">7500</length>
+<episode-num system="dd_progid">EP005916570022</episode-num>
+<icon src="http://mc.ustvnow.com/gtv/1/live/viewposter?srsid=186443&amp;cs=Comedy Central&amp;tid=EP"/>
+</programme>
+<programme channel="Comedy Central" start="20160122230500 0" stop="20160122233500 0">
+<title lang="en">Tosh.0</title>
+<sub-title lang="en">Bad DJ</sub-title>
+<desc lang="en">Daniel plays an uncomfortable game of &amp;quot;Is It Racist?&amp;quot;; a DJ gets a web redemption.</desc>
+<date>20160122</date>
+<category>livehd</category>
+<length units="seconds">1800</length>
+<episode-num system="dd_progid">EP011496300123</episode-num>
+<icon src="http://mc.ustvnow.com/gtv/1/live/viewposter?srsid=3527829&amp;cs=Comedy Central&amp;tid=EP"/>
+</programme>
+<programme channel="Comedy Central" start="20160122233500 0" stop="20160123000500 0">
+<title lang="en">Tosh.0</title>
+<sub-title lang="en">Security Officer Jay</sub-title>
+<desc lang="en">Daniel is excited for &amp;quot;Movember&amp;quot;; a security guard gets a web redemption.</desc>
+<date>20160122</date>
+<category>livehd</category>
+<length units="seconds">1800</length>
+<episode-num system="dd_progid">EP011496300130</episode-num>
+<icon src="http://mc.ustvnow.com/gtv/1/live/viewposter?srsid=3527829&amp;cs=Comedy Central&amp;tid=EP"/>
+</programme>
+<programme channel="Comedy Central" start="20160123000500 0" stop="20160123003500 0">
+<title lang="en">Tosh.0</title>
+<sub-title lang="en">Perfect Game Bowler</sub-title>
+<desc lang="en">Daniel has a Web chat with a goat; a bowler gets a Web redemption.</desc>
+<date>20160123</date>
+<category>livehd</category>
+<length units="seconds">1800</length>
+<episode-num system="dd_progid">EP011496300149</episode-num>
+<icon src="http://mc.ustvnow.com/gtv/1/live/viewposter?srsid=3527829&amp;cs=Comedy Central&amp;tid=EP"/>
+</programme>
+<programme channel="Comedy Central" start="20160123003500 0" stop="20160123010500 0">
+<title lang="en">Tosh.0</title>
+<sub-title lang="en">American Idol Girls</sub-title>
+<desc lang="en">Tosh gives the &amp;quot;American Idol&amp;quot; girls a Web redemption and visits a Uganda propaganda meeting.</desc>
+<date>20160123</date>
+<category>livehd</category>
+<length units="seconds">1800</length>
+<episode-num system="dd_progid">EP011496300037</episode-num>
+<icon src="http://mc.ustvnow.com/gtv/1/live/viewposter?srsid=3527829&amp;cs=Comedy Central&amp;tid=EP"/>
+</programme>
+<programme channel="Comedy Central" start="20160123010500 0" stop="20160123013500 0">
+<title lang="en">Tosh.0</title>
+<sub-title lang="en">Prom Girl</sub-title>
+<desc lang="en">The falling prom girl's Web redemption; the &amp;quot;Tosh.0&amp;quot; book club.</desc>
+<date>20160123</date>
+<category>livehd</category>
+<length units="seconds">1800</length>
+<episode-num system="dd_progid">EP011496300022</episode-num>
+<icon src="http://mc.ustvnow.com/gtv/1/live/viewposter?srsid=3527829&amp;cs=Comedy Central&amp;tid=EP"/>
+</programme>
+<programme channel="Comedy Central" start="20160123013500 0" stop="20160123020000 0">
+<title lang="en">Comedy Central Presents</title>
+<sub-title lang="en">Pablo Francisco</sub-title>
+<desc lang="en">Comic Pablo Francisco uses his vocal talent to recreate Spanish soap operas and movie trailers.</desc>
+<date>20160123</date>
+<category>livehd</category>
+<length units="seconds">1500</length>
+<episode-num system="dd_progid">EP002886380045</episode-num>
+<icon src="http://mc.ustvnow.com/gtv/1/live/viewposter?srsid=185338&amp;cs=Comedy Central&amp;tid=EP"/>
+</programme>
+<programme channel="Comedy Central" start="20160123020000 0" stop="20160123023000 0">
+<title lang="en">Paid Programming</title>
+<sub-title lang="en">
+</sub-title>
+<desc lang="en">Paid programming.</desc>
+<date>20160123</date>
+<category>livehd</category>
+<length units="seconds">1800</length>
+<episode-num system="dd_progid">SH000000010000</episode-num>
+<icon src="http://mc.ustvnow.com/gtv/1/live/viewposter?srsid=459763&amp;cs=Comedy Central&amp;tid=SH"/>
+</programme>
+<programme channel="Comedy Central" start="20160123023000 0" stop="20160123030000 0">
+<title lang="en">Perfect Cooker</title>
+<sub-title lang="en">
+</sub-title>
+<desc lang="en">Cooking Fabulous and easy to make meals everyday.</desc>
+<date>20160123</date>
+<category>livehd</category>
+<length units="seconds">1800</length>
+<episode-num system="dd_progid">SH023155170000</episode-num>
+<icon src="http://mc.ustvnow.com/gtv/1/live/viewposter?srsid=12368188&amp;cs=Comedy Central&amp;tid=SH"/>
+</programme>
+<programme channel="Comedy Central" start="20160123030000 0" stop="20160123033000 0">
+<title lang="en">Free Money in Your Pocket. Learn. Find It Now!</title>
+<sub-title lang="en">
+</sub-title>
+<desc lang="en">NEW. Simple information that shows you how to find Free Money for bills, child care, food &amp;amp; more!</desc>
+<date>20160123</date>
+<category>livehd</category>
+<length units="seconds">1800</length>
+<episode-num system="dd_progid">SH017984000000</episode-num>
+<icon src="http://mc.ustvnow.com/gtv/1/live/viewposter?srsid=10219276&amp;cs=Comedy Central&amp;tid=SH"/>
+</programme>
+<programme channel="Comedy Central" start="20160123033000 0" stop="20160123040000 0">
+<title lang="en">WEN by Chaz Dean Revolutionary Hair Care System</title>
+<sub-title lang="en">
+</sub-title>
+<desc lang="en">WEN by Chaz Dean is revolutionary hair care that cleans and conditions without harsh chemicals.</desc>
+<date>20160123</date>
+<category>livehd</category>
+<length units="seconds">1800</length>
+<episode-num system="dd_progid">SH011652170000</episode-num>
+<icon src="http://mc.ustvnow.com/gtv/1/live/viewposter?srsid=3588074&amp;cs=Comedy Central&amp;tid=SH"/>
+</programme>
+<programme channel="Comedy Central" start="20160123040000 0" stop="20160123043000 0">
+<title lang="en">Drop Your CIZE!</title>
+<sub-title lang="en">
+</sub-title>
+<desc lang="en">The end of exercize is here! Forget everything you dread about workouts.</desc>
+<date>20160123</date>
+<category>livehd</category>
+<length units="seconds">1800</length>
+<episode-num system="dd_progid">SH023354180000</episode-num>
+<icon src="http://mc.ustvnow.com/gtv/1/live/viewposter?srsid=12453494&amp;cs=Comedy Central&amp;tid=SH"/>
+</programme>
+<programme channel="Discovery" start="20160122200200 0" stop="20160122210600 0">
+<title lang="en">Gold Rush</title>
+<sub-title lang="en">Million Dollar Mountain</sub-title>
+<desc lang="en">Todd and Dave get a pair of dozers stuck in deep mud while trying to open a new cut.</desc>
+<date>20160122</date>
+<category>livesd</category>
+<length units="seconds">2098</length>
+<episode-num system="dd_progid">EP014707060139</episode-num>
+<icon src="http://mc.ustvnow.com/gtv/1/live/viewposter?srsid=8378807&amp;cs=Discovery&amp;tid=EP"/>
+</programme>
+<programme channel="Discovery" start="20160122210400 0" stop="20160122220400 0">
+<title lang="en">Alaskan Bush People</title>
+<sub-title lang="en">Ballad of Billy Brown</sub-title>
+<desc lang="en">The family sets up a series of surprises and celebrations in honor of Billy's birthday.</desc>
+<date>20160122</date>
+<category>livesd</category>
+<length units="seconds">3600</length>
+<episode-num system="dd_progid">EP018855880033</episode-num>
+<icon src="http://mc.ustvnow.com/gtv/1/live/viewposter?srsid=10598238&amp;cs=Discovery&amp;tid=EP"/>
+</programme>
+<programme channel="Discovery" start="20160122220400 0" stop="20160122230400 0">
+<title lang="en">Gold Rush</title>
+<sub-title lang="en">Crew War</sub-title>
+<desc lang="en">Parker's new mechanic causes a mutiny; Todd's operation is shut down by a drought.</desc>
+<date>20160122</date>
+<category>livesd</category>
+<length units="seconds">3600</length>
+<episode-num system="dd_progid">EP014707060137</episode-num>
+<icon src="http://mc.ustvnow.com/gtv/1/live/viewposter?srsid=8378807&amp;cs=Discovery&amp;tid=EP"/>
+</programme>
+<programme channel="Discovery" start="20160122230400 0" stop="20160123000000 0">
+<title lang="en">Gold Rush</title>
+<sub-title lang="en">Goldzilla Gold</sub-title>
+<desc lang="en">Breakdowns cause the Hoffman's day and night crews to be at odds.</desc>
+<date>20160122</date>
+<category>livesd</category>
+<length units="seconds">3360</length>
+<episode-num system="dd_progid">EP014707060138</episode-num>
+<icon src="http://mc.ustvnow.com/gtv/1/live/viewposter?srsid=8378807&amp;cs=Discovery&amp;tid=EP"/>
+</programme>
+<programme channel="Discovery" start="20160123000000 0" stop="20160123003000 0">
+<title lang="en">Wolfgang Puck's Cooking Secrets Revealed</title>
+<sub-title lang="en">
+</sub-title>
+<desc lang="en">No description available</desc>
+<date>20160123</date>
+<category>livesd</category>
+<length units="seconds">1800</length>
+<episode-num system="dd_progid">SH018562210000</episode-num>
+<icon src="http://mc.ustvnow.com/gtv/1/live/viewposter?srsid=10459779&amp;cs=Discovery&amp;tid=SH"/>
+</programme>
+<programme channel="Discovery" start="20160123003000 0" stop="20160123010000 0">
+<title lang="en">Learn the Secret behind making Great Meals Made Easy, Safe &amp;amp; Fast</title>
+<sub-title lang="en">
+</sub-title>
+<desc lang="en">Advanced induction technology is the secret to making great meals made easy, safe and fast.</desc>
+<date>20160123</date>
+<category>livesd</category>
+<length units="seconds">1800</length>
+<episode-num system="dd_progid">SH015651510000</episode-num>
+<icon src="http://mc.ustvnow.com/gtv/1/live/viewposter?srsid=9242900&amp;cs=Discovery&amp;tid=SH"/>
+</programme>
+<programme channel="Discovery" start="20160123010000 0" stop="20160123013000 0">
+<title lang="en">Blade Extravaganza</title>
+<sub-title lang="en">
+</sub-title>
+<desc lang="en">This special presentation of Cutlery Corner includes four offers.</desc>
+<date>20160123</date>
+<category>livesd</category>
+<length units="seconds">1800</length>
+<episode-num system="dd_progid">SH023513540000</episode-num>
+<icon src="http://mc.ustvnow.com/gtv/1/live/viewposter?srsid=12523481&amp;cs=Discovery&amp;tid=SH"/>
+</programme>
+<programme channel="Discovery" start="20160123013000 0" stop="20160123020000 0">
+<title lang="en">Make Her Climax</title>
+<sub-title lang="en">
+</sub-title>
+<desc lang="en">Medically recommended natural sex enhancer for Men!</desc>
+<date>20160123</date>
+<category>livesd</category>
+<length units="seconds">1800</length>
+<episode-num system="dd_progid">SH021212110000</episode-num>
+<icon src="http://mc.ustvnow.com/gtv/1/live/viewposter?srsid=11478955&amp;cs=Discovery&amp;tid=SH"/>
+</programme>
+<programme channel="Discovery" start="20160123020000 0" stop="20160123023000 0">
+<title lang="en">21 DAY FIX</title>
+<sub-title lang="en">
+</sub-title>
+<desc lang="en">No description available</desc>
+<date>20160123</date>
+<category>livesd</category>
+<length units="seconds">1800</length>
+<episode-num system="dd_progid">SH018989650000</episode-num>
+<icon src="http://mc.ustvnow.com/gtv/1/live/viewposter?srsid=10665289&amp;cs=Discovery&amp;tid=SH"/>
+</programme>
+<programme channel="Discovery" start="20160123023000 0" stop="20160123030000 0">
+<title lang="en">Good Sex vs. GREAT Sex!</title>
+<sub-title lang="en">
+</sub-title>
+<desc lang="en">Boost sex drive and blood flow.</desc>
+<date>20160123</date>
+<category>livesd</category>
+<length units="seconds">1800</length>
+<episode-num system="dd_progid">SH022664310000</episode-num>
+<icon src="http://mc.ustvnow.com/gtv/1/live/viewposter?srsid=12122420&amp;cs=Discovery&amp;tid=SH"/>
+</programme>
+<programme channel="Discovery" start="20160123030000 0" stop="20160123033000 0">
+<title lang="en">CIZE Dance Workout!</title>
+<sub-title lang="en">
+</sub-title>
+<desc lang="en">Dance your way to a super lean, super sexy body with Shaun T's dance workout revolution, Cize!</desc>
+<date>20160123</date>
+<category>livesd</category>
+<length units="seconds">1800</length>
+<episode-num system="dd_progid">SH022941750000</episode-num>
+<icon src="http://mc.ustvnow.com/gtv/1/live/viewposter?srsid=12263160&amp;cs=Discovery&amp;tid=SH"/>
+</programme>
+<programme channel="Discovery" start="20160123033000 0" stop="20160123040000 0">
+<title lang="en">1 Rule of a Flat Stomach</title>
+<sub-title lang="en">
+</sub-title>
+<desc lang="en">Use your favorite foods to lose weight and make over your metabolism!</desc>
+<date>20160123</date>
+<category>livesd</category>
+<length units="seconds">1800</length>
+<episode-num system="dd_progid">SH022623370000</episode-num>
+<icon src="http://mc.ustvnow.com/gtv/1/live/viewposter?srsid=12104680&amp;cs=Discovery&amp;tid=SH"/>
+</programme>
+<programme channel="Discovery" start="20160123040000 0" stop="20160123043000 0">
+<title lang="en">Nutrisystem's All-New Turbo 10</title>
+<sub-title lang="en">
+</sub-title>
+<desc lang="en">Lose up to 10 pounds and 5 inches in your first month with Nutrisystem's Turbo 10.</desc>
+<date>20160123</date>
+<category>livesd</category>
+<length units="seconds">1800</length>
+<episode-num system="dd_progid">SH023326000000</episode-num>
+<icon src="http://mc.ustvnow.com/gtv/1/live/viewposter?srsid=12442078&amp;cs=Discovery&amp;tid=SH"/>
+</programme>
+<programme channel="ESPN" start="20160122193000 0" stop="20160122213000 0">
+<title lang="en">NBA Basketball</title>
+<sub-title lang="en">Indiana Pacers at Golden State Warriors</sub-title>
+<desc lang="en">The Indiana Pacers are on the road as they face the Golden State Warriors.</desc>
+<date>20160122</date>
+<category>livehd</category>
+<length units="seconds">5458</length>
+<episode-num system="dd_progid">SP003233620000</episode-num>
+<icon src="http://mc.ustvnow.com/gtv/1/live/viewposter?srsid=191276&amp;cs=ESPN&amp;tid=SP"/>
+</programme>
+<programme channel="ESPN" start="20160122220000 0" stop="20160122230000 0">
+<title lang="en">SportsCenter</title>
+<sub-title lang="en">
+</sub-title>
+<desc lang="en">ESPN's flagship program provides sports news, highlights and analysis.</desc>
+<date>20160122</date>
+<category>livehd</category>
+<length units="seconds">3600</length>
+<episode-num system="dd_progid">SH000199170000</episode-num>
+<icon src="http://mc.ustvnow.com/gtv/1/live/viewposter?srsid=186674&amp;cs=ESPN&amp;tid=SH"/>
+</programme>
+<programme channel="ESPN" start="20160122230000 0" stop="20160123000000 0">
+<title lang="en">SportsCenter</title>
+<sub-title lang="en">
+</sub-title>
+<desc lang="en">ESPN's flagship program provides sports news, highlights and analysis.</desc>
+<date>20160122</date>
+<category>livehd</category>
+<length units="seconds">3600</length>
+<episode-num system="dd_progid">SH000199170000</episode-num>
+<icon src="http://mc.ustvnow.com/gtv/1/live/viewposter?srsid=186674&amp;cs=ESPN&amp;tid=SH"/>
+</programme>
+<programme channel="ESPN" start="20160123000000 0" stop="20160123020000 0">
+<title lang="en">NBA Basketball</title>
+<sub-title lang="en">Indiana Pacers at Golden State Warriors</sub-title>
+<desc lang="en">The Indiana Pacers are on the road as they face the Golden State Warriors.</desc>
+<date>20160123</date>
+<category>livehd</category>
+<length units="seconds">7200</length>
+<episode-num system="dd_progid">SP003233620000</episode-num>
+<icon src="http://mc.ustvnow.com/gtv/1/live/viewposter?srsid=191276&amp;cs=ESPN&amp;tid=SP"/>
+</programme>
+<programme channel="ESPN" start="20160123020000 0" stop="20160123030000 0">
+<title lang="en">SportsCenter</title>
+<sub-title lang="en">
+</sub-title>
+<desc lang="en">ESPN's flagship program provides sports news, highlights and analysis.</desc>
+<date>20160123</date>
+<category>livehd</category>
+<length units="seconds">3600</length>
+<episode-num system="dd_progid">SH000199170000</episode-num>
+<icon src="http://mc.ustvnow.com/gtv/1/live/viewposter?srsid=186674&amp;cs=ESPN&amp;tid=SH"/>
+</programme>
+<programme channel="ESPN" start="20160123030000 0" stop="20160123040000 0">
+<title lang="en">SportsCenter</title>
+<sub-title lang="en">
+</sub-title>
+<desc lang="en">ESPN's flagship program provides sports news, highlights and analysis.</desc>
+<date>20160123</date>
+<category>livehd</category>
+<length units="seconds">3600</length>
+<episode-num system="dd_progid">SH000199170000</episode-num>
+<icon src="http://mc.ustvnow.com/gtv/1/live/viewposter?srsid=186674&amp;cs=ESPN&amp;tid=SH"/>
+</programme>
+<programme channel="ESPN" start="20160123040000 0" stop="20160123050000 0">
+<title lang="en">SportsCenter</title>
+<sub-title lang="en">
+</sub-title>
+<desc lang="en">ESPN's flagship program provides sports news, highlights and analysis.</desc>
+<date>20160123</date>
+<category>livehd</category>
+<length units="seconds">3600</length>
+<episode-num system="dd_progid">SH000199170000</episode-num>
+<icon src="http://mc.ustvnow.com/gtv/1/live/viewposter?srsid=186674&amp;cs=ESPN&amp;tid=SH"/>
+</programme>
+<programme channel="Fox News" start="20160122200000 0" stop="20160122210000 0">
+<title lang="en">The O'Reilly Factor</title>
+<sub-title lang="en">
+</sub-title>
+<desc lang="en">No description available</desc>
+<date>20160122</date>
+<category>livehd</category>
+<length units="seconds">1858</length>
+<episode-num system="dd_progid">EP001940721590</episode-num>
+<icon src="http://mc.ustvnow.com/gtv/1/live/viewposter?srsid=185448&amp;cs=Fox News&amp;tid=EP"/>
+</programme>
+<programme channel="Fox News" start="20160122210000 0" stop="20160122220000 0">
+<title lang="en">The Kelly File</title>
+<sub-title lang="en">
+</sub-title>
+<desc lang="en">No description available</desc>
+<date>20160122</date>
+<category>livehd</category>
+<length units="seconds">3600</length>
+<episode-num system="dd_progid">EP018001900605</episode-num>
+<icon src="http://mc.ustvnow.com/gtv/1/live/viewposter?srsid=10226993&amp;cs=Fox News&amp;tid=EP"/>
+</programme>
+<programme channel="Fox News" start="20160122220000 0" stop="20160122230000 0">
+<title lang="en">Hannity</title>
+<sub-title lang="en">
+</sub-title>
+<desc lang="en">No description available</desc>
+<date>20160122</date>
+<category>livehd</category>
+<length units="seconds">3600</length>
+<episode-num system="dd_progid">EP011167431489</episode-num>
+<icon src="http://mc.ustvnow.com/gtv/1/live/viewposter?srsid=195286&amp;cs=Fox News&amp;tid=EP"/>
+</programme>
+<programme channel="Fox News" start="20160122230000 0" stop="20160123000000 0">
+<title lang="en">On the Record With Greta Van Susteren</title>
+<sub-title lang="en">
+</sub-title>
+<desc lang="en">No description available</desc>
+<date>20160122</date>
+<category>livehd</category>
+<length units="seconds">3600</length>
+<episode-num system="dd_progid">EP004911251536</episode-num>
+<icon src="http://mc.ustvnow.com/gtv/1/live/viewposter?srsid=185451&amp;cs=Fox News&amp;tid=EP"/>
+</programme>
+<programme channel="Fox News" start="20160123000000 0" stop="20160123010000 0">
+<title lang="en">Red Eye With Tom Shillue</title>
+<sub-title lang="en">
+</sub-title>
+<desc lang="en">No description available</desc>
+<date>20160123</date>
+<category>livehd</category>
+<length units="seconds">3600</length>
+<episode-num system="dd_progid">EP022177430155</episode-num>
+<icon src="http://mc.ustvnow.com/gtv/1/live/viewposter?srsid=11905600&amp;cs=Fox News&amp;tid=EP"/>
+</programme>
+<programme channel="Fox News" start="20160123010000 0" stop="20160123020000 0">
+<title lang="en">Special Report With Bret Baier</title>
+<sub-title lang="en">
+</sub-title>
+<desc lang="en">No description available</desc>
+<date>20160123</date>
+<category>livehd</category>
+<length units="seconds">3600</length>
+<episode-num system="dd_progid">EP011206151268</episode-num>
+<icon src="http://mc.ustvnow.com/gtv/1/live/viewposter?srsid=195296&amp;cs=Fox News&amp;tid=EP"/>
+</programme>
+<programme channel="Fox News" start="20160123020000 0" stop="20160123030000 0">
+<title lang="en">Hannity</title>
+<sub-title lang="en">
+</sub-title>
+<desc lang="en">No description available</desc>
+<date>20160123</date>
+<category>livehd</category>
+<length units="seconds">3600</length>
+<episode-num system="dd_progid">EP011167431489</episode-num>
+<icon src="http://mc.ustvnow.com/gtv/1/live/viewposter?srsid=195286&amp;cs=Fox News&amp;tid=EP"/>
+</programme>
+<programme channel="Fox News" start="20160123030000 0" stop="20160123070000 0">
+<title lang="en">FOX and Friends Saturday</title>
+<sub-title lang="en">
+</sub-title>
+<desc lang="en">News, sports and weather.</desc>
+<date>20160123</date>
+<category>livehd</category>
+<length units="seconds">14400</length>
+<episode-num system="dd_progid">SH005449810000</episode-num>
+<icon src="http://mc.ustvnow.com/gtv/1/live/viewposter?srsid=233565&amp;cs=Fox News&amp;tid=SH"/>
+</programme>
+<programme channel="FX" start="20160122170000 0" stop="20160122173000 0">
+<title lang="en">Man of Steel</title>
+<sub-title lang="en">
+</sub-title>
+<desc lang="en">Young Clark Kent (Henry Cavill) must protect those he loves from a dire threat.</desc>
+<date>20160122</date>
+<category>livehd</category>
+<length units="seconds">58</length>
+<episode-num system="dd_progid">MV003986860000</episode-num>
+<icon src="http://mc.ustvnow.com/gtv/1/live/viewposter?srsid=9259673&amp;cs=FX&amp;tid=MV"/>
+</programme>
+<programme channel="FX" start="20160122203000 0" stop="20160123000000 0">
+<title lang="en">Man of Steel</title>
+<sub-title lang="en">
+</sub-title>
+<desc lang="en">Young Clark Kent (Henry Cavill) must protect those he loves from a dire threat.</desc>
+<date>20160122</date>
+<category>livehd</category>
+<length units="seconds">12600</length>
+<episode-num system="dd_progid">MV003986860000</episode-num>
+<icon src="http://mc.ustvnow.com/gtv/1/live/viewposter?srsid=9259673&amp;cs=FX&amp;tid=MV"/>
+</programme>
+<programme channel="FX" start="20160123000000 0" stop="20160123020000 0">
+<title lang="en">Next</title>
+<sub-title lang="en">
+</sub-title>
+<desc lang="en">An agent tries to convince a clairvoyant to help her prevent a nuclear detonation in Los Angeles.</desc>
+<date>20160123</date>
+<category>livehd</category>
+<length units="seconds">7200</length>
+<episode-num system="dd_progid">MV001908380000</episode-num>
+<icon src="http://mc.ustvnow.com/gtv/1/live/viewposter?srsid=166715&amp;cs=FX&amp;tid=MV"/>
+</programme>
+<programme channel="FX" start="20160123020000 0" stop="20160123023000 0">
+<title lang="en">Ray Charles, Aretha Franklin, Marvin Gaye</title>
+<sub-title lang="en">
+</sub-title>
+<desc lang="en">Soul music of the '60s poured out power and passion like no one had ever heard before.</desc>
+<date>20160123</date>
+<category>livehd</category>
+<length units="seconds">1800</length>
+<episode-num system="dd_progid">SH021027880000</episode-num>
+<icon src="http://mc.ustvnow.com/gtv/1/live/viewposter?srsid=11402597&amp;cs=FX&amp;tid=SH"/>
+</programme>
+<programme channel="FX" start="20160123023000 0" stop="20160123030000 0">
+<title lang="en">Try Total Gym for $14.95</title>
+<sub-title lang="en">
+</sub-title>
+<desc lang="en">Total Gym Fit is the only piece of fitness equipment you need to get into the best shape.</desc>
+<date>20160123</date>
+<category>livehd</category>
+<length units="seconds">1800</length>
+<episode-num system="dd_progid">SH021533420000</episode-num>
+<icon src="http://mc.ustvnow.com/gtv/1/live/viewposter?srsid=11628983&amp;cs=FX&amp;tid=SH"/>
+</programme>
+<programme channel="FX" start="20160123030000 0" stop="20160123033000 0">
+<title lang="en">BISSELL: New Year's Revolution</title>
+<sub-title lang="en">
+</sub-title>
+<desc lang="en">The BISSELL ProHeat 2X Revolution outcleans the leading rental at half the weight!</desc>
+<date>20160123</date>
+<category>livehd</category>
+<length units="seconds">1800</length>
+<episode-num system="dd_progid">SH023337670000</episode-num>
+<icon src="http://mc.ustvnow.com/gtv/1/live/viewposter?srsid=12447157&amp;cs=FX&amp;tid=SH"/>
+</programme>
+<programme channel="FX" start="20160123033000 0" stop="20160123040000 0">
+<title lang="en">Tai Chi Master!</title>
+<sub-title lang="en">
+</sub-title>
+<desc lang="en">Learn to master the 18 fundamental moves of Tai Chi in just 90 days!</desc>
+<date>20160123</date>
+<category>livehd</category>
+<length units="seconds">1800</length>
+<episode-num system="dd_progid">SH023106700000</episode-num>
+<icon src="http://mc.ustvnow.com/gtv/1/live/viewposter?srsid=12347595&amp;cs=FX&amp;tid=SH"/>
+</programme>
+<programme channel="FX" start="20160123040000 0" stop="20160123043000 0">
+<title lang="en">Ellen</title>
+<sub-title lang="en">Hello, Dalai</sub-title>
+<desc lang="en">Peter confronts Ellen at a spiritual retreat; a robber strikes Buy the Book.</desc>
+<date>20160123</date>
+<category>livehd</category>
+<length units="seconds">1800</length>
+<episode-num system="dd_progid">EP001011690084</episode-num>
+<icon src="http://mc.ustvnow.com/gtv/1/live/viewposter?srsid=183915&amp;cs=FX&amp;tid=EP"/>
+</programme>
+<programme channel="History" start="20160122200300 0" stop="20160122203500 0">
+<title lang="en">Pawn Stars</title>
+<sub-title lang="en">Mail Mayhem</sub-title>
+<desc lang="en">A signed first edition of The Wonderful Wizard of Oz; a one-of-a-kind Turbo Drive II arcade game.</desc>
+<date>20160122</date>
+<category>livehd</category>
+<length units="seconds">178</length>
+<episode-num system="dd_progid">EP011594940416</episode-num>
+<icon src="http://mc.ustvnow.com/gtv/1/live/viewposter?srsid=3565439&amp;cs=History&amp;tid=EP"/>
+</programme>
+<programme channel="History" start="20160122203200 0" stop="20160122210100 0">
+<title lang="en">Pawn Stars</title>
+<sub-title lang="en">Personal Collection</sub-title>
+<desc lang="en">No description available</desc>
+<date>20160122</date>
+<category>livehd</category>
+<length units="seconds">1740</length>
+<episode-num system="dd_progid">EP011594940438</episode-num>
+<icon src="http://mc.ustvnow.com/gtv/1/live/viewposter?srsid=3565439&amp;cs=History&amp;tid=EP"/>
+</programme>
+<programme channel="History" start="20160122210100 0" stop="20160122213100 0">
+<title lang="en">Pawn Stars</title>
+<sub-title lang="en">Racing Revolution</sub-title>
+<desc lang="en">A limited edition 2014 Hertz Penske GT Mustang; a 1600s lobster tail helmet.</desc>
+<date>20160122</date>
+<category>livehd</category>
+<length units="seconds">1800</length>
+<episode-num system="dd_progid">EP011594940467</episode-num>
+<icon src="http://mc.ustvnow.com/gtv/1/live/viewposter?srsid=3565439&amp;cs=History&amp;tid=EP"/>
+</programme>
+<programme channel="History" start="20160122213100 0" stop="20160122220100 0">
+<title lang="en">Pawn Stars</title>
+<sub-title lang="en">Pawn Brothers</sub-title>
+<desc lang="en">A 1894 S Barber Dime comes into the shop; a John Belushi autograph.</desc>
+<date>20160122</date>
+<category>livehd</category>
+<length units="seconds">1800</length>
+<episode-num system="dd_progid">EP011594940466</episode-num>
+<icon src="http://mc.ustvnow.com/gtv/1/live/viewposter?srsid=3565439&amp;cs=History&amp;tid=EP"/>
+</programme>
+<programme channel="History" start="20160122220100 0" stop="20160123000400 0">
+<title lang="en">Drunk Stoned Brilliant Dead: The Story of the National Lampoon</title>
+<sub-title lang="en">
+</sub-title>
+<desc lang="en">The National Lampoon magazine pokes fun at politics, religion, entertainment and lifestyles.</desc>
+<date>20160122</date>
+<category>livehd</category>
+<length units="seconds">7380</length>
+<episode-num system="dd_progid">MV007509010000</episode-num>
+<icon src="http://mc.ustvnow.com/gtv/1/live/viewposter?srsid=11715389&amp;cs=History&amp;tid=MV"/>
+</programme>
+<programme channel="History" start="20160123000400 0" stop="20160123003300 0">
+<title lang="en">Pawn Stars</title>
+<sub-title lang="en">Mail Mayhem</sub-title>
+<desc lang="en">A signed first edition of The Wonderful Wizard of Oz; a one-of-a-kind Turbo Drive II arcade game.</desc>
+<date>20160123</date>
+<category>livehd</category>
+<length units="seconds">1740</length>
+<episode-num system="dd_progid">EP011594940416</episode-num>
+<icon src="http://mc.ustvnow.com/gtv/1/live/viewposter?srsid=3565439&amp;cs=History&amp;tid=EP"/>
+</programme>
+<programme channel="History" start="20160123003300 0" stop="20160123010200 0">
+<title lang="en">Pawn Stars</title>
+<sub-title lang="en">Personal Collection</sub-title>
+<desc lang="en">No description available</desc>
+<date>20160123</date>
+<category>livehd</category>
+<length units="seconds">1740</length>
+<episode-num system="dd_progid">EP011594940438</episode-num>
+<icon src="http://mc.ustvnow.com/gtv/1/live/viewposter?srsid=3565439&amp;cs=History&amp;tid=EP"/>
+</programme>
+<programme channel="History" start="20160123010200 0" stop="20160123013000 0">
+<title lang="en">Paid Programming</title>
+<sub-title lang="en">
+</sub-title>
+<desc lang="en">Paid programming.</desc>
+<date>20160123</date>
+<category>livehd</category>
+<length units="seconds">1680</length>
+<episode-num system="dd_progid">SH000000010000</episode-num>
+<icon src="http://mc.ustvnow.com/gtv/1/live/viewposter?srsid=459763&amp;cs=History&amp;tid=SH"/>
+</programme>
+<programme channel="History" start="20160123013000 0" stop="20160123020000 0">
+<title lang="en">Coin Collecting with Mike Mezack</title>
+<sub-title lang="en">
+</sub-title>
+<desc lang="en">Learn about the wonderful world of numismatics with your host Mike Mezack!</desc>
+<date>20160123</date>
+<category>livehd</category>
+<length units="seconds">1800</length>
+<episode-num system="dd_progid">SH020943790000</episode-num>
+<icon src="http://mc.ustvnow.com/gtv/1/live/viewposter?srsid=11377439&amp;cs=History&amp;tid=SH"/>
+</programme>
+<programme channel="History" start="20160123020000 0" stop="20160123023000 0">
+<title lang="en">Coin Collecting with Mike Mezack</title>
+<sub-title lang="en">
+</sub-title>
+<desc lang="en">Learn about the wonderful world of numismatics with your host Mike Mezack!</desc>
+<date>20160123</date>
+<category>livehd</category>
+<length units="seconds">1800</length>
+<episode-num system="dd_progid">SH020943790000</episode-num>
+<icon src="http://mc.ustvnow.com/gtv/1/live/viewposter?srsid=11377439&amp;cs=History&amp;tid=SH"/>
+</programme>
+<programme channel="History" start="20160123023000 0" stop="20160123030000 0">
+<title lang="en">Coin Collecting with Mike Mezack</title>
+<sub-title lang="en">
+</sub-title>
+<desc lang="en">Learn about the wonderful world of numismatics with your host Mike Mezack!</desc>
+<date>20160123</date>
+<category>livehd</category>
+<length units="seconds">1800</length>
+<episode-num system="dd_progid">SH020943790000</episode-num>
+<icon src="http://mc.ustvnow.com/gtv/1/live/viewposter?srsid=11377439&amp;cs=History&amp;tid=SH"/>
+</programme>
+<programme channel="History" start="20160123030000 0" stop="20160123033000 0">
+<title lang="en">Coin Collecting with Mike Mezack</title>
+<sub-title lang="en">
+</sub-title>
+<desc lang="en">Learn about the wonderful world of numismatics with your host Mike Mezack!</desc>
+<date>20160123</date>
+<category>livehd</category>
+<length units="seconds">1800</length>
+<episode-num system="dd_progid">SH020943790000</episode-num>
+<icon src="http://mc.ustvnow.com/gtv/1/live/viewposter?srsid=11377439&amp;cs=History&amp;tid=SH"/>
+</programme>
+<programme channel="History" start="20160123033000 0" stop="20160123040000 0">
+<title lang="en">Dr. Ho Relieves Muscle Pain</title>
+<sub-title lang="en">
+</sub-title>
+<desc lang="en">DR-HO'S clinically proven Auto-Modulating Pain Relieving Waves work fast to provide relief.</desc>
+<date>20160123</date>
+<category>livehd</category>
+<length units="seconds">1800</length>
+<episode-num system="dd_progid">SH023498900000</episode-num>
+<icon src="http://mc.ustvnow.com/gtv/1/live/viewposter?srsid=12514884&amp;cs=History&amp;tid=SH"/>
+</programme>
+<programme channel="History" start="20160123040000 0" stop="20160123050000 0">
+<title lang="en">Strange Rituals</title>
+<sub-title lang="en">Altered States</sub-title>
+<desc lang="en">Testing the limits of the human body; a man runs barefoot marathons on Arctic ice.</desc>
+<date>20160123</date>
+<category>livehd</category>
+<length units="seconds">3600</length>
+<episode-num system="dd_progid">EP011915580008</episode-num>
+<icon src="http://mc.ustvnow.com/gtv/1/live/viewposter?srsid=7859458&amp;cs=History&amp;tid=EP"/>
+</programme>
+<programme channel="Lifetime" start="20160122200200 0" stop="20160122210400 0">
+<title lang="en">The Rap Game</title>
+<sub-title lang="en">Style and Swagga</sub-title>
+<desc lang="en">Working with Jermaine Dupri's stylist, the rappers have to define their style and brand on a budget.</desc>
+<date>20160122</date>
+<category>livehd</category>
+<length units="seconds">1978</length>
+<episode-num system="dd_progid">EP023025470003</episode-num>
+<icon src="http://mc.ustvnow.com/gtv/1/live/viewposter?srsid=12304961&amp;cs=Lifetime&amp;tid=EP"/>
+</programme>
+<programme channel="Lifetime" start="20160122210200 0" stop="20160122220200 0">
+<title lang="en">Bring It!</title>
+<sub-title lang="en">Fan Chat: Hell Week</sub-title>
+<desc lang="en">Dianna is forced to change her choreography, leaving the girls with no time to practice.</desc>
+<date>20160122</date>
+<category>livehd</category>
+<length units="seconds">3600</length>
+<episode-num system="dd_progid">EP018739050086</episode-num>
+<icon src="http://mc.ustvnow.com/gtv/1/live/viewposter?srsid=10534807&amp;cs=Lifetime&amp;tid=EP"/>
+</programme>
+<programme channel="Lifetime" start="20160122220200 0" stop="20160122230400 0">
+<title lang="en">Bring It!</title>
+<sub-title lang="en">Homecoming Hell</sub-title>
+<desc lang="en">Dianna and the Dolls must contend with a competition, a homecoming parade and a halftime show.</desc>
+<date>20160122</date>
+<category>livehd</category>
+<length units="seconds">3720</length>
+<episode-num system="dd_progid">EP018739050087</episode-num>
+<icon src="http://mc.ustvnow.com/gtv/1/live/viewposter?srsid=10534807&amp;cs=Lifetime&amp;tid=EP"/>
+</programme>
+<programme channel="Lifetime" start="20160122230400 0" stop="20160123000400 0">
+<title lang="en">The Rap Game</title>
+<sub-title lang="en">Betta Step Up</sub-title>
+<desc lang="en">Five aspiring, young rappers head to the dance floor as Jermaine tests their stage presence.</desc>
+<date>20160122</date>
+<category>livehd</category>
+<length units="seconds">3600</length>
+<episode-num system="dd_progid">EP023025470004</episode-num>
+<icon src="http://mc.ustvnow.com/gtv/1/live/viewposter?srsid=12304961&amp;cs=Lifetime&amp;tid=EP"/>
+</programme>
+<programme channel="Lifetime" start="20160123000400 0" stop="20160123010400 0">
+<title lang="en">The Rap Game</title>
+<sub-title lang="en">Style and Swagga</sub-title>
+<desc lang="en">Working with Jermaine Dupri's stylist, the rappers have to define their style and brand on a budget.</desc>
+<date>20160123</date>
+<category>livehd</category>
+<length units="seconds">3600</length>
+<episode-num system="dd_progid">EP023025470003</episode-num>
+<icon src="http://mc.ustvnow.com/gtv/1/live/viewposter?srsid=12304961&amp;cs=Lifetime&amp;tid=EP"/>
+</programme>
+<programme channel="Lifetime" start="20160123010400 0" stop="20160123013400 0">
+<title lang="en">Jane Seymour's Secret to Youthful-looking skin</title>
+<sub-title lang="en">
+</sub-title>
+<desc lang="en">Smooth, firm, and lift the look of dry, wrinkly, crepe paper-looking skin. www.CrepeErase.com.</desc>
+<date>20160123</date>
+<category>livehd</category>
+<length units="seconds">1800</length>
+<episode-num system="dd_progid">SH020480970000</episode-num>
+<icon src="http://mc.ustvnow.com/gtv/1/live/viewposter?srsid=11240602&amp;cs=Lifetime&amp;tid=SH"/>
+</programme>
+<programme channel="Lifetime" start="20160123013400 0" stop="20160123020400 0">
+<title lang="en">Try Green Tea CR(tm) FREE</title>
+<sub-title lang="en">
+</sub-title>
+<desc lang="en">Green Tea combined with BCM-95(R) BioCurcumin(R) plus Resveratrol for healthy aging.</desc>
+<date>20160123</date>
+<category>livehd</category>
+<length units="seconds">1800</length>
+<episode-num system="dd_progid">SH020610080000</episode-num>
+<icon src="http://mc.ustvnow.com/gtv/1/live/viewposter?srsid=11282540&amp;cs=Lifetime&amp;tid=SH"/>
+</programme>
+<programme channel="Lifetime" start="20160123020400 0" stop="20160123023400 0">
+<title lang="en">Fish Oil Benefits Examined</title>
+<sub-title lang="en">
+</sub-title>
+<desc lang="en">Say goodbye to bad cholesterol, joint pain, mood swings and brain fog in 30 days or less.</desc>
+<date>20160123</date>
+<category>livehd</category>
+<length units="seconds">1800</length>
+<episode-num system="dd_progid">SH022174020000</episode-num>
+<icon src="http://mc.ustvnow.com/gtv/1/live/viewposter?srsid=11904040&amp;cs=Lifetime&amp;tid=SH"/>
+</programme>
+<programme channel="Lifetime" start="20160123023400 0" stop="20160123030000 0">
+<title lang="en">CIZE Dance Workout!</title>
+<sub-title lang="en">
+</sub-title>
+<desc lang="en">Dance your way to a super lean, super sexy body with Shaun T's dance workout revolution, Cize!</desc>
+<date>20160123</date>
+<category>livehd</category>
+<length units="seconds">1560</length>
+<episode-num system="dd_progid">SH022941750000</episode-num>
+<icon src="http://mc.ustvnow.com/gtv/1/live/viewposter?srsid=12263160&amp;cs=Lifetime&amp;tid=SH"/>
+</programme>
+<programme channel="Lifetime" start="20160123030000 0" stop="20160123033000 0">
+<title lang="en">21 DAY FIX</title>
+<sub-title lang="en">
+</sub-title>
+<desc lang="en">No description available</desc>
+<date>20160123</date>
+<category>livehd</category>
+<length units="seconds">1800</length>
+<episode-num system="dd_progid">SH019135630000</episode-num>
+<icon src="http://mc.ustvnow.com/gtv/1/live/viewposter?srsid=10739900&amp;cs=Lifetime&amp;tid=SH"/>
+</programme>
+<programme channel="Lifetime" start="20160123033000 0" stop="20160123040000 0">
+<title lang="en">New Zumba Incredible Results System</title>
+<sub-title lang="en">
+</sub-title>
+<desc lang="en">Zumba Incredible Results is an all-new DVD system packed with exciting, easy-to-follow workouts.</desc>
+<date>20160123</date>
+<category>livehd</category>
+<length units="seconds">1800</length>
+<episode-num system="dd_progid">SH012359690000</episode-num>
+<icon src="http://mc.ustvnow.com/gtv/1/live/viewposter?srsid=8014173&amp;cs=Lifetime&amp;tid=SH"/>
+</programme>
+<programme channel="Lifetime" start="20160123040000 0" stop="20160123043000 0">
+<title lang="en">Nutrisystem's All-New Turbo 10</title>
+<sub-title lang="en">
+</sub-title>
+<desc lang="en">Lose up to 10 pounds and 5 inches in your first month with Nutrisystem's Turbo 10.</desc>
+<date>20160123</date>
+<category>livehd</category>
+<length units="seconds">1800</length>
+<episode-num system="dd_progid">SH023326000000</episode-num>
+<icon src="http://mc.ustvnow.com/gtv/1/live/viewposter?srsid=12442078&amp;cs=Lifetime&amp;tid=SH"/>
+</programme>
+<programme channel="National Geographic" start="20160122200000 0" stop="20160122210000 0">
+<title lang="en">The Real Bonnie and Clyde</title>
+<sub-title lang="en">
+</sub-title>
+<desc lang="en">The true story of the infamous couple.</desc>
+<date>20160122</date>
+<category>livehd</category>
+<length units="seconds">1858</length>
+<episode-num system="dd_progid">SH011518160000</episode-num>
+<icon src="http://mc.ustvnow.com/gtv/1/live/viewposter?srsid=3536538&amp;cs=National Geographic&amp;tid=SH"/>
+</programme>
+<programme channel="National Geographic" start="20160122210000 0" stop="20160122220000 0">
+<title lang="en">The Strange Truth</title>
+<sub-title lang="en">Lost Nuke</sub-title>
+<desc lang="en">Experts talk about ants built for battle; belly-button biodiversity; a missing nuclear bomb.</desc>
+<date>20160122</date>
+<category>livehd</category>
+<length units="seconds">3600</length>
+<episode-num system="dd_progid">EP023248230002</episode-num>
+<icon src="http://mc.ustvnow.com/gtv/1/live/viewposter?srsid=12408155&amp;cs=National Geographic&amp;tid=EP"/>
+</programme>
+<programme channel="National Geographic" start="20160122220000 0" stop="20160122230000 0">
+<title lang="en">Unabomber: The Secret History</title>
+<sub-title lang="en">
+</sub-title>
+<desc lang="en">Experts examine the case to glean important lessons.</desc>
+<date>20160122</date>
+<category>livehd</category>
+<length units="seconds">3600</length>
+<episode-num system="dd_progid">SH010098260000</episode-num>
+<icon src="http://mc.ustvnow.com/gtv/1/live/viewposter?srsid=309494&amp;cs=National Geographic&amp;tid=SH"/>
+</programme>
+<programme channel="National Geographic" start="20160122230000 0" stop="20160123000000 0">
+<title lang="en">The Skyjacker That Got Away</title>
+<sub-title lang="en">
+</sub-title>
+<desc lang="en">Modern forensics attempts to crack the four-decade-old mystery of America's only unsolved hijacking.</desc>
+<date>20160122</date>
+<category>livehd</category>
+<length units="seconds">3600</length>
+<episode-num system="dd_progid">SH011587960000</episode-num>
+<icon src="http://mc.ustvnow.com/gtv/1/live/viewposter?srsid=3563154&amp;cs=National Geographic&amp;tid=SH"/>
+</programme>
+<programme channel="National Geographic" start="20160123000000 0" stop="20160123010000 0">
+<title lang="en">Lockdown</title>
+<sub-title lang="en">Gangland</sub-title>
+<desc lang="en">California's Pelican Bay State Prison leads the war on prison gangs.</desc>
+<date>20160123</date>
+<category>livehd</category>
+<length units="seconds">3600</length>
+<episode-num system="dd_progid">EP009150540002</episode-num>
+<icon src="http://mc.ustvnow.com/gtv/1/live/viewposter?srsid=258964&amp;cs=National Geographic&amp;tid=EP"/>
+</programme>
+<programme channel="National Geographic" start="20160123010000 0" stop="20160123020000 0">
+<title lang="en">Lockdown</title>
+<sub-title lang="en">Inside Maximum Security</sub-title>
+<desc lang="en">Oak Park Heights Supermax controls violent prisoners.</desc>
+<date>20160123</date>
+<category>livehd</category>
+<length units="seconds">3600</length>
+<episode-num system="dd_progid">EP009150540004</episode-num>
+<icon src="http://mc.ustvnow.com/gtv/1/live/viewposter?srsid=258964&amp;cs=National Geographic&amp;tid=EP"/>
+</programme>
+<programme channel="National Geographic" start="20160123020000 0" stop="20160123030000 0">
+<title lang="en">Lockdown</title>
+<sub-title lang="en">Inside a Mexican Prison</sub-title>
+<desc lang="en">Life in one of Mexico's most notorious prisons, Centro do Ejecucion do Sanciones.</desc>
+<date>20160123</date>
+<category>livehd</category>
+<length units="seconds">3600</length>
+<episode-num system="dd_progid">EP009150540043</episode-num>
+<icon src="http://mc.ustvnow.com/gtv/1/live/viewposter?srsid=258964&amp;cs=National Geographic&amp;tid=EP"/>
+</programme>
+<programme channel="National Geographic" start="20160123030000 0" stop="20160123033000 0">
+<title lang="en">Johnny Cash, Hank Williams, George Jones</title>
+<sub-title lang="en">
+</sub-title>
+<desc lang="en">Sit back and listen to the country sounds you grew up with!</desc>
+<date>20160123</date>
+<category>livehd</category>
+<length units="seconds">1800</length>
+<episode-num system="dd_progid">SH014879400000</episode-num>
+<icon src="http://mc.ustvnow.com/gtv/1/live/viewposter?srsid=8896100&amp;cs=National Geographic&amp;tid=SH"/>
+</programme>
+<programme channel="National Geographic" start="20160123033000 0" stop="20160123040000 0">
+<title lang="en">Try Total Gym for $14.95</title>
+<sub-title lang="en">
+</sub-title>
+<desc lang="en">Total Gym Fit is the only piece of fitness equipment you need to get into the best shape.</desc>
+<date>20160123</date>
+<category>livehd</category>
+<length units="seconds">1800</length>
+<episode-num system="dd_progid">SH021533420000</episode-num>
+<icon src="http://mc.ustvnow.com/gtv/1/live/viewposter?srsid=11628983&amp;cs=National Geographic&amp;tid=SH"/>
+</programme>
+<programme channel="National Geographic" start="20160123040000 0" stop="20160123043000 0">
+<title lang="en">Learn the Secret behind making Great Meals Made Easy, Safe &amp;amp; Fast</title>
+<sub-title lang="en">
+</sub-title>
+<desc lang="en">Advanced induction technology is the secret to making great meals made easy, safe and fast.</desc>
+<date>20160123</date>
+<category>livehd</category>
+<length units="seconds">1800</length>
+<episode-num system="dd_progid">SH015651510000</episode-num>
+<icon src="http://mc.ustvnow.com/gtv/1/live/viewposter?srsid=9242900&amp;cs=National Geographic&amp;tid=SH"/>
+</programme>
+<programme channel="Nickelodeon" start="20160122200000 0" stop="20160122203000 0">
+<title lang="en">Friends</title>
+<sub-title lang="en">The One With Ross's Denial</sub-title>
+<desc lang="en">Ross tries to smooth things over when Monica and Chandler call off plans to move in together.</desc>
+<date>20160122</date>
+<category>livehd</category>
+<length units="seconds">58</length>
+<episode-num system="dd_progid">EP001151270132</episode-num>
+<icon src="http://mc.ustvnow.com/gtv/1/live/viewposter?srsid=183931&amp;cs=Nickelodeon&amp;tid=EP"/>
+</programme>
+<programme channel="Nickelodeon" start="20160122203000 0" stop="20160122210000 0">
+<title lang="en">Friends</title>
+<sub-title lang="en">The One Where Joey Loses His Insurance</sub-title>
+<desc lang="en">Joey arranges auditions in hope of regaining eligibility for his expired health insurance.</desc>
+<date>20160122</date>
+<category>livehd</category>
+<length units="seconds">1800</length>
+<episode-num system="dd_progid">EP001151270133</episode-num>
+<icon src="http://mc.ustvnow.com/gtv/1/live/viewposter?srsid=183931&amp;cs=Nickelodeon&amp;tid=EP"/>
+</programme>
+<programme channel="Nickelodeon" start="20160122210000 0" stop="20160122213300 0">
+<title lang="en">Friends</title>
+<sub-title lang="en">The One With Joey's Porsche</sub-title>
+<desc lang="en">Rachel wants Ross to admit to mental instability in order get a marriage annulment.</desc>
+<date>20160122</date>
+<category>livehd</category>
+<length units="seconds">1980</length>
+<episode-num system="dd_progid">EP001151270134</episode-num>
+<icon src="http://mc.ustvnow.com/gtv/1/live/viewposter?srsid=183931&amp;cs=Nickelodeon&amp;tid=EP"/>
+</programme>
+<programme channel="Nickelodeon" start="20160122213300 0" stop="20160122220600 0">
+<title lang="en">Friends</title>
+<sub-title lang="en">The One on the Last Night</sub-title>
+<desc lang="en">Monica helps Rachel move in with Phoebe; Chandler helps Joey pad his bank account.</desc>
+<date>20160122</date>
+<category>livehd</category>
+<length units="seconds">1980</length>
+<episode-num system="dd_progid">EP001151270135</episode-num>
+<icon src="http://mc.ustvnow.com/gtv/1/live/viewposter?srsid=183931&amp;cs=Nickelodeon&amp;tid=EP"/>
+</programme>
+<programme channel="Nickelodeon" start="20160122220600 0" stop="20160122223900 0">
+<title lang="en">The Fresh Prince of Bel-Air</title>
+<sub-title lang="en">Be My Baby Tonight</sub-title>
+<desc lang="en">Ashley's curiosity about reproduction sends Will to a pregnancy counseling center.</desc>
+<date>20160122</date>
+<category>livehd</category>
+<length units="seconds">1980</length>
+<episode-num system="dd_progid">EP000174130018</episode-num>
+<icon src="http://mc.ustvnow.com/gtv/1/live/viewposter?srsid=184062&amp;cs=Nickelodeon&amp;tid=EP"/>
+</programme>
+<programme channel="Nickelodeon" start="20160122223900 0" stop="20160122231200 0">
+<title lang="en">The Fresh Prince of Bel-Air</title>
+<sub-title lang="en">Striptease for Two</sub-title>
+<desc lang="en">Will and Carlton become male dancers to get Vivian's bracelet out of hock.</desc>
+<date>20160122</date>
+<category>livehd</category>
+<length units="seconds">1980</length>
+<episode-num system="dd_progid">EP000174130020</episode-num>
+<icon src="http://mc.ustvnow.com/gtv/1/live/viewposter?srsid=184062&amp;cs=Nickelodeon&amp;tid=EP"/>
+</programme>
+<programme channel="Nickelodeon" start="20160122231200 0" stop="20160122234500 0">
+<title lang="en">The Fresh Prince of Bel-Air</title>
+<sub-title lang="en">How I Spent My Summer Vacation</sub-title>
+<desc lang="en">Will returns from summer in Philadelphia with a new look that doesn't sit well with Uncle Phil.</desc>
+<date>20160122</date>
+<category>livehd</category>
+<length units="seconds">1980</length>
+<episode-num system="dd_progid">EP000174130056</episode-num>
+<icon src="http://mc.ustvnow.com/gtv/1/live/viewposter?srsid=184062&amp;cs=Nickelodeon&amp;tid=EP"/>
+</programme>
+<programme channel="Nickelodeon" start="20160122234500 0" stop="20160123001800 0">
+<title lang="en">The Fresh Prince of Bel-Air</title>
+<sub-title lang="en">Will Gets Committed</sub-title>
+<desc lang="en">Will and the Bankses pitch in to help clean up their old neighborhood.</desc>
+<date>20160122</date>
+<category>livehd</category>
+<length units="seconds">1980</length>
+<episode-num system="dd_progid">EP000174130057</episode-num>
+<icon src="http://mc.ustvnow.com/gtv/1/live/viewposter?srsid=184062&amp;cs=Nickelodeon&amp;tid=EP"/>
+</programme>
+<programme channel="Nickelodeon" start="20160123001800 0" stop="20160123005100 0">
+<title lang="en">George Lopez</title>
+<sub-title lang="en">George Can't Let Sleeping Mexicans Lie</sub-title>
+<desc lang="en">The family's new neighbor decorates his front lawn with an offensive art display.</desc>
+<date>20160123</date>
+<category>livehd</category>
+<length units="seconds">1980</length>
+<episode-num system="dd_progid">EP004954790122</episode-num>
+<icon src="http://mc.ustvnow.com/gtv/1/live/viewposter?srsid=184789&amp;cs=Nickelodeon&amp;tid=EP"/>
+</programme>
+<programme channel="Nickelodeon" start="20160123005100 0" stop="20160123012400 0">
+<title lang="en">George Lopez</title>
+<sub-title lang="en">George's Bogey-ous Relationship With Vic Is Putt to the Test</sub-title>
+<desc lang="en">Vic wants George to play in a father-son golf tournament against a longtime rival and his son.</desc>
+<date>20160123</date>
+<category>livehd</category>
+<length units="seconds">1980</length>
+<episode-num system="dd_progid">EP004954790120</episode-num>
+<icon src="http://mc.ustvnow.com/gtv/1/live/viewposter?srsid=184789&amp;cs=Nickelodeon&amp;tid=EP"/>
+</programme>
+<programme channel="Nickelodeon" start="20160123012400 0" stop="20160123015700 0">
+<title lang="en">George Lopez</title>
+<sub-title lang="en">George Thinks Max's Future Is on the Line</sub-title>
+<desc lang="en">To emphasize the importance of education, George forces Max to work at the factory.</desc>
+<date>20160123</date>
+<category>livehd</category>
+<length units="seconds">1980</length>
+<episode-num system="dd_progid">EP004954790125</episode-num>
+<icon src="http://mc.ustvnow.com/gtv/1/live/viewposter?srsid=184789&amp;cs=Nickelodeon&amp;tid=EP"/>
+</programme>
+<programme channel="Nickelodeon" start="20160123015700 0" stop="20160123023000 0">
+<title lang="en">George Lopez</title>
+<sub-title lang="en">George Decides to Sta-Local Where It's Familia</sub-title>
+<desc lang="en">The new factory owner presents George with an enticing offer.</desc>
+<date>20160123</date>
+<category>livehd</category>
+<length units="seconds">1980</length>
+<episode-num system="dd_progid">EP004954790126</episode-num>
+<icon src="http://mc.ustvnow.com/gtv/1/live/viewposter?srsid=184789&amp;cs=Nickelodeon&amp;tid=EP"/>
+</programme>
+<programme channel="Nickelodeon" start="20160123023000 0" stop="20160123030000 0">
+<title lang="en">George Lopez</title>
+<sub-title lang="en">Prototype</sub-title>
+<desc lang="en">A factory manager deals with his insensitive mother in all aspects of his life.</desc>
+<date>20160123</date>
+<category>livehd</category>
+<length units="seconds">1800</length>
+<episode-num system="dd_progid">EP004954790001</episode-num>
+<icon src="http://mc.ustvnow.com/gtv/1/live/viewposter?srsid=184789&amp;cs=Nickelodeon&amp;tid=EP"/>
+</programme>
+<programme channel="Nickelodeon" start="20160123030000 0" stop="20160123033000 0">
+<title lang="en">George Lopez</title>
+<sub-title lang="en">Curious George</sub-title>
+<desc lang="en">George's mother persuades him to spy on his daughter when she brings a boy home for the first time.</desc>
+<date>20160123</date>
+<category>livehd</category>
+<length units="seconds">1800</length>
+<episode-num system="dd_progid">EP004954790002</episode-num>
+<icon src="http://mc.ustvnow.com/gtv/1/live/viewposter?srsid=184789&amp;cs=Nickelodeon&amp;tid=EP"/>
+</programme>
+<programme channel="Nickelodeon" start="20160123033000 0" stop="20160123040000 0">
+<title lang="en">George Lopez</title>
+<sub-title lang="en">Happy Birthdays</sub-title>
+<desc lang="en">Angie plans a surprise birthday party for George; an accident-prone employee returns to work.</desc>
+<date>20160123</date>
+<category>livehd</category>
+<length units="seconds">1800</length>
+<episode-num system="dd_progid">EP004954790004</episode-num>
+<icon src="http://mc.ustvnow.com/gtv/1/live/viewposter?srsid=184789&amp;cs=Nickelodeon&amp;tid=EP"/>
+</programme>
+<programme channel="Nickelodeon" start="20160123040000 0" stop="20160123043000 0">
+<title lang="en">SpongeBob SquarePants</title>
+<sub-title lang="en">Mermaid Man and Barnacle Boy IV; Doing Time</sub-title>
+<desc lang="en">SpongeBob shrinks Bikini Bottom with Mermaid Man's utility belt.</desc>
+<date>20160123</date>
+<category>livehd</category>
+<length units="seconds">1800</length>
+<episode-num system="dd_progid">EP003077660080</episode-num>
+<icon src="http://mc.ustvnow.com/gtv/1/live/viewposter?srsid=184854&amp;cs=Nickelodeon&amp;tid=EP"/>
+</programme>
+<programme channel="SPIKE TV" start="20160122200000 0" stop="20160122203000 0">
+<title lang="en">Cops</title>
+<sub-title lang="en">Las Vegas, NV: Las Vegas Heat</sub-title>
+<desc lang="en">College students try to steal a flamingo; a traffic stop turns into a prostitution arrest.</desc>
+<date>20160122</date>
+<category>livehd</category>
+<length units="seconds">58</length>
+<episode-num system="dd_progid">EP000170700712</episode-num>
+<icon src="http://mc.ustvnow.com/gtv/1/live/viewposter?srsid=184250&amp;cs=SPIKE TV&amp;tid=EP"/>
+</programme>
+<programme channel="SPIKE TV" start="20160122203000 0" stop="20160122210000 0">
+<title lang="en">Cops</title>
+<sub-title lang="en">Coast to Coast</sub-title>
+<desc lang="en">Officers find toy guns, face masks and other contraband in a car following a high-speed pursuit.</desc>
+<date>20160122</date>
+<category>livehd</category>
+<length units="seconds">1800</length>
+<episode-num system="dd_progid">EP000170700756</episode-num>
+<icon src="http://mc.ustvnow.com/gtv/1/live/viewposter?srsid=184250&amp;cs=SPIKE TV&amp;tid=EP"/>
+</programme>
+<programme channel="SPIKE TV" start="20160122210000 0" stop="20160122213000 0">
+<title lang="en">Cops</title>
+<sub-title lang="en">Coast to Coast</sub-title>
+<desc lang="en">Officers pull over a DUI suspect in Florida; Oregon police make a drug bust in a city park.</desc>
+<date>20160122</date>
+<category>livehd</category>
+<length units="seconds">1800</length>
+<episode-num system="dd_progid">EP000170700793</episode-num>
+<icon src="http://mc.ustvnow.com/gtv/1/live/viewposter?srsid=184250&amp;cs=SPIKE TV&amp;tid=EP"/>
+</programme>
+<programme channel="SPIKE TV" start="20160122213000 0" stop="20160122220000 0">
+<title lang="en">Jail</title>
+<sub-title lang="en">
+</sub-title>
+<desc lang="en">The jails of Fort Worth, Texas; San Diego, Calif. and Tulsa, Okla.</desc>
+<date>20160122</date>
+<category>livehd</category>
+<length units="seconds">1800</length>
+<episode-num system="dd_progid">EP009369660087</episode-num>
+<icon src="http://mc.ustvnow.com/gtv/1/live/viewposter?srsid=185701&amp;cs=SPIKE TV&amp;tid=EP"/>
+</programme>
+<programme channel="SPIKE TV" start="20160122220000 0" stop="20160122223000 0">
+<title lang="en">Jail</title>
+<sub-title lang="en">
+</sub-title>
+<desc lang="en">The jails of Las Vegas, Nev., Portland, Ore. and Albuquerque, N.M.</desc>
+<date>20160122</date>
+<category>livehd</category>
+<length units="seconds">1800</length>
+<episode-num system="dd_progid">EP009369660091</episode-num>
+<icon src="http://mc.ustvnow.com/gtv/1/live/viewposter?srsid=185701&amp;cs=SPIKE TV&amp;tid=EP"/>
+</programme>
+<programme channel="SPIKE TV" start="20160122223000 0" stop="20160122230000 0">
+<title lang="en">Jail</title>
+<sub-title lang="en">
+</sub-title>
+<desc lang="en">A young woman is brought in for battery of a police officer; a man is taken for urinating in public.</desc>
+<date>20160122</date>
+<category>livehd</category>
+<length units="seconds">1800</length>
+<episode-num system="dd_progid">EP009369660114</episode-num>
+<icon src="http://mc.ustvnow.com/gtv/1/live/viewposter?srsid=185701&amp;cs=SPIKE TV&amp;tid=EP"/>
+</programme>
+<programme channel="SPIKE TV" start="20160122230000 0" stop="20160123000000 0">
+<title lang="en">World's Wildest Police Videos</title>
+<sub-title lang="en">Payless Chase</sub-title>
+<desc lang="en">No description available</desc>
+<date>20160122</date>
+<category>livehd</category>
+<length units="seconds">3600</length>
+<episode-num system="dd_progid">EP015495090052</episode-num>
+<icon src="http://mc.ustvnow.com/gtv/1/live/viewposter?srsid=9169661&amp;cs=SPIKE TV&amp;tid=EP"/>
+</programme>
+<programme channel="SPIKE TV" start="20160123000000 0" stop="20160123010000 0">
+<title lang="en">World's Wildest Police Videos</title>
+<sub-title lang="en">Flippin' Crazy</sub-title>
+<desc lang="en">No description available</desc>
+<date>20160123</date>
+<category>livehd</category>
+<length units="seconds">3600</length>
+<episode-num system="dd_progid">EP015495090060</episode-num>
+<icon src="http://mc.ustvnow.com/gtv/1/live/viewposter?srsid=9169661&amp;cs=SPIKE TV&amp;tid=EP"/>
+</programme>
+<programme channel="SPIKE TV" start="20160123010000 0" stop="20160123030000 0">
+<title lang="en">Knife Show/Cutlery Corner</title>
+<sub-title lang="en">
+</sub-title>
+<desc lang="en">No description available</desc>
+<date>20160123</date>
+<category>livehd</category>
+<length units="seconds">7200</length>
+<episode-num system="dd_progid">SH011355650000</episode-num>
+<icon src="http://mc.ustvnow.com/gtv/1/live/viewposter?srsid=417004&amp;cs=SPIKE TV&amp;tid=SH"/>
+</programme>
+<programme channel="SPIKE TV" start="20160123030000 0" stop="20160123033000 0">
+<title lang="en">Back Pain Solved!</title>
+<sub-title lang="en">
+</sub-title>
+<desc lang="en">The Teeter Hang Ups allows you to achieve a relaxing stretch that decompresses your back and joints!</desc>
+<date>20160123</date>
+<category>livehd</category>
+<length units="seconds">1800</length>
+<episode-num system="dd_progid">SH018551280000</episode-num>
+<icon src="http://mc.ustvnow.com/gtv/1/live/viewposter?srsid=10456223&amp;cs=SPIKE TV&amp;tid=SH"/>
+</programme>
+<programme channel="SPIKE TV" start="20160123033000 0" stop="20160123040000 0">
+<title lang="en">New Zumba Incredible Results System</title>
+<sub-title lang="en">
+</sub-title>
+<desc lang="en">Zumba Incredible Results is an all-new DVD system packed with exciting, easy-to-follow workouts.</desc>
+<date>20160123</date>
+<category>livehd</category>
+<length units="seconds">1800</length>
+<episode-num system="dd_progid">SH012359690000</episode-num>
+<icon src="http://mc.ustvnow.com/gtv/1/live/viewposter?srsid=8014173&amp;cs=SPIKE TV&amp;tid=SH"/>
+</programme>
+<programme channel="SPIKE TV" start="20160123040000 0" stop="20160123043000 0">
+<title lang="en">Jillian Michaels BODYSHRED: Get a Strong, Sexy and SHREDDED Body</title>
+<sub-title lang="en">
+</sub-title>
+<desc lang="en">Jillian Michaels BODYSHRED is 10 incredible 30-minute workouts to totally transform your body.</desc>
+<date>20160123</date>
+<category>livehd</category>
+<length units="seconds">1800</length>
+<episode-num system="dd_progid">SH020672520000</episode-num>
+<icon src="http://mc.ustvnow.com/gtv/1/live/viewposter?srsid=11302533&amp;cs=SPIKE TV&amp;tid=SH"/>
+</programme>
+<programme channel="Syfy" start="20160122180000 0" stop="20160122183000 0">
+<title lang="en">Twister</title>
+<sub-title lang="en">
+</sub-title>
+<desc lang="en">Storm-chasers (Helen Hunt, Bill Paxton) follow tornadoes in Oklahoma.</desc>
+<date>20160122</date>
+<category>livehd</category>
+<length units="seconds">58</length>
+<episode-num system="dd_progid">MV000460910000</episode-num>
+<icon src="http://mc.ustvnow.com/gtv/1/live/viewposter?srsid=18026&amp;cs=Syfy&amp;tid=MV"/>
+</programme>
+<programme channel="Syfy" start="20160122203000 0" stop="20160122230000 0">
+<title lang="en">The Fifth Element</title>
+<sub-title lang="en">
+</sub-title>
+<desc lang="en">A New York City cabdriver tries to save 2259 Earth from impact with an onrushing anti-life force.</desc>
+<date>20160122</date>
+<category>livehd</category>
+<length units="seconds">9000</length>
+<episode-num system="dd_progid">MV000506130000</episode-num>
+<icon src="http://mc.ustvnow.com/gtv/1/live/viewposter?srsid=19352&amp;cs=Syfy&amp;tid=MV"/>
+</programme>
+<programme channel="Syfy" start="20160122230000 0" stop="20160123013000 0">
+<title lang="en">Star Trek VI: The Undiscovered Country</title>
+<sub-title lang="en">
+</sub-title>
+<desc lang="en">The Enterprise crew (William Shatner, Leonard Nimoy, DeForest Kelley) encounters sabotage.</desc>
+<date>20160122</date>
+<category>livehd</category>
+<length units="seconds">9000</length>
+<episode-num system="dd_progid">MV000343180000</episode-num>
+<icon src="http://mc.ustvnow.com/gtv/1/live/viewposter?srsid=13612&amp;cs=Syfy&amp;tid=MV"/>
+</programme>
+<programme channel="Syfy" start="20160123013000 0" stop="20160123023000 0">
+<title lang="en">The Expanse</title>
+<sub-title lang="en">Windmills</sub-title>
+<desc lang="en">Holden and crew realize they're not alone on the Rocinante; Miller finds a new reason to keep going.</desc>
+<date>20160123</date>
+<category>livehd</category>
+<length units="seconds">3600</length>
+<episode-num system="dd_progid">EP022504080007</episode-num>
+<icon src="http://mc.ustvnow.com/gtv/1/live/viewposter?srsid=12051214&amp;cs=Syfy&amp;tid=EP"/>
+</programme>
+<programme channel="Syfy" start="20160123023000 0" stop="20160123030000 0">
+<title lang="en">The Twilight Zone</title>
+<sub-title lang="en">Execution</sub-title>
+<desc lang="en">In the 1880s, outlaw Joe Caswell's body disappears from the hangman's noose.</desc>
+<date>20160123</date>
+<category>livehd</category>
+<length units="seconds">1800</length>
+<episode-num system="dd_progid">EP000191100064</episode-num>
+<icon src="http://mc.ustvnow.com/gtv/1/live/viewposter?srsid=183869&amp;cs=Syfy&amp;tid=EP"/>
+</programme>
+<programme channel="Syfy" start="20160123030000 0" stop="20160123033000 0">
+<title lang="en">Clean up this Fall with Shark Lift Away. 3 Vacuums in one!</title>
+<sub-title lang="en">
+</sub-title>
+<desc lang="en">No Loss Suction Vacuum - Dusting brush, Pet Upholstery Tool, Free Lifetime Warranty, Free Steam Mop.</desc>
+<date>20160123</date>
+<category>livehd</category>
+<length units="seconds">1800</length>
+<episode-num system="dd_progid">SH020123580000</episode-num>
+<icon src="http://mc.ustvnow.com/gtv/1/live/viewposter?srsid=11112013&amp;cs=Syfy&amp;tid=SH"/>
+</programme>
+<programme channel="Syfy" start="20160123033000 0" stop="20160123040000 0">
+<title lang="en">Fighting Cancer: Real Stories of Healing and Hope</title>
+<sub-title lang="en">
+</sub-title>
+<desc lang="en">Inspiring stories of how Cancer Treatment Centers of America is giving patients more hope.</desc>
+<date>20160123</date>
+<category>livehd</category>
+<length units="seconds">1800</length>
+<episode-num system="dd_progid">SH017168400000</episode-num>
+<icon src="http://mc.ustvnow.com/gtv/1/live/viewposter?srsid=9875707&amp;cs=Syfy&amp;tid=SH"/>
+</programme>
+<programme channel="Syfy" start="20160123040000 0" stop="20160123043000 0">
+<title lang="en">Fighting Cancer: Real Stories of Healing and Hope</title>
+<sub-title lang="en">
+</sub-title>
+<desc lang="en">Inspiring stories of how Cancer Treatment Centers of America is giving patients more hope.</desc>
+<date>20160123</date>
+<category>livehd</category>
+<length units="seconds">1800</length>
+<episode-num system="dd_progid">SH017168400000</episode-num>
+<icon src="http://mc.ustvnow.com/gtv/1/live/viewposter?srsid=9875707&amp;cs=Syfy&amp;tid=SH"/>
+</programme>
+<programme channel="TBS" start="20160122190000 0" stop="20160122200000 0">
+<title lang="en">Horrible Bosses</title>
+<sub-title lang="en">
+</sub-title>
+<desc lang="en">Three oppressed workers devise a complex and seemingly foolproof plan to get rid of their employers.</desc>
+<date>20160122</date>
+<category>livehd</category>
+<length units="seconds">1858</length>
+<episode-num system="dd_progid">MV003516320000</episode-num>
+<icon src="http://mc.ustvnow.com/gtv/1/live/viewposter?srsid=8559570&amp;cs=TBS&amp;tid=MV"/>
+</programme>
+<programme channel="TBS" start="20160122210000 0" stop="20160122213000 0">
+<title lang="en">Cougar Town</title>
+<sub-title lang="en">Letting You Go</sub-title>
+<desc lang="en">When Travis is accepted into some of his choice colleges, Jules has mixed feelings.</desc>
+<date>20160122</date>
+<category>livehd</category>
+<length units="seconds">1800</length>
+<episode-num system="dd_progid">EP011580820021</episode-num>
+<icon src="http://mc.ustvnow.com/gtv/1/live/viewposter?srsid=3560220&amp;cs=TBS&amp;tid=EP"/>
+</programme>
+<programme channel="TBS" start="20160122213000 0" stop="20160122220000 0">
+<title lang="en">Cougar Town</title>
+<sub-title lang="en">Feel a Whole Lot Better</sub-title>
+<desc lang="en">Grayson and Jules consider being friends with benefits; Andy hires a nanny.</desc>
+<date>20160122</date>
+<category>livehd</category>
+<length units="seconds">1800</length>
+<episode-num system="dd_progid">EP011580820022</episode-num>
+<icon src="http://mc.ustvnow.com/gtv/1/live/viewposter?srsid=3560220&amp;cs=TBS&amp;tid=EP"/>
+</programme>
+<programme channel="TBS" start="20160122220000 0" stop="20160123000000 0">
+<title lang="en">She's the Man</title>
+<sub-title lang="en">
+</sub-title>
+<desc lang="en">Romantic complications ensue when a student poses as her twin brother and takes his place at school.</desc>
+<date>20160122</date>
+<category>livehd</category>
+<length units="seconds">7200</length>
+<episode-num system="dd_progid">MV001746050000</episode-num>
+<icon src="http://mc.ustvnow.com/gtv/1/live/viewposter?srsid=159836&amp;cs=TBS&amp;tid=MV"/>
+</programme>
+<programme channel="TBS" start="20160123000000 0" stop="20160123020000 0">
+<title lang="en">That Thing You Do!</title>
+<sub-title lang="en">
+</sub-title>
+<desc lang="en">Small-time rockers (Tom Everett Scott, Johnathon Schaech) hit it big with a catchy single.</desc>
+<date>20160123</date>
+<category>livehd</category>
+<length units="seconds">7200</length>
+<episode-num system="dd_progid">MV000479990000</episode-num>
+<icon src="http://mc.ustvnow.com/gtv/1/live/viewposter?srsid=18517&amp;cs=TBS&amp;tid=MV"/>
+</programme>
+<programme channel="TBS" start="20160123020000 0" stop="20160123023000 0">
+<title lang="en">Married ... With Children</title>
+<sub-title lang="en">Who'll Stop the Rain?</sub-title>
+<desc lang="en">Al attempts to fix his house's leaky roof during a long rainstorm.</desc>
+<date>20160123</date>
+<category>livehd</category>
+<length units="seconds">1800</length>
+<episode-num system="dd_progid">EP000028040124</episode-num>
+<icon src="http://mc.ustvnow.com/gtv/1/live/viewposter?srsid=183881&amp;cs=TBS&amp;tid=EP"/>
+</programme>
+<programme channel="TBS" start="20160123023000 0" stop="20160123030000 0">
+<title lang="en">Married ... With Children</title>
+<sub-title lang="en">It's a Bundyful Life</sub-title>
+<desc lang="en">Zapped by Christmas lights, Al has a vision of life without him.</desc>
+<date>20160123</date>
+<category>livehd</category>
+<length units="seconds">1800</length>
+<episode-num system="dd_progid">EP000028040125</episode-num>
+<icon src="http://mc.ustvnow.com/gtv/1/live/viewposter?srsid=183881&amp;cs=TBS&amp;tid=EP"/>
+</programme>
+<programme channel="TBS" start="20160123030000 0" stop="20160123033000 0">
+<title lang="en">Full House</title>
+<sub-title lang="en">The Trouble With Danny</sub-title>
+<desc lang="en">Danny's obsession with cleanliness causes a family revolt that turns him into &amp;quot;Dirty Dan.&amp;quot;.</desc>
+<date>20160123</date>
+<category>livehd</category>
+<length units="seconds">1800</length>
+<episode-num system="dd_progid">EP000017710008</episode-num>
+<icon src="http://mc.ustvnow.com/gtv/1/live/viewposter?srsid=183957&amp;cs=TBS&amp;tid=EP"/>
+</programme>
+<programme channel="TBS" start="20160123033000 0" stop="20160123040000 0">
+<title lang="en">Full House</title>
+<sub-title lang="en">Honey, I Broke the House</sub-title>
+<desc lang="en">Stephanie accidentally drives Joey's car through the kitchen wall.</desc>
+<date>20160123</date>
+<category>livehd</category>
+<length units="seconds">1800</length>
+<episode-num system="dd_progid">EP000017710090</episode-num>
+<icon src="http://mc.ustvnow.com/gtv/1/live/viewposter?srsid=183957&amp;cs=TBS&amp;tid=EP"/>
+</programme>
+<programme channel="TBS" start="20160123040000 0" stop="20160123043000 0">
+<title lang="en">Full House</title>
+<sub-title lang="en">The Graduates</sub-title>
+<desc lang="en">Jesse helps with Michelle's preschool graduation ceremony; a college student falls for Danny.</desc>
+<date>20160123</date>
+<category>livehd</category>
+<length units="seconds">1800</length>
+<episode-num system="dd_progid">EP000017710116</episode-num>
+<icon src="http://mc.ustvnow.com/gtv/1/live/viewposter?srsid=183957&amp;cs=TBS&amp;tid=EP"/>
+</programme>
+<programme channel="TNT" start="20160122193000 0" stop="20160122213000 0">
+<title lang="en">Red 2</title>
+<sub-title lang="en">
+</sub-title>
+<desc lang="en">Frank Moses and his team must retrieve a device that could alter the balance of world power.</desc>
+<date>20160122</date>
+<category>livehd</category>
+<length units="seconds">5458</length>
+<episode-num system="dd_progid">MV004596780000</episode-num>
+<icon src="http://mc.ustvnow.com/gtv/1/live/viewposter?srsid=9742170&amp;cs=TNT&amp;tid=MV"/>
+</programme>
+<programme channel="TNT" start="20160122220000 0" stop="20160122230000 0">
+<title lang="en">Hawaii Five-0</title>
+<sub-title lang="en">Ua'aihue</sub-title>
+<desc lang="en">After a tourist is murdered, Kono and Chin go under cover into the world of black market art.</desc>
+<date>20160122</date>
+<category>livehd</category>
+<length units="seconds">3600</length>
+<episode-num system="dd_progid">EP012800630114</episode-num>
+<icon src="http://mc.ustvnow.com/gtv/1/live/viewposter?srsid=8130405&amp;cs=TNT&amp;tid=EP"/>
+</programme>
+<programme channel="TNT" start="20160122230000 0" stop="20160123000000 0">
+<title lang="en">Hawaii Five-0</title>
+<sub-title lang="en">Poina 'ole</sub-title>
+<desc lang="en">The stunning truth about a decades-old disappearance of four school boys is revealed.</desc>
+<date>20160122</date>
+<category>livehd</category>
+<length units="seconds">3600</length>
+<episode-num system="dd_progid">EP012800630115</episode-num>
+<icon src="http://mc.ustvnow.com/gtv/1/live/viewposter?srsid=8130405&amp;cs=TNT&amp;tid=EP"/>
+</programme>
+<programme channel="TNT" start="20160123000000 0" stop="20160123010000 0">
+<title lang="en">Hawaii Five-0</title>
+<sub-title lang="en">Powehiwehi</sub-title>
+<desc lang="en">Kono must fight for her life after discovering a notorious criminal's identity.</desc>
+<date>20160123</date>
+<category>livehd</category>
+<length units="seconds">3600</length>
+<episode-num system="dd_progid">EP012800630117</episode-num>
+<icon src="http://mc.ustvnow.com/gtv/1/live/viewposter?srsid=8130405&amp;cs=TNT&amp;tid=EP"/>
+</programme>
+<programme channel="TNT" start="20160123010000 0" stop="20160123020000 0">
+<title lang="en">Hawaii Five-0</title>
+<sub-title lang="en">E 'Imi Pono</sub-title>
+<desc lang="en">The members of the Five-0 investigate a journalist's past after he is killed.</desc>
+<date>20160123</date>
+<category>livehd</category>
+<length units="seconds">3600</length>
+<episode-num system="dd_progid">EP012800630118</episode-num>
+<icon src="http://mc.ustvnow.com/gtv/1/live/viewposter?srsid=8130405&amp;cs=TNT&amp;tid=EP"/>
+</programme>
+<programme channel="TNT" start="20160123020000 0" stop="20160123030000 0">
+<title lang="en">Grimm</title>
+<sub-title lang="en">Tarantella</sub-title>
+<desc lang="en">Nick and Hank track a deadly heartbreaker; Nick and Juliette's safety is threatened.</desc>
+<date>20160123</date>
+<category>livehd</category>
+<length units="seconds">3600</length>
+<episode-num system="dd_progid">EP014189710013</episode-num>
+<icon src="http://mc.ustvnow.com/gtv/1/live/viewposter?srsid=8677098&amp;cs=TNT&amp;tid=EP"/>
+</programme>
+<programme channel="TNT" start="20160123030000 0" stop="20160123040000 0">
+<title lang="en">Law &amp;amp; Order</title>
+<sub-title lang="en">Boy Gone Astray</sub-title>
+<desc lang="en">A wealthy young woman is found dead in her apartment; a video may lead to a drug cartel.</desc>
+<date>20160123</date>
+<category>livehd</category>
+<length units="seconds">3600</length>
+<episode-num system="dd_progid">EP000176170467</episode-num>
+<icon src="http://mc.ustvnow.com/gtv/1/live/viewposter?srsid=183983&amp;cs=TNT&amp;tid=EP"/>
+</programme>
+<programme channel="TNT" start="20160123040000 0" stop="20160123050000 0">
+<title lang="en">Law &amp;amp; Order</title>
+<sub-title lang="en">Doped</sub-title>
+<desc lang="en">A suspicious nasal spray is found at the site of a deadly car crash.</desc>
+<date>20160123</date>
+<category>livehd</category>
+<length units="seconds">3600</length>
+<episode-num system="dd_progid">EP000176170466</episode-num>
+<icon src="http://mc.ustvnow.com/gtv/1/live/viewposter?srsid=183983&amp;cs=TNT&amp;tid=EP"/>
+</programme>
+<programme channel="USA Network" start="20160122200000 0" stop="20160122203000 0">
+<title lang="en">Modern Family</title>
+<sub-title lang="en">Tableau Vivant</sub-title>
+<desc lang="en">Gloria and Jay bicker at a diner; Luke accepts an award under false pretenses.</desc>
+<date>20160122</date>
+<category>livehd</category>
+<length units="seconds">58</length>
+<episode-num system="dd_progid">EP011581240073</episode-num>
+<icon src="http://mc.ustvnow.com/gtv/1/live/viewposter?srsid=3560360&amp;cs=USA Network&amp;tid=EP"/>
+</programme>
+<programme channel="USA Network" start="20160122203000 0" stop="20160122210000 0">
+<title lang="en">Modern Family</title>
+<sub-title lang="en">Schooled</sub-title>
+<desc lang="en">Claire and Phil drop Haley off at college; Lily gets into a tussle on her first day of kindergarten.</desc>
+<date>20160122</date>
+<category>livehd</category>
+<length units="seconds">1800</length>
+<episode-num system="dd_progid">EP011581240075</episode-num>
+<icon src="http://mc.ustvnow.com/gtv/1/live/viewposter?srsid=3560360&amp;cs=USA Network&amp;tid=EP"/>
+</programme>
+<programme channel="USA Network" start="20160122210000 0" stop="20160122220000 0">
+<title lang="en">Law &amp;amp; Order: Special Victims Unit</title>
+<sub-title lang="en">Brotherhood</sub-title>
+<desc lang="en">Benson and Stabler question a fraternity about the murder and sodomy of its pledge master.</desc>
+<date>20160122</date>
+<category>livehd</category>
+<length units="seconds">3600</length>
+<episode-num system="dd_progid">EP003169780105</episode-num>
+<icon src="http://mc.ustvnow.com/gtv/1/live/viewposter?srsid=184536&amp;cs=USA Network&amp;tid=EP"/>
+</programme>
+<programme channel="USA Network" start="20160122220000 0" stop="20160122230000 0">
+<title lang="en">Law &amp;amp; Order: Special Victims Unit</title>
+<sub-title lang="en">Hate</sub-title>
+<desc lang="en">Detectives investigate the rape and murder of two Arab-American women.</desc>
+<date>20160122</date>
+<category>livehd</category>
+<length units="seconds">3600</length>
+<episode-num system="dd_progid">EP003169780106</episode-num>
+<icon src="http://mc.ustvnow.com/gtv/1/live/viewposter?srsid=184536&amp;cs=USA Network&amp;tid=EP"/>
+</programme>
+<programme channel="USA Network" start="20160122230000 0" stop="20160123010000 0">
+<title lang="en">Charlie Wilson's War</title>
+<sub-title lang="en">
+</sub-title>
+<desc lang="en">A congressman, a socialite and a CIA agent boost funding for covert operations in Afghanistan.</desc>
+<date>20160122</date>
+<category>livehd</category>
+<length units="seconds">7200</length>
+<episode-num system="dd_progid">MV002016040000</episode-num>
+<icon src="http://mc.ustvnow.com/gtv/1/live/viewposter?srsid=171425&amp;cs=USA Network&amp;tid=MV"/>
+</programme>
+<programme channel="USA Network" start="20160123010000 0" stop="20160123020000 0">
+<title lang="en">Law &amp;amp; Order: Criminal Intent</title>
+<sub-title lang="en">Seeds</sub-title>
+<desc lang="en">Logan and Falacci investigate the brutal murder of a fertility doctor.</desc>
+<date>20160123</date>
+<category>livehd</category>
+<length units="seconds">3600</length>
+<episode-num system="dd_progid">EP004461730142</episode-num>
+<icon src="http://mc.ustvnow.com/gtv/1/live/viewposter?srsid=184724&amp;cs=USA Network&amp;tid=EP"/>
+</programme>
+<programme channel="USA Network" start="20160123020000 0" stop="20160123030000 0">
+<title lang="en">Law &amp;amp; Order: Criminal Intent</title>
+<sub-title lang="en">Smile</sub-title>
+<desc lang="en">The murder of a Park Avenue dentist connects to the death of one of his young patients.</desc>
+<date>20160123</date>
+<category>livehd</category>
+<length units="seconds">3600</length>
+<episode-num system="dd_progid">EP004461730141</episode-num>
+<icon src="http://mc.ustvnow.com/gtv/1/live/viewposter?srsid=184724&amp;cs=USA Network&amp;tid=EP"/>
+</programme>
+<programme channel="USA Network" start="20160123030000 0" stop="20160123040000 0">
+<title lang="en">Burn Notice</title>
+<sub-title lang="en">You Can Run</sub-title>
+<desc lang="en">Michael tries to leave the country with his team; Sam and Jesse are taken captive.</desc>
+<date>20160123</date>
+<category>livehd</category>
+<length units="seconds">3600</length>
+<episode-num system="dd_progid">EP009248440103</episode-num>
+<icon src="http://mc.ustvnow.com/gtv/1/live/viewposter?srsid=185589&amp;cs=USA Network&amp;tid=EP"/>
+</programme>
+<programme channel="USA Network" start="20160123040000 0" stop="20160123043000 0">
+<title lang="en">Nutri Ninja Blender Duo- Healthier Living Made Easy-2 Machines in One!</title>
+<sub-title lang="en">
+</sub-title>
+<desc lang="en">Nutri Ninja Blender Duo - break down whole foods, ice &amp;amp; seeds for maximum nutrient extraction.</desc>
+<date>20160123</date>
+<category>livehd</category>
+<length units="seconds">1800</length>
+<episode-num system="dd_progid">SH020100740000</episode-num>
+<icon src="http://mc.ustvnow.com/gtv/1/live/viewposter?srsid=11102931&amp;cs=USA Network&amp;tid=SH"/>
+</programme>
+</tv>

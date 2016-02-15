@@ -1,6 +1,6 @@
 <settings>
-    <setting id="noteImage" value="17" />
-    <setting id="noteMessage" value="We&apos;d like to take this opportunity to wish a [COLOR white]Happy New Year[/COLOR] to all&#x0A;of our friends around the world, peace and prosperity for all.&#x0A;&#x0A;It would probably be a good idea to check out the EarthCam addon tonight,&#x0A;you&apos;ll be able to watch live HD footage from Times Square and other&#x0A;landmarks worldwide.&#x0A;&#x0A;Find information on EarthCam and how-to watch the Ball Drop live:&#x0A;[B][COLOR white]www.tvaddons.ag/nye2016/[/COLOR][/B]&#x0A;&#x0A;Thank you to everyone who has been there throughout the past year,&#x0A;and cheers to the developers for making this all possible!" />
+    <setting id="noteImage" value="18" />
+    <setting id="noteMessage" value="It is with great excitement that we announce the launch of a new forum&#x0A;site dedicated to providing the best support for all of your Android TV&#x0A;technical support needs.&#x0A;&#x0A;If you own an Android TV device and need any type of help or&#x0A;assistance, CABLE CUTTERS is the place to be!&#x0A;&#x0A;Visit the new CABLE CUTTERS Forums today for [COLOR white]Android TV Support[/COLOR]:&#x0A;[B][COLOR white]http://forums.cablecutters.com[/COLOR][/B]&#x0A;&#x0A;Don&apos;t forget to [COLOR white]Register[/COLOR] today to find out about a very special&#x0A;NVIDIA Shield TV giveaway contest happening very soon!" />
     <setting id="noteType" value="t" />
     <setting id="notifications-on-startup" value="false" />
 </settings>

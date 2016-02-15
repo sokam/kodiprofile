@@ -22,12 +22,12 @@ from t0mm0.common.net import Net
 from urlresolver.plugnplay.interfaces import UrlResolver
 from urlresolver.plugnplay.interfaces import PluginSettings
 from urlresolver.plugnplay import Plugin
-from urlresolver import common
 
 class FacebookResolver(Plugin, UrlResolver, PluginSettings):
     implements = [UrlResolver, PluginSettings]
     name = "facebook"
     domains = [ "facebook.com" ]
+    pattern = '(?://|\.)(facebook\.com)/.+?video_id=([0-9a-zA-Z]+)'
 
     def __init__(self):
         p = self.get_setting('priority') or 100
@@ -68,15 +68,15 @@ class FacebookResolver(Plugin, UrlResolver, PluginSettings):
         return 'https://www.facebook.com/video/embed?video_id=%s' % media_id
 
     def get_host_and_id(self, url):
-        r = re.search('//(.+?)/video/embed?video_id=(\w+)', url)
-        return r.groups()
-
+        r = re.search(self.pattern, url)
+        if r:
+            return r.groups()
+        else:
+            return False
+    
     def valid_url(self, url, host):
-        if self.get_setting('enabled') == 'false': return False
-        return re.match('https?://(www\.)?facebook.com/video/embed?video_id=(\w+)', url) or \
-               self.name in host
+        return re.search(self.pattern, url) or self.name in host
 
-    #PluginSettings methods
     def get_settings_xml(self):
         xml = PluginSettings.get_settings_xml(self)
         xml += '<setting label="Video Quality" id="%s_quality" ' % self.__class__.__name__

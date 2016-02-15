@@ -2,16 +2,53 @@ version=1
 title=History
 #
 type=playlist
-name=search results: hunger games
-thumb=http://media.navi-x.org/images/logos/search.png
-background=http://media.navi-x.org/images/backgrounds/bkg_navix_bh_plain.jpg
-URL=http://www.navixtreme.com/playlist/search/hunger%20games
-#
-type=playlist
 name=Search
 thumb=http://media.navi-x.org/images/logos/search.png
 background=http://www.navixtreme.com/images/backgrounds/bkg_search.jpg
 URL=http://www.navixtreme.com/plx/search.plx
+#
+type=playlist
+name=My Favorites
+thumb=http://havana.navixtreme.com/Playlists/favorites.png
+URL=favorites.plx
+#
+type=playlist
+name=Addon Updates
+thumb=http://havana.navixtreme.com/Playlists/navixlogo.png
+background=previous
+URL=http://havana.navixtreme.com/Playlists/scripts.plx
+#
+type=playlist
+name=Currently In Cinemas.....
+description=Please consider donating to help us into the new year...
+
+PayPal donations:
+ [COLOR=FFFFFF00]beefjoint@hotmail.com[/COLOR]
+Bitcoin (anonymous) donations at -
+[COLOR=FFFFFF00]1KLea6Xi66hwsJDL35No6HbPAVq5771Wsb[/COLOR]
+
+Thanks for All your support. Any dead links / requests - [COLOR=FFFFFF00]navi-x.request.centre@hotmail.com [/COLOR]
+-= List owner: Horrorspoke =-
+-=1403 views in last 24 hours =-/description
+thumb=http://4.bp.blogspot.com/-bkDCjjAlNsA/UZrwODcFLmI/AAAAAAAAAO0/Z69wZVH7ARE/s1600/images.jpg
+background=http://media.tumblr.com/tumblr_lo1f25gTE11qiq3oh.gif
+URL=http://www.navixtreme.com/playlist/138170/currently_in_cinemas.....plx
+date=2015-12-27
+#
+type=playlist
+name=videobronx
+description=-= List owner: bronxbico =-
+-=1574 views in last 24 hours =-/description
+thumb=http://i.imgur.com/Bxl5aNF.png
+background=http://i.imgur.com/79hGbDR.jpg
+URL=http://www.navixtreme.com/playlist/148106/videobronx.plx
+date=2015-12-26
+#
+type=playlist
+name=search results: hunger games
+thumb=http://media.navi-x.org/images/logos/search.png
+background=http://media.navi-x.org/images/backgrounds/bkg_navix_bh_plain.jpg
+URL=http://www.navixtreme.com/playlist/search/hunger%20games
 #
 type=playlist
 name=[COLOR=FFFFFF00]* 2015 TOP MOVIES *[/COLOR] [COLOR=FF00FF00]*VISIT CAMCHANCE.COM*[/COLOR]
@@ -1799,11 +1836,6 @@ rating=-1.00
 
 description=bad neighbours 2014 ENJOY THE MOVIE GUYS/description
 URL=http://www.navixtreme.com/playlist/146122/live_streams.plx
-#
-type=playlist
-name=My Favorites
-thumb=http://havana.navixtreme.com/Playlists/favorites.png
-URL=favorites.plx
 #
 type=playlist
 name=Live Streaming Global News

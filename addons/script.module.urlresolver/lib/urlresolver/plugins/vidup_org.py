@@ -18,23 +18,22 @@
 
 import re
 from t0mm0.common.net import Net
+from lib import jsunpack
 from urlresolver.plugnplay.interfaces import UrlResolver
 from urlresolver.plugnplay.interfaces import PluginSettings
 from urlresolver.plugnplay import Plugin
-from urlresolver import common
-from lib import jsunpack
 
 class VidUpResolver(Plugin, UrlResolver, PluginSettings):
     implements = [UrlResolver, PluginSettings]
     name = "vidup"
     domains = ["vidup.org", "vidup.me"]
-    
+    pattern = '(?://|\.)(vidup.(?:me|org))/(?:embed-)?([0-9a-zA-Z]+)'
+
     def __init__(self):
         p = self.get_setting('priority') or 100
         self.priority = int(p)
         self.net = Net()
-        self.pattern = '//((?:www\.|beta\.)?vidup.(?:me|org))/(?:embed-)?([0-9a-zA-Z]+)'
-    
+
     def get_media_url(self, host, media_id):
         web_url = self.get_url(host, media_id)
         html = self.net.http_GET(web_url).content
@@ -56,13 +55,14 @@ class VidUpResolver(Plugin, UrlResolver, PluginSettings):
             raise UrlResolver.ResolverError('File Not Found or removed')
 
     def get_url(self, host, media_id):
-            return 'http://vidup.me/embed-%s.html' % (media_id)
+            return 'http://vidup.me/embed-%s.html' % media_id
     
     def get_host_and_id(self, url):
         r = re.search(self.pattern, url)
-        if r: return r.groups()
-        else: return False
-    
+        if r:
+            return r.groups()
+        else:
+            return False
+
     def valid_url(self, url, host):
-        if self.get_setting('enabled') == 'false': return False
         return re.search(self.pattern, url) or self.name in host

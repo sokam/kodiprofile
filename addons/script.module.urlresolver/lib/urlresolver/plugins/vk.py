@@ -18,37 +18,48 @@ You should have received a copy of the GNU General Public License
 along with this program. If not, see <http://www.gnu.org/licenses/>.
 """
 import re
-import urlparse
 import json
-import xbmcgui
+import urllib
+import urlparse
 from t0mm0.common.net import Net
+from urlresolver import common
 from urlresolver.plugnplay.interfaces import UrlResolver
 from urlresolver.plugnplay.interfaces import PluginSettings
 from urlresolver.plugnplay import Plugin
-from urlresolver import common
+import xbmcgui
 
 class VKResolver(Plugin, UrlResolver, PluginSettings):
     implements = [UrlResolver, PluginSettings]
     name = "VK.com"
     domains = ["vk.com"]
+    pattern = '(?://|\.)(vk\.com)/(?:video_ext\.php\?|video)(.+)'
 
     def __init__(self):
         p = self.get_setting('priority') or 100
         self.priority = int(p)
         self.net = Net()
-        self.pattern = '//((?:www\.)?vk\.com)/video_ext\.php\?(.+)'
 
     def get_media_url(self, host, media_id):
-        web_url = self.get_url(host, media_id)
-        query = web_url.split('?', 1)[-1]
-        query = urlparse.parse_qs(query)
-        api_url = 'http://api.vk.com/method/video.getEmbed?oid=%s&video_id=%s&embed_hash=%s' % (query['oid'][0], query['id'][0], query['hash'][0])
+        headers = {
+            'User-Agent': common.IE_USER_AGENT
+        }
+
+        query = urlparse.parse_qs(media_id)
+
+        try: oid, video_id = query['oid'][0] , query['id'][0]
+        except: oid, video_id = re.findall('(.*)_(.*)', media_id)[0]
+
+        try: hash = query['hash'][0]
+        except: hash = self.__get_hash(oid, video_id)
+
+        api_url = 'http://api.vk.com/method/video.getEmbed?oid=%s&video_id=%s&embed_hash=%s' % (oid, video_id, hash)
+
         html = self.net.http_GET(api_url).content
         html = re.sub(r'[^\x00-\x7F]+', ' ', html)
-        
+
         try: result = json.loads(html)['response']
-        except: result = self.__get_private(query['oid'][0], query['id'][0])
-        
+        except: result = self.__get_private(oid, video_id)
+
         quality_list = []
         link_list = []
         best_link = ''
@@ -59,7 +70,7 @@ class VKResolver(Plugin, UrlResolver, PluginSettings):
                 best_link = result[quality]
         
         if self.get_setting('auto_pick') == 'true' and best_link:
-            return best_link + '|User-Agent=%s' % (common.IE_USER_AGENT)
+            return best_link + '|' + urllib.urlencode(headers)
         else:
             if quality_list:
                 if len(quality_list) > 1:
@@ -67,9 +78,9 @@ class VKResolver(Plugin, UrlResolver, PluginSettings):
                     if result == -1:
                         raise UrlResolver.ResolverError('No link selected')
                     else:
-                        return link_list[result] + '|User-Agent=%s' % (common.IE_USER_AGENT)
+                        return link_list[result] + '|' + urllib.urlencode(headers)
                 else:
-                    return link_list[0] + '|User-Agent=%s' % (common.IE_USER_AGENT)
+                    return link_list[0] + '|' + urllib.urlencode(headers)
         
         raise UrlResolver.ResolverError('No video found')
 
@@ -81,9 +92,20 @@ class VKResolver(Plugin, UrlResolver, PluginSettings):
         try: return json.loads(match.group(1))
         except: return {}
         return {}
+
+    def __get_hash(self, oid, video_id):
+        hash_url = 'http://vk.com/al_video.php?act=show_inline&al=1&video=%s_%s' % (oid, video_id)
+        html = self.net.http_GET(hash_url).content
+        html = html.replace('\'', '"').replace(' ', '')
+        html = re.sub(r'[^\x00-\x7F]+', ' ', html)
+        match = re.search('"hash2"\s*:\s*"(.+?)"', html)
+        if match: return match.group(1)
+        match = re.search('"hash"\s*:\s*"(.+?)"', html)
+        if match: return match.group(1)
+        return ''
     
     def get_url(self, host, media_id):
-        return 'http://%s.com/video_ext.php?%s' % (host, media_id)
+        return 'http://vk.com/video_ext.php?%s' % media_id
 
     def get_host_and_id(self, url):
         r = re.search(self.pattern, url)
@@ -93,9 +115,7 @@ class VKResolver(Plugin, UrlResolver, PluginSettings):
             return False
 
     def valid_url(self, url, host):
-        if self.get_setting('enabled') == 'false':
-            return False
-        return re.search(self.pattern, url) or 'vk' in host
+        return re.search(self.pattern, url) or self.name in host
 
     def get_settings_xml(self):
         xml = PluginSettings.get_settings_xml(self)

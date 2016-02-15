@@ -29,12 +29,12 @@ class CastampResolver(Plugin, UrlResolver, PluginSettings):
     implements = [UrlResolver, PluginSettings]
     name = "castamp"
     domains = [ "castamp.com" ]
+    pattern = '(?://|\.)(castamp\.com)/embed\.php\?c=(.*?)&'
 
     def __init__(self):
         p = self.get_setting('priority') or 100
         self.priority = int(p)
         self.net = Net()
-        self.pattern =  r"""(http://(?:www\.|)castamp\.com)/embed\.php\?c=(.*?)&"""
 
     def get_media_url(self, host, media_id):
         web_url = self.get_url(host, media_id)
@@ -83,7 +83,6 @@ class CastampResolver(Plugin, UrlResolver, PluginSettings):
             return r.groups()
         else:
             return False
-
+    
     def valid_url(self, url, host):
-        if self.get_setting('enabled') == 'false': return False
-        return re.match(self.pattern, url)
+        return re.search(self.pattern, url) or self.name in host

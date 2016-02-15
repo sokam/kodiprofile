@@ -18,7 +18,6 @@
 
 import re
 from t0mm0.common.net import Net
-from urlresolver import common
 from urlresolver.plugnplay.interfaces import UrlResolver
 from urlresolver.plugnplay.interfaces import PluginSettings
 from urlresolver.plugnplay import Plugin
@@ -27,13 +26,13 @@ class YoutubeResolver(Plugin, UrlResolver, PluginSettings):
     implements = [UrlResolver, PluginSettings]
     name = "youtube"
     domains = [ 'youtube.com', 'youtu.be' ]
+    pattern = '(?://|\.)(youtube.com|youtu.be)/(?:embed/|.+?\?v=|.+?\&v=)([0-9A-Za-z_\-]+)'
 
     def __init__(self):
         p = self.get_setting('priority') or 100
         self.priority = int(p)
 
     def get_media_url(self, host, media_id):
-        #just call youtube addon
         plugin = 'plugin://plugin.video.youtube/?action=play_video&videoid=' + media_id
         return plugin
 
@@ -41,23 +40,14 @@ class YoutubeResolver(Plugin, UrlResolver, PluginSettings):
         return 'http://youtube.com/watch?v=%s' % media_id
 
     def get_host_and_id(self, url):
-        if url.find('?') > -1:
-            queries = common.addon.parse_query(url.split('?')[1])
-            video_id = queries.get('v', None)
-        else:
-            r = re.findall('/([0-9A-Za-z_\-]+)', url)
-            if r:
-                video_id = r[-1]
-        if video_id:
-            return ('youtube.com', video_id)
+        r = re.search(self.pattern, url)
+        if r:
+            return r.groups()
         else:
             return False
 
     def valid_url(self, url, host):
-        if self.get_setting('enabled') == 'false': return False
-        return re.match('http[s]*://(((www.|m.)?youtube.+?(v|embed)(=|/))|' +
-                        'youtu.be/)[0-9A-Za-z_\-]+', 
-                        url) or 'youtube' in host or 'youtu.be' in host
+        return re.search(self.pattern, url) or self.name in host
 
     def get_settings_xml(self):
         xml = PluginSettings.get_settings_xml(self)

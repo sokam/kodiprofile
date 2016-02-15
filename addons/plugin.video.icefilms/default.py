@@ -379,30 +379,24 @@ def DLDirStartup():
 
 def LoginStartup():
 
-     #Get whether user has set an account to use.
+    #Get whether user has set an account to use.
      
-     debrid_account = str2bool(addon.get_setting('realdebrid-account'))
-     movreel_account = str2bool(addon.get_setting('movreel-account'))
-     HideSuccessfulLogin = str2bool(addon.get_setting('hide-successful-login-messages'))
+    debrid_account = str2bool(addon.get_setting('realdebrid-account'))
+    movreel_account = str2bool(addon.get_setting('movreel-account'))
+    HideSuccessfulLogin = str2bool(addon.get_setting('hide-successful-login-messages'))
 
-     #Verify Read-Debrid Account
-     if debrid_account:
-         debriduser = addon.get_setting('realdebrid-username')
-         debridpass = addon.get_setting('realdebrid-password')
+    # #Verify Read-Debrid Account
+    if debrid_account:
+        if not addon.get_setting('realdebrid_token'):
 
-         try:
-             rd = debridroutines.RealDebrid(cookie_jar, debriduser, debridpass)
-             if rd.Login():
-                 if not HideSuccessfulLogin:
-                     Notify('small','Real-Debrid', 'Account login successful.','')
-             else:
-                 Notify('big','Real-Debrid','Login failed.', '')
-                 addon.log_error('Real-Debrid Account: login failed')
-         except Exception, e:
-              addon.log_error('**** Real-Debrid Error: %s' % e)
-              Notify('big','Real-Debrid Login Failed','Failed to connect with Real-Debrid.', '', '', 'Please check your internet connection.')
-              pass
-
+            try:
+                rd = debridroutines.RealDebrid()
+                rd.authorize_resolver()
+            except Exception, e:
+                addon.log_error('**** Real-Debrid Error: %s' % e)
+                Notify('big','Real-Debrid Login Failed','Failed to connect with Real-Debrid.', '', '', 'Please check your internet connection.')
+                pass                
+            
 def ContainerStartup():
 
      #Check for previous Icefilms metadata install and delete
@@ -1719,6 +1713,7 @@ def determine_source(search_string, is_domain=False):
     #Keep host list as global var - used to determine resolver and build/select auto play settings
     host_list = [('180upload.com', '180Upload', 'resolve_180upload'),
                 ('hugefiles.net', 'HugeFiles', 'resolve_hugefiles'),
+                ('kingfiles.net', 'KingFiles', 'resolve_kingfiles'),
                 ('clicknupload.com', 'ClicknUpload', 'resolve_clicknupload'),
                 ('clicknupload.me', 'ClicknUpload', 'resolve_clicknupload'),
                 ('upload.af', 'Upload', 'resolve_upload_af'),
@@ -1764,9 +1759,7 @@ def PART(scrap, sourcenumber, host, args, source_tag, ice_meta=None, video_url=N
           hoster = determine_source(host)
           
           debrid_tag = ''
-          addon.log(debrid_hosts)
           if debrid_hosts:
-              addon.log(hoster[0])
               if hoster[0] in debrid_hosts:
                   debrid_tag = ' [COLOR yellow]*RD[/COLOR] '
           
@@ -1871,11 +1864,11 @@ def SOURCE(page, sources, source_tag, ice_meta=None, video_url=None):
     debrid_hosts = None
     debrid_account = str2bool(addon.get_setting('realdebrid-account'))
     if debrid_account:
-      rd = debridroutines.RealDebrid(cookie_jar, '', '')
-      try: debrid_hosts = eval(rd.get_supported_hosts())
-      except Exception, e: 
-        addon.log(e)
-        pass
+        rd = debridroutines.RealDebrid()
+        try: debrid_hosts = rd.get_hosts()
+        except Exception, e: 
+            addon.log_error(e)
+            pass
       
     hosts = re.findall('<a\s+rel=[0-9]+.+?onclick=\'go\((\d+)\)\'>Source\s+#([0-9]+): (<span .+?</span>)</a>', sources)
     for id, number, hoster in hosts:
@@ -2149,19 +2142,16 @@ def Handle_Vidlink(url):
 
     link = None
     if debrid_account:
-      debriduser = addon.get_setting('realdebrid-username')
-      debridpass = addon.get_setting('realdebrid-password')
-      rd = debridroutines.RealDebrid(cookie_jar, debriduser, debridpass)
+      rd = debridroutines.RealDebrid()
       
       if rd.valid_host(hoster[0]):
-          if rd.Login():
-               download_details = rd.Resolve(url)
-               link = download_details['download_link']
+          if addon.get_setting('realdebrid_token'):
+               link = rd.get_media_url(url)
                if not link:
-                   Notify('big','Real-Debrid','Error occurred attempting to stream the file.', '', line2 = download_details['message'], line3 = '**Attempting to resolve with original host instead..')
+                   Notify('big','Real-Debrid','Error occurred attempting to stream the file.', '', '', line3 = '**Attempting to resolve with original host instead..')
                    link = None
                else:
-                   addon.log_debug('Real-Debrid Link resolved: %s ' % download_details['download_link'])
+                   addon.log_debug('Real-Debrid Link resolved: %s ' % link)
                    return link
 
     if not link:
@@ -2931,8 +2921,8 @@ def addDir(name, url, mode, iconimage, meta=False, imdb=False, delfromfav=False,
      ###  addDir with context menus and meta support  ###
 
      #encode url and name, so they can pass through the sys.argv[0] related strings
-     sysname = urllib.quote_plus(name)
-     sysurl = urllib.quote_plus(url)
+     sysname = urllib.quote_plus(name.encode('utf8'))
+     sysurl = urllib.quote_plus(url.encode('utf8'))
      dirmode=mode
 
      #get nice unicode name text.
@@ -3598,7 +3588,12 @@ elif mode=='addon_help':
     
 elif mode=='flush_cache':
     flush_cache()
-
+    
+elif mode=='reset_rd':
+    rd = debridroutines.RealDebrid()
+    rd.clear_client()
+    Notify('small','Icefilms', 'Successfully reset Real-Debrid authorization','')
+    
 elif mode=='reset_db':
     reset_db()
 

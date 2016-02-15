@@ -32,9 +32,11 @@ class PurevidResolver(Plugin, UrlResolver, SiteAuth, PluginSettings):
     implements = [UrlResolver, SiteAuth, PluginSettings]
     name = "purevid"
     domains = ["purevid.com"]
+    pattern = '(?://|\.)(purevid\.com)/v/([0-9A-Za-z]+)'
+
     profile_path = common.profile_path
     pv_cookie_file = os.path.join(profile_path, '%s.cookies' % name)
-    
+
     def __init__(self):
         p = self.get_setting('priority') or 1
         self.priority = int(p)
@@ -44,7 +46,6 @@ class PurevidResolver(Plugin, UrlResolver, SiteAuth, PluginSettings):
         except OSError:
             pass
 
-    #UrlResolver methods
     def get_media_url(self, host, media_id):
         web_url = self.get_url(host, media_id)
         html = self.net.http_GET(web_url).content
@@ -67,20 +68,16 @@ class PurevidResolver(Plugin, UrlResolver, SiteAuth, PluginSettings):
     def get_url(self, host, media_id):
         return 'http://www.purevid.com/?m=video_info_embed_flv&id=%s' % media_id
                         
-    def get_host_and_id(self, url):     
-        r = re.search('//(.+?)/v/([0-9A-Za-z]+)', url)
+    def get_host_and_id(self, url):
+        r = re.search(self.pattern, url)
         if r:
             return r.groups()
         else:
             return False
+    
+    def valid_url(self, url, host):
+        return re.search(self.pattern, url) or self.name in host
 
-    def valid_url(self, url, host):                 
-        if self.get_setting('login') == 'false':        
-            return False
-        common.addon.log(url)
-        return 'purevid' in url
-
-    #SiteAuth methods
     def needLogin(self):
         url = 'http://www.purevid.com/?m=main'
         if not os.path.exists(self.pv_cookie_file):
@@ -109,8 +106,7 @@ class PurevidResolver(Plugin, UrlResolver, SiteAuth, PluginSettings):
                 return False
         else :
             return True
-                    
-    #PluginSettings methods
+
     def get_settings_xml(self):
         xml = PluginSettings.get_settings_xml(self)
         xml += '<setting id="PurevidResolver_login" '        

@@ -15,21 +15,25 @@
     You should have received a copy of the GNU General Public License
     along with this program.  If not, see <http://www.gnu.org/licenses/>.
 """
-import scraper
+import re
 import urllib
 import urlparse
-import re
-from salts_lib import kodi
+
 from salts_lib import dom_parser
-from salts_lib.constants import VIDEO_TYPES
+from salts_lib import kodi
+from salts_lib import scraper_utils
 from salts_lib.constants import FORCE_NO_MATCH
 from salts_lib.constants import QUALITIES
+from salts_lib.constants import VIDEO_TYPES
+import scraper
+
 
 BASE_URL = 'https://beinmovie.com'
 DETAIL_URL = '/movie-detail.php?%s'
 PLAYER_URL = '/movie-player.php?%s'
 
 QUALITY_MAP = {'HD': QUALITIES.HD720, 'FULL HD': QUALITIES.HD1080, 'DVD': QUALITIES.MEDIUM}
+XHR = {'X-Requested-With': 'XMLHttpRequest'}
 
 class BeinMovie_Scraper(scraper.Scraper):
     base_url = BASE_URL
@@ -52,7 +56,6 @@ class BeinMovie_Scraper(scraper.Scraper):
             match = re.search('<source\s+src="([^"]+)', html)
             if match and match.group(1) != 'nop':
                 return match.group(1)
-                    
         else:
             return link
 
@@ -67,7 +70,7 @@ class BeinMovie_Scraper(scraper.Scraper):
         hosters = []
         if source_url and source_url != FORCE_NO_MATCH:
             url = urlparse.urljoin(self.base_url, source_url)
-            html = self._http_get(url, cache_limit=.5)
+            html = self._http_get(url, headers=XHR, cache_limit=.5)
             
             fragment = dom_parser.parse_dom(html, 'div', {'class': '[^"]*movie_langs_list[^"]*'})
             if fragment:
@@ -79,7 +82,7 @@ class BeinMovie_Scraper(scraper.Scraper):
                         match = re.search('<source\s+src="([^"]+)', html)
                         if match:
                             stream_url = match.group(1)
-                            hoster = {'multi-part': False, 'url': stream_url, 'class': self, 'quality': self._gv_get_quality(stream_url), 'host': self._get_direct_hostname(stream_url), 'rating': None, 'views': None, 'direct': True}
+                            hoster = {'multi-part': False, 'url': stream_url, 'class': self, 'quality': scraper_utils.gv_get_quality(stream_url), 'host': self._get_direct_hostname(stream_url), 'rating': None, 'views': None, 'direct': True}
                             hosters.append(hoster)
                         
                         fragment2 = dom_parser.parse_dom(html, 'ul', {'class': 'servers'})
@@ -90,18 +93,19 @@ class BeinMovie_Scraper(scraper.Scraper):
                                 if match:
                                     other_url = urlparse.urljoin(self.base_url, PLAYER_URL % (match.group(1)))
                                     if other_url == player_url: continue
+                                    other_url += '|User-Agent=%s&X-Requested-With=XMLHttpRequest' % (scraper_utils.get_ua())
                                     hoster = {'multi-part': False, 'url': other_url, 'class': self, 'quality': QUALITY_MAP.get(quality, QUALITIES.HD720), 'host': self._get_direct_hostname(other_url), 'rating': None, 'views': None, 'direct': True}
                                     hosters.append(hoster)
 
         return hosters
 
     def get_url(self, video):
-        return super(BeinMovie_Scraper, self)._default_get_url(video)
+        return self._default_get_url(video)
 
     def search(self, video_type, title, year):
         search_url = urlparse.urljoin(self.base_url, '/movies-list.php?b=search&v=%s')
         search_url = search_url % (urllib.quote_plus(title))
-        html = self._http_get(search_url, cache_limit=0)
+        html = self._http_get(search_url, headers=XHR, cache_limit=0)
         results = []
         for movie in dom_parser.parse_dom(html, 'li', {'class': '[^"]*movie[^"]*'}):
             href = dom_parser.parse_dom(movie, 'a', ret='href')

@@ -1,7 +1,12 @@
 <settings>
-    <setting id="email" value="" />
-    <setting id="password" value="" />
+    <setting id="email" value="soka4@yahoo.com" />
+    <setting id="enable_write" value="0" />
+    <setting id="password" value="so123456" />
     <setting id="quality" value="0" />
+    <setting id="quality_type" value="0" />
+    <setting id="silent" value="false" />
     <setting id="stream_type" value="0" />
-    <setting id="subscription" value="false" />
+    <setting id="subscription" value="true" />
+    <setting id="subscription_last" value="true" />
+    <setting id="write_folder" value="special://userdata/plugin.video.ustvnow/" />
 </settings>
