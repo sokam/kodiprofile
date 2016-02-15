@@ -607,15 +607,15 @@ msgid "Scraper Automatically Disabled"
 msgstr ""
 
 msgctxt "#30148"
-msgid "[COLOR blue]%s[/COLOR] returned no results %s times in a row."
+msgid "[COLOR blue]%s[/COLOR]'s FL of %s is over your Failure Level threshold"
 msgstr ""
 
 msgctxt "#30149"
-msgid "This wastes system resources and time."
+msgid "Disabling it avoids wasting time and resources"
 msgstr ""
 
 msgctxt "#30150"
-msgid "([I]If you keep it enabled, consider increasing your scraper timeout.[/I])"
+msgid "([I]If you Keep Enabled, consider increasing scraper timeout[/I])"
 msgstr ""
 
 msgctxt "#30151"
@@ -899,7 +899,7 @@ msgid "Received %s Sources from: %s"
 msgstr ""
 
 msgctxt "#30221"
-msgid "Filtering Out Unusable Sources"
+msgid "Applying Source Filters"
 msgstr ""
 
 msgctxt "#30222"
@@ -936,6 +936,98 @@ msgstr ""
 
 msgctxt "#30230"
 msgid "Include in My Next Episodes"
+msgstr ""
+
+msgctxt "#30231"
+msgid "Auto-Play"
+msgstr ""
+
+msgctxt "#30232"
+msgid "Set Trakt.tv API timeout to 60 seconds"
+msgstr ""
+
+msgctxt "#30233"
+msgid "Set Calendar start day to Yesterday"
+msgstr ""
+
+msgctxt "#30234"
+msgid "Show Episode Airtime on Calendar"
+msgstr ""
+
+msgctxt "#30235"
+msgid "Set Scraper timeout to 20 seconds"
+msgstr ""
+
+msgctxt "#30236"
+msgid "Include Watchlist in My Next Episodes"
+msgstr ""
+
+msgctxt "#30237"
+msgid "Remove Deleted Direct sources from results"
+msgstr ""
+
+msgctxt "#30238"
+msgid "Remove Unusable Indirect sources from results"
+msgstr ""
+
+msgctxt "#30239"
+msgid "Show Debrid sources in Green"
+msgstr ""
+
+msgctxt "#30240"
+msgid "No Limit on Maximum Source Results"
+msgstr ""
+
+msgctxt "#30241"
+msgid "Set Source Sort Keys to default"
+msgstr ""
+
+msgctxt "#30242"
+msgid "Set Scraper Sort Order to default"
+msgstr ""
+
+msgctxt "#30243"
+msgid "Reset All Scraper Base Urls to Default"
+msgstr ""
+
+msgctxt "#30244"
+msgid "Select All/None"
+msgstr ""
+
+msgctxt "#30245"
+msgid "Automatically Select Best Source"
+msgstr ""
+
+msgctxt "#30246"
+msgid "SALTS Database Issue Recovery"
+msgstr ""
+
+msgctxt "#30247"
+msgid "The SALTS DB has an issue that may be correctable by a forced DB migration."
+msgstr ""
+
+msgctxt "#30248"
+msgid "Should SALTS attempt a DB migration?"
+msgstr ""
+
+msgctxt "#30249"
+msgid "DB Migration Failed but a DB reset may succeed."
+msgstr ""
+
+msgctxt "#30250"
+msgid "Should SALTS attempt a DB reset?"
+msgstr ""
+
+msgctxt "#30251"
+msgid "([COLOR red]***All DB data will be lost.***[/COLOR])"
+msgstr ""
+
+msgctxt "#30252"
+msgid "DB Reset Failed: %s"
+msgstr ""
+
+msgctxt "#30253"
+msgid "No Streamable Url Found"
 msgstr ""
 
 msgctxt "#30500"
@@ -1152,13 +1244,8 @@ msgctxt "#30552"
 msgid "Use Trakt Bookmarks"
 msgstr ""
 
-msgctxt "#30553"
-msgid "Cache watched status"
-msgstr ""
-
-msgctxt "#30554"
-msgid "Cache Collection"
-msgstr ""
+# 30553 Removed
+# 30554 Removed
 
 msgctxt "#30555"
 msgid "Include People"
@@ -1321,9 +1408,7 @@ msgctxt "#30592"
 msgid "Sort Sources"
 msgstr ""
 
-msgctxt "#30593"
-msgid "Drop Sources with unknown sort values"
-msgstr ""
+# 30593 removed
 
 msgctxt "#30594"
 msgid "1st Sort Key"
@@ -1614,5 +1699,29 @@ msgstr ""
 
 msgctxt "#30664"
 msgid "Low"
+msgstr ""
+
+msgctxt "#30665"
+msgid "Automatically pick first matching subtitle"
+msgstr ""
+
+msgctxt "#30666"
+msgid "SALTS Auto Configuration"
+msgstr ""
+
+msgctxt "#30667"
+msgid "Continue"
+msgstr ""
+
+msgctxt "#30668"
+msgid "Cancel"
+msgstr ""
+
+msgctxt "#30669"
+msgid "Select this item to Install the SALTS Themepak"
+msgstr ""
+
+msgctxt "#30670"
+msgid "Show Settings"
 msgstr ""
 

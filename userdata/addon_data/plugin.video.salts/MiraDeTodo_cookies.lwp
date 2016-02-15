@@ -1,2 +1,4 @@
 #LWP-Cookies-2.0
 Set-Cookie3: __cfduid=d127cbdadcb32bb571ef5f3eb3e7da4701448936942; path="/"; domain=".miradetodo.com.ar"; path_spec; domain_dot; expires="2016-11-30 02:29:02Z"; HttpOnly=None; version=0
+Set-Cookie3: PHPSESSID=c6455838ed5034654c9d2927dc9af1a0; path="/"; domain="miradetodo.com.ar"; path_spec; expires="2016-02-15 06:39:01Z"; version=0
+Set-Cookie3: pageredir="http%3A%2F%2Fmiradetodo.com.ar%2Fsearch_result.php%3Fsearch%3D%26query%3DRight%2BNow%252C%2BWrong%2BThen"; path="/"; domain="miradetodo.com.ar"; path_spec; expires="2016-02-14 09:42:40Z"; version=0

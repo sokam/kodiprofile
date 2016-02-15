@@ -21,30 +21,17 @@ from t0mm0.common.net import Net
 from urlresolver.plugnplay.interfaces import UrlResolver
 from urlresolver.plugnplay.interfaces import PluginSettings
 from urlresolver.plugnplay import Plugin
-from urlresolver import common
 
 class VshareEuResolver(Plugin, UrlResolver, PluginSettings):
     implements = [UrlResolver, PluginSettings]
     name = "vshare.eu"
     domains = ['vshare.eu']
+    pattern = '(?://|\.)(vshare\.eu)/(?:embed-|)?([0-9a-zA-Z/]+)'
 
     def __init__(self):
         p = self.get_setting('priority') or 100
         self.priority = int(p)
         self.net = Net()
-        self.pattern = '//((?:www.)?vshare.eu)/(?:embed-|)?([0-9a-zA-Z/]+)'
-
-    def get_url(self, host, media_id):
-        return 'http://vshare.eu/embed-%s-720x400.html' % (media_id)
-
-    def get_host_and_id(self, url):
-        r = re.search(self.pattern, url)
-        if r: return r.groups()
-        else: return False
-
-    def valid_url(self, url, host):
-        if self.get_setting('enabled') == 'false': return False
-        return re.search(self.pattern, url) or self.name in host
 
     def get_media_url(self, host, media_id):
         web_url = self.get_url(host, media_id)
@@ -57,3 +44,16 @@ class VshareEuResolver(Plugin, UrlResolver, PluginSettings):
             return match.group(1)
         
         raise UrlResolver.ResolverError('No playable video found.')
+
+    def get_url(self, host, media_id):
+        return 'http://vshare.eu/embed-%s.html' % media_id
+
+    def get_host_and_id(self, url):
+        r = re.search(self.pattern, url)
+        if r:
+            return r.groups()
+        else:
+            return False
+
+    def valid_url(self, url, host):
+        return re.search(self.pattern, url) or self.name in host

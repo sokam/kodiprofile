@@ -23,6 +23,7 @@ import re
 import xbmcgui
 import xbmc
 import os
+import recaptcha_v2
 
 net = Net()
 IMG_FILE = 'captcha_img.png'
@@ -48,14 +49,17 @@ def get_response(img):
         wdlg.close()
 
 def do_captcha(html):
-    solvemedia = re.search('<iframe src="((?:https?:)?//api.solvemedia.com[^"]+)', html)
+    solvemedia = re.search('<iframe[^>]+src="((?:https?:)?//api.solvemedia.com[^"]+)', html)
     recaptcha = re.search('<script\s+type="text/javascript"\s+src="(http://www.google.com[^"]+)', html)
+    recaptcha_v2 = re.search('data-sitekey="([^"]+)', html)
     xfilecaptcha = re.search('<img\s+src="([^"]+/captchas/[^"]+)', html)
     
     if solvemedia:
         return do_solvemedia_captcha(solvemedia.group(1))
     elif recaptcha:
         return do_recaptcha(recaptcha.group(1))
+    elif recaptcha_v2:
+        return do_recaptcha_v2(recaptcha_v2.group(1))
     elif xfilecaptcha:
         return do_xfilecaptcha(xfilecaptcha.group(1))
     else:
@@ -72,7 +76,7 @@ def do_solvemedia_captcha(captcha_url):
     if captcha_url.startswith('//'): captcha_url = 'http:' + captcha_url
     html = net.http_GET(captcha_url).content
     data = {
-            'adcopy_challenge': ''  # set to blank just in case not found; avoids exception on return
+        'adcopy_challenge': ''  # set to blank just in case not found; avoids exception on return
     }
     for match in re.finditer(r'type=hidden.*?name="([^"]+)".*?value="([^"]+)', html):
         name, value = match.groups()
@@ -82,7 +86,7 @@ def do_solvemedia_captcha(captcha_url):
     try: os.remove(captcha_img)
     except: pass
     
-    #Check for alternate puzzle type - stored in a div
+    # Check for alternate puzzle type - stored in a div
     alt_frame = re.search('<div><iframe src="(/papi/media[^"]+)', html)
     if alt_frame:
         html = net.http_GET("http://api.solvemedia.com%s" % alt_frame.group(1)).content
@@ -100,12 +104,23 @@ def do_solvemedia_captcha(captcha_url):
 def do_recaptcha(captcha_url):
     common.addon.log_debug('Google ReCaptcha: %s' % (captcha_url))
     if captcha_url.startswith('//'): captcha_url = 'http:' + captcha_url
-    html = net.http_GET(captcha_url).content
+    personal_nid = common.addon.get_setting('personal_nid')
+    if personal_nid:
+        headers = {'Cookie': 'NID=' + personal_nid}
+    else:
+        headers = {}
+    html = net.http_GET(captcha_url, headers=headers).content
     part = re.search("challenge \: \\'(.+?)\\'", html)
     captcha_img = 'http://www.google.com/recaptcha/api/image?c=' + part.group(1)
     solution = get_response(captcha_img)
     return {'recaptcha_challenge_field': part.group(1), 'recaptcha_response_field': solution}
 
+def do_recaptcha_v2(sitekey):
+    token = recaptcha_v2.UnCaptchaReCaptcha().processCaptcha(sitekey, lang='en')
+    if token:
+        return {'g-recaptcha-response': token}
+
+    return {}
 def do_xfilecaptcha(captcha_url):
     common.addon.log_debug('XFileLoad ReCaptcha: %s' % (captcha_url))
     if captcha_url.startswith('//'): captcha_url = 'http:' + captcha_url

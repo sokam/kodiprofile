@@ -1,6 +1,6 @@
 version=1
 background=http://i.imgur.com/CxCceek.jpg
-title=[COLOR=FFFFFF00]* 2015 TOP MOVIES *[/COLOR] [COLOR=FF00FF00]*VISIT CAMCHANCE.COM*[/COLOR] [COLOR=FF888888]»[/COLOR] 1 to 198 of 431
+title=[COLOR=FFFFFF00]* 2015 TOP MOVIES *[/COLOR] [COLOR=FF00FF00]*VISIT CAMCHANCE.COM*[/COLOR] [COLOR=FF888888]»[/COLOR] 1 to 198 of 469
 logo=http://i.imgur.com/vdeHVYx.jpg
 description=[COLOR=FFFFFF00]VISIT CAMCHANCE.COM (THE CHAT WITH CAM), MEET UNKNOW PEOPLE FACE TO FACE.[/COLOR]/description
 
@@ -9,23 +9,529 @@ name=Sorted by user-assigned order
 icon=http://media.navi-x.org/images/icons/2downarrow.png
 URL=http://www.navixtreme.com/playlist/96828/_2015_top_movies_visit_camchance.com.plx?action=sortsel&cur=ord
 
-# 2530994
+# 2557572
 type=video
-name=Star Wars: The Force Awakens (2015)
+name=Ride Along 2 (2016)
+thumb=http://i.imgur.com/vm9d7B2.jpg
+date=2016-01-23
+URL=http://vidbull.com/383fk9qptvsj.html
+player=default
+rating=-1.00
+description=Synopsis
+The RIDE ALONG 2 sequel picks up about a year after our heroes' last adventure. Plans for a quick trip to Miami go bad. With the wedding upcoming, James reluctantly takes Ben with him to Miami to follow up on a lead connected to a drug-ring case he's been trying to crack. In Miami, they meet Maya, a no-b.s homicide who lets them know, Miami is her turf. They also encounter AJ a shady, cocky computer hacker who reveals evidence that implicates a well- respected local businessman, the wealthy Antonio Pope, who harbors a vicious streak and rules South Florida's drug trade. If Ben and James can convince the authorities that Pope is a brutal crime boss they'll stop his spree. If they fail, well there may not be a wedding after all./description
+
+# 2557535
+type=video
+name=Exposed (2016)
+thumb=http://i.imgur.com/D7e5PmW.jpg
+date=2016-01-22
+URL=http://vidbull.com/13qhvgazsdur.html
+player=default
+rating=-1.00
+description=Synopsis
+A police detective investigates the truth behind his partner's death. The mysterious case reveals disturbing police corruption and a dangerous secret involving an unlikely young woman./description
+
+# 2556692
+type=video
+name=Macbeth (2015)
+thumb=http://i.imgur.com/jl3UHWs.jpg
+date=2016-01-21
+URL=http://www.nowvideo.sx/video/2ec437d2c1d6f
+processor=http://www.navixtreme.com/wlfwood/processors/nowvideo.txt
+player=default
+rating=-1.00
+description=Synopsis
+Macbeth, the Thane of Glamis, receives a prophecy from a trio of witches that one day he will become King of Scotland. Consumed by ambition and spurred to action by his wife, Macbeth murders his king and takes the throne for himself./description
+
+# 2556184
+type=video
+name=Rock the Kasbah (2015)
+thumb=http://i.imgur.com/CUSNmKV.jpg
+date=2016-01-19
+URL=http://www.nowvideo.sx/video/e43b69fbd49e4
+processor=http://www.navixtreme.com/wlfwood/processors/nowvideo.txt
+player=default
+rating=-1.00
+description=Synopsis
+A down-on-his-luck music manager discovers a teenage girl with an extraordinary voice while on a music tour in Afghanistan and takes her to Kabul to compete on the popular television show, Afghan Star./description
+
+# 2556183
+type=video
+name=Our Brand Is Crisis (2015)
+thumb=http://i.imgur.com/jHeBWjg.jpg
+date=2016-01-19
+URL=http://www.nowvideo.sx/video/bd0c33e498f76
+processor=http://www.navixtreme.com/wlfwood/processors/nowvideo.txt
+player=default
+rating=-1.00
+description=Synopsis
+In 2002, Bolivian politician Pedro Gallo hires American James Carville's political consulting firm, Greenberg Carville Shrum, to help him win the 2002 Bolivian presidential election. GCS brings in Jane Bodine to manage the campaign in Bolivia. Battling her arch nemesis, the opposition's political consultant Pat Candy, Bodine successfully uses American political campaign strategies to lead Gallo to victory against Victor Rivera./description
+
+# 2555664
+type=video
+name=Intruders (2015)
+thumb=http://i.imgur.com/LG2JoDn.jpg
+date=2016-01-18
+URL=http://www.nowvideo.sx/video/996ac1bd529c4
+processor=http://www.navixtreme.com/wlfwood/processors/nowvideo.txt
+player=default
+rating=-1.00
+description=Synopsis
+Anna suffers from agoraphobia so crippling that when a trio of criminals break into her house, she cannot bring herself to flee. But what the intruders don't realize is that agoraphobia is not her only psychosis./description
+
+# 2553536
+type=video
+name=Truth (2015)
+thumb=http://i.imgur.com/eiq0Lbj.jpg
+date=2016-01-17
+URL=http://www.nowvideo.sx/video/c451368152c8a
+processor=http://www.navixtreme.com/wlfwood/processors/nowvideo.txt
+player=default
+rating=-1.00
+description=Synopsis
+The story of The Killian Documents controversy (a.k.a. "Rathergate") in the days leading up to the 2004 presidential election. When veteran newscaster Dan Rather and CBS News head Mary Mapes choose to air a segment on 60 Minutes exposing how President Bush avoided being drafted to Vietnam through his father's political advantages, the resulting fallout ultimately costs them their jobs and reputations./description
+
+# 2553248
+type=video
+name=The Abandoned (2015)
+thumb=http://i.imgur.com/lHQGy3O.jpg
+URL=http://www.nowvideo.sx/video/99cc12378220e
+processor=http://www.navixtreme.com/wlfwood/processors/nowvideo.txt
+player=default
+rating=-1.00
+description=Synopsis
+Take a terrifying plunge into the warped mind of a disturbed young woman. Desperate to get her life back on track, the unstable Streak takes a job as a security guard, working the graveyard shift at a once upscale, now abandoned apartment complex. But on her first night on duty, she discovers a horrifying presence lurking deep within the bowels of the decaying building. With her nerves already on edge, Streak must confront demons both real and imagined as she struggles to keep a grip on her sanity./description
+
+# 2553247
+type=video
+name=Band of Robbers (2015)
+thumb=http://i.imgur.com/6BwxtH1.jpg
+URL=http://www.nowvideo.sx/video/3d27f0061df0e
+processor=http://www.navixtreme.com/wlfwood/processors/nowvideo.txt
+player=default
+rating=-1.00
+description=Synopsis
+A comedic adventure that re-imagines Mark Twain's iconic literary characters of Huckleberry Finn and Tom Sawyer as grown men in current day. Petty criminal Huck Finn hopes to leave his criminal life behind when he is released from a stint in prison, but his lifelong friend, and corrupt cop, Tom Sawyer, has other plans. Not ready to give up on his childhood fantasies of wealth and adventure, Tom forms the "Band of Robbers," recruiting their misfit friends Joe Harper and Ben Rogers, to join them for an elaborate plan to find a fabled treasure. But the plan soon unravels, thrusting the guys on a wild journey with dangerous consequences.../description
+
+# 2553246
+type=video
+name=Moonwalkers (2015)
+thumb=http://i.imgur.com/g7hwWLZ.jpg
+URL=http://www.nowvideo.sx/video/1fd0f3d7d7175
+processor=http://www.navixtreme.com/wlfwood/processors/nowvideo.txt
+player=default
+rating=-1.00
+description=Synopsis
+What if Apollo 11 never actually made it? What if, in reality, Stanley Kubrick secretly shot the famous images of the moon landing in a studio, working for the US administration? This is the premise of a totally plausible conspiracy theory that takes us to swinging sixties London, where a stubborn CIA agent will never find Kubrick but instead is forced to team up with a lousy manager of a seedy rock band to develop the biggest con of all time, in this riotous, high-tempo action-comedy./description
+
+# 2553245
+type=video
+name=The Benefactor (2015)
+thumb=http://i.imgur.com/ija8vcw.jpg
+URL=http://www.nowvideo.sx/video/e039c7c5582ae
+processor=http://www.navixtreme.com/wlfwood/processors/nowvideo.txt
+player=default
+rating=-1.00
+description=Synopsis
+A philanthropist meddles in the lives of newly-married couples in an attempt to relive his past./description
+
+# 2552444
+type=video
+name=Daddy's Home (2015)
+thumb=http://i.imgur.com/W3lf6Ux.jpg
+URL=http://www.nowvideo.sx/video/981c1f6f6bcbc
+processor=http://www.navixtreme.com/wlfwood/processors/nowvideo.txt
+player=default
+rating=-1.00
+description=Synopsis
+Stepdad, Brad Whitaker, is a radio host trying to get his stepchildren to love him and call him Dad. But his plans turn upside down when the biological father, Dusty Mayron, returns./description
+
+# 2552229
+type=video
+name=The Last Witch Hunter (2015)
+thumb=http://i.imgur.com/9u91ws9.jpg
+URL=http://www.nowvideo.sx/video/601160125bdda
+processor=http://www.navixtreme.com/wlfwood/processors/nowvideo.txt
+player=default
+rating=-1.00
+description=Synopsis
+The modern world holds many secrets, but the most astounding secret of all is that witches still live amongst us; vicious supernatural creatures intent on unleashing the Black Death upon the world. Armies of witch hunters battled the unnatural enemy across the globe for centuries, including KAULDER, a valiant warrior who managed to slay the all-powerful QUEEN WITCH, decimating her followers in the process. In the moments right before her death, the QUEEN curses KAULDER with her own immortality, forever separating him from his beloved wife and daughter in the afterlife. Today KAULDER is the only one of his kind remaining, and has spent centuries hunting down rogue witches, all the while yearning for his long-lost loved ones. However, unbeknownst to KAULDER, the QUEEN WITCH is resurrected and seeks revenge on her killer causing an epic battle that will determine the survival of the human race./description
+
+# 2551912
+type=video
+name=Anesthesia (2015)
+thumb=http://i.imgur.com/i71Rils.jpg
+URL=http://www.nowvideo.sx/video/e4316fccfa694
+processor=http://www.navixtreme.com/wlfwood/processors/nowvideo.txt
+player=default
+rating=-1.00
+description=Synopsis
+Philosophy professor Walter Zarrow is wounded during a mugging. In an effort to escape he rings buzzers indiscriminately, waking Sam, a middle aged father of two having an affair in the city. Sam reluctantly answers Zarrow's pleas, and Zarrow loses consciousness in his arms. Through an exploration of why these men, along with the mugger, and an addict named Joe, come together, we explore New York City. The experience of Zarrow, Sam, Joe and Zarrow's assailant ripple quickly out to include the connected lives of a housewife struggling with alcoholism, a stoner teen desperate to lose his virginity, a brilliant but failed writer fighting addiction, two parents confronting the prospect of terminal illness, and a brilliant grad student who wounds herself to feel alive./description
+
+# 2549162
+type=video
+name=Solace (2015)
+thumb=http://i.imgur.com/vfAutvj.jpg
+URL=http://www.nowvideo.sx/video/ba80d9d1e644e
+processor=http://www.navixtreme.com/wlfwood/processors/nowvideo.txt
+player=default
+rating=-1.00
+description=Synopsis
+A psychic works with the FBI in order to hunt down a serial killer./description
+
+# 2549017
+type=video
+name=Sisters (2015)
+thumb=http://i.imgur.com/TXwNNwe.jpg
+URL=http://www.nowvideo.sx/video/ac3b1927854f0
+processor=http://www.navixtreme.com/wlfwood/processors/nowvideo.txt
+player=default
+rating=-1.00
+description=Synopsis
+Two sisters decide to throw one last house party before their parents sell their family home./description
+
+# 2549016
+type=video
+name=Stonewall (2015)
+thumb=http://i.imgur.com/L1dRdDJ.jpg
+URL=http://www.nowvideo.sx/video/123025eaf4b73
+processor=http://www.navixtreme.com/wlfwood/processors/nowvideo.txt
+player=default
+rating=-1.00
+description=Synopsis
+The plot revolves around the 1969 Stonewall Riots, the violent clash that kicked off the gay rights movement in New York City. The drama centers on Danny Winters, who flees to New York, leaving behind his sister. He finds his way to the Stonewall Inn, where he meets Trevor before catching the eye of Ed Murphy, manager of the Stonewall. He colludes with corrupt police and exploits homeless youth./description
+
+# 2548836
+type=video
+name=The Big Bang Theory - Season 9 - Episode 12
+thumb=http://i.imgur.com/PeZVLDh.jpg
+URL=http://vidbull.com/tkkih02nuooj.html
+player=default
+rating=-1.00
+description=The Big Bang Theory: A woman who moves into an apartment next door to two brilliant but socially awkward physicists shows them how little they know about life outside of the laboratory./description
+
+# 2545954
+type=video
+name=Woodlawn (2015)
+thumb=http://i.imgur.com/4MM6S9E.jpg
+URL=http://www.nowvideo.sx/video/edf2fe73fd99f
+processor=http://www.navixtreme.com/wlfwood/processors/nowvideo.txt
+player=default
+rating=-1.00
+description=Synopsis
+A gifted high school football player must learn to embrace his talent and his faith as he battles racial tensions on and off the field./description
+
+# 2544360
+type=video
+name=Alvin and the Chipmunks: The Road Chip (2015)
+thumb=http://i.imgur.com/ALFEQlK.jpg
+URL=http://www.nowvideo.sx/video/e2c402d980207
+processor=http://www.navixtreme.com/wlfwood/processors/nowvideo.txt
+player=default
+rating=-1.00
+description=Synopsis
+Through a series of misunderstandings, Alvin, Simon and Theodore come to believe that Dave is going to propose to his new girlfriend in Miami...and dump them. They have three days to get to him and stop the proposal, saving themselves not only from losing Dave but possibly from gaining a terrible stepbrother./description
+
+# 2541165
+type=video
+name=Captive (2015)
+thumb=http://i.imgur.com/dJbwfdk.jpg
+URL=http://www.nowvideo.sx/video/6274b8011eff8
+processor=http://www.navixtreme.com/wlfwood/processors/nowvideo.txt
+player=default
+rating=-1.00
+description=Synopsis
+In this fact-based thriller, a single mother struggling with drug addiction is randomly taken hostage in her own apartment by a man on the run from the law for breaking out of jail and murdering the judge assigned to his case - only to realize before the climactic finish that they have actually saved each other's lives./description
+
+# 2541164
+type=video
+name=45 Years (2015)
+thumb=http://i.imgur.com/LZTapUP.jpg
+URL=http://www.nowvideo.sx/video/666f55260573d
+processor=http://www.navixtreme.com/wlfwood/processors/nowvideo.txt
+player=default
+rating=-1.00
+description=Synopsis
+In the week leading up to their 45th wedding anniversary, a couple receive an unexpected letter which contains potentially life changing news./description
+
+# 2541163
+type=video
+name=Knight of Cups (2015)
+thumb=http://i.imgur.com/Y6ONINo.jpg
+URL=http://www.nowvideo.sx/video/04afdc54ee7d0
+processor=http://www.navixtreme.com/wlfwood/processors/nowvideo.txt
+player=default
+rating=-1.00
+description=Synopsis
+Once there was a young prince whose father, the king of the East, sent him down into Egypt to find a pearl. But when the prince arrived, the people poured him a cup. Drinking it, he forgot he was the son of a king, forgot about the pearl and fell into a deep sleep./description
+
+# 2541162
+type=video
+name=The Big Short (2015)
+thumb=http://i.imgur.com/WnSKLyr.jpg
+URL=http://www.nowvideo.sx/video/1c363b26bfd73
+processor=http://www.navixtreme.com/wlfwood/processors/nowvideo.txt
+player=default
+rating=-1.00
+description=Synopsis
+Four outsiders in the world of high-finance who predicted the credit and housing bubble collapse of the mid-2000s decide to take on the big banks for their lack of foresight and greed./description
+
+# 2541161
+type=video
+name=Anomalisa (2015)
+thumb=http://i.imgur.com/yOt9U8E.jpg
+URL=http://www.nowvideo.sx/video/916eba8ccd4c9
+processor=http://www.navixtreme.com/wlfwood/processors/nowvideo.txt
+player=default
+rating=-1.00
+description=Synopsis
+Michael Stone, an author that specializes in customer service, is a man who is unable to interact deeply with other people. His low sensitivity to excitement, and his lack of interest made him a man with a repetitive life on his own perspective. But, when he went on a business trip, he met a stranger - an extraordinary stranger, which slowly became a cure for his negative view on life that possibly will change his mundane life./description
+
+# 2541160
+type=video
+name=Burnt (2015)
+thumb=http://i.imgur.com/AtrM8d3.jpg
+URL=http://www.nowvideo.sx/video/65a7bce2e8057
+processor=http://www.navixtreme.com/wlfwood/processors/nowvideo.txt
+player=default
+rating=-1.00
+description=Synopsis
+Chef Adam Jones (Bradley Cooper) had it all - and lost it. A two-star Michelin rockstar with the bad habits to match, the former enfant terrible of the Paris restaurant scene did everything different every time out, and only ever cared about the thrill of creating explosions of taste. To land his own kitchen and that third elusive Michelin star though, he'll need the best of the best on his side, including the beautiful Helene (Sienna Miller)./description
+
+# 2539028
+type=video
+name=Chi-Raq (2015)
+thumb=http://i.imgur.com/VAbDr5O.jpg
+URL=http://www.nowvideo.sx/video/b53e54e799caf
+processor=http://www.navixtreme.com/wlfwood/processors/nowvideo.txt
+player=default
+rating=-1.00
+description=Synopsis
+After the murder of a child by a stray bullet, a group of women led by Lysistrata organize against the on-going violence in Chicago's Southside creating a movement that challenges the nature of race, sex and violence in America and around the world./description
+
+# 2539027
+type=video
+name=Boruto: Naruto the Movie (2015)
+thumb=http://i.imgur.com/AtNPJbf.jpg
+URL=http://www.nowvideo.sx/video/e8e23b9a3998b
+processor=http://www.navixtreme.com/wlfwood/processors/nowvideo.txt
+player=default
+rating=-1.00
+description=Synopsis
+It's been some years since the end of the Shinobi War. Naruto Uzumaki is the 7th Hokage of Konohagakure, in this new era. His son, Boruto Uzumaki, will soon enter the ChÃ»nin exams, alongside Sarada Uchiha and the mysterious Mitsuki./description
+
+# 2538377
+type=video
+name=Standoff (2016)
+thumb=http://i.imgur.com/5LYPYxq.jpg
+URL=http://www.nowvideo.sx/video/cade626011ab9
+processor=http://www.navixtreme.com/wlfwood/processors/nowvideo.txt
+player=default
+rating=-1.00
+description=Synopsis
+Carter (Thomas Jane), a troubled veteran who gets a chance at redemption by protecting a 12 year-old girl from an assassin after she witnesses a murder. Holding a shotgun with a single shell, he engages in physical and psychological warfare in a desperate fight for the girl's life./description
+
+# 2538376
+type=video
+name=Trumbo (2015)
+thumb=http://i.imgur.com/eOIdBPk.jpg
+URL=http://www.nowvideo.sx/video/37f56b8d3a425
+processor=http://www.navixtreme.com/wlfwood/processors/nowvideo.txt
+player=default
+rating=-1.00
+description=Synopsis
+In 1947, Dalton Trumbo (Bryan Cranston) was Hollywood's top screenwriter until he and other artists were jailed and blacklisted for their political beliefs. TRUMBO (directed by Jay Roach) recounts how Dalton used words and wit to win two Academy Awards and expose the absurdity and injustice under the blacklist, which entangled everyone from gossip columnist Hedda Hopper (Helen Mirren) to John Wayne, Kirk Douglas and Otto Preminger./description
+
+# 2538375
+type=video
+name=Suffragette (2015)
+thumb=http://i.imgur.com/ENxVyju.jpg
+URL=http://www.nowvideo.sx/video/6310af04d03c4
+processor=http://www.navixtreme.com/wlfwood/processors/nowvideo.txt
+player=default
+rating=-1.00
+description=Synopsis
+A drama that tracks the story of the foot soldiers of the early feminist movement, women who were forced underground to pursue a dangerous game of cat and mouse with an increasingly brutal State. These women were not primarily from the genteel educated classes, they were working women who had seen peaceful protest achieve nothing. Radicalized and turning to violence as the only route to change, they were willing to lose everything in their fight for equality - their jobs, their homes, their children and their lives. Maud was one such foot soldier. The story of her fight for dignity is as gripping and visceral as any thriller, it is also heart-breaking and inspirational./description
+
+# 2538374
+type=video
+name=Spectre (2015)
+thumb=http://i.imgur.com/6yQWL2Z.jpg
+URL=http://www.nowvideo.sx/video/9ebb6ab84de09
+processor=http://www.navixtreme.com/wlfwood/processors/nowvideo.txt
+player=default
+rating=-1.00
+description=Synopsis
+A cryptic message from the past sends James Bond on a rogue mission to Mexico City and eventually Rome, where he meets Lucia, the beautiful and forbidden widow of an infamous criminal. Bond infiltrates a secret meeting and uncovers the existence of the sinister organisation known as SPECTRE. Meanwhile back in London, Max Denbigh, the new head of the Centre of National Security, questions Bond's actions and challenges the relevance of MI6 led by M. Bond covertly enlists Moneypenny and Q to help him seek out Madeleine Swann, the daughter of his old nemesis Mr White, who may hold the clue to untangling the web of SPECTRE. As the daughter of the assassin, she understands Bond in a way most others cannot. As Bond ventures towards the heart of SPECTRE, he learns a chilling connection between himself and the enemy he seeks./description
+
+# 2533682
+type=video
+name=Star Wars: The Force Awakens (2015) (TS)
 thumb=http://i.imgur.com/Ku1tlPu.jpg
-date=2015-12-20
-URL=http://www.nowvideo.sx/video/eee8f652a5137
+URL=http://www.nowvideo.sx/video/5dcd450d364cb
 processor=http://www.navixtreme.com/wlfwood/processors/nowvideo.txt
 player=default
 rating=-1.00
 description=Synopsis
 Luke Skywalker has vanished, and both the Resistance and the sinister First Order are searching for him. Crack pilot Poe Dameron obtains a clue to his whereabouts, but when everything goes wrong, a droid called BB-8 becomes the centre of the search, along with scavenger Rey and stormtrooper deserter FN-2187, who have found the droid./description
 
+# 2533963
+type=video
+name=The Big Bang Theory - Season 9 - Episode 11
+thumb=http://i.imgur.com/PeZVLDh.jpg
+URL=http://www.nowvideo.sx/video/e6a1ca88fe55d
+processor=http://www.navixtreme.com/wlfwood/processors/nowvideo.txt
+player=default
+rating=-1.00
+description=The Big Bang Theory: A woman who moves into an apartment next door to two brilliant but socially awkward physicists shows them how little they know about life outside of the laboratory./description
+
+# 2533680
+type=video
+name=Spotlight (2015)
+thumb=http://i.imgur.com/Ic8iZ2X.jpg
+URL=http://www.nowvideo.sx/video/386e50b55a045
+processor=http://www.navixtreme.com/wlfwood/processors/nowvideo.txt
+player=default
+rating=-1.00
+description=Synopsis
+When the Boston Globe's tenacious "Spotlight" team of reporters delves into allegations of abuse in the Catholic Church, their year-long investigation uncovers a decades-long cover-up at the highest levels of Boston's religious, legal, and government establishment, touching off a wave of revelations around the world./description
+
+# 2533678
+type=video
+name=The Green Inferno (2013)
+thumb=http://i.imgur.com/wl688Pn.jpg
+URL=http://www.nowvideo.sx/video/4a12e28a94248
+processor=http://www.navixtreme.com/wlfwood/processors/nowvideo.txt
+player=default
+rating=-1.00
+description=Synopsis
+In New York, the college student Justine joins a group of activists led by Alejandro and he invites her to travel to Peru to protest against a timber industry that is destroying the Amazon rain forest. The group uses their cellphones to film the destruction and send the footages through Internet. Alejandro uses Justine that is almost killed by one security guard to succeed in his intent of calling attention of audiences. When the group is returning to civilization, the plane blows-up and crashes into the forest. Soon the survivors discover that they are not alone and they are abduct by a tribe of Indians. But their nightmare becomes worse when they realize that the Indians are cannibals./description
+
+# 2533675
+type=video
+name=The Danish Girl (2015)
+thumb=http://i.imgur.com/IdUmJ8i.jpg
+URL=http://www.nowvideo.sx/video/a9aa0e8667eeb
+processor=http://www.navixtreme.com/wlfwood/processors/nowvideo.txt
+player=default
+rating=-1.00
+description=Synopsis
+Copenhagen, early 1920s. Danish artist, Gerda Wegener, painted her own husband, Einar Wegener (Eddie Redmayne), as a lady in her painting. When the painting gained popularity, Einar started to change his appearance into a female appearance and named himself Lili Elbe. With his feminism passion and Gerda's support, Einar - or Elbe attempted first-ever male to female sex reassignment surgery, a decision that turned into a massive change for their marriage, that Gerda realized her own husband is no longer a man or the person she married before. A childhood friend of Einar, art-dealer Hans Axgil (Matthias Schoenaerts), shows up and starts a complex love triangle with the couple./description
+
+# 2532687
+type=video
+name=Concussion (2015)
+thumb=http://i.imgur.com/gXp4Wnx.jpg
+URL=http://www.nowvideo.sx/video/6fbb33137c50f
+processor=http://www.navixtreme.com/wlfwood/processors/nowvideo.txt
+player=default
+rating=-1.00
+description=Synopsis
+Will Smith stars in Concussion, a dramatic thriller based on the incredible true David vs. Goliath story of American immigrant Dr. Bennet Omalu, the brilliant forensic neuropathologist who made the first discovery of CTE, a football-related brain trauma, in a pro player and fought for the truth to be known. Omalu's emotional quest puts him at dangerous odds with one of the most powerful institutions in the world./description
+
+# 2532686
+type=video
+name=Joy (2015)
+thumb=http://i.imgur.com/jEdWBkj.jpg
+URL=http://www.nowvideo.sx/video/babbbb7f0c3af
+processor=http://www.navixtreme.com/wlfwood/processors/nowvideo.txt
+player=default
+rating=-1.00
+description=Synopsis
+JOY is the wild true story of Joy Mangano and her Italian-American family across four generations centered on the girl who becomes the woman who founds a business dynasty by inventing the Miracle Mop and becomes a matriarch in her own right. Betrayal, treachery, the loss of innocence and the scars of love, pave the road in this intense emotional and human comedy about becoming a true boss of family and enterprise facing a world of unforgiving commerce. Allies become adversaries and adversaries become allies, both inside and outside the family, as Joy's inner life and fierce imagination carry her through the storm she faces. Jennifer Lawrence stars, with Robert De Niro, Bradley Cooper, Edgar Ramirez, Isabella Rossellini, Diane Ladd, and Virginia Madsen. Like David O. Russell's previous films, Joy defies genre to tell a story of family, loyalty, and love./description
+
+# 2532685
+type=video
+name=Steve Jobs (2015)
+thumb=http://i.imgur.com/cmdB2ea.jpg
+URL=http://www.nowvideo.sx/video/18a3625aad5e4
+processor=http://www.navixtreme.com/wlfwood/processors/nowvideo.txt
+player=default
+rating=-1.00
+description=Synopsis
+His passion and ingenuity have been the driving force behind the digital age. However his drive to revolutionize technology was sacrificial. Ultimately it affected his family life and possibly his health. In this revealing film we explore the trials and triumphs of a modern day genius, the late CEO of Apple inc. Steven Paul Jobs./description
+
+# 2532682
+type=video
+name=He Never Died (2015)
+thumb=http://i.imgur.com/9DwvVH0.jpg
+URL=http://www.nowvideo.sx/video/ca5745699cb4c
+processor=http://www.navixtreme.com/wlfwood/processors/nowvideo.txt
+player=default
+rating=-1.00
+description=Synopsis
+Jack's in a rut. Depression and severe anti-social behavior has whittled down his existence to sleeping and watching television. Seeing the human race as little more than meat with a pulse, Jack has no interest to bond with anyone. There's little purpose for him to make friends with someone he'd eventually eat or outlive by more than a millennia. The fuse is lit when Jack's past comes back to rattle him. Jack must now walk a tight rope of sobriety and try to eat as few people as possible in this violent tale of personal responsibility./description
+
+# 2532680
+type=video
+name=Bridge of Spies (2015)
+thumb=http://i.imgur.com/igAyKTf.jpg
+URL=http://www.nowvideo.sx/video/78e050a26825f
+processor=http://www.navixtreme.com/wlfwood/processors/nowvideo.txt
+player=default
+rating=-1.00
+description=Synopsis
+In the cold war, A lawyer, James B. Donovan recruited by the CIA and involved in an intense negotiation mission to release and exchange a CIA U-2 spy-plane pilot, Francis G. Powers that was arrested alive after his plane was shot down by the Soviet Union during a mission- with a KGB intelligence officer, Rudolf Abel who was arrested for espionage in the US./description
+
+# 2532679
+type=video
+name=The Good Dinosaur (2015)
+thumb=http://i.imgur.com/2bthUL5.jpg
+URL=http://www.nowvideo.sx/video/517f5ee213bb8
+processor=http://www.navixtreme.com/wlfwood/processors/nowvideo.txt
+player=default
+rating=-1.00
+description=Synopsis
+"The Good Dinosaur" asks the question: What if the asteroid that forever changed life on Earth missed the planet completely and giant dinosaurs never became extinct? In this epic journey into the world of dinosaurs, an Apatosaurus named Arlo makes an unlikely human friend. While traveling through a harsh and mysterious landscape, Arlo learns the power of confronting his fears and discovers what he is truly capable of./description
+
+# 2532678
+type=video
+name=In the Heart of the Sea (2015)
+thumb=http://i.imgur.com/O17pDl8.jpg
+URL=http://www.nowvideo.sx/video/4bcf7c3750002
+processor=http://www.navixtreme.com/wlfwood/processors/nowvideo.txt
+player=default
+rating=-1.00
+description=Synopsis
+In the winter of 1820, the New England whaling ship Essex was assaulted by something no one could believe: a whale of mammoth size and will, and an almost human sense of vengeance. The real-life maritime disaster would inspire Herman Melville's Moby-Dick. But that told only half the story. "In the Heart of the Sea" reveals the encounter's harrowing aftermath, as the ship's surviving crew is pushed to their limits and forced to do the unthinkable to stay alive. Braving storms, starvation, panic and despair, the men will call into question their deepest beliefs, from the value of their lives to the morality of their trade, as their captain searches for direction on the open sea and his first mate still seeks to bring the great whale down./description
+
+# 2532677
+type=video
+name=Creed (2015)
+thumb=http://i.imgur.com/kklk4Wu.jpg
+URL=http://www.nowvideo.sx/video/01ec89fe24757
+processor=http://www.navixtreme.com/wlfwood/processors/nowvideo.txt
+player=default
+rating=-1.00
+description=Synopsis
+Adonis Johnson is the son of the famous boxing champion Apollo Creed, who died in a boxing match in Rocky IV (1985). Adonis wasn't born until after his father's death and wants to follow his fathers footsteps in boxing. He seeks a mentor who is the former heavyweight boxing champion and former friend of Apollo Creed, the retired Rocky Balboa. Rocky eventually agrees to mentor Adonis. With Rocky's help they hope to get a title job to face even deadlier opponents than his father. But whether he is a true fighter remains to be seen..../description
+
+# 2532674
+type=video
+name=Legend (2015)
+thumb=http://i.imgur.com/YCb0yes.jpg
+URL=http://www.nowvideo.sx/video/438dbbc360346
+processor=http://www.navixtreme.com/wlfwood/processors/nowvideo.txt
+player=default
+rating=-1.00
+description=Synopsis
+Focusing on the relationship between Reggie Kray and Frances Shea, told from France's' point of view as someone who knew him best, as well as the mental health issues Ronnie Kray faced and their rise to power as the notorious gangsters of London./description
+
+# 2532673
+type=video
+name=Sicario (2015)
+thumb=http://i.imgur.com/EfwZ080.jpg
+URL=http://www.nowvideo.sx/video/8b3201d7d0ebf
+processor=http://www.navixtreme.com/wlfwood/processors/nowvideo.txt
+player=default
+rating=-1.00
+description=Synopsis
+An idealistic FBI agent is enlisted by an elected government task force to aid in the escalating war against drugs at the border area between the U.S. and Mexico./description
+
 # 2530990
 type=video
 name=The Hateful Eight (2015)
 thumb=http://i.imgur.com/lshvKL6.jpg
-date=2015-12-20
 URL=http://www.nowvideo.sx/video/96763487ef932
 processor=http://www.navixtreme.com/wlfwood/processors/nowvideo.txt
 player=default
@@ -37,7 +543,6 @@ A blizzard forced a bounty hunter, John "The Hangman" Ruth that escorting Daisy 
 type=video
 name=The Revenant (2015)
 thumb=http://i.imgur.com/gEJcLGc.jpg
-date=2015-12-20
 URL=http://www.nowvideo.sx/video/5ddf988a1f4c8
 processor=http://www.navixtreme.com/wlfwood/processors/nowvideo.txt
 player=default
@@ -49,7 +554,6 @@ Inspired by true events, THE REVENANT captures one man's epic adventure of survi
 type=video
 name=Carol (2015)
 thumb=http://i.imgur.com/DRs4kD3.jpg
-date=2015-12-20
 URL=http://www.nowvideo.sx/video/a95973ac2c432
 processor=http://www.navixtreme.com/wlfwood/processors/nowvideo.txt
 player=default
@@ -61,7 +565,6 @@ In an adaptation of Patricia Highsmith's seminal novel The Price of Salt, CAROL 
 type=video
 name=Extraction (2015)
 thumb=http://i.imgur.com/9hrXjfr.jpg
-date=2015-12-20
 URL=http://www.nowvideo.sx/video/840e876494f81
 processor=http://www.navixtreme.com/wlfwood/processors/nowvideo.txt
 player=default
@@ -73,7 +576,6 @@ A former CIA operative is kidnapped by a group of terrorists. When his son learn
 type=video
 name=Anguish (2015)
 thumb=http://i.imgur.com/bMUb9Cw.jpg
-date=2015-12-20
 URL=http://www.nowvideo.sx/video/42849ecaa628c
 processor=http://www.navixtreme.com/wlfwood/processors/nowvideo.txt
 player=default
@@ -85,7 +587,6 @@ A girl, Tess, is diagnosed with an identity disorder that may actually be channe
 type=video
 name=The Peanuts Movie (2015)
 thumb=http://i.imgur.com/sE7PQUS.jpg
-date=2015-12-18
 URL=http://www.nowvideo.sx/video/49b87bc879b12
 processor=http://www.navixtreme.com/wlfwood/processors/nowvideo.txt
 player=default
@@ -97,7 +598,6 @@ Charlie Brown, Snoopy, Lucy, Linus and the rest of the beloved "Peanuts" gang ma
 type=video
 name=Room (2015)
 thumb=http://i.imgur.com/VoeR9tB.jpg
-date=2015-12-17
 URL=http://www.nowvideo.sx/video/0132feb5b84fa
 processor=http://www.navixtreme.com/wlfwood/processors/nowvideo.txt
 player=default
@@ -109,7 +609,6 @@ ROOM tells the extraordinary story of Jack, a spirited 5-year-old who is looked 
 type=video
 name=Brooklyn (2015)
 thumb=http://i.imgur.com/nN2C0fi.jpg
-date=2015-12-17
 URL=http://www.nowvideo.sx/video/798bc323ac2a2
 processor=http://www.navixtreme.com/wlfwood/processors/nowvideo.txt
 player=default
@@ -121,7 +620,6 @@ An Irish immigrant lands in 1950s Brooklyn, where she quickly falls into a new r
 type=video
 name=The Visit (2015)
 thumb=http://i.imgur.com/J8I28tM.jpg
-date=2015-12-17
 URL=http://www.nowvideo.sx/video/4bd8675def4a4
 processor=http://www.navixtreme.com/wlfwood/processors/nowvideo.txt
 player=default
@@ -133,7 +631,6 @@ Two children are sent to their grandparents house to spend a week with their gra
 type=video
 name=Paranormal Activity: The Ghost Dimension (2015)
 thumb=http://i.imgur.com/yYooq0f.jpg
-date=2015-12-17
 URL=http://www.nowvideo.sx/video/05b239fe88ae3
 processor=http://www.navixtreme.com/wlfwood/processors/nowvideo.txt
 player=default
@@ -145,7 +642,6 @@ The Ghost Dimension, follows a new family, The Fleeges - father Ryan (Chris J. M
 type=video
 name=A Walk in the Woods (2015)
 thumb=http://i.imgur.com/SCO49Nd.jpg
-date=2015-12-16
 URL=http://www.nowvideo.sx/video/def73451d2b77
 processor=http://www.navixtreme.com/wlfwood/processors/nowvideo.txt
 player=default
@@ -157,7 +653,6 @@ After spending two decades in England, Bill Bryson returns to the U.S., where he
 type=video
 name=The Ridiculous 6 (2015)
 thumb=http://i.imgur.com/DxqEdzL.jpg
-date=2015-12-15
 URL=http://www.nowvideo.sx/video/df26bfdd44ac4
 processor=http://www.navixtreme.com/wlfwood/processors/nowvideo.txt
 player=default
@@ -169,7 +664,6 @@ An outlaw who was raised by Native Americans discovers that he has five half-bro
 type=video
 name=By the Sea (2015)
 thumb=http://i.imgur.com/L6ldKxE.jpg
-date=2015-12-15
 URL=http://www.nowvideo.sx/video/ce12feba1026a
 processor=http://www.navixtreme.com/wlfwood/processors/nowvideo.txt
 player=default
@@ -181,7 +675,6 @@ Set in France during the mid-1970s, Vanessa, a former dancer, and her husband Ro
 type=video
 name=The Intern (2015)
 thumb=http://i.imgur.com/gw0b1ew.jpg
-date=2015-12-15
 URL=http://www.nowvideo.sx/video/fdae6587f938c
 processor=http://www.navixtreme.com/wlfwood/processors/nowvideo.txt
 player=default
@@ -198,17 +691,6 @@ processor=http://www.navixtreme.com/wlfwood/processors/nowvideo.txt
 player=default
 rating=-1.00
 description=The Big Bang Theory: A woman who moves into an apartment next door to two brilliant but socially awkward physicists shows them how little they know about life outside of the laboratory./description
-
-# 2526841
-type=video
-name=Legend (2015)
-thumb=http://i.imgur.com/YCb0yes.jpg
-URL=http://www.nowvideo.sx/video/2aae06efc3fba
-processor=http://www.navixtreme.com/wlfwood/processors/nowvideo.txt
-player=default
-rating=-1.00
-description=Synopsis
-Focusing on the relationship between Reggie Kray and Frances Shea, told from France's' point of view as someone who knew him best, as well as the mental health issues Ronnie Kray faced and their rise to power as the notorious gangsters of London./description
 
 # 2526840
 type=video
@@ -320,17 +802,6 @@ rating=-1.00
 description=Synopsis
 Filled with heart, humor, and wit, WAR ROOM follows Tony and Elizabeth Jordan, a couple who seemingly have it all-great jobs, a beautiful daughter, their dream home. But appearances can be deceiving. In reality, their marriage has become a war zone and their daughter is collateral damage. With guidance from Miss Clara, an older, wiser woman, Elizabeth discovers she can start fighting for her family instead of against them. As the power of prayer and Elizabeth's newly energized faith transform her life, will Tony join the fight and become the man he knows he needs to be? Together, their real enemy doesn't have a prayer./description
 
-# 2523209
-type=video
-name=In the Heart of the Sea (2015)
-thumb=http://i.imgur.com/O17pDl8.jpg
-URL=http://www.nowvideo.sx/video/7cb021a707bf7
-processor=http://www.navixtreme.com/wlfwood/processors/nowvideo.txt
-player=default
-rating=-1.00
-description=Synopsis
-In the winter of 1820, the New England whaling ship Essex was assaulted by something no one could believe: a whale of mammoth size and will, and an almost human sense of vengeance. The real-life maritime disaster would inspire Herman Melville's Moby-Dick. But that told only half the story. "In the Heart of the Sea" reveals the encounter's harrowing aftermath, as the ship's surviving crew is pushed to their limits and forced to do the unthinkable to stay alive. Braving storms, starvation, panic and despair, the men will call into question their deepest beliefs, from the value of their lives to the morality of their trade, as their captain searches for direction on the open sea and his first mate still seeks to bring the great whale down./description
-
 # 2506564
 type=video
 name=Goosebumps (2015)
@@ -363,29 +834,6 @@ player=default
 rating=-1.00
 description=Synopsis
 Following the events from the first film, a different family; a mother and her 2 sons move into a rural house that's marked for death. When the deputy from the first film learns that this family is next in line to fall to the demon Bhughul, he races before time to stop it and save them from the same fate./description
-
-# 2523037
-type=video
-name=The Good Dinosaur (2015)
-thumb=http://i.imgur.com/2bthUL5.jpg
-URL=http://www.nowvideo.sx/video/565eec3d8ec30
-processor=http://www.navixtreme.com/wlfwood/processors/nowvideo.txt
-player=default
-rating=-1.00
-description=Synopsis
-"The Good Dinosaur" asks the question: What if the asteroid that forever changed life on Earth missed the planet completely and giant dinosaurs never became extinct? In this epic journey into the world of dinosaurs, an Apatosaurus named Arlo makes an unlikely human friend. While traveling through a harsh and mysterious landscape, Arlo learns the power of confronting his fears and discovers what he is truly capable of.
-- See more at: http://movie25.hk/the-good-dinosaur-2015-63176.html#sthash.tsl7AWoL.dpuf/description
-
-# 2522526
-type=video
-name=Creed (2015)
-thumb=http://i.imgur.com/kklk4Wu.jpg
-URL=http://www.nowvideo.sx/video/c24e0718571b2
-processor=http://www.navixtreme.com/wlfwood/processors/nowvideo.txt
-player=default
-rating=-1.00
-description=Synopsis
-Adonis Johnson is the son of the famous boxing champion Apollo Creed, who died in a boxing match in Rocky IV (1985). Adonis wasn't born until after his father's death and wants to follow his fathers footsteps in boxing. He seeks a mentor who is the former heavyweight boxing champion and former friend of Apollo Creed, the retired Rocky Balboa. Rocky eventually agrees to mentor Adonis. With Rocky's help they hope to get a title job to face even deadlier opponents than his father. But whether he is a true fighter remains to be seen..../description
 
 # 2522525
 type=video
@@ -475,18 +923,6 @@ player=default
 rating=-1.00
 description=Synopsis
 Pic is about four young guys who reunite at an ex-classmate's funeral. One mentions to the others inside information on a stock that is a guaranteed lock to make them instant millionaires. Unfortunately, the deal goes south along with their investment. Things go from bad to worse: one of them borrowed his share of the money from a mobster./description
-
-# 2511431
-type=video
-name=Spectre (2015)
-thumb=http://i.imgur.com/6yQWL2Z.jpg
-URL=http://www.nowvideo.sx/video/da8e0de25f604
-processor=http://www.navixtreme.com/wlfwood/processors/nowvideo.txt
-player=default
-rating=-1.00
-description=Synopsis
-A cryptic message from the past sends James Bond on a rogue mission to Mexico City and eventually Rome, where he meets Lucia, the beautiful and forbidden widow of an infamous criminal. Bond infiltrates a secret meeting and uncovers the existence of the sinister organisation known as SPECTRE. Meanwhile back in London, Max Denbigh, the new head of the Centre of National Security, questions Bond's actions and challenges the relevance of MI6 led by M. Bond covertly enlists Moneypenny and Q to help him seek out Madeleine Swann, the daughter of his old nemesis Mr White, who may hold the clue to untangling the web of SPECTRE. As the daughter of the assassin, she understands Bond in a way most others cannot. As Bond ventures towards the heart of SPECTRE, he learns a chilling connection between himself and the enemy he seeks.
-- See more at: http://movie25.hk/spectre-2015-62695.html#sthash.jprIcVQK.dpuf/description
 
 # 2511429
 type=video
@@ -609,17 +1045,6 @@ player=default
 rating=4.50
 description=Synopsis
 When their attempt to rob a casino owned by the feared gangster Pope goes awry and a shootout ensues, Vaughn and Cox are forced to flee on foot and hijack city Bus 657 and take the passengers hostage./description
-
-# 2510010
-type=video
-name=Burnt (2015)
-thumb=http://i.imgur.com/AtrM8d3.jpg
-URL=http://www.nowvideo.sx/video/3a7d532c5e0e3
-processor=http://www.navixtreme.com/wlfwood/processors/nowvideo.txt
-player=default
-rating=-1.00
-description=Synopsis
-Chef Adam Jones (Bradley Cooper) had it all - and lost it. A two-star Michelin rockstar with the bad habits to match, the former enfant terrible of the Paris restaurant scene did everything different every time out, and only ever cared about the thrill of creating explosions of taste. To land his own kitchen and that third elusive Michelin star though, he'll need the best of the best on his side, including the beautiful Helene (Sienna Miller)./description
 
 # 2509656
 type=video
@@ -821,17 +1246,6 @@ rating=-1.00
 description=Synopsis
 Alex, a mysterious thief, is pulled in by her former partner for one last heist. She quickly finds it was never just about the diamonds. A brutal murder sparks a cat and mouse chase between.../description
 
-# 2504529
-type=video
-name=Bridge of Spies (2015)
-thumb=http://i.imgur.com/igAyKTf.jpg
-URL=http://www.nowvideo.sx/video/7f56875408a99
-processor=http://www.navixtreme.com/wlfwood/processors/nowvideo.txt
-player=default
-rating=-1.00
-description=Synopsis
-In the cold war, A lawyer, James B. Donovan recruited by the CIA and involved in an intense negotiation mission to release and exchange a CIA U-2 spy-plane pilot, Francis G. Powers that was arrested alive after his plane was shot down by the Soviet Union during a mission- with a KGB intelligence officer, Rudolf Abel who was arrested for espionage in the US./description
-
 # 2504259
 type=video
 name=The Green Inferno ( 2013 )
@@ -914,17 +1328,6 @@ processor=http://www.navixtreme.com/wlfwood/processors/nowvideo.txt
 player=default
 rating=-1.00
 description=Fear the Walking Dead: What did the world look like as it was transforming into the horrifying apocalypse depicted in "The Walking Dead"? This spin-off set in Los Angeles, following new characters as they face the beginning of the end of the world, will answer that question./description
-
-# 2501511
-type=video
-name=Sicario (2015)
-thumb=http://i.imgur.com/EfwZ080.jpg
-URL=http://vidbull.com/11ge1qp110vn.html
-processor=http://www.navixtreme.com/wlfwood/processors/vidbull.txt
-player=default
-rating=-1.00
-description=Synopsis
-An idealistic FBI agent is enlisted by an elected government task force to aid in the escalating war against drugs at the border area between the U.S. and Mexico./description
 
 # 2499663
 type=video
@@ -1080,7 +1483,7 @@ description=Fear the Walking Dead: What did the world look like as it was transf
 type=video
 name=Maze Runner: The Scorch Trials (2015)
 thumb=http://i.imgur.com/0JwxJCz.jpg
-URL=http://vidbull.com/ssz9dy0k19d3.html
+URL=http://vidbull.com/xkbdykgdznr4.html
 processor=http://www.navixtreme.com/wlfwood/processors/vidbull.txt
 player=default
 rating=-1.00
@@ -1765,425 +2168,8 @@ processor=http://www.navixtreme.com/wlfwood/processors/nowvideo.txt
 player=default
 rating=-1.00
 description=Ballers (2014): A series centered around a group of football players and their families, friends, and handlers./description
-
-# 2478086
-type=video
-name=Dior and I (2014)
-thumb=http://i.imgur.com/MRIJLdM.jpg
-URL=http://vidbull.com/4wopteqibdgu.html
-processor=http://www.navixtreme.com/wlfwood/processors/vidbull.txt
-player=default
-rating=-1.00
-description=Synopsis
-Dior and I brings the viewer inside the storied world of the Christian Dior fashion house with a privileged, behind-the-scenes look at the creation of Raf Simons' first haute couture collection as its new artistic director-a true labor of love created by a dedicated group of collaborators. Melding the everyday, pressure-filled components of fashion with mysterious echoes from the iconic brand's past, the film is also a colorful homage to the seamstresses who serve Simons' vision./description
-
-# 2478085
-type=video
-name=H8RZ (2015)
-thumb=http://i.imgur.com/UdEsiOO.jpg
-URL=http://www.nowvideo.sx/video/86eea17b16c78
-processor=http://www.navixtreme.com/wlfwood/processors/nowvideo.txt
-player=default
-rating=-1.00
-description=Synopsis
-In the aftermath of a mysterious High School 'incident', The school's attorney questions the only witness, a student, in hopes of protecting the school from any lawsuits. But as this student weaves his tale, it becomes clear that there is much more to this story than meets the eye. H8RZ has the intrigue of a crime thriller, while cleverly dealing with issues of H8RZ bullying, school corruption, and the darker side of teen interactions./description
-
-# 2477799
-type=video
-name=Brother's Keeper (2013)
-thumb=http://i.imgur.com/HY9N29l.jpg
-URL=http://www.nowvideo.sx/video/be65c71e60850
-processor=http://www.navixtreme.com/wlfwood/processors/nowvideo.txt
-player=default
-rating=-1.00
-description=Synopsis
-Identical twins Andy and Pete Goodwynn have always been there for each other. But in a cruel twist of fate-orchestrated by the town's most powerful family-their lives are forever altered. Can the brothers gain vengeance on those who have taken away from them all that matters? While revenge may seem sweet, BROTHER'S KEEPER is a powerful reminder that only forgiveness can truly heal./description
-
-# 2477533
-type=video
-name=Lila & Eve (2015)
-thumb=http://i.imgur.com/yBw9yz2.jpg
-URL=http://www.nowvideo.sx/video/404ff55c78be9
-processor=http://www.navixtreme.com/wlfwood/processors/nowvideo.txt
-player=default
-rating=-1.00
-description=Synopsis
-Two distraught mothers, whose children were gunned down in a drive-by, team up to avenge their deaths after local authorities fail to take action./description
-
-# 2477291
-type=video
-name=Far from the Madding Crowd (2015)
-thumb=http://i.imgur.com/vuhvjwt.jpg
-URL=http://www.nowvideo.sx/video/05e29d5d99593
-processor=http://www.navixtreme.com/wlfwood/processors/nowvideo.txt
-player=default
-rating=-1.00
-description=Synopsis
-In Victorian England, the independent and headstrong Bathsheba Everdene attracts three very different suitors: Gabriel Oak, a sheep farmer; Frank Troy, a reckless Sergeant; and William Boldwood, a prosperous and mature bachelor./description
-
-# 2477290
-type=video
-name=Safelight (2015)
-thumb=http://i.imgur.com/sJkB3sr.jpg
-URL=http://www.nowvideo.sx/video/fc51d4fb34bbe
-processor=http://www.navixtreme.com/wlfwood/processors/nowvideo.txt
-player=default
-rating=-1.00
-description=Synopsis
-A teenage boy and girl discover a renewed sense of possibility as they go on a road trip to photograph lighthouses along the California coast./description
-
-# 2477199
-type=video
-name=Kruel (2014)
-thumb=http://i.imgur.com/1ZVCDlY.jpg
-URL=http://www.nowvideo.sx/video/1f01bdbdb157a
-processor=http://www.navixtreme.com/wlfwood/processors/nowvideo.txt
-player=default
-rating=-1.00
-description=Synopsis
-'Kruel' - is a horror/thriller feature length movie about a psychotic killer who masquerades as an ice cream man in order to get closer to the objects of his affection./description
-
-# 2477196
-type=video
-name=Boychoir (2014)
-thumb=http://i.imgur.com/TymfkKI.jpg
-URL=http://www.nowvideo.sx/video/d53893d071a1d
-processor=http://www.navixtreme.com/wlfwood/processors/nowvideo.txt
-player=default
-rating=-1.00
-description=Synopsis
-Stet, a troubled and angry 11-year-old orphan from a small Texas town, ends up at a Boy Choir school back East after the death of his single mom. Completely out of his element, he finds himself in a battle of wills with a demanding Choir Master who recognizes a unique talent in this young boy as he pushes him to discover his creative heart and soul in music./description
-
-# 2477194
-type=video
-name=Blood Reservoir (2014)
-thumb=http://i.imgur.com/f4ZxfZo.jpg
-URL=http://www.nowvideo.sx/video/28fa182b7a335
-processor=http://www.navixtreme.com/wlfwood/processors/nowvideo.txt
-player=default
-rating=-1.00
-description=Synopsis
-A group of campers set forth on dangerous grounds with several agendas on their minds. Some are going to find romance while others are in search of a lost Indian treasure. However murder, deception, and revenge are the primary motives for one./description
-
-# 2477193
-type=video
-name=Graduation Day (2015)
-thumb=http://i.imgur.com/dKQVIPX.jpg
-URL=http://www.nowvideo.sx/video/7f994a39f4982
-processor=http://www.navixtreme.com/wlfwood/processors/nowvideo.txt
-player=default
-rating=-1.00
-description=Synopsis
-A group of high school students that document the events of their senior year in this suspenseful 'Found Footage' thriller./description
-
-# 2477192
-type=video
-name=Joe Dirt 2: Beautiful Loser (2015)
-thumb=http://i.imgur.com/rsbTSXq.jpg
-URL=http://www.nowvideo.sx/video/3e02429f87269
-processor=http://www.navixtreme.com/wlfwood/processors/nowvideo.txt
-player=default
-rating=-1.00
-description=Synopsis
-Many of the original actors will be reprising their roles as the Iconic acquaintances to the perpetual underdog of the films Namesake. According to Spade this film will be aired Directly to the website Crackle in the summer of 2015. He also stated his decision to don the Mullet once again was due to fan pressure as the original encroaches on cult status./description
-
-# 2477013
-type=video
-name=Black Beauty (2015)
-thumb=http://i.imgur.com/Jq0tgQv.jpg
-URL=http://www.nowvideo.sx/video/443118480f0ef
-processor=http://www.navixtreme.com/wlfwood/processors/nowvideo.txt
-player=default
-rating=-1.00
-description=Synopsis
-"Black Beauty," a film centering on a 15 year-old girl who volunteers at a city pound, and convinces her Grandfather in the country to adopt a horse that was rescued from an abusive owner. They spend the summer rehabilitating "Black Beauty."/description
-
-# 2477012
-type=video
-name=Looney Tunes: Rabbit Run (2015)
-thumb=http://i.imgur.com/ATp1wSs.jpg
-URL=http://www.nowvideo.sx/video/ce9654544ebfc
-processor=http://www.navixtreme.com/wlfwood/processors/nowvideo.txt
-player=default
-rating=-1.00
-description=Synopsis
-Looney Tunes are back in this all-new animated adventure! The chase begins with a very rare flower that can turn anything invisible! When beautiful, bumbling perfume salesgirl Lola Bunny receives the flower as a gift (unaware of its power), she adds the magical ingredient to her latest perfume creation. With hopes that she has crafted the next big scent, Lola hails crazed cabbies Bugs Bunny and Daffy Duck for a hasty trip Ã¢?? destination, Paris! In hot pursuit is a host of Looney Tunes all-stars, all seeking the invisibility spray! Foghorn Leghorn, Elmer Fudd and Yosemite Sam are but a few fan favorites, stretching out in all-new roles. Marvin the Martian may have the most devious plan for the potion: to erase the planet Earth Ã¢?? oh, dear! So spring into this globe-trotting, globe-threatening frenzy and see who wins out in this fun-packed Looney Tunes romp!/description
-
-# 2477011
-type=video
-name=All American Bully (2011)
-thumb=http://i.imgur.com/38fmWy4.jpg
-URL=http://www.nowvideo.sx/video/d12b69604e032
-processor=http://www.navixtreme.com/wlfwood/processors/nowvideo.txt
-player=default
-rating=-1.00
-description=Synopsis
-THE INNOCENT Genre: Adventure Thriller Cyberspace is the new school playground when it comes to bullying. Children and teens of all ages use social networking sites to blast their peers, reveal dirty secrets, and taunt those around them, often destroying lives in the process. This is a story of two close young friends who have a falling out, and internet bullying ensues, evolving into physical violence. Questions arise about what is the real truth, and who actually are the victims. As it turns out, no one is as innocent as they appear. Can you handle the real answers?/description
-
-# 2477010
-type=video
-name=The Jokesters (2015)
-thumb=http://i.imgur.com/y79YuDx.jpg
-URL=http://www.nowvideo.sx/video/957b6c33ff1af
-processor=http://www.navixtreme.com/wlfwood/processors/nowvideo.txt
-player=default
-rating=-1.00
-description=Synopsis
-The Internet sensation, "Master Pranksters" decide to take it to the extreme for their season finale. When the leader of the group, Ethan, announces that he is getting married and leaving the gang and the pranks behind, the rest of the founding members decide to pull off one final stunt; a "Cabin in the Woods" nightmare on their friend's honeymoon. What follows is a spiral decent into terror when the prank goes too far and the members of the group actually start dying. The victims and eventually the perpetrator are revealed one by one in this tension filled "found footage" feature film./description
-
-# 2476725
-type=video
-name=Magic Mike XXL (2015)
-thumb=http://i.imgur.com/bqAMEQD.jpg
-URL=http://www.nowvideo.sx/video/3b8b4877aa487
-processor=http://www.navixtreme.com/wlfwood/processors/nowvideo.txt
-player=default
-rating=1.00
-description=Synopsis
-Three years after Mike bowed out of the stripper life at the top of his game, he and the remaining Kings of Tampa hit the road to Myrtle Beach to put on one last blow-out performance./description
-
-# 2476934
-type=video
-name=Forsaken (2015)
-thumb=http://i.imgur.com/bD7pGG2.jpg
-URL=http://www.nowvideo.sx/video/47971a242d8d4
-processor=http://www.navixtreme.com/wlfwood/processors/nowvideo.txt
-player=default
-rating=-1.00
-description=Synopsis
-The Movie Forsaken is a true story about a young pastor's son that called upon God when his 2 year old daughter fell sick and eventually had to fight for her life. His faith in God stood .../description
-
-# 2476933
-type=video
-name=Lethal Seduction (2015)
-thumb=http://i.imgur.com/B8BZ1vB.jpg
-URL=http://www.nowvideo.sx/video/da4e1a94ef125
-processor=http://www.navixtreme.com/wlfwood/processors/nowvideo.txt
-player=default
-rating=-1.00
-description=Synopsis
-High School senior MARK RICHARDS has never minded his overprotective widowed mother, TANYA, and is a good son to her as he prepares to go off to Princeton in the fall. However, when he comes under the sexual spell of the rapacious, manipulative older woman CARISSA BARRINGTON, he finds himself in the middle of two strong, unreasonable women--one of whom is insane.../description
-
-# 2476819
-type=video
-name=Death By Tights (2015)
-thumb=http://i.imgur.com/fifH7ks.jpg
-URL=http://www.nowvideo.sx/video/93acd8d6fd508
-processor=http://www.navixtreme.com/wlfwood/processors/nowvideo.txt
-player=default
-rating=-1.00
-description=Synopsis
-Five teenagers graduate high school and go to a house in the woods to celebrate. But there, they encounter an evil presence. Dressed in tights./description
-
-# 2476818
-type=video
-name=River City Panic (2015)
-thumb=http://i.imgur.com/vGGb1JF.jpg
-URL=http://www.nowvideo.sx/video/ea021edd17730
-processor=http://www.navixtreme.com/wlfwood/processors/nowvideo.txt
-player=default
-rating=-1.00
-description=Synopsis
-In the small town of Ottawa, Illinois, where a rumor can spread like the plague and nobody's business is their own, six friends decide to change their weekly routine of watching movies in the basement and talking shit, to go out for a night on the town. On most nights this wouldn't be that taxing. But tonight isn't most nights. With rumors of the police commissioner's alleged disappearance circulating, and the mayor enacting a strict curfew, it doesn't take long for things to spiral out of control and the whole town to go mad. Is it just hysteria? Is it a curse? Is it Abraham Lincoln's fault? Nobody knows. But for the gang, only one thing is certain. They should have NEVER left the basement./description
-
-# 2476724
-type=video
-name=Pixies (2015)
-thumb=http://i.imgur.com/pNtFzEa.jpg
-URL=http://www.nowvideo.sx/video/2693ad41af6fe
-processor=http://www.navixtreme.com/wlfwood/processors/nowvideo.txt
-player=default
-rating=-1.00
-description=Synopsis
-Joe Beck has lost the love of his life thanks to a Pixie's Curse and he now needs to figure out how to get his girl back, learn more about the mysterious Pixies and undo a bad deed he did long ago./description
-
-# 2476661
-type=video
-name=Among Ravens (2014)
-thumb=http://i.imgur.com/ArdVuGp.jpg
-URL=http://www.nowvideo.sx/video/1c20663d7603d
-processor=http://www.navixtreme.com/wlfwood/processors/nowvideo.txt
-player=default
-rating=-1.00
-description=Synopsis
-The story of a group of friends who reunite for their annual 4th of July weekend only to be confronted by Chad, a strange and beautiful nature photographer who begins to change their lives one by one./description
-
-# 2476446
-type=video
-name=Peterman (2015)
-thumb=http://i.imgur.com/ldnL5mh.jpg
-URL=http://www.nowvideo.sx/video/e176f96c06a8e
-processor=http://www.navixtreme.com/wlfwood/processors/nowvideo.txt
-player=default
-rating=-1.00
-description=Synopsis
-The death of his safe cracking grandfather has landed Johnny as the only one left alive who can open a safe for a degenerate crew of violent gangsters,but he's just a junkie with little more on his mind than getting that next fix./description
-
-# 2476404
-type=video
-name=Awaken (2015)
-thumb=http://i.imgur.com/UIYk0oo.jpg
-URL=http://www.nowvideo.sx/video/213d54e1b9bb5
-processor=http://www.navixtreme.com/wlfwood/processors/nowvideo.txt
-player=default
-rating=-1.00
-description=Synopsis
-In this action thriller, Billie Kope, searching for her sister who disappeared in Mexico, awakens on a remote island with no memory of her abduction. She teams up with a group of survivors, where her skills in Russian Special Forces combat help them resist sinister black operations soldiers who hunt them down and abduct them for reasons unknown. For Billie, the mystery of the island is ultimately connected to the fate of her missing sister and one which when uncovered, will bring violence down on not only the island but the perpetrators of this bizarre and diabolical scheme in continual need of fresh victims to awaken./description
-
-# 2476442
-type=video
-name=Manny Lewis (2015)
-thumb=http://i.imgur.com/EtuuUOq.jpg
-URL=http://www.nowvideo.sx/video/de47ec0c285c3
-processor=http://www.navixtreme.com/wlfwood/processors/nowvideo.txt
-player=default
-rating=-1.00
-description=Synopsis
-The film follows the story of a famous fictional stand-up comedian Manny Lewis, who connects with millions of fans but finds it hard to connect to one person. Manny struggles to overcome .../description
-
-# 2476237
-type=video
-name=Max (2015)
-thumb=http://i.imgur.com/NZ9HXiH.jpg
-URL=http://www.nowvideo.sx/video/7cb12bfbf3261
-processor=http://www.navixtreme.com/wlfwood/processors/nowvideo.txt
-player=default
-rating=-1.00
-description=Synopsis
-A dog that helped US Marines in Afghanistan returns to the U.S. and is adopted by his handler's family after suffering a traumatic experience./description
-
-# 2476228
-type=video
-name=Dope (2015) (CAM)
-thumb=http://i.imgur.com/tFdL9bl.jpg
-URL=http://www.nowvideo.sx/video/1d0bbb2c1c3a7
-processor=http://www.navixtreme.com/wlfwood/processors/nowvideo.txt
-player=default
-rating=-1.00
-description=Synopsis
-A coming of age comedy/drama for the post hip hop generation. Malcolm is a geek, carefully surviving life in The Bottoms, a tough neighborhood in Inglewood, CA filled gangsters and drugs dealers, while juggling his senior year of college applications, interviews and the SAT. His dream is to attend Harvard. A chance invitation to a big underground party leads Malcolm and his friends into a, only in Los Angeles, gritty adventure filed with offbeat characters and bad choices. If Malcolm can persevere, he'll go from being a geek, to being dope, to ultimately being himself./description
-
-# 2474104
-type=video
-name=Minions (2015)
-thumb=http://i.imgur.com/fhy3JjF.jpg
-URL=http://www.nowvideo.sx/video/93a5b7d5215cf
-processor=http://www.navixtreme.com/wlfwood/processors/nowvideo.txt
-player=default
-rating=-1.00
-description=Synopsis
-The story of Universal Pictures and Illumination Entertainment's Minions begins at the dawn of time. Starting as single-celled yellow organisms, Minions evolve through the ages, perpetually serving the most despicable of masters. Continuously unsuccessful at keeping these masters-from T. rex to Napoleon-the Minions find themselves without someone to serve and fall into a deep depression. But one Minion named Kevin has a plan, and he-alongside teenage rebel Stuart and lovable little Bob-ventures out into the world to find a new evil boss for his brethren to follow. The trio embarks upon a thrilling journey that ultimately leads them to their next potential master, Scarlet Overkill (Academy AwardÃ???Ã??Ã?Â® winner Sandra Bullock), the world's first-ever female super-villain. They travel from frigid Antarctica to 1960s New York City, ending in mod London, where they must face their biggest challenge to date: saving all of Minionkind...from annihilation. Featuring a soundtrack of hit music from the.../description
-
-# 2473609
-type=video
-name=Ted 2 (2015)
-thumb=http://i.imgur.com/Op5dHfA.jpg
-URL=http://www.nowvideo.sx/video/ce35c34ba5a3c
-processor=http://www.navixtreme.com/wlfwood/processors/nowvideo.txt
-player=default
-rating=-1.00
-description=Synopsis
-Newlywed couple Ted and Tami-Lynn want to have a baby, but in order to qualify to be a parent, Ted will have to prove he's a person in a court of law./description
-
-# 2473129
-type=video
-name=The Longest Ride (2015)
-thumb=http://i.imgur.com/v0ZCZxA.jpg
-URL=http://www.nowvideo.sx/video/af6960218e656
-processor=http://www.navixtreme.com/wlfwood/processors/nowvideo.txt
-player=default
-rating=-1.00
-description=Synopsis
-After an automobile crash, the lives of a young couple intertwine with a much older man, as he reflects back on a past love./description
-
-# 2472210
-type=video
-name=Inside Out (2015)
-thumb=http://i.imgur.com/UFkf90F.jpg
-URL=http://vidbull.com/02v69ycn1dsq.html
-processor=http://www.navixtreme.com/wlfwood/processors/vidbull.txt
-player=default
-rating=-1.00
-description=Synopsis
-Growing up can be a bumpy road, and it's no exception for Riley, who is uprooted from her Midwest life when her father starts a new job in San Francisco. Like all of us, Riley is guided by her emotions - Joy, Fear, Anger, Disgust and Sadness. The emotions live in Headquarters, the control center inside Riley's mind, where they help advise her through everyday life. As Riley and her emotions struggle to adjust to a new life in San Francisco, turmoil ensues in Headquarters. Although Joy, Riley's main and most important emotion, tries to keep things positive, the emotions conflict on how best to navigate a new city, house and school./description
-
-# 2471965
-type=video
-name=Woman in Gold (2015)
-thumb=http://i.imgur.com/XbMpi2r.jpg
-URL=http://www.nowvideo.sx/video/08fda97fb910f
-processor=http://www.navixtreme.com/wlfwood/processors/nowvideo.txt
-player=default
-rating=-1.00
-description=Synopsis
-Maria Altman sought to regain a world famous painting of her aunt plundered by the Nazis during World War II. She did so not just to regain what was rightfully hers, but also to obtain some measure of justice for the death, destruction, and massive art theft perpetrated by the Nazis./description
-
-# 2471839
-type=video
-name=Manglehorn (2014)
-thumb=http://i.imgur.com/1EiQlWT.jpg
-URL=http://www.nowvideo.sx/video/ef2e62b6983c9
-processor=http://www.navixtreme.com/wlfwood/processors/nowvideo.txt
-player=default
-rating=-1.00
-description=Synopsis
-Left heartbroken by the woman he loved and lost many years ago, Manglehorn, an eccentric small-town locksmith, tries to start his life over again with the help of a new friend./description
-
-# 2468988
-type=video
-name=Danny Collins (2015)
-thumb=http://i.imgur.com/w5cTphW.jpg
-URL=http://www.nowvideo.sx/video/0ce6332543bac
-processor=http://www.navixtreme.com/wlfwood/processors/nowvideo.txt
-player=default
-rating=-1.00
-description=Synopsis
-Inspired by a true story, Al Pacino stars as aging 1970s rocker Danny Collins, who can't give up his hard-living ways. But when his manager (Christopher Plummer) uncovers a 40 year-old undelivered letter written to him by John Lennon, he decides to change course and embarks on a heartfelt journey to rediscover his family, find true love and begin a second act./description
-
-# 2466984
-type=video
-name=The Second Best Exotic Marigold Hotel (2015)
-thumb=http://i.imgur.com/mFpdhNN.jpg
-URL=http://www.nowvideo.sx/video/58eec0f4cdd68
-processor=http://www.navixtreme.com/wlfwood/processors/nowvideo.txt
-player=default
-rating=-1.00
-description=Synopsis
-The Second Best Exotic Marigold Hotel is the expansionist dream of Sonny (Dev Patel), and it's making more claims on his time than he has available, considering his imminent marriage to the love of his life, Sunaina (Tina Desai). Sonny has his eye on a promising property now that his first venture, The Best Exotic Marigold Hotel for the Elderly and Beautiful, has only a single remaining vacancy - posing a rooming predicament for fresh arrivals Guy (Richard Gere) and Lavinia (Tamsin Greig). Evelyn and Douglas (Judi Dench and Bill Nighy) have now joined the Jaipur workforce, and are wondering where their regular dates for Chilla pancakes will lead, while Norman and Carol (Ronald Pickup and Diana Hardcastle) are negotiating the tricky waters of an exclusive relationship, as Madge (Celia Imrie) juggles two eligible and very wealthy suitors. Perhaps the only one who may know the answers is newly installed co-manager of the hotel, Muriel (Maggie Smith), the keeper of everyone's secrets. As .../description
-
-# 2466862
-type=video
-name=Unfriended (2014)
-thumb=http://i.imgur.com/JrzwV19.jpg
-URL=http://www.nowvideo.sx/video/f9f6e73c915ff
-processor=http://www.navixtreme.com/wlfwood/processors/nowvideo.txt
-player=default
-rating=-1.00
-description=Synopsis
-A group of online chat room friends find themselves haunted by a mysterious, supernatural force using the account of their dead friend./description
-
-# 2465916
-type=video
-name=Spy (2015)
-thumb=http://i.imgur.com/MkIhFRk.jpg
-URL=http://www.nowvideo.sx/video/ad8df0f5e7ef0
-processor=http://www.navixtreme.com/wlfwood/processors/nowvideo.txt
-player=default
-rating=-1.00
-description=Synopsis
-A desk-bound CIA analyst volunteers to go undercover to infiltrate the world of a deadly arms dealer, and prevent diabolical global disaster./description
-
-# 2465806
-type=video
-name=Insidious: Chapter 3 ( 2015 )
-thumb=http://i.imgur.com/KyD2wLI.jpg
-URL=http://www.nowvideo.sx/video/e881cb165fedd
-processor=http://www.navixtreme.com/wlfwood/processors/nowvideo.txt
-player=default
-rating=-1.00
-description=Insidious: Chapter 3: A prequel set before the haunting of the Lambert family that reveals how gifted psychic Elise Rainier reluctantly agrees to use her ability to contact the dead in order to help a teenage girl who has been targeted by a dangerous supernatural entity./description
 type=playlist
 name=>>>
 URL=http://www.navixtreme.com/playlist/96828/_2015_top_movies_visit_camchance.com.plx?page=2
 
-# cached
+# memcached

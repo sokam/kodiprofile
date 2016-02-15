@@ -15,18 +15,24 @@
     You should have received a copy of the GNU General Public License
     along with this program.  If not, see <http://www.gnu.org/licenses/>.
 """
-import scraper
+import re
 import urllib
 import urlparse
-import re
+
+from salts_lib import dom_parser
 from salts_lib import kodi
 from salts_lib import log_utils
-from salts_lib.constants import VIDEO_TYPES
+from salts_lib import scraper_utils
 from salts_lib.constants import FORCE_NO_MATCH
-from salts_lib import dom_parser
+from salts_lib.constants import VIDEO_TYPES
+from salts_lib.constants import QUALITIES
+import scraper
 
-BASE_URL = 'http://yify-streaming.com'
+
+BASE_URL = 'http://yss.rocks'
+GK_URL = '/plugins/gkpluginsphp.php'
 CATEGORIES = {VIDEO_TYPES.MOVIE: 'category-movies', VIDEO_TYPES.EPISODE: 'category-tv-series'}
+LOCAL_USER_AGENT = 'Mozilla/5.0 (Windows NT 6.1; WOW64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/47.0.2526.106 Safari/537.36'
 
 class YifyStreaming_Scraper(scraper.Scraper):
     base_url = BASE_URL
@@ -37,7 +43,7 @@ class YifyStreaming_Scraper(scraper.Scraper):
 
     @classmethod
     def provides(cls):
-        return frozenset([VIDEO_TYPES.MOVIE, VIDEO_TYPES.EPISODE])
+        return frozenset([VIDEO_TYPES.MOVIE])
 
     @classmethod
     def get_name(cls):
@@ -55,51 +61,36 @@ class YifyStreaming_Scraper(scraper.Scraper):
         if source_url and source_url != FORCE_NO_MATCH:
             url = urlparse.urljoin(self.base_url, source_url)
             html = self._http_get(url, cache_limit=.5)
-            q_str = ''
-            match = re.search('<h2>([^<]+)', html)
+            match = re.search('<iframe[^>]+src="([^"]+watch=([^"]+))', html)
             if match:
-                q_str = match.group(1)
-                
-            match = re.search('href=[\'"]([^\'"]+)[^>]*>Download Now<', html)
-            if match:
-                stream_url = match.group(1)
-                host = urlparse.urlparse(stream_url).hostname
-                hoster = {'multi-part': False, 'url': stream_url, 'class': self, 'quality': self._blog_get_quality(video, q_str, host), 'host': host, 'rating': None, 'views': None, 'direct': False}
-                hosters.append(hoster)
+                iframe_url, link_id = match.groups()
+                data = {'link': link_id}
+                headers = {'Referer': iframe_url}
+                headers['User-Agent'] = LOCAL_USER_AGENT
+                gk_url = urlparse.urljoin(self.base_url, GK_URL)
+                html = self._http_get(gk_url, data=data, headers=headers, cache_limit=.5)
+                js_data = scraper_utils.parse_json(html, gk_url)
+                if 'link' in js_data:
+                    if isinstance(js_data['link'], list):
+                        sources = dict((link['link'], scraper_utils.height_get_quality(link['label'])) for link in js_data['link'])
+                        direct = True
+                    else:
+                        sources = {js_data['link']: QUALITIES.HIGH}
+                        direct = False
+                    
+                    for source in sources:
+                        source = source.replace('\\/', '/')
+                        if direct:
+                            host = self._get_direct_hostname(source)
+                        else:
+                            host = urlparse.urlparse(source).hostname
+                        hoster = {'multi-part': False, 'url': source, 'class': self, 'quality': sources[source], 'host': host, 'rating': None, 'views': None, 'direct': direct}
+                        hosters.append(hoster)
         return hosters
 
     def get_url(self, video):
-        self.create_db_connection()
-        url = None
+        return self._default_get_url(video)
 
-        if video.video_type == VIDEO_TYPES.MOVIE:
-            result = self.db_connection.get_related_url(video.video_type, video.title, video.year, self.get_name())
-            if result:
-                url = result[0][0]
-                log_utils.log('Got local related url: |%s|%s|%s|%s|%s|' % (video.video_type, video.title, video.year, self.get_name(), url))
-            else:
-                results = self.search(video.video_type, video.title, video.year)
-                if results:
-                    url = results[0]['url']
-        else:
-            result = self.db_connection.get_related_url(video.video_type, video.title, video.year, self.get_name(), video.season, video.episode)
-            if result:
-                url = result[0][0]
-                log_utils.log('Got local related url: |%s|%s|%s|' % (video, self.get_name(), url))
-            else:
-                url = self._get_episode_url('', video)
-                if url:
-                    self.db_connection.set_related_url(VIDEO_TYPES.EPISODE, video.title, video.year, self.get_name(), url, video.season, video.episode)
-
-        return url
-
-    def _get_episode_url(self, show_url, video):
-        search_title = '%s S%02dE%02d' % (video.title, int(video.season), int(video.episode))
-        results = self.search(video.video_type, search_title, '')
-        for result in results:
-            if re.search('S%02dE%02d' % (int(video.season), int(video.episode)), result['title'], re.I):
-                return result['url']
-    
     def search(self, video_type, title, year):
         search_url = urlparse.urljoin(self.base_url, '/?s=')
         search_url += urllib.quote_plus(title)
@@ -111,16 +102,15 @@ class YifyStreaming_Scraper(scraper.Scraper):
             match = re.search('href="([^"]+)[^>]+>\s*([^<]+)', element, re.DOTALL)
             if match:
                 url, match_title_year = match.groups()
-                match = re.search('(.*?)(?:\s+\(?(\d{4})\)?)\s*(.*)', match_title_year)
+                match = re.search('(.*?)(?:\s+\(?(\d{4})\)?)', match_title_year)
                 if match:
-                    match_title, match_year, extra_title = match.groups()
-                    match_title += ' [%s]' % (extra_title)
+                    match_title, match_year = match.groups()
                 else:
                     match_title = match_title_year
                     match_year = ''
                 
                 if not year or not match_year or year == match_year:
-                    result = {'title': match_title, 'year': match_year, 'url': self._pathify_url(url)}
+                    result = {'title': match_title, 'year': match_year, 'url': scraper_utils.pathify_url(url)}
                     results.append(result)
 
         return results

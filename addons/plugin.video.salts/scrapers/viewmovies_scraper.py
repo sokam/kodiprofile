@@ -15,14 +15,17 @@
     You should have received a copy of the GNU General Public License
     along with this program.  If not, see <http://www.gnu.org/licenses/>.
 """
-import scraper
-import urlparse
 import re
 import urllib
-from salts_lib import kodi
+import urlparse
+
 from salts_lib import dom_parser
-from salts_lib.constants import VIDEO_TYPES
+from salts_lib import kodi
+from salts_lib import scraper_utils
 from salts_lib.constants import FORCE_NO_MATCH
+from salts_lib.constants import VIDEO_TYPES
+import scraper
+
 
 BASE_URL = 'http://www.viewmovies.is'
 
@@ -56,24 +59,23 @@ class ViewMovies_Scraper(scraper.Scraper):
         if source_url and source_url != FORCE_NO_MATCH:
             url = urlparse.urljoin(self.base_url, source_url)
             html = self._http_get(url, cache_limit=.5)
-            fragment = dom_parser.parse_dom(html, 'div', {'class': 'tab_container'})
-            if fragment:
-                q_str = ''
-                match = re.search('<b>\s*Quality:\s*</b>([^<]+)', html)
-                if match:
-                    q_str = match.group(1)
-                    q_str = ' %s ' % (q_str)
+            q_str = ''
+            match = re.search('<b>\s*Quality:\s*</b>([^<]+)', html)
+            if match:
+                q_str = match.group(1)
+                q_str = ' %s ' % (q_str)
 
-                for match in re.finditer('<iframe[^>]*src="([^"]+)', fragment[0], re.I):
+            for fragment in dom_parser.parse_dom(html, 'div', {'class': 'video-embed'}):
+                for match in re.finditer('<iframe[^>]*src="([^"]+)', fragment, re.I):
                     stream_url = match.group(1)
                     host = urlparse.urlparse(stream_url).hostname
-                    hoster = {'multi-part': False, 'host': host, 'class': self, 'quality': self._blog_get_quality(video, q_str, host), 'views': None, 'rating': None, 'url': stream_url, 'direct': False}
+                    hoster = {'multi-part': False, 'host': host, 'class': self, 'quality': scraper_utils.blog_get_quality(video, q_str, host), 'views': None, 'rating': None, 'url': stream_url, 'direct': False}
                     hosters.append(hoster)
             
         return hosters
 
     def get_url(self, video):
-        return super(ViewMovies_Scraper, self)._default_get_url(video)
+        return self._default_get_url(video)
 
     def search(self, video_type, title, year):
         results = []
@@ -96,7 +98,7 @@ class ViewMovies_Scraper(scraper.Scraper):
                 match_title = match_title.replace('&#8217;', "'")
                 
                 if (not year or not match_year or year == match_year):
-                    result = {'url': self._pathify_url(url), 'title': match_title, 'year': match_year}
+                    result = {'url': scraper_utils.pathify_url(url), 'title': match_title, 'year': match_year}
                     results.append(result)
         
         return results

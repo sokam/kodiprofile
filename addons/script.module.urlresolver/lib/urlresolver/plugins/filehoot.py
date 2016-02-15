@@ -17,7 +17,6 @@
 """
 import re
 from t0mm0.common.net import Net
-from urlresolver import common
 from urlresolver.plugnplay.interfaces import UrlResolver
 from urlresolver.plugnplay.interfaces import PluginSettings
 from urlresolver.plugnplay import Plugin
@@ -26,7 +25,7 @@ class FilehootResolver(Plugin, UrlResolver, PluginSettings):
     implements = [UrlResolver, PluginSettings]
     name = "filehoot"
     domains = ['filehoot.com']
-    pattern = '//((?:www.)?filehoot.com)/(?:embed-)?([0-9a-z]+)'
+    pattern = '(?://|\.)(filehoot\.com)/(?:embed-)?([0-9a-z]+)'
 
     def __init__(self):
         p = self.get_setting('priority') or 100
@@ -55,7 +54,6 @@ class FilehootResolver(Plugin, UrlResolver, PluginSettings):
             return r.groups()
         else:
             return False
-
+    
     def valid_url(self, url, host):
-        if self.get_setting('enabled') == 'false': return False
-        return re.search(self.pattern, url) or 'filehoot' in host
+        return re.search(self.pattern, url) or self.name in host

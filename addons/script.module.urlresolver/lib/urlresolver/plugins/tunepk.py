@@ -21,18 +21,17 @@ from t0mm0.common.net import Net
 from urlresolver.plugnplay.interfaces import UrlResolver
 from urlresolver.plugnplay.interfaces import PluginSettings
 from urlresolver.plugnplay import Plugin
-from urlresolver import common
 
 class TunePkResolver(Plugin, UrlResolver, PluginSettings):
     implements = [UrlResolver, PluginSettings]
     name = "tune.pk"
     domains = ["tune.pk"]
+    pattern = '(?://|\.)(tune\.pk)/(?:player|video|play)/(?:[\w\.\?]+=)?(\d+)'
 
     def __init__(self):
         p = self.get_setting('priority') or 100
         self.priority = int(p)
         self.net = Net()
-        self.pattern = '(.+tune.pk)/(?:player|video|play)/(?:[\w\.\?]+=)?(\d+)'
 
     def get_media_url(self, host, media_id):
         web_url = self.get_url(host, media_id)
@@ -71,13 +70,14 @@ class TunePkResolver(Plugin, UrlResolver, PluginSettings):
 
     def get_host_and_id(self, url):
         r = re.search(self.pattern, url)
-        return r.groups()
+        if r:
+            return r.groups()
+        else:
+            return False
 
     def valid_url(self, url, host):
-        if self.get_setting('enabled') == 'false': return False
-        return re.match(self.pattern, url) or self.name in host
+        return re.search(self.pattern, url) or self.name in host
 
-    #PluginSettings methods
     def get_settings_xml(self):
         xml = PluginSettings.get_settings_xml(self)
         xml += '<setting label="Video Quality" id="%s_quality" ' % self.__class__.__name__

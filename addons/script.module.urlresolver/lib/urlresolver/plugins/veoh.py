@@ -27,6 +27,7 @@ class VeohResolver(Plugin, UrlResolver, PluginSettings):
     implements = [UrlResolver, PluginSettings]
     name = "veoh"
     domains = ["veoh.com"]
+    pattern = '(?://|\.)(veoh\.com)/(?:watch/|.+?permalinkId=)?([0-9a-zA-Z/]+)'
 
     def __init__(self):
         p = self.get_setting('priority') or 100
@@ -53,27 +54,11 @@ class VeohResolver(Plugin, UrlResolver, PluginSettings):
         return 'http://veoh.com/watch/%s' % media_id
 
     def get_host_and_id(self, url):
-        r = None
-        video_id = None
-        if re.search('permalinkId=', url):
-            r = re.compile('veoh.com.+?permalinkId=(\w+)&*.*$').findall(url)
-        elif re.search('watch/', url):
-            r = re.compile('watch/(.+)').findall(url)
-            
-        if r is not None and len(r) > 0:
-            video_id = r[0]
-        if video_id:
-            return ('veoh.com', video_id)
+        r = re.search(self.pattern, url)
+        if r:
+            return r.groups()
         else:
-            common.addon.log_error('veoh: video id not found')
             return False
 
     def valid_url(self, url, host):
-        if self.get_setting('enabled') == 'false': return False
-        return re.search('www.veoh.com/watch/.+',url) or re.search('www.veoh.com/.+?permalinkId=.+',url) or 'veoh' in host
-
-    def get_settings_xml(self):
-        xml = PluginSettings.get_settings_xml(self)
-        xml += '<setting label="This plugin calls the veoh addon - '
-        xml += 'change settings there." type="lsep" />\n'
-        return xml
+        return re.search(self.pattern, url) or self.name in host

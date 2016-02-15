@@ -423,7 +423,7 @@ class Keyboard:
         with open(os.path.join(skinpath, 'addon.xml')) as xmlfile:
             data = xmlfile.read()
         xmlfile.close()
-        soup = BeautifulSoup(data)
+        soup = BeautifulSoup(data, 'strict')
         it = soup.find('res', attrs={"aspect":aspect})
         folder = it.get('folder')
 
@@ -436,7 +436,7 @@ class Keyboard:
         with open(os.path.join(skinpath, folder, 'DialogKeyboard.xml')) as xmlfile:
             data = xmlfile.read()
         xmlfile.close()
-        soup = BeautifulSoup(data)
+        soup = BeautifulSoup(data, 'strict')
         it = soup.find('control', attrs={"type":"label", "id":CTL_LABEL_EDIT})
         if not it:
             it = soup.find('control', attrs={"type":"edit", "id":CTL_EDIT_EDIT})
@@ -451,7 +451,10 @@ class Keyboard:
         except:
             py = int(it.posy.text)
         pw = int(it.width.text)
-        ph = int(it.height.text)
+        try:
+            ph = int(it.height.text)
+        except:
+            ph = 22  # set default text height if no height in skin
         font = it.font.text.encode('utf-8')
         tag_HZCODE = self.newLabelTag(soup, CTL_LABEL_HZCODE, px, py + ph, 90, 30, font)
         tag_HZLIST = self.newLabelTag(soup, CTL_LABEL_HZLIST, px + 95, py + ph, pw - 95, 30, font)

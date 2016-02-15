@@ -16,25 +16,25 @@ You should have received a copy of the GNU General Public License
 along with this program. If not, see <http://www.gnu.org/licenses/>.
 """
 
+import re
+import urllib
 from t0mm0.common.net import Net
+from lib import jsunpack
+from urlresolver import common
 from urlresolver.plugnplay.interfaces import UrlResolver
 from urlresolver.plugnplay.interfaces import PluginSettings
 from urlresolver.plugnplay import Plugin
-import xbmc
-from urlresolver import common
-from lib import jsunpack
-import re
 
 class VidlockersResolver(Plugin, UrlResolver, PluginSettings):
     implements = [UrlResolver, PluginSettings]
     name = "vidlockers"
     domains = ["vidlockers.ag"]
+    pattern = '(?://|\.)(vidlockers\.ag)/([A-Za-z0-9]+)'
 
     def __init__(self):
         p = self.get_setting('priority') or 100
         self.priority = int(p)
         self.net = Net()
-        self.pattern = 'http://((?:www.)?vidlockers.ag)/([A-Za-z0-9]+)/.*?'
 
     def get_media_url(self, host, media_id):
         web_url = self.get_url(host, media_id)
@@ -44,7 +44,6 @@ class VidlockersResolver(Plugin, UrlResolver, PluginSettings):
         for i in re.finditer('<input type="hidden" name="([^"]+)" value="([^"]+)', html):
             form_values[i.group(1)] = i.group(2)
 
-        xbmc.sleep(2000)
         html = self.net.http_POST(web_url, form_data=form_values).content
         
         r = re.search('file\s*:\s*"([^"]+)', html)
@@ -62,12 +61,13 @@ class VidlockersResolver(Plugin, UrlResolver, PluginSettings):
                     stream_url = match2.group(1)
             
         if stream_url:
-            return stream_url + '|User-Agent=%s&Referer=%s' % (common.IE_USER_AGENT, web_url)
+            stream_url += '|' + urllib.urlencode({ 'User-Agent': common.IE_USER_AGENT, 'Referer': web_url })
+            return stream_url
 
         raise UrlResolver.ResolverError('Unable to resolve vidlockers link. Filelink not found.')
 
     def get_url(self, host, media_id):
-            return 'http://vidlockers.ag/%s' % (media_id)
+            return 'http://vidlockers.ag/%s' % media_id
 
     def get_host_and_id(self, url):
         r = re.search(self.pattern, url)
@@ -77,4 +77,4 @@ class VidlockersResolver(Plugin, UrlResolver, PluginSettings):
             return False
 
     def valid_url(self, url, host):
-        return re.search(self.pattern, url) or 'vidlockers' in host
+        return re.search(self.pattern, url) or self.name in host

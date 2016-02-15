@@ -17,10 +17,13 @@
 """
 import xbmc
 import xbmcgui
+import xbmcaddon
 from salts_lib import kodi
 from salts_lib import log_utils
 from salts_lib import utils
+from salts_lib import utils2
 from salts_lib.constants import MODES
+from salts_lib.constants import TRIG_DB_UPG
 from salts_lib.db_utils import DB_Connection
 
 MAX_ERRORS = 10
@@ -28,7 +31,11 @@ MAX_ERRORS = 10
 log_utils.log('Service: Installed Version: %s' % (kodi.get_version()))
 db_connection = DB_Connection()
 if kodi.get_setting('use_remote_db') == 'false' or kodi.get_setting('enable_upgrade') == 'true':
-    db_connection.init_database()
+    if TRIG_DB_UPG:
+        db_version = db_connection.get_db_version()
+    else:
+        db_version = kodi.get_version()
+    db_connection.init_database(db_version)
 
 class Service(xbmc.Player):
     def __init__(self, *args, **kwargs):
@@ -91,14 +98,22 @@ class Service(xbmc.Player):
     def onPlayBackStopped(self):
         log_utils.log('Service: Playback Stopped')
         if self.tracked:
+            # clear the playlist if SALTS was playing and only one item in playlist to
+            # use playlist to determine playback method in get_sources
+            pl = xbmc.PlayList(xbmc.PLAYLIST_VIDEO)
+            plugin_url = 'plugin://%s/' % (kodi.get_id())
+            if pl.size() == 1 and pl[0].getfilename().lower().startswith(plugin_url):
+                log_utils.log('Service: Clearing Single Item SALTS Playlist', log_utils.LOGDEBUG)
+                pl.clear()
+                
             playedTime = float(self._lastPos)
             try: percent_played = int((playedTime / self._totalTime) * 100)
             except: percent_played = 0  # guard div by zero
-            pTime = utils.format_time(playedTime)
-            tTime = utils.format_time(self._totalTime)
+            pTime = utils2.format_time(playedTime)
+            tTime = utils2.format_time(self._totalTime)
             log_utils.log('Service: Played %s of %s total = %s%%' % (pTime, tTime, percent_played), log_utils.LOGDEBUG)
             if playedTime == 0 and self._totalTime == 999999:
-                log_utils.log('XBMC silently failed to start playback', log_utils.LOGWARNING)
+                log_utils.log('Kodi silently failed to start playback', log_utils.LOGWARNING)
             elif playedTime >= 5:
                 log_utils.log('Service: Setting bookmark on |%s|%s|%s| to %s seconds' % (self.trakt_id, self.season, self.episode, playedTime), log_utils.LOGDEBUG)
                 db_connection.set_bookmark(self.trakt_id, playedTime, self.season, self.episode)
@@ -115,6 +130,22 @@ class Service(xbmc.Player):
 monitor = Service()
 utils.do_startup_task(MODES.UPDATE_SUBS)
 
+was_on = False
+def disable_global_cx():
+    global was_on
+    if xbmc.getCondVisibility('System.HasAddon(plugin.program.super.favourites)'):
+        active_plugin = xbmc.getInfoLabel('Container.PluginName')
+        sf = xbmcaddon.Addon('plugin.program.super.favourites')
+        if active_plugin == kodi.get_id():
+            if sf.getSetting('CONTEXT') == 'true':
+                log_utils.log('Disabling Global CX while SALTS is active', log_utils.LOGDEBUG)
+                was_on = True
+                sf.setSetting('CONTEXT', 'false')
+        elif was_on:
+            log_utils.log('Re-enabling Global CX while SALTS is not active', log_utils.LOGDEBUG)
+            sf.setSetting('CONTEXT', 'true')
+            was_on = False
+    
 errors = 0
 while not xbmc.abortRequested:
     try:
@@ -133,4 +164,6 @@ while not xbmc.abortRequested:
         errors = 0
 
     xbmc.sleep(1000)
+    disable_global_cx()
+    
 log_utils.log('Service: shutting down...')

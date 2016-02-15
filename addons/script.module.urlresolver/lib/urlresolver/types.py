@@ -20,7 +20,9 @@ from urlparse import urlparse
 from urlresolver import common
 from plugnplay.interfaces import UrlResolver
 from plugnplay.interfaces import SiteAuth
-import re, sys
+import re
+import sys
+import urllib
 import traceback
 
 class HostedMediaFile:
@@ -162,17 +164,20 @@ class HostedMediaFile:
                             self._valid_url = True
                             return stream_url
                     except UrlResolver.ResolverError as e:
-                        common.addon.log_error('Resolver Error: %s - %s - %s' % (e, resolver.name, self._url))
-                        common.addon.log_debug(traceback.format_exc())
-                        return UrlResolver.unresolvable(code=0, msg=e)
+                        common.addon.log_error('Resolver Error - From: %s Link: %s: %s' % (resolver.name, self._url, e))
+                        if resolver == self.__resolvers[-1]:
+                            common.addon.log_debug(traceback.format_exc())
+                            return UrlResolver.unresolvable(code=0, msg=e)
                     except urllib2.HTTPError as e:
-                        common.addon.log_error('HTTP Error: %s - %s - %s' % (e.code, resolver.name, self._url))
-                        common.addon.log_debug(traceback.format_exc())
-                        return UrlResolver.unresolvable(code=3, msg=e)
+                        common.addon.log_error('HTTP Error - From: %s Link: %s: %s' % (resolver.name, self._url, e))
+                        if resolver == self.__resolvers[-1]:
+                            common.addon.log_debug(traceback.format_exc())
+                            return UrlResolver.unresolvable(code=3, msg=e)
                     except Exception as e:
-                        common.addon.log_error('Unknown Error: %s - %s - %s' % (e, resolver.name, self._url))
-                        common.addon.log_error(traceback.format_exc())
-                        return UrlResolver.unresolvable(code=0, msg=e)
+                        common.addon.log_error('Unknown Error - From: %s Link: %s: %s' % (resolver.name, self._url, e))
+                        if resolver == self.__resolvers[-1]:
+                            common.addon.log_error(traceback.format_exc())
+                            return UrlResolver.unresolvable(code=0, msg=e)
             except Exception as e:
                 common.addon.log_notice("Resolver '%s' crashed: %s. Ignoring" % (resolver.name, e))
                 common.addon.log_debug(traceback.format_exc())
@@ -213,11 +218,13 @@ class HostedMediaFile:
         Returns True if the stream_url gets a non-failure http status (i.e. <400) back from the server
         otherwise return False
         
-        Intended to catch stream urls returned by resolvers that would fail to playback 
+        Intended to catch stream urls returned by resolvers that would fail to playback
         '''
         # parse_qsl doesn't work because it splits elements by ';' which can be in a non-quoted UA
         try: headers = dict([item.split('=') for item in (stream_url.split('|')[1]).split('&')])
         except: headers = {}
+        for header in headers:
+            headers[header] = urllib.unquote(headers[header])
         common.addon.log_debug('Setting Headers on UrlOpen: %s' % (headers))
     
         request = urllib2.Request(stream_url.split('|')[0], headers=headers)
@@ -246,6 +253,7 @@ class HostedMediaFile:
         resolvers = []
         found = False
         for resolver in UrlResolver.implementors():
+            if resolver.get_setting('enabled') != 'true': continue
             if (self._domain in resolver.domains) or any(self._domain in domain for domain in resolver.domains):
                 found = True
                 resolvers.append(resolver)

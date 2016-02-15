@@ -1,53 +1,55 @@
 version=1
 background=http://i.imgur.com/79hGbDR.jpg
-title=videobronx [COLOR=FF888888]»[/COLOR] 1 to 198 of 403
+title=videobronx [COLOR=FF888888]»[/COLOR] 1 to 198 of 406
 logo=http://i.imgur.com/Bxl5aNF.png
 icon_playlist=http://i.imgur.com/Bxl5aNF.png
-description=www.bronxbico.org
-
-Trying to update broken links on my site. Anyone that knows python or has experience with developing for kodi I would like to create addon from my site please hit me on twitter if interested. Thanks in advance.
-
-www.bronxbico.org
-
-Will be adding tons of new content including site rips and pornstar megapacks so please take the time to visit it helps tremendously.
-
-
-Update: Looking for help creating a video addon that will scrape all the content from my site including the megapacks & siterips please contact me via twitter if you are willing to help out I don't know python very well. Twitter @bronxbico Website
-www.bronxbico.org
-Thanks in advance. 
-
-
-UPDATE: NEW SITE I've moved my site to wordpress please visit 
-
-[COLOR=FFFFFF00]http://www.bronxbico.org[/COLOR]
-
-Completely new design. Please support it as you did my other one it will help keep links alive.
-
-Please continue to support and visit my website it helps tremendously and is greatly appreciated.
-
-[COLOR=FFFFFF00]http://www.bronxbico.org[/COLOR]
-
-Thanks for continuing to visit my site its really helping keep the links alive. Please continue to visit on a daily basis. Trying to improve it. I'm still very much a newb when comes to creating website.
-
-[COLOR=FFFFFF00]http://www.bronxbico.org[/COLOR]
-
-Request or suggestions to 
-
-[COLOR=FFFF34FF]bronxbico@yahoo.com[/COLOR]
-
-
-[COLOR=FFFFFF00]http://www.bronxbico.org[/COLOR]
-
-Please visit my website it contains direct links to files in playlist but mostly will help legitimize the amount of downloads I get. Please try to visit daily it will help keep links alive thanks. 
-
-[COLOR=FF00FFFF]Follow on Twitter @bronxbico[/COLOR]
-
-[COLOR=FFFFFF00]http://www.bronxbico.org[/COLOR]/description
 
 type=playlist
 name=Sorted by user-assigned order
 icon=http://media.navi-x.org/images/icons/2downarrow.png
 URL=http://www.navixtreme.com/playlist/148106/videobronx.plx?action=sortsel&cur=ord
+
+# 2548831
+type=video
+name=Alison Tyler - Club Sandy
+URL=http://www.flashx.tv/vzf7jcpscspz.html
+player=default
+rating=-1.00
+
+# 2548830
+type=video
+name=Lady Fyre - Impregnating Stepmother
+URL=http://www.flashx.tv/wtz3d9lzxaym.html
+player=default
+rating=-1.00
+
+# 2544318
+type=video
+name=InnocentHigh - Stevie Shae - Defaced Her Face
+URL=http://www.flashx.tv/u4kv9gynhffu.html
+player=default
+rating=-1.00
+
+# 2544316
+type=video
+name=SoapyMassage - Stevie Shae - Cowboy Time, Exclusive
+URL=http://www.flashx.tv/3h9j0mmzvp0b.html
+player=default
+rating=-1.00
+
+# 2542506
+type=video
+name=Stevie Shae - Nuru Massage
+URL=http://www.flashx.tv/iegrgk87lcwu.html
+player=default
+rating=-1.00
+
+# 2533789
+type=video
+name=India Summer - Nuru Massage
+URL=http://thevideo.me/x8nz0ce2lgx4
+player=default
+rating=-1.00
 
 # 2510920
 type=video
@@ -93,7 +95,7 @@ name=KrissyLynnVIP] - Audition For Krissy's XXX Film
 thumb=http://i.imgur.com/7bUjPIt.jpg
 URL=http://thevideo.me/wr9pnn7i6a7f
 player=default
-rating=-1.00
+rating=0.00
 
 # 2456755
 type=video
@@ -212,14 +214,6 @@ type=video
 name=Alexis Texas & Megan Monroe - Big Assets
 thumb=http://i.imgur.com/IWaiP9N.jpg
 URL=http://vodlocker.com/qhgojbyc1gud
-player=default
-rating=-1.00
-
-# 2438219
-type=video
-name=Alexis Texas - Sex In The City - Holly Randall
-thumb=http://i.imgur.com/EOrAoVp.jpg
-URL=http://vidbull.com/vtpnwad65s6q.html
 player=default
 rating=-1.00
 
@@ -1589,49 +1583,8 @@ thumb=http://i.imgur.com/I0szyMS.jpg
 URL=http://www.flashx.tv/glkdjl483ylq.html
 player=default
 rating=-1.00
-
-# 2448246
-type=video
-name=Katrina Jade - Nuru Massage - Holiday Highlight
-thumb=http://i.imgur.com/7NMUXE3.jpg
-URL=http://vidbull.com/adrnut3feqcm.html
-player=default
-rating=-1.00
-
-# 2452501
-type=video
-name=Katrina Jade - Tricky Spa - You Can Get Me Signed
-thumb=http://i.imgur.com/WTLkRZ8.jpg
-URL=http://www.flashx.tv/z88phf6351ex.html
-player=default
-rating=-1.00
-
-# 2429796
-type=video
-name=Kaylee Banks - I Know That Girl
-thumb=http://i.imgur.com/Fi0HI7A.jpg
-URL=http://hugefiles.net/zjrubqbio4s8
-processor=http://www.navixtreme.com/proc/hugefiles
-player=default
-rating=-1.00
-
-# 2443666
-type=video
-name=Keisha Grey - All Day Anal
-thumb=http://i.imgur.com/bva7QDB.jpg
-URL=http://streamin.to/036x9w160s7k
-player=default
-rating=-1.00
-
-# 2474801
-type=video
-name=Keisha Grey - Bang POV
-thumb=http://i.imgur.com/cjV4h8N.jpg
-URL=http://vodlocker.com/x6bl1t9jzacx
-player=default
-rating=-1.00
 type=playlist
 name=>>>
 URL=http://www.navixtreme.com/playlist/148106/videobronx.plx?page=2
 
-# cached
+# memcached

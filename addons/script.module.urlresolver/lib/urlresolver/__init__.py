@@ -190,6 +190,7 @@ def _update_settings_xml():
     new_xml += '<settings>\n'
     new_xml += '<category label="URLResolver">\n'
     new_xml += '\t<setting default="true" id="allow_universal" label="Enable Universal Resolvers" type="bool"/>\n'
+    new_xml += '\t<setting id="personal_nid" label="Your NID" type="text" visible="false"/>\n'
     new_xml += '</category>\n'
     new_xml += '<category label="Universal Resolvers">\n'
 

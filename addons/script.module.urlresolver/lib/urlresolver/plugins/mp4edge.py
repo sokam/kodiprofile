@@ -16,41 +16,26 @@
     along with this program.  If not, see <http://www.gnu.org/licenses/>.
 """
 
-
+import re
 from t0mm0.common.net import Net
+from urlresolver import common
 from urlresolver.plugnplay.interfaces import UrlResolver
 from urlresolver.plugnplay.interfaces import PluginSettings
 from urlresolver.plugnplay import Plugin
-from urlresolver import common
-import urllib
-import re
-
 
 class Mp4EdgeResolver(Plugin, UrlResolver, PluginSettings):
     implements = [UrlResolver, PluginSettings]
     name = "mp4edge.com"
     domains = ["mp4edge.com"]
-    
+    pattern = '(?://|\.)(mp4edge\.com)/stream/([0-9a-zA-Z]+)'
+
     def __init__(self):
         p = self.get_setting('priority') or 100
         self.priority = int(p)
         self.net = Net()
-        self.pattern = 'http://((?:.*?)mp4edge\.com)/stream/([0-9a-zA-Z]+)'
         self.user_agent = common.IE_USER_AGENT
         self.net.set_user_agent(self.user_agent)
         self.headers = {'User-Agent': self.user_agent}
-
-    def get_url(self, host, media_id):
-        return 'http://%s/stream/%s' % (host, media_id)
-    
-    def get_host_and_id(self, url):
-        r = re.search(self.pattern, url)
-        if r: return r.groups()
-        else: return False
-    
-    def valid_url(self, url, host):
-        if self.get_setting('enabled') == 'false': return False
-        return re.match(self.pattern, url) or host in self.domains
     
     def get_media_url(self, host, media_id):
         web_url = self.get_url(host, media_id)
@@ -61,3 +46,16 @@ class Mp4EdgeResolver(Plugin, UrlResolver, PluginSettings):
             return r.group(1)
         else:
             raise UrlResolver.ResolverError('File not found')
+
+    def get_url(self, host, media_id):
+        return 'http://%s/stream/%s' % (host, media_id)
+
+    def get_host_and_id(self, url):
+        r = re.search(self.pattern, url)
+        if r:
+            return r.groups()
+        else:
+            return False
+    
+    def valid_url(self, url, host):
+        return re.search(self.pattern, url) or self.name in host

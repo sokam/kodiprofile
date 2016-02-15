@@ -16,25 +16,25 @@ You should have received a copy of the GNU General Public License
 along with this program. If not, see <http://www.gnu.org/licenses/>.
 """
 
+import re
+import urllib
 from t0mm0.common.net import Net
+from lib import jsunpack
+from urlresolver import common
 from urlresolver.plugnplay.interfaces import UrlResolver
 from urlresolver.plugnplay.interfaces import PluginSettings
 from urlresolver.plugnplay import Plugin
-import xbmc
-from urlresolver import common
-from lib import jsunpack
-import re
 
 class GrifthostResolver(Plugin, UrlResolver, PluginSettings):
     implements = [UrlResolver, PluginSettings]
     name = "grifthost"
     domains = ["grifthost.com"]
+    pattern = '(?://|\.)(grifthost\.com)/(?:embed-)?([0-9a-zA-Z/]+)'
 
     def __init__(self):
         p = self.get_setting('priority') or 100
         self.priority = int(p)
         self.net = Net()
-        self.pattern = '//((?:www.)?grifthost\.com)/(?:embed-)?([0-9a-zA-Z/]+)'
 
     def get_media_url(self, host, media_id):
         web_url = self.get_url(host, media_id)
@@ -60,7 +60,7 @@ class GrifthostResolver(Plugin, UrlResolver, PluginSettings):
                     stream_url = match2.group(1)
             
         if stream_url:
-            return stream_url + '|User-Agent=%s&Referer=%s' % (common.IE_USER_AGENT, web_url)
+            return stream_url + '|' + urllib.urlencode({ 'User-Agent': common.IE_USER_AGENT, 'Referer': web_url })
 
         raise UrlResolver.ResolverError('Unable to resolve grifthost link. Filelink not found.')
 
@@ -73,6 +73,6 @@ class GrifthostResolver(Plugin, UrlResolver, PluginSettings):
             return r.groups()
         else:
             return False
-
+    
     def valid_url(self, url, host):
-        return re.search(self.pattern, url) or self.name  in host
+        return re.search(self.pattern, url) or self.name in host

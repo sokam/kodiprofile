@@ -21,32 +21,25 @@ import urllib2
 import re
 import HTMLParser
 import socket
-import xbmc
 import xbmcvfs
 import log_utils
 import kodi
 from constants import VIDEO_TYPES
 from constants import SRT_SOURCE
+from constants import USER_AGENT
 from db_utils import DB_Connection
 
-ADDON_PATH = kodi.get_path()
-ICON_PATH = os.path.join(ADDON_PATH, 'icon.png')
 MAX_RETRIES = 2
 TEMP_ERRORS = [500, 502, 503, 504]
-USER_AGENT = ("User-Agent:Mozilla/5.0 (Windows NT 6.2; WOW64)"
-              "AppleWebKit/537.17 (KHTML, like Gecko)"
-              "Chrome/24.0.1312.56")
 BASE_URL = 'http://www.addic7ed.com'
-BASE_PATH = kodi.get_setting('subtitle-folder')
-db_connection = DB_Connection()
 
 class SRT_Scraper():
     def __init__(self):
-        pass
+        self.db_connection = DB_Connection()
 
     def get_tvshow_id(self, title, year=None):
         match_title = title.lower()
-        rows = db_connection.get_related_url(VIDEO_TYPES.TVSHOW, title, year, SRT_SOURCE)
+        rows = self.db_connection.get_related_url(VIDEO_TYPES.TVSHOW, title, year, SRT_SOURCE)
         if rows:
             tvshow_id = rows[0][0]
             log_utils.log('Returning local tvshow id: |%s|%s|%s|' % (title, year, tvshow_id), log_utils.LOGDEBUG)
@@ -69,7 +62,7 @@ class SRT_Scraper():
             # print 'show: |%s|%s|%s|' % (tvshow_id, site_title, site_year)
             if match_title == site_title.lower():
                 if year is None or year == site_year:
-                    db_connection.set_related_url(VIDEO_TYPES.TVSHOW, title, year, SRT_SOURCE, tvshow_id)
+                    self.db_connection.set_related_url(VIDEO_TYPES.TVSHOW, title, year, SRT_SOURCE, tvshow_id)
                     return tvshow_id
 
                 site_matches.append((tvshow_id, site_title, site_year))
@@ -77,14 +70,14 @@ class SRT_Scraper():
         if not site_matches:
             return None
         elif len(site_matches) == 1:
-            db_connection.set_related_url(VIDEO_TYPES.TVSHOW, title, year, SRT_SOURCE, site_matches[0][0])
+            self.db_connection.set_related_url(VIDEO_TYPES.TVSHOW, title, year, SRT_SOURCE, site_matches[0][0])
             return site_matches[0][0]
         else:
             # there were multiple title matches and year was passed but no exact year matches found
             for match in site_matches:
                 # return the match that has no year specified
                 if match[2] is None:
-                    db_connection.set_related_url(VIDEO_TYPES.TVSHOW, title, year, SRT_SOURCE, match[0])
+                    self.db_connection.set_related_url(VIDEO_TYPES.TVSHOW, title, year, SRT_SOURCE, match[0])
                     return match[0]
 
     def get_season_subtitles(self, language, tvshow_id, season):
@@ -144,9 +137,10 @@ class SRT_Scraper():
             filename = r.group(1)
         else:
             filename = 'addic7ed_subtitle.srt'
+        filename = re.sub('[^\x00-\x7F]', '', filename)
 
-        final_path = os.path.join(BASE_PATH, filename)
-        final_path = xbmc.translatePath(final_path)
+        final_path = os.path.join(kodi.get_setting('subtitle-folder'), filename)
+        final_path = kodi.translate_path(final_path)
         if not xbmcvfs.exists(os.path.dirname(final_path)):
             try:
                 try: xbmcvfs.mkdirs(os.path.dirname(final_path))
@@ -181,7 +175,7 @@ class SRT_Scraper():
         log_utils.log('Fetching Cached URL: %s' % url, log_utils.LOGDEBUG)
         before = time.time()
 
-        _, html = db_connection.get_cached_url(url, cache_limit=cache)
+        _created, _res_header, html = self.db_connection.get_cached_url(url, cache_limit=cache)
         if html:
             log_utils.log('Returning cached result for: %s' % (url), log_utils.LOGDEBUG)
             return html
@@ -203,7 +197,7 @@ class SRT_Scraper():
             log_utils.log('Failed to connect to URL %s: (%s)' % (url, e), log_utils.LOGERROR)
             return ''
 
-        db_connection.cache_url(url, body)
+        self.db_connection.cache_url(url, body)
         after = time.time()
         log_utils.log('Cached Url Fetch took: %.2f secs' % (after - before), log_utils.LOGDEBUG)
         return body

@@ -22,13 +22,12 @@ from urlresolver import common
 from urlresolver.plugnplay.interfaces import UrlResolver
 from urlresolver.plugnplay.interfaces import PluginSettings
 from urlresolver.plugnplay import Plugin
-from lib import unwise
 
 class VideoweedResolver(Plugin, UrlResolver, PluginSettings):
     implements = [UrlResolver, PluginSettings]
-    name = "videoweed.es"
-    domains = ["videoweed.es"]
-    pattern = '//((?:www\.|embed\.)?videoweed\.(?:es|com))/(?:mobile/video\.php\?id=|video/|embed\.php\?v=|file/)([0-9a-z]+)'
+    name = 'videoweed.es'
+    domains = ['bitvid.sx', 'videoweed.es', 'videoweed.com']
+    pattern = '(?://|\.)(bitvid.sx|videoweed.es|videoweed.com)/(?:mobile/video\.php\?id=|video/|embed/\?v=|embed\.php\?v=|file/)([0-9a-z]+)'
 
     def __init__(self):
         p = self.get_setting('priority') or 100
@@ -37,25 +36,31 @@ class VideoweedResolver(Plugin, UrlResolver, PluginSettings):
 
     def get_media_url(self, host, media_id):
         web_url = self.get_url(host, media_id)
+
         html = self.net.http_GET(web_url).content
-        html = unwise.unwise_process(html)
-        filekey = unwise.resolve_var(html, "flashvars.filekey")
 
-        #use api to find stream address
-        api_call = ('http://www.videoweed.es/api/player.api.php?user=undefined&codes=1&file=%s' +
-                    '&pass=undefined&key=%s') % (media_id, filekey)
+        r = re.search('flashvars.filekey=(.+?);', html)
+        if r:
+            r = r.group(1)
 
-        api_html = self.net.http_GET(api_call).content
-        rapi = re.search('url=(.+?)&title=', api_html)
-        if rapi:
-            stream_url = rapi.group(1)
-        else:
-            raise UrlResolver.ResolverError('File Not Found or removed')
-        
+            try: filekey = re.compile('\s+%s="(.+?)"' % r).findall(html)[-1]
+            except: filekey = r
+
+            player_url = 'http://www.bitvid.sx/api/player.api.php?key=%s&file=%s' % (filekey, media_id)
+
+            html = self.net.http_GET(player_url).content
+
+            r = re.search('url=(.+?)&', html)
+
+            if r:
+                stream_url = r.group(1)
+            else:
+                raise UrlResolver.ResolverError('File Not Found or removed')
+
         return stream_url
 
     def get_url(self, host, media_id):
-        return 'http://www.videoweed.es/file/%s' % media_id
+        return 'http://embed.bitvid.sx/embed.php?v=%s' % media_id
 
     def get_host_and_id(self, url):
         r = re.search(self.pattern, url)
@@ -65,5 +70,4 @@ class VideoweedResolver(Plugin, UrlResolver, PluginSettings):
             return False
 
     def valid_url(self, url, host):
-        if self.get_setting('enabled') == 'false': return False
-        return re.search(self.pattern, url) or 'videoweed' in host
+        return re.search(self.pattern, url) or self.name in host

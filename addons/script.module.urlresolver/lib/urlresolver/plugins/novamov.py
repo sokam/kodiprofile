@@ -16,19 +16,17 @@
     along with this program.  If not, see <http://www.gnu.org/licenses/>.
 """
 
-import re, urllib
+import re
 from t0mm0.common.net import Net
-from urlresolver import common
 from urlresolver.plugnplay.interfaces import UrlResolver
 from urlresolver.plugnplay.interfaces import PluginSettings
 from urlresolver.plugnplay import Plugin
-from lib import unwise
 
 class NovamovResolver(Plugin, UrlResolver, PluginSettings):
     implements = [UrlResolver, PluginSettings]
     name = "novamov"
-    domains = [ "novamov.com" ]
-    pattern = '//((?:www\.|embed\.)?novamov\.com)/(?:mobile/video\.php\?id=|video/|embed\.php\?v\=)(\w+)'
+    domains = [ 'novamov.com', 'auroravid.to' ]
+    pattern = '(?://|\.)(novamov.com|auroravid.to)/(?:video/|embed/\?v=)([A-Za-z0-9]+)'
 
     def __init__(self):
         p = self.get_setting('priority') or 100
@@ -37,26 +35,31 @@ class NovamovResolver(Plugin, UrlResolver, PluginSettings):
 
     def get_media_url(self, host, media_id):
         web_url = self.get_url(host, media_id)
+
         html = self.net.http_GET(web_url).content
-        html = unwise.unwise_process(html)
-        filekey = unwise.resolve_var(html, "flashvars.filekey")
-        
-        #get stream url from api
-        api = 'http://www.novamov.com/api/player.api.php?key=%s&file=%s' % (filekey, media_id)
-        html = self.net.http_GET(api).content
-        r = re.search('url=(.+?)&title', html)
+
+        r = re.search('flashvars.filekey=(.+?);', html)
         if r:
-            stream_url = urllib.unquote(r.group(1))
-        else:
-            r = re.search('file no longer exists', html)
+            r = r.group(1)
+
+            try: filekey = re.compile('\s+%s="(.+?)"' % r).findall(html)[-1]
+            except: filekey = r
+
+            player_url = 'http://www.auroravid.to/api/player.api.php?key=%s&file=%s' % (filekey, media_id)
+
+            html = self.net.http_GET(player_url).content
+
+            r = re.search('url=(.+?)&', html)
+
             if r:
+                stream_url = r.group(1)
+            else:
                 raise UrlResolver.ResolverError('File Not Found or removed')
-            raise UrlResolver.ResolverError('Failed to parse url')
-        
+
         return stream_url
 
     def get_url(self, host, media_id):
-        return 'http://www.novamov.com/video/%s' % media_id
+        return 'http://www.auroravid.to/embed/?v=%s' % media_id
 
     def get_host_and_id(self, url):
         r = re.search(self.pattern, url)
@@ -64,7 +67,6 @@ class NovamovResolver(Plugin, UrlResolver, PluginSettings):
             return r.groups()
         else:
             return False
-
+    
     def valid_url(self, url, host):
-        if self.get_setting('enabled') == 'false': return False
-        return re.search(self.pattern, url) or 'novamov' in host
+        return re.search(self.pattern, url) or self.name in host

@@ -25,10 +25,7 @@ from t0mm0.common.net import Net
 
 import re
 import urllib
-try:
-    import simplejson as json
-except ImportError:
-    import json
+import json
 
 class PremiumizeMeResolver(Plugin, UrlResolver, SiteAuth, PluginSettings):
     implements = [UrlResolver, PluginSettings]
@@ -88,7 +85,6 @@ class PremiumizeMeResolver(Plugin, UrlResolver, SiteAuth, PluginSettings):
             common.addon.log_error('Error getting Premiumize hosts: %s' % (e))
 
     def valid_url(self, url, host):
-        if self.get_setting('enabled') == 'false': return False
         if self.get_setting('login') == 'false': return False
 
         self.get_all_hosters()

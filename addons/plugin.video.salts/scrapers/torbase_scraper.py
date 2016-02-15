@@ -15,25 +15,30 @@
     You should have received a copy of the GNU General Public License
     along with this program.  If not, see <http://www.gnu.org/licenses/>.
 """
-import scraper
+import os
+import re
 import urllib
 import urlparse
-import re
-import json
-import xbmcvfs
-import xbmc
-import os
-from salts_lib import log_utils
-from salts_lib import kodi
-from salts_lib.constants import VIDEO_TYPES
-from salts_lib.constants import FORCE_NO_MATCH
-from salts_lib.constants import XHR
-from salts_lib.constants import QUALITIES
 
+import xbmcvfs
+
+from salts_lib import dom_parser
+from salts_lib import kodi
+from salts_lib import log_utils
+from salts_lib import scraper_utils
+from salts_lib.constants import FORCE_NO_MATCH
+from salts_lib.constants import QUALITIES
+from salts_lib.constants import VIDEO_TYPES
+import scraper
+
+
+XHR = {'X-Requested-With': 'XMLHttpRequest'}
 BASE_URL = 'http://torba.se'
-SEARCH_URL = '/api/movies/list.json?genres=All+genres&limit=40&order=recent&q=%s&year=All+years'
-PLAYER_URL = '/api/movies/player.json?slug=%s'
-M3U8_PATH = os.path.join(xbmc.translatePath(kodi.get_profile()), 'torbase.m3u8')
+BASE_URL2 = 'http://streamtorrent.tv'
+SEARCH_URL = '/search?title=%s&order=recent&_pjax=#films-pjax-container'
+TOR_URL = BASE_URL2 + '/api/torrent/%s.json'
+PL_URL = BASE_URL2 + '/api/torrent/%s/%s.m3u8'
+M3U8_PATH = os.path.join(kodi.translate_path(kodi.get_profile()), 'torbase.m3u8')
 M3U8_TEMPLATE = [
     '#EXTM3U',
     '#EXT-X-MEDIA:TYPE=AUDIO,GROUP-ID="{audio_group}",DEFAULT=YES,AUTOSELECT=YES,NAME="Stream 1",URI="{audio_stream}"',
@@ -66,6 +71,9 @@ class TorbaSe_Scraper(scraper.Scraper):
                 line = line.format(**query)
                 f.write(line + '\n')
             f.close()
+            self._http_get('http://streamtorrent.tv/crossdomain.xml', cache_limit=0)
+            headers = {'Referer': 'http://p.jwpcdn.com/6/12/jwplayer.flash.swf'}
+            self._http_get('http://cdn.streamtorrent.pw/crossdomain.xml', headers=headers, cache_limit=0)
             return M3U8_PATH
         except:
             return None
@@ -78,27 +86,34 @@ class TorbaSe_Scraper(scraper.Scraper):
         source_url = self.get_url(video)
         hosters = []
         if source_url and source_url != FORCE_NO_MATCH:
-            slug = re.sub('^/v/', '', source_url)
-            source_url = PLAYER_URL % (slug)
             url = urlparse.urljoin(self.base_url, source_url)
-            html = self._http_get(url, cache_limit=.5)
-            html = html.replace('\\"', '"')
-            match = re.search('<iframe[^>]+src="([^"]+)', html)
-            if match:
-                st_url = match.group(1)
-                html = self._http_get(st_url, cache_limit=.5)
-                match = re.search('{\s*file\s*:\s*"([^"]+)', html)
-                if match:
-                    pl_url = urlparse.urljoin(st_url, match.group(1))
-                    playlist = self._http_get(pl_url, cache_limit=.5)
-                    sources = self.__get_streams_from_m3u8(playlist.split('\n'), st_url)
-                    for source in sources:
-                        hoster = {'multi-part': False, 'host': self._get_direct_hostname(source), 'class': self, 'quality': sources[source], 'views': None, 'rating': None, 'url': source, 'direct': True}
-                        hosters.append(hoster)
+            html = self._http_get(url, cache_limit=0)
+            vid_link = dom_parser.parse_dom(html, 'a', {'class': 'video-play'}, 'href')
+            if vid_link:
+                i = vid_link[0].rfind('#')
+                if i > -1:
+                    vid_id = vid_link[0][i + 1:]
+                    stream_id = self.__get_stream_id(vid_id)
+                    if stream_id:
+                        pl_url = PL_URL % (vid_id, stream_id)
+                        playlist = self._http_get(pl_url, cache_limit=0)
+                        sources = self.__get_streams_from_m3u8(playlist.split('\n'), BASE_URL2, vid_id, stream_id)
+                        for source in sources:
+                            hoster = {'multi-part': False, 'host': self._get_direct_hostname(source), 'class': self, 'quality': sources[source], 'views': None, 'rating': None, 'url': source, 'direct': True}
+                            hosters.append(hoster)
                 
         return hosters
 
-    def __get_streams_from_m3u8(self, playlist, st_url):
+    def __get_stream_id(self, vid_id):
+        tor_url = TOR_URL % (vid_id)
+        html = self._http_get(tor_url, cache_limit=.5)
+        js_data = scraper_utils.parse_json(html, tor_url)
+        if 'files' in js_data:
+            for file_info in js_data['files']:
+                if 'streams' in file_info and file_info['streams']:
+                    return file_info['_id']
+    
+    def __get_streams_from_m3u8(self, playlist, st_url, vid_id, stream_id):
         sources = {}
         quality = QUALITIES.HIGH
         audio_group = ''
@@ -114,36 +129,43 @@ class TorbaSe_Scraper(scraper.Scraper):
                 match = re.search('BANDWIDTH=(\d+).*?NAME="(\d+p)', line)
                 if match:
                     bandwidth, stream_name = match.groups()
-                    quality = self._height_get_quality(stream_name)
+                    quality = scraper_utils.height_get_quality(stream_name)
             elif line.endswith('m3u8'):
                 stream_url = urlparse.urljoin(st_url, line)
-                query = {'audio_group': audio_group, 'audio_stream': audio_stream, 'stream_name': stream_name, 'bandwidth': bandwidth, 'video_stream': stream_url}
+                query = {'audio_group': audio_group, 'audio_stream': audio_stream, 'stream_name': stream_name, 'bandwidth': bandwidth, 'video_stream': stream_url,
+                         'vid_id': vid_id, 'stream_id': stream_id}
                 stream_url = urllib.urlencode(query)
                 sources[stream_url] = quality
                 
         return sources
         
     def get_url(self, video):
-        return super(TorbaSe_Scraper, self)._default_get_url(video)
+        return self._default_get_url(video)
 
     def search(self, video_type, title, year):
+        results = []
         search_url = urlparse.urljoin(self.base_url, SEARCH_URL)
         search_url = search_url % (urllib.quote_plus(title))
         html = self._http_get(search_url, headers=XHR, cache_limit=1)
-        results = []
-        if html:
-            try:
-                js_result = json.loads(html)
-            except ValueError:
-                log_utils.log('Invalid JSON returned: %s: %s' % (search_url, html), log_utils.LOGWARNING)
-            else:
-                if 'result' in js_result:
-                    for item in js_result['result']:
-                        match_title = item['title']
-                        match_year = str(item['year']) if 'year' in item else ''
-    
-                        if not year or not match_year or year == match_year:
-                            result = {'title': match_title, 'year': match_year, 'url': '/v/' + item['slug']}
-                            results.append(result)
+        for film in dom_parser.parse_dom(html, 'li', {'class': 'films-item'}):
+            match_url = dom_parser.parse_dom(film, 'a', ret='href')
+            match_title = dom_parser.parse_dom(film, 'div', {'class': 'films-item-title'})
+            match_year = dom_parser.parse_dom(film, 'div', {'class': 'films-item-year'})
+            if match_url and match_title:
+                match_url = match_url[0]
+                match_title = match_title[0]
+                match_title = re.sub('</?span>', '', match_title)
+                if match_year:
+                    match = re.search('(\d+)', match_year[0])
+                    if match:
+                        match_year = match.group(1)
+                    else:
+                        match_year = ''
+                else:
+                    match_year = ''
+                    
+                if not year or not match_year or year == match_year:
+                    result = {'title': match_title, 'year': match_year, 'url': match_url}
+                    results.append(result)
 
         return results

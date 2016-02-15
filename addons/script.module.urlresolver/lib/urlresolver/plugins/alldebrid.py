@@ -16,23 +16,18 @@
     along with this program.  If not, see <http://www.gnu.org/licenses/>.
 """
 
-import os, sys
-import random
+import os
+import sys
 import re
-import urllib, urllib2
-
+import urllib
+import json
+from t0mm0.common.net import Net
+from urlresolver import common
 from urlresolver.plugnplay.interfaces import UrlResolver
 from urlresolver.plugnplay.interfaces import SiteAuth
 from urlresolver.plugnplay.interfaces import PluginSettings
 from urlresolver.plugnplay import Plugin
-from urlresolver import common
-import simplejson as json
-import xbmc,xbmcplugin,xbmcgui,xbmcaddon, datetime
-import cookielib
-from t0mm0.common.net import Net
-
-#SET ERROR_LOGO# THANKS TO VOINAGE, BSTRDMKR, ELDORADO
-error_logo = os.path.join(common.addon_path, 'resources', 'images', 'redx.png')
+import xbmcgui
 
 class AllDebridResolver(Plugin, UrlResolver, SiteAuth, PluginSettings):
     implements = [UrlResolver, SiteAuth, PluginSettings]
@@ -99,7 +94,6 @@ class AllDebridResolver(Plugin, UrlResolver, SiteAuth, PluginSettings):
             return finallink
         #false/errors
         elif 'Invalid link' in source :
-            common.addon.show_small_popup(title='[B][COLOR white]ALLDEBRID[/COLOR][/B]', msg='[COLOR red]INVALID LINK[/COLOR]', delay=15000, image=error_logo)
             return self.unresolvable(1,'Invalid link')
         else :
             return self.unresolvable(0,'No generated_link')
@@ -119,9 +113,8 @@ class AllDebridResolver(Plugin, UrlResolver, SiteAuth, PluginSettings):
         return self.allHosters
 
     def valid_url(self, url, host):
-        if self.get_setting('enabled') == 'false': return False
         if self.get_setting('login') == 'false': return False
-        common.addon.log('in valid_url %s : %s' % (url, host))
+        common.addon.log_debug('in valid_url %s : %s' % (url, host))
         if url:
             match = re.search('//(.*?)/', url)
             if match:

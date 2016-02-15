@@ -15,15 +15,19 @@
     You should have received a copy of the GNU General Public License
     along with this program.  If not, see <http://www.gnu.org/licenses/>.
 """
-import scraper
-import json
-from salts_lib import kodi
-import xbmc
+import re
 import urlparse
+
+import xbmc
+
+from salts_lib import kodi
 from salts_lib import log_utils
-from salts_lib.constants import VIDEO_TYPES
+from salts_lib import scraper_utils
 from salts_lib.constants import FORCE_NO_MATCH
 from salts_lib.constants import SORT_KEYS
+from salts_lib.constants import VIDEO_TYPES
+import scraper
+
 
 BASE_URL = ''
 
@@ -60,7 +64,7 @@ class Local_Scraper(scraper.Scraper):
 
             run = cmd % (params['id'][0])
             meta = xbmc.executeJSONRPC(run)
-            meta = json.loads(meta)
+            meta = scraper_utils.parse_json(meta)
             log_utils.log('Source Meta: %s' % (meta), log_utils.LOGDEBUG)
             if 'result' in meta and result_key in meta['result']:
                 details = meta['result'][result_key]
@@ -68,12 +72,12 @@ class Local_Scraper(scraper.Scraper):
                 host = {'multi-part': False, 'class': self, 'url': details['file'], 'host': 'XBMC Library', 'quality': def_quality, 'views': details['playcount'], 'rating': None, 'direct': True}
                 stream_details = details['streamdetails']
                 if len(stream_details['video']) > 0 and 'width' in stream_details['video'][0]:
-                    host['quality'] = self._width_get_quality(stream_details['video'][0]['width'])
+                    host['quality'] = scraper_utils.width_get_quality(stream_details['video'][0]['width'])
                 hosters.append(host)
         return hosters
 
     def get_url(self, video):
-        return super(Local_Scraper, self)._default_get_url(video)
+        return self._default_get_url(video)
 
     def _get_episode_url(self, show_url, video):
         params = urlparse.parse_qs(show_url)
@@ -81,11 +85,11 @@ class Local_Scraper(scraper.Scraper):
         "limits": { "start" : 0, "end": 25 }, "properties" : ["title", "season", "episode", "file", "streamdetails"], "sort": { "order": "ascending", "method": "label", "ignorearticle": true }}, "id": "libTvShows"}'
         base_url = 'video_type=%s&id=%s'
         episodes = []
-        force_title = self._force_title(video)
+        force_title = scraper_utils.force_title(video)
         if not force_title:
             run = cmd % (params['id'][0], video.season, 'episode', video.episode)
             meta = xbmc.executeJSONRPC(run)
-            meta = json.loads(meta)
+            meta = scraper_utils.parse_json(meta)
             log_utils.log('Episode Meta: %s' % (meta), log_utils.LOGDEBUG)
             if 'result' in meta and 'episodes' in meta['result']:
                 episodes = meta['result']['episodes']
@@ -93,9 +97,9 @@ class Local_Scraper(scraper.Scraper):
             log_utils.log('Skipping S&E matching as title search is forced on: %s' % (video.trakt_id), log_utils.LOGDEBUG)
 
         if (force_title or kodi.get_setting('title-fallback') == 'true') and video.ep_title and not episodes:
-            run = cmd % (params['id'][0], video.season, 'title', video.ep_title.encode('utf-8'))
+            run = cmd % (params['id'][0], video.season, 'title', video.ep_title)
             meta = xbmc.executeJSONRPC(run)
-            meta = json.loads(meta)
+            meta = scraper_utils.parse_json(meta)
             log_utils.log('Episode Title Meta: %s' % (meta), log_utils.LOGDEBUG)
             if 'result' in meta and 'episodes' in meta['result']:
                 episodes = meta['result']['episodes']
@@ -108,14 +112,14 @@ class Local_Scraper(scraper.Scraper):
 
     @classmethod
     def get_settings(cls):
-        settings = super(Local_Scraper, cls).get_settings()
+        settings = super(cls, cls).get_settings()
         name = cls.get_name()
         settings.append('         <setting id="%s-def-quality" type="enum" label="     Default Quality" values="None|Low|Medium|High|HD720|HD1080" default="0" visible="eq(-4,true)"/>' % (name))
         return settings
 
     def search(self, video_type, title, year):
-        filter_str = '{"field": "title", "operator": "contains", "value": "%s"}' % (title)
-        if year: filter_str = '{"and": [%s, {"field": "year", "operator": "is", "value": "%s"}]}' % (filter_str, year)
+        filter_str = '{{"field": "title", "operator": "contains", "value": "{search_title}"}}'
+        if year: filter_str = '{{"and": [%s, {{"field": "year", "operator": "is", "value": "%s"}}]}}' % (filter_str, year)
         if video_type == VIDEO_TYPES.MOVIE:
             cmd = '{"jsonrpc": "2.0", "method": "VideoLibrary.GetMovies", "params": { "filter": %s, "limits": { "start" : 0, "end": 25 }, "properties" : ["title", "year", "file", "streamdetails"], \
             "sort": { "order": "ascending", "method": "label", "ignorearticle": true } }, "id": "libMovies"}'
@@ -127,10 +131,23 @@ class Local_Scraper(scraper.Scraper):
             result_key = 'tvshows'
             id_key = 'tvshowid'
 
+        command = cmd % (filter_str.format(search_title=title))
+        results = self.__get_results(command, result_key, video_type, id_key)
+        norm_title = self.__normalize_title(title)
+        if not results and norm_title and norm_title != title:
+            command = cmd % (filter_str.format(search_title=norm_title))
+            results = self.__get_results(command, result_key, video_type, id_key)
+        return results
+    
+    def __normalize_title(self, title):
+        norm_title = re.sub('[^A-Za-z0-9 ]', ' ', title)
+        return re.sub('\s+', ' ', norm_title)
+    
+    def __get_results(self, cmd, result_key, video_type, id_key):
         results = []
-        cmd = cmd % (filter_str)
+        log_utils.log('Search Command: %s' % (cmd), log_utils.LOGDEBUG)
         meta = xbmc.executeJSONRPC(cmd)
-        meta = json.loads(meta)
+        meta = scraper_utils.parse_json(meta)
         log_utils.log('Search Meta: %s' % (meta), log_utils.LOGDEBUG)
         if 'result' in meta and result_key in meta['result']:
             for item in meta['result'][result_key]:

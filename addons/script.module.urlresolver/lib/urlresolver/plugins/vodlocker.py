@@ -21,30 +21,17 @@ from t0mm0.common.net import Net
 from urlresolver.plugnplay.interfaces import UrlResolver
 from urlresolver.plugnplay.interfaces import PluginSettings
 from urlresolver.plugnplay import Plugin
-from urlresolver import common
 
 class VodlockerResolver(Plugin, UrlResolver, PluginSettings):
     implements = [UrlResolver, PluginSettings]
     name = "vodlocker.com"
     domains = ["vodlocker.com"]
+    pattern = '(?://|\.)(vodlocker\.com)/(?:embed-)?([0-9a-zA-Z]+)'
 
     def __init__(self):
         p = self.get_setting('priority') or 100
         self.priority = int(p)
         self.net = Net()
-        self.pattern = 'http://((?:www.)?vodlocker.com)/(?:embed-)?([0-9a-zA-Z]+)(?:-\d+x\d+.html)?'
-
-    def get_url(self, host, media_id):
-        return 'http://vodlocker.com/embed-%s-640x400.html' % (media_id)
-
-    def get_host_and_id(self, url):
-        r = re.search(self.pattern, url)
-        if r: return r.groups()
-        else: return False
-
-    def valid_url(self, url, host):
-        if self.get_setting('enabled') == 'false': return False
-        return re.match(self.pattern, url) or self.name in host
 
     def get_media_url(self, host, media_id):
         web_url = self.get_url(host, media_id)
@@ -58,3 +45,17 @@ class VodlockerResolver(Plugin, UrlResolver, PluginSettings):
             return video_link
         else:
             raise UrlResolver.ResolverError('No playable video found.')
+
+    def get_url(self, host, media_id):
+        return 'http://vodlocker.com/embed-%s-640x400.html' % media_id
+
+    def get_host_and_id(self, url):
+        r = re.search(self.pattern, url)
+        if r:
+            return r.groups()
+        else:
+            return False
+
+    def valid_url(self, url, host):
+        return re.search(self.pattern, url) or self.name in host
+
