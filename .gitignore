@@ -2,3 +2,5 @@ temp/*
 userdata/Thumbnails/*
 system/*
 sounds/*
+*/temp/*
+userdata/Database/saltscache.db
