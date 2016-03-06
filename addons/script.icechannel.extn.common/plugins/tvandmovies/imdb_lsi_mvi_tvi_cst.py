@@ -307,6 +307,8 @@ class IMDb(MovieIndexer, TVShowIndexer, CustomSettings, ListIndexer):
         
         from entertainment.net import Net
         net = Net(cached=False)
+        print new_url
+        print '########################################'
         content = net.http_GET(new_url).content
         
         import datetime

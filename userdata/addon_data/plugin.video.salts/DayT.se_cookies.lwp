@@ -2,7 +2,7 @@
 Set-Cookie3: __cfduid=d9ce09ab581bac108d48fce94e8e6dacd1455165366; path="/"; domain=".dayt.se"; path_spec; domain_dot; expires="2017-02-10 04:36:06Z"; HttpOnly=None; version=0
 Set-Cookie3: NID="76=zHJ9Ci2ohHawKWFP0jhs49z7axr1wdgcakTNGwnUudDwEb-QIsTEV4qXmdiKrNLi974GNitV242urRaQkYkgHLe_ZyDBb6KA4tFkXo6sNg8X58py_RxJwbFjK7Lp-jKb"; path="/"; domain=".google.com"; path_spec; domain_dot; expires="2016-08-14 20:52:56Z"; HttpOnly=None; version=0
 Set-Cookie3: GAPS="1:uxn-IZW2g1atdXKorAAoiaPHElwjGA:VAAQVz1kfONjXIf6"; path="/"; domain="accounts.google.com"; path_spec; secure; expires="2018-02-12 22:32:35Z"; HttpOnly=None; Priority=HIGH; version=0
-Set-Cookie3: bb_lastactivity=0; path="/"; domain="dayt.se"; path_spec; expires="2017-02-12 22:31:32Z"; version=0
-Set-Cookie3: bb_lastvisit=1455165313; path="/"; domain="dayt.se"; path_spec; expires="2017-02-12 22:31:32Z"; version=0
-Set-Cookie3: bb_sessionhash=5b3f7225e3e787f4b3f736d24430bf66; path="/"; domain="dayt.se"; path_spec; discard; HttpOnly=None; version=0
+Set-Cookie3: bb_lastactivity=0; path="/"; domain="dayt.se"; path_spec; expires="2017-03-06 05:27:16Z"; version=0
+Set-Cookie3: bb_lastvisit=1455165313; path="/"; domain="dayt.se"; path_spec; expires="2017-03-06 05:27:16Z"; version=0
+Set-Cookie3: bb_sessionhash=5e6bf54d4c2bc7029394a2854678b1d5; path="/"; domain="dayt.se"; path_spec; discard; HttpOnly=None; version=0
 Set-Cookie3: bb_thread_lastview="f109a46485d05f243224f140aa1a7742bd1d366ca-1-%7Bi-7425_i-1455243865_%7D"; path="/"; domain="dayt.se"; path_spec; discard; version=0
