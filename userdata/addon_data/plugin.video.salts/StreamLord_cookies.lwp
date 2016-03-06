@@ -1,3 +1,4 @@
 #LWP-Cookies-2.0
 Set-Cookie3: __cfduid=d103ce20f33b4310b3c59c35ef66a283b1457242109; path="/"; domain=".streamlord.com"; path_spec; domain_dot; expires="2017-03-06 05:28:29Z"; HttpOnly=None; version=0
 Set-Cookie3: cf_clearance="935feedee6be745c3a5faf6a4d1f84cde2018b90-1457242109-604800"; path="/"; domain=".streamlord.com"; path_spec; domain_dot; expires="2016-03-13 06:28:29Z"; HttpOnly=None; version=0
+Set-Cookie3: PHPSESSID=fgi1ise1mvs6akpvtjp29a8lh1; path="/"; domain="www.streamlord.com"; path_spec; discard; version=0
