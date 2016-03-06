@@ -1,6 +1,6 @@
 <settings>
-    <setting id="noteImage" value="18" />
-    <setting id="noteMessage" value="It is with great excitement that we announce the launch of a new forum&#x0A;site dedicated to providing the best support for all of your Android TV&#x0A;technical support needs.&#x0A;&#x0A;If you own an Android TV device and need any type of help or&#x0A;assistance, CABLE CUTTERS is the place to be!&#x0A;&#x0A;Visit the new CABLE CUTTERS Forums today for [COLOR white]Android TV Support[/COLOR]:&#x0A;[B][COLOR white]http://forums.cablecutters.com[/COLOR][/B]&#x0A;&#x0A;Don&apos;t forget to [COLOR white]Register[/COLOR] today to find out about a very special&#x0A;NVIDIA Shield TV giveaway contest happening very soon!" />
+    <setting id="noteImage" value="24" />
+    <setting id="noteMessage" value="There&apos;s a [B][COLOR white]new version of Kodi[/COLOR][/B] out, have you upgraded yet?&#x0A;&#x0A;If you want to continue to get the most out of your Kodi experience,&#x0A;upgrading to the latest version is always ideal. We&apos;ve put together&#x0A;an easy to follow guide which walks you through step by step!&#x0A;&#x0A;Visit the Following Page to Upgrade to  Kodi 16 Jarvis Today:&#x0A;[B][COLOR white]https://www.tvaddons.ag/jarvis/[/COLOR][/B]&#x0A;&#x0A;If you enjoy this and other unofficial addons for Kodi, please&#x0A;take the time to visit our sponsors regularly, it will help&#x0A;cover our server costs." />
     <setting id="noteType" value="t" />
     <setting id="notifications-on-startup" value="false" />
 </settings>
