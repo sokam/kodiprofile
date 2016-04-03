@@ -21,23 +21,17 @@ import re
 import json
 import urllib
 import urlparse
-from t0mm0.common.net import Net
 from urlresolver import common
-from urlresolver.plugnplay.interfaces import UrlResolver
-from urlresolver.plugnplay.interfaces import PluginSettings
-from urlresolver.plugnplay import Plugin
+from urlresolver.resolver import UrlResolver, ResolverError
 import xbmcgui
 
-class VKResolver(Plugin, UrlResolver, PluginSettings):
-    implements = [UrlResolver, PluginSettings]
+class VKResolver(UrlResolver):
     name = "VK.com"
     domains = ["vk.com"]
     pattern = '(?://|\.)(vk\.com)/(?:video_ext\.php\?|video)(.+)'
 
     def __init__(self):
-        p = self.get_setting('priority') or 100
-        self.priority = int(p)
-        self.net = Net()
+        self.net = common.Net()
 
     def get_media_url(self, host, media_id):
         headers = {
@@ -46,7 +40,7 @@ class VKResolver(Plugin, UrlResolver, PluginSettings):
 
         query = urlparse.parse_qs(media_id)
 
-        try: oid, video_id = query['oid'][0] , query['id'][0]
+        try: oid, video_id = query['oid'][0], query['id'][0]
         except: oid, video_id = re.findall('(.*)_(.*)', media_id)[0]
 
         try: hash = query['hash'][0]
@@ -68,7 +62,7 @@ class VKResolver(Plugin, UrlResolver, PluginSettings):
                 quality_list.append(quality[3:])
                 link_list.append(result[quality])
                 best_link = result[quality]
-        
+
         if self.get_setting('auto_pick') == 'true' and best_link:
             return best_link + '|' + urllib.urlencode(headers)
         else:
@@ -76,13 +70,13 @@ class VKResolver(Plugin, UrlResolver, PluginSettings):
                 if len(quality_list) > 1:
                     result = xbmcgui.Dialog().select('Choose the link', quality_list)
                     if result == -1:
-                        raise UrlResolver.ResolverError('No link selected')
+                        raise ResolverError('No link selected')
                     else:
                         return link_list[result] + '|' + urllib.urlencode(headers)
                 else:
                     return link_list[0] + '|' + urllib.urlencode(headers)
-        
-        raise UrlResolver.ResolverError('No video found')
+
+        raise ResolverError('No video found')
 
     def __get_private(self, oid, video_id):
         private_url = 'http://vk.com/al_video.php?act=show_inline&al=1&video=%s_%s' % (oid, video_id)
@@ -103,7 +97,7 @@ class VKResolver(Plugin, UrlResolver, PluginSettings):
         match = re.search('"hash"\s*:\s*"(.+?)"', html)
         if match: return match.group(1)
         return ''
-    
+
     def get_url(self, host, media_id):
         return 'http://vk.com/video_ext.php?%s' % media_id
 
@@ -117,7 +111,8 @@ class VKResolver(Plugin, UrlResolver, PluginSettings):
     def valid_url(self, url, host):
         return re.search(self.pattern, url) or self.name in host
 
-    def get_settings_xml(self):
-        xml = PluginSettings.get_settings_xml(self)
-        xml += '<setting id="%s_auto_pick" type="bool" label="Automatically pick best quality" default="false" visible="true"/>' % (self.__class__.__name__)
+    @classmethod
+    def get_settings_xml(cls):
+        xml = super(cls, cls).get_settings_xml()
+        xml.append('<setting id="%s_auto_pick" type="bool" label="Automatically pick best quality" default="false" visible="true"/>' % (cls.__name__))
         return xml

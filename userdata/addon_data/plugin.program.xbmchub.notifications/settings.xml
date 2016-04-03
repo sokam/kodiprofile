@@ -1,6 +1,6 @@
 <settings>
-    <setting id="noteImage" value="24" />
-    <setting id="noteMessage" value="There&apos;s a [B][COLOR white]new version of Kodi[/COLOR][/B] out, have you upgraded yet?&#x0A;&#x0A;If you want to continue to get the most out of your Kodi experience,&#x0A;upgrading to the latest version is always ideal. We&apos;ve put together&#x0A;an easy to follow guide which walks you through step by step!&#x0A;&#x0A;Visit the Following Page to Upgrade to  Kodi 16 Jarvis Today:&#x0A;[B][COLOR white]https://www.tvaddons.ag/jarvis/[/COLOR][/B]&#x0A;&#x0A;If you enjoy this and other unofficial addons for Kodi, please&#x0A;take the time to visit our sponsors regularly, it will help&#x0A;cover our server costs." />
+    <setting id="noteImage" value="25" />
+    <setting id="noteMessage" value="Watching [B][COLOR white]Live TV and Sports[/COLOR][/B] just got a whole lot better!&#x0A;&#x0A;We&apos;ve just put together an updated list of all the best live&#x0A;television and sports addons for Kodi and we&apos;re very, very&#x0A;excited about it. Live TV and Sports have never been this good.&#x0A;&#x0A;Visit the Following Page to Find the Full List Today:&#x0A;[B][COLOR white]https://www.tvaddons.ag/livetv-march2016/[/COLOR][/B]&#x0A;&#x0A;Please remember that you can easily install any addon you wish&#x0A;using our Addon Installer tool, which you&apos;ll find under your&#x0A;PROGRAMS menu within Kodi. Enjoy!" />
     <setting id="noteType" value="t" />
     <setting id="notifications-on-startup" value="false" />
 </settings>

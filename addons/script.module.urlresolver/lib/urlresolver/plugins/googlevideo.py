@@ -17,26 +17,19 @@
 """
 
 
-from t0mm0.common.net import Net
 from urlresolver import common
-from urlresolver.plugnplay import Plugin
-from urlresolver.plugnplay.interfaces import UrlResolver
-from urlresolver.plugnplay.interfaces import PluginSettings
+from urlresolver.resolver import UrlResolver, ResolverError
 import re
 import urllib2
 import xbmcgui
 
-
-class GoogleResolver(Plugin, UrlResolver, PluginSettings):
-    implements = [UrlResolver, PluginSettings]
+class GoogleResolver(UrlResolver):
     name = "googlevideo"
     domains = ["googlevideo.com", "picasaweb.google.com", "googleusercontent.com", "plus.google.com", "googledrive.com"]
     pattern = 'http[s]*://(.*?(?:\.googlevideo|(?:picasaweb|plus)\.google|google(?:usercontent|drive))\.com)/(.*?(?:videoplayback\?|\?authkey|host/)*.+)'
 
     def __init__(self):
-        p = self.get_setting('priority') or 100
-        self.priority = int(p)
-        self.net = Net()
+        self.net = common.Net()
 
     def get_media_url(self, host, media_id):
         web_url = self.get_url(host, media_id)
@@ -85,7 +78,7 @@ class GoogleResolver(Plugin, UrlResolver, PluginSettings):
                             if result != -1:
                                 vid_sel = url_list[result]
                             else:
-                                raise UrlResolver.ResolverError('No link selected')
+                                raise ResolverError('No link selected')
         if vid_sel:
             if ('redirector.' in vid_sel) or ('googleusercontent' in vid_sel):
                 stream_url = urllib2.urlopen(vid_sel).geturl()
@@ -94,7 +87,7 @@ class GoogleResolver(Plugin, UrlResolver, PluginSettings):
             if stream_url:
                 return stream_url
 
-        raise UrlResolver.ResolverError('File not found')
+        raise ResolverError('File not found')
 
     def get_url(self, host, media_id):
         return 'https://%s/%s' % (host, media_id)
@@ -105,11 +98,12 @@ class GoogleResolver(Plugin, UrlResolver, PluginSettings):
             return r.groups()
         else:
             return False
-    
+
     def valid_url(self, url, host):
         return re.search(self.pattern, url) or self.name in host
 
-    def get_settings_xml(self):
-        xml = PluginSettings.get_settings_xml(self)
-        xml += '<setting id="%s_auto_pick" type="bool" label="Automatically pick best quality" default="false" visible="true"/>' % (self.__class__.__name__)
+    @classmethod
+    def get_settings_xml(cls):
+        xml = super(cls, cls).get_settings_xml()
+        xml.append('<setting id="%s_auto_pick" type="bool" label="Automatically pick best quality" default="false" visible="true"/>' % (cls.__name__))
         return xml

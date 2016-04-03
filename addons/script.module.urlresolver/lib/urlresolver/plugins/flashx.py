@@ -17,22 +17,17 @@
 """
 
 import re
-from t0mm0.common.net import Net
 from lib import jsunpack
-from urlresolver.plugnplay import Plugin
-from urlresolver.plugnplay.interfaces import UrlResolver
-from urlresolver.plugnplay.interfaces import PluginSettings
+from urlresolver import common
+from urlresolver.resolver import UrlResolver, ResolverError
 
-class FlashxResolver(Plugin, UrlResolver, PluginSettings):
-    implements = [UrlResolver, PluginSettings]
+class FlashxResolver(UrlResolver):
     name = "flashx"
     domains = ["flashx.tv"]
     pattern = '(?://|\.)(flashx\.tv)/(?:embed-|dl\?)?([0-9a-zA-Z/-]+)'
 
     def __init__(self):
-        p = self.get_setting('priority') or 100
-        self.priority = int(p)
-        self.net = Net()
+        self.net = common.Net()
 
     def get_media_url(self, host, media_id):
         web_url = self.get_url(host, media_id)
@@ -57,8 +52,8 @@ class FlashxResolver(Plugin, UrlResolver, PluginSettings):
         if best_link:
             return best_link
         else:
-            raise UrlResolver.ResolverError('Unable to resolve Flashx link. Filelink not found.')
-        
+            raise ResolverError('Unable to resolve Flashx link. Filelink not found.')
+
     def get_url(self, host, media_id):
         return 'http://www.flashx.tv/embed-%s.html' % media_id
 
@@ -68,11 +63,12 @@ class FlashxResolver(Plugin, UrlResolver, PluginSettings):
             return r.groups()
         else:
             return False
-    
+
     def valid_url(self, url, host):
         return re.search(self.pattern, url) or self.name in host
 
-    def get_settings_xml(self):
-        xml = PluginSettings.get_settings_xml(self)
-        xml += '<setting id="%s_auto_pick" type="bool" label="Automatically pick best quality" default="false" visible="true"/>' % (self.__class__.__name__)
+    @classmethod
+    def get_settings_xml(cls):
+        xml = super(cls, cls).get_settings_xml()
+        xml.append('<setting id="%s_auto_pick" type="bool" label="Automatically pick best quality" default="false" visible="true"/>' % (cls.__name__))
         return xml

@@ -19,21 +19,16 @@
 import re
 import base64
 import urllib
-from t0mm0.common.net import Net
-from urlresolver.plugnplay.interfaces import UrlResolver
-from urlresolver.plugnplay.interfaces import PluginSettings
-from urlresolver.plugnplay import Plugin
+from urlresolver import common
+from urlresolver.resolver import UrlResolver
 
-class TrollVidResolver(Plugin, UrlResolver, PluginSettings):
-    implements = [UrlResolver, PluginSettings]
+class TrollVidResolver(UrlResolver):
     name = "trollvid.net"
     domains = ["trollvid.net"]
     pattern = '(?://|\.)(trollvid\.net)/embed\.php.file=([0-9a-zA-Z]+)'
 
     def __init__(self):
-        p = self.get_setting('priority') or 100
-        self.priority = int(p)
-        self.net = Net()
+        self.net = common.Net()
 
     def get_media_url(self, host, media_id):
         web_url = self.get_url(host, media_id)
@@ -55,7 +50,7 @@ class TrollVidResolver(Plugin, UrlResolver, PluginSettings):
         return stream_url
 
     def get_url(self, host, media_id):
-            return 'http://trollvid.net/embed.php?file=%s' % media_id
+        return 'http://trollvid.net/embed.php?file=%s' % media_id
 
     def get_host_and_id(self, url):
         r = re.search(self.pattern, url)
@@ -63,6 +58,6 @@ class TrollVidResolver(Plugin, UrlResolver, PluginSettings):
             return r.groups()
         else:
             return False
-    
+
     def valid_url(self, url, host):
         return re.search(self.pattern, url) or self.name in host

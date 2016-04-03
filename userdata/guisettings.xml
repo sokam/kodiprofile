@@ -87,7 +87,7 @@
         <addonnotifications default="true">true</addonnotifications>
         <addonupdates default="true">0</addonupdates>
         <settinglevel>1</settinglevel>
-        <systemtotaluptime>93669</systemtotaluptime>
+        <systemtotaluptime>96035</systemtotaluptime>
     </general>
     <input>
         <enablejoystick default="true">true</enablejoystick>
@@ -404,7 +404,7 @@
         <setting type="bool" name="skin.confluence.HomeMenuNoPicturesButton">true</setting>
         <setting type="bool" name="skin.confluence.HomeMenuNoVideosButton">false</setting>
         <setting type="bool" name="skin.confluence.HomeMenuNoMusicButton">false</setting>
-        <setting type="bool" name="skin.confluence.HomeMenuNoProgramsButton">true</setting>
+        <setting type="bool" name="skin.confluence.HomeMenuNoProgramsButton">false</setting>
         <setting type="bool" name="skin.confluence.AutoScroll">true</setting>
         <setting type="bool" name="skin.confluence.FirstTimeRun">true</setting>
         <setting type="bool" name="skin.confluence.HideFilenameFlagging">false</setting>
@@ -567,6 +567,6 @@
     </viewstates>
     <audio>
         <mute>false</mute>
-        <fvolumelevel>0.811111</fvolumelevel>
+        <fvolumelevel>0.726667</fvolumelevel>
     </audio>
 </settings>

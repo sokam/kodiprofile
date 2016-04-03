@@ -20,15 +20,11 @@ along with this program. If not, see <http://www.gnu.org/licenses/>.
 import re
 import json
 import urllib
-from t0mm0.common.net import Net
-from urlresolver import common
-from urlresolver.plugnplay.interfaces import UrlResolver
-from urlresolver.plugnplay.interfaces import PluginSettings
-from urlresolver.plugnplay import Plugin
 import xbmcgui
+from urlresolver import common
+from urlresolver.resolver import UrlResolver, ResolverError
 
-class OKResolver(Plugin, UrlResolver, PluginSettings):
-    implements = [UrlResolver, PluginSettings]
+class OKResolver(UrlResolver):
     name = "ok.ru"
     domains = ['ok.ru', 'odnoklassniki.ru']
     pattern = '(?://|\.)(ok.ru|odnoklassniki.ru)/(?:videoembed|video)/(.+)'
@@ -36,9 +32,7 @@ class OKResolver(Plugin, UrlResolver, PluginSettings):
     qual_map = {'full': '1080', 'hd': '720', 'sd': '480', 'low': '360', 'lowest': '240', 'mobile': '144'}
 
     def __init__(self):
-        p = self.get_setting('priority') or 100
-        self.priority = int(p)
-        self.net = Net()
+        self.net = common.Net()
 
     def get_media_url(self, host, media_id):
         vids = self.__get_Metadata(media_id)
@@ -64,9 +58,9 @@ class OKResolver(Plugin, UrlResolver, PluginSettings):
         if result != -1:
             return purged_jsonvars[lines[result]].encode('utf-8')
         else:
-            raise UrlResolver.ResolverError('No link selected')
+            raise ResolverError('No link selected')
 
-        raise UrlResolver.ResolverError('No video found')
+        raise ResolverError('No video found')
 
     def __replaceQuality(self, qual):
         return self.qual_map.get(qual.lower(), '000')
@@ -90,11 +84,12 @@ class OKResolver(Plugin, UrlResolver, PluginSettings):
             return r.groups()
         else:
             return False
-    
+
     def valid_url(self, url, host):
         return re.search(self.pattern, url) or self.name in host
 
-    def get_settings_xml(self):
-        xml = PluginSettings.get_settings_xml(self)
-        xml += '<setting id="%s_auto_pick" type="bool" label="Automatically pick best quality" default="false" visible="true"/>' % (self.__class__.__name__)
+    @classmethod
+    def get_settings_xml(cls):
+        xml = super(cls, cls).get_settings_xml()
+        xml.append('<setting id="%s_auto_pick" type="bool" label="Automatically pick best quality" default="false" visible="true"/>' % (cls.__name__))
         return xml

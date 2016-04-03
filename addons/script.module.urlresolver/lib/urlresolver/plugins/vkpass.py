@@ -17,22 +17,16 @@ along with this program. If not, see <http://www.gnu.org/licenses/>.
 """
 import re
 import xbmcgui
-from t0mm0.common.net import Net
-from urlresolver.plugnplay.interfaces import UrlResolver
-from urlresolver.plugnplay.interfaces import PluginSettings
-from urlresolver.plugnplay import Plugin
 from urlresolver import common
+from urlresolver.resolver import UrlResolver, ResolverError
 
-class VKPassResolver(Plugin, UrlResolver, PluginSettings):
-    implements = [UrlResolver, PluginSettings]
+class VKPassResolver(UrlResolver):
     name = "VKPass.com"
     domains = ["vkpass.com"]
     pattern = '(?://|\.)(vkpass\.com)/token/(.+)'
 
     def __init__(self):
-        p = self.get_setting('priority') or 100
-        self.priority = int(p)
-        self.net = Net()
+        self.net = common.Net()
 
     def get_media_url(self, host, media_id):
         base_url = self.get_url(host, media_id)
@@ -42,7 +36,7 @@ class VKPassResolver(Plugin, UrlResolver, PluginSettings):
         html5 = re.findall('}\((.*?)\)\)<', html)
 
         if not vBlocks and not html5:
-            raise UrlResolver.ResolverError('No vsource found')
+            raise ResolverError('No vsource found')
 
         data = dict()
         data['purged_jsonvars'] = {}
@@ -68,13 +62,13 @@ class VKPassResolver(Plugin, UrlResolver, PluginSettings):
         if result != -1:
             return data['purged_jsonvars'][data['lines'][result]].encode('utf-8') + '|User-Agent=%s' % (common.IE_USER_AGENT)
         else:
-            raise UrlResolver.ResolverError('No link selected')
+            raise ResolverError('No link selected')
 
     def __decodeLinks(self, html, list, data):
         if "source" not in list:
             return data
 
-        numerals="0123456789abcdefghijklmnopqrstuvwxyz"
+        numerals = "0123456789abcdefghijklmnopqrstuvwxyz"
         letters = re.findall('([0-9a-z])', html)
         for letter in letters:
             html = re.sub('\\b' + letter + '\\b', list[numerals.index(letter)], html)
@@ -123,7 +117,8 @@ class VKPassResolver(Plugin, UrlResolver, PluginSettings):
     def valid_url(self, url, host):
         return re.search(self.pattern, url) or self.name in host
 
-    def get_settings_xml(self):
-        xml = PluginSettings.get_settings_xml(self)
-        xml += '<setting id="%s_auto_pick" type="bool" label="Automatically pick best quality" default="false" visible="true"/>' % (self.__class__.__name__)
+    @classmethod
+    def get_settings_xml(cls):
+        xml = super(cls, cls).get_settings_xml()
+        xml.append('<setting id="%s_auto_pick" type="bool" label="Automatically pick best quality" default="false" visible="true"/>' % (cls.__name__))
         return xml

@@ -1,5 +1,7 @@
 #LWP-Cookies-2.0
 Set-Cookie3: __cfduid=d7ea3b0fe8e26dcf3d938208e8342f8201448936942; path="/"; domain=".izlemeyedeger.com"; path_spec; domain_dot; expires="2016-11-30 02:29:02Z"; HttpOnly=None; version=0
-Set-Cookie3: 3360235228a92d33cd802fb1756ceda2=1; path="/"; domain="www.izlemeyedeger.com"; expires="2016-03-14 06:15:13Z"; version=0
-Set-Cookie3: 33951b89bad32c2e6e11cabd85d5977f=1; path="/"; domain="www.izlemeyedeger.com"; expires="2016-03-14 05:10:53Z"; version=0
+Set-Cookie3: PHPSESSID=r6nr8dilfb44m2i97o2ioaabq5; path="/"; domain="dev.izlemeyedeger.com"; path_spec; discard; version=0
+Set-Cookie3: 2068778d4a69a4bcc36d87f60338517a=1; path="/"; domain="www.izlemeyedeger.com"; expires="2016-04-27 06:44:39Z"; version=0
+Set-Cookie3: 33951b89bad32c2e6e11cabd85d5977f=1; path="/"; domain="www.izlemeyedeger.com"; expires="2016-04-28 07:00:06Z"; version=0
+Set-Cookie3: 671b2dbcc5c97cc9da58032f5254227e=1; path="/"; domain="www.izlemeyedeger.com"; expires="2016-04-27 03:32:50Z"; version=0
 Set-Cookie3: PHPSESSID=b4de95e35ab05e90f98d3d266611e778; path="/"; domain="www.izlemeyedeger.com"; path_spec; discard; version=0

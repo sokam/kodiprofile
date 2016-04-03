@@ -1,5 +1,0 @@
-Version 1.0.7 01JAN2015
-
-Change of repo home
-
-repository.mx:

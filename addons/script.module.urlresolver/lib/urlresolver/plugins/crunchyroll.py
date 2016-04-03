@@ -17,43 +17,38 @@ along with this program. If not, see <http://www.gnu.org/licenses/>.
 '''
 
 import re
-from t0mm0.common.net import Net
-from urlresolver.plugnplay.interfaces import UrlResolver
-from urlresolver.plugnplay.interfaces import PluginSettings
-from urlresolver.plugnplay import Plugin
+from urlresolver import common
+from urlresolver.resolver import UrlResolver, ResolverError
 
-class CrunchyRollResolver(Plugin, UrlResolver, PluginSettings):
-    implements = [UrlResolver, PluginSettings]
+class CrunchyRollResolver(UrlResolver):
     name = "crunchyroll"
-    domains = [ "crunchyroll.com" ]
+    domains = ["crunchyroll.com"]
     pattern = '(?://|\.)(crunchyroll\.com)/.+?/.+?([^a-zA-Z-+]{6})'
 
     def __init__(self):
-        p = self.get_setting('priority') or 100
-        self.priority = int(p)
-        self.net = Net()
+        self.net = common.Net()
 
     def get_media_url(self, host, media_id):
         web_url = self.get_url(host, media_id)
-        html=self.net.http_GET('http://www.crunchyroll.com/android_rpc/?req=RpcApiAndroid_GetVideoWithAcl&media_id=%s'% media_id,{'Host':'www.crunchyroll.com',
-             'X-Device-Uniqueidentifier':'ffffffff-931d-1f73-ffff-ffffaf02fc5f',
-             'X-Device-Manufacturer':'HTC',
-             'X-Device-Model':'HTC Desire',
-             'X-Application-Name':'com.crunchyroll.crunchyroid',
-             'X-Device-Product':'htc_bravo',
-             'X-Device-Is-GoogleTV':'0'}).content
-        mp4=re.compile(r'"video_url":"(.+?)","h"').findall(html.replace('\\',''))[0]
+        html = self.net.http_GET('http://www.crunchyroll.com/android_rpc/?req=RpcApiAndroid_GetVideoWithAcl&media_id=%s' % media_id, {'Host': 'www.crunchyroll.com',
+                                                                                                                                      'X-Device-Uniqueidentifier': 'ffffffff-931d-1f73-ffff-ffffaf02fc5f',
+                                                                                                                                      'X-Device-Manufacturer': 'HTC',
+                                                                                                                                      'X-Device-Model': 'HTC Desire',
+                                                                                                                                      'X-Application-Name': 'com.crunchyroll.crunchyroid',
+                                                                                                                                      'X-Device-Product': 'htc_bravo',
+                                                                                                                                      'X-Device-Is-GoogleTV': '0'}).content
+        mp4 = re.compile(r'"video_url":"(.+?)","h"').findall(html.replace('\\', ''))[0]
         return mp4
 
     def get_url(self, host, media_id):
         return 'http://www.crunchyroll.com/android_rpc/?req=RpcApiAndroid_GetVideoWithAcl&media_id=%s' % media_id
-        
+
     def get_host_and_id(self, url):
         r = re.search(self.pattern, url)
         if r:
             return r.groups()
         else:
             return False
-    
+
     def valid_url(self, url, host):
         return re.search(self.pattern, url) or self.name in host

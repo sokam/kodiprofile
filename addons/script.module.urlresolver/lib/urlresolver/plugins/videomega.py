@@ -22,23 +22,17 @@
 import re
 import urllib
 import urllib2
-from t0mm0.common.net import Net
 from lib import jsunpack
 from urlresolver import common
-from urlresolver.plugnplay.interfaces import UrlResolver
-from urlresolver.plugnplay.interfaces import PluginSettings
-from urlresolver.plugnplay import Plugin
+from urlresolver.resolver import UrlResolver, ResolverError
 
-class VideoMegaResolver(Plugin, UrlResolver, PluginSettings):
-    implements = [UrlResolver, PluginSettings]
+class VideoMegaResolver(UrlResolver):
     name = "videomega"
     domains = ["videomega.tv"]
     pattern = '(?://|\.)(videomega\.tv)/(?:(?:iframe|cdn|validatehash|view)\.php)?\?(?:ref|hashkey)=([a-zA-Z0-9]+)'
 
     def __init__(self):
-        p = self.get_setting('priority') or 100
-        self.priority = int(p)
-        self.net = Net()
+        self.net = common.Net()
 
     def get_media_url(self, host, media_id):
         web_url = self.get_url(host, media_id)
@@ -46,7 +40,7 @@ class VideoMegaResolver(Plugin, UrlResolver, PluginSettings):
             'User-Agent': common.IOS_USER_AGENT,
             'Referer': web_url
         }
-        
+
         html = self.net.http_GET(web_url, headers=headers).content
         if jsunpack.detect(html):
             js_data = jsunpack.unpack(html)
@@ -62,9 +56,9 @@ class VideoMegaResolver(Plugin, UrlResolver, PluginSettings):
                 stream_url += '|' + urllib.urlencode(headers)
                 return stream_url
         except:
-            UrlResolver.ResolverError("File Not Playable")
+            ResolverError("File Not Playable")
 
-        raise UrlResolver.ResolverError('No playable video found.')
+        raise ResolverError('No playable video found.')
 
     def get_url(self, host, media_id):
         return 'http://videomega.tv/cdn.php?ref=%s' % media_id
