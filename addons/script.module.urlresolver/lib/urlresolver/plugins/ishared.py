@@ -17,22 +17,17 @@ along with this program. If not, see <http://www.gnu.org/licenses/>.
 """
 
 import re
-from t0mm0.common.net import Net
 from lib import jsunpack
-from urlresolver.plugnplay.interfaces import UrlResolver
-from urlresolver.plugnplay.interfaces import PluginSettings
-from urlresolver.plugnplay import Plugin
+from urlresolver import common
+from urlresolver.resolver import UrlResolver, ResolverError
 
-class IsharedResolver(Plugin, UrlResolver, PluginSettings):
-    implements = [UrlResolver, PluginSettings]
+class IsharedResolver(UrlResolver):
     name = 'ishared.eu'
-    domains = [ 'ishared.eu' ]
+    domains = ['ishared.eu']
     pattern = '(?://|\.)(ishared\.eu)/(?:video|embed)/(.*?)(?:/|$)'
 
     def __init__(self):
-        p = self.get_setting('priority') or 100
-        self.priority = int(p)
-        self.net = Net()
+        self.net = common.Net()
 
     def get_media_url(self, host, media_id):
         web_url = self.get_url(host, media_id)
@@ -41,7 +36,7 @@ class IsharedResolver(Plugin, UrlResolver, PluginSettings):
 
         unpacked = ''
         packed = html.split('\n')
-        for i in packed: 
+        for i in packed:
             try: unpacked += jsunpack.unpack(i).replace('\\\'', '\'')
             except: pass
         html += unpacked
@@ -53,8 +48,8 @@ class IsharedResolver(Plugin, UrlResolver, PluginSettings):
             stream_url = re.findall('var\s+%s\s*=\s*\'(.+?)\'' % match[0], html)
             if stream_url:
                 return stream_url[0]
-            
-        raise UrlResolver.ResolverError('File Not Found or removed')
+
+        raise ResolverError('File Not Found or removed')
 
     def get_url(self, host, media_id):
         return 'http://ishared.eu/embed/%s' % media_id
@@ -65,6 +60,6 @@ class IsharedResolver(Plugin, UrlResolver, PluginSettings):
             return r.groups()
         else:
             return False
-    
+
     def valid_url(self, url, host):
         return re.search(self.pattern, url) or self.name in host

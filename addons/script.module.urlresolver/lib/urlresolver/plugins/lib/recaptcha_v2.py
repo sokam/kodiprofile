@@ -27,6 +27,7 @@ import xbmcgui
 from urlresolver import common
 
 class cInputWindow(xbmcgui.WindowDialog):
+
     def __init__(self, *args, **kwargs):
         bg_image = os.path.join(common.addon_path, 'resources', 'images', 'DialogBack2.png')
         check_image = os.path.join(common.addon_path, 'resources', 'images', 'checked.png')
@@ -128,6 +129,7 @@ class cInputWindow(xbmcgui.WindowDialog):
             self.close()
 
 class UnCaptchaReCaptcha:
+
     def processCaptcha(self, key, lang):
         headers = {'Referer': 'https://www.google.com/recaptcha/api2/demo', 'Accept-Language': lang}
         html = get_url('http://www.google.com/recaptcha/api/fallback?k=%s' % (key), headers=headers)
@@ -142,9 +144,9 @@ class UnCaptchaReCaptcha:
             if not message:
                 token = re.findall('"this\.select\(\)">(.*?)</textarea>', html)[0]
                 if token:
-                    common.addon.log_debug('Captcha Success: %s' % (token))
+                    common.log_utils.log_debug('Captcha Success: %s' % (token))
                 else:
-                    common.addon.log_debug('Captcha Failed: %s')
+                    common.log_utils.log_debug('Captcha Failed: %s')
                 break
             else:
                 message = message[0]
@@ -162,14 +164,14 @@ class UnCaptchaReCaptcha:
             html = get_url("http://www.google.com/recaptcha/api/fallback?k=%s" % (key), data=data, headers=headers)
         return token
 
-# TODO: Replace with Net() when urlencode is fixed in _fetch
+# TODO: Replace with common.Net() when urlencode is fixed in _fetch
 def get_url(url, data=None, timeout=20, headers=None):
     if headers is None: headers = {}
     if data is None: data = {}
     post_data = urllib.urlencode(data, doseq=True)
     if 'User-Agent' not in headers:
         headers['User-Agent'] = common.FF_USER_AGENT
-    common.addon.log_debug('URL: |%s| Data: |%s| Headers: |%s|' % (url, post_data, headers))
+    common.log_utils.log_debug('URL: |%s| Data: |%s| Headers: |%s|' % (url, post_data, headers))
 
     req = urllib2.Request(url)
     for key in headers:

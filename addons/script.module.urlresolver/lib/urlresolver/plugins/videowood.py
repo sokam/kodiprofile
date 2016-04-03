@@ -17,22 +17,17 @@
 """
 
 import re
-from t0mm0.common.net import Net
 from lib import jsunpack
-from urlresolver.plugnplay.interfaces import UrlResolver
-from urlresolver.plugnplay.interfaces import PluginSettings
-from urlresolver.plugnplay import Plugin
+from urlresolver import common
+from urlresolver.resolver import UrlResolver, ResolverError
 
-class VideowoodResolver(Plugin, UrlResolver, PluginSettings):
-    implements = [UrlResolver, PluginSettings]
+class VideowoodResolver(UrlResolver):
     name = "videowood"
     domains = ['videowood.tv']
     pattern = '(?://|\.)(videowood\.tv)/(?:embed/|video/)([0-9a-z]+)'
 
     def __init__(self):
-        p = self.get_setting('priority') or 100
-        self.priority = int(p)
-        self.net = Net()
+        self.net = common.Net()
 
     def get_media_url(self, host, media_id):
         web_url = self.get_url(host, media_id)
@@ -40,7 +35,7 @@ class VideowoodResolver(Plugin, UrlResolver, PluginSettings):
         headers = {'Referer': web_url}
         html = self.net.http_GET(web_url, headers=headers).content
         if "This video doesn't exist." in html:
-            raise UrlResolver.ResolverError('The requested video was not found.')
+            raise ResolverError('The requested video was not found.')
         packed = re.search('(eval\(function\(p,a,c,k,e,d\)\{.+\))', html)
         unpacked = None
         if packed:
@@ -54,7 +49,7 @@ class VideowoodResolver(Plugin, UrlResolver, PluginSettings):
         if stream_url:
             return stream_url
         else:
-            raise UrlResolver.ResolverError('File not found')
+            raise ResolverError('File not found')
 
     def get_url(self, host, media_id):
         return 'http://videowood.tv/embed/%s' % media_id

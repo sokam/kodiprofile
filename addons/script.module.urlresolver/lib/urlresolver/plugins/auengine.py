@@ -18,21 +18,16 @@
 
 import re
 import urllib
-from t0mm0.common.net import Net
-from urlresolver.plugnplay.interfaces import UrlResolver
-from urlresolver.plugnplay.interfaces import PluginSettings
-from urlresolver.plugnplay import Plugin
+from urlresolver import common
+from urlresolver.resolver import UrlResolver, ResolverError
 
-class AuEngineResolver(Plugin, UrlResolver, PluginSettings):
-    implements = [UrlResolver, PluginSettings]
+class AuEngineResolver(UrlResolver):
     name = "auengine.com"
-    domains = [ "auengine.com" ]
+    domains = ["auengine.com"]
     pattern = '(?://|\.)(auengine\.com)/embed.php\?file=([0-9a-zA-Z\-_]+)[&]*'
 
     def __init__(self):
-        p = self.get_setting('priority') or 100
-        self.priority = int(p)
-        self.net = Net()
+        self.net = common.Net()
 
     def get_media_url(self, host, media_id):
         web_url = self.get_url(host, media_id)
@@ -42,10 +37,10 @@ class AuEngineResolver(Plugin, UrlResolver, PluginSettings):
         if r:
             return urllib.unquote_plus(r.group(1))
         else:
-            raise UrlResolver.ResolverError('no file located')
+            raise ResolverError('no file located')
 
     def get_url(self, host, media_id):
-            return 'http://www.auengine.com/embed.php?file=%s' % (media_id)
+        return 'http://www.auengine.com/embed.php?file=%s' % (media_id)
 
     def get_host_and_id(self, url):
         r = re.search(self.pattern, url)
@@ -53,6 +48,6 @@ class AuEngineResolver(Plugin, UrlResolver, PluginSettings):
             return r.groups()
         else:
             return False
-    
+
     def valid_url(self, url, host):
         return re.search(self.pattern, url) or self.name in host

@@ -130,6 +130,11 @@ def addDir(name,url,mode,thumb,movie_title,total_items,trakt_id,media,fanart=Non
         #     if get_setting('error_notify') == "true":
         #         notify(header='List Error',msg='Some items not loaded',duration=5000,sound=None)
 
+
+
+
+
+
 def create_item(queries, label, thumb='', fanart='', is_folder=None, is_playable=None, total_items=0, menu_items=None, replace_menu=False):
     list_item = xbmcgui.ListItem(label, iconImage=thumb, thumbnailImage=thumb)
     add_item(queries, list_item, fanart, is_folder, is_playable, total_items, menu_items, replace_menu)

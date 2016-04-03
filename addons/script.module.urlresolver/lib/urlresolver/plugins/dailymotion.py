@@ -19,27 +19,22 @@ along with this program. If not, see <http://www.gnu.org/licenses/>.
 import re
 import json
 import urllib2
-from t0mm0.common.net import Net
-from urlresolver.plugnplay.interfaces import UrlResolver
-from urlresolver.plugnplay.interfaces import PluginSettings
-from urlresolver.plugnplay import Plugin
+from urlresolver import common
+from urlresolver.resolver import UrlResolver, ResolverError
 
-class DailymotionResolver(Plugin, UrlResolver, PluginSettings):
-    implements = [UrlResolver, PluginSettings]
+class DailymotionResolver(UrlResolver):
     name = "dailymotion"
-    domains = [ "dailymotion.com" ]
+    domains = ["dailymotion.com"]
     pattern = '(?://|\.)(dailymotion\.com)/(?:video|embed|sequence|swf)(?:/video)?/([0-9a-zA-Z]+)'
 
     def __init__(self):
-        p = self.get_setting('priority') or 100
-        self.priority = int(p)
-        self.net = Net()
+        self.net = common.Net()
 
     def get_media_url(self, host, media_id):
         web_url = self.get_url(host, media_id)
         html = self.net.http_GET(web_url).content
 
-        html = re.search('({"context".+?)\);\n',html, re.DOTALL)
+        html = re.search('({"context".+?)\);\n', html, re.DOTALL)
         if html:
             html = json.loads(html.group(1))
             if 'metadata' in html: html = html['metadata']
@@ -51,7 +46,7 @@ class DailymotionResolver(Plugin, UrlResolver, PluginSettings):
                 err_title = err_title['title']
             else:
                 err_title = 'Content not available.'
-            raise UrlResolver.ResolverError(err_title)
+            raise ResolverError(err_title)
 
         if 'qualities' in html:
             html = html['qualities']
@@ -96,12 +91,12 @@ class DailymotionResolver(Plugin, UrlResolver, PluginSettings):
             return r.groups()
         else:
             return False
-    
+
     def valid_url(self, url, host):
         return re.search(self.pattern, url) or self.name in host
 
-    def get_settings_xml(self):
-        xml = PluginSettings.get_settings_xml(self)
-        xml += '<setting label="Video Quality" id="%s_quality" ' % self.__class__.__name__
-        xml += 'type="enum" values="High|Medium|Low" default="0" />\n'
+    @classmethod
+    def get_settings_xml(cls):
+        xml = super(cls, cls).get_settings_xml()
+        xml.append('<setting label="Video Quality" id="%s_quality" type="enum" values="High|Medium|Low" default="0" />' % (cls.__name__))
         return xml

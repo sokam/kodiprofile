@@ -19,22 +19,16 @@ along with this program. If not, see <http://www.gnu.org/licenses/>.
 import re
 import base64
 import urllib
-from t0mm0.common.net import Net
 from urlresolver import common
-from urlresolver.plugnplay.interfaces import UrlResolver
-from urlresolver.plugnplay.interfaces import PluginSettings
-from urlresolver.plugnplay import Plugin
+from urlresolver.resolver import UrlResolver, ResolverError
 
-class NosvideoResolver(Plugin, UrlResolver, PluginSettings):
-    implements = [UrlResolver, PluginSettings]
+class NosvideoResolver(UrlResolver):
     name = "nosvideo"
     domains = ["nosvideo.com", "noslocker.com"]
     pattern = '(?://|\.)(nosvideo.com|noslocker.com)/(?:\?v\=|embed/|.+?\u=)?([0-9a-zA-Z]+)'
 
     def __init__(self):
-        p = self.get_setting('priority') or 100
-        self.priority = int(p)
-        self.net = Net()
+        self.net = common.Net()
 
     def get_media_url(self, host, media_id):
         web_url = self.get_url(host, media_id)
@@ -42,13 +36,13 @@ class NosvideoResolver(Plugin, UrlResolver, PluginSettings):
         html = self.net.http_GET(web_url).content
 
         if 'File Not Found' in html:
-            raise UrlResolver.ResolverError('File Not Found')
+            raise ResolverError('File Not Found')
 
         r = re.search('class\s*=\s*[\'|\"]btn.+?[\'|\"]\s+href\s*=\s*[\'|\"](.+?)[\'|\"]', html)
         if not r:
-            raise UrlResolver.ResolverError('File Not Found')
+            raise ResolverError('File Not Found')
 
-        headers = { 'Referer': r.group(1) }
+        headers = {'Referer': r.group(1)}
 
         web_url = 'http://nosvideo.com/vj/video.php?u=%s&w=&h=530' % media_id
 
@@ -60,15 +54,15 @@ class NosvideoResolver(Plugin, UrlResolver, PluginSettings):
         if len(stream_url) > 0:
             stream_url = stream_url[0]
         else:
-            raise UrlResolver.ResolverError('Unable to locate video file')
+            raise ResolverError('Unable to locate video file')
 
         try: stream_url = base64.b64decode(stream_url)
         except: pass
 
-        stream_url += '|' + urllib.urlencode({ 'User-Agent': common.IE_USER_AGENT })
+        stream_url += '|' + urllib.urlencode({'User-Agent': common.IE_USER_AGENT})
 
         return stream_url
- 
+
     def get_url(self, host, media_id):
         return 'http://nosvideo.com/%s' % media_id
 
@@ -78,6 +72,6 @@ class NosvideoResolver(Plugin, UrlResolver, PluginSettings):
             return r.groups()
         else:
             return False
-    
+
     def valid_url(self, url, host):
         return re.search(self.pattern, url) or self.name in host

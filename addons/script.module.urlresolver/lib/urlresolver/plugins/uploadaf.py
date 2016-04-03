@@ -17,29 +17,24 @@ along with this program. If not, see <http://www.gnu.org/licenses/>.
 """
 
 import re
-from t0mm0.common.net import Net
 from lib import captcha_lib
-from urlresolver.plugnplay.interfaces import UrlResolver
-from urlresolver.plugnplay.interfaces import PluginSettings
-from urlresolver.plugnplay import Plugin
+from urlresolver import common
+from urlresolver.resolver import UrlResolver, ResolverError
 
 MAX_TRIES = 3
 
-class UploadAfResolver(Plugin, UrlResolver, PluginSettings):
-    implements = [UrlResolver, PluginSettings]
+class UploadAfResolver(UrlResolver):
     name = "upload.af"
     domains = ["upload.af"]
     pattern = '(?://|\.)(upload\.af)/([0-9a-zA-Z/]+)'
 
     def __init__(self):
-        p = self.get_setting('priority') or 100
-        self.priority = int(p)
-        self.net = Net()
+        self.net = common.Net()
 
     def get_media_url(self, host, media_id):
         web_url = self.get_url(host, media_id)
         html = self.net.http_GET(web_url).content
-        
+
         tries = 0
         while tries < MAX_TRIES:
             data = {}
@@ -48,17 +43,17 @@ class UploadAfResolver(Plugin, UrlResolver, PluginSettings):
                 data[key] = value
             data['method_free'] = 'Free Download >>'
             data.update(captcha_lib.do_captcha(html))
-            
+
             html = self.net.http_POST(web_url, form_data=data).content
             match = re.search('href="([^"]+)[^>]*>Download<', html, re.DOTALL)
             if match:
                 return match.group(1)
             tries += 1
 
-        raise UrlResolver.ResolverError('Unable to resolve upload.af link. Filelink not found.')
+        raise ResolverError('Unable to resolve upload.af link. Filelink not found.')
 
     def get_url(self, host, media_id):
-            return 'http://upload.af/%s' % (media_id)
+        return 'http://upload.af/%s' % (media_id)
 
     def get_host_and_id(self, url):
         r = re.search(self.pattern, url)
@@ -66,6 +61,6 @@ class UploadAfResolver(Plugin, UrlResolver, PluginSettings):
             return r.groups()
         else:
             return False
-    
+
     def valid_url(self, url, host):
         return re.search(self.pattern, url) or self.name in host

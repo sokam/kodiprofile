@@ -51,9 +51,14 @@ class seasons:
 
     def get(self, tvshowtitle, year, imdb, tvdb, idx=True):
         if idx == True:
-            self.list = cache.get(self.tvdb_list, 24, tvshowtitle, year, imdb, tvdb, self.lang)
-            self.seasonDirectory(self.list)
-            return self.list
+            if control.setting('flatten.tvshows') == 'true' or control.window.getProperty('PseudoTVRunning') == 'True':
+                self.list = cache.get(self.tvdb_list, 1, tvshowtitle, year, imdb, tvdb, self.lang, '-1')
+                episodes().episodeDirectory(self.list)
+                return self.list
+            else:
+                self.list = cache.get(self.tvdb_list, 24, tvshowtitle, year, imdb, tvdb, self.lang)
+                self.seasonDirectory(self.list)
+                return self.list
         else:
             self.list = self.tvdb_list(tvshowtitle, year, imdb, tvdb, 'en')
             return self.list
@@ -481,7 +486,7 @@ class episodes:
         self.tvdb_poster = 'http://thetvdb.com/banners/_cache/'
 
         self.added_link = 'http://api-v2launch.trakt.tv/calendars/all/shows/date[6]/7/'
-        self.mycalendar_link = 'http://api-v2launch.trakt.tv/calendars/my/shows/date[59]/60/'
+        self.mycalendar_link = 'http://api-v2launch.trakt.tv/calendars/my/shows/date[29]/60/'
         self.trakthistory_link = 'http://api-v2launch.trakt.tv/users/%s/history/shows?limit=300' % self.trakt_user
         self.progress_link = 'http://api-v2launch.trakt.tv/users/%s/watched/shows' % self.trakt_user
         self.calendar_link = 'http://api-v2launch.trakt.tv/calendars/all/shows/%s/%s'

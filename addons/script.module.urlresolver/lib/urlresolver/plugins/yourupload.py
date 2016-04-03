@@ -18,22 +18,16 @@
 
 import re
 import urllib2
-from t0mm0.common.net import Net
 from urlresolver import common
-from urlresolver.plugnplay.interfaces import UrlResolver
-from urlresolver.plugnplay.interfaces import PluginSettings
-from urlresolver.plugnplay import Plugin
+from urlresolver.resolver import UrlResolver, ResolverError
 
-class YourUploadResolver(Plugin, UrlResolver, PluginSettings):
-    implements = [UrlResolver, PluginSettings]
+class YourUploadResolver(UrlResolver):
     name = "yourupload.com"
-    domains = [ "yourupload.com" ]
-    pattern = '(?://|\.)(yourupload\.com)/(?:watch|embed)/?([0-9A-Za-z]+)'
+    domains = ["yourupload.com", "yucache.net"]
+    pattern = '(?://|\.)(yourupload\.com|yucache\.net)/(?:watch|embed)?/?([0-9A-Za-z]+)'
 
     def __init__(self):
-        p = self.get_setting('priority') or 100
-        self.priority = int(p)
-        self.net = Net()
+        self.net = common.Net()
 
     def get_media_url(self, host, media_id):
         web_url = self.get_url(host, media_id)
@@ -50,12 +44,12 @@ class YourUploadResolver(Plugin, UrlResolver, PluginSettings):
             stream_url = r.group(1)
             stream_url = urllib2.urlopen(urllib2.Request(stream_url, headers=headers)).geturl()
 
-            return stream_url 
+            return stream_url
         else:
-            raise UrlResolver.ResolverError('no file located')
+            raise ResolverError('no file located')
 
     def get_url(self, host, media_id):
-            return 'http://www.yourupload.com/embed/%s' % media_id
+        return 'http://www.yourupload.com/embed/%s' % media_id
 
     def get_host_and_id(self, url):
         r = re.search(self.pattern, url)

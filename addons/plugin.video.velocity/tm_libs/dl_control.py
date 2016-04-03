@@ -177,6 +177,11 @@ def add_to_queue(name,url,thumb,ext,media):
 
         # Insert a row of data or return already there
         try:
+            #Quote Replacement
+            name = name.replace("'", "''")
+            media = media.replace("'", "''")
+            #END Quote Replacement
+
             conn.execute("INSERT INTO downloads VALUES ('"+name+"','"+url+"','"+thumb+"','"+ext+"','"+media+"')")
             addon.show_small_popup(title='[COLOR gold]Item Added To Your Queue [/COLOR]', msg=name + ' Was Added To Your Download Queue', delay=int(5000), image=thumb)
         except Exception as e:

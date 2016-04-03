@@ -17,27 +17,21 @@
 """
 
 import re
-from t0mm0.common.net import Net
 from urlresolver import common
-from urlresolver.plugnplay.interfaces import UrlResolver
-from urlresolver.plugnplay.interfaces import PluginSettings
-from urlresolver.plugnplay import Plugin
+from urlresolver.resolver import UrlResolver, ResolverError
 
-class BestreamsResolver(Plugin, UrlResolver, PluginSettings):
-    implements = [UrlResolver, PluginSettings]
+class BestreamsResolver(UrlResolver):
     name = "bestreams"
     domains = ["bestreams.net"]
     pattern = '(?://|\.)(bestreams\.net)/(?:embed-)?([0-9a-zA-Z]+)'
 
     def __init__(self):
-        p = self.get_setting('priority') or 100
-        self.priority = int(p)
-        self.net = Net()
+        self.net = common.Net()
 
     def get_media_url(self, host, media_id):
         web_url = self.get_url(host, media_id)
 
-        headers = { 'User-Agent': common.IOS_USER_AGENT }
+        headers = {'User-Agent': common.IOS_USER_AGENT}
 
         html = self.net.http_GET(web_url, headers=headers).content
 
@@ -46,7 +40,7 @@ class BestreamsResolver(Plugin, UrlResolver, PluginSettings):
         if r:
             return r.group(1)
         else:
-            raise UrlResolver.ResolverError("File Link Not Found")
+            raise ResolverError("File Link Not Found")
 
     def get_url(self, host, media_id):
         return 'http://bestreams.net/embed-%s.html' % media_id
@@ -57,6 +51,6 @@ class BestreamsResolver(Plugin, UrlResolver, PluginSettings):
             return r.groups()
         else:
             return False
-    
+
     def valid_url(self, url, host):
         return re.search(self.pattern, url) or self.name in host

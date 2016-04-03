@@ -30,11 +30,16 @@
 		<setting id="Movies_fav_slug" type="text" visible="false"/>
 		<setting id="trakt_oauth_token" label="AO TOKEN" type="text" default="" visible="false"/>
 		<setting id="trakt_refresh_token" label="REFRESH TOKEN" type="text" default="" visible="false"/>
+</category>
+
+<category label="Sorting">
+		<setting id="sort_movies" type="enum" label="Movie Sorting" values="Default|Title|Year" default="0"/>
+		<setting id="sort_tv" type="enum" label="TV Sorting" values="Default|Title|Year" default="0"/>
 
 </category>
 
 
-<category label="Enable Scrapers">
+<category label="Enable Providers">
 		<setting type="lsep" label="Provider Options" />
         <setting id="show_debrid" type="bool" label="Tag Debrid Supported Sources in Listings" default="true"/>
 		<setting id="filter_debrid" type="bool" label="Remove Suspected Bad sources-[COLOR gold]Not Recomended[/COLOR]" default="false"/>

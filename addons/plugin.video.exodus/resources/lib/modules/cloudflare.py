@@ -25,7 +25,7 @@ from resources.lib.modules import cache
 from resources.lib.modules import client
 
 
-def request(url, post=None, headers=None, mobile=False, safe=False, timeout='30'):
+def request(url, post=None, headers=None, mobile=False, safe=False, output='', timeout='30'):
     try:
         try: headers.update(headers)
         except: headers = {}
@@ -47,7 +47,9 @@ def request(url, post=None, headers=None, mobile=False, safe=False, timeout='30'
 
             result = client.request(url, cookie=cookie, post=post, headers=headers, mobile=mobile, safe=safe, timeout=timeout)
         else:
-            result= result[1]
+            result = result[1]
+
+        if output == 'extended': return (cookie, agent, result)
 
         return result
     except:
@@ -67,7 +69,7 @@ def cloudflareCookie(url, post, headers, mobile, safe, timeout):
         result = client.request(url, post=post, headers=headers, mobile=mobile, safe=safe, timeout=timeout, error=True)
 
         jschl = re.compile('name="jschl_vc" value="(.+?)"/>').findall(result)[0]
-        init = re.compile('setTimeout\(function\(\){\s*.*?.*:(.*?)};').findall(result)[0]
+        init = re.compile('setTimeout\(function\(\){\s*.*?.*:(.*?)};').findall(result)[-1]
         builder = re.compile(r"challenge-form\'\);\s*(.*)a.v").findall(result)[0]
         decryptVal = parseJSString(init)
         lines = builder.split(';')

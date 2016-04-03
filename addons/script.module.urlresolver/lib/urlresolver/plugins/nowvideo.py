@@ -17,21 +17,16 @@
 """
 
 import re
-from t0mm0.common.net import Net
-from urlresolver.plugnplay.interfaces import UrlResolver
-from urlresolver.plugnplay.interfaces import PluginSettings
-from urlresolver.plugnplay import Plugin
+from urlresolver import common
+from urlresolver.resolver import UrlResolver, ResolverError
 
-class NowvideoResolver(Plugin, UrlResolver, PluginSettings):
-    implements = [UrlResolver, PluginSettings]
+class NowvideoResolver(UrlResolver):
     name = "nowvideo"
     domains = ['nowvideo.eu', 'nowvideo.ch', 'nowvideo.sx', 'nowvideo.co', 'nowvideo.li']
     pattern = '(?://|\.)(nowvideo\.(?:eu|ch|sx|co|li))/(?:video/|embed\.php\?v=)([A-Za-z0-9]+)'
 
     def __init__(self):
-        p = self.get_setting('priority') or 100
-        self.priority = int(p)
-        self.net = Net()
+        self.net = common.Net()
 
     def get_media_url(self, host, media_id):
         web_url = self.get_url(host, media_id)
@@ -54,12 +49,12 @@ class NowvideoResolver(Plugin, UrlResolver, PluginSettings):
             if r:
                 stream_url = r.group(1)
             else:
-                raise UrlResolver.ResolverError('File Not Found or removed')
+                raise ResolverError('File Not Found or removed')
 
         return stream_url
 
     def get_url(self, host, media_id):
-        return 'http://embed.nowvideo.sx/embed.php?v=%s' % media_id
+        return 'http://embed.nowvideo.sx/embed/?v=%s' % media_id
 
     def get_host_and_id(self, url):
         r = re.search(self.pattern, url)
@@ -67,6 +62,6 @@ class NowvideoResolver(Plugin, UrlResolver, PluginSettings):
             return r.groups()
         else:
             return False
-    
+
     def valid_url(self, url, host):
         return re.search(self.pattern, url) or self.name in host

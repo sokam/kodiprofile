@@ -116,3 +116,26 @@ ver 0.34:
 	
 ver 0.35:
 	- bugfixes
+	
+ver 0.36:
+	- added more sd streams
+	- added xrxs.net for nhl
+	
+ver 0.37:
+	- added login for reddit (enter in addon settings)
+	- added different quality for xrxs.net streams
+	- added xrxs.net nhl archive
+	- fixed nba archive
+	
+ver 0.38:
+	- checking main reddit post for links
+	- fixed neulion streams
+
+ver 0.39:
+	- bugfixes
+	
+ver 0.40:
+	- fix nba
+	
+ver 0.41:
+	- fix windows issue

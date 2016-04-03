@@ -19,7 +19,7 @@ import HTMLParser
 import codecs
 
 # The following modules require an import entry in the addon.xml.
-import urlresolver.types
+import urlresolver
 from xbmcswift2 import Plugin
 from bs4 import BeautifulSoup
 
@@ -36,13 +36,13 @@ HOSTERS_BLACKLIST = [] # ["filenuke", "divxstage", "streamclou", "xvidstage", "r
 
 if plugintools.get_setting("use_anonymizer_site")=="true":
     ANON_URL = 'http://anonymouse.org/cgi-bin/anon-www.cgi/'
-    MAIN_URL = ANON_URL + 'http://www.movie4k.to/'
+    MAIN_URL = ANON_URL + 'http://www.movie4k.me/'
 elif plugintools.get_setting("use_alternative_site_url")=="true":
     MAIN_URL = plugintools.get_setting("alternative_site_url")
     if MAIN_URL[-1] != '/':
         MAIN_URL += '/'
 else:
-    MAIN_URL = 'http://www.movie4k.to/'
+    MAIN_URL = 'http://www.movie4k.me/'
 
 if plugintools.get_setting('clear_cache') == 'true':
     plugin.clear_function_cache()
@@ -201,6 +201,7 @@ def movies_updates(params):
 
     pattern  = '<TR id="coverPreview\d+">(.*?)</TR>'
     matches = plugintools.find_multiple_matches(body,pattern)
+    plugintools.log("movie4k.DEBUG: "+repr(len(matches)))
     for match in matches:
         pattern = '<a href="([^"]+)">([^<]+).*?<img border=0 src="([^"]+)'
         scrapedurl, scrapedtitle, flag = plugintools.find_single_match(match, pattern)
@@ -583,7 +584,7 @@ def resolve_media_direct_link(hosted_media_url):
         hosted_media_url = hosted_media_url[len(ANON_URL):]
         plugintools.log("movie4k.resolve truncated hosted_media_url=" + repr(hosted_media_url))
     plugintools.log("movie4k.resolve hosted_media_url=" + repr(hosted_media_url))
-    hosted_media_file = urlresolver.types.HostedMediaFile(url=hosted_media_url)
+    hosted_media_file = urlresolver.HostedMediaFile(url=hosted_media_url)
     plugintools.log("movie4k.resolve hosted_media_file=" + repr(bool(hosted_media_file)) + " " + repr(hosted_media_file))
     if hosted_media_file:
         direct_link = hosted_media_file.resolve()

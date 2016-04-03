@@ -17,23 +17,17 @@
 """
 
 import re
-from t0mm0.common.net import Net
 from urlresolver import common
-from urlresolver.plugnplay.interfaces import UrlResolver
-from urlresolver.plugnplay.interfaces import PluginSettings
-from urlresolver.plugnplay import Plugin
+from urlresolver.resolver import UrlResolver, ResolverError
 import xbmc
 
-class UpToBoxResolver(Plugin, UrlResolver, PluginSettings):
-    implements = [UrlResolver, PluginSettings]
+class UpToBoxResolver(UrlResolver):
     name = "uptobox"
     domains = ["uptobox.com", "uptostream.com"]
     pattern = '(?://|\.)(uptobox.com|uptostream.com)/(?:iframe/)?([0-9A-Za-z_]+)'
 
     def __init__(self):
-        p = self.get_setting('priority') or 100
-        self.priority = int(p)
-        self.net = Net()
+        self.net = common.Net()
         self.user_agent = common.IE_USER_AGENT
         self.net.set_user_agent(self.user_agent)
         self.headers = {'User-Agent': self.user_agent}
@@ -103,7 +97,7 @@ class UpToBoxResolver(Plugin, UrlResolver, PluginSettings):
         except:
             pass
 
-        raise UrlResolver.ResolverError('File not found')
+        raise ResolverError('File not found')
 
     def get_url(self, host, media_id):
         return 'http://uptobox.com/%s' % media_id
@@ -117,6 +111,6 @@ class UpToBoxResolver(Plugin, UrlResolver, PluginSettings):
             return r.groups()
         else:
             return False
-    
+
     def valid_url(self, url, host):
         return re.search(self.pattern, url) or self.name in host

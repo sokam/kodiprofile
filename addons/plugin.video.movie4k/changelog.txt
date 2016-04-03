@@ -1,3 +1,12 @@
+v1.4.4
+	* Update urlresolver dependency to 3.0.0.
+	* Adjust the code to the changes in the urlresolver's API.
+
+
+v1.4.3
+	* Use movie4k.me URL. Movie4k.to changed the HTML code and it is not prased correctly by the current regexes.
+
+
 v1.4.2
 	* Update unblocked URL.
 	* Do not enforce the thumbnail view in menus.

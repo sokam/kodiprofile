@@ -17,22 +17,16 @@
 """
 
 import re
-from t0mm0.common.net import Net
 from urlresolver import common
-from urlresolver.plugnplay.interfaces import UrlResolver
-from urlresolver.plugnplay.interfaces import PluginSettings
-from urlresolver.plugnplay import Plugin
+from urlresolver.resolver import UrlResolver, ResolverError
 
-class VeohResolver(Plugin, UrlResolver, PluginSettings):
-    implements = [UrlResolver, PluginSettings]
+class VeohResolver(UrlResolver):
     name = "veoh"
     domains = ["veoh.com"]
     pattern = '(?://|\.)(veoh\.com)/(?:watch/|.+?permalinkId=)?([0-9a-zA-Z/]+)'
 
     def __init__(self):
-        p = self.get_setting('priority') or 100
-        self.priority = int(p)
-        self.net = Net()
+        self.net = common.Net()
 
     def get_media_url(self, host, media_id):
         html = self.net.http_GET("http://www.veoh.com/iphone/views/watch.php?id=" + media_id + "&__async=true&__source=waBrowse").content
@@ -41,14 +35,14 @@ class VeohResolver(Plugin, UrlResolver, PluginSettings):
             if (len(r) > 0):
                 return r[0]
 
-        url = 'http://www.veoh.com/rest/video/'+media_id+'/details'
+        url = 'http://www.veoh.com/rest/video/' + media_id + '/details'
         html = self.net.http_GET(url).content
-        file = re.compile('fullPreviewHashPath="(.+?)"').findall(html)
+        file_id = re.compile('fullPreviewHashPath="(.+?)"').findall(html)
 
-        if len(file) == 0:
-            raise UrlResolver.ResolverError('File Not Found or removed')
+        if len(file_id) == 0:
+            raise ResolverError('File Not Found or removed')
 
-        return file[0]
+        return file_id[0]
 
     def get_url(self, host, media_id):
         return 'http://veoh.com/watch/%s' % media_id

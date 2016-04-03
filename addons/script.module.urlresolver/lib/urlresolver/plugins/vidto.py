@@ -16,22 +16,17 @@
 """
 
 import re
-from t0mm0.common.net import Net
 from lib import jsunpack
-from urlresolver.plugnplay.interfaces import UrlResolver
-from urlresolver.plugnplay.interfaces import PluginSettings
-from urlresolver.plugnplay import Plugin
+from urlresolver import common
+from urlresolver.resolver import UrlResolver, ResolverError
 
-class VidtoResolver(Plugin, UrlResolver, PluginSettings):
-    implements = [UrlResolver, PluginSettings]
+class VidtoResolver(UrlResolver):
     name = "vidto"
     domains = ["vidto.me"]
     pattern = '(?://|\.)(vidto\.me)/(?:embed-)?([0-9a-zA-Z]+)'
 
     def __init__(self):
-        p = self.get_setting('priority') or 100
-        self.priority = int(p)
-        self.net = Net()
+        self.net = common.Net()
 
     def get_media_url(self, host, media_id):
         web_url = self.get_url(host, media_id)
@@ -51,8 +46,8 @@ class VidtoResolver(Plugin, UrlResolver, PluginSettings):
             if stream_url:
                 return stream_url
             else:
-                raise UrlResolver.ResolverError("File Link Not Found")
-        
+                raise ResolverError("File Link Not Found")
+
     def get_url(self, host, media_id):
         return 'http://vidto.me/embed-%s.html' % media_id
 

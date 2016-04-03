@@ -601,7 +601,12 @@ class TraktAPI():
 				print "YOU JUST AUTHORIZED TRAKT"
 				#kodi.notify('TRAKT ','Account Authorized You may continue','5000','')
 			return True
-	
+
+	def search_tv(self, query, media='show'):
+		uri = '/search'
+		return self._call(uri, params={'query': query, 'type': media, 'extended': 'full,images'})
+
+
 	def _call(self, uri, data=None, params=None, auth=False, cache=False, timeout=None):
 		url = '%s%s' % (BASE_URL, uri)
 		if timeout is not None: self.timetout = timeout

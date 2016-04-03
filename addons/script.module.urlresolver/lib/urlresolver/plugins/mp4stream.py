@@ -19,21 +19,16 @@
 
 import re
 import urllib
-from t0mm0.common.net import Net
-from urlresolver.plugnplay.interfaces import UrlResolver
-from urlresolver.plugnplay.interfaces import PluginSettings
-from urlresolver.plugnplay import Plugin
+from urlresolver import common
+from urlresolver.resolver import UrlResolver, ResolverError
 
-class Mp4streamResolver(Plugin, UrlResolver, PluginSettings):
-    implements = [UrlResolver, PluginSettings]
+class Mp4streamResolver(UrlResolver):
     name = "mp4stream"
     domains = ["mp4stream.com"]
     pattern = '(?://|\.)(mp4stream\.com)/embed/([0-9a-zA-Z]+)'
 
     def __init__(self):
-        p = self.get_setting('priority') or 100
-        self.priority = int(p)
-        self.net = Net()
+        self.net = common.Net()
 
     def get_media_url(self, host, media_id):
         web_url = self.get_url(host, media_id)
@@ -42,15 +37,15 @@ class Mp4streamResolver(Plugin, UrlResolver, PluginSettings):
         html = response.content
         headers = dict(response._response.info().items())
 
-        r = re.search('sources\s*:\s*(\[.*?\])',html, re.DOTALL)
+        r = re.search('sources\s*:\s*(\[.*?\])', html, re.DOTALL)
 
         if r:
             html = r.group(1)
-            r = re.search("'file'\s*:\s*'(.+?)'",html)
+            r = re.search("'file'\s*:\s*'(.+?)'", html)
             if r:
-                return r.group(1) + '|' + urllib.urlencode({ 'Cookie': headers['set-cookie'] })
+                return r.group(1) + '|' + urllib.urlencode({'Cookie': headers['set-cookie']})
             else:
-                raise UrlResolver.ResolverError('File Not Found or removed')
+                raise ResolverError('File Not Found or removed')
 
     def get_url(self, host, media_id):
         return 'http://mp4stream.com/embed/%s' % media_id
@@ -61,6 +56,6 @@ class Mp4streamResolver(Plugin, UrlResolver, PluginSettings):
             return r.groups()
         else:
             return False
-    
+
     def valid_url(self, url, host):
         return re.search(self.pattern, url) or self.name in host

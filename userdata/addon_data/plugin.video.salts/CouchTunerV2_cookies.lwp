@@ -1,3 +1,2 @@
 #LWP-Cookies-2.0
-Set-Cookie3: __cfduid=dd7d26b9e07040561733c97a62f69498f1455165365; path="/"; domain=".couchtuner.at"; path_spec; domain_dot; expires="2017-02-10 04:36:05Z"; HttpOnly=None; version=0
-Set-Cookie3: glz__="a%3A5%3A%7Bs%3A10%3A%22session_id%22%3Bs%3A32%3A%22d5a13b8ae77ca3c1c35b20882b00ce01%22%3Bs%3A10%3A%22ip_address%22%3Bs%3A15%3A%22108.162.246.219%22%3Bs%3A10%3A%22user_agent%22%3Bs%3A74%3A%22Mozilla%2F5.0+%28Windows+NT+6.2%3B+Win64%3B+IA64%3B+Trident%2F7.0%3B+rv%3A11.0%29+like+Gecko%22%3Bs%3A13%3A%22last_activity%22%3Bi%3A1457243988%3Bs%3A9%3A%22user_data%22%3Bs%3A0%3A%22%22%3B%7Dd0239806a466990e828a2e9093c2dad3"; path="/"; domain="couchtuner.at"; path_spec; expires="2016-03-06 07:58:42Z"; version=0
+Set-Cookie3: __cfduid=d90d9cb1aa5113af9b7576d16bfa00f3e1457326143; path="/"; domain=".couchtuner.at"; path_spec; domain_dot; expires="2017-03-07 04:49:03Z"; HttpOnly=None; version=0

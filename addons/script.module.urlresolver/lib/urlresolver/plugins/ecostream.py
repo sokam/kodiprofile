@@ -18,47 +18,40 @@ along with this program. If not, see <http://www.gnu.org/licenses/>.
 
 import re
 import urllib2
-from t0mm0.common.net import Net
 from urlresolver import common
-from urlresolver.plugnplay.interfaces import UrlResolver
-from urlresolver.plugnplay.interfaces import PluginSettings
-from urlresolver.plugnplay import Plugin
+from urlresolver.resolver import UrlResolver, ResolverError
 
-
-class EcostreamResolver(Plugin, UrlResolver, PluginSettings):
-    implements = [UrlResolver, PluginSettings]
+class EcostreamResolver(UrlResolver):
     name = "ecostream"
-    domains = [ "ecostream.tv" ]
+    domains = ["ecostream.tv"]
     pattern = '(?://|\.)(ecostream.tv)/(?:stream|embed)?/([0-9a-zA-Z]+)'
 
     def __init__(self):
-        p = self.get_setting('priority') or 100
-        self.priority = int(p)
-        self.net = Net()
+        self.net = common.Net()
 
     def get_media_url(self, host, media_id):
         web_url = self.get_url(host, media_id)
         html = self.net.http_GET(web_url).content
         if re.search('>File not found!<', html):
-            raise UrlResolver.ResolverError('File Not Found or removed')
-        
+            raise ResolverError('File Not Found or removed')
+
         web_url = 'http://www.ecostream.tv/js/ecoss.js'
         js = self.net.http_GET(web_url).content
         r = re.search("\$\.post\('([^']+)'[^;]+'#auth'\).html\(''\)", js)
         if not r:
-            raise UrlResolver.ResolverError('Posturl not found')
+            raise ResolverError('Posturl not found')
 
         post_url = r.group(1)
         r = re.search('data\("tpm",([^\)]+)\);', js)
         if not r:
-            raise UrlResolver.ResolverError('Postparameterparts not found')
+            raise ResolverError('Postparameterparts not found')
         post_param_parts = r.group(1).split('+')
         found_parts = []
         for part in post_param_parts:
             pattern = "%s='([^']+)'" % part.strip()
             r = re.search(pattern, html)
             if not r:
-                raise UrlResolver.ResolverError('Formvaluepart not found')
+                raise ResolverError('Formvaluepart not found')
             found_parts.append(r.group(1))
         tpm = ''.join(found_parts)
         # emulate click on button "Start Stream"
@@ -68,7 +61,7 @@ class EcostreamResolver(Plugin, UrlResolver, PluginSettings):
         sPattern = '"url":"([^"]+)"'
         r = re.search(sPattern, html)
         if not r:
-            raise UrlResolver.ResolverError('Unable to resolve Ecostream link. Filelink not found.')
+            raise ResolverError('Unable to resolve Ecostream link. Filelink not found.')
         stream_url = 'http://www.ecostream.tv' + r.group(1)
         stream_url = urllib2.unquote(stream_url)
         stream_url = urllib2.urlopen(urllib2.Request(stream_url, headers=headers)).geturl()
@@ -76,7 +69,7 @@ class EcostreamResolver(Plugin, UrlResolver, PluginSettings):
         return stream_url
 
     def get_url(self, host, media_id):
-            return 'http://www.ecostream.tv/stream/%s.html' % (media_id)
+        return 'http://www.ecostream.tv/stream/%s.html' % (media_id)
 
     def get_host_and_id(self, url):
         r = re.search(self.pattern, url)
@@ -84,6 +77,6 @@ class EcostreamResolver(Plugin, UrlResolver, PluginSettings):
             return r.groups()
         else:
             return False
-    
+
     def valid_url(self, url, host):
         return re.search(self.pattern, url) or self.name in host

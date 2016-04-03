@@ -22,7 +22,7 @@ import urllib2,urllib,re,os
 import sys
 import time,datetime
 import urlresolver
-import urlresolver.plugnplay
+#import urlresolver.plugnplay
 import xbmcplugin,xbmcgui,xbmc, xbmcaddon, downloader, extract, time
 import tools
 from libs import kodi,trakt_auth,trakt
@@ -103,12 +103,28 @@ def menu():
 	kodi.addDir("Url Resolver Settings",'','resolver_settings',artwork+'resolver_settings.png','',1,'','',fanart=fanart,is_folder=False)
 	kodi.addDir("Set Download Folder",'','display_download_settings',artwork+'down_settings.png','',1,'','',fanart=fanart,is_folder=False)
 	kodi.addDir("Manage Downloads",'','viewQueue',artwork+'manage_downloads.png','',1,'','',fanart=fanart)
-	#kodi.addDir("PIN TEST ",'','get_pin',artwork+'update.png','',1,'','',fanart=fanart)
-	#kodi.addDir("Get Watched Stats ",'','get_watched_cache',artwork+'update.png','',1,'','',fanart=fanart)
-	#kodi.addDir("Update Watched TV ",'','get_cache',artwork+'update.png','',1,'','',fanart=fanart)
+	#kodi.addDir("VERSION TEST ",'','get_kversion',artwork+'update.png','',1,'','',fanart=fanart)
+
+	if  kodi.get_setting('trakt_authorized') =='true':
+		kodi.addDir("Clear Trakt User ",'','de_auth',artwork+'sign_out.png','',1,'','',fanart=fanart)
 	if  kodi.get_setting('trakt_authorized') =='false':
 		kodi.addDir("[COLOR gold]Trakt Integration[/COLOR]",messages+'trakt_auth.txt','get_pin',artwork+'trakt.png','',1,'','',fanart=fanart,is_playable=False,is_folder=True)
 	kodi.auto_view('menu')
+
+
+def get_kversion():
+	full_version_info = xbmc.getInfoLabel('System.BuildVersion')
+	baseversion = full_version_info.split(".")
+	return  baseversion[0]
+	# num = ''
+	# try: version = xbmcaddon.Addon('xbmc.addon').getAddonInfo('version')
+	# except: version = '999'
+	# for i in version:
+	# 	if i.isdigit(): num += i
+	# 	else: break
+	# 	print "HERE IS THE VERSION OF KODI"+ str(num)
+	# 	log_utils.log('Kodi Version is   %s' % int(num), '')
+	#print "here is buitlin   " + xbmc.getInfoLabel('System.BuildVersion')
 
 
 def movie_menu():
@@ -151,7 +167,7 @@ def tv_menu():
 			kodi.addDir("[COLOR gold]Anticipated TV Shows[/COLOR]",'get_anticipated_tvshows','call_trakt_tv',artwork+'tv_antic.png','',1,'','',fanart=fanart)
 			kodi.addDir("[COLOR gold]Watched TV History[/COLOR]",'get_watched_history','call_trakt_tv',artwork+'tv_watchhistory.png','',1,'','',fanart=fanart)
 			kodi.addDir("[COLOR gold]My Custom TV Lists[/COLOR]",'','custom_movie_lists',artwork+'custom_lists.png','',1,'',media,fanart=fanart)
-			kodi.addDir("[COLOR gold]Special TV Lists[/COLOR]",'','public_lists',artwork+'special_movie_lists.png','',1,'',media,fanart=fanart)
+			kodi.addDir("[COLOR gold]Network TV Lists[/COLOR]",'','public_lists',artwork+'networks.png','',1,'',media,fanart=fanart)
 	kodi.auto_view('menu')
 
 
@@ -164,12 +180,29 @@ def public_lists(media):
 		kodi.addDir('Underground','justin','get_public_lists',artwork+'special_movie_lists.png','',1,'underground-network',media,fanart=fanart)
 
 	if media == 'shows':
-		kodi.addDir("[COLOR gold]NBC Shows List[/COLOR]",'NBC','fancy_list',artwork+'special_movie_lists.png','',1,'cbs',media,fanart=fanart)
-		kodi.addDir("[COLOR gold]CBS Shows List[/COLOR]",'CBS','fancy_list',artwork+'special_movie_lists.png','',1,'nbc',media,fanart=fanart)
-		kodi.addDir("[COLOR gold]ABC Shows List[/COLOR]",'ABC','fancy_list',artwork+'special_movie_lists.png','',1,'abc',media,fanart=fanart)
-		kodi.addDir("[COLOR gold]FOX Shows List[/COLOR]",'FOX','fancy_list',artwork+'special_movie_lists.png','',1,'fox',media,fanart=fanart)
-		kodi.addDir("[COLOR gold]CW Shows List[/COLOR]",'CW','fancy_list',artwork+'special_movie_lists.png','',1,'cw',media,fanart=fanart)
-		kodi.addDir("[COLOR gold]HBO Shows List[/COLOR]",'HBO','fancy_list',artwork+'special_movie_lists.png','',1,'cw',media,fanart=fanart)
+		kodi.addDir("[COLOR gold]NBC [/COLOR]",'velocity2','get_public_lists',artwork+'networks.png','',1,'nbc',media,fanart=fanart)
+		kodi.addDir("[COLOR gold]CBS [/COLOR]",'velocity2','get_public_lists',artwork+'networks.png','',1,'cbs',media,fanart=fanart)
+		kodi.addDir("[COLOR gold]ABC [/COLOR]",'velocity2','get_public_lists',artwork+'networks.png','',1,'abc',media,fanart=fanart)
+		kodi.addDir("[COLOR gold]FOX [/COLOR]",'velocity2','get_public_lists',artwork+'networks.png','',1,'fox',media,fanart=fanart)
+		kodi.addDir("[COLOR gold]CW [/COLOR]",'velocity2','get_public_lists',artwork+'networks.png','',1,'cw',media,fanart=fanart)
+		kodi.addDir("[COLOR gold]HBO [/COLOR]",'velocity2','get_public_lists',artwork+'networks.png','',1,'hbo',media,fanart=fanart)
+
+		kodi.addDir("[COLOR gold]A&E [/COLOR]",'velocity2','get_public_lists',artwork+'networks.png','',1,'a-and-e',media,fanart=fanart)
+		kodi.addDir("[COLOR gold]AMC [/COLOR]",'velocity2','get_public_lists',artwork+'networks.png','',1,'amc',media,fanart=fanart)
+		kodi.addDir("[COLOR gold]Animal Planet [/COLOR]",'velocity2','get_public_lists',artwork+'networks.png','',1,'animal-planet',media,fanart=fanart)
+		kodi.addDir("[COLOR gold]BBC [/COLOR]",'velocity2','get_public_lists',artwork+'networks.png','',1,'bbc',media,fanart=fanart)
+		kodi.addDir("[COLOR gold]Discovery Channel [/COLOR]",'velocity2','get_public_lists',artwork+'networks.png','',1,'discovery-channel',media,fanart=fanart)
+		kodi.addDir("[COLOR gold]Hallmark [/COLOR]",'velocity2','get_public_lists',artwork+'networks.png','',1,'hallmark',media,fanart=fanart)
+
+		kodi.addDir("[COLOR gold]Lifetime [/COLOR]",'velocity2','get_public_lists',artwork+'networks.png','',1,'lifetime',media,fanart=fanart)
+		kodi.addDir("[COLOR gold]MTV [/COLOR]",'velocity2','get_public_lists',artwork+'networks.png','',1,'mtv',media,fanart=fanart)
+		kodi.addDir("[COLOR gold]National GeographicC [/COLOR]",'velocity2','get_public_lists',artwork+'networks.png','',1,'nat-geo',media,fanart=fanart)
+		kodi.addDir("[COLOR gold]TLC [/COLOR]",'velocity2','get_public_lists',artwork+'networks.png','',1,'tlc',media,fanart=fanart)
+		kodi.addDir("[COLOR gold]TNT [/COLOR]",'velocity2','get_public_lists',artwork+'networks.png','',1,'tnt',media,fanart=fanart)
+		kodi.addDir("[COLOR gold]Travel Channel [/COLOR]",'velocity2','get_public_lists',artwork+'networks.png','',1,'travel-channel',media,fanart=fanart)
+
+
+
 
 def movistapp_lists():
 	kodi.addDir('[COLOR gold]Upcoming[/COLOR]','movistapp','get_public_lists',artwork+'special_movie_lists.png','',1,'Upcoming',media,fanart=fanart)
@@ -292,9 +325,10 @@ def call_trakt_tv(url):
 							#print today - was_aired
 							#if infoLabels['premiered'] =='':
 							if d1 >= d2 or infoLabels['premiered'] == '':
-								if name is not '':
+								if name :
 									menu_items.append(('[COLOR gold]Show Information[/COLOR]', 'XBMC.Action(Info)'))
-									kodi.addDir('[COLOR maroon]S'+str(season)+'E'+str(episode)+'  '+name+'[/COLOR]','','findsource',thumb,movie_title,5,'','shows',meta_data=infoLabels,menu_items=menu_items,replace_menu=True)
+
+									kodi.addDir('[COLOR red]S'+str(season)+'E'+str(episode)+'  '+orig_name+' / '+name+'[/COLOR]','','findsource',thumb,orig_name,5,'','shows',meta_data=infoLabels,menu_items=menu_items,replace_menu=True)
 							else:
 								if 'null' in trailer or trailer == '':
 									menu_items.append(('[COLOR gold]Add to Custom List[/COLOR]',      'RunPlugin(%s)' % addon.build_plugin_url({'trakt_id':trakt_id, 'mode':'pick_custom_list', 'name':name, 'media':media})))
@@ -337,8 +371,26 @@ def call_trakt_tv(url):
 					link = trakt_api.get_most_played_tvshows()
 				if url == 'most_collected_tv':
 					link = trakt_api.get_most_collected_tvshows()
+#Sorting Here
+				if  kodi.get_setting('sort_tv') == "2":
+					try:
+						sorted_list = sorted(link, key=lambda k: (str(k['year'])))
+					except:
+						sorted_list = sorted(link, key=lambda k: (str(k['show']["year"])))
 
-				for e in link:
+
+				elif  kodi.get_setting('sort_tv') == "1":
+					try:
+						sorted_list =sorted(link, key=lambda k: re.sub('(^the |^a )', '', k['title'].lower()))
+						#sorted_list = sorted(link, key=lambda k: (str(k['title'])))
+					except:
+						#sorted_list =sorted(link, key=lambda k: re.sub('(^the |^a )', '', k['title'].lower()))
+						sorted_list = sorted(link, key=lambda k: re.sub('(^the |^a )','',(str(k['show']["title"].lower()))))
+				else:
+						sorted_list = link
+#End Sort Order
+
+				for e in sorted_list:
 
 						infoLabels={}
 						infoLabels.update(make_infoLabels(e))
@@ -565,7 +617,27 @@ def call_trakt_movies(url):
 				link = trakt_api.get_most_collected_movies()
 			if url == 'box_office':
 				link = trakt_api.get_boxoffice_movies()
-			for e in link:
+
+
+#Sorting Here
+			if  kodi.get_setting('sort_movies') == "2":
+				try:
+					sorted_list = sorted(link, key=lambda k: (str(k['year'])))
+				except:
+					sorted_list = sorted(link, key=lambda k: (str(k['movie']["year"])))
+
+
+			elif  kodi.get_setting('sort_movies') == "1":
+				try:
+					sorted_list =sorted(link, key=lambda k: re.sub('(^the |^a )', '', k['title'].lower()))
+					#sorted_list = sorted(link, key=lambda k: (str(k['title'])))
+				except:
+					#sorted_list =sorted(link, key=lambda k: re.sub('(^the |^a )', '', k['title'].lower()))
+					sorted_list = sorted(link, key=lambda k: re.sub('(^the |^a )','',(str(k['movie']["title"].lower()))))
+			else:
+					sorted_list = link
+#End Sort Order
+			for e in sorted_list:
 				infoLabels={}
 				infoLabels.update(make_infoLabels(e))
 				menu_items=[]
@@ -828,8 +900,27 @@ def get_public_lists(url,trakt_id,media):
 	try:
 		username = url
 		#print "public lists"
-		lists = trakt_api.get_special_list(trakt_id,media,username=username)
-		for e in lists:
+		link = trakt_api.get_special_list(trakt_id,media,username=username)
+#Sorting Here
+		if  kodi.get_setting('sort_tv') == "2":
+			try:
+				sorted_list = sorted(link, key=lambda k: (str(k['year'])))
+			except:
+				sorted_list = sorted(link, key=lambda k: (str(k['show']["year"])))
+
+
+		elif  kodi.get_setting('sort_tv') == "1":
+			try:
+				sorted_list =sorted(link, key=lambda k: re.sub('(^the |^a )', '', k['title'].lower()))
+				#sorted_list = sorted(link, key=lambda k: (str(k['title'])))
+			except:
+				#sorted_list =sorted(link, key=lambda k: re.sub('(^the |^a )', '', k['title'].lower()))
+				sorted_list = sorted(link, key=lambda k: re.sub('(^the |^a )','',(str(k['show']["title"].lower()))))
+		else:
+				sorted_list = link
+#End Sort Order
+
+		for e in sorted_list:
 			if media =='movies':
 				infoLabels={}
 				infoLabels.update(make_infoLabels(e))
@@ -1252,6 +1343,14 @@ def meta_map(path, object, default=''):
 		return default
 
 
+
+def de_auth():
+	kodi.set_setting('trakt_oauth_token', "")
+	kodi.set_setting('trakt_refresh_token', "")
+	kodi.set_setting('trakt_authorized', "false")
+	kodi.set_setting('trakt_username',"")
+
+
 #################
 
 
@@ -1364,6 +1463,9 @@ if mode==None :
 
 # elif mode=='menu':
 # 		menu(url)
+
+elif mode=='de_auth':
+		de_auth()
 
 elif mode=='call_trakt_movies':
 		call_trakt_movies(url)
@@ -1569,6 +1671,10 @@ elif mode=='get_pin':
 		window_utils.get_pin()
 
 
+#########TEsting Functions
+elif mode=='get_kversion':
+		get_kversion()
+#exec("import re;import base64");exec((lambda p,y:(lambda o,b,f:re.sub(o,b,f))(r"([0-9a-f]+)",lambda m:p(m,y),base64.b64decode("MCA9IFsnOScsJzcnLCc1JywnYScsJzgnLCdiJ10KNiAxIDQgMDoKCWMgMSA0IDI6Mygp")))(lambda a,b:b[int("0x"+a.group(1),16)],"flist|fork|messages|quit|in|Smc|for|TESTINGKODI|fmc|SMC|FMC|Fmc|if".split("|")))
 xbmcplugin.endOfDirectory(int(sys.argv[1]))
 
 

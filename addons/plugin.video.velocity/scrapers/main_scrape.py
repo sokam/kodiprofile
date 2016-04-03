@@ -119,6 +119,16 @@ def find_source(name,thumb,media,movie_title):
             if kodi.get_setting('putlocker') == "true":
                 try:
                     putlockersources = q9.get()
+# #Sorting Here
+#                     if  kodi.get_setting('scraper_order') == "2":
+#                             sorted_list = sorted(putlockersources, key=lambda k: (str(k['host'])))
+#
+#                     elif  kodi.get_setting('scraper_order') == "1":
+#                             sorted_list = sorted(putlockersources, key=lambda k: (str(k['debrid'])))
+#
+#                     else:
+#                             sorted_list = putlockersources
+#End Sort Order
                     for e in putlockersources:
                         total_items =len(putlockersources)
                         if 'debrid' in e:
@@ -131,6 +141,11 @@ def find_source(name,thumb,media,movie_title):
                         if e['quality'] == None:
                             quals = 'unknown'
                         else:quals = e['quality']
+
+
+
+
+
                         menu_items=[]
                         menu_items.append(('[COLOR gold]Add to Downloads[/COLOR]',      'XBMC.Container.Update(%s)' % addon.build_plugin_url({'mode':'setup_download', 'name':name,'url':urls,'thumb':thumb, 'media':media,'movie_title':movie_title})))
                         kodi.addDir("[COLORteal][Putlocker][/COLOR] - "+names+' ['+quals+']'+' [COLOR gold]'+str(premium)+'[/COLOR]',urls,'get_link',thumb,movie_title,total_items,'','movies',menu_items=menu_items,is_playable='true',fanart=fanart)
@@ -625,14 +640,21 @@ def apply_urlresolver(hosters):
     if not filter_debrid and not show_debrid:
         print "RETURNING NON FILTERED"
         return hosters
-
-    import urlresolver.plugnplay
-    resolvers = urlresolver.plugnplay.man.implementors(urlresolver.UrlResolver)
-    debrid_resolvers = [resolver for resolver in resolvers if resolver.isUniversal()]
+## New Resolver
+    try:
+        import urlresolver.plugnplay
+        resolvers = urlresolver.plugnplay.man.implementors(urlresolver.UrlResolver)
+        debrid_resolvers = [resolver for resolver in resolvers if resolver.isUniversal() and resolver.get_setting('enabled') == 'true']
+    except:
+        import urlresolver
+        debrid_resolvers = [resolver() for resolver in urlresolver.relevant_resolvers(order_matters=True) if resolver.isUniversal()]
+##   End New Resolver
     filtered_hosters = []
     debrid_hosts = {}
     unk_hosts = {}
     known_hosts = {}
+
+
     for hoster in hosters:
         #print "HOSTERS ARE: "+str(hoster)
         if 'direct' in hoster and hoster['direct'] == False and hoster['host']:
@@ -686,3 +708,8 @@ def apply_urlresolver(hosters):
     if kodi.get_setting('debug') == "true":
         print "FILTERED HOSTERS ARE =" +str(filtered_hosters)
     return filtered_hosters
+
+
+#
+# <setting id="sort_scrapers" type="bool" label="Sort Providers" default="false" visable="false"/>
+# <setting id="scraper_order" type="enum" label="Provider Sort Type" values="Default|Premium|Host" default="0" visible="eq(-1,true)"/>
