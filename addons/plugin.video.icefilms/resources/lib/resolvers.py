@@ -272,7 +272,7 @@ def resolve_clicknupload(url):
     try:
 
         media_id = re.search('//.+?/([\w]+)', url).group(1)
-        url = 'http://clicknupload.me/%s' % media_id
+        url = 'http://clicknupload.link/%s' % media_id
         
         headers = {'Referer': url}
         
@@ -452,7 +452,7 @@ def resolve_uploadx(url):
         #Get download link
         dialog.update(100)
 
-        link = re.search('<a href="(.+?)".+?>Download</a>', html)
+        link = re.search('<a href="(.+?)".*?>Download</a>', html)
         if link:
             return link.group(1) + '|User-Agent=%s' % USER_AGENT
         else:

@@ -16,13 +16,16 @@
 		<setting visible="false" type="text" default=""  id="updateversion" label="Update Version" />
 	</category>
 	<category label="Link Types">
+		<setting id="Source-Links" type="labelenum" label="Source Type (2016)" default="kiss" values="kiss|openload|stream" visible="true"/>
 		<setting id="VerTwo-Links" type="bool" label="2nd (Early 2014) - Available when logged out." default="true" visible="true"/>
 		<setting id="VerThree-Links" type="bool" label="3rd (Early 2015) - ...." default="true" visible="true"/>
 		<setting id="VerFour-Links" type="bool" label="4th (Early 2015) - Available when logged in." default="true" visible="true"/>
 		<setting id="VerFive-Links" type="bool" label="5th (Early 2015) - Was available for a short time." default="true" visible="true"/>
 		<setting id="VerSix-Links" type="bool" label="6th (Early 2015) - Was available for a short time." default="true" visible="true"/>
-		<setting id="VerSeven-Links" type="bool" label="7th - ...." default="true" visible="false"/>
-		<setting id="VerEight-Links" type="bool" label="8th - ...." default="true" visible="false"/>
+		<setting id="VerSeven-Links" type="bool" label="7th (March 2016)" default="true" visible="false"/>
+		<setting id="VerEight-Links" type="bool" label="8th (March 2016)" default="true" visible="true"/>
+		<setting id="VerNine-Links" type="bool" label="9th - ...." default="true" visible="true"/>
+		<setting id="VerTen-Links" type="bool" label="10th - ...." default="true" visible="true"/>
 	</category>
 	<category label="Playback">
 		<setting id="core-player" type="labelenum" default="AUTO" visible="true" label="Player Core" values="AUTO|DVDPLAYER|MPLAYER|PAPLAYER" />
@@ -33,6 +36,7 @@
 	<category label="Debug">
 		<setting id="debug-enable" 	type="bool" default="false" visible="true" label="Enable Debugging to File" />
 		<setting id="debug-show" 		type="bool" default="false" visible="true" label="Enable Debugging to Notice(s)" />
+		<setting id="debug-testing" 	type="bool" default="false" visible="true" label="Testing Mode" />
 		<setting id="savefile-links" 	type="bool" default="false" visible="true" label="Save File: Links" />
 		<setting id="savefile-bookmarks-ar" 	type="bool" default="false" visible="true" label="Save File: Bookmarks AR" />
 		<setting id="savefile-bookmarks" 	type="bool" default="false" visible="true" label="Save File: Bookmarks" />

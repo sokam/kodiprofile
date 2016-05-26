@@ -62,7 +62,8 @@ def zmovies(name):
             #linkname= hmf.get_host()
                 linkname = tools.get_hostname(url)
                 host = linkname
-                source = {'url': url, 'host': host, 'direct':False}
+                #source = {'hostname':'IceFilms','multi-part': False, 'quality': quality, 'label': label, 'rating': None, 'views': None, 'direct': False}
+                source = {'hostname':'ZMovies','views':None, 'quality': None, 'rating': None,'url': url, 'host': host, 'direct':False}
                 sources.append(source)
         #Fro Links that need year added
         link = OPEN_URL(ytmurl)
@@ -71,10 +72,11 @@ def zmovies(name):
         for url in match:
             linkname = tools.get_hostname(url)
             host = linkname
-            source = {'url': url, 'host': host, 'direct':False}
+            source = {'hostname':'ZMovies','views':None, 'quality': None, 'rating': None,'url': url, 'host': host, 'direct':False}
             sources.append(source)
         #dp.close()
         sources = main_scrape.apply_urlresolver(sources)
+        print sources
         return sources
     except Exception as e:
         hosters =[]

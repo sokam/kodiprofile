@@ -82,7 +82,7 @@ def ps(x):
 			,'__credits__': 				""
 			,'_addon_id': 					addon_id
 			,'_plugin_id': 					addon_id
-			,'_domain_url': 				"http://kissanime.to"
+			,'_domain_url': 				"https://kissanime.to"
 			,'_database_name': 			"kissanime"
 			,'common_word': 				"Anime"
 			,'common_word2': 				"Watch"

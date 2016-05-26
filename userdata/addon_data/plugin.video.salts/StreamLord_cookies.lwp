@@ -1,4 +1,3 @@
 #LWP-Cookies-2.0
-Set-Cookie3: __cfduid=dfde161f378ae7c3f05ce670df1a40e761459235939; path="/"; domain=".streamlord.com"; path_spec; domain_dot; expires="2017-03-29 07:18:59Z"; HttpOnly=None; version=0
-Set-Cookie3: cf_clearance="06935161c240cc62350476e7d60458089beac4e8-1459235939-604800"; path="/"; domain=".streamlord.com"; path_spec; domain_dot; expires="2016-04-05 08:18:59Z"; HttpOnly=None; version=0
-Set-Cookie3: PHPSESSID=4fnlo659hgilt4doq4h8kpoc92; path="/"; domain="www.streamlord.com"; path_spec; discard; version=0
+Set-Cookie3: __cfduid=d248018ab1dd42117fc5746d7e9a965b11459832152; path="/"; domain=".streamlord.com"; path_spec; domain_dot; expires="2017-04-05 04:55:52Z"; HttpOnly=None; version=0
+Set-Cookie3: PHPSESSID=49s5ll5nkrjjj7b7o90kq4rcj3; path="/"; domain="www.streamlord.com"; path_spec; discard; version=0

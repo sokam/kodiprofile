@@ -140,35 +140,29 @@ class source:
 
             result = client.source(url)
 
-            if content == 'movie':
-                url = client.parseDOM(result, 'iframe', ret='src')[0]
-            else:
-                url = zip(client.parseDOM(result, 'a', ret='href', attrs = {'target': 'player_iframe'}), client.parseDOM(result, 'a', attrs = {'target': 'player_iframe'}))
-                url = [(i[0], re.compile('(\d+)').findall(i[1])) for i in url]
-                url = [(i[0], i[1][-1]) for i in url if len(i[1]) > 0]
-                url = [i[0] for i in url if i[1] == '%01d' % int(episode)][0]
+            url = zip(client.parseDOM(result, 'a', ret='href', attrs = {'target': 'player_iframe'}), client.parseDOM(result, 'a', attrs = {'target': 'player_iframe'}))
+            url = [(i[0], re.compile('(\d+)').findall(i[1])) for i in url]
+            url = [(i[0], i[1][-1]) for i in url if len(i[1]) > 0]
 
-            url = client.replaceHTMLCodes(url)
+            if content == 'episode':
+                url = [i for i in url if i[1] == '%01d' % int(episode)]
 
-            result = client.source(url)
+            links = [client.replaceHTMLCodes(i[0]) for i in url]
 
-            headers = {'X-Requested-With': 'XMLHttpRequest', 'Referer': url}
-            url = 'http://player.pubfilm.com/smplayer/plugins/gkphp/plugins/gkpluginsphp.php'
-            post = re.compile('link\s*:\s*"([^"]+)').findall(result)[0]
-            post = urllib.urlencode({'link': post})
+            for u in links:
 
-            result = client.source(url, post=post, headers=headers)
+                try:
+                    result = client.source(u)
+                    result = re.findall('sources\s*:\s*\[(.+?)\]', result)[0]
+                    result = re.findall('"file"\s*:\s*"(.+?)".+?"label"\s*:\s*"(.+?)"', result)
 
-            r = re.compile('"?link"?\s*:\s*"([^"]+)"\s*,\s*"?label"?\s*:\s*"(\d+)p?"').findall(result)
-            if not r: r = [(i, 480) for i in re.compile('"?link"?\s*:\s*"([^"]+)').findall(result)]
-            r = [(i[0].replace('\\/', '/'), i[1]) for i in r]
+                    url = [{'url': i[0], 'quality': '1080p'} for i in result if '1080' in i[1]]
+                    url += [{'url': i[0], 'quality': 'HD'} for i in result if '720' in i[1]]
 
-            links = [(i[0], '1080p') for i in r if int(i[1]) >= 1080]
-            links += [(i[0], 'HD') for i in r if 720 <= int(i[1]) < 1080]
-            links += [(i[0], 'SD') for i in r if 480 <= int(i[1]) < 720]
-            if not 'SD' in [i[1] for i in links]: links += [(i[0], 'SD') for i in r if 360 <= int(i[1]) < 480]
-
-            for i in links: sources.append({'source': 'gvideo', 'quality': i[1], 'provider': 'Pubfilm', 'url': i[0], 'direct': True, 'debridonly': False})
+                    for i in url:
+                        sources.append({'source': 'gvideo', 'quality': i['quality'], 'provider': 'Pubfilm', 'url': i['url'], 'direct': True, 'debridonly': False})
+                except:
+                    pass
 
             return sources
         except:

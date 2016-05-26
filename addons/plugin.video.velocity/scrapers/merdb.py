@@ -67,7 +67,7 @@ def merdb(name):
                             #print "URLS IS = " +url
                             host = name.replace("'","")
                             #linkname = tools.get_hostname(name)
-                            source = {'url': url, 'host': host, 'direct':False}
+                            source = {'hostname':'MerDB','views':None,'url': url, 'host': host, 'direct':False}
                             sources.append(source)
         #dp.close()
         sources = main_scrape.apply_urlresolver(sources)

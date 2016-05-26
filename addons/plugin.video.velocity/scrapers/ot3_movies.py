@@ -310,7 +310,7 @@ def get_sources(suf_url,pre_url):
                     host = _get_direct_hostname(source)
                 else:
                     host = urlparse.urlparse(source).hostname
-                hoster = {'multi-part': False, 'host': host, 'quality': sources[source]['quality'], 'views': None, 'rating': None, 'url': source, 'direct': sources[source]['direct']}
+                hoster = {'hostname':'123Movies','multi-part': False, 'host': host, 'quality': sources[source]['quality'], 'views': None, 'rating': None, 'url': source, 'direct': sources[source]['direct']}
                 hosters.append(hoster)
         hosters = main_scrape.apply_urlresolver(hosters)
         return hosters

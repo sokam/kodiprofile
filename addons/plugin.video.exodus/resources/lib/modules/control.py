@@ -22,7 +22,7 @@
 import os,xbmc,xbmcaddon,xbmcplugin,xbmcgui,xbmcvfs
 
 
-integer = 1
+integer = 1000
 
 lang = xbmcaddon.Addon().getLocalizedString
 
@@ -98,7 +98,7 @@ viewsFile = os.path.join(dataPath, 'views.db')
 
 bookmarksFile = os.path.join(dataPath, 'bookmarks.db')
 
-providercacheFile = os.path.join(dataPath, 'providers.3.db')
+providercacheFile = os.path.join(dataPath, 'providers.4.db')
 
 metacacheFile = os.path.join(dataPath, 'meta.db')
 

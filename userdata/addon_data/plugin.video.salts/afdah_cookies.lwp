@@ -1,4 +1,4 @@
 #LWP-Cookies-2.0
 Set-Cookie3: __cfduid=de026667a74ff4351e5da8667f4f7c91e1453530227; path="/"; domain=".afdah.com"; path_spec; domain_dot; expires="2017-01-22 06:23:47Z"; HttpOnly=None; version=0
-Set-Cookie3: __cfduid=dd7c491fd2ebc80eb38b15a1bd9fc957f1455404260; path="/"; domain=".afdah.tv"; path_spec; domain_dot; expires="2017-02-12 22:57:40Z"; HttpOnly=None; version=0
-Set-Cookie3: PHPSESSID=p5l3q9g88njl5mahsctcgjn422; path="/"; domain="afdah.tv"; path_spec; discard; version=0
+Set-Cookie3: __cfduid=d22a9d0d3e7fdbbb1ea57eac5573781e21463460994; path="/"; domain=".afdah.tv"; path_spec; domain_dot; expires="2017-05-17 04:56:34Z"; HttpOnly=None; version=0
+Set-Cookie3: cf_clearance="468300d4bd5ec5bb06b43a04f96884c4bce6374e-1463460994-86400"; path="/"; domain=".afdah.tv"; path_spec; domain_dot; expires="2016-05-18 05:56:34Z"; HttpOnly=None; version=0

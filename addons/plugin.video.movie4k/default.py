@@ -540,13 +540,13 @@ def play_first_playable(params):
         if hosted_media_url:
             try:
                 server_name, direct_link = resolve_media_direct_link(hosted_media_url)
-            except RuntimeError:
+            except (RuntimeError, urlresolver.resolver.ResolverError) as err:
                 for alternative in alternatives:
                     hosted_media_url, _ = scrap_stream_url(url, False)
                     if hosted_media_url:
                         try:
                             server_name, direct_link = resolve_media_direct_link(hosted_media_url)
-                        except RuntimeError:
+                        except (RuntimeError, urlresolver.resolver.ResolverError) as err:
                             pass
         if direct_link:
             plugintools.play_resolved_url(direct_link)
@@ -556,7 +556,7 @@ def play_first_playable(params):
             break
     if not direct_link:
         xbmc.sleep(500)
-        xbmcgui.Dialog().notification(MYNAME, 'No links found', xbmcgui.NOTIFICATION_WARNING)
+        xbmcgui.Dialog().notification(MYNAME, str(err), xbmcgui.NOTIFICATION_WARNING)
 
 def scrap_stream_url(page_url, scrap_alternatives):
     body,response_headers = read_body_and_headers_cached(page_url)
@@ -613,7 +613,7 @@ def play(params):
         try:
             hoster_name, direct_link = resolve_media_direct_link(url)
             plugintools.add_item(action="playable", title="[B]" + hoster_name + "[/B]", url=direct_link, fanart=FANART, isPlayable=True, folder=False )
-        except RuntimeError as e:
+        except (RuntimeError, urlresolver.resolver.ResolverError) as e:
             plugintools.add_item( action="play", title=str(e), fanart=FANART, isPlayable=True, folder=False )
     else:
         plugintools.add_item( action="play", title="No links found. Try an alternative link or another hoster", fanart=FANART, isPlayable=True, folder=False )

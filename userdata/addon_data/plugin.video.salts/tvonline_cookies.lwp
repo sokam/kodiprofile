@@ -1,3 +1,21 @@
 #LWP-Cookies-2.0
-Set-Cookie3: __cfduid=d195048892158b1021203653a3c58d3f61459406704; path="/"; domain=".tvonline.tw"; path_spec; domain_dot; expires="2017-03-31 06:45:04Z"; HttpOnly=None; version=0
-Set-Cookie3: tvonlinevisitcount_75=1; path="/archer-2009"; domain="tvonline.tw"; discard; version=0
+Set-Cookie3: __cfduid=dc09d5e9cd97c9495ca42c9df34c9db2d1463198618; path="/"; domain=".opentuner.is"; path_spec; domain_dot; expires="2017-05-14 04:03:38Z"; HttpOnly=None; version=0
+Set-Cookie3: __cfduid=d77bfdd5ff07da5a2352ad74ccf247cd31462764041; path="/"; domain=".tvonline.tw"; path_spec; domain_dot; expires="2017-05-09 03:20:41Z"; HttpOnly=None; version=0
+Set-Cookie3: opentunervisitcount_122=1; path="/game-of-thrones-2011"; domain="opentuner.is"; discard; version=0
+Set-Cookie3: opentunervisitcount_258=1; path="/last-week-tonight-with-john-oliver-2014"; domain="opentuner.is"; discard; version=0
+Set-Cookie3: opentunervisitcount_306=1; path="/saturday-night-live-1975"; domain="opentuner.is"; discard; version=0
+Set-Cookie3: opentunervisitcount_102=1; path="/the-big-bang-theory-2007"; domain="opentuner.is"; discard; version=0
+Set-Cookie3: opentunervisitcount_689=1; path="/veep-2012"; domain="opentuner.is"; discard; version=0
+Set-Cookie3: opentunervisitcount_689=1; path="/veep-2012/season-1-episode-6"; domain="opentuner.is"; discard; version=0
+Set-Cookie3: tvonlinevisitcount_75=1; path="/archer-2009/season-7-episode-4"; domain="tvonline.tw"; discard; version=0
+Set-Cookie3: opentunervisitcount_122=1; path="/game-of-thrones-2011"; domain="tvonline.tw"; discard; version=0
+Set-Cookie3: tvonlinevisitcount_122=1; path="/game-of-thrones-2011/season-6-episode-2"; domain="tvonline.tw"; discard; version=0
+Set-Cookie3: tvonlinevisitcount_122=1; path="/game-of-thrones-2011/season-6-episode-3"; domain="tvonline.tw"; discard; version=0
+Set-Cookie3: opentunervisitcount_258=1; path="/last-week-tonight-with-john-oliver-2014"; domain="tvonline.tw"; discard; version=0
+Set-Cookie3: opentunervisitcount_306=1; path="/saturday-night-live-1975"; domain="tvonline.tw"; discard; version=0
+Set-Cookie3: tvonlinevisitcount_306=1; path="/saturday-night-live-1975"; domain="tvonline.tw"; discard; version=0
+Set-Cookie3: opentunervisitcount_102=1; path="/the-big-bang-theory-2007"; domain="tvonline.tw"; discard; version=0
+Set-Cookie3: tvonlinevisitcount_102=1; path="/the-big-bang-theory-2007"; domain="tvonline.tw"; discard; version=0
+Set-Cookie3: opentunervisitcount_689=1; path="/veep-2012"; domain="tvonline.tw"; discard; version=0
+Set-Cookie3: tvonlinevisitcount_689=1; path="/veep-2012"; domain="tvonline.tw"; discard; version=0
+Set-Cookie3: opentunervisitcount_689=1; path="/veep-2012/season-1-episode-6"; domain="tvonline.tw"; discard; version=0

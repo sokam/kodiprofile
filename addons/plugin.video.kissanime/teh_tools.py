@@ -1649,15 +1649,23 @@ def _FL(t,c,e=''): ### For Custom Text Tags ###
 	return '['+c.upper()+d+']'+t+'[/'+c.upper()+']'
 
 def WhereAmI(t): ### for Writing Location Data to log file ###
-	if (_debugging==True): print 'Where am I:  '+t
+	if (_debugging==True): 
+		try: print 'Where am I:  '+t
+		except: pass
+		try: xbmc.log('Where am I:  '+str(t))
+		except: pass
 def deb(s,t): ### for Writing Debug Data to log file ###
-	try:
-		if (_debugging==True): print s+':  '+t
-	except: pass
+	if (_debugging==True): 
+		try:print s+':  '+t
+		except: pass
+		try: xbmc.log(str(s)+':  '+str(t))
+		except: pass
 def debob(t): ### for Writing Debug Object to log file ###
-	try:
-		if (_debugging==True): print t
-	except: pass
+	if (_debugging==True): 
+		try: print t
+		except: pass
+		try: xbmc.log(str(t))
+		except: pass
 def bFQ(t1='',t2='',t3='',t4=''): 
 	q2332532=str(int(t1[-1:])-2); 
 	if q2332532=='stew2night': t6=''+str((int(t2[-1:])+1) / 2)+''+str(int(t1[2:3])+2)+''+str(q2332532)+''+str(int(t1[5:6])-1); 
@@ -1938,7 +1946,8 @@ def Check_Login():
 	hasPassword_Cookie = False
 	for cookie in net._cj:
 		if cookie.name.lower() == 'username': hasUsername_Cookie = True
-		if cookie.name.lower() == 'password': hasUsername_Cookie = True
+		if cookie.name.lower() == 'password': hasPassword_Cookie = True
+	debob(['Check_Login()','user',hasUsername_Cookie,'pass',hasPassword_Cookie])
 	if hasUsername_Cookie and hasPassword_Cookie: return True
 	else: return False
 
@@ -1950,12 +1959,13 @@ def KA_Login():
 	if isFile(cookie_file)==True: load_cookie=True
 	else: load_cookie=False
 	if Check_Login(): return True
+	#metamind=metamind.replace('http://','https://')
 	#html=nURL(metamind+'/Login',method='post',form_data={'username':addst('username',''),'password':addst('password',''),'chkRemember':'1'},headers={'Referer':metamind},proxy=Proxy,cookie_file=cookie_file,load_cookie=load_cookie,save_cookie=True)
 	f_data={'username':addst('username',''),'password':addst('password',''),'chkRemember':'1'}
 	##debob(f_data)
-	html=nURL(metamind+'/Login',method='post',form_data=f_data,headers={'Referer':metamind},cookie_file=cookie_file,load_cookie=load_cookie,save_cookie=True,login=True)
+	html=nURL(metamind+'/Login',method='post',form_data=f_data,headers={'Referer':metamind+'/Login'},cookie_file=cookie_file,load_cookie=load_cookie,save_cookie=True,login=True)
 	temp_file=xbmc.translatePath(os.path.join(addon_profile_path,'temp.html.login.txt'))
-	if (debugging==True) and (_testing==True):
+	if (debugging==True):# and (_testing==True):
 		try: _SaveFile(temp_file,html)
 		except: pass
 	if len(html) > 20: return True

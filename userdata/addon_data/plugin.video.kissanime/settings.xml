@@ -6,22 +6,25 @@
     <setting id="CMI_Search1Channel" value="true" />
     <setting id="CMI_SearchPrimeWire" value="true" />
     <setting id="CMI_ShowInfo" value="true" />
-    <setting id="LastShowListedFANART" value="http://kissanime.to/Uploads/Etc/12-2-2012/5820021418179l.jpg|Referer=http%3A%2F%2Fkissanime.to%2FUploads%2FEtc%2F12-2-2012&amp;User-Agent=Mozilla%2F5.0+%28Windows+NT+6.1%3B+WOW64%3B+rv%3A6.0%29+Gecko%2F20100101+Firefox%2F6.0&amp;Connection-Timeout=60&amp;Cookie=__cfduid%3Dd50761e291e5d6e754065197bb574d4991449951307%3Bcf_clearance%3D5ee053bae4a35850a607faceb44070fcebafc260-1449951307-86400%3BASP.NET_SessionId%3Dn5qhqecszxgfdggzxu1fsks4%3Bidtz%3D50.139.95.158-747866089%3B" />
-    <setting id="LastShowListedIMG" value="http://kissanime.to/Uploads/Etc/12-2-2012/5820021418179l.jpg|Referer=http%3A%2F%2Fkissanime.to%2FUploads%2FEtc%2F12-2-2012&amp;User-Agent=Mozilla%2F5.0+%28Windows+NT+6.1%3B+WOW64%3B+rv%3A6.0%29+Gecko%2F20100101+Firefox%2F6.0&amp;Connection-Timeout=60&amp;Cookie=__cfduid%3Dd50761e291e5d6e754065197bb574d4991449951307%3Bcf_clearance%3D5ee053bae4a35850a607faceb44070fcebafc260-1449951307-86400%3BASP.NET_SessionId%3Dn5qhqecszxgfdggzxu1fsks4%3Bidtz%3D50.139.95.158-747866089%3B" />
+    <setting id="LastShowListedFANART" value="/home/sokam/.kodi/addons/plugin.video.kissanime/fanart.jpg" />
+    <setting id="LastShowListedIMG" value="https://kissanime.to/Uploads/Etc/4-29-2016/80971554568097l.jpg|Referer=https%3A%2F%2Fkissanime.to%2FUploads%2FEtc%2F4-29-2016&amp;User-Agent=Mozilla%2F5.0+%28Windows+NT+6.1%3B+WOW64%3B+rv%3A6.0%29+Gecko%2F20100101+Firefox%2F6.0&amp;Connection-Timeout=60&amp;Cookie=__cfduid%3Dd6ac97f45b168f8f2d6456fb648d9678b1463637874%3Bcf_clearance%3D181d5e7783b65cfbacf750ae7ba451291ed7f0ec-1463637874-86400%3BASP.NET_SessionId%3Desys2r421baaxvpvavlozvsp%3Bidtz%3D50.139.95.158-62431275%3B" />
     <setting id="LastShowListedImdbID" value="" />
-    <setting id="LastShowListedNAME" value="Fairy Tail [COLOR blue](Sub)[/COLOR]" />
-    <setting id="LastShowListedURL" value="http://kissanime.to/Anime/Fairy-Tail" />
-    <setting id="LastVideoPlayItemImg" value="http://kissanime.to/Uploads/Etc/3-2-2014/793189545150780.jpg|Referer=http%3A%2F%2Fkissanime.to%2FUploads%2FEtc%2F3-2-2014&amp;User-Agent=Mozilla%2F5.0+%28Windows+NT+6.1%3B+WOW64%3B+rv%3A6.0%29+Gecko%2F20100101+Firefox%2F6.0&amp;Connection-Timeout=60&amp;Cookie=__cfduid%3Dd6671c0cbb5dbc16b435f94cda0fae0361449355936%3Bcf_clearance%3D86cd8e320ac1851ea26511addc1840f7ab9b5777-1449355936-86400%3BASP.NET_SessionId%3Dstffhoovuyy3wnxd30xymdvy%3Bidtz%3D50.139.95.158-559293623%3B" />
-    <setting id="LastVideoPlayItemName" value="Fairy Tail (2014) (Sub) Episode 001" />
-    <setting id="LastVideoPlayItemStudio" value="[720p]3.mp4" />
-    <setting id="LastVideoPlayItemUrl" value="http://2.bp.blogspot.com/B9h_I1Wo9_Q0hBHMjLLHMIvzrcFKswEkxmQ4tp73bhw=m22" />
+    <setting id="LastShowListedNAME" value="Log Horizon 2nd Season (Sub)" />
+    <setting id="LastShowListedURL" value="https://kissanime.to/Anime/Log-Horizon-2nd-Season" />
+    <setting id="LastVideoPlayItemImg" value="https://kissanime.to/Uploads/Etc/4-29-2016/80971554568097l.jpg|Referer=https%3A%2F%2Fkissanime.to%2FUploads%2FEtc%2F4-29-2016&amp;User-Agent=Mozilla%2F5.0+%28Windows+NT+6.1%3B+WOW64%3B+rv%3A6.0%29+Gecko%2F20100101+Firefox%2F6.0&amp;Connection-Timeout=60&amp;Cookie=__cfduid%3Dd6ac97f45b168f8f2d6456fb648d9678b1463637874%3Bcf_clearance%3D181d5e7783b65cfbacf750ae7ba451291ed7f0ec-1463637874-86400%3BASP.NET_SessionId%3Desys2r421baaxvpvavlozvsp%3Bidtz%3D50.139.95.158-62431275%3B" />
+    <setting id="LastVideoPlayItemName" value="Log Horizon 2nd Season (Sub) Episode 001" />
+    <setting id="LastVideoPlayItemStudio" value="[1080p]3.mp4" />
+    <setting id="LastVideoPlayItemUrl" value="https://redirector.googlevideo.com/videoplayback?requiressl=yes&amp;id=24c9cf47ecd395fd&amp;itag=37&amp;source=webdrive&amp;app=texmex&amp;ip=2001:19f0:6000:9ad4:5400:ff:fe20:66ec&amp;ipbits=32&amp;expire=1463657949&amp;sparams=requiressl,id,itag,source,ip,ipbits,expire&amp;signature=3B6E7AB67BE980AB97D7C9D759667130DFA742A6.6AE8012AA845408851D123ACF9A5B349946A9639&amp;key=ck2&amp;mm=30&amp;mn=sn-a5meknes&amp;ms=nxu&amp;mt=1463643488&amp;mv=m&amp;nh=IgpwcjAyLmxheDAyKgkxMjcuMC4wLjE&amp;pl=38" />
     <setting id="Notyetaired" value="true" />
     <setting id="ResTimer" value="0" />
+    <setting id="Source-Links" value="kiss" />
     <setting id="VerEight-Links" value="true" />
     <setting id="VerFive-Links" value="true" />
     <setting id="VerFour-Links" value="true" />
+    <setting id="VerNine-Links" value="true" />
     <setting id="VerSeven-Links" value="true" />
     <setting id="VerSix-Links" value="true" />
+    <setting id="VerTen-Links" value="true" />
     <setting id="VerThree-Links" value="true" />
     <setting id="VerTwo-Links" value="true" />
     <setting id="anime-view" value="515" />
@@ -33,6 +36,7 @@
     <setting id="customproxy" value="false" />
     <setting id="debug-enable" value="false" />
     <setting id="debug-show" value="false" />
+    <setting id="debug-testing" value="false" />
     <setting id="default-view" value="500" />
     <setting id="device" value="NORMAL" />
     <setting id="download_folder_movies" value="" />

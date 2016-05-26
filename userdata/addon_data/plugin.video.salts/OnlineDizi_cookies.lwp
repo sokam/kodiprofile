@@ -1,2 +1,3 @@
 #LWP-Cookies-2.0
 Set-Cookie3: __cfduid=d0a625c29d7ca6b606561df743f77ef7e1459406704; path="/"; domain=".onlinedizi.co"; path_spec; domain_dot; expires="2017-03-31 06:45:04Z"; HttpOnly=None; version=0
+Set-Cookie3: PHPSESSID=3a3efe876dbed5ccb007c69d524a9855; path="/"; domain="onlinedizi.co"; path_spec; discard; version=0

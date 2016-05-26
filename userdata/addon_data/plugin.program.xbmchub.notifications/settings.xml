@@ -1,6 +1,6 @@
 <settings>
-    <setting id="noteImage" value="25" />
-    <setting id="noteMessage" value="Watching [B][COLOR white]Live TV and Sports[/COLOR][/B] just got a whole lot better!&#x0A;&#x0A;We&apos;ve just put together an updated list of all the best live&#x0A;television and sports addons for Kodi and we&apos;re very, very&#x0A;excited about it. Live TV and Sports have never been this good.&#x0A;&#x0A;Visit the Following Page to Find the Full List Today:&#x0A;[B][COLOR white]https://www.tvaddons.ag/livetv-march2016/[/COLOR][/B]&#x0A;&#x0A;Please remember that you can easily install any addon you wish&#x0A;using our Addon Installer tool, which you&apos;ll find under your&#x0A;PROGRAMS menu within Kodi. Enjoy!" />
+    <setting id="noteImage" value="30" />
+    <setting id="noteMessage" value="We could really use some [B][COLOR white]help covering our ever-increasing offshore&#x0A;server expenses[/COLOR][/B]! Since you seem to regularly enjoy our Kodi addons and&#x0A;tools, we thought it could be a good idea to respectfully seek out your generosity.&#x0A;&#x0A;Please Visit the Following Link to Donate Today:&#x0A;[B][COLOR white]https://www.tvaddons.ag/donate/[/COLOR][/B]&#x0A;&#x0A;If you want to help support our community but [B][COLOR white]can&apos;t afford to&#x0A;donate, please take the time to visit our sponsors regularly[/COLOR][/B], this will&#x0A;help us cover expenses without taking a dime from your pockets.&#x0A;&#x0A;Remember that we&apos;re a community of volunteers, we don&apos;t charge anything&#x0A;for our software and don&apos;t get any kickbacks from box sellers either.&#x0A;Thank you again for your continuous support!" />
     <setting id="noteType" value="t" />
     <setting id="notifications-on-startup" value="false" />
 </settings>

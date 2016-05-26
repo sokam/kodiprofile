@@ -313,7 +313,7 @@ def get_sources(suf_url):
                                         sources[result['file']] = quality
 
         for source in sources:
-            hoster = {'multi-part': False, 'host': _get_direct_hostname(source),  'quality': sources[source], 'view': None, 'rating': None, 'url': source, 'direct': True}
+            hoster = {'hostname':'9Movies','multi-part': False, 'host': _get_direct_hostname(source),  'quality': sources[source], 'view': None, 'rating': None, 'url': source, 'direct': True}
             hosters.append(hoster)
     hosters = main_scrape.apply_urlresolver(hosters)
     return hosters

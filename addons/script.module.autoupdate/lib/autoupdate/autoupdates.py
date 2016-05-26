@@ -84,7 +84,7 @@ def CheckVersion():
          source . close ( )
          match=re.compile('" version="(.+?)" provider-name="'+provider_name+'"').findall(link)
          for repovernum in match:
-                  print 'Original Repo is ' + repovernum
+                  log('Original Repo is ' + repovernum)
          try:
              link=OPEN_URL(repo_xml_loca)
          except:
@@ -102,21 +102,21 @@ def CheckVersion():
                      if confirm:
                              UPDATEREPO(repo_name,new_repovernum)
      except Exception:
-        print 'Attempt to find addon.xml failed, Installing Add-ons Repo'
+        log('Attempt to find addon.xml failed, Installing Add-ons Repo')
     
         UPDATEREPO(repo_name,repo_entry_version)                          
                              
 #END REPO CHECK=======
 #Start Add-on Check============
      try:
-         print "HERE WE GO ADDON"
+         log("HERE WE GO ADDON")
          curver=xbmc.translatePath(os.path.join('special://home/addons/'+addon_id_name,'addon.xml'))    
          source= open( curver, mode = 'r' )
          link = source . read( )
          source . close ( )
          match=re.compile('" version="(.+?)".+? provider-name="'+provider_name+'"').findall(link)
          for vernum in match:
-                 print 'Original Version is ' + vernum
+                 log('Original Version is ' + vernum)
          try:
              link=OPEN_URL(addon_xml_loca)
          except:
@@ -138,7 +138,7 @@ def CheckVersion():
          else:
              return False
      except Exception:
-        print 'Attempt to find addon.xml failed, Please install Add-on from repo'
+        log ('Attempt to find addon.xml failed, Please install Add-on from repo')
         return True
 
 
@@ -159,9 +159,9 @@ def UPDATEFILES(addon_id_name,new_vernum):
 
 def UPDATEREPO(repo_name,new_repovernum=''):
         repourl=repo_zip_loca+'/'+repo_name+'-'+new_repovernum+'.zip'
-        print "FIRST REPO URL IS "+repourl
+        log("FIRST REPO URL IS "+repourl)
         url=repo_zip_loca+'/'+repo_name+'-'+new_repovernum+'.zip'
-        print "REPO URL IS "+url
+        log("REPO URL IS "+url)
         path=xbmc.translatePath(os.path.join('special://home/addons','packages'))
         addonpath=xbmc.translatePath(os.path.join('special://','home/addons'))
         name= repo_name+'.update.zip'
@@ -236,5 +236,13 @@ def allWithProgress(_in, _out, dp):
     return True
         
         
+def log(msg, level=xbmc.LOGNOTICE):
+    name = 'Blazetamer Autoupdate Module'
+    # override message level to force logging when addon logging turned on
+    level = xbmc.LOGNOTICE
 
+    try: xbmc.log('%s: %s' % (name, msg), level)
+    except:
+        try: xbmc.log('Logging Failure', level)
+        except: pass  # just give up
 

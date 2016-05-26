@@ -225,14 +225,15 @@ def get_sources(suf_url):
                 pattern = 'onclick=\'go\((\d+)\)\'>([^<]+)(<span.*?)</a>'
                 for match in re.finditer(pattern, fragment):
                     link_id, label, host_fragment = match.groups()
-                    source = {'multi-part': False, 'quality': quality, 'label': label, 'rating': None, 'views': None, 'direct': False}
+                    source = {'hostname':'IceFilms','multi-part': False, 'quality': quality, 'label': label, 'rating': None, 'views': None, 'direct': False}
                     source['host'] = re.sub('(<[^>]+>|</span>)', '', host_fragment)
                     s = s_start + random.randint(3, 1000)
                     m = m_start + random.randint(21, 1000)
                     url = AJAX_URL % (link_id, s, m, secret, t)
                     # bobs_dogs = url
                     # source['url'] = resolve_link(bobs_dogs)
-                    source['url'] = url
+                    urls = resolve_link(url)
+                    source['url'] = urls
                     sources.append(source)
         except Exception as e:
             log_utils.log('Failure (%s) during icefilms get sources: |%s|' % (str(e), suf_url), log_utils.LOGWARNING)

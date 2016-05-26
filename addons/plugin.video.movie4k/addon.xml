@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8" standalone="yes"?>
 <addon id="plugin.video.movie4k"
 	name="Movie4K.to"
-	version="1.4.4"
+	version="1.4.5"
 	provider-name="nickat, eleazarcoding">
   <requires>
     <import addon="xbmc.python" version="2.1.0"/>
@@ -16,7 +16,7 @@
     <summary lang="en">Movie4K.to</summary>
     <description lang="en">Movie4K is one of the best and easiest free movies websites to watch movies on the internet. Simply select the movie of your choice for free and without registration.</description>
     <platform>all</platform>
-    <forum>http://forums.tvaddons.ag/forums/152-ELEAZAR-S-XBMC-ADD-ON-REPOSITORY</forum>
+    <forum>https://forums.tvaddons.ag/nickat-s-kodi-add-on-repository/</forum>
     <website>http://www.tvaddons.ag</website>
   </extension>
 </addon>

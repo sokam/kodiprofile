@@ -42,15 +42,15 @@ class source:
             result = client.source(query)
             result = json.loads(result)['results']
 
-            title = cleantitle.get(title)
-            years = ['(%s)' % str(year)]
+            t = cleantitle.get(title)
 
             r = [(i['url'], i['titleNoFormatting']) for i in result]
-            r = [(i[0], re.compile('(^Watch Full "|^Watch |)(.+? [(]\d{4}[)])').findall(i[1])) for i in r]
-            r = [(i[0], i[1][0][-1]) for i in r if len(i[1]) > 0]
             r += [(i['url'], i['richSnippet']['breadcrumb']['title']) for i in result if 'richSnippet' in i and 'breadcrumb' in i['richSnippet'] and 'title' in i['richSnippet']['breadcrumb']]
-            result = [i for i in r if title == cleantitle.get(i[1])]
-            result = [i[0] for i in result if any(x in i[1] for x in years)][0]
+            r = [(i[0], re.findall('(?:^Watch Full "|^Watch |)(.+?)\((\d{4})', i[1])) for i in r]
+            r = [(i[0], i[1][0][0], i[1][0][1]) for i in r if len(i[1]) > 0]
+            r = [i for i in r if t == cleantitle.get(i[1]) and year == i[2]]
+
+            result = r[0][0]
             result = urllib.unquote_plus(result)
 
             url = urlparse.urljoin(self.base_link, result)
@@ -72,39 +72,42 @@ class source:
 
             result = cloudflare.source(referer)
 
-            links = client.parseDOM(result, 'div', attrs = {'class': '[^"]*server_line[^"]*'})
+            r = client.parseDOM(result, 'div', attrs = {'class': '[^"]*server_line[^"]*'})
 
-            for link in links:
+            links = []
+
+            for u in r:
                 try:
-                    host = client.parseDOM(link, 'p', attrs = {'class': 'server_servername'})[0]
+                    host = client.parseDOM(u, 'p', attrs = {'class': 'server_servername'})[0]
                     host = host.strip().lower().split(' ')[-1]
 
                     headers = {'X-Requested-With': 'XMLHttpRequest', 'Referer': referer}
 
                     url = urlparse.urljoin(self.base_link, '/ip.temp/swf/plugins/ipplugins.php')
 
-                    p1 = client.parseDOM(link, 'a', ret='data-film')[0]
-                    p2 = client.parseDOM(link, 'a', ret='data-server')[0]
-                    p3 = client.parseDOM(link, 'a', ret='data-name')[0]
+                    p1 = client.parseDOM(u, 'a', ret='data-film')[0]
+                    p2 = client.parseDOM(u, 'a', ret='data-server')[0]
+                    p3 = client.parseDOM(u, 'a', ret='data-name')[0]
                     post = {'ipplugins': 1, 'ip_film': p1, 'ip_server': p2, 'ip_name': p3}
                     post = urllib.urlencode(post)
 
-                    if not host in ['google', 'putlocker', 'openload', 'videomega']: raise Exception()
+                    if not host in ['google', 'putlocker']: raise Exception()
 
                     result = cloudflare.source(url, post=post, headers=headers)
                     result = json.loads(result)['s']
 
-                    if host in ['google', 'putlocker']:
-                        result = [i['file'] for i in result]
-                        for i in result:
-                            try: sources.append({'source': 'gvideo', 'quality': directstream.googletag(i)[0]['quality'], 'provider': 'Tunemovie', 'url': i, 'direct': True, 'debridonly': False})
-                            except: pass
+                    url = urlparse.urljoin(self.base_link, '/ip.temp/swf/ipplayer/ipplayer.php')
 
-                    elif 'openload' in host:
-                        sources.append({'source': 'openload.co', 'quality': 'HD', 'provider': 'Tunemovie', 'url': result, 'direct': False, 'debridonly': False})
+                    post = {'u': result, 'w': '100%', 'h': '420'}
+                    post = urllib.urlencode(post)
 
-                    elif 'videomega' in host:
-                        sources.append({'source': 'videomega.tv', 'quality': 'HD', 'provider': 'Tunemovie', 'url': result, 'direct': False, 'debridonly': False})
+                    result = cloudflare.source(url, post=post, headers=headers)
+                    result = json.loads(result)['data']
+                    result = [i['files'] for i in result]
+
+                    for i in result:
+                        try: sources.append({'source': 'gvideo', 'quality': directstream.googletag(i)[0]['quality'], 'provider': 'Tunemovie', 'url': i, 'direct': True, 'debridonly': False})
+                        except: pass
                 except:
                     pass
 

@@ -21,6 +21,9 @@
 
 import os,sys,re,json,urllib,urlparse,base64,datetime
 
+try: action = dict(urlparse.parse_qsl(sys.argv[2].replace('?','')))['action']
+except: action = None
+
 from resources.lib.modules import trakt
 from resources.lib.modules import cleantitle
 from resources.lib.modules import cleangenre
@@ -41,7 +44,7 @@ class tvshows:
         self.trakt_link = 'http://api-v2launch.trakt.tv'
         self.tvdb_key = base64.urlsafe_b64decode('MUQ2MkYyRjkwMDMwQzQ0NA==')
         self.datetime = (datetime.datetime.utcnow() - datetime.timedelta(hours = 5))
-        self.trakt_user = re.sub('[^a-z0-9]', '-', control.setting('trakt.user').strip().lower())
+        self.trakt_user = control.setting('trakt.user').strip()
         self.imdb_user = control.setting('imdb.user').replace('ur', '')
         self.lang = control.apiLanguage()['tvdb']
 
@@ -65,11 +68,11 @@ class tvshows:
         self.certification_link = 'http://www.imdb.com/search/title?title_type=tv_series,mini_series&release_date=,date[0]&certificates=us:%s&sort=moviemeter,asc&count=40&start=1'
         self.trending_link = 'http://api-v2launch.trakt.tv/shows/trending?limit=40&page=1'
 
-        self.traktlists_link = 'http://api-v2launch.trakt.tv/users/%s/lists' % self.trakt_user
+        self.traktlists_link = 'http://api-v2launch.trakt.tv/users/me/lists'
         self.traktlikedlists_link = 'http://api-v2launch.trakt.tv/users/likes/lists?limit=1000000'
         self.traktlist_link = 'http://api-v2launch.trakt.tv/users/%s/lists/%s/items'
-        self.traktcollection_link = 'http://api-v2launch.trakt.tv/users/%s/collection/shows' % self.trakt_user
-        self.traktwatchlist_link = 'http://api-v2launch.trakt.tv/users/%s/watchlist/shows' % self.trakt_user
+        self.traktcollection_link = 'http://api-v2launch.trakt.tv/users/me/collection/shows'
+        self.traktwatchlist_link = 'http://api-v2launch.trakt.tv/users/me/watchlist/shows'
         self.traktfeatured_link = 'http://api-v2launch.trakt.tv/recommendations/shows?limit=40'
         self.imdblists_link = 'http://www.imdb.com/user/ur%s/lists?tab=all&sort=modified:desc&filter=titles' % self.imdb_user
         self.imdblist_link = 'http://www.imdb.com/list/%s/?view=detail&sort=title:asc&title_type=tv_series,mini_series&start=1'
@@ -87,19 +90,19 @@ class tvshows:
 
             if u in self.trakt_link and '/users/' in url:
                 try:
-                    if not '/%s/' % self.trakt_user in url: raise Exception()
-                    if trakt.getActivity() > cache.timeout(self.trakt_list, url): raise Exception()
-                    self.list = cache.get(self.trakt_list, 720, url)
+                    if not '/users/me/' in url: raise Exception()
+                    if trakt.getActivity() > cache.timeout(self.trakt_list, url, self.trakt_user): raise Exception()
+                    self.list = cache.get(self.trakt_list, 720, url, self.trakt_user)
                 except:
-                    self.list = cache.get(self.trakt_list, 0, url)
+                    self.list = cache.get(self.trakt_list, 0, url, self.trakt_user)
 
-                if '/%s/' % self.trakt_user in url:
+                if '/users/me/' in url:
                     self.list = sorted(self.list, key=lambda k: re.sub('(^the |^a )', '', k['title'].lower()))
 
                 if idx == True: self.worker()
 
             elif u in self.trakt_link:
-                self.list = cache.get(self.trakt_list, 24, url)
+                self.list = cache.get(self.trakt_list, 24, url, self.trakt_user)
                 if idx == True: self.worker()
 
 
@@ -138,7 +141,7 @@ class tvshows:
             control.window.setProperty('%s.tvshow.search' % control.addonInfo('id'), self.query)
 
             url = self.search_link % urllib.quote_plus(self.query)
-            self.list = cache.get(self.trakt_list, 0, url)
+            self.list = cache.get(self.trakt_list, 0, url, self.trakt_user)
 
             self.worker()
             self.tvshowDirectory(self.list)
@@ -222,10 +225,10 @@ class tvshows:
         try:
             if trakt.getTraktCredentialsInfo() == False: raise Exception()
             try:
-                if activity > cache.timeout(self.trakt_user_list, self.traktlists_link): raise Exception()
-                userlists += cache.get(self.trakt_user_list, 720, self.traktlists_link)
+                if activity > cache.timeout(self.trakt_user_list, self.traktlists_link, self.trakt_user): raise Exception()
+                userlists += cache.get(self.trakt_user_list, 720, self.traktlists_link, self.trakt_user)
             except:
-                userlists += cache.get(self.trakt_user_list, 0, self.traktlists_link)
+                userlists += cache.get(self.trakt_user_list, 0, self.traktlists_link, self.trakt_user)
         except:
             pass
         try:
@@ -238,10 +241,10 @@ class tvshows:
             self.list = []
             if trakt.getTraktCredentialsInfo() == False: raise Exception()
             try:
-                if activity > cache.timeout(self.trakt_user_list, self.traktlikedlists_link): raise Exception()
-                userlists += cache.get(self.trakt_user_list, 720, self.traktlikedlists_link)
+                if activity > cache.timeout(self.trakt_user_list, self.traktlikedlists_link, self.trakt_user): raise Exception()
+                userlists += cache.get(self.trakt_user_list, 720, self.traktlikedlists_link, self.trakt_user)
             except:
-                userlists += cache.get(self.trakt_user_list, 0, self.traktlikedlists_link)
+                userlists += cache.get(self.trakt_user_list, 0, self.traktlikedlists_link, self.trakt_user)
         except:
             pass
 
@@ -251,7 +254,7 @@ class tvshows:
         return self.list
 
 
-    def trakt_list(self, url):
+    def trakt_list(self, url, user):
         try:
             dupes = []
 
@@ -382,7 +385,7 @@ class tvshows:
         return self.list
 
 
-    def trakt_user_list(self, url):
+    def trakt_user_list(self, url, user):
         try:
             result = trakt.getTrakt(url)
             items = json.loads(result)
@@ -391,14 +394,14 @@ class tvshows:
 
         for item in items:
             try:
-                try: item = item['list']
-                except: pass
-
-                name = item['name']
+                try: name = item['list']['name']
+                except: name = item['name']
                 name = client.replaceHTMLCodes(name)
                 name = name.encode('utf-8')
 
-                url = self.traktlist_link % (item['user']['username'].strip(), item['ids']['slug'])
+                try: url = (trakt.slug(item['list']['user']['username']), item['list']['ids']['slug'])
+                except: url = ('me', item['ids']['slug'])
+                url = self.traktlist_link % url
                 url = url.encode('utf-8')
 
                 self.list.append({'name': name, 'url': url, 'context': url})
@@ -777,7 +780,7 @@ class tvshows:
 
         traktCredentials = trakt.getTraktCredentialsInfo()
 
-        indicators = playcount.getTVShowIndicators()
+        indicators = playcount.getTVShowIndicators(refresh=True) if action == 'tvshows' else playcount.getTVShowIndicators()
 
         addonPoster, addonBanner = control.addonPoster(), control.addonBanner()
         addonFanart, settingFanart = control.addonFanart(), control.setting('fanart')
@@ -853,7 +856,7 @@ class tvshows:
         try:
             url = items[0]['next']
             if url == '': raise Exception()
-            url = '%s?action=tvshows&url=%s' % (sysaddon, urllib.quote_plus(url))
+            url = '%s?action=tvshowPage&url=%s' % (sysaddon, urllib.quote_plus(url))
             addonNext = control.addonNext()
             item = control.item(label=control.lang(30241).encode('utf-8'), iconImage=addonNext, thumbnailImage=addonNext)
             item.addContextMenuItems([], replaceItems=False)
@@ -865,7 +868,7 @@ class tvshows:
 
         control.content(int(sys.argv[1]), 'tvshows')
         control.directory(int(sys.argv[1]), cacheToDisc=True)
-        views.setView('tvshows', {'skin.confluence': 500})
+        views.setView('tvshows', {'skin.estuary': 54, 'skin.confluence': 500})
 
 
     def addDirectory(self, items):

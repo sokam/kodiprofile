@@ -1,3 +1,7 @@
+v1.4.5
+	* Fix possible script errors on auto-play.
+
+
 v1.4.4
 	* Update urlresolver dependency to 3.0.0.
 	* Adjust the code to the changes in the urlresolver's API.

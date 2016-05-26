@@ -1129,6 +1129,7 @@ def trakt_search_shows(url):
 			thumb = ''
 			# TODO FIX REFRESH
 		menu_items=[]
+		menu_items.append(('[COLOR gold]Add to Collection[/COLOR]',      'RunPlugin(%s)' % addon.build_plugin_url({'trakt_id':trakt_id, 'mode':'add_collection', 'name':name, 'media':media})))
 		#menu_items.append(('[COLOR gold]Mark as Watched[/COLOR]',      'RunPlugin(%s)' % addon.build_plugin_url({'trakt_id':trakt_id, 'mode':'add_watched_history', 'name':name, 'media':media})))
 		menu_items.append(('[COLOR gold]Add to Custom List[/COLOR]',      'RunPlugin(%s)' % addon.build_plugin_url({'trakt_id':trakt_id, 'mode':'pick_custom_list', 'name':name, 'media':media})))
 		menu_items.append(('[COLOR gold]Find Similar Shows[/COLOR]', 'RunPlugin(%s)' % addon.build_plugin_url({'trakt_id':trakt_id, 'mode':'similar_shows', 'name':name})))

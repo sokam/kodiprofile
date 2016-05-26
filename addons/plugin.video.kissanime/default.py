@@ -354,6 +354,17 @@ def PlayVideo(url,title='',studio='',img='',showtitle='',plot='',autoplay=False,
 	infoLabels={"studio":studio,"ShowTitle":showtitle,"Title":title,"Plot":plot}; debob(infoLabels); 
 	if (tfalse(addst('eod-on-playback'))==True):
 		if (autoplay==False): eod()
+	
+	
+	if ('://openload.co/' in url) or ('://www.openload.co/' in url):
+		#try: 
+		import urlresolver; 
+		urlRS=str(urlresolver.HostedMediaFile(url).resolve()); #debob(urlresolver.HostedMediaFile(url)); 
+		#except: urlRS=''
+		debob(['urlRS',urlRS]); 
+		if (len(urlRS) > 10) and (urlRS.startswith('<urlresolver.plugnplay.interfaces.unresolvable')==False): url=urlRS
+	
+	
 	## ### ## 
 	deb('Device Option',sDevice); 
 	#if sDevice=="NORMAL":
@@ -849,6 +860,27 @@ def mdGetSplitFindGroup(html,ifTag='', parseTag='',startTag='',endTag=''):
 		except: return ''
 	else: return ''
 
+def TestTest():
+	##
+		##
+		testAUrl=''
+		deb('testAUrl - Before kissenc()',testAUrl)
+		#testAUrlB=kissenc(testAUrl)
+		testAUrlB=testAUrl
+		deb('testAUrlB - After kissenc()',testAUrlB)
+		kEy=''
+		#testAUrlC=KissEnc.decrypt(testAUrl,'cartoon')
+		testAUrlC=KEDecrypt(testAUrl)
+		deb('testAUrlC - After AESDecrypt()',str(testAUrlC))
+		
+		#testAUrlD=kissenc(testAUrlC)
+		testAUrlD=testAUrlC
+		deb('testAUrlD - After 2nd kissenc()',str(testAUrlD))
+		
+		eod(); 
+		##
+	##
+
 def listLinks(section, url, showtitle='', showyear='',epnameo='',eptitle=''): ### Menu for Listing Hosters (Host Sites of the actual Videos)
 	WhereAmI('@ the Link List: %s' % url); sources=[]; listitem=xbmcgui.ListItem()
 	if (url==''): return
@@ -929,7 +961,7 @@ def listLinks(section, url, showtitle='', showyear='',epnameo='',eptitle=''): ##
 						testAExt='mp4'; 
 						testAUrlB=DecodeUrlB64(testAUrl); 
 						testAUrlB=messupText(testAUrlB,True,True,True,False)
-						#debob([testAName,testAUrlB,testAUrl]); 
+						debob([testAName,testAUrlB,testAUrl]); 
 						debob(['testAName',testAName]); 
 						debob(['testAUrlB',testAUrlB]); 
 						debob(['testAUrl',testAUrl]); 
@@ -980,6 +1012,51 @@ def listLinks(section, url, showtitle='', showyear='',epnameo='',eptitle=''): ##
 							curItem=[ttLabel,'[%s]6.%s'%(ttLabel,ttType),'ttLabel','000',ttType]; 
 							matches.append(curItem); prevItem=curItem; 
 						except: pass
+	
+	if ('<iframe sandbox="allow-forms allow-same-origin allow-scripts" style="' in html) and ('" src="' in html) and ('" allowfullscreen="true" webkitallowfullscreen="true" mozallowfullscreen="true"></iframe>' in html) and (tfalse(addst('VerSeven-Links'))==True):
+					debob("Attempting newer method #7 (March 2016).");
+					try: testA=re.compile('<iframe sandbox="allow-forms allow-same-origin allow-scripts" style="width: (\d+)px; height: (\d+)px; border: \d+px;" src="([^"]+)" allowfullscreen="\D*" webkitallowfullscreen="\D*" mozallowfullscreen="\D*">\s*</iframe').findall(html)
+					except: testA=[]
+					prevItem=['','','','','']; 
+					for ttResW,ttResH,ttFile in testA:
+						try:
+							ttLabel=''+ttResW+'x'+ttResH+''; ttType='mp4'; 
+							if ttFile.endswith('.3gp'): ttType='3gp'; 
+							elif ttFile.endswith('.flv'): ttType='flv'; 
+							elif ttFile.endswith('.mp4'): ttType='mp4'; 
+							debob([ttType,ttLabel,ttResW,ttResH,ttFile]); 
+							#mNMa=urllib.unquote_plus(testA2); 
+							#curItem=[ttLabel,'[%s]6.%s'%(ttLabel,ttType),'ttLabel','000',ttType]; 
+							curItem=[ttFile,'[%s]7.%s'%(ttLabel,ttType),ttLabel,'000',ttType]; 
+							## mUrl,mName,mWidth,mHeight,mFileExt ##
+							matches.append(curItem); prevItem=curItem; 
+						except: pass
+	
+	##<div id="divContentVideo" style="width: 854px; height: 552px">
+	##<iframe style="width: 854px; height: 552px; border: 0px;" src="
+	##" allowfullscreen="true" webkitallowfullscreen="true" mozallowfullscreen="true"></iframe>
+	if ('<div id="divContentVideo"' in html) and ('<iframe style="' in html) and ('" src="' in html) and ('" allowfullscreen="true" webkitallowfullscreen="true" mozallowfullscreen="true"></iframe>' in html) and (tfalse(addst('VerEight-Links'))==True):
+					debob("Attempting newer method #8 (March 2016).");
+					try: testA=re.compile('<div id="divContentVideo"[^>]*>\s*\n*\a*\r*\s*<iframe style="[^"]*" src="([^"]+)" allowfullscreen="\D*" webkitallowfullscreen="\D*" mozallowfullscreen="\D*">\s*</iframe').findall(html)
+					except: testA=[]
+					prevItem=['','','','','']; 
+					for ttResW,ttResH,ttFile in testA:
+						try:
+							ttLabel=''+ttResW+'x'+ttResH+''; ttType='mp4'; 
+							if ttFile.endswith('.3gp'): ttType='3gp'; 
+							elif ttFile.endswith('.flv'): ttType='flv'; 
+							elif ttFile.endswith('.mp4'): ttType='mp4'; 
+							debob([ttType,ttLabel,ttResW,ttResH,ttFile]); 
+							#mNMa=urllib.unquote_plus(testA2); 
+							curItem=[ttFile,'[%s]8.%s'%(ttLabel,ttType),ttLabel,'000',ttType]; 
+							## mUrl,mName,mWidth,mHeight,mFileExt ##
+							matches.append(curItem); prevItem=curItem; 
+						except: pass
+	
+	if ("This video is broken, we're working to fix it." in html):
+		matches.append(["This video is broken, we're working to fix it.","Video is broken",'Video is broken','000','Error'])
+	
+	
 	#html=messupText(html,True,True,True,False)
 	#if ("var txha = 'fmt_list=" in html) and (tfalse(addst('VerTwo-Links'))==True):
 	if ("var txha = '" in html) and ((tfalse(addst('VerTwo-Links'))==True) or (tfalse(addst('VerFive-Links'))==True)):
@@ -1654,7 +1731,9 @@ def listUpcoming(section=_default_section_, url='', startPage='1', numOfPages='1
 			img=''+tImage; fimg=''+tImage; 
 			labs[u'title']=name
 			pars={'mode':'GetEpisodes','url':item_url,'img':img,'title':labs[u'title'],'type':vtype,'fanart':fimg}
-			tSummary=tSummary.replace('<br/>','').replace('<em>','').replace('</em>','')
+			#if 'font-size' in tSummary: print tSummary
+			#debob(['tSummary',tSummary])
+			tSummary=tSummary.replace('<br/>','\n').replace('<em>','').replace('</em>','').replace('<br />','\n').replace('<span>','\n').replace('</span>','\n').replace('<!--size-->','').replace('<span style="font-size:90%;">','').replace('<span style="font-size: 90%;">','')
 			labs[u'plot']+='\n'+cFL("Date Aired: ",'lime')+cFL(tDateAired,'pink')
 			labs[u'plot']+='\n'+cFL(tSummary,'grey')
 			
@@ -2295,7 +2374,7 @@ def listItems_Upcoming(section=_default_section_, url='', startPage='1', numOfPa
 			if len(labs[u'plot'])==0: labs[u'plot']+=cFL(summary,'grey'); 
 			else: labs[u'plot']+=CR2+summary; 
 			labs[u'plot']=CR+cFL(cFL('Date Aired: ','deeppink')+when_date,'mediumpurple')+CR+labs['plot']; 
-			labs[u'plot']=labs['plot'].replace('<br/>',CR).replace('<br>',CR).replace('<BR/>',CR).replace('<BR>',CR).replace('<em>','').replace('</em>','')
+			labs[u'plot']=labs['plot'].replace('<br/>',CR).replace('<br>',CR).replace('<BR/>',CR).replace('<BR>',CR).replace('<em>','').replace('</em>','').replace('<br />',CR).replace('<span>',CR).replace('</span>',CR).replace('<!--size-->','').replace('<span style="font-size:90%;">','').replace('<span style="font-size: 90%;">','')
 			### ## ### 
 			labs[u'plot']=messupText(labs['plot'],_html=True,_ende=True,_a=False,Slashes=False)
 			
@@ -3507,6 +3586,8 @@ def Menu_MainMenu(): #The Main Menu
 	#
 	
 	#
+	if (tfalse(addst('debug-testing'))==True):
+		_addon.add_directory({'mode':'TestTest','url':_domain_url+'/'+ps('common_word')+'List/LatestUpdate'},{'title':cFL_(ps('common_word')+' T-E-S-T-I-N-G',ps('cFL_color'))},fanart=_artFanart,img=psgn(ps('common_word').lower()+' list latest update','.jpg'))
 	_addon.add_directory({'mode':'SelectAZ','url':_domain_url+'/'+ps('common_word')+'List'},{'title':cFL_(ps('common_word')+' List ( All | # | A-Z )',ps('cFL_color'))},fanart=_artFanart,img=psgn(ps('common_word').lower()+' list all','.jpg'))
 	_addon.add_directory({'mode':'GetTitles','url':_domain_url+'/Status/Ongoing'},{'title':cFL_('Ongoing',ps('cFL_color'))},fanart=_artFanart,img=psgn('ongoing','.jpg'))
 	_addon.add_directory({'mode':'GetTitles','url':_domain_url+'/Status/Completed'},{'title':cFL_('Completed',ps('cFL_color'))},fanart=_artFanart,img=psgn('completed','.jpg'))
@@ -3702,6 +3783,23 @@ def fav__COMMON__check_SQL(FavUrl,subfav):
 		if len(r) > 0:
 			if r[0]==FavUrl: 
 				iFound=True; #debob(["db result",r]); 
+	elif FavUrl.startswith('https://'):
+		FavUrl=FavUrl.replace('https://','http://')
+		r=get_database_1st_s('SELECT url FROM %s WHERE (url == "%s")' % (FavTable,FavUrl)); 
+		if r:
+			#debob(["db result",r]); 
+			if len(r) > 0:
+				if r[0]==FavUrl: 
+					iFound=True; #debob(["db result",r]); 
+		elif 'kissanime.to/' in FavUrl:
+			FavUrl=FavUrl.replace('kissanime.to/','kissanime.com/')
+			r=get_database_1st_s('SELECT url FROM %s WHERE (url == "%s")' % (FavTable,FavUrl)); 
+			if r:
+				#debob(["db result",r]); 
+				if len(r) > 0:
+					if r[0]==FavUrl: 
+						iFound=True; #debob(["db result",r]); 
+	
 	if iFound==True: return True
 	else: return False
 	## ### ## 
@@ -3850,6 +3948,12 @@ def FavoritesSQL_List(favsN='1'):
 				debob(sDB); 
 				r=get_database_all(sDB); 
 				#debob(["epnameo",epnameo,"showtitle",showtitle]); 
+				DoAFixOrRuni=False
+				if not r:
+					sDB='SELECT %s FROM %s, shows WHERE (%s.url LIKE "%s" and %s.url == shows.url)' % (tab1rows,favsnum,favsnum,_domain_url.replace('https://','http://').replace('.to','.')+"%/%",favsnum)
+					debob(sDB); 
+					r=get_database_all(sDB); 
+					DoAFixOrRuni=True
 				if r:
 					#debob(["db result",r]); 
 					if len(r) > 0:
@@ -3859,7 +3963,29 @@ def FavoritesSQL_List(favsN='1'):
 								pass
 							ItemCount=len(r); i=0; HistoryCountLimit=addst("history101-count"); 
 							for k in r[::-1]:
-								#try:
+								try:
+										#####
+										if DoAFixOrRuni==True:
+											url=k[0]; 
+											sDB=['UPDATE shows SET url = "%s" WHERE (url == "%s")' % (  url.replace('kissanime.com/','kissanime.to/').replace('kissanime.me/','kissanime.to/').replace('http://','https://'),url )]
+											debob(sDB); 
+											do_database(sDB); 
+											sDB=['UPDATE %s SET url = "%s" WHERE (url == "%s")' % (  FavTable,url.replace('kissanime.com/','kissanime.to/').replace('kissanime.me/','kissanime.to/').replace('http://','https://'),url )]
+											debob(sDB); 
+											do_database(sDB); 
+											img=_artIcon; fanart=_artFanart; 
+											try: img=k[6]; fanart=k[7]; 
+											except: pass
+											if (img.startswith('http://')) or ('kissanime.com' in img) or ('kissanime.me' in img):
+												sDB=['UPDATE shows SET img = "%s" WHERE (img == "%s")' % (  img.replace('kissanime.com/','kissanime.to/').replace('kissanime.me/','kissanime.to/').replace('http://','https://'),img )]
+												debob(sDB); 
+												do_database(sDB); 
+											if (fanart.startswith('http://')) or ('kissanime.com' in fanart) or ('kissanime.me' in fanart):
+												sDB=['UPDATE shows SET fanart = "%s" WHERE (fanart == "%s")' % (  fanart.replace('kissanime.com/','kissanime.to/').replace('kissanime.me/','kissanime.to/').replace('http://','https://'),fanart )]
+												debob(sDB); 
+												do_database(sDB); 
+											
+										#####
 										#debob(['k',k[-1],k]); 
 										#debob(['k',k]); 
 										contextMenuItems=[]; pars={}; labs={}; img=_artIcon; fanart=_artFanart; site=addpr('site'); section=addpr('section'); plot=''; pars['mode']='GetEpisodes'; pars['site']=site; pars['section']=section; url=''; title=''; visitedUrl=''; 
@@ -3926,7 +4052,7 @@ def FavoritesSQL_List(favsN='1'):
 											_addon.add_directory(pars,labs,img=img,fanart=fanart,contextmenu_items=contextMenuItems,context_replace=True); i+=1; 
 											if not (HistoryCountLimit=="ALL") and (len(HistoryCountLimit) > 0):
 												if i > (int(HistoryCountLimit)-1): break
-								#except: pass
+								except: pass
 				## ### ## 
 				set_view('tvshows',addst('anime-view'))
 				eod()
@@ -3960,7 +4086,8 @@ def History101(): ## This method uses both the SQL's visited and shows tables.  
 										try: img=k[6]; fanart=k[7]; 
 										except: pass
 										try: 
-											url=k[0]; title=k[1]; visitedUrl=k[10] 
+											url=k[0].replace('kissanime.com/','kissanime.to/').replace('kissanime.me/','kissanime.to/').replace('http://','https://'); 
+											title=k[1]; visitedUrl=k[10] 
 											plot=urllib.unquote_plus(k[9]); 
 										except: pass
 										try: imdb=str(k[9]); 
@@ -3970,11 +4097,13 @@ def History101(): ## This method uses both the SQL's visited and shows tables.  
 												img=_artIcon; 
 											else:
 												if 'kissanime.com/' in img: img=img.replace('kissanime.com/','kissanime.to/')
+												if img.startswith('http://'): img=img.replace('http://','https://')
 												img=net.url_with_headers(img)
 											if len(fanart)==0: 
 												fanart=_artFanart; 
 											else:
 												if 'kissanime.com/' in fanart: fanart=fanart.replace('kissanime.com/','kissanime.to/')
+												if fanart.startswith('http://'): fanart=fanart.replace('http://','https://')
 												fanart=net.url_with_headers(fanart)
 											
 											pars['url']=url; pars['fanart']=fanart; pars['img']=img; labs['plot']=plot; labs['imdb_id']=imdb; fimg=fanart; item_url=url; 
@@ -4039,7 +4168,7 @@ def History101a(): ## This method uses only the SQL's visited table.
 				#do_database(['INSERT OR REPLACE INTO visited (url,title,episode,timestampyear,timestampmonth,timestampday,img,fanart) VALUES ("%s","%s","%s","%s","%s","%s","%s","%s")' % (  url,ShowTitle,epnameo,str(datetime.date.today().year),str(datetime.date.today().month),str(datetime.date.today().day),img,fimg  )])
 				#r=get_database_1st('SELECT * FROM visited WHERE url == "%s"' % url); 
 				#r=get_database_1st('SELECT * FROM visited WHERE (episode == "%s" AND title == "%s")' % (epnameo,showtitle)); 
-				r=get_database_all('SELECT * FROM visited WHERE (episode == "" AND url LIKE "%s")' % (_domain_url+"/%")); 
+				r=get_database_all('SELECT * FROM visited WHERE (episode == "" AND url LIKE "%s")' % ("%://"+_domain_url.replace('http://','').replace('https://','').replace('.to','')+".%/%")); 
 				#debob(["db result",r]); 
 				#debob(["epnameo",epnameo,"showtitle",showtitle]); 
 				if r:
@@ -4054,13 +4183,16 @@ def History101a(): ## This method uses only the SQL's visited table.
 											img=_artIcon; 
 										else:
 											if 'kissanime.com/' in img: img=img.replace('kissanime.com/','kissanime.to/')
+											if img.startswith('http://'): img=img.replace('http://','https://')
 											img=net.url_with_headers(img)
 										if len(fanart)==0: 
 											fanart=_artFanart; 
 										else:
 											if 'kissanime.com/' in fanart: fanart=fanart.replace('kissanime.com/','kissanime.to/')
+											if fanart.startswith('http://'): fanart=fanart.replace('http://','https://')
 											fanart=net.url_with_headers(fanart)										
-										pars['url']=k[0]; pars['mode']='GetEpisodes'; pars['site']=addpr('site'); pars['section']=addpr('section'); pars['fanart']=fanart; pars['img']=img; 
+										pars['url']=k[0].replace('kissanime.com/','kissanime.to/').replace('kissanime.me/','kissanime.to/').replace('http://','https://'); 
+										pars['mode']='GetEpisodes'; pars['site']=addpr('site'); pars['section']=addpr('section'); pars['fanart']=fanart; pars['img']=img; 
 										pars['title']=k[1]; labs['title']=k[1] #pars['title']; 
 										_addon.add_directory(pars,labs,img=img,fanart=fanart,contextmenu_items=contextMenuItems,context_replace=True)
 										if not (HistoryCountLimit=="ALL") and (len(HistoryCountLimit) > 0):
@@ -4104,11 +4236,13 @@ def History201():
 											#img=ArtworkCaching(img)
 											#if i==5: return
 											if 'kissanime.com/' in img: img=img.replace('kissanime.com/','kissanime.to/')
+											if img.startswith('http://'): img=img.replace('http://','https://')
 											img=net.url_with_headers(img)
 										if len(fanart)==0: 
 											fanart=_artFanart; 
 										else:
 											if 'kissanime.com/' in fanart: fanart=fanart.replace('kissanime.com/','kissanime.to/')
+											if fanart.startswith('http://'): fanart=fanart.replace('http://','https://')
 											fanart=net.url_with_headers(fanart) 
 										fimg=fanart; item_url=url; pars['url']=url; pars['imdbnum']=k[5]; pars['imdbid']=k[5]; labs['imdb_id']=k[5]; pars['mode']='GetEpisodes'; pars['site']=addpr('site'); pars['section']=addpr('section'); pars['fanart']=fanart; pars['img']=img; 
 										title=name; pars['title']=name; labs['title']=name; labs['showtitle']=name; labs['plot']=urllib.unquote_plus(k[6]); #pars['title']; 
@@ -4342,6 +4476,7 @@ def check_mode(mode=''):
 	#####
 	if (mode=='') or (mode=='main') or (mode=='MainMenu'): Menu_MainMenu()
 	#elif (mode=='PlayVideo'): 						PlayVideo(uRL, _param['infoLabels'], _param['listitem'])
+	elif (mode=='TestTest'):							TestTest()
 	elif (mode=='PlayVideo'): 						PlayVideo(uRL,title=_param['title'],studio=_param['studio'],img=_param['img'],showtitle=_param['showtitle'],plot=_param['plot'],pageUrl=addpr('pageurl'))
 	elif (mode=='PlayVideoA'): 						PlayVideo(uRL,title=_param['title'],studio=_param['studio'],img=_param['img'],showtitle=_param['showtitle'],plot=_param['plot'],autoplay=True,pageUrl=addpr('pageurl'))
 	elif (mode=='PlayVideoB'): 						PlayVideo(uRL,title=_param['title'],studio=_param['studio'],img=_param['img'],showtitle=_param['showtitle'],plot=_param['plot'],pageUrl=addpr('pageurl'))

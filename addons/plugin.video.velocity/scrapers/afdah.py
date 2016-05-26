@@ -251,7 +251,7 @@ def get_sources(source_url):
                 host = urlparse.urlparse(url).hostname
                 host = host.replace('www.','')
                 host = host.replace('http://','')
-                hoster = {'multi-part': False, 'url': url, 'host': host, 'quality': quality, 'rating': None, 'views': None, 'direct': False}
+                hoster = {'hostname':'AFDAH','multi-part': False, 'url': url, 'host': host, 'quality': quality, 'rating': None, 'views': None, 'direct': False}
                 #hoster = {'url': url, 'host': host,'view':None,'quality':quality,'direct':False}
                 hosters.append(hoster)
         hosters = main_scrape.apply_urlresolver(hosters)

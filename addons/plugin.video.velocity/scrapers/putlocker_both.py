@@ -327,7 +327,7 @@ def get_sources(video):
             for match in re.finditer('<a[^>]+href="([^"]+)[^>]+>(Version \d+)<', html):
                 url, version = match.groups()
                 host = urlparse.urlsplit(url).hostname.replace('embed.', '')
-                hoster = {'multi-part': False, 'host': host,  'quality': get_quality(video, host, QUALITIES.HIGH), 'views': None, 'rating': None, 'url': url, 'direct': False}
+                hoster = {'hostname':'Putlocker','multi-part': False, 'host': host,  'quality': get_quality(video, host, QUALITIES.HIGH), 'views': None, 'rating': None, 'url': url, 'direct': False}
                 hoster['version'] = version
                 hosters.append(hoster)
 

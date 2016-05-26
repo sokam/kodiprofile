@@ -76,17 +76,17 @@ def primewire(name):
                                 print "VIEWS ARE " +views
                             if host == 'ZnJhbWVndGZv': continue  # filter out promo hosts
                             #host = tools.get_hostname(host.decode('base-64'))
-                            source = {'url': url.decode('base-64'), 'host': host.decode('base-64'),'view':views,'quality':qual,'direct':False}
+                            source = {'hostname':'PrimeWire','url': url.decode('base-64'), 'host': host.decode('base-64'),'views':views,'quality':qual,'direct':False}
                             sources.append(source)
             #print "MOVIE SOURCES ARE = "+str(sources)
             sources = main_scrape.apply_urlresolver(sources)
             return sources
     except Exception as e:
-        hosters =[]
+        sources =[]
         log_utils.log('Error [%s]  %s' % (str(e), ''), xbmc.LOGERROR)
         if kodi.get_setting('error_notify') == "true":
             kodi.notify(header='PrimeWire',msg='(error) %s  %s' % (str(e), ''),duration=5000,sound=None)
-        return hosters
+        return sources
 
 
 

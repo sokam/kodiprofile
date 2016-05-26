@@ -118,7 +118,7 @@ def authTrakt():
 
 
 def getTraktCredentialsInfo():
-    user = re.sub('[^a-z0-9]', '-', control.setting('trakt.user').strip().lower())
+    user = control.setting('trakt.user').strip()
     token = control.setting('trakt.token')
     refresh = control.setting('trakt.refresh')
     if (user == '' or token == '' or refresh == ''): return False
@@ -155,23 +155,22 @@ def getTraktAddonEpisodeInfo():
 
 def manager(name, imdb, tvdb, content):
     try:
-        user = re.sub('[^a-z0-9]', '-', control.setting('trakt.user').strip().lower())
         post = {"movies": [{"ids": {"imdb": imdb}}]} if content == 'movie' else {"shows": [{"ids": {"tvdb": tvdb}}]}
 
         items = [(control.lang(30472).encode('utf-8'), '/sync/collection')]
         items += [(control.lang(30473).encode('utf-8'), '/sync/collection/remove')]
         items += [(control.lang(30474).encode('utf-8'), '/sync/watchlist')]
         items += [(control.lang(30475).encode('utf-8'), '/sync/watchlist/remove')]
-        items += [(control.lang(30476).encode('utf-8'), '/users/%s/lists/%s/items' % (user, '%s'))]
+        items += [(control.lang(30476).encode('utf-8'), '/users/me/lists/%s/items')]
 
-        result = getTrakt('/users/%s/lists' % user)
+        result = getTrakt('/users/me/lists')
         result = json.loads(result)
         lists = [(i['name'], i['ids']['slug']) for i in result]
         lists = [lists[i//2] for i in range(len(lists)*2)]
         for i in range(0, len(lists), 2):
-            lists[i] = ((control.lang(30477) + ' ' + lists[i][0]).encode('utf-8'), '/users/%s/lists/%s/items' % (user, lists[i][1]))
+            lists[i] = ((control.lang(30477) + ' ' + lists[i][0]).encode('utf-8'), '/users/me/lists/%s/items' % lists[i][1])
         for i in range(1, len(lists), 2):
-            lists[i] = ((control.lang(30478) + ' ' + lists[i][0]).encode('utf-8'), '/users/%s/lists/%s/items/remove' % (user, lists[i][1]))
+            lists[i] = ((control.lang(30478) + ' ' + lists[i][0]).encode('utf-8'), '/users/me/lists/%s/items/remove' % lists[i][1])
         items += lists
 
         select = control.selectDialog([i[0] for i in items], control.lang(30471).encode('utf-8'))
@@ -183,8 +182,7 @@ def manager(name, imdb, tvdb, content):
             k = control.keyboard('', t) ; k.doModal()
             new = k.getText() if k.isConfirmed() else None
             if (new == None or new == ''): return
-            url = '/users/%s/lists' % user
-            result = getTrakt('/users/%s/lists' % user, post={"name": new, "privacy": "private"})
+            result = getTrakt('/users/me/lists', post={"name": new, "privacy": "private"})
 
             try: slug = json.loads(result)['ids']['slug']
             except: return control.infoDialog('Failed', heading=name)
@@ -196,6 +194,14 @@ def manager(name, imdb, tvdb, content):
         control.infoDialog(info, heading=name)
     except:
         return
+
+
+def slug(name):
+    name = name.strip()
+    name = name.lower()
+    name = re.sub('[^a-z0-9_]', '-', name)
+    name = re.sub('--+', '-', name)
+    return name
 
 
 def getActivity():
@@ -220,15 +226,36 @@ def getActivity():
         pass
 
 
+def getWatchedActivity():
+    try:
+        result = getTrakt('/sync/last_activities')
+        i = json.loads(result)
+
+        activity = []
+        activity.append(i['movies']['watched_at'])
+        activity.append(i['episodes']['watched_at'])
+        activity = [int(cleandate.iso_2_utc(i)) for i in activity]
+        activity = sorted(activity, key=int)[-1]
+
+        return activity
+    except:
+        pass
+
+
 def cachesyncMovies(timeout=0):
-    indicators = cache.get(syncMovies, timeout, re.sub('[^a-z0-9]', '-', control.setting('trakt.user').strip().lower()), table='trakt')
+    indicators = cache.get(syncMovies, timeout, control.setting('trakt.user').strip(), table='trakt')
     return indicators
+
+
+def timeoutsyncMovies():
+    timeout = cache.timeout(syncMovies, control.setting('trakt.user').strip(), table='trakt')
+    return timeout
 
 
 def syncMovies(user):
     try:
         if getTraktCredentialsInfo() == False: return
-        indicators = getTrakt('/users/%s/watched/movies' % user)
+        indicators = getTrakt('/users/me/watched/movies')
         indicators = json.loads(indicators)
         indicators = [i['movie']['ids'] for i in indicators]
         indicators = [str(i['imdb']) for i in indicators if 'imdb' in i]
@@ -238,17 +265,34 @@ def syncMovies(user):
 
 
 def cachesyncTVShows(timeout=0):
-    indicators = cache.get(syncTVShows, timeout, re.sub('[^a-z0-9]', '-', control.setting('trakt.user').strip().lower()), table='trakt')
+    indicators = cache.get(syncTVShows, timeout, control.setting('trakt.user').strip(), table='trakt')
     return indicators
+
+
+def timeoutsyncTVShows():
+    timeout = cache.timeout(syncTVShows, control.setting('trakt.user').strip(), table='trakt')
+    return timeout
 
 
 def syncTVShows(user):
     try:
         if getTraktCredentialsInfo() == False: return
-        indicators = getTrakt('/users/%s/watched/shows?extended=full' % user)
+        indicators = getTrakt('/users/me/watched/shows?extended=full')
         indicators = json.loads(indicators)
         indicators = [(i['show']['ids']['tvdb'], i['show']['aired_episodes'], sum([[(s['number'], e['number']) for e in s['episodes']] for s in i['seasons']], [])) for i in indicators]
         indicators = [(str(i[0]), int(i[1]), i[2]) for i in indicators]
+        return indicators
+    except:
+        pass
+
+
+def syncSeason(imdb):
+    try:
+        if getTraktCredentialsInfo() == False: return
+        indicators = getTrakt('/shows/%s/progress/watched?specials=false&hidden=false' % imdb)
+        indicators = json.loads(indicators)['seasons']
+        indicators = [(i['number'], [x['completed'] for x in i['episodes']]) for i in indicators]
+        indicators = ['%01d' % int(i[0]) for i in indicators if not False in i[1]]
         return indicators
     except:
         pass

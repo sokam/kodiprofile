@@ -33,8 +33,9 @@ def wrapper(func, arg, queue):
     queue.put(func(arg))
 
 def find_source(name,thumb,media,movie_title):
-
     try:
+        all_source = []
+
         q1, q2, q3, q4, q5, q6, q7, q8, q9 = Queue(), Queue(), Queue(),Queue(), Queue(), Queue(), Queue(), Queue(),Queue()
 
         if thumb is None:
@@ -44,23 +45,17 @@ def find_source(name,thumb,media,movie_title):
         if media == 'shows':
             find_sourceTV(name,thumb,media,movie_title)
         else:
-            if kodi.get_setting('9movies') == "true":
-                movie_title = name
-                t = Thread(target=wrapper, args=(nine_movies.ninemovies, name, q1))
-                t.daemon = True
-                t.start()
+            # if kodi.get_setting('9movies') == "true":
+            #     movie_title = name
+            #     Thread(target=wrapper, args=(nine_movies.ninemovies, name, q1)).start()
 
             if kodi.get_setting('primewire') == "true":
                 movie_title = name
                 Thread(target=wrapper, args=(primewire.primewire, name, q2)).start()
 
-            # if kodi.get_setting('twomovies') == "true":
+            # if kodi.get_setting('afdah') =='true':
             #     movie_title = name
-            #     Thread(target=wrapper, args=(twomovies.tmovies, name, q3)).start()
-
-            if kodi.get_setting('afdah') =='true':
-                movie_title = name
-                Thread(target=wrapper, args=(afdah.afdah, name, q4)).start()
+            #     Thread(target=wrapper, args=(afdah.afdah, name, q4)).start()
 
             if kodi.get_setting('merdb') == "true":
                 movie_title = name
@@ -72,8 +67,7 @@ def find_source(name,thumb,media,movie_title):
 
             if kodi.get_setting('123movies') == "true":
                 movie_title = name
-                Thread(target=wrapper, args=(zmovies.zmovies, name, q7)).start()
-
+                Thread(target=wrapper, args=(ot3_movies.ot3_movies, name, q7)).start()
 
             if kodi.get_setting('ice_films') == "true":
                 movie_title = name
@@ -81,209 +75,89 @@ def find_source(name,thumb,media,movie_title):
                 t.daemon = True
                 t.start()
 
-
             if kodi.get_setting('putlocker') == "true":
                 movie_title = name
                 t = Thread(target=wrapper, args=(putlocker_both.putlocker_movies, name, q9))
                 t.daemon = True
                 t.start()
+
 ######Grab Results
-
-
+######TRY TO SORT ALL TOGETHER
 
 
             if kodi.get_setting('ice_films') == "true":
-                try:
-                    icesources = q8.get()
-                    for e in icesources:
-                        total_items =len(icesources)
-                        if 'debrid' in e:
-                            premium = e['debrid']
-                        else:
-                            premium = ''
-                        names = e['host']
-                        urls = e['url']
-                        urls = icefilms.resolve_link(urls)
-                        views = e['views']
-                        if e['quality'] == None:
-                            quals = 'unknown'
-                        else:quals = e['quality']
-                        menu_items=[]
-                        menu_items.append(('[COLOR gold]Add to Downloads[/COLOR]',      'XBMC.Container.Update(%s)' % addon.build_plugin_url({'mode':'setup_download', 'name':name,'url':urls,'thumb':thumb, 'media':media,'movie_title':movie_title})))
-                        kodi.addDir("[COLORteal][IceFilms][/COLOR] - "+names+' ['+quals+']'+' [COLOR gold]'+str(premium)+'[/COLOR]',urls,'get_link',thumb,movie_title,total_items,'','movies',menu_items=menu_items,is_playable='true',fanart=fanart)
-                except Exception as e:
-                    log_utils.log('Error [%s]  %s' % (str(e), ''), xbmc.LOGERROR)
-                    if kodi.get_setting('error_notify') == "true":
-                        kodi.notify(header='IceFilms',msg='(error) %s  %s' % (str(e), ''),duration=5000,sound=None)
+                icesources = q8.get()
+                all_source.append(icesources)
 
             if kodi.get_setting('putlocker') == "true":
-                try:
-                    putlockersources = q9.get()
-# #Sorting Here
-#                     if  kodi.get_setting('scraper_order') == "2":
-#                             sorted_list = sorted(putlockersources, key=lambda k: (str(k['host'])))
-#
-#                     elif  kodi.get_setting('scraper_order') == "1":
-#                             sorted_list = sorted(putlockersources, key=lambda k: (str(k['debrid'])))
-#
-#                     else:
-#                             sorted_list = putlockersources
-#End Sort Order
-                    for e in putlockersources:
-                        total_items =len(putlockersources)
-                        if 'debrid' in e:
-                            premium = e['debrid']
-                        else:
-                            premium = ''
-                        names = e['host']
-                        urls = e['url']
-                        views = e['views']
-                        if e['quality'] == None:
-                            quals = 'unknown'
-                        else:quals = e['quality']
+                putlockersources = q9.get()
+                all_source.append(putlockersources)
 
-
-
-
-
-                        menu_items=[]
-                        menu_items.append(('[COLOR gold]Add to Downloads[/COLOR]',      'XBMC.Container.Update(%s)' % addon.build_plugin_url({'mode':'setup_download', 'name':name,'url':urls,'thumb':thumb, 'media':media,'movie_title':movie_title})))
-                        kodi.addDir("[COLORteal][Putlocker][/COLOR] - "+names+' ['+quals+']'+' [COLOR gold]'+str(premium)+'[/COLOR]',urls,'get_link',thumb,movie_title,total_items,'','movies',menu_items=menu_items,is_playable='true',fanart=fanart)
-                except Exception as e:
-                    log_utils.log('Error [%s]  %s' % (str(e), ''), xbmc.LOGERROR)
-                    if kodi.get_setting('error_notify') == "true":
-                        kodi.notify(header='Putlocker',msg='(error) %s  %s' % (str(e), ''),duration=5000,sound=None)
-
-
-            if kodi.get_setting('9movies') == "true":
-                try:
-                    ninesources = q1.get()
-                    for e in ninesources:
-                        total_items =len(ninesources)
-                        if 'debrid' in e:
-                            premium = e['debrid']
-                        else:
-                            premium = ''
-                        names = e['host']
-                        urls = e['url']
-                        views = e['view']
-                        quals = e['quality']
-                        menu_items=[]
-                        menu_items.append(('[COLOR gold]Add to Downloads[/COLOR]',      'XBMC.Container.Update(%s)' % addon.build_plugin_url({'mode':'setup_download', 'name':name,'url':urls,'thumb':thumb, 'media':media,'movie_title':movie_title})))
-                        kodi.addDir("[COLORteal][9Movies][/COLOR] - "+names+' ['+quals+']'+' [COLOR gold]'+str(premium)+'[/COLOR]',urls,'get_link',thumb,movie_title,total_items,'','movies',menu_items=menu_items,is_playable='true',fanart=fanart)
-                except Exception as e:
-                    log_utils.log('Error [%s]  %s' % (str(e), ''), xbmc.LOGERROR)
-                    if kodi.get_setting('error_notify') == "true":
-                        kodi.notify(header='9Movies',msg='(error) %s  %s' % (str(e), ''),duration=5000,sound=None)
+            # if kodi.get_setting('9movies') == "true":
+            #     ninesources = q1.get()
+            #     all_source.append(ninesources)
 
             if kodi.get_setting('123movies') == "true":
-                try:
-                    ottsources = q7.get()
-                    for e in ottsources:
-                        total_items =len(ottsources)
-                        if 'debrid' in e:
-                            premium = e['debrid']
-                        else:
-                            premium = ''
-                        names = e['host']
-                        urls = e['url']
-                        try:
-                            quals = e['quality']
-                        except: quals = 'unknown'
-                        menu_items=[]
-                        menu_items.append(('[COLOR gold]Add to Downloads[/COLOR]',      'XBMC.Container.Update(%s)' % addon.build_plugin_url({'mode':'setup_download', 'name':name,'url':urls,'thumb':thumb, 'media':media,'movie_title':movie_title})))
-                        kodi.addDir("[COLORteal][123Movies][/COLOR] - "+names+' ['+quals+']'+' [COLOR gold]'+str(premium)+'[/COLOR]',urls,'get_link',thumb,movie_title,total_items,'','movies',menu_items=menu_items,is_playable='true',fanart=fanart)
-                except Exception as e:
-                    log_utils.log('Error [%s]  %s' % (str(e), ''), xbmc.LOGERROR)
-                    if kodi.get_setting('error_notify') == "true":
-                        kodi.notify(header='123Movies',msg='(error) %s  %s' % (str(e), ''),duration=5000,sound=None)
-
+                ottsources = q7.get()
+                all_source.append(ottsources)
 
             if kodi.get_setting('primewire') == "true":
                 primesources = q2.get()
-                for e in primesources:
-                    total_items =len(primesources)
-                    #START RD CHECK
-                    if 'debrid' in e:
-                        premium = e['debrid']
-                    else:
-                        premium = ''
-                    names = e['host']
-                    urls = e['url']
-                    views = e['view']
-                    quals = e['quality']
-                    menu_items=[]
-                    menu_items.append(('[COLOR gold]Add to Downloads[/COLOR]',      'XBMC.Container.Update(%s)' % addon.build_plugin_url({'mode':'setup_download', 'name':name,'url':urls,'thumb':thumb,'media':media,'movie_title':movie_title})))
-                    kodi.addDir("[COLORteal][Primewire][/COLOR] - "+names+' ['+quals+']'+' Views '+views+' [COLOR gold]'+str(premium)+'[/COLOR]',urls,'get_link',thumb,movie_title,total_items,'','movies',menu_items=menu_items,is_playable='true',fanart=fanart)
+                all_source.append(primesources)
 
-            # if kodi.get_setting('twomovies') == "true":
-            #     tmsources = q3.get()
-            #     for e in tmsources:
-            #         total_items =len(tmsources)
-            #         if 'debrid' in e:
-            #             premium = e['debrid']
-            #         else:
-            #             premium = ''
-            #         names = e['host']
-            #         #END RD Check
-            #         urls = e['url']
-            #         menu_items=[]
-            #         menu_items.append(('[COLOR gold]Add to Downloads[/COLOR]',      'XBMC.Container.Update(%s)' % addon.build_plugin_url({'mode':'setup_download', 'name':name,'url':urls,'thumb':thumb, 'media':media,'movie_title':movie_title})))
-            #         kodi.addDir('[COLORteal][Two Movies][/COLOR] - '+names+' [COLOR gold]'+str(premium)+'[/COLOR]',urls,'tmlinkpage',thumb,movie_title,total_items,'','movies',menu_items=menu_items,is_playable='true',fanart=fanart)
-
-            if kodi.get_setting('afdah') =='true':
-                try:
-                    afdahsources = q4.get()
-                    for e in afdahsources:
-                            total_items =len(afdahsources)
-                            if 'debrid' in e:
-                                premium = e['debrid']
-                            else:
-                                premium = ''
-                            names = e['host']
-                            urls = e['url']
-                            quals = e['quality']
-                            menu_items=[]
-                            menu_items.append(('[COLOR gold]Add to Downloads[/COLOR]',      'XBMC.Container.Update(%s)' % addon.build_plugin_url({'mode':'setup_download', 'name':name,'url':urls,'thumb':thumb, 'media':media,'movie_title':movie_title})))
-                            kodi.addDir('[COLORteal][AFDAH][/COLOR] - '+names+' ['+quals+']'+' [COLOR gold]'+str(premium)+'[/COLOR]',urls,'get_link',thumb,movie_title,total_items,'','movies',menu_items=menu_items,is_playable='true',fanart=fanart)
-                except Exception as e:
-                    log_utils.log('Error [%s]  %s' % (str(e), ''), xbmc.LOGERROR)
-                    if kodi.get_setting('error_notify') == "true":
-                        kodi.notify(header='AFDAH',msg='(error) %s  %s' % (str(e), ''),duration=5000,sound=None)
+            # if kodi.get_setting('afdah') =='true':
+            #     afdahsources = q4.get()
+            #     all_source.append(afdahsources)
 
             if kodi.get_setting('merdb') == "true":
                 mersources = q5.get()
-                for e in mersources:
-                    total_items =len(mersources)
-                    if 'debrid' in e:
-                        premium = e['debrid']
-                    else:
-                        premium = ''
-                    names = e['host']
-                    urls = e['url']
-                    menu_items=[]
-                    menu_items.append(('[COLOR gold]Add to Downloads[/COLOR]',      'XBMC.Container.Update(%s)' % addon.build_plugin_url({'mode':'setup_download', 'name':name,'url':urls,'thumb':thumb, 'media':media,'movie_title':movie_title})))
-                    kodi.addDir("[COLORteal][MerDB][/COLOR] - "+names+' [COLOR gold]'+str(premium)+'[/COLOR]',urls,'playmerdblink',thumb,movie_title,total_items,'','movies',menu_items=menu_items,is_playable='true',fanart=fanart)
+                all_source.append(mersources)
 
             if kodi.get_setting('zmovies') == "true":
                 zmoviesources =q6.get()
-                for e in zmoviesources:
-                    total_items =len(zmoviesources)
-                    if 'debrid' in e:
-                        premium = e['debrid']#.replace('[','').replace(']','')
-                    else:
-                        premium = ''
-                    names = e['host']
-                    urls = e['url']
-                    menu_items=[]
-                    menu_items.append(('[COLOR gold]Add to Downloads[/COLOR]',      'XBMC.Container.Update(%s)' % addon.build_plugin_url({'mode':'setup_download', 'name':name,'url':urls,'thumb':thumb, 'media':media,'movie_title':movie_title})))
-                    kodi.addDir("[COLORteal][ZMovies][/COLOR] - "+names+' [COLOR gold]'+str(premium)+'[/COLOR]',urls,'playzmovieslink',thumb,movie_title,total_items,'','movies',menu_items=menu_items,is_playable='true',fanart=fanart)
+                all_source.append(zmoviesources)
+
+            for a in all_source:
+                    if a:
+                        #b = sorted(a, key=lambda k: (str(k['debrid'])))
+                        b = sorted(a, reverse=False)
+                        #b.sort(reverse=True)
+                        # log_utils.log('TESTING 2 [%s]  %s' % (str(e), ''), xbmc.LOGERROR)
+                        try:
+                            for e in b :
+                                # log_utils.log('TESTING 3 [%s]  %s' % (str(e), ''), xbmc.LOGERROR)
+                                total_items =len(e)
+                                if 'debrid' in e:
+                                    premium = " [COLOR gold]"+str(e['debrid'])+" [/COLOR]"
+                                else:
+                                    premium = ''
+                                hostname = e['hostname']
+                                provider = "[COLOR white]["+hostname+"][/COLOR] - "
+                                names = e['host']
+                                urls = e['url']
+                                if e['views'] == None:
+                                    views = ''
+                                else:
+                                    views = " [COLOR green]Views "+e['views']+"[/COLOR]"
+                                if e['quality'] == None:
+                                    quals = ''
+                                else:quals =" [COLOR red]["+ e['quality']+"][/COLOR]"
+                                menu_items=[]
+                                menu_items.append(('[COLOR gold]Add to Downloads[/COLOR]',      'XBMC.Container.Update(%s)' % addon.build_plugin_url({'mode':'setup_download', 'name':name,'url':urls,'thumb':thumb, 'media':media,'movie_title':movie_title})))
+                                #kodi.addDir("[COLORteal]["+hostname+"][/COLOR] - "+names+' ['+quals+']'+' [COLOR gold]'+str(premium)+'[/COLOR]',urls,'get_link',thumb,movie_title,total_items,'','movies',menu_items=menu_items,is_playable='true',fanart=fanart)
+                                kodi.addDir(provider+names+quals+views+premium,urls,'get_link',thumb,movie_title,total_items,'','movies',menu_items=menu_items,is_playable='true',fanart=fanart)
+
+                        except:
+                            pass
+
+
+
 
     except Exception as e:
             log_utils.log('Error [%s]  %s' % (str(e), ''), xbmc.LOGERROR)
             if kodi.get_setting('error_notify') == "true":
                 kodi.notify(header='Movie Scrapers',msg='(error) %s  %s' % (str(e), ''),duration=5000,sound=None)
-
+            return
 
 
 
@@ -301,9 +175,6 @@ def find_sourceTV(name,thumb,media,movie_title):
         if kodi.get_setting('primewire') == "true":
                 Thread(target=tv_wrapper, args=(primewire.primewire_tv, name,movie_title, q2)).start()
 
-
-        # if kodi.get_setting('twomovies') == "true":
-        #         Thread(target=tv_wrapper, args=(twomovies.tmovies_tv, name,movie_title, q3)).start()
 
         if kodi.get_setting('ice_films') == "true":
                 t = Thread(target=tv_wrapper, args=(icefilms.ice_films_tv, name,movie_title, q8))
@@ -387,7 +258,7 @@ def find_sourceTV(name,thumb,media,movie_title):
                             premium = ''
                         names = e['host']
                         urls = e['url']
-                        urls = icefilms.resolve_link(urls)
+                        #urls = icefilms.resolve_link(urls)
                         views = e['views']
                         if e['quality'] == None:
                             quals = 'unknown'
@@ -418,21 +289,7 @@ def find_sourceTV(name,thumb,media,movie_title):
                         menu_items.append(('[COLOR gold]Add to Downloads[/COLOR]',      'XBMC.Container.Update(%s)' % addon.build_plugin_url({'mode':'setup_download', 'name':name,'url':urls,'thumb':thumb, 'media':media,'movie_title':movie_title})))
                         kodi.addDir("[COLORteal][Primewire][/COLOR] - "+names+' ['+quals+']'+' Views '+views+' [COLOR gold]'+str(premium)+'[/COLOR]',urls,'get_tv_link',thumb,movie_title,total_items,'',name,menu_items=menu_items,is_playable='true',fanart=fanart)
 
-        # if kodi.get_setting('twomovies') == "true":
-        #         tmsources = q3.get()
-        #         for e in tmsources:
-        #                 total_items =len(tmsources)
-        #                 if 'debrid' in e:
-        #                     premium = e['debrid']
-        #                     print str(premium)
-        #                 else:
-        #                     premium = ''
-        #                 names = e['host']
-        #                 urls = e['url']
-        #                 menu_items=[]
-        #                 menu_items.append(('[COLOR gold]Add to Downloads[/COLOR]',      'XBMC.Container.Update(%s)' % addon.build_plugin_url({'mode':'setup_download', 'name':name,'url':urls,'thumb':thumb, 'media':media,'movie_title':movie_title})))
-        #                 kodi.addDir("[COLORteal][TwoMovies-TV][/COLOR] - "+names+' [COLOR gold]'+str(premium)+'[/COLOR]',urls,'tmlinkpage',thumb,movie_title,total_items,'',name,menu_items=menu_items,is_playable='true',fanart=fanart)# MUST BE EPISODE NAME IN PLACE OF MEDIA TYPE HERE
-        # # AFDAH SCRAPE
+
         # TODO Add TV
         if kodi.get_setting('afdah') == "true":
             print "AFDAH TV not setup yet"
@@ -698,6 +555,8 @@ def apply_urlresolver(hosters):
                         if kodi.get_setting('debug') == "true":
                             print '%s supported by: %s' % (host, temp_resolvers)
                         debrid_hosts[host] = temp_resolvers
+                    else:
+                         hoster['debrid'] = ''
                 if temp_resolvers:
                     hoster['debrid'] = temp_resolvers
                     #print temp_resolvers
