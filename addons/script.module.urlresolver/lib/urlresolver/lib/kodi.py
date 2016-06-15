@@ -146,3 +146,6 @@ class WorkingDialog(object):
     
     def __exit__(self, type, value, traceback):
         xbmc.executebuiltin('Dialog.Close(busydialog)')
+
+def has_addon(addon_id):
+    return xbmc.getCondVisibility('System.HasAddon(%s)' % addon_id) == 1

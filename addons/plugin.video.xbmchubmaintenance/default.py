@@ -90,6 +90,7 @@ def XMLBACKUP():
     addDir('Set backup path','url',35,getArt('setpath.jpg'),defaultfanart)
 def XBMCVERSION(url): xbmc_version=xbmc.getInfoLabel("System.BuildVersion"); version=xbmc_version[:4]; print version; dialog=xbmcgui.Dialog(); dialog.ok(AddonTitle, "Your version is: %s" % version)
 
+
 ################################
 ###       Clear Cache        ###
 ################################

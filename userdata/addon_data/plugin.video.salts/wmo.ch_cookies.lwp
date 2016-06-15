@@ -3,5 +3,6 @@ Set-Cookie3: __cfduid=d0d7ce25ee0cb20e07a1f4a8d6943e04d1462598070; path="/"; dom
 Set-Cookie3: __cfduid=d753b4305e1a98280752846938fe733591459135989; path="/"; domain=".watchmovies-online.ch"; path_spec; domain_dot; expires="2017-03-28 03:33:09Z"; HttpOnly=None; version=0
 Set-Cookie3: __cfduid=df395c238ab15a1fe86b8d57845e910e61463460989; path="/"; domain=".watchmovies-online.la"; path_spec; domain_dot; expires="2017-05-17 04:56:29Z"; HttpOnly=None; version=0
 Set-Cookie3: __cfduid=d3830e99d32ebdbca4f307dae919c11ff1459135990; path="/"; domain=".watchmovies-online.nl"; path_spec; domain_dot; expires="2017-03-28 03:33:10Z"; HttpOnly=None; version=0
-Set-Cookie3: PHPSESSID=ngs6qb0l14s2k0etqphk6ulb80; path="/"; domain="watchmovies-online.ch"; path_spec; discard; version=0
+Set-Cookie3: PHPSESSID=4fsntitj3kevuq4g055agp9rk6; path="/"; domain="watchmovies-online.ch"; path_spec; discard; version=0
+Set-Cookie3: PHPSESSID=4fsntitj3kevuq4g055agp9rk6; path="/"; domain="watchmovies-online.la"; path_spec; discard; version=0
 Set-Cookie3: PHPSESSID=ngs6qb0l14s2k0etqphk6ulb80; path="/"; domain="watchmovies-online.nl"; path_spec; discard; version=0

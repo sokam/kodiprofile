@@ -41,16 +41,10 @@ class FlashxResolver(UrlResolver):
             try: html = jsunpack.unpack(re.search('(eval\(function.*?)</script>', html, re.DOTALL).group(1))
             except: pass
 
-            best = 0
-            best_link = ''
+            stream = re.findall('file\s*:\s*"(http.*?)"\s*,\s*label\s*:\s*"', html, re.DOTALL)
 
-            for stream in re.findall('file\s*:\s*"(http.*?)"\s*,\s*label\s*:\s*"(\d+)', html, re.DOTALL):
-                if int(stream[1]) > best:
-                    best = int(stream[1])
-                    best_link = stream[0]
-
-        if best_link:
-            return best_link
+        if stream:
+            return stream[-1]
         else:
             raise ResolverError('Unable to resolve Flashx link. Filelink not found.')
 
@@ -64,11 +58,3 @@ class FlashxResolver(UrlResolver):
         else:
             return False
 
-    def valid_url(self, url, host):
-        return re.search(self.pattern, url) or self.name in host
-
-    @classmethod
-    def get_settings_xml(cls):
-        xml = super(cls, cls).get_settings_xml()
-        xml.append('<setting id="%s_auto_pick" type="bool" label="Automatically pick best quality" default="false" visible="true"/>' % (cls.__name__))
-        return xml

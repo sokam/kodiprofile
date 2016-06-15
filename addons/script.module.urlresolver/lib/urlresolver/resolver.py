@@ -17,6 +17,7 @@
 This module defines the interfaces that you can implement when writing
 your URL resolving plugin.
 '''
+import re
 import abc
 from urlresolver import common
 
@@ -84,8 +85,7 @@ class UrlResolver(object):
         '''
         raise NotImplementedError
 
-    @abc.abstractmethod
-    def valid_url(self, web_url, host):
+    def valid_url(self, url, host):
         '''
         Determine whether this plugin is capable of resolving this URL. You must
         implement this method.
@@ -94,7 +94,9 @@ class UrlResolver(object):
             True if this plugin thinks it can hangle the web_url or host
             otherwise False.
         '''
-        raise NotImplementedError
+        if isinstance(host, basestring):
+            host = host.lower()
+        return (url and re.search(self.pattern, url, re.I)) or any(host in domain.lower() for domain in self.domains)
 
     @classmethod
     def isUniversal(cls):

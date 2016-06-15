@@ -54,9 +54,6 @@ class TheVideosResolver(UrlResolver):
         else:
             return False
 
-    def valid_url(self, url, host):
-        return re.search(self.pattern, url) or self.name in host
-
     @classmethod
     def get_settings_xml(cls):
         xml = super(cls, cls).get_settings_xml()

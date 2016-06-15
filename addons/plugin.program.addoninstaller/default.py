@@ -55,6 +55,8 @@ def MAININDEX():
     addDir('Installer Settings','none','settings',getArtworkJ('InstallerSettings')); #catArtwork('programs')) #
     AUTO_VIEW('addons')
 #****************************************************************
+
+#********************************************************************
 def INTERNATIONAL(url):
     if not '://' in url: url=base_url2+url
     link=OPEN_URL(url); match=GetListItems(link); CMi=[]; #AUTO_VIEW('list');
