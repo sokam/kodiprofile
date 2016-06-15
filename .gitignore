@@ -4,3 +4,4 @@ system/*
 sounds/*
 */temp/*
 userdata/Database/saltscache.db
+**/cache/**
