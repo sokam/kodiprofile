@@ -1,3 +1,6 @@
+v2.1.1
+- fix bug when hourly wind is none
+
 v2.1.0
 - add option for personal api key
 - add caching

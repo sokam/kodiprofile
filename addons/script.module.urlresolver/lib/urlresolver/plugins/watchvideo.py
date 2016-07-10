@@ -23,7 +23,7 @@ from urlresolver.resolver import UrlResolver, ResolverError
 
 class WatchVideoResolver(UrlResolver):
     name = "watchvideo"
-    domains = ["watchvideo.us", "watchvideo2.us", "watchvideo4.us"]
+    domains = ["watchvideo.us", "watchvideo2.us", "watchvideo4.us", "watchvideo7.us"]
     pattern = '(?://|\.)(watchvideo[0-9]?\.us)/(?:embed-)?([0-9a-zA-Z]+)'
 
     def __init__(self):

@@ -16,7 +16,11 @@ GNU General Public License for more details.
 You should have received a copy of the GNU General Public License
 along with this program. If not, see <http://www.gnu.org/licenses/>.
 """
+
+
 import re
+import urllib
+import urllib2
 from urlresolver import common
 from lib.aa_decoder import AADecoder
 from urlresolver.resolver import ResolverError
@@ -52,23 +56,40 @@ def get_media_url(url):
         return r
 
     try:
-        web_url = url
+        web_url = url.replace('/embed/', '/f/')
+
         headers = {'User-Agent': common.FF_USER_AGENT}
         html = net.http_GET(web_url, headers=headers).content.encode('utf-8')
-        aaencoded = re.findall('<script type="text/javascript">(ﾟωﾟ.*?)</script>', html, re.DOTALL)
-        if aaencoded:
-            enc_index = re.search('welikekodi_ya_rly\s*=\s*([0-9/\*\-\+ ]+);', html)  # only digits, math ops, whitespace. [^;] too loose for eval
-            if enc_index:
-                enc_index = eval(enc_index.group(1))
-                dtext = AADecoder(aaencoded[enc_index]).decode()
+
+        enc_index = re.search('welikekodi_ya_rly\s*=\s*([0-9/\*\-\+ ]+);', html)
+        if enc_index:
+            enc_index = eval(enc_index.group(1))
+    
+            aaencoded = re.findall('<script[^>]+>(ﾟωﾟﾉ[^<]+)<', html, re.DOTALL)
+            if aaencoded:
+                aaencoded = aaencoded[enc_index]
+        
+                dtext = AADecoder(aaencoded).decode()
+        
                 dtext1 = re.findall('window\..+?=(.*?);', dtext)
                 if len(dtext1) == 0:
                     dtext1 = re.findall('.*attr\(\"href\",\((.*)', dtext)
+        
                 dtext = conv(dtext1[0])
-                return dtext.replace("https", "http") + '|User-Agent=%s' % common.FF_USER_AGENT
-
+                dtext = dtext.replace('https', 'http')
+        
+                request = urllib2.Request(dtext, None, headers)
+                response = urllib2.urlopen(request)
+                url = response.geturl()
+                response.close()
+        
+                url += '|' + urllib.urlencode({'Referer': web_url, 'User-Agent': 'Mozilla/5.0 (iPhone; CPU iPhone OS 6_0 like Mac OS X) AppleWebKit/536.26 (KHTML, like Gecko) Version/6.0 Mobile/10A5376e Safari/8536.25'})
+                return url
+    
     except Exception as e:
         common.log_utils.log_debug('Exception during openload resolve parse: %s' % e)
         raise
 
     raise ResolverError('Unable to resolve openload.io link. Filelink not found.')
+
+

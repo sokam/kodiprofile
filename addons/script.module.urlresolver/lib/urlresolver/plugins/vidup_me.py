@@ -25,7 +25,7 @@ MAX_TRIES = 3
 
 class VidUpMeResolver(UrlResolver):
     name = "vidup.me"
-    domains = ["vidup.me", "beta.vidup.me", "vidup.org"]
+    domains = ["vidup.me", "beta.vidup.me"]
     pattern = '(?://|\.)(vidup\.me)/(?:embed-)?([0-9a-zA-Z]+)'
 
     def __init__(self):

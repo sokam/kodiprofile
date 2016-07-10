@@ -373,9 +373,9 @@
         <limitedrange default="true">false</limitedrange>
         <monitor default="true">Default</monitor>
         <preferedstereoscopicmode default="true">100</preferedstereoscopicmode>
-        <resolution default="true">16</resolution>
+        <resolution>15</resolution>
         <screen default="true">0</screen>
-        <screenmode default="true">DESKTOP</screenmode>
+        <screenmode>WINDOW</screenmode>
         <stereoscopicmode default="true">0</stereoscopicmode>
         <vsync default="true">3</vsync>
     </videoscreen>
@@ -417,11 +417,11 @@
         <setting type="bool" name="skin.confluence.PandoraVis">false</setting>
         <setting type="bool" name="skin.confluence.WindowedTrailer">false</setting>
         <setting type="string" name="skin.confluence.CustomBackgroundPath">special://home/media/SKINDEFAULT.jpg</setting>
-        <setting type="string" name="skin.confluence.HomeVideosButton1">plugin.video.channelpear</setting>
+        <setting type="string" name="skin.confluence.HomeVideosButton1">plugin.video.kissanime</setting>
         <setting type="string" name="skin.confluence.HomeVideosButton2">plugin.video.salts</setting>
-        <setting type="string" name="skin.confluence.HomeVideosButton3">plugin.video.genesis</setting>
+        <setting type="string" name="skin.confluence.HomeVideosButton3">plugin.video.exodus</setting>
         <setting type="string" name="skin.confluence.HomeVideosButton4">plugin.video.ccloudtv</setting>
-        <setting type="string" name="skin.confluence.HomeVideosButton5">plugin.video.prosport</setting>
+        <setting type="string" name="skin.confluence.HomeVideosButton5">plugin.video.SportsDevil</setting>
         <setting type="string" name="skin.confluence.HomeMusicButton1">plugin.video.itunes_podcasts</setting>
         <setting type="string" name="skin.confluence.HomeMusicButton2">plugin.audio.npr</setting>
         <setting type="string" name="skin.confluence.HomeMusicButton3">plugin.audio.booksshouldbefree</setting>
@@ -431,18 +431,18 @@
         <setting type="string" name="skin.confluence.HomePictureButton2">plugin.image.comicstrips</setting>
         <setting type="string" name="skin.confluence.HomePictureButton3">plugin.image.flickr</setting>
         <setting type="string" name="skin.confluence.HomePictureButton4">plugin.image.picasa</setting>
-        <setting type="string" name="skin.confluence.HomePictureButton5"></setting>
+        <setting type="string" name="skin.confluence.HomePictureButton5">script.tvguide</setting>
         <setting type="string" name="skin.confluence.HomeProgramButton1">script.games.rom.collection.browser</setting>
         <setting type="string" name="skin.confluence.HomeProgramButton2">plugin.program.addoninstaller</setting>
         <setting type="string" name="skin.confluence.HomeProgramButton3">plugin.video.xbmchubmaintenance</setting>
-        <setting type="string" name="skin.confluence.HomeProgramButton4"></setting>
-        <setting type="string" name="skin.confluence.HomeProgramButton5"></setting>
+        <setting type="string" name="skin.confluence.HomeProgramButton4">plugin.video.hubwizard</setting>
+        <setting type="string" name="skin.confluence.HomeProgramButton5">plugin.program.xbmchub.notifications</setting>
         <setting type="string" name="skin.confluence.Home_Custom_Back_TV_Folder"></setting>
         <setting type="string" name="skin.confluence.LyricScript_Path"></setting>
         <setting type="string" name="skin.confluence.WeatherFanartDir"></setting>
         <setting type="string" name="skin.confluence.WeatherScript_Label"></setting>
         <setting type="string" name="skin.confluence.Startup_Playlist_Path"></setting>
-        <setting type="string" name="skin.confluence.HomeProgramButton6"></setting>
+        <setting type="string" name="skin.confluence.HomeProgramButton6">script.games.rom.collection.browser</setting>
     </skinsettings>
     <resolutions />
     <defaultvideosettings>
