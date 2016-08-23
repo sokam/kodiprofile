@@ -19,9 +19,10 @@
 '''
 
 
-import re,sys,cookielib,urllib,urllib2,urlparse,HTMLParser,time,random
+import re,sys,cookielib,urllib,urllib2,urlparse,HTMLParser,time,random,base64
 
 from resources.lib.modules import cache
+from resources.lib.modules import workers
 
 
 def request(url, close=True, redirect=True, error=False, proxy=None, post=None, headers=None, mobile=False, limit=None, referer=None, cookie=None, output='', timeout='30'):
@@ -100,7 +101,9 @@ def request(url, close=True, redirect=True, error=False, proxy=None, post=None, 
 
                     netloc = '%s://%s' % (urlparse.urlparse(url).scheme, urlparse.urlparse(url).netloc)
 
-                    cf = cache.get(cfcookie, 168, netloc, headers['User-Agent'], timeout)
+                    ua = headers['User-Agent']
+
+                    cf = cache.get(cfcookie().get, 168, netloc, ua, timeout)
 
                     headers['Cookie'] = cf
 
@@ -120,38 +123,45 @@ def request(url, close=True, redirect=True, error=False, proxy=None, post=None, 
             except: pass
             try: result = cf
             except: pass
+            if close == True: response.close()
+            return result
 
-        elif output == 'response':
-            if limit == '0':
-                result = (str(response.code), response.read(224 * 1024))
-            elif not limit == None:
-                result = (str(response.code), response.read(int(limit) * 1024))
-            else:
-                result = (str(response.code), response.read(5242880))
+        elif output == 'geturl':
+            result = response.geturl()
+            if close == True: response.close()
+            return result
+
+        elif output == 'headers':
+            result = response.headers
+            if close == True: response.close()
+            return result
 
         elif output == 'chunk':
             try: content = int(response.headers['Content-Length'])
             except: content = (2049 * 1024)
             if content < (2048 * 1024): return
             result = response.read(16 * 1024)
+            if close == True: response.close()
+            return result
 
-        elif output == 'extended':
-            try: cookie = '; '.join(['%s=%s' % (i.name, i.value) for i in cookies])
-            except: pass
-            try: cookie = cf
-            except: pass
-            content = response.headers
-            result = response.read(5242880)
-            return (result, headers, content, cookie)
 
-        elif output == 'geturl':
-            result = response.geturl()
-
-        elif output == 'headers':
-            content = response.headers
-            return content
-
+        if limit == '0':
+            result = response.read(224 * 1024)
+        elif not limit == None:
+            result = response.read(int(limit) * 1024)
         else:
+            result = response.read(5242880)
+
+
+        if 'sucuri_cloudproxy_js' in result:
+            su = sucuri().get(result)
+
+            headers['Cookie'] = su
+
+            request = urllib2.Request(url, data=post, headers=headers)
+
+            response = urllib2.urlopen(request, timeout=int(timeout))
+
             if limit == '0':
                 result = response.read(224 * 1024)
             elif not limit == None:
@@ -159,10 +169,19 @@ def request(url, close=True, redirect=True, error=False, proxy=None, post=None, 
             else:
                 result = response.read(5242880)
 
-        if close == True:
-            response.close()
 
-        return result
+        if output == 'extended':
+            response_headers = response.headers
+            response_code = str(response.code)
+            try: cookie = '; '.join(['%s=%s' % (i.name, i.value) for i in cookies])
+            except: pass
+            try: cookie = cf
+            except: pass
+            if close == True: response.close()
+            return (result, response_code, response_headers, headers, cookie)
+        else:
+            if close == True: response.close()
+            return result
     except:
         return
 
@@ -298,68 +317,111 @@ def agent():
     return 'Mozilla/5.0 (Windows NT 10.0; WOW64; Trident/7.0; rv:11.0) like Gecko'
 
 
-def cfcookie(netloc, ua, timeout):
-    try:
-        headers = {'User-Agent': ua}
+class cfcookie:
+    def __init__(self):
+        self.cookie = None
 
-        request = urllib2.Request(netloc, headers=headers)
 
+    def get(self, netloc, ua, timeout):
+        threads = []
+
+        for i in range(0, 15): threads.append(workers.Thread(self.get_cookie, netloc, ua, timeout))
+        [i.start() for i in threads]
+
+        for i in range(0, 30):
+            if not self.cookie == None: return self.cookie
+            time.sleep(1)
+
+
+    def get_cookie(self, netloc, ua, timeout):
         try:
-            response = urllib2.urlopen(request, timeout=int(timeout))
-        except urllib2.HTTPError as response:
-            result = response.read(5242880)
+            headers = {'User-Agent': ua}
 
-        jschl = re.findall('name="jschl_vc" value="(.+?)"/>', result)[0]
+            request = urllib2.Request(netloc, headers=headers)
 
-        init = re.findall('setTimeout\(function\(\){\s*.*?.*:(.*?)};', result)[-1]
+            try:
+                response = urllib2.urlopen(request, timeout=int(timeout))
+            except urllib2.HTTPError as response:
+                result = response.read(5242880)
 
-        builder = re.findall(r"challenge-form\'\);\s*(.*)a.v", result)[0]
+            jschl = re.findall('name="jschl_vc" value="(.+?)"/>', result)[0]
 
-        decryptVal = parseJSString(init)
+            init = re.findall('setTimeout\(function\(\){\s*.*?.*:(.*?)};', result)[-1]
 
-        lines = builder.split(';')
+            builder = re.findall(r"challenge-form\'\);\s*(.*)a.v", result)[0]
 
-        for line in lines:
+            decryptVal = self.parseJSString(init)
 
-            if len(line) > 0 and '=' in line:
+            lines = builder.split(';')
 
-                sections=line.split('=')
-                line_val = parseJSString(sections[1])
-                decryptVal = int(eval(str(decryptVal)+sections[0][-1]+str(line_val)))
+            for line in lines:
 
-        answer = decryptVal + len(urlparse.urlparse(netloc).netloc)
+                if len(line) > 0 and '=' in line:
 
-        query = '%s/cdn-cgi/l/chk_jschl?jschl_vc=%s&jschl_answer=%s' % (netloc, jschl, answer)
+                    sections=line.split('=')
+                    line_val = self.parseJSString(sections[1])
+                    decryptVal = int(eval(str(decryptVal)+sections[0][-1]+str(line_val)))
 
-        if 'type="hidden" name="pass"' in result:
-            passval = re.findall('name="pass" value="(.*?)"', result)[0]
-            query = '%s/cdn-cgi/l/chk_jschl?pass=%s&jschl_vc=%s&jschl_answer=%s' % (netloc, urllib.quote_plus(passval), jschl, answer)
-            time.sleep(5)
+            answer = decryptVal + len(urlparse.urlparse(netloc).netloc)
 
-        cookies = cookielib.LWPCookieJar()
-        handlers = [urllib2.HTTPHandler(), urllib2.HTTPSHandler(), urllib2.HTTPCookieProcessor(cookies)]
-        opener = urllib2.build_opener(*handlers)
-        opener = urllib2.install_opener(opener)
+            query = '%s/cdn-cgi/l/chk_jschl?jschl_vc=%s&jschl_answer=%s' % (netloc, jschl, answer)
 
-        try:
-            request = urllib2.Request(query, headers=headers)
-            response = urllib2.urlopen(request, timeout=int(timeout))
+            if 'type="hidden" name="pass"' in result:
+                passval = re.findall('name="pass" value="(.*?)"', result)[0]
+                query = '%s/cdn-cgi/l/chk_jschl?pass=%s&jschl_vc=%s&jschl_answer=%s' % (netloc, urllib.quote_plus(passval), jschl, answer)
+                time.sleep(6)
+
+            cookies = cookielib.LWPCookieJar()
+            handlers = [urllib2.HTTPHandler(), urllib2.HTTPSHandler(), urllib2.HTTPCookieProcessor(cookies)]
+            opener = urllib2.build_opener(*handlers)
+            opener = urllib2.install_opener(opener)
+
+            try:
+                request = urllib2.Request(query, headers=headers)
+                response = urllib2.urlopen(request, timeout=int(timeout))
+            except:
+                pass
+
+            cookie = '; '.join(['%s=%s' % (i.name, i.value) for i in cookies])
+
+            if 'cf_clearance' in cookie: self.cookie = cookie
         except:
             pass
 
-        cookie = '; '.join(['%s=%s' % (i.name, i.value) for i in cookies])
 
-        return cookie
-    except:
-        pass
+    def parseJSString(self, s):
+        try:
+            offset=1 if s[0]=='+' else 0
+            val = int(eval(s.replace('!+[]','1').replace('!![]','1').replace('[]','0').replace('(','str(')[offset:]))
+            return val
+        except:
+            pass
 
 
-def parseJSString(s):
-    try:
-        offset=1 if s[0]=='+' else 0
-        val = int(eval(s.replace('!+[]','1').replace('!![]','1').replace('[]','0').replace('(','str(')[offset:]))
-        return val
-    except:
-        pass
+class sucuri:
+    def __init__(self):
+        self.cookie = None
+
+
+    def get(self, result):
+        try:
+            s = re.compile("S\s*=\s*'([^']+)").findall(result)[0]
+            s = base64.b64decode(s)
+            s = s.replace(' ', '')
+            s = re.sub('String\.fromCharCode\(([^)]+)\)', r'chr(\1)', s)
+            s = re.sub('\.slice\((\d+),(\d+)\)', r'[\1:\2]', s)
+            s = re.sub('\.charAt\(([^)]+)\)', r'[\1]', s)
+            s = re.sub('\.substr\((\d+),(\d+)\)', r'[\1:\1+\2]', s)
+            s = re.sub(';location.reload\(\);', '', s)
+            s = re.sub(r'\n', '', s)
+            s = re.sub(r'document\.cookie', 'cookie', s)
+
+            cookie = '' ; exec(s)
+            self.cookie = re.compile('([^=]+)=(.*)').findall(cookie)[0]
+            self.cookie = '%s=%s' % (self.cookie[0], self.cookie[1])
+
+            return self.cookie
+        except:
+            pass
 
 

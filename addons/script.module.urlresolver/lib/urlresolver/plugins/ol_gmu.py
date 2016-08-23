@@ -21,75 +21,112 @@ along with this program. If not, see <http://www.gnu.org/licenses/>.
 import re
 import urllib
 import urllib2
+import base64
+import math
+from lib import png
 from urlresolver import common
-from lib.aa_decoder import AADecoder
 from urlresolver.resolver import ResolverError
 
 net = common.Net()
 
 def get_media_url(url):
-    def baseN(num, b, numerals="0123456789abcdefghijklmnopqrstuvwxyz"):
-        return ((num == 0) and numerals[0]) or (baseN(num // b, b, numerals).lstrip(numerals[0]) + numerals[num % b])
-
-    def conv(s, addfactor=None):
-        if 'function()' in s:
-            addfactor = s.split('b.toString(')[1].split(')')[0]
-            fname = re.findall('function\(\)\{function (.*?)\(', s)[0]
-            s = s.replace(fname, 'myfunc')
-            s = ''.join(s.split('}')[1:])
-        if '+' not in s:
-            if '.0.toString' in s:
-                ival, b = s.split('.0.toString(')
-                b = b.replace(')', '')
-                return baseN(int(ival), int(eval(b)))
-            elif 'myfunc' in s:
-                b, ival = s.split('myfunc(')[1].split(',')
-                ival = ival.replace(')', '').replace('(', '').replace(';', '')
-                b = b.replace(')', '').replace('(', '').replace(';', '')
-                b = eval(addfactor.replace('a', b))
-                return baseN(int(ival), int(b))
-            else:
-                return eval(s)
-        r = ''
-        for ss in s.split('+'):
-            r += conv(ss, addfactor)
-        return r
-
     try:
-        web_url = url.replace('/embed/', '/f/')
+        HTTP_HEADER = {
+            'User-Agent': 'Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.11 (KHTML, like Gecko) Chrome/23.0.1271.64 Safari/537.11',
+            'Accept': 'text/html,application/xhtml+xml,application/xml;q=0.9,*/*;q=0.8',
+            'Accept-Charset': 'ISO-8859-1,utf-8;q=0.7,*;q=0.3',
+            'Accept-Encoding': 'none',
+            'Accept-Language': 'en-US,en;q=0.8',
+            'Referer': url}  # 'Connection': 'keep-alive'
 
-        headers = {'User-Agent': common.FF_USER_AGENT}
-        html = net.http_GET(web_url, headers=headers).content.encode('utf-8')
+        data = net.http_GET(url, headers=HTTP_HEADER).content
 
-        enc_index = re.search('welikekodi_ya_rly\s*=\s*([0-9/\*\-\+ ]+);', html)
-        if enc_index:
-            enc_index = eval(enc_index.group(1))
-    
-            aaencoded = re.findall('<script[^>]+>(ﾟωﾟﾉ[^<]+)<', html, re.DOTALL)
-            if aaencoded:
-                aaencoded = aaencoded[enc_index]
-        
-                dtext = AADecoder(aaencoded).decode()
-        
-                dtext1 = re.findall('window\..+?=(.*?);', dtext)
-                if len(dtext1) == 0:
-                    dtext1 = re.findall('.*attr\(\"href\",\((.*)', dtext)
-        
-                dtext = conv(dtext1[0])
-                dtext = dtext.replace('https', 'http')
-        
-                request = urllib2.Request(dtext, None, headers)
-                response = urllib2.urlopen(request)
-                url = response.geturl()
-                response.close()
-        
-                url += '|' + urllib.urlencode({'Referer': web_url, 'User-Agent': 'Mozilla/5.0 (iPhone; CPU iPhone OS 6_0 like Mac OS X) AppleWebKit/536.26 (KHTML, like Gecko) Version/6.0 Mobile/10A5376e Safari/8536.25'})
-                return url
-    
+        # If you want to use the code for openload please at least put the info from were you take it:
+        # for example: "Code take from plugin IPTVPlayer: "https://gitlab.com/iptvplayer-for-e2/iptvplayer-for-e2/"
+        # It will be very nice if you send also email to me samsamsam@o2.pl and inform were this code will be used
+
+        # get image data
+        imageData = re.search('''<img[^>]*?id="linkimg"[^>]*?src="([^"]+?)"''', data, re.IGNORECASE).group(1)
+
+        imageData = base64.b64decode(imageData.split('base64,')[-1])
+        _x, _y, pixel, _meta = png.Reader(bytes=imageData).read()
+
+        imageData = None
+        imageStr = ''
+        try:
+            for item in pixel:
+                for p in item:
+                    # common.log_utils.log_notice('openload resolve : 1.7 %s' % p)
+                    imageStr += chr(p)
+        except:
+            pass
+
+        # split image data
+        imageTabs = []
+        i = -1
+        for idx in range(len(imageStr)):
+            if imageStr[idx] == '\0':
+                break
+            if 0 == (idx % (12 * 20)):
+                imageTabs.append([])
+                i += 1
+                j = -1
+            if 0 == (idx % (20)):
+                imageTabs[i].append([])
+                j += 1
+            imageTabs[i][j].append(imageStr[idx])
+
+        # get signature data
+        # sts, data = self.cm.getPage('https://openload.co/assets/js/obfuscator/numbers.js', {'header': HTTP_HEADER})
+        data = net.http_GET('https://openload.co/assets/js/obfuscator/n.js', headers=HTTP_HEADER).content
+
+        signStr = re.search('''['"]([^"^']+?)['"]''', data, re.IGNORECASE).group(1)
+
+        # split signature data
+        signTabs = []
+        i = -1
+        for idx in range(len(signStr)):
+            if signStr[idx] == '\0':
+                break
+            if 0 == (idx % (11 * 26)):
+                signTabs.append([])
+                i += 1
+                j = -1
+            if 0 == (idx % (26)):
+                signTabs[i].append([])
+                j += 1
+            signTabs[i][j].append(signStr[idx])
+
+        # get link data
+        linkData = {}
+        for i in [2, 3, 5, 7]:
+            linkData[i] = []
+            tmp = ord('c')
+            for j in range(len(signTabs[i])):
+                for k in range(len(signTabs[i][j])):
+                    if tmp > 122:
+                        tmp = ord('b')
+                    if signTabs[i][j][k] == chr(int(math.floor(tmp))):
+                        if len(linkData[i]) > j:
+                            continue
+                        tmp += 2.5
+                        if k < len(imageTabs[i][j]):
+                            linkData[i].append(imageTabs[i][j][k])
+        res = []
+        for idx in linkData:
+            res.append(''.join(linkData[idx]).replace(',', ''))
+
+        res = res[3] + '~' + res[1] + '~' + res[2] + '~' + res[0]
+        videoUrl = 'https://openload.co/stream/{0}?mime=true'.format(res)
+        dtext = videoUrl.replace('https', 'http')
+        request = urllib2.Request(dtext, None, HTTP_HEADER)
+        response = urllib2.urlopen(request)
+        url = response.geturl()
+        response.close()
+        url += '|' + urllib.urlencode({'Referer': url, 'User-Agent': common.IOS_USER_AGENT})
+        return url
     except Exception as e:
         common.log_utils.log_debug('Exception during openload resolve parse: %s' % e)
         raise
 
     raise ResolverError('Unable to resolve openload.io link. Filelink not found.')
-
-

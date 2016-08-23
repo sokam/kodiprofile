@@ -27,7 +27,6 @@ class IMDb(MovieIndexer, TVShowIndexer, CustomSettings, ListIndexer):
         xml += '<setting id="get_url()" label="Base Url" type="labelenum" default="http://imdb.com/" values="http://imdb.com/|http://akas.imdb.com/" />\n'
         xml += '<setting id="imdb_user_number" label="User Number" type="text" default="" />\n'
         xml += '<setting id="future" type="bool" label="Show Future Episodes" default="false" />\n'
-        xml += '<setting id="watch_list" type="bool" label="Show Watchlist At The Top" default="false" />\n'
         xml += '<setting id="watch_list_main" type="bool" label="Show Main Watchlist" default="true" />\n'
         xml += '</category>\n' 
         xml += '</settings>\n'
@@ -73,7 +72,7 @@ class IMDb(MovieIndexer, TVShowIndexer, CustomSettings, ListIndexer):
             page = '1'
 
         #change page length to 100.
-        page_item_count = (100 if section == 'watchlist' else 30)
+        page_item_count = (100 if section == 'watchlist' else 50)
 
         start = str( ( (int(page) - 1) * page_item_count ) + 1 )
         count = str(page_item_count)
@@ -133,10 +132,10 @@ class IMDb(MovieIndexer, TVShowIndexer, CustomSettings, ListIndexer):
                 if not 'watchlist?' in new_url:
                     re_page = '<span>\(.+? of ([0-9,]+)'
                 else:
-                    re_page = '(?s)<div class="desc">.+? of ([0-9,]+)'
+                    re_page = 'of ([0-9,]+) titles'
 
             else:
-                re_page = '(?s)<div id="left">.+? of ([0-9,]+)'
+                re_page = 'of ([0-9,]+) titles'
 
             total_pages = re.search(re_page, content)
             if total_pages:
@@ -178,7 +177,7 @@ class IMDb(MovieIndexer, TVShowIndexer, CustomSettings, ListIndexer):
             mode = common.mode_Content
             type = 'tv_seasons'
         
-        item_re = r'<a href="/title/(.+?)/" title="(.+?)"><img'
+        item_re = r'<a href="/title/(.+?)/.+?"\n> <img alt="(.+?)"'
         if section == 'theaters':
             item_re = r'<h4 itemprop="name"><a href="/title/(.+?)/.+?title="(.+?)"'
 
@@ -412,34 +411,33 @@ class IMDb(MovieIndexer, TVShowIndexer, CustomSettings, ListIndexer):
             user_number = self.Settings().get_setting('imdb_user_number')
             
             if user_number:
-                if self.Settings().get_setting('watch_list')=='true':
-                    list_url_type = ''#title_type=feature,tv_movie,tv_series,mini_series&'
-                    if self.Settings().get_setting('watch_list_main')=='true':
-                        self.AddSection(list, indexer, 'watchlist', 'Watchlist', self.get_url()+'user/' + user_number + '/watchlist?' + list_url_type + 'view=detail', indexer)
+                list_url_type = ''#title_type=feature,tv_movie,tv_series,mini_series&'
+                if self.Settings().get_setting('watch_list_main')=='true':
+                    self.AddSection(list, indexer, 'watchlist', 'Watchlist', self.get_url()+'user/' + user_number + '/watchlist?' + list_url_type + 'view=detail', indexer)
 
-                    from entertainment.net import Net
-                    net = Net(cached=False)
-                    import re
+                from entertainment.net import Net
+                net = Net(cached=False)
+                import re
 
-                    named_lists_url = self.get_url()+'user/' + user_number + '/lists?tab=public'
-                    named_lists = net.http_GET(named_lists_url).content
-                   
-                    match = re.compile('<div class="list_name"><b><a.+?href="(.+?)".+?>(.+?)</a>.+?\n.+?div class="list_meta">(.+?)</div>').findall(named_lists)
-                    for url, name ,TYPE in match:
-                        custom_name='%s List' % name   
-                        
-                        if 'people' in TYPE:
-                            custom_url=self.get_url() + str(url)  +'?view=grid&sort=listorian:asc'             
-                            self.AddSection(list, indexer, 'watchlist_people', '%s' % custom_name, custom_url, indexer, hlevel=1)
-                        else:
-                            custom_url=self.get_url() + str(url) + '?' + list_url_type + 'view=detail'
-                            self.AddSection(list, indexer, 'watchlist', '%s' % custom_name, custom_url, indexer, hlevel=1)
+                named_lists_url = self.get_url()+'user/' + user_number + '/lists?tab=public'
+                named_lists = net.http_GET(named_lists_url).content
+               
+                match = re.compile('<div class="list_name"><b><a.+?href="(.+?)".+?>(.+?)</a>.+?\n.+?div class="list_meta">(.+?)</div>').findall(named_lists)
+                for url, name ,TYPE in match:
+                    custom_name='%s List' % name   
+                    
+                    if 'people' in TYPE:
+                        custom_url=self.get_url() + str(url)  +'?view=grid&sort=listorian:asc'             
+                        self.AddSection(list, indexer, 'watchlist_people', '%s' % custom_name, custom_url, indexer, hlevel=1)
+                    else:
+                        custom_url=self.get_url() + str(url) + '?' + list_url_type + 'view=detail'
+                        self.AddSection(list, indexer, 'watchlist', '%s' % custom_name, custom_url, indexer, hlevel=1) 
                             
             #seperated movies and tv shows.
             #added filters to commands for movies.
             if indexer == common.indxr_Movies:
                 #self.AddSection(list, indexer, 'a_z', 'A-Z')
-                self.AddSection(list, indexer, 'search_celeb', 'Search Celebrity', self.get_url()+'find?q=', indexer)
+                
                 self.AddSection(list, indexer, 'moviemeter', 'Most Popular', self.get_url()+'search/title?' + url_filter + url_type, indexer)
                 self.AddSection(list, indexer, 'genres', 'Genres')
                 self.AddSection(list, indexer, 'boxoffice_gross_us', 'Box Office', self.get_url()+'search/title?' + url_filter + url_type + 'sort=boxoffice_gross_us,desc', indexer)
@@ -455,6 +453,7 @@ class IMDb(MovieIndexer, TVShowIndexer, CustomSettings, ListIndexer):
                 #added list of companies and award list
                 self.AddSection(list, indexer, 'company', 'Company Lists')
                 self.AddSection(list, indexer, 'award_lists', 'Award Lists')
+                self.AddSection(list, indexer, 'search_celeb', 'Celebrity Search', self.get_url()+'find?q=', indexer)
 
             #added filters to commands for tv shows.
             elif indexer == common.indxr_TV_Shows:
@@ -466,31 +465,8 @@ class IMDb(MovieIndexer, TVShowIndexer, CustomSettings, ListIndexer):
                 self.AddSection(list, indexer, 'user_rating', 'Highly Rated', self.get_url()+'search/title?' + url_filter_rated + url_type + 'sort=user_rating,desc', indexer)
                 self.AddSection(list, indexer, 'moviemeter', 'Most Popular', self.get_url()+'search/title?' + url_filter + url_type, indexer)
                 self.AddSection(list, indexer, 'award_lists', 'Award Lists')
-            
-            
-            if user_number:
-                if self.Settings().get_setting('watch_list')=='false':
-                    list_url_type = ''#title_type=feature,tv_movie,tv_series,mini_series&'
-                    if self.Settings().get_setting('watch_list_main')=='true':
-                        self.AddSection(list, indexer, 'watchlist', 'Watchlist', self.get_url()+'user/' + user_number + '/watchlist?' + list_url_type + 'view=detail', indexer)
-
-                    from entertainment.net import Net
-                    net = Net(cached=False)
-                    import re
-
-                    named_lists_url = self.get_url()+'user/' + user_number + '/lists?tab=public'
-                    named_lists = net.http_GET(named_lists_url).content
-                   
-                    match = re.compile('<div class="list_name"><b><a.+?href="(.+?)".+?>(.+?)</a>.+?\n.+?div class="list_meta">(.+?)</div>').findall(named_lists)
-                    for url, name ,TYPE in match:
-                        custom_name='%s List' % name   
-                        
-                        if 'people' in TYPE:
-                            custom_url=self.get_url() + str(url)  +'?view=grid&sort=listorian:asc'             
-                            self.AddSection(list, indexer, 'watchlist_people', '%s' % custom_name, custom_url, indexer, hlevel=1)
-                        else:
-                            custom_url=self.get_url() + str(url) + '?' + list_url_type + 'view=detail'
-                            self.AddSection(list, indexer, 'watchlist', '%s' % custom_name, custom_url, indexer, hlevel=1)   
+                self.AddSection(list, indexer, 'search_celeb', 'Celebrity Search', self.get_url()+'find?q=', indexer)
+              
                 
         elif section == 'genres':
             
@@ -688,7 +664,7 @@ class IMDb(MovieIndexer, TVShowIndexer, CustomSettings, ListIndexer):
             search_results = search_results.group(1)
             
             search_term_not_found_count = 0
-            for search_item in re.finditer('<td class="result_text"> <a href="/title/(.+?)/.+?" >(.+?)</a> (.+?) <(.+?)</td>', content):
+            for search_item in re.finditer('<td class="result_text"> <a href="/title/(.+?)/.+?" >(.+?)</a> (.+?) </td>', content):
             
                 item_id = search_item.group(1)
                 item_url = self.get_url() + 'title/' + item_id

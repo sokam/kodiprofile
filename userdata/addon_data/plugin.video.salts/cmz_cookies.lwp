@@ -1,4 +1,5 @@
 #LWP-Cookies-2.0
 Set-Cookie3: __cfduid=dcc41dd63ea85e9474ddbaa39c0d301381460777336; path="/"; domain=".coolmoviezone.org"; path_spec; domain_dot; expires="2017-04-16 03:28:56Z"; HttpOnly=None; version=0
+Set-Cookie3: LB=Web2; path="/"; domain="coolmoviezone.org"; path_spec; discard; version=0
 Set-Cookie3: PHPSESSID=vn1u8tvjb6hte4dompudts5085; path="/"; domain="coolmoviezone.org"; path_spec; discard; version=0
 Set-Cookie3: PHPSESSID=30qgm0kshu67b6l4kmv3vtalc3; path="/"; domain="www.cartoonhd.tv"; path_spec; discard; version=0

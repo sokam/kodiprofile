@@ -87,7 +87,7 @@
         <addonnotifications default="true">true</addonnotifications>
         <addonupdates default="true">0</addonupdates>
         <settinglevel>1</settinglevel>
-        <systemtotaluptime>160623</systemtotaluptime>
+        <systemtotaluptime>167624</systemtotaluptime>
     </general>
     <input>
         <enablejoystick default="true">true</enablejoystick>
@@ -373,9 +373,9 @@
         <limitedrange default="true">false</limitedrange>
         <monitor default="true">Default</monitor>
         <preferedstereoscopicmode default="true">100</preferedstereoscopicmode>
-        <resolution>15</resolution>
+        <resolution default="true">16</resolution>
         <screen default="true">0</screen>
-        <screenmode>WINDOW</screenmode>
+        <screenmode default="true">DESKTOP</screenmode>
         <stereoscopicmode default="true">0</stereoscopicmode>
         <vsync default="true">3</vsync>
     </videoscreen>
@@ -511,10 +511,10 @@
             <sortattributes>0</sortattributes>
         </programs>
         <videofiles>
-            <viewmode>720896</viewmode>
+            <viewmode>66036</viewmode>
             <sortmethod>1</sortmethod>
             <sortorder>1</sortorder>
-            <sortattributes>0</sortattributes>
+            <sortattributes>1</sortattributes>
         </videofiles>
         <videonavactors>
             <viewmode>65536</viewmode>
@@ -567,6 +567,6 @@
     </viewstates>
     <audio>
         <mute>false</mute>
-        <fvolumelevel>1.000000</fvolumelevel>
+        <fvolumelevel>0.855555</fvolumelevel>
     </audio>
 </settings>

@@ -25,6 +25,7 @@ import urlparse
 import sys
 import os
 import re
+import time
 import log_utils
 
 addon = xbmcaddon.Addon('script.module.urlresolver')
@@ -149,3 +150,50 @@ class WorkingDialog(object):
 
 def has_addon(addon_id):
     return xbmc.getCondVisibility('System.HasAddon(%s)' % addon_id) == 1
+
+class ProgressDialog(object):
+    def __init__(self, heading, line1='', line2='', line3='', background=False, active=True, timer=0):
+        self.begin = time.time()
+        self.timer = timer
+        self.background = background
+        self.heading = heading
+        if active and not timer:
+            self.pd = self.__create_dialog(line1, line2, line3)
+            self.pd.update(0)
+        else:
+            self.pd = None
+
+    def __create_dialog(self, line1, line2, line3):
+        if self.background:
+            pd = xbmcgui.DialogProgressBG()
+            msg = line1 + line2 + line3
+            pd.create(self.heading, msg)
+        else:
+            pd = xbmcgui.DialogProgress()
+            pd.create(self.heading, line1, line2, line3)
+        return pd
+        
+    def __enter__(self):
+        return self
+    
+    def __exit__(self, type, value, traceback):
+        if self.pd is not None:
+            self.pd.close()
+            del self.pd
+    
+    def is_canceled(self):
+        if self.pd is not None and not self.background:
+            return self.pd.iscanceled()
+        else:
+            return False
+        
+    def update(self, percent, line1='', line2='', line3=''):
+        if self.pd is None and self.timer and (time.time() - self.begin) >= self.timer:
+            self.pd = self.__create_dialog(line1, line2, line3)
+            
+        if self.pd is not None:
+            if self.background:
+                msg = line1 + line2 + line3
+                self.pd.update(percent, self.heading, msg)
+            else:
+                self.pd.update(percent, line1, line2, line3)
