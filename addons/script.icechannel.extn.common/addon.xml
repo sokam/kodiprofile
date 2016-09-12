@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<addon id="script.icechannel.extn.common" version="0.2.5" name="iSTREAM - Common" provider-name="iSTREAM">
+<addon id="script.icechannel.extn.common" version="0.2.6" name="iSTREAM - Common" provider-name="iSTREAM">
     <requires>
         <import addon="xbmc.python" version="2.1.0"/>
     </requires>

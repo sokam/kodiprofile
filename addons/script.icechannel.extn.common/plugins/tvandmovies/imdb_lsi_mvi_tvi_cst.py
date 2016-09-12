@@ -208,7 +208,7 @@ class IMDb(MovieIndexer, TVShowIndexer, CustomSettings, ListIndexer):
                 if '-' in year:
                     year=year.split('-')[0]
     
-                self.AddContent(list, indexer, mode, item_title, '', type, url=item_url, name=item_title, year=year, imdb_id=tt)
+                self.AddContent(list, indexer, mode, item_title.strip(), '', type, url=item_url, name=item_title.strip(), year=year, imdb_id=tt)
         else:   
             for item in re.finditer(item_re, content):
 
@@ -226,7 +226,7 @@ class IMDb(MovieIndexer, TVShowIndexer, CustomSettings, ListIndexer):
                     item_year = ''
                 item_name = item_title if section == 'watchlist' else re.sub(" \([0-9]+.+?\)", "", item_title )
                 
-                item_title = item_name
+                item_title = item_name.strip()
                 if item_year != '':
                     item_title = item_title + ' (' + item_year + ')'
                 
@@ -249,7 +249,7 @@ class IMDb(MovieIndexer, TVShowIndexer, CustomSettings, ListIndexer):
                         mode = common.mode_File_Hosts
                         indexer = common.indxr_Movies
                 
-                self.AddContent(list, indexer, mode, item_title, '', type, url=item_url, name=item_name, year=item_year, imdb_id=item_v_id)
+                self.AddContent(list, indexer, mode, item_title.strip(), '', type, url=item_url, name=item_name.strip(), year=item_year, imdb_id=item_v_id)
             
     def get_formated_date(self, date_str):
         
@@ -344,7 +344,7 @@ class IMDb(MovieIndexer, TVShowIndexer, CustomSettings, ListIndexer):
                 
                 item_id = common.CreateIdFromString(title + ' ' + item_title)
                 
-                self.AddContent(list, indexer, common.mode_Content, item_title, item_id, 'tv_episodes', url=item_url, name=name, year=year, season=item_v_id)
+                self.AddContent(list, indexer, common.mode_Content, item_title.strip(), item_id, 'tv_episodes', url=item_url, name=name.strip(), year=year, season=item_v_id)
             
             
         elif type == 'tv_episodes':
@@ -360,13 +360,13 @@ class IMDb(MovieIndexer, TVShowIndexer, CustomSettings, ListIndexer):
                 
                 item_url = self.get_url() + item.group(1)
                 item_v_id = item.group(3)
-                item_title = item.group(2)
+                item_title = item.group(2).strip()
                 if item_title == None:
                     item_title = ''
                 
                 item_id = common.CreateIdFromString(name + '_' + year + '_season_' + season + '_episode_' + item_v_id)
                 
-                self.AddContent(list, indexer, common.mode_File_Hosts, item_title, item_id, type, url=item_url, name=name, year=year, season=season, episode=item_v_id)
+                self.AddContent(list, indexer, common.mode_File_Hosts, item_title.strip(), item_id, type, url=item_url, name=name.strip(), year=year, season=season, episode=item_v_id)
         
     def GetSection(self, indexer, section, url, type, list, page='', total_pages='', sort_by='', sort_order=''): 
         url_type = ''
@@ -669,8 +669,8 @@ class IMDb(MovieIndexer, TVShowIndexer, CustomSettings, ListIndexer):
                 item_id = search_item.group(1)
                 item_url = self.get_url() + 'title/' + item_id
                 
-                item_name = search_item.group(2)
-                item_name_lower = item_name.lower()
+                item_name = search_item.group(2).strip()
+                item_name_lower = item_name.lower().strip()
                 
                 match_count = 0
                 for kw in keywords_lower:
@@ -705,7 +705,7 @@ class IMDb(MovieIndexer, TVShowIndexer, CustomSettings, ListIndexer):
                         else:
                             continue
                 
-                item_title = item_name
+                item_title = item_name.strip()
                 item_other_info = search_item.group(3)
                 item_year = re.search('\(([0-9]+)\)', item_other_info)
                 if item_year:
@@ -724,4 +724,4 @@ class IMDb(MovieIndexer, TVShowIndexer, CustomSettings, ListIndexer):
                     mode = common.mode_Content
                     indexer = common.indxr_TV_Shows 
                     
-                self.AddContent(list, indexer, mode, item_title, '', type, url=item_url, name=item_name, year=item_year, imdb_id=item_id)
+                self.AddContent(list, indexer, mode, item_title.strip(), '', type, url=item_url, name=item_name.strip(), year=item_year, imdb_id=item_id)

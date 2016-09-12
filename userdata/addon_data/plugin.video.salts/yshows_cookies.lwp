@@ -1,2 +1,4 @@
 #LWP-Cookies-2.0
 Set-Cookie3: __cfduid=d26101735bef78060e8bb2b0abf9cd7ba1449383882; path="/"; domain=".yshow.me"; path_spec; domain_dot; expires="2016-12-05 06:38:02Z"; HttpOnly=None; version=0
+Set-Cookie3: XSRF-TOKEN=eyJpdiI6IkVweFwvTmRIY1VOZUxIcHozZUNCT1VBPT0iLCJ2YWx1ZSI6ImkyaWtsVld4Wm9sRkR6RUUydXVzaVV5dE0zNVMxVmUwcnk5dWZxUXpXTTg2SHJ4SWI1b0tOTVc5dFVERDA5TUpyN1lycGgyOTBRQjV5SU5pMlwvMkpkZz09IiwibWFjIjoiMjM4NDAxOGViYWE3YTcwMmUwYjNmZTgyODdjMmJjY2I3N2ZmNDNhZGYxN2RlNjJlZDVhNWI2MGM2ZGYzODMwOSJ9; path="/"; domain="yshow.me"; path_spec; expires="2016-09-10 07:39:55Z"; version=0
+Set-Cookie3: glz__="eyJpdiI6IkRSRHlxSm9KUkF1Rnhha2lYbmJMWVE9PSIsInZhbHVlIjoia3B1YTdQdEkzaExOQXJKZjJjRlNWVStkNGlpVkhocCtFT0xjNEdBVkxXaEtjVmI1RmpPY0pEZVl4eEg2NGR4UUlVQ0s0RHJlSUJnSG9JMElVVjJBdEE9PSIsIm1hYyI6Ijc3MjExYjE2NzVjY2YwODMwM2M2NTk1MDcyYjA1MzgyYWY5Y2Q5YTAzMTExNWU0NTNlNmYwNmNhYjg1NWQ1YzAifQ%3D%3D"; path="/"; domain="yshow.me"; path_spec; expires="2016-09-10 07:39:55Z"; HttpOnly=None; version=0

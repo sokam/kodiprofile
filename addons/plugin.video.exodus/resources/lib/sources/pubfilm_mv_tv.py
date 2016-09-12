@@ -28,10 +28,12 @@ from resources.lib.modules import cache
 
 class source:
     def __init__(self):
-        self.domains = ['pubfilmno1.com', 'pubfilm.com']
-        self.base_link = 'http://pubfilm.com'
-        self.moviesearch_link = '/%s-%s-full-hd-pubfilm-free.html'
+        self.domains = ['pubfilmno1.com', 'pubfilm.com', 'pidtv.com']
+        self.base_link = 'http://pidtv.com'
+        self.moviesearch_link = '/%s-%s-full-hd-pidtv-free.html'
+        self.moviesearch_link_2 = '/%s-%s-pidtv-free.html'
         self.tvsearch_link = '/wp-admin/admin-ajax.php'
+        self.tvsearch_link_2 = '/search/%s/feed/rss2/'
 
 
     def movie(self, imdb, title, year):
@@ -41,9 +43,16 @@ class source:
             query = self.moviesearch_link % (title, year)
             query = urlparse.urljoin(self.base_link, query)
 
-            result = client.request(query, limit='1')
+            result = client.request(query, limit='5')
 
-            if result == None: raise Exception()
+            if result == None:
+                query = self.moviesearch_link_2 % (title, year)
+                query = urlparse.urljoin(self.base_link, query)
+
+                result = client.request(query, limit='5')
+
+            if result == None:
+                raise Exception()
 
             url = re.findall('(?://.+?|)(/.+)', query)[0]
             url = url.encode('utf-8')
@@ -70,15 +79,22 @@ class source:
             season = '%01d' % int(season) ; episode = '%01d' % int(episode)
             tvshowtitle = '%s %s: Season %s' % (data['tvshowtitle'], year, season)
 
+            '''
             headers = {'X-Requested-With': 'XMLHttpRequest'}
-
             post = urllib.urlencode({'sf_value': tvshowtitle, 'action': 'ajaxy_sf', 'search': 'false'})
-
             url = urlparse.urljoin(self.base_link, self.tvsearch_link)
-
             url = client.request(url, post=post, headers=headers)
             url = json.loads(url)['post'][0]['all']
             url = [i['post_link'] for i in url if i['post_title'] == tvshowtitle][0]
+            '''
+
+            url = urlparse.urljoin(self.base_link, self.tvsearch_link_2)
+            url = url % urllib.quote_plus(tvshowtitle)
+            url = client.request(url)
+            url = client.parseDOM(url, 'item')
+            url = [(client.parseDOM(i, 'link'), client.parseDOM(i, 'title')) for i in url]
+            url = [(i[0][0], i[1][0]) for i in url if len(i[0]) > 0 and len(i[1]) > 0]
+            url = [i[0] for i in url if i[1] == tvshowtitle][0]
 
             url = urlparse.urljoin(self.base_link, url)
             url = re.findall('(?://.+?|)(/.+)', url)[0]
