@@ -103,7 +103,7 @@ config.log
 /*.patch
 
 # /addons/
-/addons/packages
+#/addons/packages
 /addons/skin.confluence/media/Makefile
 /addons/skin.confluence/media/Textures.xbt
 /addons/skin.pm3-hd/media/Textures.xbt
@@ -112,9 +112,9 @@ config.log
 /addons/audioencoder.*
 /addons/pvr.*
 /addons/adsp.*
-/addons/xbmc.addon/addon.xml
-/addons/xbmc.json/addon.xml
-/addons/kodi.guilib/addon.xml
+#/addons/xbmc.addon/addon.xml
+#/addons/xbmc.json/addon.xml
+#/addons/kodi.guilib/addon.xml
 /addons/audiodecoder.*
 
 # /lib/
