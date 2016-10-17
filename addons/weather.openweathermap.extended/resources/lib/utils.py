@@ -3,11 +3,12 @@
 import math
 import xbmc, xbmcgui, xbmcaddon
 
-__addon__      = xbmcaddon.Addon()
-__addonid__    = __addon__.getAddonInfo('id')
+ADDON      = xbmcaddon.Addon()
+ADDONID    = ADDON.getAddonInfo('id')
+LANGUAGE   = ADDON.getLocalizedString
 
 WEATHER_WINDOW = xbmcgui.Window(12600)
-DEBUG          = __addon__.getSetting('Debug')
+DEBUG          = ADDON.getSetting('Debug')
 TEMPUNIT       = unicode(xbmc.getRegion('tempunit'),encoding='utf-8')
 SPEEDUNIT      = xbmc.getRegion('speedunit')
 
@@ -27,11 +28,12 @@ KEYS = ['29debf8ecccdfc889f537bdbde2c501b',
         '26b859e2234626fb3c5a80b3744527b7',
         'f1ecc83a4df5341c8783f44c4f1f1ed3']
 
+
 def log(txt):
     if DEBUG == 'true':
         if isinstance (txt,str):
             txt = txt.decode("utf-8")
-        message = u'%s: %s' % (__addonid__, txt)
+        message = u'%s: %s' % (ADDONID, txt)
         xbmc.log(msg=message.encode("utf-8"), level=xbmc.LOGDEBUG)
 
 def set_property(name, value):
@@ -303,15 +305,92 @@ WEEK_DAY_SHORT = { '0' : 47,
                    '5' : 45,
                    '6' : 46 }
 
+FORECAST = { 'thunderstorm with light rain': LANGUAGE(32201),
+             'thunderstorm with rain': LANGUAGE(32202),
+             'thunderstorm with heavy rain': LANGUAGE(32203),
+             'light thunderstorm': LANGUAGE(32204),
+             'thunderstorm': LANGUAGE(32205),
+             'heavy thunderstorm': LANGUAGE(32206),
+             'ragged thunderstorm': LANGUAGE(32207),
+             'thunderstorm with light drizzle': LANGUAGE(32208),
+             'thunderstorm with drizzle': LANGUAGE(32209),
+             'thunderstorm with heavy drizzle': LANGUAGE(32210),
+             'light intensity drizzle': LANGUAGE(32211),
+             'drizzle': LANGUAGE(32212),
+             'heavy intensity drizzle': LANGUAGE(32213),
+             'light intensity drizzle rain': LANGUAGE(32214),
+             'drizzle rain': LANGUAGE(32215),
+             'heavy intensity drizzle rain': LANGUAGE(32216),
+             'shower rain And drizzle': LANGUAGE(32217),
+             'heavy shower rain and drizzle': LANGUAGE(32218),
+             'shower drizzle': LANGUAGE(32219),
+             'light rain': LANGUAGE(32220),
+             'moderate rain': LANGUAGE(32221),
+             'heavy intensity rain': LANGUAGE(32222),
+             'very heavy rain': LANGUAGE(32223),
+             'extreme rain': LANGUAGE(32224),
+             'freezing rain': LANGUAGE(32225),
+             'light intensity shower rain': LANGUAGE(32226),
+             'shower rain': LANGUAGE(32227),
+             'heavy intensity shower rain': LANGUAGE(32228),
+             'ragged shower rain': LANGUAGE(32229),
+             'light snow': LANGUAGE(32230),
+             'snow': LANGUAGE(32231),
+             'heavy snow': LANGUAGE(32232),
+             'sleet': LANGUAGE(32233),
+             'shower sleet': LANGUAGE(32234),
+             'light rain and snow': LANGUAGE(32235),
+             'rain and snow': LANGUAGE(32236),
+             'light shower snow': LANGUAGE(32237),
+             'shower snow': LANGUAGE(32238),
+             'heavy shower snow': LANGUAGE(32239),
+             'mist': LANGUAGE(32240),
+             'smoke': LANGUAGE(32241),
+             'haze': LANGUAGE(32242),
+             'sand, dust whirls': LANGUAGE(32243),
+             'fog': LANGUAGE(32244),
+             'sand': LANGUAGE(32245),
+             'dust': LANGUAGE(32246),
+             'volcanic ash': LANGUAGE(32247),
+             'squalls': LANGUAGE(32248),
+             'tornado': LANGUAGE(32249),
+             'clear sky': LANGUAGE(32250),
+             'few clouds': LANGUAGE(32251),
+             'scattered clouds': LANGUAGE(32252),
+             'broken clouds': LANGUAGE(32253),
+             'overcast clouds': LANGUAGE(32254),
+             'tornado': LANGUAGE(32255),
+             'tropical storm': LANGUAGE(32256),
+             'hurricane': LANGUAGE(32257),
+             'cold': LANGUAGE(32258),
+             'hot': LANGUAGE(32259),
+             'windy': LANGUAGE(32260),
+             'hail': LANGUAGE(32261),
+             'calm': LANGUAGE(32262),
+             'light breeze': LANGUAGE(32263),
+             'gentle breeze': LANGUAGE(32264),
+             'moderate breeze': LANGUAGE(32265),
+             'fresh breeze': LANGUAGE(32266),
+             'strong breeze': LANGUAGE(32267),
+             'high wind, near gale': LANGUAGE(32268),
+             'gale': LANGUAGE(32269),
+             'severe gale': LANGUAGE(32270),
+             'storm': LANGUAGE(32271),
+             'violent storm': LANGUAGE(32272),
+             'hurricane': LANGUAGE(32273),
+             'clear': LANGUAGE(32274),
+             'clouds': LANGUAGE(32275),
+             'rain': LANGUAGE(32276) }
+
 def SPEED(mps):
     if SPEEDUNIT == 'km/h':
         speed = mps * 3.6
     elif SPEEDUNIT == 'm/min':
         speed = mps * 60
     elif SPEEDUNIT == 'ft/h':
-        speed = mps * 11810,88
+        speed = mps * 11810.88
     elif SPEEDUNIT == 'ft/min':
-        speed = mps * 196,84
+        speed = mps * 196.84
     elif SPEEDUNIT == 'ft/s':
         speed = mps * 3.281
     elif SPEEDUNIT == 'mph':
@@ -414,18 +493,32 @@ def KPHTOBFT(spd):
         bft = ''
     return bft
 
-#### thanks to FrostBox @ http://forum.kodi.tv/showthread.php?tid=114637&pid=937168#pid937168
-def FEELS_LIKE( T=10, V=25, ext=True ):
-    FeelsLike = T
-    if round( ( V + .0 ) / 1.609344 ) > 4:
-        FeelsLike = ( 13.12 + ( 0.6215 * T ) - ( 11.37 * V**0.16 ) + ( 0.3965 * T * V**0.16 ) )
+def FEELS_LIKE(T, V=0, R=0, ext=True):
+    if T <= 10 and V >= 8:
+        FeelsLike = WIND_CHILL(T, V)
+    elif T >= 26:
+        FeelsLike = HEAT_INDEX(T, R)
+    else:
+        FeelsLike = T
     if ext:
         return TEMP( FeelsLike )
     else:
         return str(int(round(FeelsLike)))
 
 #### thanks to FrostBox @ http://forum.kodi.tv/showthread.php?tid=114637&pid=937168#pid937168
-def DEW_POINT( Tc=0, RH=93, minRH=( 0, 0.075 )[ 0 ], ext=True ):
+def WIND_CHILL(T, V):
+    FeelsLike = ( 13.12 + ( 0.6215 * T ) - ( 11.37 * V**0.16 ) + ( 0.3965 * T * V**0.16 ) )
+    return FeelsLike
+
+### https://en.wikipedia.org/wiki/Heat_index
+def HEAT_INDEX(T, R):
+    T = T * 1.8 + 32 # calaculation is done in F
+    FeelsLike = -42.379 + (2.04901523 * T) + (10.14333127 * R) + (-0.22475541 * T * R) + (-0.00683783 * T**2) + (-0.05481717 * R**2) + (0.00122874 * T**2 * R) + (0.00085282 * T * R**2) + (-0.00000199 * T**2 * R**2)
+    FeelsLike = (FeelsLike - 32) / 1.8 # convert to C
+    return FeelsLike
+
+#### thanks to FrostBox @ http://forum.kodi.tv/showthread.php?tid=114637&pid=937168#pid937168
+def DEW_POINT(Tc=0, RH=93, ext=True, minRH=( 0, 0.075 )[ 0 ]):
     Es = 6.11 * 10.0**( 7.5 * Tc / ( 237.7 + Tc ) )
     RH = RH or minRH
     E = ( RH * Es ) / 100
@@ -437,15 +530,3 @@ def DEW_POINT( Tc=0, RH=93, minRH=( 0, 0.075 )[ 0 ], ext=True ):
         return TEMP( DewPoint )
     else:
         return str(int(round(DewPoint)))
-
-def CAPITALIZE(string):
-    string = string[0].upper() + string[1:]
-    return string
-
-def UPPERCASE(string):
-    words = []
-    for word in string.split(' '):
-        word = word[0].upper() + word[1:]
-        words.append(word)
-    string = ' '.join(words)
-    return string

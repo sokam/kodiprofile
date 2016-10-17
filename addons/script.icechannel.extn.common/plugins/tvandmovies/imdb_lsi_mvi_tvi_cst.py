@@ -116,8 +116,7 @@ class IMDb(MovieIndexer, TVShowIndexer, CustomSettings, ListIndexer):
         from entertainment.net import Net
         cached = False if section == 'watchlist' else True
         net = Net(cached=cached)
-
-
+        
         if self.Settings().get_setting('en_us')=='true':
             
             content = net.http_GET(new_url,{'Accept-Language':'en-US'}).content
@@ -186,7 +185,8 @@ class IMDb(MovieIndexer, TVShowIndexer, CustomSettings, ListIndexer):
             if not 'watchlist?' in new_url:
                 item_re = r'(?s)<b><a.+?href="/title/(.+?)/".+?>(.+?)</a>.+?<span class="year_type">(.+?)<.+?<div class="(.+?)"'
             else:
-                item_re= r'<a href="/title/(.+?)/.+?"\n>(.+?)</a>\n.+?<span class="lister-item-year text-muted unbold">(.+?)</span>'
+                item_re= r'\{"href":"/title/([^"]+?)","year":\["([^"]+?)"\],"title":"([^"]+?)"\}'
+                
                 
         if section=='celeb_result':
             
@@ -214,9 +214,15 @@ class IMDb(MovieIndexer, TVShowIndexer, CustomSettings, ListIndexer):
 
 
                 item_v_id = item.group(1)
-                item_title = common.addon.unescape(item.group(2))
+                item_title = common.addon.unescape( item.group(3) if section == 'watchlist' and 'watchlist?' in new_url else item.group(2))
 
-                item_type = item.group(3) if section == 'watchlist' else item_title
+                item_type = item_title
+                if section =='watchlist':
+                    if not 'watchlist?' in new_url:
+                        item_type = item.group(3)
+                    else:
+                        item_type = "(" + item.group(2) + ")"
+                
                 item_type =item_type.replace(' Video)',')').replace(' Short Film)','')
                 item_year = re.search("\(([0-9]+)", item_type)
                 

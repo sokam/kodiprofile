@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<addon id="plugin.video.ustvnow.tva" name="USTVnow Plus" provider-name="mhancoc7" version="14.4.4">
+    <requires>
+        <import addon="xbmc.python" version="2.1.0" />
+        <import addon="script.ustvnow.plus.guide" version="1.1.8" />
+    </requires>
+    <extension library="main.py" point="xbmc.python.pluginsource">
+        <provides>video</provides>
+    </extension>
+    <extension point="xbmc.addon.metadata">
+        <summary>Watch Major American Television Networks Live for Free!</summary>
+        <description>Watch Major American Television Networks Live! Entirely Legal and Free! You can also record content with a paid DVR account or by using DVR referral points. 
+
+Signup for a free account through the following link today: http://watch.ustvnow.com 
+
+Please visit https://www.tvaddons.ag for addon support!</description>
+        <platform>all</platform>
+        <forum>https://forums.tvaddons.ag/ustvnow-plugin-for-kodi/</forum>
+        <website>https://ustvnow.tvaddons.ag/</website>
+    </extension>
+</addon>

@@ -16,8 +16,7 @@ GNU General Public License for more details.
 You should have received a copy of the GNU General Public License
 along with this program. If not, see <http://www.gnu.org/licenses/>.
 """
-
-
+import urllib
 import re
 import urllib2
 from lib.aa_decoder import AADecoder
@@ -27,6 +26,32 @@ from urlresolver import common
 from urlresolver.resolver import ResolverError
 
 net = common.Net()
+MAX_SIZE = 33 * 1024 * 1024
+MIN_SIZE = 30 * 1024 * 1024
+
+def caesar_shift(s, shift=13):
+    s2 = ''
+    for c in s:
+        if c.isalpha():
+            limit = 90 if c <= 'Z' else 122
+            new_code = ord(c) + shift
+            if new_code > limit:
+                new_code -= 26
+            s2 += chr(new_code)
+        else:
+            s2 += c
+    return s2
+
+def unpack(html):
+    strings = re.findall('{\s*var\s+a\s*=\s*"([^"]+)', html)
+    shifts = re.findall('\)\);}\((\d+)\)', html)
+    for s, shift in zip(strings, shifts):
+        s = caesar_shift(s, int(shift))
+        s = urllib.unquote(s)
+        for i, replace in enumerate(['j', '_', '__', '___']):
+            s = s.replace(str(i), replace)
+        html += '<script>%s</script>' % (s)
+    return html
 
 def get_media_url(url):
     try:
@@ -41,26 +66,40 @@ def get_media_url(url):
         html = net.http_GET(url, headers=HTTP_HEADER).content
         try: html = html.encode('utf-8')
         except: pass
-        match = re.search('hiddenurl">(.+?)<\/span>', html, re.IGNORECASE)
-        if not match:
-            raise ResolverError('Stream Url Not Found. Deleted?')
-        
-        hiddenurl = HTMLParser().unescape(match.group(1))
-        
+        html = unpack(html)
+
         decodes = []
+        hidden_id = ''
         for match in re.finditer('<script[^>]*>(.*?)</script>', html, re.DOTALL):
+            decode = ''
             encoded = match.group(1)
-            match = re.search("(ﾟωﾟﾉ.*?('_');)", encoded, re.DOTALL)
+            match = re.search("(ﾟωﾟﾉ.*?\('_'\);)", encoded, re.DOTALL)
             if match:
-                decodes.append(AADecoder(match.group(1)).decode())
+                decode = AADecoder(match.group(1)).decode()
+                decodes.append(decode)
                 
             match = re.search('(.=~\[\].*\(\);)', encoded, re.DOTALL)
             if match:
-                decodes.append(JJDecoder(match.group(1)).decode())
+                decode = JJDecoder(match.group(1)).decode()
+                decodes.append(decode)
             
+            match = re.search(r'=\s*\$\("#([^"]+)"', decode, re.DOTALL | re.IGNORECASE)
+            if match:
+                hidden_id = match.group(1)
+
+        if not hidden_id:
+            raise ResolverError('Hidden ID Not Found. Deleted?')
+        
+        match = re.search(r'<span[^>]+id\s*="%s"[^>]*>([^<]+)' % (hidden_id), html, re.DOTALL | re.IGNORECASE)
+        if match:
+            hidden_url = match.group(1)
+        else:
+            raise ResolverError('Stream Url Not Found. Deleted?')
+
         if not decodes:
             raise ResolverError('No Encoded Section Found. Deleted?')
         
+        hiddenurl = HTMLParser().unescape(hidden_url)
         magic_number = 0
         for decode in decodes:
             match = re.search('charCodeAt\(\d+\)\s*\+\s*(\d+)\)', decode, re.DOTALL | re.I)
@@ -85,9 +124,9 @@ def get_media_url(url):
         req = urllib2.Request(dtext, None, headers)
         res = urllib2.urlopen(req)
         videourl = res.geturl()
+        if MIN_SIZE < int(res.headers['Content-Length']) < MAX_SIZE:
+            raise ResolverError('Openload.co resolve failed. Pigeons? (%s)' % (res.headers['Content-Length']))
         res.close()
-        if 'pigeons.mp4' in videourl.lower():
-            raise ResolverError('Openload.co resolve failed')
         
         return videourl
     except Exception as e:

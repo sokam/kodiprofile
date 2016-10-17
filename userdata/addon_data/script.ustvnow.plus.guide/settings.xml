@@ -1,0 +1,6 @@
+<settings>
+    <setting id="autostart" value="false" />
+    <setting id="enable.osd" value="true" />
+    <setting id="xmltv.interval" value="2" />
+    <setting id="xmltv.type" value="0" />
+</settings>

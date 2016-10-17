@@ -167,3 +167,45 @@ ver 0.49:
 	
 ver 0.50:
 	- one more attempt to fix MLB
+	
+ver 0.50e:
+	- fixed some streams
+	- removed archive (not working)
+	
+ver 0.51:
+	- fixed streamer
+	
+ver 0.52:
+	- hopefully fixed sawlive
+	- fixed NFL archive
+	
+ver 0.53:
+	-fixed streams
+	
+ver 0.54:
+	-fixed streams
+	
+ver 0.55:
+	-fixed streams
+	
+ver 0.56:
+	-fixed streams
+
+ver 0.57:
+	- fixed some streams
+	- added sopcast/acestream support (plexus has to be installed)
+	
+ver 0.58:
+	- fixed streams
+	- fixed redzone had no links
+	
+ver 0.59:
+	- fixed streams
+	- fixed redzone had no links
+	
+ver 0.60:
+	- fixed streams
+	- xrxs is back
+	
+ver 0.61:
+	- fixed streams

@@ -94,12 +94,16 @@ class UrlResolver(object):
         implement this method.
 
         Returns:
-            True if this plugin thinks it can hangle the web_url or host
+            True if this plugin thinks it can handle the web_url or host
             otherwise False.
         '''
         if isinstance(host, basestring):
             host = host.lower()
-        return (url and re.search(self.pattern, url, re.I)) or any(host in domain.lower() for domain in self.domains)
+        
+        if url:
+            return re.search(self.pattern, url, re.I) is not None
+        else:
+            return any(host in domain.lower() for domain in self.domains)
 
     @classmethod
     def isUniversal(cls):

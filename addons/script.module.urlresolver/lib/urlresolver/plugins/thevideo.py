@@ -40,7 +40,7 @@ class TheVideoResolver(UrlResolver):
         }
         headers.update(self.headers)
         html = self.net.http_GET(web_url, headers=headers).content
-        sources = re.findall(r"'?label'?\s*:\s*'([^']+)p'\s*,\s*'?file'?\s*:\s*'([^']+)", html, re.I)
+        sources = self.__parse_sources_list(html)
         if sources:
             vt = self.__auth_ip(media_id)
             if vt:
@@ -48,6 +48,16 @@ class TheVideoResolver(UrlResolver):
                 return '%s?direct=false&ua=1&vt=%s|User-Agent=%s' % (source, vt, common.SMU_USER_AGENT)
         else:
             raise ResolverError('Unable to locate links')
+
+    def __parse_sources_list(self, html):
+        sources = []
+        match = re.search('sources\s*:\s*\[(.*?)\]', html, re.DOTALL)
+        if match:
+            for match in re.finditer('''['"]?file['"]?\s*:\s*['"]([^'"]+)['"][^}]*['"]?label['"]?\s*:\s*['"]([^'"]*)''', match.group(1), re.DOTALL):
+                stream_url, label = match.groups()
+                stream_url = stream_url.replace('\/', '/')
+                sources.append((label, stream_url))
+        return sources
 
     def __auth_ip(self, media_id):
         header = 'TheVideo.me Stream Authorization'

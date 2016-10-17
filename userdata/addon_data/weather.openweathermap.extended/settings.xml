@@ -1,12 +1,13 @@
 <settings>
+    <setting id="API" value="" />
     <setting id="Debug" value="false" />
     <setting id="LatLon" value="false" />
     <setting id="Location1" value="Portland (United States of America)" />
     <setting id="Location1ID" value="5746545" />
     <setting id="Location1deg" value="[45.5118, -122.676]" />
-    <setting id="Location2" value="" />
-    <setting id="Location2ID" value="" />
-    <setting id="Location2deg" value="" />
+    <setting id="Location2" value="Hong Kong (HK)" />
+    <setting id="Location2ID" value="1819729" />
+    <setting id="Location2deg" value="[22.285521, 114.157692]" />
     <setting id="Location3" value="" />
     <setting id="Location3ID" value="" />
     <setting id="Location3deg" value="" />
@@ -21,4 +22,6 @@
     <setting id="StationID" value="" />
     <setting id="Weekend" value="0" />
     <setting id="Zoom" value="4" />
+    <setting id="oldloc" value="5746545" />
+    <setting id="oldtime" value="1476667869" />
 </settings>

@@ -1,0 +1,33 @@
+<settings>
+    <setting id="account_name" value="A S" />
+    <setting id="account_plan" value="Free Plan" />
+    <setting id="account_status" value="Account active" />
+    <setting id="activation" value="true" />
+    <setting id="addon_name" value="USTVnow Plus" />
+    <setting id="clear_token" value="false" />
+    <setting id="date_opened" value="January 5, 2015" />
+    <setting id="dvr" value="false" />
+    <setting id="dvr_points" value="1" />
+    <setting id="email" value="soka4@yahoo.com" />
+    <setting id="extended_context" value="true" />
+    <setting id="free_package" value="true" />
+    <setting id="live_stream_option" value="0" />
+    <setting id="logo" value="1" />
+    <setting id="notify" value="2" />
+    <setting id="password" value="so123456" />
+    <setting id="quality" value="1" />
+    <setting id="rec_live" value="true" />
+    <setting id="rec_quality" value="1" />
+    <setting id="recordings_stream_option" value="0" />
+    <setting id="renew" value="true" />
+    <setting id="setup" value="true" />
+    <setting id="setup_new" value="true" />
+    <setting id="show_movies_section" value="true" />
+    <setting id="show_settings_option" value="true" />
+    <setting id="show_sports_section" value="true" />
+    <setting id="show_tv_guide_epg" value="true" />
+    <setting id="show_tv_guide_list" value="true" />
+    <setting id="skin" value="3" />
+    <setting id="token" value="odu7owctjxbgfe7kw96tdsqmso1w" />
+    <setting id="version" value="14.4.4" />
+</settings>

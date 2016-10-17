@@ -2,10 +2,44 @@ version=1
 title=History
 #
 type=playlist
+name=videobronx
+description=-= List owner: bronxbico =-
+-=7555814 views in last 7 days =-/description
+thumb=http://i.imgur.com/Bxl5aNF.png
+background=http://i.imgur.com/79hGbDR.jpg
+URL=http://www.navixtreme.com/playlist/148106/videobronx.plx
+date=2015-12-26
+#
+type=playlist
+name=XXXHolic
+description=-= List owner: mohcine87 =-
+-=3300936 views in last 7 days =-/description
+URL=http://www.navixtreme.com/playlist/132593/xxxholic.plx
+#
+type=playlist
+name=search results: tvb
+thumb=http://media.navi-x.org/images/logos/search.png
+background=http://media.navi-x.org/images/backgrounds/bkg_navix_bh_plain.jpg
+URL=http://www.navixtreme.com/playlist/search/tvb
+#
+type=playlist
+name=Hong Kong TV Channels
+description=Most of Hong Kong's TV Channels such as ATV, TVB and also Cable TV!/description
+thumb=http://upload.wikimedia.org/wikipedia/commons/5/5b/Flag_of_Hong_Kong.svg
+background=http://www.urbansplatter.com/wp-content/uploads/2013/11/hongkong2.jpg
+URL=http://www.navixtreme.com/playlist/134173/hong_kong_tv_channels.plx
+#
+type=playlist
 name=Search
 thumb=http://media.navi-x.org/images/logos/search.png
 background=http://www.navixtreme.com/images/backgrounds/bkg_search.jpg
 URL=http://www.navixtreme.com/plx/search.plx
+#
+type=playlist
+name=search results: hong kong
+thumb=http://media.navi-x.org/images/logos/search.png
+background=http://media.navi-x.org/images/backgrounds/bkg_navix_bh_plain.jpg
+URL=http://www.navixtreme.com/playlist/search/hong%20kong
 #
 type=playlist
 name=My Favorites
@@ -34,15 +68,6 @@ thumb=http://4.bp.blogspot.com/-bkDCjjAlNsA/UZrwODcFLmI/AAAAAAAAAO0/Z69wZVH7ARE/
 background=http://media.tumblr.com/tumblr_lo1f25gTE11qiq3oh.gif
 URL=http://www.navixtreme.com/playlist/138170/currently_in_cinemas.....plx
 date=2015-12-27
-#
-type=playlist
-name=videobronx
-description=-= List owner: bronxbico =-
--=1574 views in last 24 hours =-/description
-thumb=http://i.imgur.com/Bxl5aNF.png
-background=http://i.imgur.com/79hGbDR.jpg
-URL=http://www.navixtreme.com/playlist/148106/videobronx.plx
-date=2015-12-26
 #
 type=playlist
 name=search results: hunger games

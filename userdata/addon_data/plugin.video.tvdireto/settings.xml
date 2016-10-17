@@ -1,0 +1,14 @@
+<settings>
+    <setting id="1080pquality" value="false" />
+    <setting id="add_playlist" value="true" />
+    <setting id="ask_playlist_items" value="true" />
+    <setting id="debug" value="true" />
+    <setting id="donotshowbychannels" value="false" />
+    <setting id="genesisorpulsar" value="1" />
+    <setting id="logo-folderPath" value="" />
+    <setting id="parentalblocked" value="false" />
+    <setting id="parentalblockedpin" value="" />
+    <setting id="save_location" value="" />
+    <setting id="searchotherplugins" value="false" />
+    <setting id="use_thumb" value="true" />
+</settings>
