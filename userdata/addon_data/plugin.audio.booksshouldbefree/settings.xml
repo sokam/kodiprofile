@@ -1,9 +1,9 @@
 <settings>
     <setting id="RESULTS" value="30" />
     <setting id="RESUME_CHAPTER" value="0" />
-    <setting id="RESUME_INFO" value="http://www.archive.org/download/platos_republic_0902_librivox1/republic_03_plato_64kb.mp3%7C%7C800%7C%7CPlato%27s+Republic%7C%7C03+%E2%80%93+Bk+1+pt+1%7C%7Chttp%3A%2F%2Fwww.loyalbooks.com%2Fimage%2Flayout2%2FPlatos-Republic-Plato.jpg" />
-    <setting id="RESUME_TIME" value="314" />
+    <setting id="RESUME_INFO" value="http://www.archive.org/download/aliceinwonderland_1102_librivox/aliceinwonderland_00_carroll_64kb.mp3%7C%7C800%7C%7CAlice%27s+Adventures+in+Wonderland%7C%7C00+-+Dramatis+Personae%7C%7Chttp%3A%2F%2Fwww.loyalbooks.com%2Fimage%2Flayout2%2F47.jpg" />
+    <setting id="RESUME_TIME" value="31" />
     <setting id="SORT" value="0" />
-    <setting id="VERSION" value="1.0.7" />
+    <setting id="VERSION" value="1.0.8" />
     <setting id="VIEW" value="0" />
 </settings>

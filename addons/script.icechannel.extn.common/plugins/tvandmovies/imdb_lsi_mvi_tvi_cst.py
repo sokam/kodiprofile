@@ -229,12 +229,20 @@ class IMDb(MovieIndexer, TVShowIndexer, CustomSettings, ListIndexer):
                 if item_year:
                     item_year = item_year.group(1)
                 else:
-                    item_year = ''
+                    r='>%s</a>\n    <span class=".+?">\((.+?)\)<'%item_title
+                    item_year=re.search(r, content)
+                    item_year = re.search("([0-9]+)", item_year.group(1))
+                    if item_year:
+                        item_year = item_year.group(1)
+                    else:
+                        item_year=''
+                    
+
                 item_name = item_title if section == 'watchlist' else re.sub(" \([0-9]+.+?\)", "", item_title )
                 
                 item_title = item_name.strip()
                 if item_year != '':
-                    item_title = item_title + ' (' + item_year + ')'
+                    item_title = item_title + ' (' + item_year.replace('-','') + ')'
                 
                 item_url = self.get_url()+'title/'+item_v_id+'/'
                
@@ -450,7 +458,7 @@ class IMDb(MovieIndexer, TVShowIndexer, CustomSettings, ListIndexer):
                 self.AddSection(list, indexer, 'year', 'Box Office By Year')
                 self.AddSection(list, indexer, 'decade', 'Box Office By Decade')
                 self.AddSection(list, indexer, 'user_rating', 'Highly Rated', self.get_url()+'search/title?' + url_filter_rated + url_type + 'sort=user_rating,desc', indexer)
-                self.AddSection(list, indexer, 'top_250', 'IMDb Top 250', self.get_url()+'search/title?' + url_filter_small + url_type + 'groups==top_250&sort=user_rating,desc', indexer)
+                self.AddSection(list, indexer, 'top_250', 'IMDb Top 250', self.get_url()+'search/title?' + url_filter_small + url_type + 'groups=top_250&sort=user_rating,desc', indexer)
                 self.AddSection(list, indexer, 'num_votes', 'Most Voted', self.get_url()+'search/title?' + url_filter + url_type + 'sort=num_votes,desc', indexer)
 
                 self.AddSection(list, indexer, 'kids', 'Kids Zone', self.get_url()+'search/title?' + url_filter_small + 'certificates=us:g&genres=family&' + url_type + 'sort=boxoffice_gross_us,desc', indexer)
@@ -464,12 +472,12 @@ class IMDb(MovieIndexer, TVShowIndexer, CustomSettings, ListIndexer):
             #added filters to commands for tv shows.
             elif indexer == common.indxr_TV_Shows:
                 #self.AddSection(list, indexer, 'a_z', 'A-Z')
+                self.AddSection(list, indexer, 'moviemeter', 'Most Popular', self.get_url()+'search/title?' + url_filter + url_type, indexer)
                 self.AddSection(list, indexer, 'genres', 'Genres')
                 self.AddSection(list, indexer, 'num_votes', 'Most Voted', self.get_url()+'search/title?' + url_filter + url_type + 'sort=num_votes,desc', indexer)
                 self.AddSection(list, indexer, 'year', 'Most Voted By Year')
                 self.AddSection(list, indexer, 'decade', 'Most Voted By Decade')
                 self.AddSection(list, indexer, 'user_rating', 'Highly Rated', self.get_url()+'search/title?' + url_filter_rated + url_type + 'sort=user_rating,desc', indexer)
-                self.AddSection(list, indexer, 'moviemeter', 'Most Popular', self.get_url()+'search/title?' + url_filter + url_type, indexer)
                 self.AddSection(list, indexer, 'award_lists', 'Award Lists')
                 self.AddSection(list, indexer, 'search_celeb', 'Celebrity Search', self.get_url()+'find?q=', indexer)
               
@@ -543,7 +551,7 @@ class IMDb(MovieIndexer, TVShowIndexer, CustomSettings, ListIndexer):
         #the sort order can be changed by all of the lists.
         elif section == 'decade':
                 if indexer == common.indxr_Movies:
-                    self.AddSection(list, indexer, '2010s', '2010-2014', self.get_url()+'search/title?' +'release_date=2010,2014&' + url_filter_less + url_type + 'sort=boxoffice_gross_us,desc', indexer)
+                    self.AddSection(list, indexer, '2010s', '2010-2016', self.get_url()+'search/title?' +'release_date=2010,2016&' + url_filter_less + url_type + 'sort=boxoffice_gross_us,desc', indexer)
                     self.AddSection(list, indexer, '2000s', '2000-2009', self.get_url()+'search/title?' +'release_date=2000,2009&' + url_filter_less + url_type + 'sort=boxoffice_gross_us,desc', indexer)
                     self.AddSection(list, indexer, '1990s', '1990-1999', self.get_url()+'search/title?' +'release_date=1990,1999&' + url_filter_less + url_type + 'sort=boxoffice_gross_us,desc', indexer)
                     self.AddSection(list, indexer, '1980s', '1980-1989', self.get_url()+'search/title?' +'release_date=1980,1989&' + url_filter_less + url_type + 'sort=boxoffice_gross_us,desc', indexer)
@@ -556,7 +564,7 @@ class IMDb(MovieIndexer, TVShowIndexer, CustomSettings, ListIndexer):
                     self.AddSection(list, indexer, '1910s', '1910-1919', self.get_url()+'search/title?' +'release_date=1910,1919&' + url_filter_small + url_type + 'sort=boxoffice_gross_us,desc', indexer)
 
                 elif indexer == common.indxr_TV_Shows:
-                    self.AddSection(list, indexer, '2010s', '2010-2014', self.get_url()+'search/title?' +'release_date=2010,2014&' + url_filter_less + url_type + 'sort=num_votes,desc', indexer)
+                    self.AddSection(list, indexer, '2010s', '2010-2016', self.get_url()+'search/title?' +'release_date=2010,2016&' + url_filter_less + url_type + 'sort=num_votes,desc', indexer)
                     self.AddSection(list, indexer, '2000s', '2000-2009', self.get_url()+'search/title?' +'release_date=2000,2009&' + url_filter_less + url_type + 'sort=num_votes,desc', indexer)
                     self.AddSection(list, indexer, '1990s', '1990-1999', self.get_url()+'search/title?' +'release_date=1990,1999&' + url_filter_less + url_type + 'sort=num_votes,desc', indexer)
                     self.AddSection(list, indexer, '1980s', '1980-1989', self.get_url()+'search/title?' +'release_date=1980,1989&' + url_filter_less + url_type + 'sort=num_votes,desc', indexer)

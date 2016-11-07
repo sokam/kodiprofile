@@ -1,3 +1,10 @@
+[B]Version 14.4.6[/B]
+- Cleaned up description
+- Updated TVADDONS notification branding to www.tvaddons.ag
+
+[B]Version 14.4.5[/B]
+- Removed the Live TV and Recordings Streaming Method Option since the Alternate option is no longer working for all channels
+
 [B]Version 14.4.4[/B]
 - Added TVADDONS branding dialog
 

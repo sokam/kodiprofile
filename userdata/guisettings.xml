@@ -100,7 +100,7 @@
             <level>0</level>
             <showhigherlevels>true</showhigherlevels>
         </eventlog>
-        <systemtotaluptime>185377</systemtotaluptime>
+        <systemtotaluptime>196842</systemtotaluptime>
     </general>
     <input>
         <enablejoystick default="true">true</enablejoystick>
@@ -171,12 +171,12 @@
     <mymusic>
         <defaultlibview default="true"></defaultlibview>
         <songthumbinvis default="true">false</songthumbinvis>
-        <startwindow default="true">10501</startwindow>
+        <startwindow>10502</startwindow>
         <playlist>
             <repeat>false</repeat>
             <shuffle>false</shuffle>
         </playlist>
-        <needsupdate>53</needsupdate>
+        <needsupdate>0</needsupdate>
     </mymusic>
     <myvideos>
         <extractchapterthumbs default="true">true</extractchapterthumbs>
@@ -614,6 +614,6 @@
     </viewstates>
     <audio>
         <mute>false</mute>
-        <fvolumelevel>1.000000</fvolumelevel>
+        <fvolumelevel>0.988889</fvolumelevel>
     </audio>
 </settings>

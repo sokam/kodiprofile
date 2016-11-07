@@ -33,11 +33,6 @@ class OpenLoadResolver(UrlResolver):
         self.net = common.Net()
 
     def get_media_url(self, host, media_id):
-        web_url = self.get_url(host, media_id)
-        html = self.net.http_GET(web_url).content
-        if '>We are sorry!<' in html:
-            raise ResolverError('File Not Found')
-
         try:
             video_url = self.__check_auth(media_id)
             if not video_url:

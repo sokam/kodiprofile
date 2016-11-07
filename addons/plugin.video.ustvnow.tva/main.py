@@ -98,7 +98,7 @@ if mode == 'main':
     else:
         Addon.set_setting('notify', "1")        
     if int(Addon.get_setting('notify')) == 1:
-        xbmcgui.Dialog().notification(addonname + ' is provided by:','TVADDONS',addon_logo,5000,False)
+        xbmcgui.Dialog().notification(addonname + ' is provided by:','www.tvaddons.ag',addon_logo,5000,False)
     elif int(Addon.get_setting('notify')) == 9:
         Addon.set_setting('notify', "0")
 

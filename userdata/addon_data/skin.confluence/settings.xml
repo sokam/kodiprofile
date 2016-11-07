@@ -31,7 +31,7 @@
     <setting id="SkinHelper.EnableAnimatedPosters" type="bool">false</setting>
     <setting id="SkinHelper.EnablePVRThumbs" type="bool">false</setting>
     <setting id="HomeVideosButton4" type="string">plugin.video.ustvnow.tva</setting>
-    <setting id="HomeVideosButton5" type="string">plugin.video.SportsDevil</setting>
+    <setting id="HomeVideosButton5" type="string">plugin.video.prosport</setting>
     <setting id="CustomBackgroundPath" type="string">special://home/media/SKINDEFAULT.jpg</setting>
     <setting id="HomeVideosButton2" type="string">plugin.video.salts</setting>
     <setting id="HomeVideosButton3" type="string">plugin.video.specto</setting>

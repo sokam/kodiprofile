@@ -1,4 +1,11 @@
-1.2.1 - 2016-09-08
+1.2.4 - 2016-10-18
+ - Fix: Google videos did not play
+
+1.2.3 - 2016-10-17
+ - Adapt changes to site
+ - Minor updates
+
+1.2.2 - 2016-09-08
  - Crowdsourcing stream names
 
 1.2.1 - 2016-07-02

@@ -32,10 +32,6 @@
             <setting id="rec_live" type="bool" label="40001" default="true" />
             <setting id="extended_context" type="bool" label="40007" default="false" />
 
-            <setting type="lsep" label="200004" />
-                <setting id="live_stream_option" type="enum" label="40009" values="Default|Alternate" default="0" subsetting="true"/>
-                <setting id="recordings_stream_option" type="enum" label="40010" values="Default|Alternate" default="0" subsetting="true"/>
-
             <setting type="lsep" label="200005" />
 	        <setting id="clear_token" type="bool" label="40011" default="true" subsetting="true"/>
 	        <setting id="token" type="text" label="40012" default="" subsetting="true"/>

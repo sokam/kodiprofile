@@ -6,11 +6,11 @@
     <setting id="CMI_Search1Channel" value="true" />
     <setting id="CMI_SearchPrimeWire" value="true" />
     <setting id="CMI_ShowInfo" value="true" />
-    <setting id="LastShowListedFANART" value="/home/sokam/.kodi/addons/plugin.video.kissanime/fanart.jpg" />
-    <setting id="LastShowListedIMG" value="https://kissanime.to/Uploads/Etc/3-1-2016/20588254578745l.jpg|Referer=https%3A%2F%2Fkissanime.to%2FUploads%2FEtc%2F3-1-2016&amp;User-Agent=Mozilla%2F5.0+%28Windows+NT+6.1%3B+WOW64%3B+rv%3A6.0%29+Gecko%2F20100101+Firefox%2F6.0&amp;Connection-Timeout=60&amp;Cookie=__cfduid%3Dd0530ad0bc4d859d1e0d120c9ac4de3e71474316106%3Bcf_clearance%3D92ad937cd96dbf066aa31d2f21f9f833e033b00a-1474316106-86400%3BASP.NET_SessionId%3Di3iqc2tt5b0irrump0bnhisw%3Bidtz%3D50.139.95.158-892364900%3B" />
+    <setting id="LastShowListedFANART" value="http://kissanime.to/Uploads/Etc/4-7-2013/54721354547347.jpg|Referer=http%3A%2F%2Fkissanime.to%2FUploads%2FEtc%2F4-7-2013&amp;User-Agent=Mozilla%2F5.0+%28Windows+NT+6.1%3B+WOW64%3B+rv%3A6.0%29+Gecko%2F20100101+Firefox%2F6.0&amp;Connection-Timeout=60&amp;Cookie=__cfduid%3Dde4eccbeb0a5e2f5bb2aee8b72586e2e91477459160%3Bcf_clearance%3D112c8c4cc9e90c3add9b1db10b187b1175557d6c-1477459160-86400%3BASP.NET_SessionId%3Dhp2255fhnaujp4ygmxbyqhwp%3Bidtz%3D50.139.95.158-367493659%3B" />
+    <setting id="LastShowListedIMG" value="http://kissanime.to/Uploads/Etc/4-7-2013/54721354547347.jpg|Referer=http%3A%2F%2Fkissanime.to%2FUploads%2FEtc%2F4-7-2013&amp;User-Agent=Mozilla%2F5.0+%28Windows+NT+6.1%3B+WOW64%3B+rv%3A6.0%29+Gecko%2F20100101+Firefox%2F6.0&amp;Connection-Timeout=60&amp;Cookie=__cfduid%3Dde4eccbeb0a5e2f5bb2aee8b72586e2e91477459160%3Bcf_clearance%3D112c8c4cc9e90c3add9b1db10b187b1175557d6c-1477459160-86400%3BASP.NET_SessionId%3Dhp2255fhnaujp4ygmxbyqhwp%3Bidtz%3D50.139.95.158-367493659%3B" />
     <setting id="LastShowListedImdbID" value="" />
-    <setting id="LastShowListedNAME" value="Boku no Hero Academia [COLOR blue](Sub)[/COLOR]" />
-    <setting id="LastShowListedURL" value="https://kissanime.to/Anime/Boku-no-Hero-Academia-My-Hero-Academia" />
+    <setting id="LastShowListedNAME" value="Shingeki no Kyojin [COLOR blue](Sub)[/COLOR]" />
+    <setting id="LastShowListedURL" value="https://kissanime.to/Anime/Shingeki-no-Kyojin" />
     <setting id="LastVideoPlayItemImg" value="https://kissanime.to/Uploads/Etc/3-1-2016/20588254578745l.jpg|Referer=https%3A%2F%2Fkissanime.to%2FUploads%2FEtc%2F3-1-2016&amp;User-Agent=Mozilla%2F5.0+%28Windows+NT+6.1%3B+WOW64%3B+rv%3A6.0%29+Gecko%2F20100101+Firefox%2F6.0&amp;Connection-Timeout=60&amp;Cookie=__cfduid%3Dd0530ad0bc4d859d1e0d120c9ac4de3e71474316106%3Bcf_clearance%3D92ad937cd96dbf066aa31d2f21f9f833e033b00a-1474316106-86400%3BASP.NET_SessionId%3Di3iqc2tt5b0irrump0bnhisw%3Bidtz%3D50.139.95.158-892364900%3B" />
     <setting id="LastVideoPlayItemName" value="Boku no Hero Academia (Sub) Episode 001" />
     <setting id="LastVideoPlayItemStudio" value="[1080p]3.mp4" />

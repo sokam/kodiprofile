@@ -145,15 +145,9 @@ class Ustvnow:
 	            if i['order'] == 1:
 	                if quality == 4 and i['scode'] == 'whvl':
 	                    quality = (quality - 1)
-	                #used for alternate stream options
-	                src = i['app_name'];
-	                #used for alternate stream options
 	                name = Addon.cleanChanName(i['stream_code'])
 	                stream = self._get_json('stream/1/live/view', {'token': self.token, 'key': passkey, 'scode': i['scode']})['stream']
-	                if Addon.get_setting('live_stream_option') == '0':
-	                    url = stream.replace('smil:', 'mp4:').replace('USTVNOW1', 'USTVNOW').replace('USTVNOW', 'USTVNOW' + str(quality))
-	                else:
-	                    url = stream_type + '://' + str(src) + '.is.ustvnow.com:1935/' + src + '?key=' + passkey + '/mp4:' + i['streamname'] + str(quality)
+	                url = stream.replace('smil:', 'mp4:').replace('USTVNOW1', 'USTVNOW').replace('USTVNOW', 'USTVNOW' + str(quality))
 	                if Addon.get_setting('free_package') == 'true':
 	                    if name in ['CW','ABC','FOX','PBS','CBS','NBC','MY9']:
 	                        channels.append({ 
@@ -183,19 +177,12 @@ class Ustvnow:
 	    content = self._get_json('gtv/1/live/viewdvrlist', {'token': self.token})
 	    channels = []
 	    results = content['results'];
-	    #used for alternate stream options
-	    app_name = 'dvrrokuplay'
-	    #used for alternate stream options
-	    stream_type = 'rtsp'
 	    for i in results:
 	        try:
 	            name = Addon.cleanChanName(i['stream_code'])
 	            scheduleid = str(i['scheduleid'])
 	            stream = self._get_json('stream/1/dvr/play', {'token': self.token, 'key': passkey, 'scheduleid': i['scheduleid']})['stream']
-	            if Addon.get_setting('recordings_stream_option') == '0':
-	                url = stream.replace('smil:', 'mp4:').replace('.smil', '_' + str(recordings_quality) + '.mp4').replace('350', str(recordings_quality))
-	            else:
-	                url = stream_type + '://' + i['dvrlocation'] + '.ustvnow.com:1935/' + app_name + '/mp4:' + [i['filename_low'], i['filename_med'], i['filename_high']][quality_type]
+	            url = stream.replace('smil:', 'mp4:').replace('.smil', '_' + str(recordings_quality) + '.mp4').replace('350', str(recordings_quality))
 	            if Addon.get_setting('free_package') == 'true':
 	                if name in ['CW','ABC','FOX','PBS','CBS','NBC','MY9']:
 	                    channels.append({ 

@@ -83,22 +83,26 @@ def _put(key, value, minutes=60):
     # check expiry
     try:
         key_exps = cache[_expiries]
-    except:
+    except KeyError:
         key_exps = cache[_expiries] = []
     now = datetime.now()
     key_exps.append((key, now+timedelta(minutes=minutes)))
 
-    # create directory for cache file if not exists
-    parent = dirname(config.cache_file)
-    if not exists(parent):
-        makedirs(parent)
+    try:
+        # create directory for cache file if not exists
+        parent = dirname(config.cache_file)
+        if not exists(parent):
+            makedirs(parent)
 
-    with open(config.cache_file, 'wb+') as f:
-        pickle.dump(cache, f)
+        with open(config.cache_file, 'wb+') as f:
+            pickle.dump(cache, f)
+    except Exception:
+        # TODO: log exception
+        pass
 
 
 
-_cache = None # persistent cache
+_cache = None
 def _get_cache():
     '''Lazy load cache file into variable `_cache`
     Returns `_cache` if already loaded
@@ -117,7 +121,8 @@ def _get_cache():
                 remove(config.cache_file)
             except OSError:
                 pass
-            raise
+            # TODO: log exception
+            _cache = {}
         _clean(_cache)
     else:
         _cache = {}

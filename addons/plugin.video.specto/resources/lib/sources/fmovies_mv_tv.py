@@ -93,7 +93,6 @@ class source:
         try:
             sources = []
 
-
             if url == None: return sources
 
             if not str(url).startswith('http'):
@@ -111,9 +110,10 @@ class source:
                     #query.update(self.__get_token(query))
                     search_url = urlparse.urljoin(self.base_link, '/search')
                     search_url = search_url + '?' + urllib.urlencode(query)
-                    print("R",search_url)
+                    #print("R",search_url)
                     result = client.request(search_url)
                     #print("r", result)
+
 
                     r = client.parseDOM(result, 'div', attrs = {'class': '[^"]*movie-list[^"]*'})[0]
                     r = client.parseDOM(r, 'div', attrs = {'class': 'item'})
@@ -152,10 +152,10 @@ class source:
 
                     """
                     url = url[0][0]
-                    print("r", url)
+                    #print("r", url)
 
                     url = urlparse.urljoin(self.base_link, url)
-                    print("r2", url)
+                    #print("r2", url)
                     r2 = url.split('.')[-1]
                     print("r2", r2)
 
@@ -201,7 +201,7 @@ class source:
             servers = zip(client.parseDOM(result, 'a', ret='data-id'), client.parseDOM(result, 'a'))
             servers = [(i[0], re.findall('(\d+)', i[1])) for i in servers]
             servers = [(i[0], ''.join(i[1][:1])) for i in servers]
-            print("r3",servers)
+            #print("r3",servers)
 
             try: servers = [i for i in servers if '%01d' % int(i[1]) == '%01d' % int(episode)]
             except: pass
@@ -281,7 +281,7 @@ class source:
         for key in data:
             if not key.startswith('_'):
                 for i, c in enumerate(data[key]):
-                    t = 14283
+                    t = 125612
                     n += ord(c) * t + len(data[key]) + i
         #print("NNN",n,data)
         return {'_token': hex(n)[2:]}

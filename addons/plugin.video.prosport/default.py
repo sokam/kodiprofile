@@ -73,7 +73,8 @@ sd_streams = ['goindexsport','multi-sports.eu', 'watchnfl.live', 'streamhd.eu', 
 			'watchsportstv.boards.net', 'tv-link.in', 'klivetv.co', 'videosport.me', 'livesoccerg.com', 'zunox.hk', 'singidunum.', 
 			'zona4vip.com', 'ciscoweb.ml', 'streamendous.com','streamm.eu', 'sports-arena.net', 'stablelivestream.com', 
 			'iguide.to', 'sportsleague.me','kostatz.com', 'soccerpluslive.com', 'zunox', 'apkfifa.com','watchhdsports.xyz','lovelysports2016.ml',
-			'sports4u.live','tusalavip3.es.tl', 'neymargoals.com', 'crichd.sx']
+			'sports4u.live','tusalavip3.es.tl', 'neymargoals.com', 'crichd.sx', 'unitedstream.live','stream4us.info','freecast.xyz','focustream.info',
+			's4power.club', 'footystreams.net']
 
 def utc_to_local(utc_dt):
     timestamp = calendar.timegm(utc_dt.timetuple())
@@ -82,7 +83,7 @@ def utc_to_local(utc_dt):
     return local_dt.replace(microsecond=utc_dt.microsecond)
 
 
-UA='Mozilla/5.0 (Windows NT 10.0; WOW64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/50.0.2661.102 Safari/537.36'
+UA='Mozilla/5.0 (Macintosh; Intel Mac OS X 10_11_6) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/54.0.2840.71 Safari/537.36'
 
 def GetURL(url, referer=None, output=None, timeout=None, headers=None):
 	if 'streamm.eu' in url or 'sawlive' in url:
@@ -167,7 +168,6 @@ def Games(mode):
 	today_from = str(today.strftime('%Y-%m-%d'))+'T00:00:00.000-05:00'
 	today_to = str(today.strftime('%Y-%m-%d'))+'T23:59:00.000-05:00'
 	url = 'http://www.sbnation.com/sbn_scoreboard/ajax_leagues_and_events?ranges['+mode+'][from]='+today_from+'&ranges['+mode+'][until]='+today_to+'&_='+str(int(time.time()))
-	print url
 	js = GetJSON(url)
 	js = js['leagues'][mode]
 	if js:	
@@ -332,7 +332,7 @@ def getProStreams(ur, home, away):
 	links=[]
 	for submission in r.get_subreddit(ur+'streams').get_hot(limit=30):
 		if (home_l in submission.title.lower() and away_l in submission.title.lower()) or (home_f in submission.title.lower() and away_l in submission.title.lower()) or (home_l in submission.title.lower() and away_f in submission.title.lower()) or (home_f in submission.title.lower() and away_f in submission.title.lower()):
-			regex = re.compile(r'([-a-zA-Z0-9@:%_\+.~#?&//=]{2,256}\.[a-z]{2,4}\b(\/[-a-zA-Z0-9@:%_\+.~#?&//=]*)?)',re.IGNORECASE)
+			regex = re.compile(r'(?i)\b((?:[a-z][\w-]+:(?:/{1,3}|[a-z0-9%])|www\d{0,3}[.]|[a-z0-9.\-]+[.][a-z]{2,4}/)(?:[^\s()<>]+|\(([^\s()<>]+|(\([^\s()<>]+\)))*\))+(?:\(([^\s()<>]+|(\([^\s()<>]+\)))*\)|[^\s`!()\[\]{};:\'".,<>?«»“”‘’]))',re.IGNORECASE)
 			link = re.findall(regex, submission.selftext.encode('utf-8'))
 			links = links + link
 			flat_comments = praw.helpers.flatten_tree(submission.comments)
@@ -347,18 +347,6 @@ def getProStreams(ur, home, away):
 				try:
 					link = re.findall(regex, comment.body.encode('utf-8'))
 					links = links + link
-					link = re.findall('(http://.+?:.+?\.m3u8)',comment.body.encode('utf-8'))
-					if link:
-						for ln in link:
-							links.append((ln,' '))
-					link = re.findall('(http://.+?:.+?\.m3u8)',comment.body.encode('utf-8'))
-					if link:
-						for ln in link:
-							links.append((ln,' '))
-					link = re.findall('(sop.*?\s|acestream.*?\s)',comment.body.encode('utf-8'))
-					if link:
-						for ln in link:
-							links.append((ln.replace('`','').strip(),' '))
 				except:
 					pass	
 	if links:
@@ -378,7 +366,7 @@ def getMyStreams(url, home):
 	r.config.api_request_delay = 0
 	submission = r.get_submission(submission_id=url)
 	links=[]
-	regex = re.compile(r'([-a-zA-Z0-9@:%_\+.~#?&//=]{2,256}\.[a-z]{2,4}\b(\/[-a-zA-Z0-9@:%_\+.~#?&//=]*)?)',re.IGNORECASE)
+	regex = re.compile(r'(?i)\b((?:[a-z][\w-]+:(?:/{1,3}|[a-z0-9%])|www\d{0,3}[.]|[a-z0-9.\-]+[.][a-z]{2,4}/)(?:[^\s()<>]+|\(([^\s()<>]+|(\([^\s()<>]+\)))*\))+(?:\(([^\s()<>]+|(\([^\s()<>]+\)))*\)|[^\s`!()\[\]{};:\'".,<>?«»“”‘’]))',re.IGNORECASE)
 	link = re.findall(regex, submission.selftext.encode('utf-8'))
 	links = links + link
 	flat_comments = praw.helpers.flatten_tree(submission.comments)
@@ -393,14 +381,6 @@ def getMyStreams(url, home):
 		try:
 			link = re.findall(regex, comment.body.encode('utf-8'))
 			links = links + link
-			link = re.findall('(http://.+?:.+?\.m3u8)',comment.body.encode('utf-8'))
-			if link:
-				for ln in link:
-					links.append((ln,' '))
-			link = re.findall('(sop.*?\s|acestream.*?\s)',comment.body.encode('utf-8'))
-			if link:
-				for ln in link:
-					links.append((ln.replace('`','').strip(),' '))
 		except:
 			pass
 	if links:
@@ -422,6 +402,9 @@ def DisplayLinks(links, orig_title):
 		if url not in urls and 'iceballet' in url:
 			addLink('Iceballet', orig_title, url, mode="play")
 			urls.append(url)
+		if url not in urls and 'nbastreams.pw' in url:
+			addLink('nbastreams.pw', orig_title, url, mode="play")
+			urls.append(url)
 		elif url not in urls and '1apps.com' in url:
 			addLink('Oneapp', orig_title, url, mode="play")
 			urls.append(url)
@@ -436,6 +419,9 @@ def DisplayLinks(links, orig_title):
 			urls.append(url)
 		elif url not in urls and 'streamboat.tv' in url:
 			addLink('Streamboat.tv', orig_title, url, mode="play")
+			urls.append(url)
+		elif url not in urls and '305sports.xyz' in url:
+			addLink('305sports.xyz', orig_title, url, mode="play")
 			urls.append(url)
 		elif url not in urls and 'nbastream.net' in url:
 			addLink('Nbastream.net', orig_title, url, mode="play")
@@ -510,8 +496,10 @@ def DisplayLinks(links, orig_title):
 		if show_tor=='true':
 			if url not in urls and'acestream://' in url:
 				addLink('Acestream', orig_title, url, mode="play")
+				urls.append(url)
 			if url not in urls and'sop://' in url:
 				addLink('Sopcast', orig_title, url, mode="play")
+				urls.append(url)
 			
 				
 	xbmcplugin.endOfDirectory(h, cacheToDisc=True)
@@ -536,11 +524,17 @@ def ParseLink(el, orig_title):
 	elif 'freecast.in' in el:
 		url = Freecastin(el)
 		return url
+	elif 'nbastreams.pw' in el:
+		url = Nbastreamspw(el)
+		return url
 	elif '1apps.com' in el:
 		url = Oneapp(el)
 		return url
 	elif 'streamsus.com' in el:
 		url = Streamsus(el)
+		return url
+	elif '305sports.xyz' in el:
+		url = Threesports()
 		return url
 	elif 'streamboat.tv' in el:
 		url = Streambot(el)
@@ -628,10 +622,17 @@ def Archive(page, mode):
 	for i, el in enumerate(links):
 		if '-nba-' in el or '-nfl-' in el:
 			title = common.parseDOM(html, "a", attrs={"href": el}, ret="title")[0]
-			title = title.split('/')[-1]+' - '+title.split('/')[len(title.split('/'))-2]
 			title = strip_non_ascii(title)
 			title = title.replace('&#8211;','').strip()
-			title = title.replace('[RU]','')
+			#title = title.replace('[RU]','')
+			titles = title.split('/')
+			week = ''
+			for tit in titles:
+				if len(tit)>25:
+					title = tit
+				if 'week' in tit or 'Week' in tit or 'WEEK' in tit:
+					week = tit
+			title = title + week
 			addDir(title, el, iconImg="", mode="playarchive")
 	uri = sys.argv[0] + '?mode=%s&page=%s' % (mode, str(int(page)+1))
 	item = xbmcgui.ListItem("next page...", iconImage='', thumbnailImage='')
@@ -664,11 +665,10 @@ def PlayArchive(url):
 	html = GetURL(url)
 	html = html.split('>ENGLISH<')[-1]
 	links = common.parseDOM(html, "iframe", ret="src")
+	lnks = common.parseDOM(html, "a", ret="href")
+	links = links+lnks
 	for i, link in enumerate(links):
 		if 'mail.ru/vid' in link:
-			per = ''
-			if len(links)>1:
-				per = ' - '+str(i+1)
 			link = link.replace('https://videoapi.my.mail.ru/videos/embed/mail/','https://my.mail.ru/+/video/meta/')
 			link = link.replace('https://my.mail.ru/video/embed/','https://my.mail.ru/+/video/meta/')
 			link = link.replace('html','json')
@@ -683,7 +683,7 @@ def PlayArchive(url):
 				token = cookie.value
 			js = js['videos']
 			for el in js:
-				addDirectLink(el['key']+per, {'Title': orig_title}, 'https:'+el['url']+'|Cookie=video_key='+token)
+				addDirectLink(el['key'], {'Title': orig_title}, 'https:'+el['url']+'|Cookie=video_key='+token)
 				#addLink(el['key'], orig_title, el['url']+'|Cookie=video_key='+token, mode="play")
 	xbmcplugin.endOfDirectory(h, cacheToDisc=True)
 
@@ -774,6 +774,7 @@ def GetStreamup(channel):
 
 def GetYoutube(url):
 	try:
+		url = url.replace('*','')
 		if ('channel' in url or 'user' in url) and 'live' in url:
 			html = GetURL(url)
 			videoId = html.split("'VIDEO_ID':")[-1].split('",')[0].replace('"','').replace(' ','')
@@ -807,6 +808,15 @@ def Getmlb(url):
 	except:
 		return None
 
+def Threesports():
+	for i in range (1,5,1):
+		url = 'http://305sports.xyz/streams/stream-'+str(i)
+		link = Universal(url)
+		if link:
+			return link
+		else:
+			continue
+
 def Getanvato(url):
 	try:
 		if 'master' in url:
@@ -831,24 +841,69 @@ def Getroom(url):
 		
 def Blabseal(url):
 	try:
-		html = GetURL(url)
-		block_content = common.parseDOM(html, "iframe", ret="src")[0]
-		link = GetYoutube(block_content)
-		return link
+		html = GetURL(url, referer=url)
+		link = common.parseDOM(html, "iframe", ret="src")[0]
+		link = url+link
+		html = GetURL(link, referer=link)
+		javasc = re.findall('(eval.*\))', html)[0]
+		import js2py
+		context = js2py.EvalJs()
+		if 'jwplayer' not in html:
+			context.execute('''pyimport jstools;
+           		var escape = jstools.escape;
+            	var unescape = jstools.unescape;
+            	var document = [];
+            	document.result = "";
+            	document.domain = "";
+            	document.write = function(markup){ document.result = document.result + markup };''')
+			context.swidth = '400'
+			context.sheight = '400'
+			context.document.domain = urlparse.urlparse(link).netloc
+			context.execute(javasc)
+			html = context.document.result
+			link = common.parseDOM(html, "iframe", ret="src")[0]
+			if 'youtu' in link:
+				lnk = GetYoutube(link)
+				return lnk
+			elif 'dailymotion.com/embed' in link:
+				lnk = Dailymotion(link)
+				return lnk
+		else:
+			jsplayers = '''var jwobject = [];
+            	jwobject.results = null;
+            	jwobject.setup = function(args) {jwobject.results = args};
+            	var jwplayer = function() {return jwobject};'''
+			context.execute(jsplayers)
+			context.execute(javasc)
+			return context.jwobject.results.file
 	except:
-		pass
+		return None
+		
+def Dailymotion(url):
 	try:
-		channel = 'asljkdfasdf'
-		link = GetStreamup(channel)
+		html = GetURL(url)
+		link = 	re.findall('stream_chromecast_url":"(.*?)"', html)[0].replace("\\", "")
+		link = GetURL(link, output='geturl')
 		return link
 	except:
 		return None
+	
 		
 def Torula(url):
 	try:
 		html = GetURL(url)
 		block_content = common.parseDOM(html, "input", attrs={"id": "vlc"}, ret="value")[0]
 		link = block_content
+		return link
+	except:
+		return None
+
+
+def Nbastreamspw(url):
+	try:
+		html = GetURL(url)
+		block_content = common.parseDOM(html, "iframe", ret="src")[0]
+		link = block_content.split('#')[-1]
 		return link
 	except:
 		return None
@@ -1054,15 +1109,8 @@ def Castalba(id, url):
 
 
 def Universal(url):
-	if 'zona4vip.com/live' in url:
-		url = url.replace('/live','')
-	if 'wiz1.net/ch' in url or 'live9.net' in url:
-		this = GetURL(url, referer=url)
-		links = re.compile('src="(.+?)"').findall(str(this))
-		for link in links:
-			if 'sawlive' in link or 'xoomtv' in link:
-				lnk = sawresolve(link, url)
-				return lnk
+	if 's4power.club' in url:
+		url = url.replace('s4zona','zona')
 	if 'sawlive' in url:
 		lnk = sawresolve(url, url)
 		return lnk
@@ -1074,6 +1122,9 @@ def Universal(url):
 		return link
 	if 'youtu' in url:
 		link = GetYoutube(url)
+		return link
+	if 'dailymotion.com/embed' in url:
+		link = Dailymotion(url)
 		return link
 	if 'kostatz.com' in url:
 		url = 'http://admin1.ninacdn.com/iframe.php?c=peanutly&s=peanutly'
@@ -1096,6 +1147,10 @@ def Universal(url):
 		return link
 	if 'm3u8' in url:
 		return url
+	if 'adplus/adpluslive.html?id=/' in url:
+		url = url.replace('adplus/adpluslive.html?id=/','')
+	if 'http://www.nullrefer.com/?' in url:
+		url = url.replace('http://www.nullrefer.com/?','')
 	html = GetURL(url, referer=url)
 	if html and 'weplayer.pw' in html:
 		id = html.split("'text/javascript'>id='")[-1]
@@ -1128,11 +1183,11 @@ def Universal(url):
 		id = html.split('<script type="text/javascript">channel="')[-1].split('";')[0]
 		link = castamp(id)
 		return link
-	elif html and '101livesportsvideos' in url and 'youtu' in html: 
-		url = re.findall('(youtu.+?\")',html)[0]
+	elif html and ('101livesportsvideos' in url or 'watchhdsports' in url) and 'youtu' in html: 
+		url = re.findall('(youtu.+?)"',html)[0]
 		link = GetYoutube(url)
 		return link
-	elif html and 'bro.adca.st' in html:
+	elif html and 'bro.adca.st' in html and 'broadcast/close.gif' not in html:
 		id = html.split("<script type='text/javascript'>id='")[-1].split("';")[0]
 		link = broadcast(id, url)
 		return link
@@ -1155,17 +1210,12 @@ def Universal(url):
 		link = sostart(url)
 		return link
 	elif html and 'https://streamboat.tv/@' in html:
-			url = html.split('https://streamboat.tv/@')[-1].split('"')[0]
-			url = 'https://streamboat.tv/@'+url
-			url = Streambot(url)
-			return url
+		url = html.split('https://streamboat.tv/@')[-1].split('"')[0]
+		url = 'https://streamboat.tv/@'+url
+		url = Streambot(url)
+		return url
 	elif html and 'sawlive.tv' in html:
-		try:
-			link = re.findall('(http.+?sawlive.tv/embed/.+?")',html)[0]
-			link = url.replace('"','')
-		except:
-			link = re.findall("(http.+?sawlive.tv/embed/.+?')",html)[0]
-			link = url.replace("'","")
+		link = re.findall("src=[\"\'](http.+?sawlive.tv/embed/.+?)[\"\']",html)[0]
 		link = sawresolve(link, url)
 		return link
 	elif html and 'shidurlive.com' in html:
@@ -1174,10 +1224,11 @@ def Universal(url):
 		return link
 	elif html and ('.m3u8' in html or 'rtmp:' in html or '.f4m' in html):
 		html = urllib.unquote_plus(html)
-		links = re.findall("[file|source|hls|src][:|=]\s*[\"\'](.*?)[\"\']", html)
+		links = re.findall("[file|source|hls|src|stream1]\s*[:|=]\s*[\"\'](.*?)[\"\']", html)
 		for link in links:
 			if '.m3u8' in link or 'rtmp:' in link or 'f4m' in link:
-				link = link.replace('src=','')	
+				link = link.replace('src=','')
+				link = link.replace('amp;','')	
 				if 'smotrimult' in link:
 					link = link+'|Referer='+url+'&Host='+urlparse.urlparse(link).netloc+'&Origin='+urlparse.urlparse(url).netloc+'&User-Agent=Mozilla/5.0 (Macintosh; Intel Mac OS X 10_11_6) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/53.0.2785.116 Safari/537.36'
 				elif 'widestream' in link:
@@ -1210,10 +1261,7 @@ def sawresolve(query, referer):
 		import js2py
 		import cfscrape
 		scraper = cfscrape.create_scraper()
-		header = {'Referer':  referer, 'User-Agent': 'Mozilla/5.0 (Macintosh; Intel Mac OS X 10_11_6) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/53.0.2785.143 Safari/537.36', 'Accept':'text/html,application/xhtml+xml,application/xml;q=0.9,image/webp,*/*;q=0.8',
-					'Accept-Language':'en-US,en;q=0.8,bg;q=0.6,it;q=0.4,ru;q=0.2,uk;q=0.2',
-					'Connection':'keep-alive', 'Host':urlparse.urlparse(query).netloc,'Upgrade-Insecure-Requests':'1'}
-		decoded = scraper.get(query, headers=header).content
+		decoded = scraper.get(query).content
 		context = js2py.EvalJs()
 		context.execute('''pyimport jstools;
            		var escape = jstools.escape;
@@ -1243,10 +1291,6 @@ def sawresolve(query, referer):
 		src = common.parseDOM(result, 'iframe', ret='src')[-1]
 		src = src.replace("'","").replace('"','')
 		if src:
-			header = {'Referer':  referer, 'User-Agent': UA, 'Accept':'text/html,application/xhtml+xml,application/xml;q=0.9,image/webp,*/*;q=0.8',
-					'Accept-Language':'en-US,en;q=0.8,bg;q=0.6,it;q=0.4,ru;q=0.2,uk;q=0.2',
-					'Connection':'keep-alive', 'Host':urlparse.urlparse(src).netloc,'Upgrade-Insecure-Requests':'1'}
-			scraper = cfscrape.create_scraper()
 			decoded = scraper.get(src, headers=header).content
 			swf = re.compile("SWFObject\('(.+?)'").findall(decoded)[0].replace(' ', '')
 			decoded = decoded.split("'uniform');")[-1].split("</script>")[0]
@@ -1310,7 +1354,6 @@ def castamp(id):
 	except:
 		return None
 	
-
 
 def p2pcast(id):
 	try:
@@ -1510,6 +1553,7 @@ def sostart(url):
 def getXrxsCookie():
 	try:
 		nhlcookie = GetURL("http://nhlkeys.ga/auth", output='cookie', timeout=5)
+		nhlcookie = nhlcookie.split(';')[0]
 		if not nhlcookie:
 			import requests
 			import random
@@ -1517,7 +1561,7 @@ def getXrxsCookie():
 			r = requests.post("https://"+random.choice(domains)+".proxysite.com/includes/process.php?action=update", data={'d':'http://nhlkeys.ga/auth'})
 			nhlcookie = re.findall('"attributeValue":"(.*?)"', r.text)[0]
 			nhlcookie = 'mediaAuth='+nhlcookie
-		return nhlcookie
+		return nhlcookie+'&User-Agent=Mozilla/5.0 (Macintosh; Intel Mac OS X 10_11_6) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/53.0.2785.143 Safari/537.36'
 	except:
 		return None
 

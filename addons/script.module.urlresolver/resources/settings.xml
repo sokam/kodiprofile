@@ -57,12 +57,18 @@
 		<setting id="ZeveraResolver_password" enable="eq(-2,true)" type="text" label="Password" option="hidden" default=""/>
 	</category>
 	<category label="Resolvers 1">
+		<setting label="aliez" type="lsep"/>
+		<setting id="AliezResolver_priority" type="number" label="Priority" default="100"/>
+		<setting id="AliezResolver_enabled" type="bool" label="Enabled" default="true"/>
 		<setting label="allmyvideos" type="lsep"/>
 		<setting id="AllmyvideosResolver_priority" type="number" label="Priority" default="100"/>
 		<setting id="AllmyvideosResolver_enabled" type="bool" label="Enabled" default="true"/>
 		<setting label="allvid" type="lsep"/>
 		<setting id="AllVidResolver_priority" type="number" label="Priority" default="100"/>
 		<setting id="AllVidResolver_enabled" type="bool" label="Enabled" default="true"/>
+		<setting label="ani-stream" type="lsep"/>
+		<setting id="AniStreamResolver_priority" type="number" label="Priority" default="100"/>
+		<setting id="AniStreamResolver_enabled" type="bool" label="Enabled" default="true"/>
 		<setting label="auengine.com" type="lsep"/>
 		<setting id="AuEngineResolver_priority" type="number" label="Priority" default="100"/>
 		<setting id="AuEngineResolver_enabled" type="bool" label="Enabled" default="true"/>
@@ -87,10 +93,17 @@
 		<setting label="dailymotion" type="lsep"/>
 		<setting id="DailymotionResolver_priority" type="number" label="Priority" default="100"/>
 		<setting id="DailymotionResolver_enabled" type="bool" label="Enabled" default="true"/>
-		<setting label="Video Quality" id="DailymotionResolver_quality" type="enum" values="High|Medium|Low" default="0" />
+		<setting id="DailymotionResolver_auto_pick" type="bool" label="Automatically pick best quality" default="false" visible="true"/>
 		<setting label="divxstage" type="lsep"/>
 		<setting id="DivxstageResolver_priority" type="number" label="Priority" default="100"/>
 		<setting id="DivxstageResolver_enabled" type="bool" label="Enabled" default="true"/>
+		<setting label="estream" type="lsep"/>
+		<setting id="EstreamResolver_priority" type="number" label="Priority" default="100"/>
+		<setting id="EstreamResolver_enabled" type="bool" label="Enabled" default="true"/>
+		<setting id="EstreamResolver_auto_pick" type="bool" label="Automatically pick best quality" default="false" visible="true"/>
+		<setting label="everplay.watchpass.net" type="lsep"/>
+		<setting id="WatchpassResolver_priority" type="number" label="Priority" default="100"/>
+		<setting id="WatchpassResolver_enabled" type="bool" label="Enabled" default="true"/>
 		<setting label="exashare" type="lsep"/>
 		<setting id="ExashareResolver_priority" type="number" label="Priority" default="100"/>
 		<setting id="ExashareResolver_enabled" type="bool" label="Enabled" default="true"/>
@@ -108,6 +121,9 @@
 		<setting id="FilePupResolver_priority" type="number" label="Priority" default="100"/>
 		<setting id="FilePupResolver_enabled" type="bool" label="Enabled" default="true"/>
 		<setting id="FilePupResolver_auto_pick" type="bool" label="Automatically pick best quality" default="false" visible="true"/>
+		<setting label="FileWeed" type="lsep"/>
+		<setting id="FileWeedResolver_priority" type="number" label="Priority" default="100"/>
+		<setting id="FileWeedResolver_enabled" type="bool" label="Enabled" default="true"/>
 		<setting label="flashx" type="lsep"/>
 		<setting id="FlashxResolver_priority" type="number" label="Priority" default="100"/>
 		<setting id="FlashxResolver_enabled" type="bool" label="Enabled" default="true"/>
@@ -119,9 +135,14 @@
 		<setting label="gorillavid" type="lsep"/>
 		<setting id="GorillavidResolver_priority" type="number" label="Priority" default="100"/>
 		<setting id="GorillavidResolver_enabled" type="bool" label="Enabled" default="true"/>
+	</category>
+	<category label="Resolvers 2">
 		<setting label="grifthost" type="lsep"/>
 		<setting id="GrifthostResolver_priority" type="number" label="Priority" default="100"/>
 		<setting id="GrifthostResolver_enabled" type="bool" label="Enabled" default="true"/>
+		<setting label="happystreams" type="lsep"/>
+		<setting id="HappyStreamsResolver_priority" type="number" label="Priority" default="100"/>
+		<setting id="HappyStreamsResolver_enabled" type="bool" label="Enabled" default="true"/>
 		<setting label="hugefiles" type="lsep"/>
 		<setting id="HugefilesResolver_priority" type="number" label="Priority" default="100"/>
 		<setting id="HugefilesResolver_enabled" type="bool" label="Enabled" default="true"/>
@@ -135,8 +156,6 @@
 		<setting label="jetload" type="lsep"/>
 		<setting id="JetloadResolver_priority" type="number" label="Priority" default="100"/>
 		<setting id="JetloadResolver_enabled" type="bool" label="Enabled" default="true"/>
-	</category>
-	<category label="Resolvers 2">
 		<setting label="KingFiles" type="lsep"/>
 		<setting id="KingFilesResolver_priority" type="number" label="Priority" default="100"/>
 		<setting id="KingFilesResolver_enabled" type="bool" label="Enabled" default="true"/>
@@ -196,6 +215,8 @@
 		<setting label="playedto" type="lsep"/>
 		<setting id="PlayedtoResolver_priority" type="number" label="Priority" default="100"/>
 		<setting id="PlayedtoResolver_enabled" type="bool" label="Enabled" default="true"/>
+	</category>
+	<category label="Resolvers 3">
 		<setting label="playhd.video" type="lsep"/>
 		<setting id="PlayHDResolver_priority" type="number" label="Priority" default="100"/>
 		<setting id="PlayHDResolver_enabled" type="bool" label="Enabled" default="true"/>
@@ -206,6 +227,12 @@
 		<setting id="PlayWireResolver_priority" type="number" label="Priority" default="100"/>
 		<setting id="PlayWireResolver_enabled" type="bool" label="Enabled" default="true"/>
 		<setting id="PlayWireResolver_auto_pick" type="bool" label="Automatically pick best quality" default="false" visible="true"/>
+		<setting label="powerwatch" type="lsep"/>
+		<setting id="PowerwatchResolver_priority" type="number" label="Priority" default="100"/>
+		<setting id="PowerwatchResolver_enabled" type="bool" label="Enabled" default="true"/>
+		<setting label="promptfile" type="lsep"/>
+		<setting id="PromptfileResolver_priority" type="number" label="Priority" default="100"/>
+		<setting id="PromptfileResolver_enabled" type="bool" label="Enabled" default="true"/>
 		<setting label="purevid" type="lsep"/>
 		<setting id="PureVidResolver_priority" type="number" label="Priority" default="100"/>
 		<setting id="PureVidResolver_enabled" type="bool" label="Enabled" default="true"/>
@@ -214,8 +241,6 @@
 		<setting id="PureVidResolver_password" enable="eq(-2,true)" type="text" label="Password" option="hidden" default=""/>
 		<setting label="Video quality" id="PureVidResolver_quality" type="labelenum" values="FLV|Maximum" default="Maximum" />
 		<setting label="This plugin calls the Purevid urlresolver - change settings there." type="lsep" />
-	</category>
-	<category label="Resolvers 3">
 		<setting label="rapidvideo.com" type="lsep"/>
 		<setting id="RapidVideoResolver_priority" type="number" label="Priority" default="100"/>
 		<setting id="RapidVideoResolver_enabled" type="bool" label="Enabled" default="true"/>
@@ -240,9 +265,16 @@
 		<setting label="streamcloud" type="lsep"/>
 		<setting id="StreamcloudResolver_priority" type="number" label="Priority" default="100"/>
 		<setting id="StreamcloudResolver_enabled" type="bool" label="Enabled" default="true"/>
+		<setting label="streame.net" type="lsep"/>
+		<setting id="EstreamResolver_priority" type="number" label="Priority" default="100"/>
+		<setting id="EstreamResolver_enabled" type="bool" label="Enabled" default="true"/>
+		<setting id="EstreamResolver_auto_pick" type="bool" label="Automatically pick best quality" default="false" visible="true"/>
 		<setting label="streaminto" type="lsep"/>
 		<setting id="StreamintoResolver_priority" type="number" label="Priority" default="100"/>
 		<setting id="StreamintoResolver_enabled" type="bool" label="Enabled" default="true"/>
+		<setting label="streamplay" type="lsep"/>
+		<setting id="StreamplayResolver_priority" type="number" label="Priority" default="100"/>
+		<setting id="StreamplayResolver_enabled" type="bool" label="Enabled" default="true"/>
 		<setting label="teramixer" type="lsep"/>
 		<setting id="TeramixerResolver_priority" type="number" label="Priority" default="100"/>
 		<setting id="TeramixerResolver_enabled" type="bool" label="Enabled" default="true"/>
@@ -263,6 +295,8 @@
 		<setting label="trollvid.net" type="lsep"/>
 		<setting id="TrollVidResolver_priority" type="number" label="Priority" default="100"/>
 		<setting id="TrollVidResolver_enabled" type="bool" label="Enabled" default="true"/>
+	</category>
+	<category label="Resolvers 4">
 		<setting label="tune.pk" type="lsep"/>
 		<setting id="TunePkResolver_priority" type="number" label="Priority" default="100"/>
 		<setting id="TunePkResolver_enabled" type="bool" label="Enabled" default="true"/>
@@ -283,6 +317,9 @@
 		<setting label="uploadx" type="lsep"/>
 		<setting id="UploadXResolver_priority" type="number" label="Priority" default="100"/>
 		<setting id="UploadXResolver_enabled" type="bool" label="Enabled" default="true"/>
+		<setting label="uploadz.co" type="lsep"/>
+		<setting id="UploadzResolver_priority" type="number" label="Priority" default="100"/>
+		<setting id="UploadzResolver_enabled" type="bool" label="Enabled" default="true"/>
 		<setting label="uptobox" type="lsep"/>
 		<setting id="UpToBoxResolver_priority" type="number" label="Priority" default="100"/>
 		<setting id="UpToBoxResolver_enabled" type="bool" label="Enabled" default="true"/>
@@ -292,8 +329,6 @@
 		<setting label="UsersFiles" type="lsep"/>
 		<setting id="UsersFilesResolver_priority" type="number" label="Priority" default="100"/>
 		<setting id="UsersFilesResolver_enabled" type="bool" label="Enabled" default="true"/>
-	</category>
-	<category label="Resolvers 4">
 		<setting label="VeeHD" type="lsep"/>
 		<setting id="VeeHDResolver_priority" type="number" label="Priority" default="100"/>
 		<setting id="VeeHDResolver_enabled" type="bool" label="Enabled" default="true"/>
@@ -338,6 +373,12 @@
 		<setting label="vidfile" type="lsep"/>
 		<setting id="VidFileResolver_priority" type="number" label="Priority" default="100"/>
 		<setting id="VidFileResolver_enabled" type="bool" label="Enabled" default="true"/>
+	</category>
+	<category label="Resolvers 5">
+		<setting label="vidlox" type="lsep"/>
+		<setting id="VidloxResolver_priority" type="number" label="Priority" default="100"/>
+		<setting id="VidloxResolver_enabled" type="bool" label="Enabled" default="true"/>
+		<setting id="VidloxResolver_auto_pick" type="bool" label="Automatically pick best quality" default="false" visible="true"/>
 		<setting label="vidmad.net" type="lsep"/>
 		<setting id="VidMadResolver_priority" type="number" label="Priority" default="100"/>
 		<setting id="VidMadResolver_enabled" type="bool" label="Enabled" default="true"/>
@@ -351,6 +392,7 @@
 		<setting label="vidup.me" type="lsep"/>
 		<setting id="VidUpMeResolver_priority" type="number" label="Priority" default="100"/>
 		<setting id="VidUpMeResolver_enabled" type="bool" label="Enabled" default="true"/>
+		<setting id="VidUpMeResolver_auto_pick" type="bool" label="Automatically pick best quality" default="false" visible="true"/>
 		<setting label="vidup.org" type="lsep"/>
 		<setting id="VidUpResolver_priority" type="number" label="Priority" default="100"/>
 		<setting id="VidUpResolver_enabled" type="bool" label="Enabled" default="true"/>
@@ -372,8 +414,6 @@
 		<setting id="VKPassResolver_priority" type="number" label="Priority" default="100"/>
 		<setting id="VKPassResolver_enabled" type="bool" label="Enabled" default="true"/>
 		<setting id="VKPassResolver_auto_pick" type="bool" label="Automatically pick best quality" default="false" visible="true"/>
-	</category>
-	<category label="Resolvers 5">
 		<setting label="vodlocker.com" type="lsep"/>
 		<setting id="VodlockerResolver_priority" type="number" label="Priority" default="100"/>
 		<setting id="VodlockerResolver_enabled" type="bool" label="Enabled" default="true"/>
@@ -389,6 +429,7 @@
 		<setting label="watchonline" type="lsep"/>
 		<setting id="WatchonlineResolver_priority" type="number" label="Priority" default="100"/>
 		<setting id="WatchonlineResolver_enabled" type="bool" label="Enabled" default="true"/>
+		<setting id="WatchonlineResolver_auto_pick" type="bool" label="Automatically pick best quality" default="false" visible="true"/>
 		<setting label="watchvideo" type="lsep"/>
 		<setting id="WatchVideoResolver_priority" type="number" label="Priority" default="100"/>
 		<setting id="WatchVideoResolver_enabled" type="bool" label="Enabled" default="true"/>
@@ -412,6 +453,8 @@
 		<setting label="youwatch" type="lsep"/>
 		<setting id="YouWatchResolver_priority" type="number" label="Priority" default="100"/>
 		<setting id="YouWatchResolver_enabled" type="bool" label="Enabled" default="true"/>
+	</category>
+	<category label="Resolvers 6">
 		<setting label="zstream.to" type="lsep"/>
 		<setting id="ZstreamResolver_priority" type="number" label="Priority" default="100"/>
 		<setting id="ZstreamResolver_enabled" type="bool" label="Enabled" default="true"/>

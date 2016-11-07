@@ -45,7 +45,7 @@ class TheVideoResolver(UrlResolver):
             vt = self.__auth_ip(media_id)
             if vt:
                 source = helpers.pick_source(sources, self.get_setting('auto_pick') == 'true')
-                return '%s?direct=false&ua=1&vt=%s|User-Agent=%s' % (source, vt, common.SMU_USER_AGENT)
+                return '%s?direct=false&ua=1&vt=%s' % (source, vt) + helpers.append_headers({'User-Agent': common.SMU_USER_AGENT})
         else:
             raise ResolverError('Unable to locate links')
 
@@ -77,7 +77,7 @@ class TheVideoResolver(UrlResolver):
             return js_result.get('response', {}).get('vt')
         
     def get_url(self, host, media_id):
-        return 'http://%s/embed-%s.html' % (host, media_id)
+        return self._default_get_url(host, media_id)
 
     @classmethod
     def get_settings_xml(cls):

@@ -1,4 +1,7 @@
-﻿[B]Version 1.2.0[/B]
+﻿[B]Version 1.2.1[/B]
+- Change icon.png.
+
+[B]Version 1.2.0[/B]
 - Move repository from google.com to github.com.
 
 [B]Version 1.1.0[/B]

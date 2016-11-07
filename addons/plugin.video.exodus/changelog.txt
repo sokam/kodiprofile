@@ -1,3 +1,19 @@
+[B]2.0.18[/B]
+- Fixed issue with Trakt Progress (missing tv shows)
+- Tweaked metadata retrieval
+- Tweaked indexers
+- Updated providers
+
+[B]2.0.14[/B]
+- Tweaked metadata timeouts
+
+[B]2.0.13[/B]
+- Updated indexers
+- Added new providers
+- Updated existing providers
+- Added Polish translation
+- Added Portuguese translation
+
 [B]2.0.12[/B]
 - Fixed issue with Trakt Progress (hidden items)
 - Fixed issue with urlresolver's openload pair dialog

@@ -70,8 +70,6 @@
     <string id="40006">Show TV Guide (EPG)</string>
     <string id="40007">Enable Live TV Extended Context Menu</string>
     <string id="40008">Skin</string>
-    <string id="40009">Live Stream Options</string>
-    <string id="40010">Recordings Stream Options</string>
     <string id="40011">Force Clear Token</string>
     <string id="40012">Current Token</string>
     <string id="40013">Name:</string>
@@ -88,7 +86,6 @@
     <string id="200001">Thank you for trying USTVnow Plus!</string>
     <string id="200002">Should you require any assistance, feel free to visit</string>
     <string id="200003">[COLOR white]http://forums.tvaddons.ag[/COLOR] for addon support.</string>
-    <string id="200004">Select 'Alternate' if you are having issues with streams dropping:</string>
     <string id="200005">Check this option to force clear your current token:</string>
     <string id="200006">Version Info</string>
 </strings>

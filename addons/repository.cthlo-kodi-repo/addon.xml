@@ -1,0 +1,14 @@
+﻿<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<addon id="repository.cthlo-kodi-repo" version="1.0.0" name="cthlo-kodi-repo" provider-name="cthlo">
+	<extension point="xbmc.addon.repository" name="cthlo-kodi-repo">
+    <info compressed="false">https://cthlo.github.io/cthlo-kodi-repo/addons.xml</info>
+    <checksum>https://cthlo.github.io/cthlo-kodi-repo/addons.xml.md5</checksum>
+    <datadir zip="true">https://cthlo.github.io/cthlo-kodi-repo/zips</datadir>
+	</extension>
+	<extension point="xbmc.addon.metadata">
+		<summary lang="en">cthlo-kodi-repo</summary>
+		<description lang="en">cthlo-kodi-repo</description>
+		<platform>all</platform>
+	</extension>
+</addon>
+

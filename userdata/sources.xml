@@ -45,7 +45,12 @@
         </source>
         <source>
             <name>#dexter</name>
-            <path pathversion="1">http://dexteriptv.com/repo</path>
+            <path pathversion="1">http://dexteriptv.com/repo/</path>
+            <allowsharing>true</allowsharing>
+        </source>
+        <source>
+            <name>#cthlo-kodi-repo</name>
+            <path pathversion="1">http://cthlo.github.io/cthlo-kodi-repo/</path>
             <allowsharing>true</allowsharing>
         </source>
     </files>

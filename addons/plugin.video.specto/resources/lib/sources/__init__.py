@@ -24,8 +24,10 @@ import sys,pkgutil,re,json,urllib,urlparse,datetime,time
 try: import xbmc
 except: pass
 
-try: import urlresolver
-except: pass
+try:
+    import urlresolver
+except:
+    import urlresolver9 as urlresolver
 
 try:
     from sqlite3 import dbapi2 as database
@@ -337,26 +339,32 @@ class sources:
 
         for i in range(0, timeout * 2):
             try:
-                #control.log("SOURCE S2 %s" % len(self.sources))
-
                 if xbmc.abortRequested == True: return sys.exit()
 
                 try: info = [sourceLabel[int(re.sub('[^0-9]', '', str(x.getName()))) - 1] for x in threads if x.is_alive() == True]
                 except: info = []
 
-                if len(info) > 5: info = len(info)
-
-                self.progressDialog.update(int((100 / float(len(threads))) * len([x for x in threads if x.is_alive() == False])), str('%s: %s %s' % (string1, int(i * 0.5), string2)), str('%s: %s' % (string3, str(info).translate(None, "[]'"))))
-
-                if self.progressDialog.iscanceled(): break
+                try:
+                    if self.progressDialog.iscanceled(): break
+                    string4 = string1 + ' %s' % str(int(i * 0.5))
+                    if len(info) > 5: string5 = string3 + ' %s' % str(len(info))
+                    else: string5 = string3 + ' %s'  % str(info).translate(None, "[]'")
+                    self.progressDialog.update(int((100 / float(len(threads))) * len([x for x in threads if x.is_alive() == False])), str(string4), str(string5))
+                except Exception as e:
+                    string4 = string2 + ' %s'  % str(int(i * 0.5))
+                    if len(info) > 5: string5 = string3 + ' %s'  % str(len(info))
+                    else: string5 = str(info).translate(None, "[]'")
+                    self.progressDialog.update(int((100 / float(len(threads))) * len([x for x in threads if x.is_alive() == False])), str(string4), str(string5))
 
                 is_alive = [x.is_alive() for x in threads]
                 if all(x == False for x in is_alive): break
                 time.sleep(0.5)
-            except:
+            except Exception as e:
+                control.log('ERROR SOURCES2 %s' % e)
                 pass
         try: self.progressDialog.close()
         except: pass
+        time.sleep(0.5)
 
         return self.sources
 
@@ -600,7 +608,16 @@ class sources:
         btable = list(set(btable))
         hd_rank = hd_rank + (list(set(btable) - set(hd_rank)))
 
-        self.sources.sort(key=lambda x: hd_rank.index(x['source']))
+
+        #MRKNOW remove duplicate url's
+        dupes = []
+        filter = []
+        for entry in self.sources:
+            if not entry['url'] in dupes:
+                filter.append(entry)
+                dupes.append(entry['url'])
+
+        self.sources = filter
 
         filter = []
         for host in hd_rank: filter += [i for i in self.sources if i['quality'] == '1080p' and i['source'].lower() == host]
@@ -894,6 +911,7 @@ class sources:
             self.hostDict = [i.domains for i in self.hostDict if not '*' in i.domains]
             self.hostDict = [i.lower() for i in reduce(lambda x, y: x+y, self.hostDict)]
             self.hostDict = [x for y,x in enumerate(self.hostDict) if x not in self.hostDict[:y]]
+
         except:
             self.hostDict = []
 

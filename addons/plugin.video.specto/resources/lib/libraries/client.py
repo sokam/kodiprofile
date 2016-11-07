@@ -41,7 +41,7 @@ ANDROID_USER_AGENT = 'Mozilla/5.0 (Linux; Android 4.4.2; Nexus 4 Build/KOT49H) A
 #SMU_USER_AGENT = 'URLResolver for Kodi/%s' % (addon_version)
 
 def request(url, close=True, redirect=True, error=False, proxy=None, post=None, headers=None, mobile=False, limit=None, referer=None, cookie=None, output='', timeout='30'):
-    try:
+    #try:
         #control.log('@@@@@@@@@@@@@@ - URL:%s' % url)
         handlers = []
 
@@ -100,6 +100,7 @@ def request(url, close=True, redirect=True, error=False, proxy=None, post=None, 
             except: pass
 
         request = urllib2.Request(url, data=post, headers=headers)
+        #print request
 
         try:
             response = urllib2.urlopen(request, timeout=int(timeout))
@@ -183,9 +184,9 @@ def request(url, close=True, redirect=True, error=False, proxy=None, post=None, 
             response.close()
 
         return result
-    except Exception as e:
-        control.log('Client ERR %s, url:' % (e,url))
-        return
+    #except Exception as e:
+    #    control.log('Client ERR %s, url:' % (e,url))
+    #    return
 
 def source(url, close=True, error=False, proxy=None, post=None, headers=None, mobile=False, safe=False, referer=None, cookie=None, output='', timeout='30'):
     return request(url, close, error, proxy, post, headers, mobile, safe, referer, cookie, output, timeout)
@@ -340,7 +341,7 @@ def googletag(url):
         return [{'quality': '1080p', 'url': url}]
     elif quality in ['22', '84', '136', '298', '120', '95', '247', '302', '45', '102']:
         return [{'quality': 'HD', 'url': url}]
-    elif quality in ['35', '44', '135', '244', '94']:
+    elif quality in ['35', '44', '135', '244', '94', '59']:
         return [{'quality': 'SD', 'url': url}]
     elif quality in ['18', '34', '43', '82', '100', '101', '134', '243', '93']:
         return [{'quality': 'SD', 'url': url}]

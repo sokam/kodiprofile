@@ -1,1070 +1,566 @@
 (dp1
-S'_expiries'
+S"resources.lib.scrapers.shows(('http://icdrama.se/korean-drama-cantonesedub/',), {})"
 p2
 (lp3
-(S"resources.lib.scrapers.shows(('http://icdrama.se/hk-drama/',), {})"
-p4
-cdatetime
-datetime
-p5
-(S'\x07\xe0\n\x10\x0f\x0e \x04(\x1f'
-tRp6
+(VMoon Lovers - Scarlet Heart: Ryeo
+V\ub2ec\uc758 \uc5f0\uc778 \u2013 \ubcf4\ubcf4\uacbd\uc2ec: \ub824
+Vhttp://icdrama.se/korean-drama/2408-moon-lovers-scarlet-heart-ryeo/
+Vhttp://static.icdrama.se/images/thumbs/ScarletHeartRyeo.jpg
+tp4
+a(VSweet Mob Family (Cantonese)
+V\u751c\u871c\u6bba\u6c23\u7684\u5bb6\u65cf
+Vhttp://icdrama.se/korean-drama/2564-sweet-mob-family-cantonese/
+Vhttp://static.icdrama.se/images/thumbs/SweetFamily.jpg
+tp5
+a(VTemptation (Cantonese)
+V\uc720\ud639
+Vhttp://icdrama.se/korean-drama/2511-temptation-cantonese/
+Vhttp://static.icdrama.se/images/thumbs/Temptation-Poster1.jpg
+tp6
+a(VD-Day (Cantonese)
+V\ub514\ub370\uc774
+Vhttp://icdrama.se/korean-drama/2549-d-day-cantonese/
+Vhttp://static.icdrama.se/images/thumbs/D-Day.jpg
 tp7
-a(S"resources.lib.scrapers.pages(('http://icdrama.se/hk-drama/',), {})"
-p8
-g5
-(S'\x07\xe0\n\x10\x0f\x0e \x04K\xd3'
-tRp9
+a(VGod's Gift - 14 Days (Cantonese)
+V\u795e\u7684\u79ae\u7269
+Vhttp://icdrama.se/korean-drama/2333-god-s-gift-14-days-cantonese/
+Vhttp://static.icdrama.se/images/thumbs/57884a136fd56_1468549651.jpg
+tp8
+a(VSecret Garden (Cantonese)
+V\uc2dc\ud06c\ub9bf \uac00\ub4e0
+Vhttp://icdrama.se/korean-drama/2517-secret-garden-cantonese/
+Vhttp://static.icdrama.se/images/thumbs/Secret_garden_korean_drama.jpg
+tp9
+a(VGunman in Joseon (Cantonese)
+V\uc870\uc120 \ucd1d\uc7a1\uc774
+Vhttp://icdrama.se/korean-drama/2371-gunman-in-joseon-cantonese/
+Vhttp://static.icdrama.se/images/thumbs/Joseon-Gunman-04.jpg
 tp10
-a(S"resources.lib.scrapers.shows(('http://icdrama.se/hk-movie/',), {})"
-p11
-g5
-(S'\x07\xe0\n\x10\x0f\x0e3\x0cg\x99'
-tRp12
+a(VCheese in the Trap (Cantonese)
+V\u5976\u916a\u9677\u9631
+Vhttp://icdrama.se/korean-drama/2499-cheese-in-the-trap-cantonese/
+Vhttp://static.icdrama.se/images/thumbs/CheeseintheTrap.jpg
+tp11
+a(VHealer (Cantonese)
+VHEALER\u8ffd\u64ca
+Vhttp://icdrama.se/korean-drama/2429-healer-cantonese/
+Vhttp://static.icdrama.se/images/thumbs/Healer-04.jpg
+tp12
+a(VMemory
+V\uae30\uc5b5
+Vhttp://icdrama.se/korean-drama/2099-memory/
+Vhttp://static.icdrama.se/images/thumbs/Memory-Poster1a.jpg
 tp13
-a(S"resources.lib.scrapers.pages(('http://icdrama.se/hk-movie/',), {})"
-p14
-g5
-(S'\x07\xe0\n\x10\x0f\x0e3\x0c\x8a$'
-tRp15
+a(VNeighborhood Hero
+V\ub3d9\ub124\uc758 \uc601\uc6c5
+Vhttp://icdrama.se/korean-drama/2044-neighborhood-hero/
+Vhttp://static.icdrama.se/images/thumbs/Neighborhood-Hero-04.jpg
+tp14
+a(VYong Pal
+V\uc6a9\ud314\uc774
+Vhttp://icdrama.se/korean-drama/1877-yong-pal/
+Vhttp://static.icdrama.se/images/thumbs/Yong-Pal-04.jpg
+tp15
+a(VCome Back Alive (Cantonese)
+V\u56de\u4f86\u5427\u5927\u53d4
+Vhttp://icdrama.se/korean-drama/2451-come-back-alive-cantonese/
+Vhttp://static.icdrama.se/images/thumbs/ComeBackAlive-2016.jpg
 tp16
-a(S"resources.lib.scrapers.shows(('http://icdrama.se/hk-show/',), {})"
-p17
-g5
-(S'\x07\xe0\n\x10\x0f\x0f\x01\x02\xa56'
-tRp18
+a(VSecret Affair (Cantonese)
+V\u5bc6\u6703
+Vhttp://icdrama.se/korean-drama/2398-secret-affair-cantonese/
+Vhttp://static.icdrama.se/images/thumbs/SecretAffair.jpg
+tp17
+a(VHidden Identity
+V\uc2e0\ubd84\uc744 \uc228\uaca8\ub77c
+Vhttp://icdrama.se/korean-drama/1833-hidden-identity/
+Vhttp://static.icdrama.se/images/thumbs/Hidden-Identity-03.jpg
+tp18
+a(VTime Slip Dr. Jin (Cantonese)
+V\u8d8a\u7a7a\u4ec1\u91ab
+Vhttp://icdrama.se/korean-drama/2471-time-slip-dr-jin-cantonese/
+Vhttp://static.icdrama.se/images/thumbs/DrJin.jpg
 tp19
-a(S"resources.lib.scrapers.pages(('http://icdrama.se/hk-show/',), {})"
-p20
-g5
-(S'\x07\xe0\n\x10\x0f\x0f\x01\x02\xf0\x93'
-tRp21
+a(VThe Producers (Cantonese)
+V\u88fd\u4f5c\u4eba\u5011
+Vhttp://icdrama.se/korean-drama/2094-the-producers-cantonese/
+Vhttp://static.icdrama.se/images/thumbs/The-Producer1.jpg
+tp20
+a(VPotato Star 2013 QR3
+V\uac10\uc790\ubcc4 2013QR3
+Vhttp://icdrama.se/korean-drama/2308-potato-star-2013-qr3/
+Vhttp://static.icdrama.se/images/thumbs/107529_o.jpg
+tp21
+a(VAngel Eyes (Cantonese)
+V\uc5d4\uc824\uc544\uc774\uc988
+Vhttp://icdrama.se/korean-drama/2368-angel-eyes-cantonese/
+Vhttp://static.icdrama.se/images/thumbs/Angel-Eyes-04.jpg
 tp22
-a(S"resources.lib.scrapers.shows(('http://icdrama.se/japanese-drama/',), {})"
-p23
-g5
-(S'\x07\xe0\n\x10\x0f\x0f\x16\r6\xdb'
-tRp24
+a(VMy Little Baby (Cantonese)
+VB\u4efb\u52d9
+Vhttp://icdrama.se/korean-drama/2089-my-little-baby-cantonese/
+Vhttp://static.icdrama.se/images/thumbs/My-Little-Baby-06.jpg
+tp23
+a(VReply 1988 (Cantonese)
+V\u56de\u7b54\u5427\uff011988
+Vhttp://icdrama.se/korean-drama/2344-reply-1988-cantonese/
+Vhttp://static.icdrama.se/images/thumbs/Reply1988.jpg
+tp24
+a(VDiary of a Night Watchman (Cantonese)
+V\u591c\u8b66\u65e5\u8a8c
+Vhttp://icdrama.se/korean-drama/2436-diary-of-a-night-watchman-cantonese/
+Vhttp://static.icdrama.se/images/thumbs/The-Night-Watchman.jpg
 tp25
-a(S"resources.lib.scrapers.pages(('http://icdrama.se/japanese-drama/',), {})"
-p26
-g5
-(S'\x07\xe0\n\x10\x0f\x0f\x16\rU\x95'
-tRp27
+a(VHigh School King of Savvy (Cantonese)
+V\u9ad8\u6821\u6253\u5de5\u738b
+Vhttp://icdrama.se/korean-drama/1726-high-school-king-of-savvy-cantonese/
+Vhttp://static.icdrama.se/images/thumbs/FC0iw.jpg
+tp26
+a(VAll About My Mom
+V\ubd80\ud0c1\ud574\uc694 \uc5c4\ub9c8
+Vhttp://icdrama.se/korean-drama/1888-all-about-my-mom/
+Vhttp://static.icdrama.se/images/thumbs/All-About-My-Mom-03.jpg
+tp27
+a(VMaids (Cantonese)
+V\u4e0b\u5973\u4eec
+Vhttp://icdrama.se/korean-drama/2415-maids-cantonese/
+Vhttp://static.icdrama.se/images/thumbs/Maids-Poster1.jpg
 tp28
-asg11
-(lp29
-(VLine Walker (Movie)
-V\u4f7f\u5f92\u884c\u8005
-Vhttp://icdrama.se/hk-movie/2491-line-walker-movie/
-Vhttp://static.icdrama.se/images/thumbs/line-walker-movie.jpg
+a(VYou Will Love Me
+V\uc720\uc77c\ub78d\ubbf8
+Vhttp://icdrama.se/korean-drama/2374-you-will-love-me/
+Vhttp://static.icdrama.se/images/thumbs/You-Will-Love-Me-02.jpg
+tp29
+a(VSignal
+V\uc2dc\uadf8\ub110
+Vhttp://icdrama.se/korean-drama/2034-signal/
+Vhttp://static.icdrama.se/images/thumbs/Signal-06.jpg
 tp30
-a(VCold War 2
-V\u5bd2\u62302
-Vhttp://icdrama.se/hk-movie/2445-cold-war-2/
-Vhttp://static.icdrama.se/images/thumbs/coldwar2.jpg
+a(VGolden Cross
+V\uace8\ub4e0 \ud06c\ub85c\uc2a4
+Vhttp://icdrama.se/korean-drama/1473-golden-cross/
+Vhttp://static.icdrama.se/images/thumbs/Golden-Cross-Poster1.jpg
 tp31
-a(VThree
-V\u4e09\u4eba\u884c
-Vhttp://icdrama.se/hk-movie/2347-three/
-Vhttp://static.icdrama.se/images/thumbs/iaft6d9jqyui.jpg
+a(VShe Was Pretty (Cantonese)
+V\u5979\u5f88\u6f02\u4eae
+Vhttp://icdrama.se/korean-drama/2254-she-was-pretty-cantonese/
+Vhttp://static.icdrama.se/images/thumbs/She-Was-Pretty-06.jpg
 tp32
-a(VThe Mobfathers
-V\u9078\u8001\u9802
-Vhttp://icdrama.se/hk-movie/2343-the-mobfathers/
-Vhttp://static.icdrama.se/images/thumbs/xoqmclntrlam.jpg
+a(VKARA: Secret Love
+V\uc2dc\ud06c\ub9bf \ub7ec\ube0c
+Vhttp://icdrama.se/korean-drama/2262-kara-secret-love/
+Vhttp://static.icdrama.se/images/thumbs/Secret_Love_Kara.jpg
 tp33
-a(VBuddy Cops
-V\u5211\u8b66\u5144\u5f1f
-Vhttp://icdrama.se/hk-movie/2284-buddy-cops/
-Vhttp://static.icdrama.se/images/thumbs/bxbcysk1uwyg.jpg
+a(VDescendants of the Sun (Cantonese)
+V\u592a\u967d\u7684\u5f8c\u88d4
+Vhttp://icdrama.se/korean-drama/2121-descendants-of-the-sun-cantonese/
+Vhttp://static.icdrama.se/images/thumbs/Descendants-of-the-Sun-03.jpg
 tp34
-a(VEveryday Is Valentine
-V\u60c5\u8ff7\u5927\u8bdd\u738b
-Vhttp://icdrama.se/hk-movie/2283-everyday-is-valentine/
-Vhttp://static.icdrama.se/images/thumbs/Everydayisvalentine.jpg
+a(VOh My Venus
+V\uc624 \ub9c8\uc774 \ube44\ub108\uc2a4
+Vhttp://icdrama.se/korean-drama/1972-oh-my-venus/
+Vhttp://static.icdrama.se/images/thumbs/Oh-My-Venus-04.jpg
 tp35
-a(VLove Undercover 3
-V\u65b0\u7d2e\u5e2b\u59b93
-Vhttp://icdrama.se/hk-movie/2282-love-undercover-3/
-Vhttp://static.icdrama.se/images/thumbs/Love_Undercover_3.jpg
+a(VGu Family (Cantonese)
+V\u4e5d\u5bb6\u4e4b\u66f8
+Vhttp://icdrama.se/korean-drama/2265-gu-family-cantonese/
+Vhttp://static.icdrama.se/images/thumbs/Gu-Family-Book-2013.jpg
 tp36
-a(VLove Undercover 2: Love Mission
-V\u65b0\u7d2e\u5e2b\u59b92
-Vhttp://icdrama.se/hk-movie/2281-love-undercover-2-love-mission/
-Vhttp://static.icdrama.se/images/thumbs/Love_Undercover_2-_Love_Mission.jpg
+a(VOne Night Memory (Cantonese)
+V\u547d\u4e2d\u6ce8\u5b9a\u6211\u611b\u4f60
+Vhttp://icdrama.se/korean-drama/696-one-night-memory-cantonese/
+Vhttp://static.icdrama.se/images/thumbs/Fated-to-Love-You-03.jpg
 tp37
-a(VLove Undercover
-V\u65b0\u7d2e\u5e2b\u59b9
-Vhttp://icdrama.se/hk-movie/2280-love-undercover/
-Vhttp://static.icdrama.se/images/thumbs/LoveUndercover.jpg
+a(VOh My Ghost
+V\uc624 \ub098\uc758 \uadc0\uc2e0\ub2d8
+Vhttp://icdrama.se/korean-drama/1857-oh-my-ghost/
+Vhttp://static.icdrama.se/images/thumbs/Oh-My-Ghost-02.jpg
 tp38
-a(VTrivisa
-V\u6a39\u5927\u62db\u98a8
-Vhttp://icdrama.se/hk-movie/2263-trivisa/
-Vhttp://static.icdrama.se/images/thumbs/sndgbgiwfoj4.jpg
+a(VSecond Time Twenty Years Old
+V\ub450\ubc88\uc9f8 \uc2a4\ubb34\uc0b4
+Vhttp://icdrama.se/korean-drama/1903-second-time-twenty-years-old/
+Vhttp://static.icdrama.se/images/thumbs/Second-Time-Twenty-Years-Old-Poster3.jpg
 tp39
-a(VMy Wife Is a Superstar
-V\u6211\u8001\u5a46\u4fc2\u660e\u661f
-Vhttp://icdrama.se/hk-movie/2258-my-wife-is-a-superstar/
-Vhttp://static.icdrama.se/images/thumbs/MyWifeisaSuperstar.jpg
+a(VSassy Go Go
+V\ubc1c\uce59\ud558\uac8c \uace0\uace0
+Vhttp://icdrama.se/korean-drama/1934-sassy-go-go/
+Vhttp://static.icdrama.se/images/thumbs/Sassy-Go-Go-04.jpg
 tp40
-a(VFrom Vegas to Macau 3
-V\u8ced\u57ce\u98a8\u96f23
-Vhttp://icdrama.se/hk-movie/2264-from-vegas-to-macau-3/
-Vhttp://static.icdrama.se/images/thumbs/p546h7f5sygg.jpg
+a(VMisaeng (Cantonese)
+V\u672a\u751f
+Vhttp://icdrama.se/korean-drama/2173-misaeng-cantonese/
+Vhttp://static.icdrama.se/images/thumbs/Misaeng-03.jpg
 tp41
-a(VHouse of Wolves
-V\u60e1\u4eba\u8c37
-Vhttp://icdrama.se/hk-movie/2232-house-of-wolves/
-Vhttp://static.icdrama.se/images/thumbs/House-of-Wolves-2016-1.jpg
+a(VThe Town: The Uninvited (Cantonese)
+V\u6751\u838a
+Vhttp://icdrama.se/korean-drama/2196-the-town-the-uninvited-cantonese/
+Vhttp://static.icdrama.se/images/thumbs/The-Village-04.jpg
 tp42
-a(VRobbery
-V\u8001\u7b20
-Vhttp://icdrama.se/hk-movie/2231-robbery/
-Vhttp://static.icdrama.se/images/thumbs/345735movie.jpg
+a(VEx-Girlfriend Club
+V\uad6c\uc5ec\uce5c\ud074\ub7fd
+Vhttp://icdrama.se/korean-drama/1814-ex-girlfriend-club/
+Vhttp://static.icdrama.se/images/thumbs/Ex-Girlfriend-Club-05.jpg
 tp43
-a(VReturn of the Cuckoo
-V\u5341\u6708\u521d\u4e94\u7684\u6708\u5149
-Vhttp://icdrama.se/hk-movie/2170-return-of-the-cuckoo/
-Vhttp://static.icdrama.se/images/thumbs/casaugfqtfvq.jpg
+a(VBel Ami (Cantonese)
+V\u6f02\u4eae\u7537\u4eba
+Vhttp://icdrama.se/korean-drama/2219-bel-ami-cantonese/
+Vhttp://static.icdrama.se/images/thumbs/Pretty-Man-06.jpg
 tp44
-a(VTo The Fore
-V\u7834\u98a8
-Vhttp://icdrama.se/hk-movie/2164-to-the-fore/
-Vhttp://static.icdrama.se/images/thumbs/ishct4j3zry5.jpg
+a(VThe Time We Weren't in Love (Cantonese)
+V\u611b\u4f60\u7684\u6642\u9593\uff0c7000\u5929
+Vhttp://icdrama.se/korean-drama/2209-the-time-we-weren-t-in-love-cantonese/
+Vhttp://static.icdrama.se/images/thumbs/The-Time-We-Were-Not-In-Love-04.jpg
 tp45
-a(VPort of Call
-V\u8e0f\u8840\u5c0b\u6885
-Vhttp://icdrama.se/hk-movie/2160-port-of-call/
-Vhttp://static.icdrama.se/images/thumbs/jvdjslqfyq4z.jpg
+a(VMarry Him If You Dare (Cantonese)
+V\u672a\u4f86\u7684\u9078\u64c7
+Vhttp://icdrama.se/korean-drama/1639-marry-him-if-you-dare-cantonese/
+Vhttp://static.icdrama.se/images/thumbs/butse.jpg
 tp46
-a(VCrouching Tiger, Hidden Dragon: Sword of Destiny
-V\u5367\u864e\u85cf\u9f99: \u9752\u51a5\u5b9d\u5251
-Vhttp://icdrama.se/hk-movie/2142-crouching-tiger-hidden-dragon-sword-of-destiny/
-Vhttp://static.icdrama.se/images/thumbs/9luwrkgl71es.jpg
+a(VGirl Who Can See Smell (Cantonese)
+V\u770b\u898b\u5473\u9053\u7684\u5c11\u5973
+Vhttp://icdrama.se/korean-drama/2191-girl-who-can-see-smell-cantonese/
+Vhttp://static.icdrama.se/images/thumbs/The-Girl-Who-Can-See-Smells-04.jpg
 tp47
-a(VKeeper of Darkness
-V\u9640\u5730\u9a45\u9b54\u4eba
-Vhttp://icdrama.se/hk-movie/2124-keeper-of-darkness/
-Vhttp://static.icdrama.se/images/thumbs/zfjnyuejne6s.jpg
+a(VThe Three Musketeers (Cantonese)
+V\u4e09\u528d\u5ba2
+Vhttp://icdrama.se/korean-drama/2132-the-three-musketeers-cantonese/
+Vhttp://static.icdrama.se/images/thumbs/The-Three-Musketeers-03.jpg
 tp48
-a(VIp Man 3
-V\u8449\u554f3
-Vhttp://icdrama.se/hk-movie/2093-ip-man-3/
-Vhttp://static.icdrama.se/images/thumbs/ip.man.3.jpg
+a(VKill Me Heal Me (Cantonese)
+V\u611b\u4e0a\u54ea\u500b\u6211
+Vhttp://icdrama.se/korean-drama/2161-kill-me-heal-me-cantonese/
+Vhttp://static.icdrama.se/images/thumbs/Kill-Me-Heal-Me-Poster1.jpg
 tp49
-a(VThe Monkey King
-V\u897f\u6e38\u8a18\u4e4b\u5927\u9b27\u5929\u5bae
-Vhttp://icdrama.se/hk-movie/1462-the-monkey-king/
-Vhttp://static.icdrama.se/images/thumbs/j0b9R.jpg
+a(VScholar Who Walks the Night (Cantonese)
+V\u591c\u884c\u66f8\u751f
+Vhttp://icdrama.se/korean-drama/2122-scholar-who-walks-the-night-cantonese/
+Vhttp://static.icdrama.se/images/thumbs/Scholar-Who-Walks-the-Night-05.jpg
 tp50
-a(VI Love Hong Kong 2013
-V2013\u6211\u611bHK \u606d\u559c\u767c\u8ca1
-Vhttp://icdrama.se/hk-movie/1248-i-love-hong-kong-2013/
-Vhttp://static.icdrama.se/images/thumbs/ILoveHK2013.jpg
+a(VI Hear Your Voice (Cantonese)
+V\ub108\uc758 \ubaa9\uc18c\ub9ac\uac00 \ub4e4\ub824
+Vhttp://icdrama.se/korean-drama/2120-i-hear-your-voice-cantonese/
+Vhttp://static.icdrama.se/images/thumbs/I-Hear-Your-Voice-2013.jpg
 tp51
-a(VATM 2015
-V\u63d0\u6b3e\u6a5f
-Vhttp://icdrama.se/hk-movie/2032-atm-2015/
-Vhttp://static.icdrama.se/images/thumbs/uzbuiqolpkir.jpg
+a(VMonstar (Cantonese)
+V\ubaac\uc2a4\ud0c0
+Vhttp://icdrama.se/korean-drama/2138-monstar-cantonese/
+Vhttp://static.icdrama.se/images/thumbs/Monstar-Poster1.jpg
 tp52
-a(VParis Holiday
-V\u5df4\u9ece\u5047\u671f
-Vhttp://icdrama.se/hk-movie/2029-paris-holiday/
-Vhttp://static.icdrama.se/images/thumbs/paris-holiday-2015.jpg
-tp53
-a(VBig Fortune Hotel
-V\u5409\u7965\u9152\u5e97
-Vhttp://icdrama.se/hk-movie/2012-big-fortune-hotel/
-Vhttp://static.icdrama.se/images/thumbs/ljqqb8ljqbgh.jpg
-tp54
-a(VUndercover Duet
-V\u731b\u9f8d\u7279\u56e7
-Vhttp://icdrama.se/hk-movie/1979-undercover-duet/
-Vhttp://static.icdrama.se/images/thumbs/356606movie.jpg
-tp55
-a(VSPL 2: A Time for Consequences
-V\u6bba\u7834\u72fcII
-Vhttp://icdrama.se/hk-movie/1968-spl-2-a-time-for-consequences/
-Vhttp://static.icdrama.se/images/thumbs/spl-2-a-time-for-consequences-2015.jpg
-tp56
-a(VLittle Big Master
-V\u4e94\u500b\u5c0f\u5b69\u7684\u6821\u9577
-Vhttp://icdrama.se/hk-movie/1967-little-big-master/
-Vhttp://static.icdrama.se/images/thumbs/332980movie.jpg
+a(VPinocchio (Cantonese)
+p53
+V\u611b\u4e0aPinocchio
+p54
+Vhttp://icdrama.se/korean-drama/2046-pinocchio-cantonese/
+p55
+Vhttp://static.icdrama.se/images/thumbs/Pinocchio-05.jpg
+p56
 tp57
-a(VWild City
-V\u8ff7\u57ce
-Vhttp://icdrama.se/hk-movie/1948-wild-city/
-Vhttp://static.icdrama.se/images/thumbs/338421movie.jpg
-tp58
-a(VFull Strike
-V\u5168\u529b\u6263\u6bba
-Vhttp://icdrama.se/hk-movie/1885-full-strike/
-Vhttp://static.icdrama.se/images/thumbs/4ohcpvp1mb09.jpg
-tp59
-a(VFull Strike
-V\u5168\u529b\u6263\u6bba
-Vhttp://icdrama.se/hk-movie/1886-full-strike/
-Vhttp://static.icdrama.se/images/thumbs/4ohcpvp1mb09.jpg
-tp60
-a(V12 Golden Ducks
-V12\u91d1\u9e2d
-Vhttp://icdrama.se/hk-movie/1827-12-golden-ducks/
-Vhttp://static.icdrama.se/images/thumbs/12gd.jpg
-tp61
-a(VLucky Star 2015
-V\u5409\u661f\u9ad8\u71672015
-Vhttp://icdrama.se/hk-movie/1826-lucky-star-2015/
-Vhttp://static.icdrama.se/images/thumbs/JVSOY.jpg
-tp62
-a(VFrom Vegas to Macau 2
-V\u8ced\u57ce\u98a8\u96f22
-Vhttp://icdrama.se/hk-movie/1828-from-vegas-to-macau-2/
-Vhttp://static.icdrama.se/images/thumbs/the-man-from-macau-from-vegas-to-macau-ao-men-feng-yun.20717.jpg
-tp63
-a(VFrom Vegas to Macau
-V\u8ced\u57ce\u98a8\u96f2
-Vhttp://icdrama.se/hk-movie/1507-from-vegas-to-macau/
-Vhttp://static.icdrama.se/images/thumbs/2JvGV.jpg
-tp64
-a(VSara
-V\u96db\u5993
-Vhttp://icdrama.se/hk-movie/1806-sara/
-Vhttp://static.icdrama.se/images/thumbs/Sara_2015_film_poster.jpg
-tp65
-a(VTriumph in the Skies 2015
-V\u885d\u4e0a\u96f2\u9704
-Vhttp://icdrama.se/hk-movie/1808-triumph-in-the-skies-2015/
-Vhttp://static.icdrama.se/images/thumbs/sky2015.jpg
-tp66
-a(VGuilty
-V\u56db\u975e
-Vhttp://icdrama.se/hk-movie/1807-guilty/
-Vhttp://static.icdrama.se/images/thumbs/Guilty-2015.jpg
-tp67
-a(VThe Seventh Lie
-V\u7b2c\u4e03\u8b0a\u8a00
-Vhttp://icdrama.se/hk-movie/1790-the-seventh-lie/
-Vhttp://static.icdrama.se/images/thumbs/4_1406172589.jpg
-tp68
-a(VS for Sex S for Secrets
-V\u5c0f\u59d0\u8a98\u5fc3
-Vhttp://icdrama.se/hk-movie/1791-s-for-sex-s-for-secrets/
-Vhttp://static.icdrama.se/images/thumbs/SN286.jpg
-tp69
-a(VAn Inspector Calls
-V\u6d6e\u83ef\u5bb4
-Vhttp://icdrama.se/hk-movie/1789-an-inspector-calls/
-Vhttp://static.icdrama.se/images/thumbs/An-Inspector-Calls-2015-3.jpg
-tp70
-a(VGrey Met Shrek
-V\u5947\u7de3\u7070\u59d1\u5a18
-Vhttp://icdrama.se/hk-movie/1772-grey-met-shrek/
-Vhttp://static.icdrama.se/images/thumbs/GS_A2poster20141010op_01_1413178642.jpg
-tp71
-a(VTwilight Online
-V\u6050\u6016\u5728\u7dda
-Vhttp://icdrama.se/hk-movie/1756-twilight-online/
-Vhttp://static.icdrama.se/images/thumbs/WkK2hA3.jpg
-tp72
-a(VFlirting in the Air
-V\u5510\u4f2f\u864e\u885d\u4e0a\u96f2\u9704
-Vhttp://icdrama.se/hk-movie/1746-flirting-in-the-air/
-Vhttp://static.icdrama.se/images/thumbs/FlirtingintheAir.jpg
-tp73
-a(VDon't Go Breaking My Heart 2
-V\u5355\u8eab\u7537\u59732
-Vhttp://icdrama.se/hk-movie/1736-don-t-go-breaking-my-heart-2/
-Vhttp://static.icdrama.se/images/thumbs/936eT.jpg
-tp74
-a(VKung Fu Jungle
-V\u4e2a\u4eba\u7684\u6b66\u6797
-Vhttp://icdrama.se/hk-movie/1703-kung-fu-jungle/
-Vhttp://static.icdrama.se/images/thumbs/KungFuJungle2014.jpg
-tp75
-a(VProbation Order
-V\u6f80\u9752
-Vhttp://icdrama.se/hk-movie/1690-probation-order/
-Vhttp://static.icdrama.se/images/thumbs/probation_order_01.jpg
-tp76
-a(VGolden Brother
-V\u7537\u4eba\u5514\u53ef\u4ee5\u7a77
-Vhttp://icdrama.se/hk-movie/1671-golden-brother/
-Vhttp://static.icdrama.se/images/thumbs/2014-Golden-Brother.jpg
-tp77
-a(VBlack Comedy
-V\u9ed1\u8272\u559c\u5267
-Vhttp://icdrama.se/hk-movie/1669-black-comedy/
-Vhttp://static.icdrama.se/images/thumbs/Black-Comedy-2014-2.jpg
-tp78
-a(VTemporary Family
-V\u5931\u6200\u6025\u8b93
-Vhttp://icdrama.se/hk-movie/1646-temporary-family/
-Vhttp://static.icdrama.se/images/thumbs/adr5Q.jpg
-tp79
-asg8
-(lp80
-(VPage 2
-Vhttp://icdrama.se/hk-drama/page-2.html
-tp81
-a(VPage 3
-Vhttp://icdrama.se/hk-drama/page-3.html
-tp82
-a(VPage 4
-Vhttp://icdrama.se/hk-drama/page-4.html
-tp83
-a(VPage 5
-Vhttp://icdrama.se/hk-drama/page-5.html
-tp84
-a(VLast »
-Vhttp://icdrama.se/hk-drama/page-9.html
-tp85
-asg23
-(lp86
-(VHirugao-Love Affairs in the Afternoon
-V\u665d\u984f
-Vhttp://icdrama.se/japanese-drama/2417-hirugao-love-affairs-in-the-afternoon/
-Vhttp://static.icdrama.se/images/thumbs/Hirugao-LoveAffairsintheAfternoon.jpg
-tp87
-a(VNaomi and Kanako (Cantonese)
-V\u76f4\u7f8e\u8207\u52a0\u5948\u5b50
-Vhttp://icdrama.se/japanese-drama/2483-naomi-and-kanako-cantonese/
-Vhttp://static.icdrama.se/images/thumbs/NaomiandKanako16.jpg
-tp88
-a(VBORDER
-V
-Vhttp://icdrama.se/japanese-drama/2442-border/
-Vhttp://static.icdrama.se/images/thumbs/BORDER.jpg
-tp89
-a(VMidnight Diner 3 (Cantonese)
-V\u6df1\u591c\u98df\u58023
-Vhttp://icdrama.se/japanese-drama/2520-midnight-diner-3-cantonese/
-Vhttp://static.icdrama.se/images/thumbs/106089_o.jpg
-tp90
-a(VPainless - The Eyes for Signs (Cantonese)
-V\u7121\u75db - \u8a3a\u7642\u4e4b\u773c
-Vhttp://icdrama.se/japanese-drama/2481-painless-the-eyes-for-signs-cantonese/
-Vhttp://static.icdrama.se/images/thumbs/Painless-TheEyesforSigns2015.jpg
-tp91
-a(VThe Woman Who Took The Local Paper
-V\u8cb7\u5730\u65b9\u5831\u7d19\u7684\u5973\u4eba
-Vhttp://icdrama.se/japanese-drama/2498-the-woman-who-took-the-local-paper/
-Vhttp://static.icdrama.se/images/thumbs/TheWomanWhoTookTheLocalPaper.jpg
-tp92
-a(VDeep Sea of Tree (Cantonese)
-V\u9ed1\u8272\u6a39\u6d77
-Vhttp://icdrama.se/japanese-drama/2482-deep-sea-of-tree-cantonese/
-Vhttp://static.icdrama.se/images/thumbs/DeepSeaofTree.jpg
-tp93
-a(VSleepeeer Hit!
-V\u91cd\u7248\u51fa\u6765!
-Vhttp://icdrama.se/japanese-drama/2293-sleepeeer-hit/
-Vhttp://static.icdrama.se/images/thumbs/107454_o.jpg
-tp94
-a(VDr. Storks (Cantonese)
-V\u96d9\u9762\u91ab\u751f
-Vhttp://icdrama.se/japanese-drama/2472-dr-storks-cantonese/
-Vhttp://static.icdrama.se/images/thumbs/106330_o.jpg
-tp95
-a(VSPECIALIST
-V\u30b9\u30da\u30b7\u30e3\u30ea\u30b9\u30c8
-Vhttp://icdrama.se/japanese-drama/2329-specialist/
-Vhttp://static.icdrama.se/images/thumbs/SPECIALIST.jpg
-tp96
-a(VOoku - The Inner Palace - Special 2016
-V\u5927\u5967\u5b2a\u5983\u50b3
-Vhttp://icdrama.se/japanese-drama/2419-ooku-the-inner-palace-special-2016/
-Vhttp://static.icdrama.se/images/thumbs/Ooku-TheInnerPalace-Special2016.jpg
-tp97
-a(VLady Girls
-V\u5927\u4eba\u5973\u5b50
-Vhttp://icdrama.se/japanese-drama/2267-lady-girls/
-Vhttp://static.icdrama.se/images/thumbs/LadyGirls.jpg
-tp98
-a(VNobunaga Concerto (Cantonese)
-V\u4fe1\u9577\u5354\u594f\u66f2
-Vhttp://icdrama.se/japanese-drama/2286-nobunaga-concerto-cantonese/
-Vhttp://static.icdrama.se/images/thumbs/NobunagaConcerto.jpg
-tp99
-a(VHappy Retirement (Cantonese)
-V\u5e78\u798f\u9000\u4f11\u65e5
-Vhttp://icdrama.se/japanese-drama/2405-happy-retirement-cantonese/
-Vhttp://static.icdrama.se/images/thumbs/HappyRetirement.jpg
-tp100
-a(VTruth of Zero
-V\u96f6\u7684\u771f\u5be6
-Vhttp://icdrama.se/japanese-drama/2322-truth-of-zero/
-Vhttp://static.icdrama.se/images/thumbs/TruthofZero.jpg
-tp101
-a(VTransit Girls
-V\u767e\u5408\u6200\u4eba
-Vhttp://icdrama.se/japanese-drama/2292-transit-girls/
-Vhttp://static.icdrama.se/images/thumbs/TransitGirls.jpg
-tp102
-a(VANOHANA - The Flower We Saw That Day (Cantonese)
-V\u672a\u805e\u82b1\u540d
-Vhttp://icdrama.se/japanese-drama/2370-anohana-the-flower-we-saw-that-day-cantonese/
-Vhttp://static.icdrama.se/images/thumbs/ANOHANA-TheFlowerWeSawThatDay.jpg
-tp103
-a(VVariations of My Name
-V\u4ee5\u6211\u70ba\u540d\u7684\u8b8a\u594f\u66f2
-Vhttp://icdrama.se/japanese-drama/2366-variations-of-my-name/
-Vhttp://static.icdrama.se/images/thumbs/VariationsofMyName.jpg
-tp104
-a(VLove Song (Cantonese)
-V\u60c5\u6b4c
-Vhttp://icdrama.se/japanese-drama/2213-love-song-cantonese/
-Vhttp://static.icdrama.se/images/thumbs/LoveSong.jpg
-tp105
-a(VST MPD Scientific Investigation Squad (Cantonese)
-VST\u7d05\u8207\u767d\u7684\u641c\u67e5\u6a94\u6848
-Vhttp://icdrama.se/japanese-drama/2189-st-mpd-scientific-investigation-squad-cantonese/
-Vhttp://static.icdrama.se/images/thumbs/123.jpg
-tp106
-a(VAll About My Siblings
-V\u82e5\u8005\u305f\u30612014
-Vhttp://icdrama.se/japanese-drama/2285-all-about-my-siblings/
-Vhttp://static.icdrama.se/images/thumbs/56e9eb8b27bdd_1458170763.jpg
-tp107
-a(VIMAT2: Crime Scene Medics
-VIMAT \u306e\u5947\u8de12
-Vhttp://icdrama.se/japanese-drama/2278-imat2-crime-scene-medics/
-Vhttp://static.icdrama.se/images/thumbs/105498_o.jpg
-tp108
-a(VIMAT: Crime Scene Medics
-VIMAT \u306e\u5947\u8de1
-Vhttp://icdrama.se/japanese-drama/2277-imat-crime-scene-medics/
-Vhttp://static.icdrama.se/images/thumbs/105899_o.jpg
-tp109
-a(VPLAY BALL! BE
-V\u521d\u68ee\u58d8\u7403\u5718
-Vhttp://icdrama.se/japanese-drama/2133-play-ball-be/
-Vhttp://static.icdrama.se/images/thumbs/55a06afb8895b.jpg
-tp110
-a(VDoctor-X 3
-V\u5973\u91ab\u795eDoctor X 3
-Vhttp://icdrama.se/japanese-drama/2136-doctor-x-3/
-Vhttp://static.icdrama.se/images/thumbs/book3.jpg
-tp111
-a(VDetective vs Detective (Cantonese)
-V\u5075\u63a2\u7684\u5075\u63a2
-Vhttp://icdrama.se/japanese-drama/2192-detective-vs-detective-cantonese/
-Vhttp://static.icdrama.se/images/thumbs/c4487de9413914e08bf08c8016e89dee1437090431_full.jpg
-tp112
-a(VAge Harassment (Cantonese)
-V\u5e74\u9f61\u9a37\u64fe
-Vhttp://icdrama.se/japanese-drama/2134-age-harassment-cantonese/
-Vhttp://static.icdrama.se/images/thumbs/dfcls6fvnmpr.jpg
-tp113
-a(VMemento of Mom's Life (Cantonese)
-V\u5abd\u5abd\u751f\u5b58\u7684\u8b49\u660e
-Vhttp://icdrama.se/japanese-drama/2233-memento-of-mom-s-life-cantonese/
-Vhttp://static.icdrama.se/images/thumbs/ex_mamagaita0601-3.jpg
-tp114
-a(VWise and Foolish (Cantonese)
-V\u6c11\u738b
-Vhttp://icdrama.se/japanese-drama/2188-wise-and-foolish-cantonese/
-Vhttp://static.icdrama.se/images/thumbs/p2337580060.jpg
-tp115
-a(VSeijo (Cantonese)
-V\u8056\u5973
-Vhttp://icdrama.se/japanese-drama/2215-seijo-cantonese/
-Vhttp://static.icdrama.se/images/thumbs/gogo-3604.jpg
-tp116
-a(VLegal High Special II (Cantonese)
-V\u5f8b\u653f\u72c2\u4eba2 \u7279\u5225\u7bc7
-Vhttp://icdrama.se/japanese-drama/2156-legal-high-special-ii-cantonese/
-Vhttp://static.icdrama.se/images/thumbs/11436443315559e62b38bf41.jpg
-tp117
-a(VI'm Home (Cantonese)
-V\u56de\u5bb6\u7684\u9396\u5319
-Vhttp://icdrama.se/japanese-drama/2135-i-m-home-cantonese/
-Vhttp://static.icdrama.se/images/thumbs/e5b8346289f9c12d31a4c8805380ebda.jpg
-tp118
-a(VMysterious Transfer Student (Cantonese)
-V\u8b0e\u4e4b\u8f49\u6821\u751f
-Vhttp://icdrama.se/japanese-drama/1996-mysterious-transfer-student-cantonese/
-Vhttp://static.icdrama.se/images/thumbs/105650_200.jpg
-tp119
-a(VThe Easygoing Police (Cantonese)
-V\u54aa\u963b\u4f4fMADAM
-Vhttp://icdrama.se/japanese-drama/1859-the-easygoing-police-cantonese/
-Vhttp://static.icdrama.se/images/thumbs/105267_200.jpg
-tp120
-a(VHousekeeper the Peeper (Cantonese)
-V\u7279\u52d9\u5973\u7ba1\u5bb6
-Vhttp://icdrama.se/japanese-drama/1839-housekeeper-the-peeper-cantonese/
-Vhttp://static.icdrama.se/images/thumbs/105213_200.jpg
-tp121
-a(VHero 2 (Cantonese)
-V\u5f8b\u653f\u82f1\u96c42
-Vhttp://icdrama.se/japanese-drama/1650-hero-2-cantonese/
-Vhttp://static.icdrama.se/images/thumbs/hero2.jpg
-tp122
-a(VDOCTORS 2: The Ultimate Surgeon (Cantonese)
-V\u6700\u5f37\u540d\u91ab2
-Vhttp://icdrama.se/japanese-drama/1651-doctors-2-the-ultimate-surgeon-cantonese/
-Vhttp://static.icdrama.se/images/thumbs/DOCTORS_2-_The_Ultimate_Surgeon-p2.jpg
-tp123
-a(VMother Strikes Back (Cantonese)
-V\u5a46\u5ab3\u5927\u9b25\u6cd5
-Vhttp://icdrama.se/japanese-drama/1600-mother-strikes-back-cantonese/
-Vhttp://img.tvb.com/ii/29/37929/000003792848_1410140559.jpg
-tp124
-a(VDOCTORS: The Ultimate Surgeon Special (Cantonese)
-V\u6700\u5f37\u540d\u91ab - \u71b1\u8840\u56de\u6b78
-Vhttp://icdrama.se/japanese-drama/1632-doctors-the-ultimate-surgeon-special-cantonese/
-Vhttp://static.icdrama.se/images/thumbs/Doctors-SP-p1.jpg
-tp125
-a(VMayonaka no Panya-san
-p126
-V\u771f\u591c\u4e2d\u306e\u30d1\u30f3\u5c4b\u3055\u3093
-p127
-Vhttp://icdrama.se/japanese-drama/1340-mayonaka-no-panya-san/
-p128
-Vhttp://static.icdrama.se/images/thumbs/Mayonaka_no_Panya-san-p1.jpg
-p129
-tp130
-asg20
-(lp131
-(VPage 2
-Vhttp://icdrama.se/hk-show/page-2.html
-tp132
-a(VPage 3
-Vhttp://icdrama.se/hk-show/page-3.html
-tp133
-a(VPage 4
-Vhttp://icdrama.se/hk-show/page-4.html
-tp134
-a(VPage 5
-Vhttp://icdrama.se/hk-show/page-5.html
-tp135
-a(VLast »
-Vhttp://icdrama.se/hk-show/page-21.html
-tp136
-asg26
-(lp137
-sg17
-(lp138
-(VAge Gap Love
-V\u6200\u611b\u9f61\u8ddd\u96e2
-Vhttp://icdrama.se/hk-show/2495-age-gap-love/
-Vhttp://static.icdrama.se/images/thumbs/AgeGapLove.jpg
-tp139
-a(VI Heart HK
-V\u6211\u611b\u9999\u6e2f
-Vhttp://icdrama.se/hk-show/2375-i-heart-hk/
-Vhttp://static.icdrama.se/images/thumbs/57a9aa0bac387_1470736907.jpg
-tp140
-a(V5 Kids And A Bloke
-V\u4e94\u500b\u5c0f\u5b69\u7684\u5927\u53d4
-Vhttp://icdrama.se/hk-show/2494-5-kids-and-a-bloke/
-Vhttp://static.icdrama.se/images/thumbs/57ee3a4327148_1475230275.jpg
-tp141
-a(VSunday Report
-V\u661f\u671f\u65e5\u6a94\u6848
-Vhttp://icdrama.se/hk-show/1241-sunday-report/
-Vhttp://static.icdrama.se/images/thumbs/57e10322ccc4d_1474364194.jpg
-tp142
-a(VBazaar Carnivals
-V\u8857\u5e02\u904a\u6a02\u5718
-Vhttp://icdrama.se/hk-show/2460-bazaar-carnivals/
-Vhttp://static.icdrama.se/images/thumbs/57d909f36a7cf_1473841651.jpg
-tp143
-a(VNews At 6:30
-V\u516d\u9ede\u534a\u65b0\u805e\u5831\u9053
-Vhttp://icdrama.se/hk-show/1247-news-at-6-30/
-Vhttp://static.icdrama.se/images/thumbs/56e6d2eb98d89_1457967851.jpg
-tp144
-a(VMy Hero
-V\u6211\u7684Hero
-Vhttp://icdrama.se/hk-show/2479-my-hero/
-Vhttp://static.icdrama.se/images/thumbs/MyHero.jpg
-tp145
-a(VCanton Lyrics Lovers
-V\u7cb5\u8a5e\u8d8a\u611b
-Vhttp://icdrama.se/hk-show/2206-canton-lyrics-lovers/
-Vhttp://static.icdrama.se/images/thumbs/Untitled-1.jpg
-tp146
-a(VTalker - PK Show
-V\u665a\u5439 - \u771fPK
-Vhttp://icdrama.se/hk-show/2143-talker-pk-show/
-Vhttp://static.icdrama.se/images/thumbs/pkshow.jpg
-tp147
-a(VSO TAKEI - The Ultimate Examiner
-V\u6b66\u4e95\u8a66\u7149\u5834
-Vhttp://icdrama.se/hk-show/2290-so-takei-the-ultimate-examiner/
-Vhttp://static.icdrama.se/images/thumbs/SOTAKEITheUltimateExaminer.jpg
-tp148
-a(VShowTime \u6211\u4e3b\u5834
-V
-Vhttp://icdrama.se/hk-show/2505-showtime-\u6211\u4e3b\u5834/
-Vhttp://static.icdrama.se/images/thumbs/showtime.jpg
-tp149
-a(VNews Magazine
-V\u65b0\u805e\u900f\u8996
-Vhttp://icdrama.se/hk-show/1238-news-magazine/
-Vhttp://static.icdrama.se/images/thumbs/30_200.jpg
-tp150
-a(VTVB Entertainment News
-V
-Vhttp://icdrama.se/hk-show/1310-tvb-entertainment-news/
-Vhttp://static.icdrama.se/images/thumbs/56de4f9267940_1457409938.jpg
-tp151
-a(VWhat's Daddy 4
-V\u842c\u91cc\u5c0b\u7238
-Vhttp://icdrama.se/hk-show/2452-what-s-daddy-4/
-Vhttp://static.icdrama.se/images/thumbs/57ce3d6b93a1a_1473133931.jpg
-tp152
-a(VNews At 7:30
-V
-Vhttp://icdrama.se/hk-show/2096-news-at-7-30/
-Vhttp://static.icdrama.se/images/thumbs/105084_200.jpg
-tp153
-a(VNews Round Up
-V\u665a\u9593\u65b0\u805e
-Vhttp://icdrama.se/hk-show/2095-news-round-up/
-Vhttp://static.icdrama.se/images/thumbs/56df0f27b67e2_1457458983.jpg
-tp154
-a(VBig Boys Club
-V\u5144\u5f1f\u5e6b
-Vhttp://icdrama.se/hk-show/1563-big-boys-club/
-Vhttp://static.icdrama.se/images/thumbs/100203_200.jpg
-tp155
-a(VGala Spectacular 2016
-V\u661f\u5149\u71a0\u71a0\u8000\u4fdd\u826f2016
-Vhttp://icdrama.se/hk-show/2539-gala-spectacular-2016/
-Vhttp://static.icdrama.se/images/thumbs/57f4ce7680bda_1475661430.jpg
-tp156
-a(VBeyond Concrete Walls
-V\u5efa\u7bc9\u2027\u6211\u57ce
-Vhttp://icdrama.se/hk-show/2538-beyond-concrete-walls/
-Vhttp://static.icdrama.se/images/thumbs/BeyondConcreteWalls.jpg
-tp157
-a(VTalker - One Beside You
-V\u665a\u5439 - \u7e3d\u6709\u4e00\u96bb\u4fc2\u5de6\u8fd1
-Vhttp://icdrama.se/hk-show/2211-talker-one-beside-you/
-Vhttp://static.icdrama.se/images/thumbs/Talker-OneBesideYou.jpg
-tp158
-a(VSenior
-V\u5c62\u898b\u8006\u5de5
-Vhttp://icdrama.se/hk-show/2455-senior/
-Vhttp://static.icdrama.se/images/thumbs/Senior.jpg
-tp159
-a(VDouble Happiness
-V\u559c\u2027\u96d9\u98db
-Vhttp://icdrama.se/hk-show/2480-double-happiness/
-Vhttp://static.icdrama.se/images/thumbs/DoubleHappiness.jpg
-tp160
-a(VChallenge 1996
-V\u6311\u62301996
-Vhttp://icdrama.se/hk-show/2376-challenge-1996/
-Vhttp://static.icdrama.se/images/thumbs/Challenge1996.jpg
-tp161
-a(VAm I Healthy 2
-V\u4f60\u5065\u5eb7\u55ce2
-Vhttp://icdrama.se/hk-show/2486-am-i-healthy-2/
-Vhttp://static.icdrama.se/images/thumbs/57e4ef6873a1e_1474621288.jpg
-tp162
-a(VTalker - Helmet Intercom
-V\u665a\u5439 - \u53c8\u8981\u5a01 \u53c8\u8981\u6234\u982d\u76d4
-Vhttp://icdrama.se/hk-show/2210-talker-helmet-intercom/
-Vhttp://static.icdrama.se/images/thumbs/Talker-HelmetIntercom.jpg
-tp163
-a(VScoop
-V\u6771\u5f35\u897f\u671b
-Vhttp://icdrama.se/hk-show/1244-scoop/
-Vhttp://static.icdrama.se/images/thumbs/37_200.jpg
-tp164
-a(VBegin Again
-V\u7570\u9109\u518d\u51fa\u9053
-Vhttp://icdrama.se/hk-show/2518-begin-again/
-Vhttp://static.icdrama.se/images/thumbs/BeginAgain.jpg
-tp165
-a(VHiking Walking
-V\u5c71\u6b65\uff0e\u884c
-Vhttp://icdrama.se/hk-show/2328-hiking-walking/
-Vhttp://static.icdrama.se/images/thumbs/HikingWalking.jpg
-tp166
-a(VWho the X is Jun Kun
-V\u908aX\u500b\u4fc2\u606d\u78a9\u826f
-Vhttp://icdrama.se/hk-show/2489-who-the-x-is-jun-kun/
-Vhttp://static.icdrama.se/images/thumbs/WhotheXisJunKun.jpg
-tp167
-a(V404 Countries Not Found
-V404\u4e0d\u5b58\u5728\u7684\u570b\u843d
-Vhttp://icdrama.se/hk-show/2450-404-countries-not-found/
-Vhttp://static.icdrama.se/images/thumbs/404CountriesNotFound.jpg
-tp168
-a(VGreen Room
-V\u4eca\u65e5VIP
-Vhttp://icdrama.se/hk-show/1245-green-room/
-Vhttp://static.icdrama.se/images/thumbs/5704746d19403_1459909741.jpg
-tp169
-a(VPleasure and Leisure
-V\u90fd\u5e02\u9592\u60c5
-Vhttp://icdrama.se/hk-show/1314-pleasure-and-leisure/
-Vhttp://static.icdrama.se/images/thumbs/64_200.jpg
-tp170
-a(VTalker - Kids Talk
-V\u665a\u5439 - \u4e00\u5927\u4e00\u8def
-Vhttp://icdrama.se/hk-show/2212-talker-kids-talk/
-Vhttp://static.icdrama.se/images/thumbs/Talker-KidsTalk.jpg
-tp171
-a(VChasing Stars in Seoul
-V\u9996\u723e\u8ffd\u661f\u8a18
-Vhttp://icdrama.se/hk-show/2414-chasing-stars-in-seoul/
-Vhttp://static.icdrama.se/images/thumbs/ChasingStarsinSeoul.jpg
-tp172
-a(VLove Avatars
-V\u812b\u7368\u5de5\u7a0b
-Vhttp://icdrama.se/hk-show/2430-love-avatars/
-Vhttp://static.icdrama.se/images/thumbs/LoveAvatars.jpg
-tp173
-a(VGo Green USA
-V\u963f\u7f8e\u5229\u5805\u7121\u8089\u98ef\u5802
-Vhttp://icdrama.se/hk-show/2434-go-green-usa/
-Vhttp://static.icdrama.se/images/thumbs/GoGreenUSA.jpg
-tp174
-a(VStay Overnight Season 2
-V\u501f\u5bbf\u4e00\u5bb5 2
-Vhttp://icdrama.se/hk-show/2396-stay-overnight-season-2/
-Vhttp://static.icdrama.se/images/thumbs/StayOvernightSeason2.jpg
-tp175
-a(VChef Corner Junior
-V\u5c0f\u300c\u716e\u300d\u89d2
-Vhttp://icdrama.se/hk-show/2487-chef-corner-junior/
-Vhttp://static.icdrama.se/images/thumbs/ChefCornerJunior.jpg
-tp176
-a(VBrilliant Table for Babies
-V\u662f\u65e5B\u9910
-Vhttp://icdrama.se/hk-show/2394-brilliant-table-for-babies/
-Vhttp://static.icdrama.se/images/thumbs/BrilliantTableforBabies.jpg
-tp177
-a(V2016 FIA Formula E HKT Hong Kong ePrix
-V2016\u570b\u969b\u6c7d\u806f\u9999\u6e2f\u96fb\u8a0a\u96fb\u52d5\u65b9\u7a0b\u5f0f\u8cfd\u8eca\u9326\u6a19\u8cfd
-Vhttp://icdrama.se/hk-show/2506-2016-fia-formula-e-hkt-hong-kong-eprix/
-Vhttp://static.icdrama.se/images/thumbs/2016FIAFormulaEHKTHongKongePrix.jpg
-tp178
-a(VBlowing in the World
-V\u98a8\u884c\u5168\u4e16\u754c
-Vhttp://icdrama.se/hk-show/2298-blowing-in-the-world/
-Vhttp://static.icdrama.se/images/thumbs/BlowingintheWorld.jpg
-tp179
-a(VThe CEO Diner
-V\u8207CEO\u9032\u9910
-Vhttp://icdrama.se/hk-show/2084-the-ceo-diner/
-Vhttp://static.icdrama.se/images/thumbs/106238_200.jpg
-tp180
-a(VSunday Spotlight
-V\u5468\u65e5\u9f8d\u9580\u9663
-Vhttp://icdrama.se/hk-show/2426-sunday-spotlight/
-Vhttp://static.icdrama.se/images/thumbs/57c7a65e0b62e_1472702046.jpg
-tp181
-a(VSermon By Sir Ben
-VBen Sir\u5b78\u5802
-Vhttp://icdrama.se/hk-show/2476-sermon-by-sir-ben/
-Vhttp://static.icdrama.se/images/thumbs/57e5557cd9b2d_1474647420.jpg
-tp182
-a(VPrank My Pet
-V\u4eca\u65e5VIPet
-Vhttp://icdrama.se/hk-show/2385-prank-my-pet/
-Vhttp://static.icdrama.se/images/thumbs/57ad789099a26_1470986384.jpg
-tp183
-a(VMidnight Munchies 3
-V\u591c\u5bb5\u78e83
-Vhttp://icdrama.se/hk-show/1863-midnight-munchies-3/
-Vhttp://static.icdrama.se/images/thumbs/56ddcf40dc383_1457377088.jpg
-tp184
-a(VMusic Café
-V
-Vhttp://icdrama.se/hk-show/1853-music-cafe/
-Vhttp://static.icdrama.se/images/thumbs/100743_200.jpg
-tp185
-a(VJ.S.G Music
-V\u52c1\u6b4c\u91d1\u66f2
-Vhttp://icdrama.se/hk-show/1237-j-s-g-music/
-Vhttp://static.icdrama.se/images/thumbs/43_200.jpg
-tp186
-a(VHong Kong LA Connection
-V\u671b\u5b50\u6210\u624d- \u7f8e\u570b\u7bc7
-Vhttp://icdrama.se/hk-show/2411-hong-kong-la-connection/
-Vhttp://static.icdrama.se/images/thumbs/57bebbcc47689_1472117708.jpg
-tp187
-a(VFinancial Magazine
-V\u8ca1\u7d93\u900f\u8996
-Vhttp://icdrama.se/hk-show/1242-financial-magazine/
-Vhttp://static.icdrama.se/images/thumbs/49_200.jpg
-tp188
-asg4
-(lp189
+asS"resources.lib.scrapers.shows(('http://icdrama.se/hk-drama/',), {})"
+p58
+(lp59
 (VMy Lover From The Planet Meow
 V\u4f86\u81ea\u55b5\u55b5\u661f\u7684\u59b3
 Vhttp://icdrama.se/hk-drama/2540-my-lover-from-the-planet-meow/
 Vhttp://static.icdrama.se/images/thumbs/MyLoverFromthePlanetMeow2016TVB.jpg
-tp190
-a(VLaw & Disorder
-V\u5f8b\u653f\u5f37\u4eba
-Vhttp://icdrama.se/hk-drama/2463-law-disorder/
-Vhttp://static.icdrama.se/images/thumbs/law-disorder.jpg
-tp191
-a(VBrother's Keeper 2
-V\u5de8\u8f2a2
-Vhttp://icdrama.se/hk-drama/2406-brother-s-keeper-2/
-Vhttp://static.icdrama.se/images/thumbs/57bc0c5f0a76b_1471941727.jpg
-tp192
-a(VNo Reserve
-V\u5dfe\u5e57\u689f\u96c4\u4e4b\u8adc\u8840\u9577\u5929
-Vhttp://icdrama.se/hk-drama/2490-no-reserve/
-Vhttp://static.icdrama.se/images/thumbs/No-Reserve.jpg
-tp193
-a(VThe Hiddens
-V\u96b1\u4e16\u8005\u5011
-Vhttp://icdrama.se/hk-drama/2466-the-hiddens/
-Vhttp://static.icdrama.se/images/thumbs/the-hiddens.jpg
-tp194
+tp60
+a(VTwo Steps From Heaven
+V\u5e55\u5f8c\u73a9\u5bb6
+Vhttp://icdrama.se/hk-drama/2550-two-steps-from-heaven/
+Vhttp://static.icdrama.se/images/thumbs/Two.Steps.From.Heaven.jpg
+tp61
 a(VCome Home Love: Dinner at Eight
 V\u611b\uff0e\u56de\u5bb6\u4e4b\u516b\u6642\u5165\u5e2d
 Vhttp://icdrama.se/hk-drama/2114-come-home-love-dinner-at-eight/
 Vhttp://static.icdrama.se/images/thumbs/71NNvPj1_ae7834_f.jpg
-tp195
+tp62
+a(VNo Reserve
+V\u5dfe\u5e57\u689f\u96c4\u4e4b\u8adc\u8840\u9577\u5929
+Vhttp://icdrama.se/hk-drama/2490-no-reserve/
+Vhttp://static.icdrama.se/images/thumbs/No-Reserve.jpg
+tp63
+a(VBrother's Keeper 2
+V\u5de8\u8f2a2
+Vhttp://icdrama.se/hk-drama/2406-brother-s-keeper-2/
+Vhttp://static.icdrama.se/images/thumbs/57bc0c5f0a76b_1471941727.jpg
+tp64
+a(VLaw & Disorder
+V\u5f8b\u653f\u5f37\u4eba
+Vhttp://icdrama.se/hk-drama/2463-law-disorder/
+Vhttp://static.icdrama.se/images/thumbs/law-disorder.jpg
+tp65
 a(V3 x 1
 V\u4e09\u4e00\u5982\u4e09
 Vhttp://icdrama.se/hk-drama/2345-3-x-1/
 Vhttp://static.icdrama.se/images/thumbs/3x1.jpg
-tp196
+tp66
+a(VThe Hiddens
+V\u96b1\u4e16\u8005\u5011
+Vhttp://icdrama.se/hk-drama/2466-the-hiddens/
+Vhttp://static.icdrama.se/images/thumbs/the-hiddens.jpg
+tp67
+a(VGhost of Relativity
+V\u9b3c\u540c\u4f60OT
+Vhttp://icdrama.se/hk-drama/1858-ghost-of-relativity/
+Vhttp://static.icdrama.se/images/thumbs/66323ee5jw1etphgyrmb1j22bc3h0u0y.jpg
+tp68
 a(VThe Return Of The Condor Heroes
 V\u795e\u9d70\u4fe0\u4fb6 (1983)
 Vhttp://icdrama.se/hk-drama/2453-the-return-of-the-condor-heroes/
 Vhttp://static.icdrama.se/images/thumbs/ReturnCondor83.jpg
-tp197
+tp69
 a(VLives of Omission
 V\u6f5b\u884c\u72d9\u64ca
 Vhttp://icdrama.se/hk-drama/301-lives-of-omission/
 Vhttp://static.icdrama.se/images/thumbs/lives-of-omission-2011.poster.jpg
-tp198
+tp70
 a(VInspector Gourmet
 V\u70ba\u98df\u795e\u63a2
 Vhttp://icdrama.se/hk-drama/2407-inspector-gourmet/
 Vhttp://static.icdrama.se/images/thumbs/Inspector-Gourmet-2016.jpg
-tp199
+tp71
 a(VJourney To The West
 V\u897f\u904a\u8a18 (1996)
 Vhttp://icdrama.se/hk-drama/1529-journey-to-the-west/
 Vhttp://static.icdrama.se/images/thumbs/Journey-to-the-West-1996.jpg
-tp200
+tp72
 a(VA Kindred Spirit
 V\u771f\u60c5
 Vhttp://icdrama.se/hk-drama/828-a-kindred-spirit/
 Vhttp://static.icdrama.se/images/thumbs/572ba16660e47_1462477158.jpg
-tp201
+tp73
 a(VDressage to Win
 V\u76db\u88dd\u821e\u6b65\u611b\u4f5c\u6230
 Vhttp://icdrama.se/hk-drama/825-dressage-to-win/
 Vhttp://static.icdrama.se/images/thumbs/Dressage_to_Win.jpg
-tp202
+tp74
 a(VSeason of Love
 V\u6200\u611b\u5b63\u7bc0
 Vhttp://icdrama.se/hk-drama/1178-season-of-love/
 Vhttp://static.icdrama.se/images/thumbs/ssl.jpg
-tp203
+tp75
 a(VMy Better Half
 V\u8001\u516c\u842c\u6b72
 Vhttp://icdrama.se/hk-drama/31-my-better-half/
 Vhttp://static.icdrama.se/images/thumbs/mybetterhalf.jpg
-tp204
+tp76
 a(VAt The Threshold of An Era II
 V\u5275\u4e16\u7d00 II
 Vhttp://icdrama.se/hk-drama/66-at-the-threshold-of-an-era-ii/
 Vhttp://static.icdrama.se/images/thumbs/ate2.jpg
-tp205
+tp77
 a(VAt The Threshold of An Era
 V\u5275\u4e16\u7d00
 Vhttp://icdrama.se/hk-drama/65-at-the-threshold-of-an-era/
 Vhttp://static.icdrama.se/images/thumbs/at-the-threshold-of-an-era-1999.jpg
-tp206
+tp78
 a(VBrick Slaves
 V\u6a13\u5974
 Vhttp://icdrama.se/hk-drama/1874-brick-slaves/
 Vhttp://static.icdrama.se/images/thumbs/01e7dzk3_94ca6d_f.jpg
-tp207
+tp79
 a(VICAC Investigators 2014
 V\u5ec9\u653f\u884c\u52d52014
 Vhttp://icdrama.se/hk-drama/1437-icac-investigators-2014/
 Vhttp://static.icdrama.se/images/thumbs/572300ac4bde7_1461911724.jpg
-tp208
+tp80
 a(VDaddy Dearest
 V\u8d85\u80fd\u8001\u8c46
 Vhttp://icdrama.se/hk-drama/2351-daddy-dearest/
 Vhttp://static.icdrama.se/images/thumbs/daddydearest.jpg
-tp209
+tp81
 a(VA Fist Within Four Walls
 V\u57ce\u5be8\u82f1\u96c4\u202c
 Vhttp://icdrama.se/hk-drama/2350-a-fist-within-four-walls/
 Vhttp://static.icdrama.se/images/thumbs/afistwithinfourwalls.jpg
-tp210
+tp82
 a(VBrother's Keeper
 V\u5de8\u8f2a
 Vhttp://icdrama.se/hk-drama/1390-brother-s-keeper/
 Vhttp://static.icdrama.se/images/thumbs/57b33a7b1a93e_1471363707.jpg
-tp211
+tp83
 a(VOld Time Buddy
 V\u96e3\u5144\u96e3\u5f1f
 Vhttp://icdrama.se/hk-drama/824-old-time-buddy/
 Vhttp://static.icdrama.se/images/thumbs/56da8df0cc2ab_1457163760.jpg
-tp212
+tp84
 a(VWhen Heaven Burns
 V\u5929\u8207\u5730
 Vhttp://icdrama.se/hk-drama/553-when-heaven-burns/
 Vhttp://static.icdrama.se/images/thumbs/57ad793d353f3_1470986557.jpg
-tp213
+tp85
 a(VThe Conqueror's Story
 V\u695a\u6f22\u9a55\u96c4
 Vhttp://icdrama.se/hk-drama/823-the-conqueror-s-story/
 Vhttp://static.icdrama.se/images/thumbs/5721dab520677_1461836469.jpg
-tp214
+tp86
 a(VMan Of Wisdom 2
 V\u91d1\u7259\u5927\u72c02
 Vhttp://icdrama.se/hk-drama/822-man-of-wisdom-2/
 Vhttp://static.icdrama.se/images/thumbs/5722cb9693320_1461898134.jpg
-tp215
+tp87
 a(VMan of Wisdom
 V\u91d1\u7259\u5927\u72c0
 Vhttp://icdrama.se/hk-drama/821-man-of-wisdom/
 Vhttp://static.icdrama.se/images/thumbs/5722ca4544b78_1461897797.jpg
-tp216
+tp88
 a(VWhen Rules Turn Loose
 V\u8b58\u6cd5\u4ee3\u8a00\u4eba
 Vhttp://icdrama.se/hk-drama/816-when-rules-turn-loose/
 Vhttp://static.icdrama.se/images/thumbs/572063fe12494_1461740542.jpg
-tp217
+tp89
 a(VSlim Chances
 V\u6211\u8981Fit\u4e00Fit
 Vhttp://icdrama.se/hk-drama/815-slim-chances/
 Vhttp://static.icdrama.se/images/thumbs/572b703e310c7_1462464574.jpg
-tp218
+tp90
 a(VLove is Beautiful
 V\u7121\u982d\u6771\u5bae
 Vhttp://icdrama.se/hk-drama/814-love-is-beautiful/
 Vhttp://static.icdrama.se/images/thumbs/5722d0cd2ed5a_1461899469.jpg
-tp219
+tp91
 a(VThe Grand Canal
 V\u5927\u904b\u6cb3
 Vhttp://icdrama.se/hk-drama/813-the-grand-canal/
 Vhttp://static.icdrama.se/images/thumbs/5721c0ba33555_1461829818.jpg
-tp220
+tp92
 a(VLa Femme Desperado
 V\u5973\u4eba\u5514\u6613\u505a
 Vhttp://icdrama.se/hk-drama/811-la-femme-desperado/
 Vhttp://static.icdrama.se/images/thumbs/56dd41392d506_1457340729.jpg
-tp221
+tp93
 a(VFace to Face
 V\u96d9\u9762\u4f0a\u4eba
 Vhttp://icdrama.se/hk-drama/395-face-to-face/
 Vhttp://static.icdrama.se/images/thumbs/5720817eb0fd8_1461748094.jpg
-tp222
+tp94
 a(VBurning Flame 3
 V\u6e2f\u5287 \u70c8\u706b\u96c4\u5fc3 3
 Vhttp://icdrama.se/hk-drama/12-burning-flame-3/
 Vhttp://static.icdrama.se/images/thumbs/576a2fd78ff05_1466576855.jpg
-tp223
+tp95
 a(VBurning Flame 2
 V\u70c8\u706b\u96c4\u5fc3 2
 Vhttp://icdrama.se/hk-drama/451-burning-flame-2/
 Vhttp://static.icdrama.se/images/thumbs/burning-flame-2-2002-poster.jpg
-tp224
+tp96
 a(VBurning Flame
 V\u70c8\u706b\u96c4\u5fc3
 Vhttp://icdrama.se/hk-drama/450-burning-flame/
 Vhttp://static.icdrama.se/images/thumbs/burning-flame-1998-poster.jpg
-tp225
+tp97
 a(VHome Troopers
 V\u5c45\u5bb6\u5175\u5718
 Vhttp://icdrama.se/hk-drama/150-home-troopers/
 Vhttp://static.icdrama.se/images/thumbs/576a2eaa0c498_1466576554.jpg
-tp226
+tp98
 a(VBeyond The Realm of Conscience
 V\u5bae\u5fc3\u8a08
 Vhttp://icdrama.se/hk-drama/7-beyond-the-realm-of-conscience/
 Vhttp://static.icdrama.se/images/thumbs/57b51ea56c354_1471487653.jpg
-tp227
+tp99
 a(VGhetto Justice 2
 V\u6012\u706b\u8857\u982d2
 Vhttp://icdrama.se/hk-drama/926-ghetto-justice-2/
 Vhttp://static.icdrama.se/images/thumbs/ghetto-justice-2.jpg
-tp228
+tp100
 a(VGhetto Justice
 V\u6012\u706b\u8857\u982d
 Vhttp://icdrama.se/hk-drama/242-ghetto-justice/
 Vhttp://static.icdrama.se/images/thumbs/ghetto-justice-2011.jpg
-tp229
+tp101
 a(VRomantic Repertoire
 V\u6c34\u9aee\u80ed\u8102
 Vhttp://icdrama.se/hk-drama/1776-romantic-repertoire/
 Vhttp://static.icdrama.se/images/thumbs/9ffe0a66jw1eqizghgs38j20hw0qoq6g.jpg
-tp230
+tp102
 a(VMargaret and David - Green Bean
 V\u739b\u5609\u70c8\u4e0e\u5927\u536b\u7cfb\u5217 - \u7eff\u8c46
 Vhttp://icdrama.se/hk-drama/2131-margaret-and-david-green-bean/
 Vhttp://static.icdrama.se/images/thumbs/12938164_1625220151066733_2939709712956772569_n.jpg
-tp231
+tp103
 a(VAngel In The Making
 V\u5be6\u7fd2\u5929\u4f7f
 Vhttp://icdrama.se/hk-drama/1983-angel-in-the-making/
 Vhttp://static.icdrama.se/images/thumbs/AngelInTheMaking2015TVB.jpg
-tp232
+tp104
 a(VPerish In The Name Of Love
 V\u5e1d\u5973\u82b1
 Vhttp://icdrama.se/hk-drama/235-perish-in-the-name-of-love/
 Vhttp://static.icdrama.se/images/thumbs/perish-in-the-name-of-love-2003.jpg
-tp233
+tp105
 a(VHouse Of Spirits
 V\u4e00\u5c4b\u8001\u53cb\u8a18
 Vhttp://icdrama.se/hk-drama/2251-house-of-spirits/
 Vhttp://static.icdrama.se/images/thumbs/house-of-spirits.jpg
-tp234
+tp106
 a(VBetween Love & Desire
 V\u5b8c\u7f8e\u53db\u4fb6
 Vhttp://icdrama.se/hk-drama/2294-between-love-desire/
 Vhttp://static.icdrama.se/images/thumbs/577503a6d3ecb_1467286438.jpg
-tp235
+tp107
 a(VPlain Love
 V\u60c5\u6fc3\u5927\u5730
 Vhttp://icdrama.se/hk-drama/808-plain-love/
 Vhttp://static.icdrama.se/images/thumbs/102591_o.jpg
-tp236
+tp108
 a(VThe Winter Melon Tale
 V\u5927\u51ac\u74dc
 Vhttp://icdrama.se/hk-drama/20-the-winter-melon-tale/
 Vhttp://static.icdrama.se/images/thumbs/208_o.jpg
-tp237
-a(VEternal Happiness
-V\u518d\u751f\u7de3
-Vhttp://icdrama.se/hk-drama/662-eternal-happiness/
-Vhttp://static.icdrama.se/images/thumbs/hhp.jpg
-tp238
-a(VCome On, Cousin
-V\u8001\u8868\uff0c\u4f60\u597dhea
-Vhttp://icdrama.se/hk-drama/1633-come-on-cousin/
-Vhttp://static.icdrama.se/images/thumbs/come-on-cousin-vert-poster.jpg
-tp239
-asg14
-(lp240
+tp109
+asS'_expiries'
+p110
+(lp111
+(g58
+cdatetime
+datetime
+p112
+(S'\x07\xe0\n\x1f\x13.5\x0c\x0e\xa6'
+tRp113
+tp114
+a(S"resources.lib.scrapers.pages(('http://icdrama.se/hk-drama/',), {})"
+p115
+g112
+(S'\x07\xe0\n\x1f\x13.5\x0c0\xd8'
+tRp116
+tp117
+a(g2
+g112
+(S'\x07\xe0\n\x1f\x13/-\x00E\xa8'
+tRp118
+tp119
+a(S"resources.lib.scrapers.pages(('http://icdrama.se/korean-drama-cantonesedub/',), {})"
+p120
+g112
+(S'\x07\xe0\n\x1f\x13/-\x00\x84\x16'
+tRp121
+tp122
+asg115
+(lp123
 (VPage 2
-Vhttp://icdrama.se/hk-movie/page-2.html
-tp241
+Vhttp://icdrama.se/hk-drama/page-2.html
+tp124
 a(VPage 3
-Vhttp://icdrama.se/hk-movie/page-3.html
-tp242
+Vhttp://icdrama.se/hk-drama/page-3.html
+tp125
 a(VPage 4
-Vhttp://icdrama.se/hk-movie/page-4.html
-tp243
+Vhttp://icdrama.se/hk-drama/page-4.html
+tp126
 a(VPage 5
-Vhttp://icdrama.se/hk-movie/page-5.html
-tp244
+Vhttp://icdrama.se/hk-drama/page-5.html
+tp127
 a(VLast »
-Vhttp://icdrama.se/hk-movie/page-5.html
-tp245
+Vhttp://icdrama.se/hk-drama/page-9.html
+tp128
+asg120
+(lp129
+(VPage 2
+p130
+Vhttp://icdrama.se/korean-drama-cantonesedub/page-2.html
+tp131
+a(VLast »
+p132
+Vhttp://icdrama.se/korean-drama-cantonesedub/page-2.html
+tp133
 as.
