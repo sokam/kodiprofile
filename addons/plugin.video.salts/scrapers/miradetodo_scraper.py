@@ -16,10 +16,9 @@
     along with this program.  If not, see <http://www.gnu.org/licenses/>.
 """
 import re
-import urllib
 import urlparse
 import base64
-import log_utils
+import log_utils  # @UnusedImport
 import kodi
 import dom_parser
 from salts_lib import scraper_utils
@@ -76,6 +75,7 @@ class Scraper(scraper.Scraper):
                         sources.update(self.__get_gk_links(html))
                         sources.update(self.__get_gk_links2(html))
                         sources.update(self.__get_amazon_links(html))
+                        sources.update(self._parse_sources_list(html))
                     else:
                         direct = False
                         host = urlparse.urlparse(iframe_url).hostname
@@ -131,7 +131,11 @@ class Scraper(scraper.Scraper):
             headers = {'Referer': iframe_url}
             html = self._http_get(self.gk_url, data=data, headers=headers, cache_limit=.5)
             js_data = scraper_utils.parse_json(html, self.gk_url)
-            for link in js_data.get('link', []):
+            links = js_data.get('link', [])
+            if isinstance(links, basestring):
+                links = [{'link': links}]
+                
+            for link in links:
                 stream_url = link['link']
                 if self._get_direct_hostname(stream_url) == 'gvideo':
                     quality = scraper_utils.gv_get_quality(stream_url)
@@ -142,10 +146,8 @@ class Scraper(scraper.Scraper):
                 sources[stream_url] = quality
         return sources
         
-    def search(self, video_type, title, year, season=''):
-        search_url = urlparse.urljoin(self.base_url, '/?s=')
-        search_url += urllib.quote_plus(title)
-        html = self._http_get(search_url, cache_limit=1)
+    def search(self, video_type, title, year, season=''):  # @UnusedVariable
+        html = self._http_get(self.base_url, params={'s': title}, cache_limit=1)
         results = []
         for item in dom_parser.parse_dom(html, 'div', {'class': 'item'}):
             match = re.search('href="([^"]+)', item)
@@ -155,14 +157,8 @@ class Scraper(scraper.Scraper):
                 url = match.group(1)
                 match_title = match_title[0]
                 if re.search('\d+\s*x\s*\d+', match_title): continue  # exclude episodes
-                match = re.search('(.*?)\s+\((\d{4})\)', match_title)
-                if match:
-                    match_title, match_year = match.groups()
-                else:
-                    match_title = match_title
-                    match_year = ''
-                
-                if year_frag:
+                match_title, match_year = scraper_utils.extra_year(match_title)
+                if not match_year and year_frag:
                     match_year = year_frag[0]
 
                 if not year or not match_year or year == match_year:

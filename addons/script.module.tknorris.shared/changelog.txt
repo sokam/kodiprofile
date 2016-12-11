@@ -1,3 +1,17 @@
+[B]Version 0.0.13[/B]
+- Add get_kodi_version
+- Reduce logging
+
+[B]Version 0.0.12[/B]
+- Add thumbnail log spam fix
+- Add has_addon
+- Allow queries to be a string
+
+[B]Version 0.0.11[/B]
+- Handle art directly
+- Add real busy dialog (Krypton only)
+- Add support for setCast() (Krypton only)
+
 [B]Version 0.0.9[/B]
 - Improve CustomProgressDialog cancel button
 

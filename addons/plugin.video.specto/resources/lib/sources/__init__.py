@@ -25,10 +25,8 @@ try: import xbmc
 except: pass
 
 try:
-    import urlresolver
-except:
     import urlresolver9 as urlresolver
-
+except: pass
 try:
     from sqlite3 import dbapi2 as database
 except:
@@ -421,7 +419,7 @@ class sources:
             except:
                 pass
 
-        if len(self.sources) >= 10: return True
+        if len(self.sources) >= 5: return True
         else: return False
 
 

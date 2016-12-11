@@ -16,9 +16,10 @@
     along with this program.  If not, see <http://www.gnu.org/licenses/>.
 """
 import re
-import urllib
 import urlparse
 import kodi
+import dom_parser
+import log_utils  # @UnusedImport
 from salts_lib import scraper_utils
 from salts_lib.constants import FORCE_NO_MATCH
 from salts_lib.constants import QUALITIES
@@ -47,7 +48,7 @@ class Scraper(scraper.Scraper):
     def resolve_link(self, link):
         url = urlparse.urljoin(self.base_url, link)
         html = self._http_get(url, cache_limit=0)
-        match = re.search('Check the mirror links on the left menu.*?(?:src|href)="([^"]+)', html, re.DOTALL)
+        match = re.search('href="([^"]+).*?src="/img/click_link.jpg"', html)
         if match:
             return match.group(1)
 
@@ -58,25 +59,22 @@ class Scraper(scraper.Scraper):
             url = urlparse.urljoin(self.base_url, source_url)
             html = self._http_get(url, cache_limit=.5)
 
-            pattern = r'id="tablemoviesindex2".*?href="([^"]+).*?&nbsp;([^<]+)(.*)'
+            pattern = r'id=\\?"tablemoviesindex2\\?".*?href\s*=\s*\\?[\'"]([^\'"]+).*?&nbsp;([^<]+)(.*)'
             for match in re.finditer(pattern, html):
                 url, host, extra = match.groups()
                 if not url.startswith('/'): url = '/' + url
                 r = re.search('/smileys/(\d+)\.gif', extra)
-                if r:
-                    smiley = r.group(1)
-                else:
-                    smiley = None
-
-                hoster = {'multi-part': False, 'host': host, 'class': self, 'quality': scraper_utils.get_quality(video, host, QUALITY_MAP[smiley]), 'views': None, 'rating': None, 'url': url, 'direct': False}
+                smiley = r.group(1) if r else None
+                quality = scraper_utils.get_quality(video, host, QUALITY_MAP[smiley])
+                hoster = {'multi-part': False, 'host': host, 'class': self, 'quality': quality, 'views': None, 'rating': None, 'url': url, 'direct': False}
                 hosters.append(hoster)
         return hosters
 
-    def search(self, video_type, title, year, season=''):
-        search_url = urlparse.urljoin(self.base_url, '/movies.php?list=search&search=')
-        search_url += urllib.quote_plus(title)
+    def search(self, video_type, title, year, season=''):  # @UnusedVariable
+        search_url = urlparse.urljoin(self.base_url, '/movies.php')
         cookies = {'onlylanguage': 'en', 'lang': 'en'}
-        html = self._http_get(search_url, cookies=cookies, cache_limit=.25)
+        params = {'list': 'search', 'search': title}
+        html = self._http_get(search_url, params=params, cookies=cookies, cache_limit=1)
         results = []
         pattern = 'id="tdmovies">\s*<a\s+href="([^"]+)">([^<]+).*?id="f7">(.*?)</TD>'
         for match in re.finditer(pattern, html, re.DOTALL):
@@ -101,11 +99,11 @@ class Scraper(scraper.Scraper):
     def _get_episode_url(self, show_url, video):
         if not scraper_utils.force_title(video):
             url = urlparse.urljoin(self.base_url, show_url)
-            html = self._http_get(url, cache_limit=.25)
-            match = re.search('<div id="episodediv%s"(.*?)</div>' % (video.season), html, re.DOTALL)
-            if match:
-                fragment = match.group(1)
-                pattern = 'value="([^"]+)">Episode %s<' % (video.episode)
-                match = re.search(pattern, fragment)
+            html = self._http_get(url, cache_limit=2)
+            season_div = 'episodediv%s' % (video.season)
+            fragment = dom_parser.parse_dom(html, 'div', {'id': season_div})
+            if fragment:
+                pattern = 'value="([^"]+)[^>]*>Episode %s\s*<' % (video.episode)
+                match = re.search(pattern, fragment[0], re.I)
                 if match:
                     return scraper_utils.pathify_url(match.group(1))

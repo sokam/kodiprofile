@@ -17,10 +17,9 @@
 """
 import scraper
 import urlparse
-import urllib
 import re
 import kodi
-import log_utils
+import log_utils  # @UnusedImport
 import dom_parser
 from salts_lib import scraper_utils
 from salts_lib.constants import VIDEO_TYPES
@@ -32,8 +31,8 @@ BASE_URL = 'http://moviezone.ch'
 class Scraper(scraper.Scraper):
     base_url = BASE_URL
 
-    def __init__(self, timeout=scraper.DEFAULT_TIMEOUT):
-        self.timeout = timeout
+    def __init__(self, timeout=scraper.DEFAULT_TIMEOUT):  # @UnusedVariable
+        self.timeout = 2  # manually set timeout for slow iframe calls
         self.base_url = kodi.get_setting('%s-base_url' % (self.get_name()))
 
     @classmethod
@@ -51,11 +50,15 @@ class Scraper(scraper.Scraper):
             url = urlparse.urljoin(self.base_url, source_url)
             html = self._http_get(url, cache_limit=8)
             sources = dom_parser.parse_dom(html, 'source', ret='src')
-            for fragment in dom_parser.parse_dom(html, 'div', {'id': 'div\d+'}):
-                iframes = dom_parser.parse_dom(fragment, 'iframe', ret='src')
-                for iframe_url in iframes:
+            iframes = dom_parser.parse_dom(html, 'iframe', {'class': 'movieframe'}, ret='src')
+            headers = {'Referer': url}
+            for iframe_url in iframes:
+                html = self._http_get(iframe_url, headers=headers, allow_redirect=False, method='HEAD', cache_limit=0)
+                if html.startswith('http'):
+                    sources.append(html)
+                else:
                     iframe_url = urlparse.urljoin(self.base_url, iframe_url)
-                    html = self._http_get(iframe_url, cache_limit=1)
+                    html = self._http_get(iframe_url, headers=headers, cache_limit=1)
                     sources += dom_parser.parse_dom(html, 'source', ret='src')
                     iframes += dom_parser.parse_dom(html, 'iframe', ret='src')
             
@@ -63,17 +66,19 @@ class Scraper(scraper.Scraper):
                 host = self._get_direct_hostname(source)
                 if host == 'gvideo':
                     quality = scraper_utils.gv_get_quality(source)
+                    direct = True
                 else:
                     quality = QUALITIES.HIGH
-                source = {'multi-part': False, 'url': source, 'host': host, 'class': self, 'quality': quality, 'views': None, 'rating': None, 'direct': True}
+                    direct = False
+                    host = urlparse.urlparse(source).hostname
+                source = {'multi-part': False, 'url': source, 'host': host, 'class': self, 'quality': quality, 'views': None, 'rating': None, 'direct': direct}
                 hosters.append(source)
 
         return hosters
 
-    def search(self, video_type, title, year, season=''):
+    def search(self, video_type, title, year, season=''):  # @UnusedVariable
         results = []
-        search_url = urlparse.urljoin(self.base_url, '/?s=%s' % (urllib.quote_plus(title)))
-        html = self._http_get(search_url, read_error=True, cache_limit=8)
+        html = self._http_get(self.base_url, params={'s': title}, read_error=True, cache_limit=16)
         for item in dom_parser.parse_dom(html, 'div', {'class': 'item'}):
             post_type = dom_parser.parse_dom(item, 'div', {'class': 'typepost'})
             if post_type and post_type[0] == 'tv': continue
@@ -82,15 +87,8 @@ class Scraper(scraper.Scraper):
             year_frag = dom_parser.parse_dom(item, 'span', {'class': 'year'})
             if match and match_title:
                 url = match.group(1)
-                match_title = match_title[0]
-                match = re.search('(.*?)\s+\((\d{4})\)', match_title)
-                if match:
-                    match_title, match_year = match.groups()
-                else:
-                    match_title = match_title
-                    match_year = ''
-                
-                if year_frag:
+                match_title, match_year = scraper_utils.extra_year(match_title[0])
+                if not match_year and year_frag:
                     match = re.search('(\d{4})', year_frag[0])
                     if match:
                         match_year = match.group(1)

@@ -16,7 +16,6 @@
     along with this program.  If not, see <http://www.gnu.org/licenses/>.
 """
 import re
-import urllib
 import urlparse
 import kodi
 import dom_parser
@@ -26,7 +25,7 @@ from salts_lib.constants import QUALITIES
 from salts_lib.constants import VIDEO_TYPES
 import scraper
 
-BASE_URL = 'http://watch8now.me'
+BASE_URL = 'http://geektv.ma'
 
 class Scraper(scraper.Scraper):
     base_url = BASE_URL
@@ -62,7 +61,7 @@ class Scraper(scraper.Scraper):
             url = urlparse.urljoin(self.base_url, source_url)
             html = self._http_get(url, cache_limit=.5)
     
-            for table_cell in dom_parser.parse_dom(html, 'td', {'class': 'domain'}):
+            for table_cell in dom_parser.parse_dom(html, 'td'):
                 match = re.search('href="([^"]+)(?:[^>]+>){2}\s*([^<]+)', table_cell)
                 if match:
                     link, host = match.groups()
@@ -72,16 +71,15 @@ class Scraper(scraper.Scraper):
         return hosters
 
     def _get_episode_url(self, show_url, video):
-        episode_pattern = 'href="([^"]+[sS]%s[eE]%s\.html)"' % (video.season, video.episode)
-        title_pattern = 'href="(?P<url>[^"]+[sS]\d+[eE]\d+\.html)"(?:[^>]+>){6}(?P<title>[^<]+)'
+        episode_pattern = 'href="([^"]+[sS]%s-?[eE]%s(?!\d)[^"]*)"' % (video.season, video.episode)
+        title_pattern = 'href="(?P<url>[^"]+[sS]\d+-?[eE]\d+[^"]*).*?Episode\s+\d+\s*:(?P<title>[^<]+)'
         return self._default_get_episode_url(show_url, video, episode_pattern, title_pattern)
 
-    def search(self, video_type, title, year, season=''):
-        search_url = urlparse.urljoin(self.base_url, '/search?q=')
-        search_url += urllib.quote_plus(title)
-        html = self._http_get(search_url, cache_limit=8)
+    def search(self, video_type, title, year, season=''):  # @UnusedVariable
+        search_url = urlparse.urljoin(self.base_url, '/search')
+        html = self._http_get(search_url, params={'q': title}, cache_limit=8)
         results = []
-        for item in dom_parser.parse_dom(html, 'h4', {'class': 'media-heading'}):
+        for item in dom_parser.parse_dom(html, 'td', {'class': 'col-md-10'}):
             match = re.search('href="([^"]+)">([^<]+)', item)
             if match:
                 url, match_title = match.groups()

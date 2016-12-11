@@ -17,7 +17,7 @@
 """
 import os
 from lib import log_utils  # @UnusedImport
-from lib.net import Net  # @UnusedImport
+from lib.net import Net, get_ua  # @UnusedImport
 from lib import cache  # @UnusedImport
 from lib import kodi
 
@@ -31,6 +31,7 @@ set_setting = kodi.set_setting
 open_settings = kodi.open_settings
 has_addon = kodi.has_addon
 
+RAND_UA = get_ua()
 IE_USER_AGENT = 'Mozilla/5.0 (Windows NT 6.1; WOW64; Trident/7.0; AS; rv:11.0) like Gecko'
 FF_USER_AGENT = 'Mozilla/5.0 (Windows NT 6.3; rv:36.0) Gecko/20100101 Firefox/36.0'
 OPERA_USER_AGENT = 'Mozilla/5.0 (Windows NT 6.1; WOW64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/47.0.2526.111 Safari/537.36 OPR/34.0.2036.50'

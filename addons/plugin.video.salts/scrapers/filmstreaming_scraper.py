@@ -16,10 +16,9 @@
     along with this program.  If not, see <http://www.gnu.org/licenses/>.
 """
 import re
-import urllib
 import urlparse
 import kodi
-import log_utils
+import log_utils  # @UnusedImport
 import dom_parser
 from salts_lib import scraper_utils
 from salts_lib.constants import FORCE_NO_MATCH
@@ -71,20 +70,15 @@ class Scraper(scraper.Scraper):
                     hosters.append(hoster)
         return hosters
 
-    def search(self, video_type, title, year, season=''):
-        search_url = urlparse.urljoin(self.base_url, '/?s=')
-        search_url += urllib.quote_plus('%s %s' % (title, year))
-        html = self._http_get(search_url, cache_limit=.25)
+    def search(self, video_type, title, year, season=''):  # @UnusedVariable
         results = []
+        html = self._http_get(self.base_url, params={'s': title}, cache_limit=1)
         for item in dom_parser.parse_dom(html, 'div', {'class': 'item'}):
             match = re.search('href="([^"]+).*?alt="([^"]+)', item, re.DOTALL)
             if match:
                 url, match_title_year = match.groups()
-                match = re.search('(.*?)(?:\s+\(?(\d{4})\)?)', match_title_year)
-                if match:
-                    match_title, match_year = match.groups()
-                else:
-                    match_title = match_title_year
+                match_title, match_year = scraper_utils.extra_year(match_title_year)
+                if not match_year:
                     year_fragment = dom_parser.parse_dom(item, 'span', {'class': 'year'})
                     if year_fragment:
                         match_year = year_fragment[0]

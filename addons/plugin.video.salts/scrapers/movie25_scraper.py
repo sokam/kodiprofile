@@ -17,10 +17,9 @@
 """
 import base64
 import re
-import urllib
 import urlparse
 import kodi
-import log_utils
+import log_utils  # @UnusedImport
 import dom_parser
 from salts_lib import scraper_utils
 from salts_lib.constants import FORCE_NO_MATCH
@@ -98,24 +97,16 @@ class Scraper(scraper.Scraper):
                     hosters.append(hoster)
         return hosters
 
-    def search(self, video_type, title, year, season=''):
+    def search(self, video_type, title, year, season=''):  # @UnusedVariable
         results = []
-        search_url = urlparse.urljoin(self.base_url, '/search.php?q=')
-        search_url += urllib.quote_plus(title)
-        html = self._http_get(search_url, cache_limit=4)
+        search_url = urlparse.urljoin(self.base_url, '/search.php')
+        html = self._http_get(search_url, params={'q': title}, cache_limit=4)
         for item in dom_parser.parse_dom(html, 'div', {'class': 'movie_about'}):
             match_url = dom_parser.parse_dom(item, 'a', ret='href')
             match_title_year = dom_parser.parse_dom(item, 'a')
             if match_url and match_title_year:
                 match_url = match_url[0]
-                match_title_year = match_title_year[0]
-                match = re.search('(.*?)\s+\((\d{4})\)', match_title_year)
-                if match:
-                    match_title, match_year = match.groups()
-                else:
-                    match_title = match_title_year
-                    match_year = ''
-                
+                match_title, match_year = scraper_utils.extra_year(match_title_year[0])
                 if not year or not match_year or year == match_year:
                     result = {'url': scraper_utils.pathify_url(match_url), 'title': scraper_utils.cleanse_title(match_title), 'year': match_year}
                     results.append(result)

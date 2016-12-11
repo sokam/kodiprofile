@@ -20,7 +20,7 @@ import re
 import urlparse
 import copy
 import kodi
-import log_utils
+import log_utils  # @UnusedImport
 from salts_lib import scraper_utils
 from salts_lib.constants import FORCE_NO_MATCH
 from salts_lib.constants import VIDEO_TYPES
@@ -78,7 +78,7 @@ class Scraper(scraper.Scraper):
         if ep_url:
             return scraper_utils.pathify_url(ep_url)
 
-    def search(self, video_type, title, year, season=''):
+    def search(self, video_type, title, year, season=''):  # @UnusedVariable
         results = []
         html = self._http_get(self.base_url, cache_limit=8)
         norm_title = scraper_utils.normalize_title(title)

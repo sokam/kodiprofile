@@ -1,566 +1,1267 @@
 (dp1
-S"resources.lib.scrapers.shows(('http://icdrama.se/korean-drama-cantonesedub/',), {})"
+S"resources.lib.scrapers.pages(('http://icdrama.se/japanese-drama-cantonesedub/',), {})"
 p2
 (lp3
-(VMoon Lovers - Scarlet Heart: Ryeo
-V\ub2ec\uc758 \uc5f0\uc778 \u2013 \ubcf4\ubcf4\uacbd\uc2ec: \ub824
-Vhttp://icdrama.se/korean-drama/2408-moon-lovers-scarlet-heart-ryeo/
-Vhttp://static.icdrama.se/images/thumbs/ScarletHeartRyeo.jpg
-tp4
-a(VSweet Mob Family (Cantonese)
+sS'_expiries'
+p4
+(lp5
+(S"resources.lib.scrapers.shows(('http://icdrama.se/hk-drama/',), {})"
+p6
+cdatetime
+datetime
+p7
+(S'\x07\xe0\x0b\x06\x11(7\x01\x0bR'
+tRp8
+tp9
+a(S"resources.lib.scrapers.pages(('http://icdrama.se/hk-drama/',), {})"
+p10
+g7
+(S'\x07\xe0\x0b\x06\x11(7\x01&\x08'
+tRp11
+tp12
+a(S"resources.lib.scrapers.shows(('http://icdrama.se/korean-drama-cantonesedub/',), {})"
+p13
+g7
+(S'\x07\xe0\x0b\x06\x11)\x11\n\xc6\xe0'
+tRp14
+tp15
+a(S"resources.lib.scrapers.pages(('http://icdrama.se/korean-drama-cantonesedub/',), {})"
+p16
+g7
+(S'\x07\xe0\x0b\x06\x11)\x11\n\xe4\x1a'
+tRp17
+tp18
+a(S"resources.lib.scrapers.shows(('http://icdrama.se/taiwanese-drama-cantonesedub/',), {})"
+p19
+g7
+(S'\x07\xe0\x0b\x06\x11)$\t\xa4\xf4'
+tRp20
+tp21
+a(S"resources.lib.scrapers.pages(('http://icdrama.se/taiwanese-drama-cantonesedub/',), {})"
+p22
+g7
+(S'\x07\xe0\x0b\x06\x11)$\t\xb8\xa3'
+tRp23
+tp24
+a(S"resources.lib.scrapers.shows(('http://icdrama.se/japanese-drama-cantonesedub/',), {})"
+p25
+g7
+(S'\x07\xe0\x0b\x06\x11)1\rjs'
+tRp26
+tp27
+a(g2
+g7
+(S'\x07\xe0\x0b\x06\x11)1\r\x86Q'
+tRp28
+tp29
+a(S"resources.lib.scrapers.recent_updates(('http://icdrama.se/recently-updated/',), {})"
+p30
+g7
+(S'\x07\xe0\x0b\x06\x11+\x08\x00K~'
+tRp31
+tp32
+asg10
+(lp33
+(VPage 2
+Vhttp://icdrama.se/hk-drama/page-2.html
+tp34
+a(VPage 3
+Vhttp://icdrama.se/hk-drama/page-3.html
+tp35
+a(VPage 4
+Vhttp://icdrama.se/hk-drama/page-4.html
+tp36
+a(VPage 5
+Vhttp://icdrama.se/hk-drama/page-5.html
+tp37
+a(VLast »
+Vhttp://icdrama.se/hk-drama/page-9.html
+tp38
+asg30
+(lp39
+(VMy Lover From The Planet Meow - \u4f86\u81ea\u55b5\u55b5\u661f\u7684\u59b3 - Episode 20
+Vhttp://icdrama.se/watch-online-my-lover-from-the-planet-meow-episode-20-71576.html
+tp40
+a(VNo Reserve - \u5dfe\u5e57\u689f\u96c4\u4e4b\u8adc\u8840\u9577\u5929 - Episode 30 [END]
+Vhttp://icdrama.se/watch-online-no-reserve-episode-30-end-72654.html
+tp41
+a(VTwo Steps From Heaven - \u5e55\u5f8c\u73a9\u5bb6 - Episode 10
+Vhttp://icdrama.se/watch-online-two-steps-from-heaven-episode-10-70346.html
+tp42
+a(VCome Home Love: Dinner at Eight - \u611b\uff0e\u56de\u5bb6\u4e4b\u516b\u6642\u5165\u5e2d - Episode 155
+Vhttp://icdrama.se/watch-online-come-home-love-dinner-at-eight-episode-155-72550.html
+tp43
+a(VThe Flower in Prison - \uc625\uc911\ud654 - Episode 51 [END] (50 Sub)
+Vhttp://icdrama.se/watch-online-the-flower-in-prison-episode-51-end-72698.html
+tp44
+a(VThe Gentlemen of Wolgyesu Tailor Shop - \uc6d4\uacc4\uc218 \uc591\ubcf5\uc810 \uc2e0\uc0ac\ub4e4 - Episode 22 (21 Sub)
+Vhttp://icdrama.se/watch-online-the-gentlemen-of-wolgyesu-tailor-shop-episode-22-72697.html
+tp45
+a(VBlow Breeze - \ubd88\uc5b4\ub77c \ubbf8\ud48d\uc544 - Episode 22 (20 Sub)
+Vhttp://icdrama.se/watch-online-blow-breeze-episode-22-72696.html
+tp46
+a(VSidewalk Scientist 4 - \u5b78\u662f\u5b78\u975e4 - Episode 32
+Vhttp://icdrama.se/watch-online-sidewalk-scientist-4-episode-32-72695.html
+tp47
+a(VI Heart HK - \u6211\u611b\u9999\u6e2f - Episode 12
+Vhttp://icdrama.se/watch-online-i-heart-hk-episode-12-72694.html
+tp48
+a(VBazaar Carnivals - \u8857\u5e02\u904a\u6a02\u5718 - Episode 08
+Vhttp://icdrama.se/watch-online-bazaar-carnivals-episode-08-72693.html
+tp49
+a(VSunday Report - \u661f\u671f\u65e5\u6a94\u6848 - 2016-11-06
+Vhttp://icdrama.se/watch-online-sunday-report-2016-11-06-26681.html
+tp50
+a(VNews At 6:30 - \u516d\u9ede\u534a\u65b0\u805e\u5831\u9053 - 2016-11-06
+Vhttp://icdrama.se/watch-online-news-at-6-30-2016-11-06-29913.html
+tp51
+a(VSweet Mob Family (Cantonese) - \u751c\u871c\u6bba\u6c23\u7684\u5bb6\u65cf - Episode 03
+Vhttp://icdrama.se/watch-online-sweet-mob-family-cantonese-episode-03-72692.html
+tp52
+a(VOne Piece - \u6d77\u8cca\u738b - Episode 577
+Vhttp://icdrama.se/watch-online-one-piece-episode-577-72691.html
+tp53
+a(VJapan Time - \u65e5\u672c\u5927\u653e\u9001 - Episode 28
+Vhttp://icdrama.se/watch-online-japan-time-episode-28-72689.html
+tp54
+a(VHirugao-Love Affairs in the Afternoon - \u665d\u984f - Episode 09
+Vhttp://icdrama.se/watch-online-hirugao-love-affairs-in-the-afternoon-episode-09-72688.html
+tp55
+a(VInfinity Challenge - \ubb34\ud55c\ub3c4\uc804 - Episode 505 (505 Sub)
+Vhttp://icdrama.se/watch-online-infinity-challenge-episode-505-72687.html
+tp56
+a(VI Live Alone - \ub098 \ud63c\uc790 \uc0b0\ub2e4 - Episode 180 (180 Sub)
+Vhttp://icdrama.se/watch-online-i-live-alone-episode-180-72686.html
+tp57
+a(VWe Got Married - Episode 346 (346 Sub)
+Vhttp://icdrama.se/watch-online-we-got-married-episode-346-72685.html
+tp58
+a(VView - Episode 26
+Vhttp://icdrama.se/watch-online-view-episode-26-72679.html
+tp59
+a(VUmaru-Chan - \u5e72\u7269\u59b9 - Episode 10
+Vhttp://icdrama.se/watch-online-umaru-chan-episode-10-72678.html
+tp60
+a(VKyoukai no Rinne - \u5883\u754c\u4e4b\u8f2a\u8ff4 - Episode 32
+Vhttp://icdrama.se/watch-online-kyoukai-no-rinne-episode-32-72677.html
+tp61
+a(VChibi Devi (30 min) - \u60e1\u9b54\u5bf6\u5bf6 - Episode 10
+Vhttp://icdrama.se/watch-online-chibi-devi-30-min-episode-10-72676.html
+tp62
+a(VCanton Lyrics Lovers - \u7cb5\u8a5e\u8d8a\u611b - Episode 32
+Vhttp://icdrama.se/watch-online-canton-lyrics-lovers-episode-32-72675.html
+tp63
+a(VOur Gap Soon - \uc6b0\ub9ac \uac11\uc21c\uc774 - Episode 22 (21 Sub)
+Vhttp://icdrama.se/watch-online-our-gap-soon-episode-22-72673.html
+tp64
+a(VRefresh Man (Cantonese) - \u5f8c\u83dc\u9ce5\u7684\u71e6\u721b\u6642\u4ee3 - Episode 13
+Vhttp://icdrama.se/watch-online-refresh-man-cantonese-episode-13-72672.html
+tp65
+a(VNaomi and Kanako (Cantonese) - \u76f4\u7f8e\u8207\u52a0\u5948\u5b50 - Episode 07
+Vhttp://icdrama.se/watch-online-naomi-and-kanako-cantonese-episode-07-72668.html
+tp66
+a(VDouble Happiness - \u559c\u2027\u96d9\u98db - Episode 07
+Vhttp://icdrama.se/watch-online-double-happiness-episode-07-72667.html
+tp67
+a(VI Wish You Happy - \u6211\u8aaa\u904e\u8981\u4f60\u5feb\u6a02 - Episode 05
+Vhttp://icdrama.se/watch-online-i-wish-you-happy-episode-05-72666.html
+tp68
+a(VBORDER - Episode 09
+Vhttp://icdrama.se/watch-online-border-episode-09-72665.html
+tp69
+a(VMidnight Munchies 3 - \u591c\u5bb5\u78e83 - Episode 29
+Vhttp://icdrama.se/watch-online-midnight-munchies-3-episode-29-72664.html
+tp70
+a(VHong Kong LA Connection - \u671b\u5b50\u6210\u624d- \u7f8e\u570b\u7bc7 - Episode 11
+Vhttp://icdrama.se/watch-online-hong-kong-la-connection-episode-11-72663.html
+tp71
+a(VWhat's Daddy 4 - \u842c\u91cc\u5c0b\u7238 - Episode 05
+Vhttp://icdrama.se/watch-online-what-s-daddy-4-episode-05-72662.html
+tp72
+a(VNews Magazine - \u65b0\u805e\u900f\u8996 - 2016-11-05
+Vhttp://icdrama.se/watch-online-news-magazine-2016-11-05-29273.html
+tp73
+a(VMy Wife's Having an Affair this Week - \uc774\ubc88\uc8fc, \uc544\ub0b4\uac00 \ubc14\ub78c\uc744 \ud54d\ub2c8\ub2e4 - Episode 04 (04 Sub)
+Vhttp://icdrama.se/watch-online-my-wife-s-having-an-affair-this-week-episode-04-72659.html
+tp74
+a(VEntourage - \uc548\ud22c\ub77c\uc9c0 - Episode 02 (02 Sub)
+Vhttp://icdrama.se/watch-online-entourage-episode-02-72539.html
+tp75
+a(VScoop - \u6771\u5f35\u897f\u671b - 2016-11-04
+Vhttp://icdrama.se/watch-online-scoop-2016-11-04-29793.html
+tp76
+a(VThe K2 - \ub354 \ucf00\uc774\ud22c - Episode 14 (14 Sub)
+Vhttp://icdrama.se/watch-online-the-k2-episode-14-72657.html
+tp77
+a(VRadio Star - Episode 499 (499 Sub)
+Vhttp://icdrama.se/watch-online-radio-star-episode-499-72655.html
+tp78
+a(VA Time of Love 2 - \u611b\u60c5\u4f86\u7684\u6642\u5019 2 - Episode 01
+Vhttp://icdrama.se/watch-online-a-time-of-love-2-episode-01-67109.html
+tp79
+a(VTalker - One Beside You - \u665a\u5439 - \u7e3d\u6709\u4e00\u96bb\u4fc2\u5de6\u8fd1 - Episode 30
+Vhttp://icdrama.se/watch-online-talker-one-beside-you-episode-30-72642.html
+tp80
+a(VChallenge 1996 - \u6311\u62301996 - Episode 12
+Vhttp://icdrama.se/watch-online-challenge-1996-episode-12-72641.html
+tp81
+a(VTemptation (Cantonese) - \uc720\ud639 - Episode 25
+Vhttp://icdrama.se/watch-online-temptation-cantonese-episode-25-72640.html
+tp82
+a(VMajinbone - \u9b54\u795e\u4e4b\u9aa8 - Episode 12
+Vhttp://icdrama.se/watch-online-majinbone-episode-12-72639.html
+tp83
+a(VDuel Masters VS Series - \u6c7a\u9b25\u5927\u5e2b VS - Episode 04
+Vhttp://icdrama.se/watch-online-duel-masters-vs-series-episode-04-72637.html
+tp84
+a(VDanchi Tomoo - \u53cb\u592b\u65e5\u8a18 - Episode 45
+Vhttp://icdrama.se/watch-online-danchi-tomoo-episode-45-72636.html
+tp85
+a(VD-Day (Cantonese) - \ub514\ub370\uc774 - Episode 11
+Vhttp://icdrama.se/watch-online-d-day-cantonese-episode-11-72635.html
+tp86
+a(VKnowing Bros - \uc544\ub294 \ud615\ub2d8 - Episode 48 (48 Sub)
+Vhttp://icdrama.se/watch-online-knowing-bros-episode-48-72634.html
+tp87
+a(VWai Gor's Wok - \u7152\u54e5\u7684\u5473\u9053 - Episode 15
+Vhttp://icdrama.se/watch-online-wai-gor-s-wok-episode-15-72622.html
+tp88
+a(VThe Imperial Doctress (Cantonese) - \u5973\u91ab\u2027\u660e\u5983\u50b3 - Episode 40
+Vhttp://icdrama.se/watch-online-the-imperial-doctress-cantonese-episode-40-72621.html
+tp89
+a(VNeko Samurai Season 1 (Cantonese) - \u8c93\u4f8d - Episode 02
+Vhttp://icdrama.se/watch-online-neko-samurai-season-1-cantonese-episode-02-72617.html
+tp90
+a(VHiking Walking - \u5c71\u6b65\uff0e\u884c - Episode 17
+Vhttp://icdrama.se/watch-online-hiking-walking-episode-17-72616.html
+tp91
+a(VTalker - Helmet Intercom - \u665a\u5439 - \u53c8\u8981\u5a01 \u53c8\u8981\u6234\u982d\u76d4 - Episode 31
+Vhttp://icdrama.se/watch-online-talker-helmet-intercom-episode-31-72614.html
+tp92
+a(VBeyond Concrete Walls - \u5efa\u7bc9\u2027\u6211\u57ce - Episode 04
+Vhttp://icdrama.se/watch-online-beyond-concrete-walls-episode-04-72613.html
+tp93
+a(VBegin Again - Begin Again \u7570\u9109\u518d\u51fa\u9053 - Episode 08
+Vhttp://icdrama.se/watch-online-begin-again-episode-08-72612.html
+tp94
+a(VShining Days (Cantonese) - \u7480\u74a8\u4eba\u751f - Episode 31
+Vhttp://icdrama.se/watch-online-shining-days-cantonese-episode-31-72611.html
+tp95
+a(VOn the Way to the Airport - \uacf5\ud56d \uac00\ub294 \uae38 - Episode 14 (14 Sub)
+Vhttp://icdrama.se/watch-online-on-the-way-to-the-airport-episode-14-72595.html
+tp96
+a(VJealousy Incarnate - \uc9c8\ud22c\uc758 \ud654\uc2e0 - Episode 22 (22 Sub)
+Vhttp://icdrama.se/watch-online-jealousy-incarnate-episode-22-72592.html
+tp97
+a(VShopping King Louie - \uc1fc\ud551\uc655 \ub8e8\uc774 - Episode 13 (13 Sub)
+Vhttp://icdrama.se/watch-online-shopping-king-louie-episode-13-72591.html
+tp98
+a(VSomething About 1% - 1%\uc758 \uc5b4\ub5a4\uac83 - Episode 10 (10 Sub)
+Vhttp://icdrama.se/watch-online-something-about-1-episode-10-72590.html
+tp99
+a(VThe Nocturnes - \u591c\u66f213 - Episode 03
+Vhttp://icdrama.se/watch-online-the-nocturnes-episode-03-72584.html
+tp100
+a(VTalker - Kids Talk - \u665a\u5439 - \u4e00\u5927\u4e00\u8def - Episode 29
+Vhttp://icdrama.se/watch-online-talker-kids-talk-episode-29-72583.html
+tp101
+a(VLine Town - \u3042\u308a\u304c\u3068\u3046 - Episode 42
+Vhttp://icdrama.se/watch-online-line-town-episode-42-72580.html
+tp102
+a(VBrilliant Table for Babies - \u662f\u65e5B\u9910 - Episode 11
+Vhttp://icdrama.se/watch-online-brilliant-table-for-babies-episode-11-72576.html
+tp103
+a(VTaiwan 72 Hours - \u53f0\u706372\u5c0f\u6642 - Episode 04
+Vhttp://icdrama.se/watch-online-taiwan-72-hours-episode-04-72573.html
+tp104
+a(VWoman with a Suitcase - \uce90\ub9ac\uc5b4\ub97c \ub044\ub294 \uc5ec\uc790 - Episode 11 (11 Sub)
+Vhttp://icdrama.se/watch-online-woman-with-a-suitcase-episode-11-72570.html
+tp105
+a(V3 x 1 - \u4e09\u4e00\u5982\u4e09 - Episode 30
+Vhttp://icdrama.se/watch-online-3-x-1-episode-30-72560.html
+tp106
+a(VChef Corner Junior - \u5c0f\u300c\u716e\u300d\u89d2 - Episode 10
+Vhttp://icdrama.se/watch-online-chef-corner-junior-episode-10-72547.html
+tp107
+a(VThe Man Living in Our House - \uc6b0\ub9ac\uc9d1\uc5d0 \uc0ac\ub294 \ub0a8\uc790 - Episode 04 (04 Sub)
+Vhttp://icdrama.se/watch-online-the-man-living-in-our-house-episode-04-72544.html
+tp108
+a(VMoon Lovers - Scarlet Heart: Ryeo - \ub2ec\uc758 \uc5f0\uc778 \u2013 \ubcf4\ubcf4\uacbd\uc2ec: \ub824 - Episode 20 [END] (Completed)
+Vhttp://icdrama.se/watch-online-moon-lovers-scarlet-heart-ryeo-episode-20-end-72538.html
+tp109
+a(VStay Overnight Season 2 - \u501f\u5bbf\u4e00\u5bb5 2 - Episode 11
+Vhttp://icdrama.se/watch-online-stay-overnight-season-2-episode-11-72537.html
+tp110
+a(VTalker - PK Show - \u665a\u5439 - \u771fPK - Episode 29
+Vhttp://icdrama.se/watch-online-talker-pk-show-episode-29-72534.html
+tp111
+a(VBullseye - \u73a9\u547d\u6a19\u9776 - Episode 02
+Vhttp://icdrama.se/watch-online-bullseye-episode-02-72532.html
+tp112
+a(VPainless - The Eyes for Signs (Cantonese) - \u7121\u75db - \u8a3a\u7642\u4e4b\u773c - Episode 06
+Vhttp://icdrama.se/watch-online-painless-the-eyes-for-signs-cantonese-episode-06-72527.html
+tp113
+a(VTaiwan Motel Travelodge - \u53f0\u7063\u6c11\u5bbf - Episode 01
+Vhttp://icdrama.se/watch-online-taiwan-motel-travelodge-episode-01-72525.html
+tp114
+a(VTwo Dollar Senior Tours - 2\u868a\u904a - Episode 01
+Vhttp://icdrama.se/watch-online-two-dollar-senior-tours-episode-01-72524.html
+tp115
+a(VGo Ho, The Starry Night - \uace0\ud638\uc758 \ubcc4\uc774 \ube5b\ub098\ub294 \ubc24\uc5d0 - Episode 04 [END] (02 Sub)
+Vhttp://icdrama.se/watch-online-go-ho-the-starry-night-episode-04-end-72514.html
+tp116
+a(VRunning Man - \ub7f0\ub2dd\ub9e8 - Episode 323 (323 Sub)
+Vhttp://icdrama.se/watch-online-running-man-episode-323-72512.html
+tp117
+a(VKorean Cuisine and Dining - \ud55c\uad6d\uc778\uc758 \ubc25\uc0c1 - Episode 291 (391 Sub)
+Vhttp://icdrama.se/watch-online-korean-cuisine-and-dining-episode-291-72505.html
+tp118
+a(VYou Hee-yeol's Sketchbook - \uc720\ud76c\uc5f4\uc758 \uc2a4\ucf00\uce58\ubd81 - Episode 339 (339 Sub)
+Vhttp://icdrama.se/watch-online-you-hee-yeol-s-sketchbook-episode-339-72497.html
+tp119
+a(VTakumi of Hobby - \u8208\u8da3\u5927\u5e2b - Episode 03
+Vhttp://icdrama.se/watch-online-takumi-of-hobby-episode-03-72487.html
+tp120
+a(VShow By Rock - \u6416\u6efe\u5c11\u5973 - Episode 09
+Vhttp://icdrama.se/watch-online-show-by-rock-episode-09-72484.html
+tp121
+a(VNeighborhood Gourmet 4 - \u8857\u574a\u5eda\u795e\u820c\u6230\u6771\u4eac4 - Episode 01
+Vhttp://icdrama.se/watch-online-neighborhood-gourmet-4-episode-01-72481.html
+tp122
+a(VKingdom - \u6230\u570b\u82f1\u96c4 - Episode 31
+Vhttp://icdrama.se/watch-online-kingdom-episode-31-72477.html
+tp123
+a(VInfinite Challenge (Cantonese) - \u7121\u9650\u6311\u6230 - Episode 030
+Vhttp://icdrama.se/watch-online-infinite-challenge-cantonese-episode-030-72475.html
+tp124
+a(VFun Days Out - \u8ab2\u5916 Fun Days Out - Episode 05
+Vhttp://icdrama.se/watch-online-fun-days-out-episode-05-72473.html
+tp125
+a(VAmanchu - \u85cd\u6d77\u5c11\u5973 - Episode 05
+Vhttp://icdrama.se/watch-online-amanchu-episode-05-72472.html
+tp126
+a(VAge Gap Love - \u6200\u611b\u9f61\u8ddd\u96e2 - Episode 05
+Vhttp://icdrama.se/watch-online-age-gap-love-episode-05-72471.html
+tp127
+a(VHappy Together 3 - Episode 471 (471 Sub)
+Vhttp://icdrama.se/watch-online-happy-together-3-episode-471-72468.html
+tp128
+a(VShowTime \u6211\u4e3b\u5834 - Episode 04
+Vhttp://icdrama.se/watch-online-showtime-\u6211\u4e3b\u5834-episode-04-72458.html
+tp129
+a(VStarHub TVB Awards 2016 - \u661f\u548c\u7121\u7dab\u96fb\u8996\u5927\u734e2016
+Vhttp://icdrama.se/watch-online-starhub-tvb-awards-2016-72452.html
+tp130
+a(V404 Countries Not Found - 404\u4e0d\u5b58\u5728\u7684\u570b\u843d - Episode 14
+Vhttp://icdrama.se/watch-online-404-countries-not-found-episode-14-72363.html
+tp131
+a(VThe Legend of Chusen - \u8bdb\u4ed9\u9752\u4e91\u5fd7 - Episode 54 (25 Sub)
+Vhttp://icdrama.se/watch-online-the-legend-of-chusen-episode-54-72358.html
+tp132
+a(VTVB Entertainment News - 2016-10-25
+Vhttp://icdrama.se/watch-online-tvb-entertainment-news-2016-10-25-31976.html
+tp133
+a(VDrinking Solo - \ud63c\uc220\ub0a8\ub140 - Episode 16 [END] (Completed)
+Vhttp://icdrama.se/watch-online-drinking-solo-episode-16-end-72271.html
+tp134
+a(VGreen Room - \u4eca\u65e5VIP - 2016-10-25
+Vhttp://icdrama.se/watch-online-green-room-2016-10-25-29069.html
+tp135
+a(VPleasure and Leisure - \u90fd\u5e02\u9592\u60c5 - 2016-10-25
+Vhttp://icdrama.se/watch-online-pleasure-and-leisure-2016-10-25-31825.html
+tp136
+a(V1 Night 2 Days - 1\ubc15 2\uc77c - Episode 468 (468 Sub)
+Vhttp://icdrama.se/watch-online-1-night-2-days-episode-468-72246.html
+tp137
+a(VKing of Mask Singer - \ubbf8\uc2a4\ud130\ub9ac \uc74c\uc545\uc1fc: \ubcf5\uba74\uac00\uc655 - Episode 082 (82 Sub)
+Vhttp://icdrama.se/watch-online-king-of-mask-singer-episode-082-72238.html
+tp138
+a(VFantastic Duo - \ud310\ud0c0\uc2a4\ud2f1 \ub4c0\uc624 - Episode 27 (27 Sub)
+Vhttp://icdrama.se/watch-online-fantastic-duo-episode-27-72237.html
+tp139
+a(VGod's Gift - 14 Days (Cantonese) - \u795e\u7684\u79ae\u7269 - Episode 14
+Vhttp://icdrama.se/watch-online-god-s-gift-14-days-cantonese-episode-14-58154.html
+tp140
+a(VSecret Garden (Cantonese) - \uc2dc\ud06c\ub9bf \uac00\ub4e0 - Episode 09
+Vhttp://icdrama.se/watch-online-secret-garden-cantonese-episode-09-72229.html
+tp141
+a(VTalker - Inside Out - \u665a\u5439 - \u556a\u556a\u8072\uff0c\u592a\u597d\u807d - Episode 07
+Vhttp://icdrama.se/watch-online-talker-inside-out-episode-07-72221.html
+tp142
+a(VBlowing in the World - \u98a8\u884c\u5168\u4e16\u754c - Episode 17
+Vhttp://icdrama.se/watch-online-blowing-in-the-world-episode-17-72213.html
+tp143
+a(VSister's Slam Dunk - \uc5b8\ub2c8\ub4e4\uc758 \uc2ac\ub7a8\ub369\ud06c - Episode 27 (27 Sub)
+Vhttp://icdrama.se/watch-online-sister-s-slam-dunk-episode-27-72209.html
+tp144
+a(VInterviu - Episode 25
+Vhttp://icdrama.se/watch-online-interviu-episode-25-72190.html
+tp145
+a(VGunman in Joseon (Cantonese) - \uc870\uc120 \ucd1d\uc7a1\uc774 - Episode 22
+Vhttp://icdrama.se/watch-online-gunman-in-joseon-cantonese-episode-22-72187.html
+tp146
+a(V5 Kids And A Bloke - \u4e94\u500b\u5c0f\u5b69\u7684\u5927\u53d4 - Episode 04
+Vhttp://icdrama.se/watch-online-5-kids-and-a-bloke-episode-04-72174.html
+tp147
+a(VChow HK Block To Block - \u5340\u5340\u958b\u4f19 - Episode 14
+Vhttp://icdrama.se/watch-online-chow-hk-block-to-block-episode-14-71549.html
+tp148
+a(VLaw Of The Jungle - \uc815\uae00\uc758 \ubc95\uce59 - Episode 236 (236 Sub)
+Vhttp://icdrama.se/watch-online-law-of-the-jungle-episode-236-72162.html
+tp149
+a(VFantastic - \ud310\ud0c0\uc2a4\ud2f1 - Episode 16 [END] (Completed)
+Vhttp://icdrama.se/watch-online-fantastic-episode-16-end-72151.html
+tp150
+a(VSenior - \u5c62\u898b\u8006\u5de5 - Episode 30
+Vhttp://icdrama.se/watch-online-senior-episode-30-72150.html
+tp151
+a(VOn The Road - \u9957\u5c0e - Episode 04
+Vhttp://icdrama.se/watch-online-on-the-road-episode-04-72146.html
+tp152
+a(VLet's Talk ! - Talk\u5566\uff01\u9752\u5e74\u4eba - Episode 05
+Vhttp://icdrama.se/watch-online-let-s-talk--episode-05-72130.html
+tp153
+a(VBrother's Keeper 2 - \u5de8\u8f2a2 - Episode 39 [END] (Completed)
+Vhttp://icdrama.se/watch-online-brother-s-keeper-2-episode-39-end-57869.html
+tp154
+a(VCheese in the Trap (Cantonese) - \u5976\u916a\u9677\u9631 - Episode 14
+Vhttp://icdrama.se/watch-online-cheese-in-the-trap-cantonese-episode-14-72111.html
+tp155
+a(VWorld Trigger (Cantonese) - \u5883\u754c\u89f8\u767c\u8005 - Episode 47
+Vhttp://icdrama.se/watch-online-world-trigger-cantonese-episode-47-72103.html
+tp156
+a(VThe Three Heroes and Five Gallants - \u4e94\u9f20\u9b27\u6771\u4eac - Episode 37
+Vhttp://icdrama.se/watch-online-the-three-heroes-and-five-gallants-episode-37-72098.html
+tp157
+a(VChasing Stars in Seoul - \u9996\u723e\u8ffd\u661f\u8a18 - Episode 08
+Vhttp://icdrama.se/watch-online-chasing-stars-in-seoul-episode-08-72077.html
+tp158
+asg13
+(lp159
+(VSweet Mob Family (Cantonese)
 V\u751c\u871c\u6bba\u6c23\u7684\u5bb6\u65cf
 Vhttp://icdrama.se/korean-drama/2564-sweet-mob-family-cantonese/
 Vhttp://static.icdrama.se/images/thumbs/SweetFamily.jpg
-tp5
+tp160
 a(VTemptation (Cantonese)
 V\uc720\ud639
 Vhttp://icdrama.se/korean-drama/2511-temptation-cantonese/
 Vhttp://static.icdrama.se/images/thumbs/Temptation-Poster1.jpg
-tp6
+tp161
 a(VD-Day (Cantonese)
 V\ub514\ub370\uc774
 Vhttp://icdrama.se/korean-drama/2549-d-day-cantonese/
 Vhttp://static.icdrama.se/images/thumbs/D-Day.jpg
-tp7
+tp162
+a(VMoon Lovers - Scarlet Heart: Ryeo
+V\ub2ec\uc758 \uc5f0\uc778 \u2013 \ubcf4\ubcf4\uacbd\uc2ec: \ub824
+Vhttp://icdrama.se/korean-drama/2408-moon-lovers-scarlet-heart-ryeo/
+Vhttp://static.icdrama.se/images/thumbs/ScarletHeartRyeo.jpg
+tp163
 a(VGod's Gift - 14 Days (Cantonese)
 V\u795e\u7684\u79ae\u7269
 Vhttp://icdrama.se/korean-drama/2333-god-s-gift-14-days-cantonese/
 Vhttp://static.icdrama.se/images/thumbs/57884a136fd56_1468549651.jpg
-tp8
+tp164
 a(VSecret Garden (Cantonese)
 V\uc2dc\ud06c\ub9bf \uac00\ub4e0
 Vhttp://icdrama.se/korean-drama/2517-secret-garden-cantonese/
 Vhttp://static.icdrama.se/images/thumbs/Secret_garden_korean_drama.jpg
-tp9
+tp165
 a(VGunman in Joseon (Cantonese)
 V\uc870\uc120 \ucd1d\uc7a1\uc774
 Vhttp://icdrama.se/korean-drama/2371-gunman-in-joseon-cantonese/
 Vhttp://static.icdrama.se/images/thumbs/Joseon-Gunman-04.jpg
-tp10
+tp166
 a(VCheese in the Trap (Cantonese)
 V\u5976\u916a\u9677\u9631
 Vhttp://icdrama.se/korean-drama/2499-cheese-in-the-trap-cantonese/
 Vhttp://static.icdrama.se/images/thumbs/CheeseintheTrap.jpg
-tp11
+tp167
 a(VHealer (Cantonese)
 VHEALER\u8ffd\u64ca
 Vhttp://icdrama.se/korean-drama/2429-healer-cantonese/
 Vhttp://static.icdrama.se/images/thumbs/Healer-04.jpg
-tp12
+tp168
 a(VMemory
 V\uae30\uc5b5
 Vhttp://icdrama.se/korean-drama/2099-memory/
 Vhttp://static.icdrama.se/images/thumbs/Memory-Poster1a.jpg
-tp13
+tp169
 a(VNeighborhood Hero
 V\ub3d9\ub124\uc758 \uc601\uc6c5
 Vhttp://icdrama.se/korean-drama/2044-neighborhood-hero/
 Vhttp://static.icdrama.se/images/thumbs/Neighborhood-Hero-04.jpg
-tp14
+tp170
 a(VYong Pal
 V\uc6a9\ud314\uc774
 Vhttp://icdrama.se/korean-drama/1877-yong-pal/
 Vhttp://static.icdrama.se/images/thumbs/Yong-Pal-04.jpg
-tp15
+tp171
 a(VCome Back Alive (Cantonese)
 V\u56de\u4f86\u5427\u5927\u53d4
 Vhttp://icdrama.se/korean-drama/2451-come-back-alive-cantonese/
 Vhttp://static.icdrama.se/images/thumbs/ComeBackAlive-2016.jpg
-tp16
+tp172
 a(VSecret Affair (Cantonese)
 V\u5bc6\u6703
 Vhttp://icdrama.se/korean-drama/2398-secret-affair-cantonese/
 Vhttp://static.icdrama.se/images/thumbs/SecretAffair.jpg
-tp17
+tp173
 a(VHidden Identity
 V\uc2e0\ubd84\uc744 \uc228\uaca8\ub77c
 Vhttp://icdrama.se/korean-drama/1833-hidden-identity/
 Vhttp://static.icdrama.se/images/thumbs/Hidden-Identity-03.jpg
-tp18
+tp174
 a(VTime Slip Dr. Jin (Cantonese)
 V\u8d8a\u7a7a\u4ec1\u91ab
 Vhttp://icdrama.se/korean-drama/2471-time-slip-dr-jin-cantonese/
 Vhttp://static.icdrama.se/images/thumbs/DrJin.jpg
-tp19
+tp175
 a(VThe Producers (Cantonese)
 V\u88fd\u4f5c\u4eba\u5011
 Vhttp://icdrama.se/korean-drama/2094-the-producers-cantonese/
 Vhttp://static.icdrama.se/images/thumbs/The-Producer1.jpg
-tp20
+tp176
 a(VPotato Star 2013 QR3
 V\uac10\uc790\ubcc4 2013QR3
 Vhttp://icdrama.se/korean-drama/2308-potato-star-2013-qr3/
 Vhttp://static.icdrama.se/images/thumbs/107529_o.jpg
-tp21
+tp177
 a(VAngel Eyes (Cantonese)
 V\uc5d4\uc824\uc544\uc774\uc988
 Vhttp://icdrama.se/korean-drama/2368-angel-eyes-cantonese/
 Vhttp://static.icdrama.se/images/thumbs/Angel-Eyes-04.jpg
-tp22
+tp178
 a(VMy Little Baby (Cantonese)
 VB\u4efb\u52d9
 Vhttp://icdrama.se/korean-drama/2089-my-little-baby-cantonese/
 Vhttp://static.icdrama.se/images/thumbs/My-Little-Baby-06.jpg
-tp23
+tp179
 a(VReply 1988 (Cantonese)
 V\u56de\u7b54\u5427\uff011988
 Vhttp://icdrama.se/korean-drama/2344-reply-1988-cantonese/
 Vhttp://static.icdrama.se/images/thumbs/Reply1988.jpg
-tp24
+tp180
 a(VDiary of a Night Watchman (Cantonese)
 V\u591c\u8b66\u65e5\u8a8c
 Vhttp://icdrama.se/korean-drama/2436-diary-of-a-night-watchman-cantonese/
 Vhttp://static.icdrama.se/images/thumbs/The-Night-Watchman.jpg
-tp25
+tp181
 a(VHigh School King of Savvy (Cantonese)
 V\u9ad8\u6821\u6253\u5de5\u738b
 Vhttp://icdrama.se/korean-drama/1726-high-school-king-of-savvy-cantonese/
 Vhttp://static.icdrama.se/images/thumbs/FC0iw.jpg
-tp26
+tp182
 a(VAll About My Mom
 V\ubd80\ud0c1\ud574\uc694 \uc5c4\ub9c8
 Vhttp://icdrama.se/korean-drama/1888-all-about-my-mom/
 Vhttp://static.icdrama.se/images/thumbs/All-About-My-Mom-03.jpg
-tp27
+tp183
 a(VMaids (Cantonese)
 V\u4e0b\u5973\u4eec
 Vhttp://icdrama.se/korean-drama/2415-maids-cantonese/
 Vhttp://static.icdrama.se/images/thumbs/Maids-Poster1.jpg
-tp28
+tp184
 a(VYou Will Love Me
 V\uc720\uc77c\ub78d\ubbf8
 Vhttp://icdrama.se/korean-drama/2374-you-will-love-me/
 Vhttp://static.icdrama.se/images/thumbs/You-Will-Love-Me-02.jpg
-tp29
+tp185
 a(VSignal
 V\uc2dc\uadf8\ub110
 Vhttp://icdrama.se/korean-drama/2034-signal/
 Vhttp://static.icdrama.se/images/thumbs/Signal-06.jpg
-tp30
+tp186
 a(VGolden Cross
 V\uace8\ub4e0 \ud06c\ub85c\uc2a4
 Vhttp://icdrama.se/korean-drama/1473-golden-cross/
 Vhttp://static.icdrama.se/images/thumbs/Golden-Cross-Poster1.jpg
-tp31
+tp187
 a(VShe Was Pretty (Cantonese)
 V\u5979\u5f88\u6f02\u4eae
 Vhttp://icdrama.se/korean-drama/2254-she-was-pretty-cantonese/
 Vhttp://static.icdrama.se/images/thumbs/She-Was-Pretty-06.jpg
-tp32
+tp188
 a(VKARA: Secret Love
 V\uc2dc\ud06c\ub9bf \ub7ec\ube0c
 Vhttp://icdrama.se/korean-drama/2262-kara-secret-love/
 Vhttp://static.icdrama.se/images/thumbs/Secret_Love_Kara.jpg
-tp33
+tp189
 a(VDescendants of the Sun (Cantonese)
 V\u592a\u967d\u7684\u5f8c\u88d4
 Vhttp://icdrama.se/korean-drama/2121-descendants-of-the-sun-cantonese/
 Vhttp://static.icdrama.se/images/thumbs/Descendants-of-the-Sun-03.jpg
-tp34
+tp190
 a(VOh My Venus
 V\uc624 \ub9c8\uc774 \ube44\ub108\uc2a4
 Vhttp://icdrama.se/korean-drama/1972-oh-my-venus/
 Vhttp://static.icdrama.se/images/thumbs/Oh-My-Venus-04.jpg
-tp35
+tp191
 a(VGu Family (Cantonese)
 V\u4e5d\u5bb6\u4e4b\u66f8
 Vhttp://icdrama.se/korean-drama/2265-gu-family-cantonese/
 Vhttp://static.icdrama.se/images/thumbs/Gu-Family-Book-2013.jpg
-tp36
+tp192
 a(VOne Night Memory (Cantonese)
 V\u547d\u4e2d\u6ce8\u5b9a\u6211\u611b\u4f60
 Vhttp://icdrama.se/korean-drama/696-one-night-memory-cantonese/
 Vhttp://static.icdrama.se/images/thumbs/Fated-to-Love-You-03.jpg
-tp37
+tp193
 a(VOh My Ghost
 V\uc624 \ub098\uc758 \uadc0\uc2e0\ub2d8
 Vhttp://icdrama.se/korean-drama/1857-oh-my-ghost/
 Vhttp://static.icdrama.se/images/thumbs/Oh-My-Ghost-02.jpg
-tp38
+tp194
 a(VSecond Time Twenty Years Old
 V\ub450\ubc88\uc9f8 \uc2a4\ubb34\uc0b4
 Vhttp://icdrama.se/korean-drama/1903-second-time-twenty-years-old/
 Vhttp://static.icdrama.se/images/thumbs/Second-Time-Twenty-Years-Old-Poster3.jpg
-tp39
+tp195
 a(VSassy Go Go
 V\ubc1c\uce59\ud558\uac8c \uace0\uace0
 Vhttp://icdrama.se/korean-drama/1934-sassy-go-go/
 Vhttp://static.icdrama.se/images/thumbs/Sassy-Go-Go-04.jpg
-tp40
+tp196
 a(VMisaeng (Cantonese)
 V\u672a\u751f
 Vhttp://icdrama.se/korean-drama/2173-misaeng-cantonese/
 Vhttp://static.icdrama.se/images/thumbs/Misaeng-03.jpg
-tp41
+tp197
 a(VThe Town: The Uninvited (Cantonese)
 V\u6751\u838a
 Vhttp://icdrama.se/korean-drama/2196-the-town-the-uninvited-cantonese/
 Vhttp://static.icdrama.se/images/thumbs/The-Village-04.jpg
-tp42
+tp198
 a(VEx-Girlfriend Club
 V\uad6c\uc5ec\uce5c\ud074\ub7fd
 Vhttp://icdrama.se/korean-drama/1814-ex-girlfriend-club/
 Vhttp://static.icdrama.se/images/thumbs/Ex-Girlfriend-Club-05.jpg
-tp43
+tp199
 a(VBel Ami (Cantonese)
 V\u6f02\u4eae\u7537\u4eba
 Vhttp://icdrama.se/korean-drama/2219-bel-ami-cantonese/
 Vhttp://static.icdrama.se/images/thumbs/Pretty-Man-06.jpg
-tp44
+tp200
 a(VThe Time We Weren't in Love (Cantonese)
 V\u611b\u4f60\u7684\u6642\u9593\uff0c7000\u5929
 Vhttp://icdrama.se/korean-drama/2209-the-time-we-weren-t-in-love-cantonese/
 Vhttp://static.icdrama.se/images/thumbs/The-Time-We-Were-Not-In-Love-04.jpg
-tp45
+tp201
 a(VMarry Him If You Dare (Cantonese)
 V\u672a\u4f86\u7684\u9078\u64c7
 Vhttp://icdrama.se/korean-drama/1639-marry-him-if-you-dare-cantonese/
 Vhttp://static.icdrama.se/images/thumbs/butse.jpg
-tp46
+tp202
 a(VGirl Who Can See Smell (Cantonese)
 V\u770b\u898b\u5473\u9053\u7684\u5c11\u5973
 Vhttp://icdrama.se/korean-drama/2191-girl-who-can-see-smell-cantonese/
 Vhttp://static.icdrama.se/images/thumbs/The-Girl-Who-Can-See-Smells-04.jpg
-tp47
+tp203
 a(VThe Three Musketeers (Cantonese)
 V\u4e09\u528d\u5ba2
 Vhttp://icdrama.se/korean-drama/2132-the-three-musketeers-cantonese/
 Vhttp://static.icdrama.se/images/thumbs/The-Three-Musketeers-03.jpg
-tp48
+tp204
 a(VKill Me Heal Me (Cantonese)
 V\u611b\u4e0a\u54ea\u500b\u6211
 Vhttp://icdrama.se/korean-drama/2161-kill-me-heal-me-cantonese/
 Vhttp://static.icdrama.se/images/thumbs/Kill-Me-Heal-Me-Poster1.jpg
-tp49
+tp205
 a(VScholar Who Walks the Night (Cantonese)
 V\u591c\u884c\u66f8\u751f
 Vhttp://icdrama.se/korean-drama/2122-scholar-who-walks-the-night-cantonese/
 Vhttp://static.icdrama.se/images/thumbs/Scholar-Who-Walks-the-Night-05.jpg
-tp50
+tp206
 a(VI Hear Your Voice (Cantonese)
 V\ub108\uc758 \ubaa9\uc18c\ub9ac\uac00 \ub4e4\ub824
 Vhttp://icdrama.se/korean-drama/2120-i-hear-your-voice-cantonese/
 Vhttp://static.icdrama.se/images/thumbs/I-Hear-Your-Voice-2013.jpg
-tp51
+tp207
 a(VMonstar (Cantonese)
 V\ubaac\uc2a4\ud0c0
 Vhttp://icdrama.se/korean-drama/2138-monstar-cantonese/
 Vhttp://static.icdrama.se/images/thumbs/Monstar-Poster1.jpg
-tp52
+tp208
 a(VPinocchio (Cantonese)
-p53
 V\u611b\u4e0aPinocchio
-p54
 Vhttp://icdrama.se/korean-drama/2046-pinocchio-cantonese/
-p55
 Vhttp://static.icdrama.se/images/thumbs/Pinocchio-05.jpg
-p56
-tp57
-asS"resources.lib.scrapers.shows(('http://icdrama.se/hk-drama/',), {})"
-p58
-(lp59
+tp209
+asg25
+(lp210
+(VHirugao-Love Affairs in the Afternoon
+V\u665d\u984f
+Vhttp://icdrama.se/japanese-drama/2417-hirugao-love-affairs-in-the-afternoon/
+Vhttp://static.icdrama.se/images/thumbs/Hirugao-LoveAffairsintheAfternoon.jpg
+tp211
+a(VNaomi and Kanako (Cantonese)
+V\u76f4\u7f8e\u8207\u52a0\u5948\u5b50
+Vhttp://icdrama.se/japanese-drama/2483-naomi-and-kanako-cantonese/
+Vhttp://static.icdrama.se/images/thumbs/NaomiandKanako16.jpg
+tp212
+a(VBORDER
+V
+Vhttp://icdrama.se/japanese-drama/2442-border/
+Vhttp://static.icdrama.se/images/thumbs/BORDER.jpg
+tp213
+a(VNeko Samurai Season 1 (Cantonese)
+V\u8c93\u4f8d
+Vhttp://icdrama.se/japanese-drama/2568-neko-samurai-season-1-cantonese/
+Vhttp://static.icdrama.se/images/thumbs/NekoSamuraiSeason1.jpg
+tp214
+a(VPainless - The Eyes for Signs (Cantonese)
+V\u7121\u75db - \u8a3a\u7642\u4e4b\u773c
+Vhttp://icdrama.se/japanese-drama/2481-painless-the-eyes-for-signs-cantonese/
+Vhttp://static.icdrama.se/images/thumbs/Painless-TheEyesforSigns2015.jpg
+tp215
+a(VMidnight Diner 3 (Cantonese)
+V\u6df1\u591c\u98df\u58023
+Vhttp://icdrama.se/japanese-drama/2520-midnight-diner-3-cantonese/
+Vhttp://static.icdrama.se/images/thumbs/106089_o.jpg
+tp216
+a(VThe Woman Who Took The Local Paper
+V\u8cb7\u5730\u65b9\u5831\u7d19\u7684\u5973\u4eba
+Vhttp://icdrama.se/japanese-drama/2498-the-woman-who-took-the-local-paper/
+Vhttp://static.icdrama.se/images/thumbs/TheWomanWhoTookTheLocalPaper.jpg
+tp217
+a(VDeep Sea of Tree (Cantonese)
+V\u9ed1\u8272\u6a39\u6d77
+Vhttp://icdrama.se/japanese-drama/2482-deep-sea-of-tree-cantonese/
+Vhttp://static.icdrama.se/images/thumbs/DeepSeaofTree.jpg
+tp218
+a(VSleepeeer Hit!
+V\u91cd\u7248\u51fa\u6765!
+Vhttp://icdrama.se/japanese-drama/2293-sleepeeer-hit/
+Vhttp://static.icdrama.se/images/thumbs/107454_o.jpg
+tp219
+a(VDr. Storks (Cantonese)
+V\u96d9\u9762\u91ab\u751f
+Vhttp://icdrama.se/japanese-drama/2472-dr-storks-cantonese/
+Vhttp://static.icdrama.se/images/thumbs/106330_o.jpg
+tp220
+a(VSPECIALIST
+V\u30b9\u30da\u30b7\u30e3\u30ea\u30b9\u30c8
+Vhttp://icdrama.se/japanese-drama/2329-specialist/
+Vhttp://static.icdrama.se/images/thumbs/SPECIALIST.jpg
+tp221
+a(VOoku - The Inner Palace - Special 2016
+V\u5927\u5967\u5b2a\u5983\u50b3
+Vhttp://icdrama.se/japanese-drama/2419-ooku-the-inner-palace-special-2016/
+Vhttp://static.icdrama.se/images/thumbs/Ooku-TheInnerPalace-Special2016.jpg
+tp222
+a(VLady Girls
+V\u5927\u4eba\u5973\u5b50
+Vhttp://icdrama.se/japanese-drama/2267-lady-girls/
+Vhttp://static.icdrama.se/images/thumbs/LadyGirls.jpg
+tp223
+a(VNobunaga Concerto (Cantonese)
+V\u4fe1\u9577\u5354\u594f\u66f2
+Vhttp://icdrama.se/japanese-drama/2286-nobunaga-concerto-cantonese/
+Vhttp://static.icdrama.se/images/thumbs/NobunagaConcerto.jpg
+tp224
+a(VHappy Retirement (Cantonese)
+V\u5e78\u798f\u9000\u4f11\u65e5
+Vhttp://icdrama.se/japanese-drama/2405-happy-retirement-cantonese/
+Vhttp://static.icdrama.se/images/thumbs/HappyRetirement.jpg
+tp225
+a(VTruth of Zero
+V\u96f6\u7684\u771f\u5be6
+Vhttp://icdrama.se/japanese-drama/2322-truth-of-zero/
+Vhttp://static.icdrama.se/images/thumbs/TruthofZero.jpg
+tp226
+a(VTransit Girls
+V\u767e\u5408\u6200\u4eba
+Vhttp://icdrama.se/japanese-drama/2292-transit-girls/
+Vhttp://static.icdrama.se/images/thumbs/TransitGirls.jpg
+tp227
+a(VANOHANA - The Flower We Saw That Day (Cantonese)
+V\u672a\u805e\u82b1\u540d
+Vhttp://icdrama.se/japanese-drama/2370-anohana-the-flower-we-saw-that-day-cantonese/
+Vhttp://static.icdrama.se/images/thumbs/ANOHANA-TheFlowerWeSawThatDay.jpg
+tp228
+a(VVariations of My Name
+V\u4ee5\u6211\u70ba\u540d\u7684\u8b8a\u594f\u66f2
+Vhttp://icdrama.se/japanese-drama/2366-variations-of-my-name/
+Vhttp://static.icdrama.se/images/thumbs/VariationsofMyName.jpg
+tp229
+a(VLove Song (Cantonese)
+V\u60c5\u6b4c
+Vhttp://icdrama.se/japanese-drama/2213-love-song-cantonese/
+Vhttp://static.icdrama.se/images/thumbs/LoveSong.jpg
+tp230
+a(VST MPD Scientific Investigation Squad (Cantonese)
+VST\u7d05\u8207\u767d\u7684\u641c\u67e5\u6a94\u6848
+Vhttp://icdrama.se/japanese-drama/2189-st-mpd-scientific-investigation-squad-cantonese/
+Vhttp://static.icdrama.se/images/thumbs/123.jpg
+tp231
+a(VAll About My Siblings
+V\u82e5\u8005\u305f\u30612014
+Vhttp://icdrama.se/japanese-drama/2285-all-about-my-siblings/
+Vhttp://static.icdrama.se/images/thumbs/56e9eb8b27bdd_1458170763.jpg
+tp232
+a(VIMAT2: Crime Scene Medics
+VIMAT \u306e\u5947\u8de12
+Vhttp://icdrama.se/japanese-drama/2278-imat2-crime-scene-medics/
+Vhttp://static.icdrama.se/images/thumbs/105498_o.jpg
+tp233
+a(VIMAT: Crime Scene Medics
+VIMAT \u306e\u5947\u8de1
+Vhttp://icdrama.se/japanese-drama/2277-imat-crime-scene-medics/
+Vhttp://static.icdrama.se/images/thumbs/105899_o.jpg
+tp234
+a(VPLAY BALL! BE
+V\u521d\u68ee\u58d8\u7403\u5718
+Vhttp://icdrama.se/japanese-drama/2133-play-ball-be/
+Vhttp://static.icdrama.se/images/thumbs/55a06afb8895b.jpg
+tp235
+a(VDoctor-X 3
+V\u5973\u91ab\u795eDoctor X 3
+Vhttp://icdrama.se/japanese-drama/2136-doctor-x-3/
+Vhttp://static.icdrama.se/images/thumbs/book3.jpg
+tp236
+a(VDetective vs Detective (Cantonese)
+V\u5075\u63a2\u7684\u5075\u63a2
+Vhttp://icdrama.se/japanese-drama/2192-detective-vs-detective-cantonese/
+Vhttp://static.icdrama.se/images/thumbs/c4487de9413914e08bf08c8016e89dee1437090431_full.jpg
+tp237
+a(VAge Harassment (Cantonese)
+V\u5e74\u9f61\u9a37\u64fe
+Vhttp://icdrama.se/japanese-drama/2134-age-harassment-cantonese/
+Vhttp://static.icdrama.se/images/thumbs/dfcls6fvnmpr.jpg
+tp238
+a(VMemento of Mom's Life (Cantonese)
+V\u5abd\u5abd\u751f\u5b58\u7684\u8b49\u660e
+Vhttp://icdrama.se/japanese-drama/2233-memento-of-mom-s-life-cantonese/
+Vhttp://static.icdrama.se/images/thumbs/ex_mamagaita0601-3.jpg
+tp239
+a(VWise and Foolish (Cantonese)
+V\u6c11\u738b
+Vhttp://icdrama.se/japanese-drama/2188-wise-and-foolish-cantonese/
+Vhttp://static.icdrama.se/images/thumbs/p2337580060.jpg
+tp240
+a(VSeijo (Cantonese)
+V\u8056\u5973
+Vhttp://icdrama.se/japanese-drama/2215-seijo-cantonese/
+Vhttp://static.icdrama.se/images/thumbs/gogo-3604.jpg
+tp241
+a(VLegal High Special II (Cantonese)
+V\u5f8b\u653f\u72c2\u4eba2 \u7279\u5225\u7bc7
+Vhttp://icdrama.se/japanese-drama/2156-legal-high-special-ii-cantonese/
+Vhttp://static.icdrama.se/images/thumbs/11436443315559e62b38bf41.jpg
+tp242
+a(VI'm Home (Cantonese)
+V\u56de\u5bb6\u7684\u9396\u5319
+Vhttp://icdrama.se/japanese-drama/2135-i-m-home-cantonese/
+Vhttp://static.icdrama.se/images/thumbs/e5b8346289f9c12d31a4c8805380ebda.jpg
+tp243
+a(VMysterious Transfer Student (Cantonese)
+V\u8b0e\u4e4b\u8f49\u6821\u751f
+Vhttp://icdrama.se/japanese-drama/1996-mysterious-transfer-student-cantonese/
+Vhttp://static.icdrama.se/images/thumbs/105650_200.jpg
+tp244
+a(VThe Easygoing Police (Cantonese)
+V\u54aa\u963b\u4f4fMADAM
+Vhttp://icdrama.se/japanese-drama/1859-the-easygoing-police-cantonese/
+Vhttp://static.icdrama.se/images/thumbs/105267_200.jpg
+tp245
+a(VHousekeeper the Peeper (Cantonese)
+V\u7279\u52d9\u5973\u7ba1\u5bb6
+Vhttp://icdrama.se/japanese-drama/1839-housekeeper-the-peeper-cantonese/
+Vhttp://static.icdrama.se/images/thumbs/105213_200.jpg
+tp246
+a(VHero 2 (Cantonese)
+V\u5f8b\u653f\u82f1\u96c42
+Vhttp://icdrama.se/japanese-drama/1650-hero-2-cantonese/
+Vhttp://static.icdrama.se/images/thumbs/hero2.jpg
+tp247
+a(VDOCTORS 2: The Ultimate Surgeon (Cantonese)
+V\u6700\u5f37\u540d\u91ab2
+Vhttp://icdrama.se/japanese-drama/1651-doctors-2-the-ultimate-surgeon-cantonese/
+Vhttp://static.icdrama.se/images/thumbs/DOCTORS_2-_The_Ultimate_Surgeon-p2.jpg
+tp248
+a(VMother Strikes Back (Cantonese)
+V\u5a46\u5ab3\u5927\u9b25\u6cd5
+Vhttp://icdrama.se/japanese-drama/1600-mother-strikes-back-cantonese/
+Vhttp://img.tvb.com/ii/29/37929/000003792848_1410140559.jpg
+tp249
+a(VDOCTORS: The Ultimate Surgeon Special (Cantonese)
+V\u6700\u5f37\u540d\u91ab - \u71b1\u8840\u56de\u6b78
+Vhttp://icdrama.se/japanese-drama/1632-doctors-the-ultimate-surgeon-special-cantonese/
+Vhttp://static.icdrama.se/images/thumbs/Doctors-SP-p1.jpg
+tp250
+asg19
+(lp251
+(VRefresh Man (Cantonese)
+V\u5f8c\u83dc\u9ce5\u7684\u71e6\u721b\u6642\u4ee3
+Vhttp://icdrama.se/taiwanese-drama/2510-refresh-man-cantonese/
+Vhttp://static.icdrama.se/images/thumbs/rpjsa4ahkzfi.jpg
+tp252
+a(VThe Way We Were (Cantonese)
+V16\u500b\u590f\u5929
+Vhttp://icdrama.se/taiwanese-drama/2412-the-way-we-were-cantonese/
+Vhttp://static.icdrama.se/images/thumbs/thewaywewere.jpg
+tp253
+a(VLight up My Life (Cantonese)
+V\u4f60\u7167\u4eae\u6211\u661f\u7403
+Vhttp://icdrama.se/taiwanese-drama/1976-light-up-my-life-cantonese/
+Vhttp://static.icdrama.se/images/thumbs/r1xrgGb3_9cb930_c2x.jpg
+tp254
+a(VBromance (Cantonese)
+V\u611b\u4e0a\u54e5\u5011
+Vhttp://icdrama.se/taiwanese-drama/2336-bromance-cantonese/
+Vhttp://static.icdrama.se/images/thumbs/ky9wyuji0o17.jpg
+tp255
+a(VMarry Me, or Not?
+V\u5fc5\u5a36\u5973\u4eba
+Vhttp://icdrama.se/taiwanese-drama/1960-marry-me-or-not/
+Vhttp://static.icdrama.se/images/thumbs/lphgxx7jjxdh.jpg
+tp256
+a(VMiss No Good (Cantonese)
+V\u4e0d\u826f\u7b11\u82b1
+Vhttp://icdrama.se/taiwanese-drama/2087-miss-no-good-cantonese/
+Vhttp://static.icdrama.se/images/thumbs/missnogood_cover.jpg
+tp257
+a(VLove Around (Cantonese)
+V\u771f\u611b\u9ed1\u767d\u914d
+Vhttp://icdrama.se/taiwanese-drama/2003-love-around-cantonese/
+Vhttp://static.icdrama.se/images/thumbs/lovearound.jpg
+tp258
+a(VChocolat (Cantonese)
+V\u6d41\u6c13\u86cb\u7cd5\u5e97
+Vhttp://icdrama.se/taiwanese-drama/1912-chocolat-cantonese/
+Vhttp://static.icdrama.se/images/thumbs/Chocolat_TV_Series-622613598-large.jpg
+tp259
+a(VSpring Love (Cantonese)
+V\u7f8e\u4eba\u9f8d\u6e6f
+Vhttp://icdrama.se/taiwanese-drama/1950-spring-love-cantonese/
+Vhttp://static.icdrama.se/images/thumbs/MeiRenLongTang.jpg
+tp260
+a(VDeja Vu (Cantonese)
+V\u56de\u5230\u611b\u4ee5\u524d
+Vhttp://icdrama.se/taiwanese-drama/1856-deja-vu-cantonese/
+Vhttp://static.icdrama.se/images/thumbs/jhc1l01o5clj.jpg
+tp261
+a(VIn A Good Way (Cantonese)
+V\u6211\u7684\u81ea\u7531\u5e74\u4ee3
+Vhttp://icdrama.se/taiwanese-drama/1595-in-a-good-way-cantonese/
+Vhttp://static.icdrama.se/images/thumbs/inagoodway2013.jpg
+tp262
+a(VOffice Girls (Cantonese)
+V\u5c0f\u8cc7\u5973\u5b69\u5411\u524d\u885d
+Vhttp://icdrama.se/taiwanese-drama/1811-office-girls-cantonese/
+Vhttp://static.icdrama.se/images/thumbs/office-girls.jpg
+tp263
+a(VA Hint of You (Cantonese)
+V\u7f8e\u5473\u7684\u60f3\u5ff5
+Vhttp://icdrama.se/taiwanese-drama/1733-a-hint-of-you-cantonese/
+Vhttp://static.icdrama.se/images/thumbs/AHintofYou.jpg
+tp264
+a(VLove in Beijing (Cantonese)
+V\u5317\u4eac\u611b\u60c5\u6545\u4e8b
+Vhttp://icdrama.se/taiwanese-drama/1696-love-in-beijing-cantonese/
+Vhttp://static.icdrama.se/images/thumbs/loveinbeijing.jpg
+tp265
+a(VHappy Noodle (Cantonese)
+V\u5e78\u798f\u7684\u9eb5\u689d
+Vhttp://icdrama.se/taiwanese-drama/1683-happy-noodle-cantonese/
+Vhttp://static.icdrama.se/images/thumbs/happynoodle.jpg
+tp266
+a(VPrincess' Stand In (Cantonese)
+V\u91d1\u5927\u82b1\u7684\u83ef\u9e97\u5192\u96aa
+Vhttp://icdrama.se/taiwanese-drama/1648-princess-stand-in-cantonese/
+Vhttp://static.icdrama.se/images/thumbs/wlvw.jpg
+tp267
+a(VFabulous Boys (Cantonese)
+V\u539f\u4f86\u662f\u7f8e\u7537
+Vhttp://icdrama.se/taiwanese-drama/1656-fabulous-boys-cantonese/
+Vhttp://static.icdrama.se/images/thumbs/9K8I2.jpg
+tp268
+a(VMy Sassy Girl
+V\u727d\u725b\u7684\u590f\u5929
+Vhttp://icdrama.se/taiwanese-drama/1617-my-sassy-girl/
+Vhttp://static.icdrama.se/images/thumbs/QianNiuDeXiaTian.jpg
+tp269
+a(VBig Red Riding Hood
+V\u5927\u7d05\u5e3d\u8207\u5c0f\u91ce\u72fc
+Vhttp://icdrama.se/taiwanese-drama/1607-big-red-riding-hood/
+Vhttp://static.icdrama.se/images/thumbs/b1zEgax4_34dd65_f.jpg
+tp270
+a(VFall in Love With Me (Cantonese)
+V\u611b\u4e0a\u5169\u500b\u6211
+Vhttp://icdrama.se/taiwanese-drama/1603-fall-in-love-with-me-cantonese/
+Vhttp://static.icdrama.se/images/thumbs/mLnyDrG1_8a2b6f_f.jpg
+tp271
+a(VThe Persuit of Happiness
+V\u611b\u7684\u751f\u5b58\u4e4b\u9053
+Vhttp://icdrama.se/taiwanese-drama/1596-the-persuit-of-happiness/
+Vhttp://static.icdrama.se/images/thumbs/PursuitHappiness.jpg
+tp272
+a(VLove Keeps Going, Mei Le Go!
+V\u7f8e\u6a02\u52a0\u6cb9
+Vhttp://icdrama.se/taiwanese-drama/275-love-keeps-going-mei-le-go/
+Vhttp://static.icdrama.se/images/thumbs/Love-Keeps-Going-poster.jpg
+tp273
+asg22
+(lp274
+sg16
+(lp275
+(VPage 2
+Vhttp://icdrama.se/korean-drama-cantonesedub/page-2.html
+tp276
+a(VLast »
+Vhttp://icdrama.se/korean-drama-cantonesedub/page-2.html
+tp277
+asg6
+(lp278
 (VMy Lover From The Planet Meow
 V\u4f86\u81ea\u55b5\u55b5\u661f\u7684\u59b3
 Vhttp://icdrama.se/hk-drama/2540-my-lover-from-the-planet-meow/
 Vhttp://static.icdrama.se/images/thumbs/MyLoverFromthePlanetMeow2016TVB.jpg
-tp60
-a(VTwo Steps From Heaven
-V\u5e55\u5f8c\u73a9\u5bb6
-Vhttp://icdrama.se/hk-drama/2550-two-steps-from-heaven/
-Vhttp://static.icdrama.se/images/thumbs/Two.Steps.From.Heaven.jpg
-tp61
-a(VCome Home Love: Dinner at Eight
-V\u611b\uff0e\u56de\u5bb6\u4e4b\u516b\u6642\u5165\u5e2d
-Vhttp://icdrama.se/hk-drama/2114-come-home-love-dinner-at-eight/
-Vhttp://static.icdrama.se/images/thumbs/71NNvPj1_ae7834_f.jpg
-tp62
+tp279
+a(VA Time of Love 2
+V\u611b\u60c5\u4f86\u7684\u6642\u5019 2
+Vhttp://icdrama.se/hk-drama/2220-a-time-of-love-2/
+Vhttp://static.icdrama.se/images/thumbs/574d55b451119_1464686004.jpg
+tp280
+a(VA Time of Love
+V\u611b\u60c5\u4f86\u7684\u6642\u5019
+Vhttp://icdrama.se/hk-drama/1476-a-time-of-love/
+Vhttp://static.icdrama.se/images/thumbs/7f0cf8198618367aefd3428d2c738bd4b21ce5e1.jpg
+tp281
 a(VNo Reserve
 V\u5dfe\u5e57\u689f\u96c4\u4e4b\u8adc\u8840\u9577\u5929
 Vhttp://icdrama.se/hk-drama/2490-no-reserve/
 Vhttp://static.icdrama.se/images/thumbs/No-Reserve.jpg
-tp63
-a(VBrother's Keeper 2
-V\u5de8\u8f2a2
-Vhttp://icdrama.se/hk-drama/2406-brother-s-keeper-2/
-Vhttp://static.icdrama.se/images/thumbs/57bc0c5f0a76b_1471941727.jpg
-tp64
-a(VLaw & Disorder
-V\u5f8b\u653f\u5f37\u4eba
-Vhttp://icdrama.se/hk-drama/2463-law-disorder/
-Vhttp://static.icdrama.se/images/thumbs/law-disorder.jpg
-tp65
+tp282
+a(VTwo Steps From Heaven
+V\u5e55\u5f8c\u73a9\u5bb6
+Vhttp://icdrama.se/hk-drama/2550-two-steps-from-heaven/
+Vhttp://static.icdrama.se/images/thumbs/Two.Steps.From.Heaven.jpg
+tp283
+a(VCome Home Love: Dinner at Eight
+V\u611b\uff0e\u56de\u5bb6\u4e4b\u516b\u6642\u5165\u5e2d
+Vhttp://icdrama.se/hk-drama/2114-come-home-love-dinner-at-eight/
+Vhttp://static.icdrama.se/images/thumbs/71NNvPj1_ae7834_f.jpg
+tp284
 a(V3 x 1
 V\u4e09\u4e00\u5982\u4e09
 Vhttp://icdrama.se/hk-drama/2345-3-x-1/
 Vhttp://static.icdrama.se/images/thumbs/3x1.jpg
-tp66
+tp285
+a(VBrother's Keeper 2
+V\u5de8\u8f2a2
+Vhttp://icdrama.se/hk-drama/2406-brother-s-keeper-2/
+Vhttp://static.icdrama.se/images/thumbs/57bc0c5f0a76b_1471941727.jpg
+tp286
+a(VLaw & Disorder
+V\u5f8b\u653f\u5f37\u4eba
+Vhttp://icdrama.se/hk-drama/2463-law-disorder/
+Vhttp://static.icdrama.se/images/thumbs/law-disorder.jpg
+tp287
 a(VThe Hiddens
 V\u96b1\u4e16\u8005\u5011
 Vhttp://icdrama.se/hk-drama/2466-the-hiddens/
 Vhttp://static.icdrama.se/images/thumbs/the-hiddens.jpg
-tp67
+tp288
 a(VGhost of Relativity
 V\u9b3c\u540c\u4f60OT
 Vhttp://icdrama.se/hk-drama/1858-ghost-of-relativity/
 Vhttp://static.icdrama.se/images/thumbs/66323ee5jw1etphgyrmb1j22bc3h0u0y.jpg
-tp68
+tp289
 a(VThe Return Of The Condor Heroes
 V\u795e\u9d70\u4fe0\u4fb6 (1983)
 Vhttp://icdrama.se/hk-drama/2453-the-return-of-the-condor-heroes/
 Vhttp://static.icdrama.se/images/thumbs/ReturnCondor83.jpg
-tp69
+tp290
 a(VLives of Omission
 V\u6f5b\u884c\u72d9\u64ca
 Vhttp://icdrama.se/hk-drama/301-lives-of-omission/
 Vhttp://static.icdrama.se/images/thumbs/lives-of-omission-2011.poster.jpg
-tp70
+tp291
 a(VInspector Gourmet
 V\u70ba\u98df\u795e\u63a2
 Vhttp://icdrama.se/hk-drama/2407-inspector-gourmet/
 Vhttp://static.icdrama.se/images/thumbs/Inspector-Gourmet-2016.jpg
-tp71
+tp292
 a(VJourney To The West
 V\u897f\u904a\u8a18 (1996)
 Vhttp://icdrama.se/hk-drama/1529-journey-to-the-west/
 Vhttp://static.icdrama.se/images/thumbs/Journey-to-the-West-1996.jpg
-tp72
+tp293
 a(VA Kindred Spirit
 V\u771f\u60c5
 Vhttp://icdrama.se/hk-drama/828-a-kindred-spirit/
 Vhttp://static.icdrama.se/images/thumbs/572ba16660e47_1462477158.jpg
-tp73
+tp294
 a(VDressage to Win
 V\u76db\u88dd\u821e\u6b65\u611b\u4f5c\u6230
 Vhttp://icdrama.se/hk-drama/825-dressage-to-win/
 Vhttp://static.icdrama.se/images/thumbs/Dressage_to_Win.jpg
-tp74
+tp295
 a(VSeason of Love
 V\u6200\u611b\u5b63\u7bc0
 Vhttp://icdrama.se/hk-drama/1178-season-of-love/
 Vhttp://static.icdrama.se/images/thumbs/ssl.jpg
-tp75
+tp296
 a(VMy Better Half
 V\u8001\u516c\u842c\u6b72
 Vhttp://icdrama.se/hk-drama/31-my-better-half/
 Vhttp://static.icdrama.se/images/thumbs/mybetterhalf.jpg
-tp76
+tp297
 a(VAt The Threshold of An Era II
 V\u5275\u4e16\u7d00 II
 Vhttp://icdrama.se/hk-drama/66-at-the-threshold-of-an-era-ii/
 Vhttp://static.icdrama.se/images/thumbs/ate2.jpg
-tp77
+tp298
 a(VAt The Threshold of An Era
 V\u5275\u4e16\u7d00
 Vhttp://icdrama.se/hk-drama/65-at-the-threshold-of-an-era/
 Vhttp://static.icdrama.se/images/thumbs/at-the-threshold-of-an-era-1999.jpg
-tp78
+tp299
 a(VBrick Slaves
 V\u6a13\u5974
 Vhttp://icdrama.se/hk-drama/1874-brick-slaves/
 Vhttp://static.icdrama.se/images/thumbs/01e7dzk3_94ca6d_f.jpg
-tp79
+tp300
 a(VICAC Investigators 2014
 V\u5ec9\u653f\u884c\u52d52014
 Vhttp://icdrama.se/hk-drama/1437-icac-investigators-2014/
 Vhttp://static.icdrama.se/images/thumbs/572300ac4bde7_1461911724.jpg
-tp80
+tp301
 a(VDaddy Dearest
 V\u8d85\u80fd\u8001\u8c46
 Vhttp://icdrama.se/hk-drama/2351-daddy-dearest/
 Vhttp://static.icdrama.se/images/thumbs/daddydearest.jpg
-tp81
+tp302
 a(VA Fist Within Four Walls
 V\u57ce\u5be8\u82f1\u96c4\u202c
 Vhttp://icdrama.se/hk-drama/2350-a-fist-within-four-walls/
 Vhttp://static.icdrama.se/images/thumbs/afistwithinfourwalls.jpg
-tp82
+tp303
 a(VBrother's Keeper
 V\u5de8\u8f2a
 Vhttp://icdrama.se/hk-drama/1390-brother-s-keeper/
 Vhttp://static.icdrama.se/images/thumbs/57b33a7b1a93e_1471363707.jpg
-tp83
+tp304
 a(VOld Time Buddy
 V\u96e3\u5144\u96e3\u5f1f
 Vhttp://icdrama.se/hk-drama/824-old-time-buddy/
 Vhttp://static.icdrama.se/images/thumbs/56da8df0cc2ab_1457163760.jpg
-tp84
+tp305
 a(VWhen Heaven Burns
 V\u5929\u8207\u5730
 Vhttp://icdrama.se/hk-drama/553-when-heaven-burns/
 Vhttp://static.icdrama.se/images/thumbs/57ad793d353f3_1470986557.jpg
-tp85
+tp306
 a(VThe Conqueror's Story
 V\u695a\u6f22\u9a55\u96c4
 Vhttp://icdrama.se/hk-drama/823-the-conqueror-s-story/
 Vhttp://static.icdrama.se/images/thumbs/5721dab520677_1461836469.jpg
-tp86
+tp307
 a(VMan Of Wisdom 2
 V\u91d1\u7259\u5927\u72c02
 Vhttp://icdrama.se/hk-drama/822-man-of-wisdom-2/
 Vhttp://static.icdrama.se/images/thumbs/5722cb9693320_1461898134.jpg
-tp87
+tp308
 a(VMan of Wisdom
 V\u91d1\u7259\u5927\u72c0
 Vhttp://icdrama.se/hk-drama/821-man-of-wisdom/
 Vhttp://static.icdrama.se/images/thumbs/5722ca4544b78_1461897797.jpg
-tp88
+tp309
 a(VWhen Rules Turn Loose
 V\u8b58\u6cd5\u4ee3\u8a00\u4eba
 Vhttp://icdrama.se/hk-drama/816-when-rules-turn-loose/
 Vhttp://static.icdrama.se/images/thumbs/572063fe12494_1461740542.jpg
-tp89
+tp310
 a(VSlim Chances
 V\u6211\u8981Fit\u4e00Fit
 Vhttp://icdrama.se/hk-drama/815-slim-chances/
 Vhttp://static.icdrama.se/images/thumbs/572b703e310c7_1462464574.jpg
-tp90
+tp311
 a(VLove is Beautiful
 V\u7121\u982d\u6771\u5bae
 Vhttp://icdrama.se/hk-drama/814-love-is-beautiful/
 Vhttp://static.icdrama.se/images/thumbs/5722d0cd2ed5a_1461899469.jpg
-tp91
+tp312
 a(VThe Grand Canal
 V\u5927\u904b\u6cb3
 Vhttp://icdrama.se/hk-drama/813-the-grand-canal/
 Vhttp://static.icdrama.se/images/thumbs/5721c0ba33555_1461829818.jpg
-tp92
+tp313
 a(VLa Femme Desperado
 V\u5973\u4eba\u5514\u6613\u505a
 Vhttp://icdrama.se/hk-drama/811-la-femme-desperado/
 Vhttp://static.icdrama.se/images/thumbs/56dd41392d506_1457340729.jpg
-tp93
+tp314
 a(VFace to Face
 V\u96d9\u9762\u4f0a\u4eba
 Vhttp://icdrama.se/hk-drama/395-face-to-face/
 Vhttp://static.icdrama.se/images/thumbs/5720817eb0fd8_1461748094.jpg
-tp94
+tp315
 a(VBurning Flame 3
 V\u6e2f\u5287 \u70c8\u706b\u96c4\u5fc3 3
 Vhttp://icdrama.se/hk-drama/12-burning-flame-3/
 Vhttp://static.icdrama.se/images/thumbs/576a2fd78ff05_1466576855.jpg
-tp95
+tp316
 a(VBurning Flame 2
 V\u70c8\u706b\u96c4\u5fc3 2
 Vhttp://icdrama.se/hk-drama/451-burning-flame-2/
 Vhttp://static.icdrama.se/images/thumbs/burning-flame-2-2002-poster.jpg
-tp96
+tp317
 a(VBurning Flame
 V\u70c8\u706b\u96c4\u5fc3
 Vhttp://icdrama.se/hk-drama/450-burning-flame/
 Vhttp://static.icdrama.se/images/thumbs/burning-flame-1998-poster.jpg
-tp97
+tp318
 a(VHome Troopers
 V\u5c45\u5bb6\u5175\u5718
 Vhttp://icdrama.se/hk-drama/150-home-troopers/
 Vhttp://static.icdrama.se/images/thumbs/576a2eaa0c498_1466576554.jpg
-tp98
+tp319
 a(VBeyond The Realm of Conscience
 V\u5bae\u5fc3\u8a08
 Vhttp://icdrama.se/hk-drama/7-beyond-the-realm-of-conscience/
 Vhttp://static.icdrama.se/images/thumbs/57b51ea56c354_1471487653.jpg
-tp99
+tp320
 a(VGhetto Justice 2
 V\u6012\u706b\u8857\u982d2
 Vhttp://icdrama.se/hk-drama/926-ghetto-justice-2/
 Vhttp://static.icdrama.se/images/thumbs/ghetto-justice-2.jpg
-tp100
+tp321
 a(VGhetto Justice
 V\u6012\u706b\u8857\u982d
 Vhttp://icdrama.se/hk-drama/242-ghetto-justice/
 Vhttp://static.icdrama.se/images/thumbs/ghetto-justice-2011.jpg
-tp101
+tp322
 a(VRomantic Repertoire
 V\u6c34\u9aee\u80ed\u8102
 Vhttp://icdrama.se/hk-drama/1776-romantic-repertoire/
 Vhttp://static.icdrama.se/images/thumbs/9ffe0a66jw1eqizghgs38j20hw0qoq6g.jpg
-tp102
+tp323
 a(VMargaret and David - Green Bean
 V\u739b\u5609\u70c8\u4e0e\u5927\u536b\u7cfb\u5217 - \u7eff\u8c46
 Vhttp://icdrama.se/hk-drama/2131-margaret-and-david-green-bean/
 Vhttp://static.icdrama.se/images/thumbs/12938164_1625220151066733_2939709712956772569_n.jpg
-tp103
+tp324
 a(VAngel In The Making
 V\u5be6\u7fd2\u5929\u4f7f
 Vhttp://icdrama.se/hk-drama/1983-angel-in-the-making/
 Vhttp://static.icdrama.se/images/thumbs/AngelInTheMaking2015TVB.jpg
-tp104
+tp325
 a(VPerish In The Name Of Love
 V\u5e1d\u5973\u82b1
 Vhttp://icdrama.se/hk-drama/235-perish-in-the-name-of-love/
 Vhttp://static.icdrama.se/images/thumbs/perish-in-the-name-of-love-2003.jpg
-tp105
+tp326
 a(VHouse Of Spirits
 V\u4e00\u5c4b\u8001\u53cb\u8a18
 Vhttp://icdrama.se/hk-drama/2251-house-of-spirits/
 Vhttp://static.icdrama.se/images/thumbs/house-of-spirits.jpg
-tp106
+tp327
 a(VBetween Love & Desire
 V\u5b8c\u7f8e\u53db\u4fb6
 Vhttp://icdrama.se/hk-drama/2294-between-love-desire/
 Vhttp://static.icdrama.se/images/thumbs/577503a6d3ecb_1467286438.jpg
-tp107
-a(VPlain Love
-V\u60c5\u6fc3\u5927\u5730
-Vhttp://icdrama.se/hk-drama/808-plain-love/
-Vhttp://static.icdrama.se/images/thumbs/102591_o.jpg
-tp108
-a(VThe Winter Melon Tale
-V\u5927\u51ac\u74dc
-Vhttp://icdrama.se/hk-drama/20-the-winter-melon-tale/
-Vhttp://static.icdrama.se/images/thumbs/208_o.jpg
-tp109
-asS'_expiries'
-p110
-(lp111
-(g58
-cdatetime
-datetime
-p112
-(S'\x07\xe0\n\x1f\x13.5\x0c\x0e\xa6'
-tRp113
-tp114
-a(S"resources.lib.scrapers.pages(('http://icdrama.se/hk-drama/',), {})"
-p115
-g112
-(S'\x07\xe0\n\x1f\x13.5\x0c0\xd8'
-tRp116
-tp117
-a(g2
-g112
-(S'\x07\xe0\n\x1f\x13/-\x00E\xa8'
-tRp118
-tp119
-a(S"resources.lib.scrapers.pages(('http://icdrama.se/korean-drama-cantonesedub/',), {})"
-p120
-g112
-(S'\x07\xe0\n\x1f\x13/-\x00\x84\x16'
-tRp121
-tp122
-asg115
-(lp123
-(VPage 2
-Vhttp://icdrama.se/hk-drama/page-2.html
-tp124
-a(VPage 3
-Vhttp://icdrama.se/hk-drama/page-3.html
-tp125
-a(VPage 4
-Vhttp://icdrama.se/hk-drama/page-4.html
-tp126
-a(VPage 5
-Vhttp://icdrama.se/hk-drama/page-5.html
-tp127
-a(VLast »
-Vhttp://icdrama.se/hk-drama/page-9.html
-tp128
-asg120
-(lp129
-(VPage 2
-p130
-Vhttp://icdrama.se/korean-drama-cantonesedub/page-2.html
-tp131
-a(VLast »
-p132
-Vhttp://icdrama.se/korean-drama-cantonesedub/page-2.html
-tp133
+tp328
 as.

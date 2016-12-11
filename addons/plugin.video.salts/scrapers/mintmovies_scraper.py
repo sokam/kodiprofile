@@ -16,7 +16,6 @@
     along with this program.  If not, see <http://www.gnu.org/licenses/>.
 """
 import re
-import urllib
 import urlparse
 import kodi
 import dom_parser
@@ -50,16 +49,16 @@ class Scraper(scraper.Scraper):
         if source_url and source_url != FORCE_NO_MATCH:
             url = urlparse.urljoin(self.base_url, source_url)
             html = self._http_get(url, cache_limit=.5)
-            hosters += self.__get_links(html)
+            hosters += self.__get_links(html, video)
             fragment = dom_parser.parse_dom(html, 'div', {'class': 'keremiya_part'})
             if fragment:
                 for match in re.finditer('href="([^"]+)', fragment[0]):
                     html = self._http_get(match.group(1), cache_limit=.5)
-                    hosters += self.__get_links(html)
+                    hosters += self.__get_links(html, video)
                     
         return hosters
 
-    def __get_links(self, html):
+    def __get_links(self, html, video):
         hosters = []
         streams = []
         fragment = dom_parser.parse_dom(html, 'div', {'class': 'video-embed'})
@@ -94,7 +93,7 @@ class Scraper(scraper.Scraper):
             else:
                 host = urlparse.urlparse(stream_url).hostname
                 if host is None: continue
-                quality = QUALITIES.HIGH
+                quality = scraper_utils.get_quality(video, host, QUALITIES.HD720)
                 direct = False
 
             hoster = {'multi-part': False, 'host': host, 'class': self, 'quality': quality, 'views': None, 'rating': None, 'url': stream_url, 'direct': direct}
@@ -109,10 +108,8 @@ class Scraper(scraper.Scraper):
             hosters.append(hoster)
         return hosters
     
-    def search(self, video_type, title, year, season=''):
-        search_url = urlparse.urljoin(self.base_url, '/?s=')
-        search_url += urllib.quote_plus('%s %s' % (title, year))
-        html = self._http_get(search_url, cache_limit=.25)
+    def search(self, video_type, title, year, season=''):  # @UnusedVariable
+        html = self._http_get(self.base_url, params={'s': title}, cache_limit=1)
         results = []
         if not re.search('Sorry, but nothing matched', html):
             norm_title = scraper_utils.normalize_title(title)
@@ -122,13 +119,7 @@ class Scraper(scraper.Scraper):
                     url, match_title_year = match.groups()
                     if re.search('S\d{2}E\d{2}', match_title_year): continue  # skip episodes
                     if re.search('TV\s*SERIES', match_title_year, re.I): continue  # skip shows
-                    match = re.search('(.*?)\s+\(?(\d{4})\)?', match_title_year)
-                    if match:
-                        match_title, match_year = match.groups()
-                    else:
-                        match_title = match_title_year
-                        match_year = ''
-
+                    match_title, match_year = scraper_utils.extra_year(match_title_year)
                     if (not year or not match_year or year == match_year) and norm_title in scraper_utils.normalize_title(match_title):
                         result = {'title': scraper_utils.cleanse_title(match_title), 'year': match_year, 'url': scraper_utils.pathify_url(url)}
                         results.append(result)

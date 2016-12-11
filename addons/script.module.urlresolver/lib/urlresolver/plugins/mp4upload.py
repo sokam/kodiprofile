@@ -16,24 +16,17 @@
     along with this program.  If not, see <http://www.gnu.org/licenses/>.
 """
 
-
-import re
-from urlresolver import common
+from lib import helpers
 from urlresolver.resolver import UrlResolver
+
 
 class Mp4uploadResolver(UrlResolver):
     name = "mp4upload"
     domains = ["mp4upload.com"]
     pattern = '(?://|\.)(mp4upload\.com)/(?:embed-)?([0-9a-zA-Z]+)'
 
-    def __init__(self):
-        self.net = common.Net()
-
     def get_media_url(self, host, media_id):
-        web_url = self.get_url(host, media_id)
-        html = self.net.http_GET(web_url).content
-        url = re.findall('(?:\"|\')file(?:\"|\')\s*:\s*(?:\"|\')(.+?)(?:\"|\')', html)[0]
-        return url
+        return helpers.get_media_url(self.get_url(host, media_id), result_blacklist=['error.'])
 
     def get_url(self, host, media_id):
         return 'http://www.mp4upload.com/embed-%s.html' % media_id

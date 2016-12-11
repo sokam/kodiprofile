@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: SALTS\n"
 "POT-Creation-Date: YEAR-MO-DA HO:MI+ZONE\n"
-"PO-Revision-Date: 2016-07-09 06:39+0000\n"
+"PO-Revision-Date: 2016-10-12 02:22+0000\n"
 "Last-Translator: tknorris\n"
 "Language-Team: English (United States) (http://www.transifex.com/tv-addons/salts/language/en_US/)\n"
 "MIME-Version: 1.0\n"
@@ -1128,6 +1128,34 @@ msgctxt "#30288"
 msgid "Working..."
 msgstr "Working..."
 
+msgctxt "#30289"
+msgid "Re-Scrape All"
+msgstr "Re-Scrape All"
+
+msgctxt "#30290"
+msgid "Manual Search (All Unmatched Only)"
+msgstr "Manual Search (All Unmatched Only)"
+
+msgctxt "#30291"
+msgid "Torba Account Authorization"
+msgstr "Torba Account Authorization"
+
+msgctxt "#30292"
+msgid "Torba Authorization Complete"
+msgstr "Torba Authorization Complete"
+
+msgctxt "#30293"
+msgid "Torba Authorization Failed"
+msgstr "Torba Authorization Failed"
+
+msgctxt "#30294"
+msgid "Authorize SALTS to access my torba account"
+msgstr "Authorize SALTS to access my torba account"
+
+msgctxt "#30295"
+msgid "and login when prompted"
+msgstr "and login when prompted"
+
 msgctxt "#30500"
 msgid "Addon Theme"
 msgstr "Addon Theme"
@@ -1201,8 +1229,8 @@ msgid "Year"
 msgstr "Year"
 
 msgctxt "#30518"
-msgid "Activity"
-msgstr "Activity"
+msgid "Recent Activity"
+msgstr "Recent Activity"
 
 msgctxt "#30519"
 msgid "Title"
@@ -1939,4 +1967,32 @@ msgstr "Most Collected (Month)"
 msgctxt "#30706"
 msgid "Most Collected (All)"
 msgstr "Most Collected (All)"
+
+msgctxt "#30707"
+msgid "Date Format"
+msgstr "Date Format"
+
+msgctxt "#30708"
+msgid "Past Activity"
+msgstr "Past Activity"
+
+msgctxt "#30709"
+msgid "Always Show Custom Progress Dialogs"
+msgstr "Always Show Custom Progress Dialogs"
+
+msgctxt "#30710"
+msgid "Image Metadata API Keys"
+msgstr "Image Metadata API Keys"
+
+msgctxt "#30711"
+msgid "Fanart.tv API Key"
+msgstr "Fanart.tv API Key"
+
+msgctxt "#30712"
+msgid "TMDB API Key"
+msgstr "TMDB API Key"
+
+msgctxt "#30713"
+msgid "TVDB API Key"
+msgstr "TVDB API Key"
 

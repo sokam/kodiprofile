@@ -17,7 +17,7 @@
 """
 import re
 import urlparse
-import log_utils
+import log_utils  # @UnusedImport
 import kodi
 import dom_parser
 from salts_lib import scraper_utils
@@ -81,7 +81,7 @@ class Scraper(scraper.Scraper):
             
         return hosters
 
-    def search(self, video_type, title, year, season=''):
+    def search(self, video_type, title, year, season=''):  # @UnusedVariable
         results = []
         search_url = urlparse.urljoin(self.base_url, '/bestmatch-search-%s.html')
         search_title = title.replace(' ', '-')
@@ -92,13 +92,7 @@ class Scraper(scraper.Scraper):
             match = re.search('href="([^"]+)[^>]*>(.*?)</a>', item)
             if match:
                 url, match_title_year = match.groups('')
-                match = re.search('(.*?)\s+\(?(\d{4})\)?', match_title_year)
-                if match:
-                    match_title, match_year = match.groups()
-                else:
-                    match_title = match_title_year
-                    match_year = ''
-                
+                match_title, match_year = scraper_utils.extra_year(match_title_year)
                 if (not year or not match_year or year == match_year):
                     result = {'url': scraper_utils.pathify_url(url), 'title': scraper_utils.cleanse_title(match_title), 'year': match_year}
                     results.append(result)

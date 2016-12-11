@@ -21,7 +21,7 @@ import urllib
 import urllib2
 import urlparse
 import kodi
-import log_utils
+import log_utils  # @UnusedImport
 import dom_parser
 from salts_lib import scraper_utils
 from salts_lib.constants import FORCE_NO_MATCH
@@ -80,7 +80,7 @@ class Scraper(scraper.Scraper):
                     iframe_url = dom_parser.parse_dom(html, 'iframe', ret='src')
                     if iframe_url:
                         iframe_url = iframe_url[0]
-                        if self.base_url in iframe_url:
+                        if urlparse.urlparse(self.base_url).hostname in iframe_url:
                             sources += self.__get_direct_links(iframe_url, page_url)
                         else:
                             sources += [{'stream_url': iframe_url, 'subs': 'Turkish subtitles', 'height': 480, 'direct': False}]
@@ -156,7 +156,7 @@ class Scraper(scraper.Scraper):
             if result and 'javascript:;' not in result:
                 return result
 
-    def search(self, video_type, title, year, season=''):
+    def search(self, video_type, title, year, season=''):  # @UnusedVariable
         results = []
         search_url = urlparse.urljoin(self.base_url, SEARCH_URL)
         html = self._http_get(search_url, cache_limit=48)

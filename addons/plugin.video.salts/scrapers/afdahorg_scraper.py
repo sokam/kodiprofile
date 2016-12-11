@@ -18,9 +18,8 @@
 import re
 import urllib
 import urlparse
-import random
 import kodi
-import log_utils
+import log_utils  # @UnusedImport
 from salts_lib import scraper_utils
 from salts_lib.constants import FORCE_NO_MATCH
 from salts_lib.constants import VIDEO_TYPES
@@ -28,6 +27,8 @@ from salts_lib.constants import XHR
 import scraper
 
 class Scraper(scraper.Scraper):
+    OPTIONS = ['https://afdah.org', 'https://watch32hd.co']
+    
     def __init__(self, timeout=scraper.DEFAULT_TIMEOUT):
         self.timeout = timeout
         self.base_url = kodi.get_setting('%s-base_url' % (self.get_name()))
@@ -53,7 +54,7 @@ class Scraper(scraper.Scraper):
                 data = {'v': video_id}
                 headers = {'Referer': page_url}
                 headers.update(XHR)
-                html = self._http_get(self.info_url, data=data, headers=headers, cache_limit=.5)
+                html = self._http_get(self.info_url, data=data, headers=headers, cache_limit=0)
                 sources = scraper_utils.parse_json(html, self.info_url)
                 for source in sources:
                     match = re.search('url=(.*)', sources[source])
@@ -69,10 +70,10 @@ class Scraper(scraper.Scraper):
                         hosters.append(hoster)
         return hosters
 
-    def search(self, video_type, title, year, season=''):
-        search_url = urlparse.urljoin(self.base_url, '/results?q=')
-        search_url += urllib.quote_plus(title)
-        html = self._http_get(search_url, cache_limit=.25)
+    def search(self, video_type, title, year, season=''):  # @UnusedVariable
+        search_url = urlparse.urljoin(self.base_url, '/results')
+        params = {'q': title}
+        html = self._http_get(search_url, params=params, cache_limit=1)
         results = []
         pattern = 'class="video_title".*?href="([^"]+)">([^<]+).*?Year</b>:\s*(\d*)'
         for match in re.finditer(pattern, html, re.DOTALL):
@@ -88,11 +89,4 @@ class Scraper(scraper.Scraper):
         settings.append('         <setting id="%s-default_url" type="text" visible="false"/>' % (cls.get_name()))
         return settings
 
-# if no default url has been set, then pick one and set it. If one has been set, use it
-default_url = kodi.get_setting('%s-default_url' % (Scraper.get_name()))
-if not default_url:
-    BASE_URL = random.choice(['https://afdah.org', 'http://watch32hd.co'])
-    Scraper.base_url = BASE_URL
-    kodi.set_setting('%s-default_url' % (Scraper.get_name()), BASE_URL)
-else:
-    Scraper.base_url = default_url
+scraper_utils.set_default_url(Scraper)

@@ -16,10 +16,9 @@
     along with this program.  If not, see <http://www.gnu.org/licenses/>.
 """
 import re
-import urllib
 import urlparse
 import kodi
-import log_utils
+import log_utils  # @UnusedImport
 from salts_lib import scraper_utils
 from salts_lib.constants import FORCE_NO_MATCH
 from salts_lib.constants import QUALITIES
@@ -96,23 +95,17 @@ class Scraper(scraper.Scraper):
 
         return hosters
 
-    def search(self, video_type, title, year, season=''):
-        search_url = urlparse.urljoin(self.base_url, '/index.php?search_keywords=')
-        search_url += urllib.quote_plus(title)
-        search_url += '&year=' + urllib.quote_plus(str(year))
-        if video_type in [VIDEO_TYPES.TVSHOW, VIDEO_TYPES.EPISODE]:
-            search_url += '&search_section=2'
-        else:
-            search_url += '&search_section=1'
-
+    def search(self, video_type, title, year, season=''):  # @UnusedVariable
         results = []
-        html = self. _http_get(self.base_url, cache_limit=0)
+        search_url = urlparse.urljoin(self.base_url, '/index.php')
+        params = {'search_keywords': title, 'year': year}
+        params['search_section'] = 2 if video_type == VIDEO_TYPES.TVSHOW else 1
+        html = self. _http_get(self.base_url, cache_limit=8)
         match = re.search('input type="hidden" name="key" value="([0-9a-f]*)"', html)
         if match:
-            key = match.group(1)
-            search_url += '&key=' + key
+            params['key'] = match.group(1)
 
-            html = self._http_get(search_url, cache_limit=.25)
+            html = self._http_get(search_url, params=params, cache_limit=1)
             pattern = r'class="index_item.+?href="(.+?)" title="Watch (.+?)"?\(?([0-9]{4})?\)?"?>'
             for match in re.finditer(pattern, html):
                 url, title, year = match.groups('')

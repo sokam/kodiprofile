@@ -18,7 +18,7 @@
 import re
 import urlparse
 import kodi
-import log_utils
+import log_utils  # @UnusedImport
 import dom_parser
 from salts_lib import scraper_utils
 from salts_lib.constants import FORCE_NO_MATCH
@@ -70,7 +70,7 @@ class Scraper(scraper.Scraper):
         episode_pattern = 'href="([^"]*/[Ss]0*%s/[Ee]0*%s)"' % (video.season, video.episode)
         return self._default_get_episode_url(show_url, video, episode_pattern)
 
-    def search(self, video_type, title, year, season=''):
+    def search(self, video_type, title, year, season=''):  # @UnusedVariable
         results = []
         page_url = urlparse.urljoin(self.base_url, '/tvseries/index.php?&page=1')
         while page_url:
@@ -79,13 +79,13 @@ class Scraper(scraper.Scraper):
             norm_title = scraper_utils.normalize_title(title)
             for td in dom_parser.parse_dom(html, 'td', {'class': 'topic_content'}):
                 match_url = re.search('href="([^"]+)', td)
-                match_title = dom_parser.parse_dom(td, 'img', ret='alt')
-                if match_url and match_title:
+                match_title_year = dom_parser.parse_dom(td, 'img', ret='alt')
+                if match_url and match_title_year:
                     match_url = match_url.group(1)
                     if not match_url.startswith('/'): match_url = '/tvseries/' + match_url
-                    match_title = match_title[0]
+                    match_title, match_year = scraper_utils.extra_year(match_title_year[0])
                     if norm_title in scraper_utils.normalize_title(match_title):
-                        result = {'url': scraper_utils.pathify_url(match_url), 'title': scraper_utils.cleanse_title(match_title), 'year': ''}
+                        result = {'url': scraper_utils.pathify_url(match_url), 'title': scraper_utils.cleanse_title(match_title), 'year': match_year}
                         results.append(result)
             
             match = re.search('href="([^"]+)[^>]*>>', html)

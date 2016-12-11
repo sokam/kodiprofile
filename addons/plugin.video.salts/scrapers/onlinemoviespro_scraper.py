@@ -68,7 +68,7 @@ class Scraper(scraper.Scraper):
                 hosters.append(hoster)
         return hosters
 
-    def search(self, video_type, title, year, season=''):
+    def search(self, video_type, title, year, season=''):  # @UnusedVariable
         results = []
         test_url = title.replace("'", '')
         test_url = re.sub(r'[^a-zA-Z0-9\s]+', ' ', test_url).lower().strip()

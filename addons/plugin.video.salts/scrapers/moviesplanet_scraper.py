@@ -19,14 +19,16 @@ import base64
 import re
 import time
 import urlparse
+import urllib
 import kodi
-import log_utils
+import log_utils  # @UnusedImport
 import dom_parser
 from salts_lib import scraper_utils
 from salts_lib.constants import FORCE_NO_MATCH
 from salts_lib.constants import QUALITIES
 from salts_lib.constants import Q_ORDER
 from salts_lib.constants import VIDEO_TYPES
+from salts_lib.constants import XHR
 from salts_lib.utils2 import i18n
 import scraper
 
@@ -34,7 +36,6 @@ import scraper
 BASE_URL = 'http://www.moviesplanet.is'
 GK_KEY = base64.urlsafe_b64decode('MllVcmlZQmhTM2swYU9BY0lmTzQ=')
 QUALITY_MAP = {'HD': QUALITIES.HD720}
-XHR = {'X-Requested-With': 'XMLHttpRequest'}
 
 class Scraper(scraper.Scraper):
     base_url = BASE_URL
@@ -100,12 +101,15 @@ class Scraper(scraper.Scraper):
 
         return hosters
 
-    def search(self, video_type, title, year, season=''):
+    def search(self, video_type, title, year, season=''):  # @UnusedVariable
         results = []
         search_url = urlparse.urljoin(self.base_url, '/ajax/search.php')
         timestamp = int(time.time() * 1000)
         query = {'q': title, 'limit': '100', 'timestamp': timestamp, 'verifiedCheck': ''}
-        html = self._http_get(search_url, data=query, headers=XHR, cache_limit=1)
+        referer = urlparse.urljoin(self.base_url, '/index.php?menu=search&query=%s' % (urllib.quote_plus(title)))
+        headers = {'Referer': referer}
+        headers.update(XHR)
+        html = self._http_get(search_url, data=query, headers=headers, cache_limit=1)
         if video_type in [VIDEO_TYPES.TVSHOW, VIDEO_TYPES.EPISODE]:
             media_type = 'TV SHOW'
         else:
@@ -146,6 +150,7 @@ class Scraper(scraper.Scraper):
     def __login(self):
         url = urlparse.urljoin(self.base_url, '/login')
         data = {'username': self.username, 'password': self.password, 'action': 'login'}
-        html = super(self.__class__, self)._http_get(url, data=data, headers=XHR, cache_limit=0)
+        headers = XHR.copy()
+        html = super(self.__class__, self)._http_get(url, data=data, headers=headers, cache_limit=0)
         if 'incorrect login' in html.lower():
             raise Exception('moviesplanet login failed')

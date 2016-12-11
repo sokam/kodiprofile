@@ -2,4 +2,7 @@
 Set-Cookie3: __cfduid=d2b6da9ee7a033e2e03dd03e63c565a331472014490; path="/"; domain=".filmovizija.studio"; path_spec; domain_dot; expires="2017-08-24 04:54:50Z"; HttpOnly=None; version=0
 Set-Cookie3: __cfduid=d88a034f718c104d0587cdb49de7830061472789020; path="/"; domain=".filmovizija.ws"; path_spec; domain_dot; expires="2017-09-02 04:03:40Z"; HttpOnly=None; version=0
 Set-Cookie3: PHPSESSID=599iflsgiqk0f2fuo03ai6c726; path="/"; domain="www.filmovizija.studio"; path_spec; discard; version=0
+Set-Cookie3: SessionID="53381bcd-9690-4b5b-ae63-a880145bb225"; path="/"; domain="www.filmovizija.studio"; path_spec; discard; version=0
+Set-Cookie3: VisitorID="113e20a8-7255-4c1b-af00-60c7de814261&Exp=12/2/2019 9:10:53 PM"; path="/"; domain="www.filmovizija.studio"; path_spec; expires="2019-12-03 05:10:53Z"; version=0
+Set-Cookie3: __cfduid=d2b6da9ee7a033e2e03dd03e63c565a331472014490; path="/"; domain="www.filmovizija.studio"; path_spec; discard; version=0
 Set-Cookie3: PHPSESSID=599iflsgiqk0f2fuo03ai6c726; path="/"; domain="www.filmovizija.ws"; path_spec; discard; version=0

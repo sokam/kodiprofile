@@ -20,7 +20,7 @@ from string import capwords
 import urllib
 import urlparse
 import kodi
-import log_utils
+import log_utils  # @UnusedImport
 import dom_parser
 from salts_lib import scraper_utils
 from salts_lib.constants import FORCE_NO_MATCH
@@ -28,7 +28,6 @@ from salts_lib.constants import QUALITIES
 from salts_lib.constants import VIDEO_TYPES
 from salts_lib.utils2 import i18n
 import scraper
-
 
 BASE_URL = 'http://www.streamlord.com'
 LOGIN_URL = '/login.html'
@@ -113,7 +112,7 @@ class Scraper(scraper.Scraper):
         settings.append('         <setting id="%s-password" type="text" label="     %s" option="hidden" default="" visible="eq(-5,true)"/>' % (name, i18n('password')))
         return settings
 
-    def search(self, video_type, title, year, season=''):
+    def search(self, video_type, title, year, season=''):  # @UnusedVariable
         results = []
         url = urlparse.urljoin(self.base_url, '/search2.php')
         data = {'searchapi': title}

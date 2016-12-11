@@ -343,7 +343,7 @@ msgid "Recordings"
 msgstr ""
 
 msgctxt "#30308"
-msgid "Quit"
+msgid "Go To Now"
 msgstr ""
 
 #empty strings from id 30309 to 30399

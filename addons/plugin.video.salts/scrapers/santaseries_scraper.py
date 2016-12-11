@@ -17,10 +17,9 @@
 """
 import re
 import urlparse
-import urllib
 import base64
 import kodi
-import log_utils
+import log_utils  # @UnusedImport
 import dom_parser
 from salts_lib import scraper_utils
 from salts_lib.constants import FORCE_NO_MATCH
@@ -74,11 +73,9 @@ class Scraper(scraper.Scraper):
         episode_pattern = 'href="([^"]*-season-%s-episode-%s(?!\d)[^"]*)' % (video.season, video.episode)
         return self._default_get_episode_url(show_url, video, episode_pattern)
 
-    def search(self, video_type, title, year, season=''):
+    def search(self, video_type, title, year, season=''):  # @UnusedVariable
         results = []
-        search_url = urlparse.urljoin(self.base_url, '/?s=')
-        search_url += urllib.quote_plus(title)
-        html = self._http_get(search_url, cache_limit=1)
+        html = self._http_get(self.base_url, params={'s': title}, cache_limit=1)
         for item in dom_parser.parse_dom(html, 'div', {'class': 'item'}):
             match_url = dom_parser.parse_dom(item, 'a', ret='href')
             match_title = dom_parser.parse_dom(item, 'span', {'class': 'tt'})
@@ -86,11 +83,7 @@ class Scraper(scraper.Scraper):
             if match_url and match_title:
                 match_url = match_url[0]
                 match_title = match_title[0]
-                if match_year:
-                    match_year = match_year[0]
-                else:
-                    match_year = ''
-        
+                match_year = match_year[0] if match_year else ''
                 if not year or not match_year or year == match_year:
                     result = {'url': scraper_utils.pathify_url(match_url), 'title': scraper_utils.cleanse_title(match_title), 'year': match_year}
                     results.append(result)

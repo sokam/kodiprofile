@@ -20,7 +20,7 @@ import re
 import urllib
 import urlparse
 import kodi
-import log_utils
+import log_utils  # @UnusedImport
 import dom_parser
 from salts_lib import scraper_utils
 from salts_lib.constants import FORCE_NO_MATCH
@@ -31,6 +31,7 @@ import scraper
 
 
 BASE_URL = 'http://rlsbb.com'
+OLD_BASE_URL = 'http://old.rlsbb.com'
 SEARCH_BASE_URL = 'http://search.rlsbb.com'
 CATEGORIES = {VIDEO_TYPES.MOVIE: '/category/movies/"', VIDEO_TYPES.EPISODE: '/category/tv-shows/"'}
 
@@ -56,6 +57,10 @@ class Scraper(scraper.Scraper):
         if source_url and source_url != FORCE_NO_MATCH:
             url = urlparse.urljoin(self.base_url, source_url)
             html = self._http_get(url, require_debrid=True, cache_limit=.5)
+            if not html:
+                url = urlparse.urljoin(OLD_BASE_URL, source_url)
+                html = self._http_get(url, require_debrid=True, cache_limit=.5)
+                
             sources.update(self.__get_post_links(html, video))
             
             if kodi.get_setting('%s-include_comments' % (self.get_name())) == 'true':
@@ -114,21 +119,21 @@ class Scraper(scraper.Scraper):
         settings.append('         <setting id="%s-include_comments" type="bool" label="     %s" default="false" visible="eq(-6,true)"/>' % (name, i18n('include_comments')))
         return settings
 
-    def search(self, video_type, title, year, season=''):
+    def search(self, video_type, title, year, season=''):  # @UnusedVariable
         results = []
         referer = urlparse.urljoin(SEARCH_BASE_URL, '/search/')
-        referer += urllib.quote_plus(title)
-        headers = {'Referer': referer}
+        headers = {'Referer': referer + urllib.quote_plus(title)}
         headers.update(XHR)
-        search_url = urlparse.urljoin(SEARCH_BASE_URL, '/lib/search.php?phrase=%s&pindex=1')
-        search_url = search_url % (urllib.quote_plus(title))
-        html = self._http_get(search_url, headers=headers, require_debrid=True, cache_limit=1)
+        search_url = urlparse.urljoin(SEARCH_BASE_URL, '/lib/search.php')
+        params = {'phrase': title, 'pindex': 1}
+        html = self._http_get(search_url, params=params, headers=headers, require_debrid=True, cache_limit=1)
         js_data = scraper_utils.parse_json(html, search_url)
         for post in js_data.get('results', []):
             if self.__too_old(post): continue
             result = self._blog_proc_results(post.get('post_title', ''), '(?P<post_title>.+)(?P<url>.*?)', '', video_type, title, year)
-            result[0]['url'] = scraper_utils.pathify_url(post['post_name'])
-            results.append(result[0])
+            if result:
+                result[0]['url'] = scraper_utils.pathify_url(post['post_name'])
+                results.append(result[0])
         return results
 
     def __too_old(self, post):

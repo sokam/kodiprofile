@@ -19,9 +19,8 @@
 '''
 
 
-import re,urllib,urlparse,random,json
+import re,urllib,urlparse,json
 
-from resources.lib.modules import control
 from resources.lib.modules import cleantitle
 from resources.lib.modules import client
 from resources.lib.modules import directstream
@@ -29,77 +28,77 @@ from resources.lib.modules import directstream
 
 class source:
     def __init__(self):
-        self.domains = ['hdmoviefree.org']
-        self.base_link = 'http://www.hdmoviefree.org'
-        self.search_link = '/search/%s.html'
-        self.server_link = '/ajax/loadsv/%s'
-        self.episode_link = '/ajax/loadep/%s'
+        self.domains = ['moviefree.to']
+        self.base_link = 'http://moviefree.to'
+        self.search_link = '/watch/%s-%s-online.html'
+
 
     def movie(self, imdb, title, year):
         try:
-					
-			self.zen_url = []
-			cleanmovie = cleantitle.get(title)
-			query = urlparse.urljoin(self.base_link, self.search_link % title.replace(' ', '-').replace('.', '-'))
-			link = client.request(query)
-			r = client.parseDOM(link, 'div', attrs = {'class': '[^"]*slideposter[^"]*'})
-			r = [(client.parseDOM(i, 'a', ret='href'),client.parseDOM(i, 'img', ret='alt')) for i in r]
-			r = [(i[0][0], i[1][0]) for i in r if len(i[0]) > 0 and len(i[1]) > 0]
-			r = [i[0] for i in r if cleanmovie in cleantitle.get(i[1]) and year in i[1]][0]
-			url = r
+            url = self.search_link % (cleantitle.geturl(title), year)
+            url = urlparse.urljoin(self.base_link, url)
 
-			url = client.replaceHTMLCodes(url)
-			url = "http://www.hdmoviefree.org/" + url
-			url = url.encode('utf-8')
-			return url
+            r = client.request(url, limit='1')
+            r = client.parseDOM(r, 'title')[0]
+            if r == '': raise Exception()
+
+            url = re.findall('(?://.+?|)(/.+)', url)[0]
+            url = client.replaceHTMLCodes(url)
+            url = url.encode('utf-8')
+            return url
         except:
             return
-			
+
+
     def sources(self, url, hostDict, hostprDict):
         try:
             sources = []
 
             if url == None: return sources
 
-            r = client.request(url)
-
-            data_id = client.parseDOM(r, 'img', ret='data-id')[0]
-            data_name = client.parseDOM(r, 'img', ret='data-name')[0]
-
-            headers = {'X-Requested-With': 'XMLHttpRequest', 'Referer': url}
-
-            post = {'id': data_id, 'n': data_name}
-            post = urllib.urlencode(post)
-
-            url = self.server_link % data_id
             url = urlparse.urljoin(self.base_link, url)
 
-            r = client.request(url, post=post, headers=headers)
+            r = client.request(url)
 
-            links = client.parseDOM(r, 'a', ret='data-id')
+            s = re.findall('data-film\s*=\s*"(.+?)"\s+data-name\s*=\s*"(.+?)"\s+data-server\s*=\s*"(.+?)"', r)
 
-            for link in links:
+            h = {'X-Requested-With': 'XMLHttpRequest', 'Referer': url}
+
+            for u in s:
                 try:
-                    url = self.episode_link % link
-                    url = urlparse.urljoin(self.base_link, url)
+                    if not u[2] in ['1', '11', '4']: raise Exception() 
+                    url = urlparse.urljoin(self.base_link, '/ip.file/swf/plugins/ipplugins.php')
 
-                    post = {'epid': link}
+                    post = {'ipplugins': '1', 'ip_film': u[0], 'ip_name': u[1] , 'ip_server': u[2]}
                     post = urllib.urlencode(post)
 
-                    r = client.request(url, post=post, headers=headers)
+                    r = client.request(url, post=post, headers=h)
                     r = json.loads(r)
-                    try: u = client.parseDOM(r['link']['embed'], 'iframe', ret='src')
-                    except: u = r['link']['l']
 
-                    for i in u:
+                    url = urlparse.urljoin(self.base_link, '/ip.file/swf/ipplayer/ipplayer.php')
+
+                    post = {'u': r['s'], 'w': '100%', 'h': '500' , 's': r['v'], 'n':'0'}
+                    post = urllib.urlencode(post)
+
+                    r = client.request(url, post=post, headers=h)
+                    r = json.loads(r)
+
+                    try: url = [i['files'] for i in r['data']]
+                    except: url = [r['data']]
+
+                    for i in url:
                         try: sources.append({'source': 'gvideo', 'quality': directstream.googletag(i)[0]['quality'], 'provider': 'Moviefree', 'url': i, 'direct': True, 'debridonly': False})
                         except: pass
+
+                    if 'openload' in url[0]:
+                        sources.append({'source': 'openload.co', 'quality': 'HD', 'provider': 'Moviefree', 'url': i, 'direct': False, 'debridonly': False})
                 except:
                     pass
 
             return sources
         except:
             return sources
+
 
     def resolve(self, url):
         try:

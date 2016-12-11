@@ -128,7 +128,7 @@ class Service(xbmc.Player):
                     db_connection.set_bookmark(self.trakt_id, playedTime, self.season, self.episode)
                     
                 if percent_played >= 75 and self._from_library:
-                    if xbmc.getCondVisibility('System.HasAddon(script.trakt)'):
+                    if kodi.has_addon('script.trakt'):
                         run = 'RunScript(script.trakt, action=sync, silent=True)'
                         xbmc.executebuiltin(run)
             self.reset()
@@ -144,7 +144,7 @@ salts_utils.do_startup_task(MODES.PRUNE_CACHE)
 was_on = False
 def disable_global_cx():
     global was_on
-    if xbmc.getCondVisibility('System.HasAddon(plugin.program.super.favourites)'):
+    if kodi.has_addon('plugin.program.super.favourites'):
         active_plugin = xbmc.getInfoLabel('Container.PluginName')
         sf = xbmcaddon.Addon('plugin.program.super.favourites')
         if active_plugin == kodi.get_id():
@@ -157,18 +157,30 @@ def disable_global_cx():
             sf.setSetting('CONTEXT', 'true')
             was_on = False
     
+cd_begin = 0
+def check_cooldown():
+    global cd_begin
+    black_list = ['plugin.video.metalliq', 'plugin.video.meta']
+    active_plugin = xbmc.getInfoLabel('Container.PluginName')
+    if active_plugin in black_list:
+        cd_begin = time.time()
+    
+    active = 'false' if (time.time() - cd_begin) > 30 else 'true'
+    if kodi.get_setting('cool_down') != active:
+        kodi.set_setting('cool_down', active)
+
 last_label = ''
-begin = 0
+sf_begin = 0
 def show_next_up():
     global last_label
-    global begin
+    global sf_begin
     token = kodi.get_setting('trakt_oauth_token')
     if token and xbmc.getInfoLabel('Container.PluginName') == kodi.get_id() and xbmc.getInfoLabel('Container.Content') == 'tvshows':
         if xbmc.getInfoLabel('ListItem.label') != last_label:
-            begin = time.time()
+            sf_begin = time.time()
 
         last_label = xbmc.getInfoLabel('ListItem.label')
-        if begin and (time.time() - begin) >= int(kodi.get_setting('next_up_delay')):
+        if sf_begin and (time.time() - sf_begin) >= int(kodi.get_setting('next_up_delay')):
             liz_url = xbmc.getInfoLabel('ListItem.FileNameAndPath')
             queries = kodi.parse_query(liz_url[liz_url.find('?'):])
             if 'trakt_id' in queries:
@@ -190,7 +202,7 @@ def show_next_up():
                         if next_episode['title']: msg += ' - %s' % (next_episode['title'])
                         duration = int(kodi.get_setting('next_up_duration')) * 1000
                         kodi.notify(header=i18n('next_episode'), msg=msg, duration=duration)
-            begin = 0
+            sf_begin = 0
     else:
         last_label = ''
 
@@ -204,6 +216,7 @@ while not xbmc.abortRequested:
             service._lastPos = service.getTime()
 
         disable_global_cx()
+        check_cooldown()
         if kodi.get_setting('show_next_up') == 'true':
             show_next_up()
     except Exception as e:

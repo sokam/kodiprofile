@@ -33,7 +33,6 @@ import sys
 import os
 import xbmcgui
 import common
-import xml.dom.minidom
 from hmf import HostedMediaFile
 from urlresolver.resolver import UrlResolver
 from plugins import *
@@ -248,6 +247,7 @@ def _update_settings_xml():
         '<settings>',
         '\t<category label="URLResolver">',
         '\t\t<setting default="true" id="allow_universal" label="Enable Universal Resolvers" type="bool"/>',
+        '\t\t<setting default="true" id="auto_pick" label="Automatically pick best quality" type="bool"/>',
         '\t\t<setting default="true" id="use_cache" label="Use Function Cache" type="bool"/>',
         '\t\t<setting id="reset_cache" type="action" label="Reset Function Cache" action="RunPlugin(plugin://script.module.urlresolver/?mode=reset_cache)"/>',
         '\t\t<setting id="personal_nid" label="Your NID" type="text" visible="false"/>',

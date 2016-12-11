@@ -19,7 +19,7 @@ import re
 import time
 import urlparse
 import kodi
-import log_utils
+import log_utils  # @UnusedImport
 import dom_parser
 from salts_lib import scraper_utils
 from salts_lib.constants import FORCE_NO_MATCH
@@ -48,13 +48,13 @@ class Scraper(scraper.Scraper):
 
     def resolve_link(self, link):
         url = urlparse.urljoin(self.base_url, link)
-        html = self._http_get(url, allow_redirect=False, method='HEAD', cache_limit=.5)
+        html = self._http_get(url, allow_redirect=False, cache_limit=.5)
         if html.startswith('http'):
             return html
         else:
-            match = re.search('<iframe name="frame" class="frame" src="([^"]+)', html)
-            if match:
-                return match.group(1)
+            iframe_url = dom_parser.parse_dom(html, 'iframe', {'class': 'frame'}, ret='src')
+            if iframe_url:
+                return iframe_url[0]
 
     def get_sources(self, video):
         source_url = self.get_url(video)
@@ -119,7 +119,7 @@ class Scraper(scraper.Scraper):
             # print '%s, %s, %s, %s' % (num, unit, mult, age)
         return age
 
-    def search(self, video_type, title, year, season=''):
+    def search(self, video_type, title, year, season=''):  # @UnusedVariable
         results = []
         search_url = urlparse.urljoin(self.base_url, '/search')
         if video_type == VIDEO_TYPES.MOVIE:

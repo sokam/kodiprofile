@@ -19,7 +19,7 @@ import re
 import urllib
 import urlparse
 import kodi
-import log_utils
+import log_utils  # @UnusedImport
 import dom_parser
 from salts_lib import scraper_utils
 from salts_lib.constants import FORCE_NO_MATCH
@@ -28,7 +28,7 @@ from salts_lib.constants import VIDEO_TYPES
 import scraper
 
 
-BASE_URL = 'http://moviexk.org'
+BASE_URL = 'http://moviexk.com'
 
 class Scraper(scraper.Scraper):
     base_url = BASE_URL
@@ -70,7 +70,9 @@ class Scraper(scraper.Scraper):
                 stream_url, extra = match.groups()
                 if 'video.php' in stream_url:
                     redir_url = self._http_get(stream_url, allow_redirect=False, method='HEAD', cache_limit=0)
-                    if redir_url.startswith('http'): stream_url = redir_url
+                    if redir_url.startswith('http'):
+                        redir_url = redir_url.replace(' ', '').split(';codec')[0]
+                        stream_url = redir_url
                 
                 host = self._get_direct_hostname(stream_url)
                 if host == 'gvideo':
@@ -106,7 +108,7 @@ class Scraper(scraper.Scraper):
         urls = dom_parser.parse_dom(html, 'a', {'data-type': 'watch'}, ret='href')
         return dict(zip(labels, urls))
         
-    def search(self, video_type, title, year, season=''):
+    def search(self, video_type, title, year, season=''):  # @UnusedVariable
         results = []
         search_url = urlparse.urljoin(self.base_url, '/search/')
         search_url += urllib.quote_plus(title)
@@ -122,13 +124,7 @@ class Scraper(scraper.Scraper):
                     match_title_year = re.sub('</?[^>]*>', '', match_title_year)
                     match_title_year = re.sub('[Ww]atch\s+[Mm]ovie\s*', '', match_title_year)
                     match_title_year = match_title_year.replace('&#8217;', "'")
-                    match = re.search('(.*?)\s+\((\d{4})[^)]*\)$', match_title_year)
-                    if match:
-                        match_title, match_year = match.groups()
-                    else:
-                        match_title = match_title_year
-                        match_year = ''
-    
+                    match_title, match_year = scraper_utils.extra_year(match_title_year)
                     if not match_year:
                         year_span = dom_parser.parse_dom(fragment, 'span', {'class': 'year'})
                         if year_span:

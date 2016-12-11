@@ -19,7 +19,7 @@ import re
 import urllib
 import urlparse
 import kodi
-import log_utils
+import log_utils  # @UnusedImport
 import dom_parser
 import json
 from salts_lib import scraper_utils
@@ -31,7 +31,7 @@ import scraper
 
 BASE_URL = 'http://www.snagfilms.com'
 SOURCE_BASE_URL = 'http://mp4.snagfilms.com'
-SEARCH_URL = '/apis/search.json?searchTerm=%s&type=%s&limit=500'
+SEARCH_URL = '/apis/search.json'
 SEARCH_TYPES = {VIDEO_TYPES.MOVIE: 'film', VIDEO_TYPES.TVSHOW: 'show'}
 
 class Scraper(scraper.Scraper):
@@ -83,15 +83,15 @@ class Scraper(scraper.Scraper):
         title_pattern = 'data-title\s*=\s*"Season\s+\d+\s+Episode\s+\d+\s*(?P<title>[^"]+)[^>]+data-permalink\s*=\s*"(?P<url>[^"]+)'
         return self._default_get_episode_url(season_url, video, episode_pattern, title_pattern)
     
-    def search(self, video_type, title, year, season=''):
+    def search(self, video_type, title, year, season=''):  # @UnusedVariable
         results = []
         search_url = urlparse.urljoin(self.base_url, SEARCH_URL)
-        search_url = search_url % (urllib.quote_plus(title), SEARCH_TYPES[video_type])
         referer = urlparse.urljoin(self.base_url, '/search/?q=%s')
         referer = referer % (urllib.quote_plus(title))
         headers = {'Referer': referer}
         headers.update(XHR)
-        html = self._http_get(search_url, headers=headers, cache_limit=2)
+        params = {'searchTerm': title, 'type': SEARCH_TYPES[video_type], 'limit': 500}
+        html = self._http_get(search_url, params=params, headers=headers, auth=False, cache_limit=2)
         js_data = scraper_utils.parse_json(html, search_url)
         if 'results' in js_data:
             for result in js_data['results']:
@@ -111,16 +111,16 @@ class Scraper(scraper.Scraper):
         settings.append('         <setting id="%s-password" type="text" label="     %s" option="hidden" default="" visible="eq(-5,true)"/>' % (name, i18n('password')))
         return settings
 
-    def _http_get(self, url, data=None, headers=None, auth=True, method=None, cache_limit=8):
+    def _http_get(self, url, params=None, data=None, headers=None, auth=True, method=None, cache_limit=8):
         # return all uncached blank pages if no user or pass
         if not self.username or not self.password:
             return ''
 
-        html = super(self.__class__, self)._http_get(url, data=data, headers=headers, method=method, cache_limit=cache_limit)
+        html = super(self.__class__, self)._http_get(url, params=params, data=data, headers=headers, method=method, cache_limit=cache_limit)
         if auth and not dom_parser.parse_dom(html, 'span', {'class': 'user-name'}):
             log_utils.log('Logging in for url (%s)' % (url), log_utils.LOGDEBUG)
             self.__login()
-            html = super(self.__class__, self)._http_get(url, data=data, headers=headers, method=method, cache_limit=0)
+            html = super(self.__class__, self)._http_get(url, params=params, data=data, headers=headers, method=method, cache_limit=0)
 
         return html
 

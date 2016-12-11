@@ -431,7 +431,10 @@ class TVGuide(xbmcgui.WindowXML):
             xbmc.executebuiltin('ActivateWindow(10025,"plugin://plugin.video.ustvnow.tva/?mode=recordings")')
 
         elif buttonClicked == PopupMenu.C_POPUP_QUIT:
-            self.close()
+            self.viewStartDate = datetime.datetime.today()
+            self.viewStartDate -= datetime.timedelta(minutes=self.viewStartDate.minute % 30, seconds=self.viewStartDate.second)
+            self.onRedrawEPG(self.channelIdx, self.viewStartDate)
+            return
 
         elif buttonClicked == PopupMenu.C_POPUP_LIBMOV:
             xbmc.executebuiltin('ActivateWindow(10025,"plugin://plugin.video.ustvnow.tva/?mode=scheduled")')

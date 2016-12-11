@@ -34,7 +34,7 @@
     <setting id="CinemaMKV-base_url" value="http://cinemamkv.com" />
     <setting id="CinemaMKV-enable" value="true" />
     <setting id="CinemaMKV-sub_check" value="true" />
-    <setting id="CinemaMKV_last_results" value="104" />
+    <setting id="CinemaMKV_last_results" value="107" />
     <setting id="CouchTunerV1-base_url" value="http://www.couchtuner.ch" />
     <setting id="CouchTunerV1-enable" value="false" />
     <setting id="CouchTunerV1-sub_check" value="true" />
@@ -75,6 +75,12 @@
     <setting id="DL-Pars-enable" value="false" />
     <setting id="DL-Pars-sub_check" value="true" />
     <setting id="DL-Pars_last_results" value="0" />
+    <setting id="DailyReleases-base_url" value="http://dailyreleases.net" />
+    <setting id="DailyReleases-enable" value="true" />
+    <setting id="DailyReleases-filter" value="30" />
+    <setting id="DailyReleases-select" value="0" />
+    <setting id="DailyReleases-sub_check" value="false" />
+    <setting id="DailyReleases_last_results" value="0" />
     <setting id="DayT.se-base_url" value="http://cyro.se" />
     <setting id="DayT.se-enable" value="false" />
     <setting id="DayT.se-sub_check" value="true" />
@@ -121,6 +127,14 @@
     <setting id="Dizipas-enable" value="false" />
     <setting id="Dizipas-sub_check" value="true" />
     <setting id="Dizipas_last_results" value="0" />
+    <setting id="Dizist-base_url" value="http://www.dizist.net" />
+    <setting id="Dizist-enable" value="true" />
+    <setting id="Dizist-sub_check" value="true" />
+    <setting id="Dizist_last_results" value="0" />
+    <setting id="DownloadTube-base_url" value="http://www.mydownloadtube.com" />
+    <setting id="DownloadTube-enable" value="true" />
+    <setting id="DownloadTube-sub_check" value="true" />
+    <setting id="DownloadTube_last_results" value="0" />
     <setting id="EasyNews-base_url" value="http://members.easynews.com" />
     <setting id="EasyNews-enable" value="false" />
     <setting id="EasyNews-password" value="" />
@@ -139,12 +153,12 @@
     <setting id="FilmStreaming.in-sub_check" value="true" />
     <setting id="FilmStreaming.in_check" value="0" />
     <setting id="FilmStreaming.in_fail" value="4" />
-    <setting id="FilmStreaming.in_last_results" value="0" />
+    <setting id="FilmStreaming.in_last_results" value="3" />
     <setting id="FilmStreaming.in_try" value="65" />
     <setting id="Filmovizija-base_url" value="http://www.filmovizija.studio" />
     <setting id="Filmovizija-enable" value="true" />
     <setting id="Filmovizija-sub_check" value="true" />
-    <setting id="Filmovizija_last_results" value="19" />
+    <setting id="Filmovizija_last_results" value="45" />
     <setting id="FireMoviesHD-base_url" value="http://firemovieshd.com" />
     <setting id="FireMoviesHD-enable" value="false" />
     <setting id="FireMoviesHD-sub_check" value="true" />
@@ -190,15 +204,15 @@
     <setting id="HDMovieFree-base_url" value="https://www.hdmoviefree.org" />
     <setting id="HDMovieFree-enable" value="true" />
     <setting id="HDMovieFree-sub_check" value="true" />
-    <setting id="HDMovieFree_last_results" value="97" />
+    <setting id="HDMovieFree_last_results" value="112" />
     <setting id="HEVCBluRay-base_url" value="https://hevcbluray.com" />
     <setting id="HEVCBluRay-enable" value="true" />
     <setting id="HEVCBluRay-sub_check" value="true" />
-    <setting id="HEVCBluRay_last_results" value="20" />
+    <setting id="HEVCBluRay_last_results" value="35" />
     <setting id="HeyDL-base_url" value="http://dl2.heydl.com/film" />
     <setting id="HeyDL-enable" value="true" />
     <setting id="HeyDL-sub_check" value="true" />
-    <setting id="HeyDL_last_results" value="17" />
+    <setting id="HeyDL_last_results" value="20" />
     <setting id="IFlix-base_url" value="http://imoviemax.se" />
     <setting id="IFlix-base_url2" value="http://tvshows.imoviemax.se" />
     <setting id="IFlix-enable" value="true" />
@@ -257,7 +271,7 @@
     <setting id="MintMovies-sub_check" value="true" />
     <setting id="MintMovies_check" value="0" />
     <setting id="MintMovies_fail" value="4" />
-    <setting id="MintMovies_last_results" value="4" />
+    <setting id="MintMovies_last_results" value="1" />
     <setting id="MintMovies_try" value="41" />
     <setting id="MiraDeTodo-base_url" value="http://miradetodo.net" />
     <setting id="MiraDeTodo-enable" value="false" />
@@ -268,7 +282,7 @@
     <setting id="Movie4K-sub_check" value="true" />
     <setting id="Movie4K_check" value="116" />
     <setting id="Movie4K_fail" value="14" />
-    <setting id="Movie4K_last_results" value="22" />
+    <setting id="Movie4K_last_results" value="0" />
     <setting id="Movie4K_try" value="116" />
     <setting id="MovieFarsi-base_url" value="http://moviefarsi3.com" />
     <setting id="MovieFarsi-enable" value="false" />
@@ -281,7 +295,7 @@
     <setting id="MovieGo-base_url" value="http://moviego.cc" />
     <setting id="MovieGo-enable" value="true" />
     <setting id="MovieGo-sub_check" value="true" />
-    <setting id="MovieGo_last_results" value="4" />
+    <setting id="MovieGo_last_results" value="19" />
     <setting id="MovieHubs-base_url" value="http://moviehubs.net" />
     <setting id="MovieHubs-enable" value="true" />
     <setting id="MovieHubs-sub_check" value="true" />
@@ -289,7 +303,7 @@
     <setting id="MovieHut-base_url" value="http://netflix-putlocker.com" />
     <setting id="MovieHut-enable" value="true" />
     <setting id="MovieHut-sub_check" value="true" />
-    <setting id="MovieHut_last_results" value="17" />
+    <setting id="MovieHut_last_results" value="20" />
     <setting id="MovieMax-base_url" value="http://moviehdmax.com" />
     <setting id="MovieMax-enable" value="false" />
     <setting id="MovieMax-sub_check" value="true" />
@@ -301,6 +315,10 @@
     <setting id="MovieNight_fail" value="6" />
     <setting id="MovieNight_last_results" value="0" />
     <setting id="MovieNight_try" value="62" />
+    <setting id="MoviePool-base_url" value="http://moviepool.net" />
+    <setting id="MoviePool-enable" value="true" />
+    <setting id="MoviePool-sub_check" value="true" />
+    <setting id="MoviePool_last_results" value="0" />
     <setting id="MovieSub-base_url" value="http://moviesub.net" />
     <setting id="MovieSub-base_url2" value="http://moviesub.tv" />
     <setting id="MovieSub-enable" value="false" />
@@ -309,7 +327,7 @@
     <setting id="MovieTube-base_url" value="http://www.movie-tube.co" />
     <setting id="MovieTube-enable" value="true" />
     <setting id="MovieTube-sub_check" value="true" />
-    <setting id="MovieTube_last_results" value="0" />
+    <setting id="MovieTube_last_results" value="1" />
     <setting id="MovieWatcher-base_url" value="http://moviewatcher.to" />
     <setting id="MovieWatcher-enable" value="false" />
     <setting id="MovieWatcher-sub_check" value="true" />
@@ -373,6 +391,10 @@
     <setting id="OCW-select" value="0" />
     <setting id="OCW-sub_check" value="false" />
     <setting id="OCW_last_results" value="0" />
+    <setting id="OLMovies-base_url" value="http://openloadmovies.net" />
+    <setting id="OLMovies-enable" value="true" />
+    <setting id="OLMovies-sub_check" value="true" />
+    <setting id="OLMovies_last_results" value="0" />
     <setting id="OneClickTVShows-base_url" value="http://oneclicktvshows.com" />
     <setting id="OneClickTVShows-enable" value="false" />
     <setting id="OneClickTVShows-sub_check" value="true" />
@@ -411,7 +433,7 @@
     <setting id="PirateJunkies-base_url" value="http://piratejunkies.com" />
     <setting id="PirateJunkies-enable" value="true" />
     <setting id="PirateJunkies-sub_check" value="true" />
-    <setting id="PirateJunkies_last_results" value="0" />
+    <setting id="PirateJunkies_last_results" value="3" />
     <setting id="PlayBox-base_url" value="http://playboxhd.com/" />
     <setting id="PlayBox-enable" value="true" />
     <setting id="PlayBox-sub_check" value="true" />
@@ -441,7 +463,7 @@
     <setting id="PutMV-base_url" value="http://putmv.com" />
     <setting id="PutMV-enable" value="true" />
     <setting id="PutMV-sub_check" value="true" />
-    <setting id="PutMV_last_results" value="22" />
+    <setting id="PutMV_last_results" value="94" />
     <setting id="Putlocker-base_url" value="http://putlocker.is" />
     <setting id="Putlocker-enable" value="false" />
     <setting id="Putlocker-sub_check" value="true" />
@@ -449,6 +471,16 @@
     <setting id="Putlocker_fail" value="0" />
     <setting id="Putlocker_last_results" value="0" />
     <setting id="Putlocker_try" value="5" />
+    <setting id="Quikr-base_url" value="http://quikrmovies.to" />
+    <setting id="Quikr-enable" value="true" />
+    <setting id="Quikr-sub_check" value="true" />
+    <setting id="Quikr_last_results" value="0" />
+    <setting id="RLSHD-base_url" value="http://www.rlshd.net" />
+    <setting id="RLSHD-enable" value="true" />
+    <setting id="RLSHD-filter" value="30" />
+    <setting id="RLSHD-select" value="0" />
+    <setting id="RLSHD-sub_check" value="false" />
+    <setting id="RLSHD_last_results" value="0" />
     <setting id="RLSSource.net-base_url" value="http://allrls.net" />
     <setting id="RLSSource.net-enable" value="true" />
     <setting id="RLSSource.net-filter" value="30" />
@@ -459,9 +491,9 @@
     <setting id="RLSSource.net_last_results" value="-1" />
     <setting id="RLSSource.net_try" value="108" />
     <setting id="RLSeries-base_url" value="http://rlseries.com" />
-    <setting id="RLSeries-enable" value="true" />
+    <setting id="RLSeries-enable" value="false" />
     <setting id="RLSeries-sub_check" value="true" />
-    <setting id="RLSeries_last_results" value="116" />
+    <setting id="RLSeries_last_results" value="0" />
     <setting id="Rainierland-base_url" value="http://rainierland.com" />
     <setting id="Rainierland-enable" value="false" />
     <setting id="Rainierland-sub_check" value="true" />
@@ -481,10 +513,18 @@
     <setting id="SceneDown-enable" value="false" />
     <setting id="SceneDown-sub_check" value="false" />
     <setting id="SceneDown_last_results" value="0" />
+    <setting id="SeeHD-base_url" value="http://www.seehd.club" />
+    <setting id="SeeHD-enable" value="true" />
+    <setting id="SeeHD-sub_check" value="true" />
+    <setting id="SeeHD_last_results" value="0" />
+    <setting id="SeriesCoco-base_url" value="http://www.seriescoco.me" />
+    <setting id="SeriesCoco-enable" value="true" />
+    <setting id="SeriesCoco-sub_check" value="true" />
+    <setting id="SeriesCoco_last_results" value="0" />
     <setting id="SeriesWatch-base_url" value="http://cdn.serieswatch.tv/2" />
-    <setting id="SeriesWatch-enable" value="true" />
+    <setting id="SeriesWatch-enable" value="false" />
     <setting id="SeriesWatch-sub_check" value="true" />
-    <setting id="SeriesWatch_last_results" value="126" />
+    <setting id="SeriesWatch_last_results" value="0" />
     <setting id="SezonLukDizi-base_url" value="http://sezonlukdizi.com" />
     <setting id="SezonLukDizi-enable" value="false" />
     <setting id="SezonLukDizi-sub_check" value="true" />
@@ -514,7 +554,7 @@
     <setting id="SpaceMov-base_url" value="http://www.spacemov.com" />
     <setting id="SpaceMov-enable" value="true" />
     <setting id="SpaceMov-sub_check" value="true" />
-    <setting id="SpaceMov_last_results" value="0" />
+    <setting id="SpaceMov_last_results" value="2" />
     <setting id="Stage66-base_url" value="http://stage66.tv" />
     <setting id="Stage66-enable" value="false" />
     <setting id="Stage66-sub_check" value="true" />
@@ -525,6 +565,11 @@
     <setting id="StreamLord-sub_check" value="true" />
     <setting id="StreamLord-username" value="" />
     <setting id="StreamLord_last_results" value="0" />
+    <setting id="TVHD-base_url" value="http://tvshows-hdtv.org" />
+    <setting id="TVHD-enable" value="true" />
+    <setting id="TVHD-filter" value="30" />
+    <setting id="TVHD-sub_check" value="false" />
+    <setting id="TVHD_last_results" value="0" />
     <setting id="TVRelease.Net-base_url" value="http://tv-release.net" />
     <setting id="TVRelease.Net-enable" value="false" />
     <setting id="TVRelease.Net-filter" value="30" />
@@ -534,6 +579,12 @@
     <setting id="TVRelease.Net_fail" value="3" />
     <setting id="TVRelease.Net_last_results" value="0" />
     <setting id="TVRelease.Net_try" value="113" />
+    <setting id="TVShow.me-base_url" value="http://www.tvshow.me" />
+    <setting id="TVShow.me-enable" value="true" />
+    <setting id="TVShow.me-filter" value="60" />
+    <setting id="TVShow.me-select" value="0" />
+    <setting id="TVShow.me-sub_check" value="false" />
+    <setting id="TVShow.me_last_results" value="0" />
     <setting id="TVWTVS-base_url" value="http://tvwatchtvseries.com" />
     <setting id="TVWTVS-enable" value="false" />
     <setting id="TVWTVS-sub_check" value="true" />
@@ -541,7 +592,7 @@
     <setting id="TV_fav_slug" value="" />
     <setting id="TV_genre_list" value="0" />
     <setting id="TV_main" value="imdb-highest-rated-tv-series@hulkhorgen" />
-    <setting id="TV_search_head" value="3" />
+    <setting id="TV_search_head" value="8" />
     <setting id="TV_sub_slug" value="" />
     <setting id="TwoMovies.us-base_url" value="http://twomovies.us" />
     <setting id="TwoMovies.us-enable" value="false" />
@@ -563,11 +614,15 @@
     <setting id="VKFlix-base_url" value="http://vkflix.com" />
     <setting id="VKFlix-enable" value="true" />
     <setting id="VKFlix-sub_check" value="true" />
-    <setting id="VKFlix_last_results" value="0" />
+    <setting id="VKFlix_last_results" value="4" />
     <setting id="Ventures-base_url" value="http://onad.ventures/files/tv" />
     <setting id="Ventures-enable" value="true" />
     <setting id="Ventures-sub_check" value="true" />
-    <setting id="Ventures_last_results" value="19" />
+    <setting id="Ventures_last_results" value="0" />
+    <setting id="VeoCube-base_url" value="http://veocube.cf" />
+    <setting id="VeoCube-enable" value="true" />
+    <setting id="VeoCube-sub_check" value="true" />
+    <setting id="VeoCube_last_results" value="0" />
     <setting id="VidNow4K-base_url" value="http://videopad.me" />
     <setting id="VidNow4K-enable" value="true" />
     <setting id="VidNow4K-sub_check" value="true" />
@@ -581,11 +636,11 @@
     <setting id="Watch5s-sub_check" value="true" />
     <setting id="Watch5s_last_results" value="0" />
     <setting id="Watch8Now-base_url" value="http://watch8now.me" />
-    <setting id="Watch8Now-enable" value="true" />
+    <setting id="Watch8Now-enable" value="false" />
     <setting id="Watch8Now-sub_check" value="true" />
     <setting id="Watch8Now_check" value="0" />
     <setting id="Watch8Now_fail" value="6" />
-    <setting id="Watch8Now_last_results" value="19" />
+    <setting id="Watch8Now_last_results" value="0" />
     <setting id="Watch8Now_try" value="35" />
     <setting id="WatchEpisodes-base_url" value="http://www.watchepisodes.com" />
     <setting id="WatchEpisodes-enable" value="true" />
@@ -603,10 +658,14 @@
     <setting id="WatchHD-enable" value="false" />
     <setting id="WatchHD-sub_check" value="true" />
     <setting id="WatchHD_last_results" value="0" />
+    <setting id="WatchInHD-base_url" value="http://watchinhd.io" />
+    <setting id="WatchInHD-enable" value="true" />
+    <setting id="WatchInHD-sub_check" value="true" />
+    <setting id="WatchInHD_last_results" value="0" />
     <setting id="WatchItVideos-base_url" value="http://watchitvideos.tv" />
     <setting id="WatchItVideos-enable" value="true" />
     <setting id="WatchItVideos-sub_check" value="true" />
-    <setting id="WatchItVideos_last_results" value="8" />
+    <setting id="WatchItVideos_last_results" value="11" />
     <setting id="WatchMovies-base_url" value="http://watchmovies.to" />
     <setting id="WatchMovies-enable" value="true" />
     <setting id="WatchMovies-sub_check" value="true" />
@@ -629,7 +688,7 @@
     <setting id="YesMovies-base_url" value="http://yesmovies.to" />
     <setting id="YesMovies-enable" value="true" />
     <setting id="YesMovies-sub_check" value="true" />
-    <setting id="YesMovies_last_results" value="34" />
+    <setting id="YesMovies_last_results" value="44" />
     <setting id="addon_debug" value="false" />
     <setting id="afdah-base_url" value="http://afdah.tv" />
     <setting id="afdah-enable" value="true" />
@@ -644,7 +703,7 @@
     <setting id="afdah.org_try" value="41" />
     <setting id="afdah_check" value="0" />
     <setting id="afdah_fail" value="6" />
-    <setting id="afdah_last_results" value="0" />
+    <setting id="afdah_last_results" value="1" />
     <setting id="afdah_try" value="65" />
     <setting id="airdate-fallback" value="true" />
     <setting id="alluc.com-base_url" value="http://www.alluc.ee" />
@@ -656,7 +715,7 @@
     <setting id="alluc.com_fail" value="24" />
     <setting id="alluc.com_last_results" value="0" />
     <setting id="alluc.com_try" value="108" />
-    <setting id="auto-disable" value="1" />
+    <setting id="auto-disable" value="2" />
     <setting id="auto-play" value="false" />
     <setting id="auto-prune_cache" value="true" />
     <setting id="auto-update_subs" value="false" />
@@ -667,6 +726,7 @@
     <setting id="ayyex_fail" value="10" />
     <setting id="ayyex_last_results" value="57" />
     <setting id="ayyex_try" value="41" />
+    <setting id="banner_enable" value="true" />
     <setting id="beinmovie-base_url" value="https://beinmovie.com" />
     <setting id="beinmovie-enable" value="true" />
     <setting id="beinmovie-sub_check" value="true" />
@@ -674,10 +734,12 @@
     <setting id="beinmovie_fail" value="16" />
     <setting id="beinmovie_last_results" value="56" />
     <setting id="beinmovie_try" value="41" />
+    <setting id="bg_enable" value="true" />
     <setting id="cache_collection" value="true" />
     <setting id="cache_watched" value="true" />
-    <setting id="calendar-day" value="-1" />
-    <setting id="calendar_time" value="2" />
+    <setting id="calendar-day" value="0" />
+    <setting id="calendar_time" value="1" />
+    <setting id="cast_enable" value="false" />
     <setting id="cf_captcha" value="false" />
     <setting id="ch131-base_url" value="http://www.ch131.me" />
     <setting id="ch131-enable" value="false" />
@@ -687,6 +749,7 @@
     <setting id="ch131_last_results" value="0" />
     <setting id="ch131_try" value="51" />
     <setting id="cleanup-subscriptions" value="false" />
+    <setting id="clearart_enable" value="true" />
     <setting id="clickplay.to-base_url" value="http://clickplay.to" />
     <setting id="clickplay.to-enable" value="false" />
     <setting id="clickplay.to-sub_check" value="true" />
@@ -699,11 +762,12 @@
     <setting id="cmz-sub_check" value="true" />
     <setting id="cmz_check" value="0" />
     <setting id="cmz_fail" value="13" />
-    <setting id="cmz_last_results" value="5" />
+    <setting id="cmz_last_results" value="0" />
     <setting id="cmz_try" value="62" />
     <setting id="cookie_debug" value="false" />
+    <setting id="cool_down" value="false" />
     <setting id="create_nfo" value="0" />
-    <setting id="current_ua" value="Mozilla/5.0 (Windows NT 6.1; Win64; IA64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/39.0.2171.99 Safari/537.36" />
+    <setting id="current_ua" value="Mozilla/5.0 (Windows NT 5.1; Win64; IA64; rv:31.0) Gecko/20100101 Firefox/31.0" />
     <setting id="date_format" value="%Y-%m-%d" />
     <setting id="db_address" value="" />
     <setting id="db_export" value="" />
@@ -713,13 +777,13 @@
     <setting id="db_port" value="" />
     <setting id="db_user" value="" />
     <setting id="disable-freq" value="100" />
-    <setting id="disable-limit" value="150" />
+    <setting id="disable-limit" value="175" />
     <setting id="disable-thresh" value="50" />
     <setting id="down_progress" value="1" />
     <setting id="eMovies.Pro-base_url" value="http://emovies.pro" />
     <setting id="eMovies.Pro-enable" value="true" />
     <setting id="eMovies.Pro-sub_check" value="true" />
-    <setting id="eMovies.Pro_last_results" value="0" />
+    <setting id="eMovies.Pro_last_results" value="1" />
     <setting id="enable-subtitles" value="false" />
     <setting id="enable_sort" value="true" />
     <setting id="enable_upgrade" value="true" />
@@ -728,6 +792,9 @@
     <setting id="excl_list" value="" />
     <setting id="exclude_local" value="false" />
     <setting id="exists_list" value="" />
+    <setting id="fanart_enable" value="true" />
+    <setting id="fanart_key" value="94e4e7e472e72b0d05335dde0065bbbe" />
+    <setting id="fanart_person_key" value="" />
     <setting id="files_view" value="0" />
     <setting id="filmikz.ch-base_url" value="http://filmikz.ch" />
     <setting id="filmikz.ch-enable" value="false" />
@@ -743,7 +810,7 @@
     <setting id="fmovie.co-base_url" value="https://fmovie.co" />
     <setting id="fmovie.co-enable" value="true" />
     <setting id="fmovie.co-sub_check" value="true" />
-    <setting id="fmovie.co_last_results" value="0" />
+    <setting id="fmovie.co_last_results" value="3" />
     <setting id="force_include_progress" value="" />
     <setting id="force_title_match" value="10234" />
     <setting id="funtastic-vids-base_url" value="http://funtastic-vids.com" />
@@ -751,6 +818,7 @@
     <setting id="funtastic-vids-sub_check" value="true" />
     <setting id="funtastic-vids_last_results" value="0" />
     <setting id="get_pin" value="" />
+    <setting id="gif_enable" value="false" />
     <setting id="hdmz-base_url" value="http://www.hdmoviezone.net" />
     <setting id="hdmz-enable" value="true" />
     <setting id="hdmz-sub_check" value="true" />
@@ -787,7 +855,7 @@
     <setting id="last_check" value="0" />
     <setting id="last_hash" value="" />
     <setting id="last_reminder" value="-1" />
-    <setting id="last_ua_create" value="1478240759" />
+    <setting id="last_ua_create" value="1480741853" />
     <setting id="library-update" value="false" />
     <setting id="list_size" value="30" />
     <setting id="m4ufree-base_url" value="http://m4ufree.info/" />
@@ -795,7 +863,7 @@
     <setting id="m4ufree-sub_check" value="true" />
     <setting id="m4ufree_last_results" value="0" />
     <setting id="machine_speed" value="0" />
-    <setting id="mne_time" value="2" />
+    <setting id="mne_time" value="1" />
     <setting id="movie-download-folder" value="special://userdata/addon_data/plugin.video.salts/Download/Movies" />
     <setting id="movie-folder" value="special://userdata/addon_data/plugin.video.salts/Movies" />
     <setting id="movie25-base_url" value="http://tinklepad.is" />
@@ -840,6 +908,7 @@
     <setting id="niter.tv_fail" value="0" />
     <setting id="niter.tv_last_results" value="0" />
     <setting id="niter.tv_try" value="65" />
+    <setting id="omdb_enable" value="true" />
     <setting id="ororo.tv-base_url" value="https://ororo.tv" />
     <setting id="ororo.tv-enable" value="false" />
     <setting id="ororo.tv-include_paid" value="false" />
@@ -867,6 +936,7 @@
     <setting id="popcorntimefree_check" value="0" />
     <setting id="popcorntimefree_fail" value="4" />
     <setting id="popcorntimefree_try" value="41" />
+    <setting id="poster_enable" value="true" />
     <setting id="prev_responses" value="[true, true, true, true, true, true, true, true, true, true, true, true, true, true]" />
     <setting id="progress_size" value="25" />
     <setting id="progress_skip_cache" value="" />
@@ -875,11 +945,12 @@
     <setting id="prune_cache-during-startup" value="false" />
     <setting id="prune_cache-interval" value="8" />
     <setting id="pubfilm-base_url" value="http://pubfilm.com" />
+    <setting id="pubfilm-default_url" value="http://pidtv.com" />
     <setting id="pubfilm-enable" value="true" />
     <setting id="pubfilm-sub_check" value="true" />
     <setting id="pubfilm_check" value="0" />
     <setting id="pubfilm_fail" value="9" />
-    <setting id="pubfilm_last_results" value="19" />
+    <setting id="pubfilm_last_results" value="0" />
     <setting id="pubfilm_try" value="41" />
     <setting id="random_sso" value="true" />
     <setting id="remind_count" value="5" />
@@ -888,6 +959,12 @@
     <setting id="rewatch_max_list" value="" />
     <setting id="rewatch_min_list" value="" />
     <setting id="rewatch_slug" value="" />
+    <setting id="rls-movies-base_url" value="http://www.rls-movies.com" />
+    <setting id="rls-movies-enable" value="true" />
+    <setting id="rls-movies-filter" value="30" />
+    <setting id="rls-movies-select" value="0" />
+    <setting id="rls-movies-sub_check" value="false" />
+    <setting id="rls-movies_last_results" value="0" />
     <setting id="scene-rls-base_url" value="http://scene-rls.com" />
     <setting id="scene-rls-enable" value="false" />
     <setting id="scene-rls-filter" value="30" />
@@ -899,9 +976,9 @@
     <setting id="scraper_password" value="" />
     <setting id="scraper_url" value="" />
     <setting id="seasons_view" value="50" />
-    <setting id="sema_value" value="26" />
-    <setting id="show_anticipated" value="true" />
-    <setting id="show_collection" value="true" />
+    <setting id="sema_value" value="31" />
+    <setting id="show_anticipated" value="false" />
+    <setting id="show_collection" value="false" />
     <setting id="show_debrid" value="true" />
     <setting id="show_download" value="false" />
     <setting id="show_favorites" value="true" />
@@ -910,7 +987,7 @@
     <setting id="show_genres" value="true" />
     <setting id="show_history" value="true" />
     <setting id="show_liked_lists" value="true" />
-    <setting id="show_mosts" value="true" />
+    <setting id="show_mosts" value="false" />
     <setting id="show_my_cal" value="false" />
     <setting id="show_my_lists" value="true" />
     <setting id="show_next_up" value="true" />
@@ -923,7 +1000,7 @@
     <setting id="show_prune" value="false" />
     <setting id="show_recent" value="false" />
     <setting id="show_recommended" value="true" />
-    <setting id="show_rewatch" value="true" />
+    <setting id="show_rewatch" value="false" />
     <setting id="show_search" value="true" />
     <setting id="show_season0" value="true" />
     <setting id="show_settings" value="true" />
@@ -949,7 +1026,7 @@
     <setting id="sort_progress" value="0" />
     <setting id="sort_watchlist" value="0" />
     <setting id="source-win" value="Dialog" />
-    <setting id="source_results" value="0" />
+    <setting id="source_results" value="100" />
     <setting id="source_sort_order" value="Local|Premiumize.V2|Premiumize.me|Furk.net|EasyNews|DD.tv|NoobRoom|MoviesPlanet|DayT.se|niter.tv|HDMovie14|123Movies|9Movies|torba.se|IFlix|ororo.tv|HDFlix|YesMovies|MovieFlix|KiwiHD|StreamLord|fmovie.co|m4ufree|tunemovie|HDMovieFree|CyberReel|xmovies8.v2|xmovies8|afdah.org|PelisPedia|vu45|MovieXK|VidNow4K|FardaDownload|PirateJunkies|SeriesWatch|Stage66|MovieGo|PutMV|FireMoviesHD|Dizibox|HeyDL|Dizigold|OnlineDizi|Dizimag|Diziay|SezonLukDizi|MovieZone|HEVCBluRay|Dizipas|OneClickTVShows|Dizilab|OCW|DDLValley|Crazy4TV|CinemaMKV|scene-rls|DDLSeries|SceneDown|2DDL|ReleaseBB|RLSSource.net|MyVideoLinks.eu|Rainierland|WatchItVideos|WatchEpisodes|tvonline|SantaSeries|vivo.to|Flixanity|PrimeWire|alluc.com|IceFilms|Watch5s|Movie4K|streamallthis.is|pftv|WatchSeries|Putlocker|WatchFree.to|MovieWatcher|RLSeries|MWM|TVWTVS|VKFlix|CouchTunerV1|tvrush|Watch8Now|MovieHut|SnagFilms|MovieHubs|wso.ch|MovieSub|Filmovizija|afdah|MiraDeTodo|view47|movie25|pubfilm|vidics.ch|viooz.ac|MoviesHD|eMovies.Pro|OnlineMoviesPro|yshows|iWatchOnline|Ventures|clickplay.to|LosMovies|stream-tv.co|wmo.ch|MintMovies|cmz|moviestorm.eu|SpaceMov|ch131|filmikz.ch|MovieNight|MovieTube|FilmStreaming.in" />
     <setting id="source_timeout" value="20" />
     <setting id="sources_view" value="0" />
@@ -958,7 +1035,7 @@
     <setting id="stream-tv.co-sub_check" value="true" />
     <setting id="stream-tv.co_check" value="0" />
     <setting id="stream-tv.co_fail" value="5" />
-    <setting id="stream-tv.co_last_results" value="19" />
+    <setting id="stream-tv.co_last_results" value="0" />
     <setting id="stream-tv.co_try" value="51" />
     <setting id="streamallthis.is-base_url" value="http://streamallthis.is" />
     <setting id="streamallthis.is-enable" value="false" />
@@ -976,11 +1053,17 @@
     <setting id="subtitle-lang" value="English" />
     <setting id="subtitle-show" value="false" />
     <setting id="theme" value="0" />
+    <setting id="thumb_enable" value="true" />
     <setting id="title-fallback" value="true" />
+    <setting id="tmdb_key" value="deeda51afc1b151f949171e8be1031b7" />
     <setting id="toggle_enable" value="false" />
     <setting id="torba.se-base_url" value="http://torba.se" />
+    <setting id="torba.se-client_id" value="" />
+    <setting id="torba.se-client_secret" value="" />
     <setting id="torba.se-enable" value="false" />
+    <setting id="torba.se-refresh" value="" />
     <setting id="torba.se-sub_check" value="true" />
+    <setting id="torba.se-token" value="" />
     <setting id="torba.se_last_results" value="0" />
     <setting id="trakt_bookmark" value="false" />
     <setting id="trakt_oauth_token" value="" />
@@ -997,6 +1080,8 @@
     <setting id="tunemovie_last_results" value="0" />
     <setting id="tunemovie_try" value="41" />
     <setting id="tv-download-folder" value="special://userdata/addon_data/plugin.video.salts/Download/TVShows" />
+    <setting id="tvdb_key" value="B0409428B1B31C10" />
+    <setting id="tvmaze_enable" value="true" />
     <setting id="tvonline-base_url" value="http://opentuner.is" />
     <setting id="tvonline-enable" value="false" />
     <setting id="tvonline-sub_check" value="true" />
@@ -1004,7 +1089,7 @@
     <setting id="tvrush-base_url" value="http://tvrush.eu" />
     <setting id="tvrush-enable" value="true" />
     <setting id="tvrush-sub_check" value="true" />
-    <setting id="tvrush_last_results" value="15" />
+    <setting id="tvrush_last_results" value="4" />
     <setting id="tvshow-folder" value="special://userdata/addon_data/plugin.video.salts/TVShows" />
     <setting id="tvshows_view" value="500" />
     <setting id="unaired_indicator" value="true" />
@@ -1050,7 +1135,7 @@
     <setting id="wmo.ch-sub_check" value="true" />
     <setting id="wmo.ch_check" value="0" />
     <setting id="wmo.ch_fail" value="15" />
-    <setting id="wmo.ch_last_results" value="76" />
+    <setting id="wmo.ch_last_results" value="79" />
     <setting id="wmo.ch_try" value="62" />
     <setting id="wso.ch-base_url" value="http://watchseries-online.li" />
     <setting id="wso.ch-enable" value="false" />
@@ -1084,11 +1169,12 @@
     <setting id="yify.tv-sub_check" value="true" />
     <setting id="yify.tv_check" value="0" />
     <setting id="yify.tv_fail" value="11" />
+    <setting id="yify.tv_last_results" value="0" />
     <setting id="yify.tv_try" value="65" />
     <setting id="yshows-base_url" value="http://yshow.me" />
     <setting id="yshows-enable" value="true" />
     <setting id="yshows-sub_check" value="true" />
-    <setting id="yshows_last_results" value="0" />
+    <setting id="yshows_last_results" value="2" />
     <setting id="zumvo.com-base_url" value="http://zumvo.so" />
     <setting id="zumvo.com-enable" value="false" />
     <setting id="zumvo.com-sub_check" value="true" />

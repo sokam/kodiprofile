@@ -16,41 +16,17 @@ You should have received a copy of the GNU General Public License
 along with this program. If not, see <http://www.gnu.org/licenses/>.
 """
 
-import re
-from lib import jsunpack
-from urlresolver import common
+from lib import helpers
 from urlresolver.resolver import UrlResolver, ResolverError
 
-MAX_TRIES = 3
 
 class myVidStream(UrlResolver):
     name = "myvidstream"
     domains = ["myvidstream.net"]
     pattern = '(?://|\.)(myvidstream\.net)/(?:embed-)?([0-9a-zA-Z]+)'
 
-    def __init__(self):
-        self.net = common.Net()
-
     def get_media_url(self, host, media_id):
-        web_url = self.get_url(host, media_id)
-        html = self.net.http_GET(web_url).content
-
-        tries = 0
-        while tries < MAX_TRIES:
-            data = {}
-
-            for match in re.finditer('(eval\(function.*?)</script>', html, re.DOTALL):
-                js_data = jsunpack.unpack(match.group(1))
-                js_data = js_data.replace('\\\'', '\'')
-
-                match2 = re.search("\('file','([^']+)", js_data)
-                if match2:
-                    stream_url = match2.group(1)
-                    return stream_url.replace(" ", "%20")
-
-            tries += 1
-
-        raise ResolverError('Unable to resolve myvidstream link. Filelink not found.')
+        return helpers.get_media_url(self.get_url(host, media_id))
 
     def get_url(self, host, media_id):
         return self._default_get_url(host, media_id)

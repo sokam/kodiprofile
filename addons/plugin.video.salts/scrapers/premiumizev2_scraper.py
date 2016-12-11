@@ -18,7 +18,7 @@
 import re
 import urlparse
 import kodi
-import log_utils
+import log_utils  # @UnusedImport
 from salts_lib import scraper_utils
 from salts_lib.constants import FORCE_NO_MATCH
 from salts_lib.constants import VIDEO_TYPES
@@ -30,7 +30,7 @@ VIDEO_EXT = ['MKV', 'AVI', 'MP4']
 MIN_MEG = 100
 LIST_URL = '/api/transfer/list'
 FOLDER_URL = '/api/folder/list'
-BROWSE_URL = '/api/torrent/browse?hash=%s'
+BROWSE_URL = '/api/torrent/browse'
 
 class Scraper(scraper.Scraper):
     base_url = ''
@@ -78,8 +78,8 @@ class Scraper(scraper.Scraper):
         videos = []
         query = urlparse.parse_qs(source_url)
         if 'hash' in query:
-            url = urlparse.urljoin(self.base_url, BROWSE_URL % (query['hash'][0]))
-            js_data = self._http_get(url, cache_limit=1)
+            url = urlparse.urljoin(self.base_url, BROWSE_URL)
+            js_data = self._http_get(url, params={'hash': query['hash'][0]}, cache_limit=1)
             if 'content' in js_data:
                 videos = self.__get_videos2(js_data['content'], video)
         return videos
@@ -229,13 +229,13 @@ class Scraper(scraper.Scraper):
         ]
         return settings
 
-    def _http_get(self, url, data=None, allow_redirect=True, cache_limit=8):
+    def _http_get(self, url, params=None, data=None, allow_redirect=True, cache_limit=8):
         if not self.username or not self.password:
             return {}
         
         if data is None: data = {}
         data.update({'customer_id': self.username, 'pin': self.password})
-        result = super(self.__class__, self)._http_get(url, data=data, allow_redirect=allow_redirect, cache_limit=cache_limit)
+        result = super(self.__class__, self)._http_get(url, params=params, data=data, allow_redirect=allow_redirect, cache_limit=cache_limit)
         js_result = scraper_utils.parse_json(result, url)
         if 'status' in js_result and js_result['status'] == 'error':
             log_utils.log('Premiumize V2 Scraper Error: %s - (%s)' % (url, js_result.get('message', 'Unknown Error')), log_utils.LOGWARNING)

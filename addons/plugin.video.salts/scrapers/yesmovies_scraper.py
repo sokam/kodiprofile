@@ -18,12 +18,9 @@
 import re
 import urlparse
 import urllib
-import hashlib
-import random
-import string
 import base64
 import kodi
-import log_utils
+import log_utils  # @UnusedImport
 import dom_parser
 from salts_lib import scraper_utils
 from salts_lib.constants import FORCE_NO_MATCH
@@ -36,9 +33,7 @@ BASE_URL = 'http://yesmovies.to'
 QP_URL = '/ajax/v2_movie_quick_play/%s/%s/%s.html'
 SL_URL = '/ajax/v3_movie_get_episodes/%s/%s/%s/%s.html'
 PLAYLIST_URL1 = '/ajax/movie_load_embed/%s.html'
-PLAYLIST_URL2 = '/ajax/v4_episode_get_sources/%s/%s.html'
-PLAYLIST_URL3 = '/ajax/get_sources/%s/%s.html'
-SEARCH_KEY = ''
+PLAYLIST_URL2 = '/ajax/v2_get_sources/%s.html?hash=%s'
 XHR = {'X-Requested-With': 'XMLHttpRequest'}
 COOKIE1 = base64.b64decode('eHdoMzhpZjM5dWN4')
 COOKIE2 = base64.b64decode('OHFoZm05b3lxMXV4')
@@ -91,14 +86,11 @@ class Scraper(scraper.Scraper):
                     url = urlparse.urljoin(self.base_url, PLAYLIST_URL1 % (link_id))
                     sources = self.__get_link_from_json(url)
                 elif kodi.get_setting('scraper_url'):
-                    token = self.__get_token()
+                    token = scraper_utils.get_token(hash_len=6)
                     cookie = {'%s%s%s' % (COOKIE1, link_id, COOKIE2): token}
-                    url_hash = hashlib.md5(link_id + token + KEY).hexdigest()
-                    url = urlparse.urljoin(self.base_url, PLAYLIST_URL3 % (link_id, url_hash))
+                    url_hash = urllib.quote(self.__uncensored(link_id + KEY, token))
+                    url = urlparse.urljoin(self.base_url, PLAYLIST_URL2 % (link_id, url_hash))
                     sources = self.__get_links_from_json2(url, page_url, cookie)
-                    if not sources:
-                        url = urlparse.urljoin(self.base_url, PLAYLIST_URL2 % (link_id, url_hash))
-                        sources = self.__get_links_from_xml(url, video, page_url, cookie)
             
                 for source in sources:
                     if not source.lower().startswith('http'): continue
@@ -116,9 +108,30 @@ class Scraper(scraper.Scraper):
                 
         return hosters
 
-    def __get_token(self):
-        return ''.join(random.sample(string.digits + string.ascii_lowercase, 6))
+    def __uncensored(self, a, b):
+        c = ''
+        i = 0
+        for i, d in enumerate(a):
+            e = b[i % len(b) - 1]
+            d = int(self.__jav(d) + self.__jav(e))
+            c += chr(d)
     
+        return base64.b64encode(c)
+    
+    def __jav(self, a):
+        b = str(a)
+        code = ord(b[0])
+        if 0xD800 <= code and code <= 0xDBFF:
+            c = code
+            if len(b) == 1:
+                return code
+            d = ord(b[1])
+            return ((c - 0xD800) * 0x400) + (d - 0xDC00) + 0x10000
+    
+        if 0xDC00 <= code and code <= 0xDFFF:
+            return code
+        return code
+
     def __get_link_from_json(self, url):
         sources = {}
         html = self._http_get(url, cache_limit=.5)
@@ -130,6 +143,7 @@ class Scraper(scraper.Scraper):
     def __get_links_from_json2(self, url, page_url, cookies):
         sources = {}
         headers = {'Referer': page_url}
+        headers.update(XHR)
         html = self._http_get(url, cookies=cookies, headers=headers, cache_limit=.5)
         js_data = scraper_utils.parse_json(html, url)
         playlist = js_data.get('playlist', [])
@@ -196,7 +210,7 @@ class Scraper(scraper.Scraper):
         
     def _get_episode_url(self, season_url, video):
         _movie_id, _sl_url, html = self.__get_source_page(video.video_type, season_url)
-        titles = dom_parser.parse_dom(html, 'a', {'href': '#player-area'}, ret='title')
+        titles = dom_parser.parse_dom(html, 'a', {'href': 'javascript[^"]*'}, ret='title')
         if any([self.__episode_match(video, title) for title in titles]):
             return season_url
     
@@ -217,27 +231,29 @@ class Scraper(scraper.Scraper):
         
     def search(self, video_type, title, year, season=''):
         results = []
-        search_url = urlparse.urljoin(self.base_url, '/ajax/movie_suggest_search.html')
+        search_url = urlparse.urljoin(self.base_url, '/search/')
         title = re.sub('[^A-Za-z0-9 ]', '', title)
-        search_token = hashlib.md5(title + SEARCH_KEY).hexdigest()
-        data = {'keyword': title, 'hash': search_token}
-        headers = {'Referer': self.base_url}
-        headers.update(XHR)
-        html = self._http_get(search_url, data=data, headers=headers, cache_limit=8)
-        js_data = scraper_utils.parse_json(html, search_url)
-        html = js_data.get('content', '')
-        html = html.replace('\"', '"')
-        titles = dom_parser.parse_dom(html, 'a', {'class': 'ss-title'})
-        urls = dom_parser.parse_dom(html, 'a', {'class': 'ss-title'}, ret='href')
-        match_year = ''
-        for match_title, match_url in zip(titles, urls):
-            is_season = re.search('Season\s+(\d+)', match_title, re.I)
-            if (video_type == VIDEO_TYPES.MOVIE and not is_season) or (video_type == VIDEO_TYPES.SEASON and is_season):
-                if video_type == VIDEO_TYPES.SEASON:
-                    if season and int(season) != int(is_season.group(1)): continue
-                    
-                if not year or not match_year or year == match_year:
-                    result = {'title': scraper_utils.cleanse_title(match_title), 'year': match_year, 'url': scraper_utils.pathify_url(match_url)}
-                    results.append(result)
+        search_url += '%s.html' % (urllib.quote_plus(title))
+        html = self._http_get(search_url, cache_limit=8)
+        for item in dom_parser.parse_dom(html, 'div', {'class': 'ml-item'}):
+            match_title = dom_parser.parse_dom(item, 'span', {'class': 'mli-info'})
+            match_url = re.search('href="([^"]+)', item, re.DOTALL)
+            match_year = re.search('class="jt-info">(\d{4})<', item)
+            is_episodes = dom_parser.parse_dom(item, 'span', {'class': 'mli-eps'})
+            
+            if (video_type == VIDEO_TYPES.MOVIE and not is_episodes) or (video_type == VIDEO_TYPES.SEASON and is_episodes):
+                if match_title and match_url:
+                    match_title = match_title[0]
+                    match_title = re.sub('</?h2>', '', match_title)
+                    match_title = re.sub('\s+\d{4}$', '', match_title)
+                    if video_type == VIDEO_TYPES.SEASON:
+                        if season and not re.search('Season\s+%s$' % (season), match_title): continue
+                        
+                    match_year = match_year.group(1) if match_year else ''
+                    match_url = match_url.group(1)
     
+                    if not year or not match_year or year == match_year:
+                        result = {'title': scraper_utils.cleanse_title(match_title), 'year': match_year, 'url': scraper_utils.pathify_url(match_url)}
+                        results.append(result)
+
         return results

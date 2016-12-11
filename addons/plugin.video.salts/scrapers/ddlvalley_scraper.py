@@ -19,7 +19,7 @@ import datetime
 import re
 import urllib
 import urlparse
-import log_utils
+import log_utils  # @UnusedImport
 import kodi
 import dom_parser
 from salts_lib import scraper_utils
@@ -102,7 +102,7 @@ class Scraper(scraper.Scraper):
                 
             page_url = dom_parser.parse_dom(html, 'a', {'class': 'nextpostslink'}, ret='href')
     
-    def search(self, video_type, title, year, season=''):
+    def search(self, video_type, title, year, season=''):  # @UnusedVariable
         results = []
         if video_type == VIDEO_TYPES.TVSHOW and title:
             test_url = '/show/%s/' % (self.__to_slug(title))

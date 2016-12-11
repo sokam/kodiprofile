@@ -20,7 +20,7 @@ import urllib
 import urlparse
 
 import kodi
-import log_utils
+import log_utils  # @UnusedImport
 from salts_lib import scraper_utils
 from salts_lib.constants import QUALITIES
 from salts_lib.constants import Q_ORDER
@@ -83,8 +83,7 @@ class Scraper(scraper.Scraper):
 
     def get_url(self, video):
         url = None
-        self.create_db_connection()
-        result = self.db_connection.get_related_url(video.video_type, video.title, video.year, self.get_name(), video.season, video.episode)
+        result = self.db_connection().get_related_url(video.video_type, video.title, video.year, self.get_name(), video.season, video.episode)
         if result:
             url = result[0][0]
             log_utils.log('Got local related url: |%s|%s|%s|%s|%s|' % (video.video_type, video.title, video.year, self.get_name(), url), log_utils.LOGDEBUG)
@@ -105,7 +104,7 @@ class Scraper(scraper.Scraper):
                 if Q_DICT[result['quality']] > best_q_index:
                     best_q_index = Q_DICT[result['quality']]
                     url = result['url']
-            self.db_connection.set_related_url(video.video_type, video.title, video.year, self.get_name(), url, video.season, video.episode)
+            self.db_connection().set_related_url(video.video_type, video.title, video.year, self.get_name(), url, video.season, video.episode)
         return url
 
     @classmethod
@@ -114,7 +113,7 @@ class Scraper(scraper.Scraper):
         settings = scraper_utils.disable_sub_check(settings)
         return settings
 
-    def search(self, video_type, title, year, season=''):
+    def search(self, video_type, title, year, season=''):  # @UnusedVariable
         results = []
         search_url = urlparse.urljoin(self.base_url, '/search?query=')
         search_url += title.replace("'", "")

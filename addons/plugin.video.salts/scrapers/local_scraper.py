@@ -19,7 +19,7 @@ import re
 import urlparse
 import xbmc
 import kodi
-import log_utils
+import log_utils  # @UnusedImport
 from salts_lib import scraper_utils
 from salts_lib.constants import FORCE_NO_MATCH
 from salts_lib.constants import SORT_KEYS
@@ -29,7 +29,7 @@ import scraper
 BASE_URL = ''
 
 class Scraper(scraper.Scraper):
-    def __init__(self, timeout=scraper.DEFAULT_TIMEOUT):
+    def __init__(self, timeout=scraper.DEFAULT_TIMEOUT):  # @UnusedVariable
         self.base_url = kodi.get_setting('%s-base_url' % (self.get_name()))
         self.def_quality = int(kodi.get_setting('%s-def-quality' % (self.get_name())))
 
@@ -105,7 +105,7 @@ class Scraper(scraper.Scraper):
         settings.append('         <setting id="%s-def-quality" type="enum" label="     Default Quality" values="None|Low|Medium|High|HD720|HD1080" default="0" visible="eq(-4,true)"/>' % (name))
         return settings
 
-    def search(self, video_type, title, year, season=''):
+    def search(self, video_type, title, year, season=''):  # @UnusedVariable
         filter_str = '{{"field": "title", "operator": "contains", "value": "{search_title}"}}'
         if year: filter_str = '{{"and": [%s, {{"field": "year", "operator": "is", "value": "%s"}}]}}' % (filter_str, year)
         if video_type == VIDEO_TYPES.MOVIE:

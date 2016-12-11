@@ -80,8 +80,8 @@
     <string id="40018">Date Opened:</string>
     <string id="40019">TV Guide (List)</string>
     <string id="40020">Show TV Guide (List)</string>
-    <string id="50000">Welcome to the new version of USTVnow Plus! This version includes a ton of new features including Live TV Recording!</string>
-    <string id="50001">It is recommended to restart Kodi to ensure that all features are activated and available.</string>
+    <string id="50000">Welcome to the new version of USTVnow Plus!</string>
+    <string id="50001">Be sure to open the Live TV section at least once before using the TV Guide (EPG). This will ensure that your channel list will open correctly in the guide.</string>
     <string id="200000">Should you require any assistance, feel free to visit http://forums.tvaddons.ag for addon support.</string>
     <string id="200001">Thank you for trying USTVnow Plus!</string>
     <string id="200002">Should you require any assistance, feel free to visit</string>

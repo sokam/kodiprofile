@@ -1,8 +1,8 @@
 '''
     USTVnow Plus Add-on
-    
+
     This version of USTVnow has been built by combining the best of all
-    available version of USTVnow found online. This version has been streamlined 
+    available version of USTVnow found online. This version has been streamlined
     to use the USTVnow API directly to avoid many of the issues in previous versions.
 
     The following developers have all contributed to this version directly or indirectly.
@@ -122,13 +122,13 @@ class Ustvnow:
 	                        })
 	        except:
 	            pass
-	    return channels 
+	    return channels
         except:
             if Addon.get_setting('activation') == 'true' and Addon.get_setting('renew') == 'true':
 	        self.dlg.ok(Addon.get_string(30000), Addon.get_string(30011))
 	    exit()
 
-    def get_link(self, quality):
+    def get_link(self, get_name, quality):
         Addon.log('get_link,' + str(quality))
         try:
 	    self._token_check()
@@ -146,19 +146,20 @@ class Ustvnow:
 	                if quality == 4 and i['scode'] == 'whvl':
 	                    quality = (quality - 1)
 	                name = Addon.cleanChanName(i['stream_code'])
-	                stream = self._get_json('stream/1/live/view', {'token': self.token, 'key': passkey, 'scode': i['scode']})['stream']
-	                url = stream.replace('smil:', 'mp4:').replace('USTVNOW1', 'USTVNOW').replace('USTVNOW', 'USTVNOW' + str(quality))
-	                if Addon.get_setting('free_package') == 'true':
-	                    if name in ['CW','ABC','FOX','PBS','CBS','NBC','MY9']:
-	                        channels.append({ 
-	                            'name': name,    
-	                            'url': url
-	                             })
-	                else:
-	                    channels.append({
-	                        'name': name,
-	                        'url': url
-	                        })
+	                if name == get_name:
+		                stream = self._get_json('stream/1/live/view', {'token': self.token, 'key': passkey, 'scode': i['scode']})['stream']
+		                url = stream.replace('smil:', 'mp4:').replace('USTVNOW1', 'USTVNOW').replace('USTVNOW', 'USTVNOW' + str(quality))
+		                if Addon.get_setting('free_package') == 'true':
+		                    if name in ['CW','ABC','FOX','PBS','CBS','NBC','MY9']:
+		                        channels.append({
+		                            'name': name,
+		                            'url': url
+		                             })
+		                else:
+		                    channels.append({
+		                        'name': name,
+		                        'url': url
+		                        })
 	        except:
 	            pass
 	    return channels
@@ -167,7 +168,7 @@ class Ustvnow:
 	        self.dlg.ok(Addon.get_string(30000), Addon.get_string(30011))
 	    exit()
 
-    def get_dvr_link(self, quality_type, recordings_quality):
+    def get_dvr_link(self, get_scheduleid, quality_type, recordings_quality):
         Addon.log('get_dvr_link,' + str(recordings_quality))
         try:
 	    self._token_check()
@@ -181,26 +182,27 @@ class Ustvnow:
 	        try:
 	            name = Addon.cleanChanName(i['stream_code'])
 	            scheduleid = str(i['scheduleid'])
-	            stream = self._get_json('stream/1/dvr/play', {'token': self.token, 'key': passkey, 'scheduleid': i['scheduleid']})['stream']
-	            url = stream.replace('smil:', 'mp4:').replace('.smil', '_' + str(recordings_quality) + '.mp4').replace('350', str(recordings_quality))
-	            if Addon.get_setting('free_package') == 'true':
-	                if name in ['CW','ABC','FOX','PBS','CBS','NBC','MY9']:
-	                    channels.append({ 
-	                        'scheduleid': scheduleid,    
-	                        'url': url
-	                        })
-	            else:
-	                channels.append({
-	                    'scheduleid': scheduleid,
-	                    'url': url
-	                    })
+	            if scheduleid == get_scheduleid:
+		            stream = self._get_json('stream/1/dvr/play', {'token': self.token, 'key': passkey, 'scheduleid': i['scheduleid']})['stream']
+		            url = stream.replace('smil:', 'mp4:').replace('.smil', '_' + str(recordings_quality) + '.mp4').replace('350', str(recordings_quality))
+		            if Addon.get_setting('free_package') == 'true':
+		                if name in ['CW','ABC','FOX','PBS','CBS','NBC','MY9']:
+		                    channels.append({
+		                        'scheduleid': scheduleid,
+		                        'url': url
+		                        })
+		            else:
+		                channels.append({
+		                    'scheduleid': scheduleid,
+		                    'url': url
+		                    })
 	        except:
 	            pass
-	    return channels 
+	    return channels
         except:
             if Addon.get_setting('activation') == 'true' and Addon.get_setting('renew') == 'true':
 	        self.dlg.ok(Addon.get_string(30000), Addon.get_string(30011))
-	    exit()  
+	    exit()
 
     def get_recordings(self, type='recordings'):
         from datetime import datetime
@@ -248,9 +250,12 @@ class Ustvnow:
 	        del_url = '/gtv/1/dvr/updatedvr?scheduleid=' + str(i['scheduleid']) + '&token=' + self.token + '&action=remove'
 	        remove_url = '/gtv/1/dvr/updatedvrtimer?connectorid=' + str(i['connectorid']) + '&prgsvcid=' + str(i['prgsvcid']) + '&eventtime=' + str(i['event_time']) + '&token=' + self.token + '&action=remove'
 	        set_url = '/gtv/1/dvr/updatedvrtimer?connectorid=' + str(i['connectorid']) + '&prgsvcid=' + str(i['prgsvcid']) + '&eventtime=' + str(i['event_time']) +'&token=' + self.token + '&action=add'
+	        datetimestart = datetime.fromtimestamp(i['ut_start']).strftime('%Y-%m-%d %H:%M')
+
 	        if (type == 'recordings' and event_inprogress == 0):
 	            recordings.append({'channel': chan,
 	                               'title': title,
+	                               'datetimestart': datetimestart,
 	                               'episode_title': episode_title,
 	                               'tvshowtitle': title,
 	                               'plot': plot,
@@ -272,6 +277,7 @@ class Ustvnow:
 	        elif (type == 'scheduled' and event_inprogress != 0):
 	            scheduled.append({'channel': chan,
 	                              'title': title,
+	                               'datetimestart': datetimestart,
 	                              'episode_title': episode_title,
 	                              'tvshowtitle': title,
 	                              'plot': plot,
@@ -358,7 +364,7 @@ class Ustvnow:
 	        episode_title = i['episode_title']
 	        app_name = 'dvrrokuplay'
 	        rec_url = '/gtv/1/dvr/updatedvr?scheduleid=' + str(i['scheduleid']) + '&token=' + self.token + '&action=add'
-	
+
 	        if (type == 'now' and event_inprogress == 1):
 	            if Addon.get_setting('free_package') == 'true':
 	                if chan in ['CW','ABC','FOX','PBS','CBS','NBC','MY9']:
@@ -536,7 +542,7 @@ class Ustvnow:
 	                                'set_url': set_url,
 	                                'event_date_time_now': event_date_time_now
 	                                })
-	
+
 	            elif type == 'today' and i['order'] != 1 and str(date_today) == str(i['event_date']):
 	                name = Addon.cleanChanName(i['stream_code'])
 	                mediatype = i['mediatype']
@@ -572,7 +578,7 @@ class Ustvnow:
 	                                'set_url': set_url,
 	                                'event_date_time': event_date_time
 	                                })
-	
+
 	            elif type == 'later' and i['order'] != 1 and str(date_today) != str(i['event_date']):
 	                name = Addon.cleanChanName(i['stream_code'])
 	                mediatype = i['mediatype']
@@ -642,7 +648,7 @@ class Ustvnow:
 	    base.setAttribute("generator-info-url", "http://www.xmltv.org/");
 	    doc.appendChild(base)
 	    channels = self.get_channels(quality);
-	
+
 	    for channel in channels:
 	        name = channel['name'];
 	        id = channel['name'];
@@ -657,7 +663,7 @@ class Ustvnow:
 	        dn_entry_content = doc.createTextNode(Addon.cleanChanName(id));
 	        dn_entry.appendChild(dn_entry_content);
 	        c_entry.appendChild(dn_entry);
-	
+
 	    for programme in results:
 	        event_time = datetime.fromtimestamp(programme['ut_start']).strftime('%I:%M %p').lstrip('0')
 	        event_date_month = datetime.fromtimestamp(programme['ut_start']).strftime('%m').lstrip('0')
@@ -674,39 +680,39 @@ class Ustvnow:
 	        mediatype = mediatype.replace('SH', 'tvshow').replace('EP', 'episode').replace('MV', 'movie').replace('SP', 'tvshow')
 	        rec_url = '/gtv/1/dvr/updatedvr?scheduleid=' + str(programme['scheduleid']) + '&token=' + self.token + '&action=add'
 	        set_url = '/gtv/1/dvr/updatedvrtimer?connectorid=' + str(programme['connectorid']) + '&prgsvcid=' + str(programme['prgsvcid']) + '&eventtime=' + str(programme['event_time']) + '&token=' + self.token + '&action=add'
-	
+
 	        start_time = datetime.fromtimestamp(float(programme['ut_start']));
 	        stop_time = start_time + timedelta(seconds=int(programme['runtime']));
-	            
+
 	        pg_entry = doc.createElement('programme');
 	        pg_entry.setAttribute("start", start_time.strftime('%Y%m%d%H%M%S 0'));
 	        pg_entry.setAttribute("stop", stop_time.strftime('%Y%m%d%H%M%S 0'));
 	        pg_entry.setAttribute("channel", programme['callsign']);
 	        base.appendChild(pg_entry);
-	            
+
 	        t_entry = doc.createElement('title');
 	        t_entry.setAttribute("lang", "en");
 	        t_entry_content = doc.createTextNode(programme['title']);
 	        t_entry.appendChild(t_entry_content);
 	        pg_entry.appendChild(t_entry);
-	            
+
 	        st_entry = doc.createElement('sub-title');
 	        st_entry.setAttribute("lang", "en");
 	        st_entry_content = doc.createTextNode(programme['episode_title']);
 	        st_entry.appendChild(st_entry_content);
 	        pg_entry.appendChild(st_entry);
-	
+
 	        d_entry = doc.createElement('desc');
 	        d_entry.setAttribute("lang", "en");
 	        d_entry_content = doc.createTextNode(programme['description']);
 	        d_entry.appendChild(d_entry_content);
 	        pg_entry.appendChild(d_entry);
-	
+
 	        dt_entry = doc.createElement('date');
 	        dt_entry_content = doc.createTextNode(start_time.strftime('%Y%m%d'));
 	        dt_entry.appendChild(dt_entry_content);
 	        pg_entry.appendChild(dt_entry);
-	
+
 	        c_entry = doc.createElement('category');
 	        c_entry_content = doc.createTextNode(programme['xcdrappname']);
 	        c_entry.appendChild(c_entry_content);
@@ -721,34 +727,34 @@ class Ustvnow:
 	        en_entry_content = doc.createTextNode(programme['content_id']);
 	        en_entry.appendChild(en_entry_content);
 	        pg_entry.appendChild(en_entry);
-	
+
 	        i_entry = doc.createElement('icon');
 	        i_entry.setAttribute("src", self.mcBASE_URL + '/gtv/1/live/viewposter?srsid=' + str(programme['srsid']) + '&cs=' + programme['callsign'] + '&tid=' + programme['mediatype']);
 	        pg_entry.appendChild(i_entry);
-	
+
 	        d_entry = doc.createElement('event_date_time');
 	        d_entry_content = doc.createTextNode(str(event_date_time));
 	        d_entry.appendChild(d_entry_content);
 	        pg_entry.appendChild(d_entry);
-	
+
 	        d_entry = doc.createElement('mediatype');
 	        d_entry_content = doc.createTextNode(str(mediatype));
 	        d_entry.appendChild(d_entry_content);
 	        pg_entry.appendChild(d_entry);
-	
+
 	        i_entry = doc.createElement('rec_url');
 	        i_entry.setAttribute("src", rec_url);
 	        pg_entry.appendChild(i_entry);
-	
+
 	        i_entry = doc.createElement('set_url');
 	        i_entry.setAttribute("src", set_url);
 	        pg_entry.appendChild(i_entry);
-	
+
 	        d_entry = doc.createElement('event_inprogress');
 	        d_entry_content = doc.createTextNode(str(event_inprogress));
 	        d_entry.appendChild(d_entry_content);
 	        pg_entry.appendChild(d_entry);
-	
+
 	    return doc
 
         except:
@@ -759,7 +765,7 @@ class Ustvnow:
     def get_tvguide(self, filename, type='channels', name=''):
         Addon.log('get_tvguide,' + type + ',' + name)
         return Addon.readXMLTV(filename, type, name)
-    
+
     def delete_recording(self, del_url):
         Addon.log('delete_recording')
         html = self._get_html(del_url)
@@ -791,7 +797,7 @@ class Ustvnow:
             self.dlg.ok(Addon.get_string(30000), Addon.get_string(30013))
         else:
             self.dlg.ok(Addon.get_string(30000), Addon.get_string(30016))
-            
+
     def _build_url(self, path, queries={}):
         Addon.log('_build_url')
         if queries:
@@ -837,7 +843,7 @@ class Ustvnow:
         Addon.log('_get_html')
         html = False
         url = self._build_url(path, queries)
-   
+
         response = self._fetch(url)
         if response:
             html = response.read()
@@ -889,16 +895,16 @@ class Ustvnow:
 	    Addon.set_setting('free_package', 'false')
 	else:
 	    Addon.set_setting('free_package', 'true')
-        
+
     def _login(self):
         Addon.log('_login')
         self.cj = cookielib.CookieJar()
-        opener = urllib2.build_opener(urllib2.HTTPCookieProcessor(self.cj)) 
+        opener = urllib2.build_opener(urllib2.HTTPCookieProcessor(self.cj))
         opener.addheaders = [('User-agent', 'Mozilla/5.0 (X11; U; Linux i686; en-US) AppleWebKit/533.4 (KHTML, like Gecko) Chrome/5.0.375.127 Large Screen Safari/533.4 GoogleTV/162671')]
         urllib2.install_opener(opener)
-        url = self._build_json('gtv/1/live/login', {'username': self.user, 
-                                               'password': self.password, 
-                                               'device':'gtv', 
+        url = self._build_json('gtv/1/live/login', {'username': self.user,
+                                               'password': self.password,
+                                               'device':'gtv',
                                                'redir':'0'})
         response = opener.open(url)
         for cookie in self.cj:
@@ -912,12 +918,12 @@ class Ustvnow:
     def _login_alt(self):
         Addon.log('_login_alt')
         self.cj = cookielib.CookieJar()
-        opener = urllib2.build_opener(urllib2.HTTPCookieProcessor(self.cj)) 
+        opener = urllib2.build_opener(urllib2.HTTPCookieProcessor(self.cj))
         opener.addheaders = [('User-agent', 'Mozilla/5.0 (iPad; CPU iPhone OS 501 like Mac OS X) AppleWebKit/534.46 (KHTML like Gecko) Version/5.1 Mobile/9A405 Safari/7534.48.3')]
         urllib2.install_opener(opener)
-        url = self._build_json('iphone/1/live/login', {'username': self.user, 
-                                               'password': self.password, 
-                                               'device':'iphone', 
+        url = self._build_json('iphone/1/live/login', {'username': self.user,
+                                               'password': self.password,
+                                               'device':'iphone',
                                                'redir':'0'})
         response = opener.open(url)
         for cookie in self.cj:

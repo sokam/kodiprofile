@@ -14,28 +14,17 @@
     along with this program.  If not, see <http://www.gnu.org/licenses/>.
 """
 
-import re
-from urlresolver import common
+from lib import helpers
 from urlresolver.resolver import UrlResolver, ResolverError
+
 
 class VidUpResolver(UrlResolver):
     name = "vidup.org"
     domains = ["vidup.org"]
     pattern = '(?://|\.)(vidup\.org)/(?:embed\.php\?file=)?([0-9a-zA-Z]+)'
 
-    def __init__(self):
-        self.net = common.Net()
-
     def get_media_url(self, host, media_id):
-        web_url = self.get_url(host, media_id)
-        html = self.net.http_GET(web_url).content
-        
-        match = re.search("clip:\s+{\s+url:\s\"([^\"']+)", html)
-        if match:
-            stream_url = match.group(1)
-            return stream_url.replace(" ", "%20")
-
-        raise ResolverError('Unable to resolve vidup.org link. Filelink not found.')
+        return helpers.get_media_url(self.get_url(host, media_id)).replace(" ", "%20")
 
     def get_url(self, host, media_id):
         return self._default_get_url(host, media_id, 'http://{host}/embed.php?file={media_id}')

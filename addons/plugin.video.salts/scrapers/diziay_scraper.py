@@ -19,7 +19,7 @@
 import re
 import urlparse
 import kodi
-import log_utils
+import log_utils  # @UnusedImport
 import dom_parser
 from salts_lib import scraper_utils
 from salts_lib.constants import FORCE_NO_MATCH
@@ -28,7 +28,7 @@ import scraper
 
 BASE_URL = 'http://diziay.com'
 SEASON_URL = '/posts/filmgonder.php?action=sezongets'
-AJAX_URL = 'http://dizipas.org/player/ajax.php?dizi=%s'
+AJAX_URL = 'http://dizipas.org/player/ajax.php'
 XHR = {'X-Requested-With': 'XMLHttpRequest'}
 
 class Scraper(scraper.Scraper):
@@ -84,9 +84,8 @@ class Scraper(scraper.Scraper):
         subs = 'Turkish subtitles'
         match = re.search('fvid\s*=\s*"([^"]+)', html)
         if match:
-            ajax_url = AJAX_URL % (match.group(1))
-            html = self._http_get(ajax_url, headers=XHR, cache_limit=.5)
-            js_result = scraper_utils.parse_json(html, ajax_url)
+            html = self._http_get(AJAX_URL, params={'dizi': match.group(1)}, headers=XHR, cache_limit=.5)
+            js_result = scraper_utils.parse_json(html, AJAX_URL)
             # subs are hardcoded if none exist
             subs = '' if 'altyazi' in js_result and js_result['altyazi'] else 'Turkish subtitles'
             for source in js_result.get('success', []):
@@ -105,7 +104,7 @@ class Scraper(scraper.Scraper):
             title_pattern = 'href="(?P<url>[^"]*-\d+-sezon-\d+-bolum[^"]*)[^>]*>.*?class="realcuf">(?P<title>[^<]*)'
             return self._default_get_episode_url(SEASON_URL, video, episode_pattern, title_pattern, data=data, headers=XHR)
 
-    def search(self, video_type, title, year, season=''):
+    def search(self, video_type, title, year, season=''):  # @UnusedVariable
         html = self._http_get(self.base_url, cache_limit=8)
         results = []
         fragment = dom_parser.parse_dom(html, 'div', {'class': '[^"]*dizis[^"]*'})

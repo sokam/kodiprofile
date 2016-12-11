@@ -27,7 +27,7 @@ from salts_lib.constants import USER_AGENT
 COMPONENT = __name__
 
 class NoRedirection(urllib2.HTTPErrorProcessor):
-    def http_response(self, request, response):
+    def http_response(self, request, response):  # @UnusedVariable
         log_utils.log('Stopping Redirect', log_utils.LOGDEBUG, COMPONENT)
         return response
 

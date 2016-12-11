@@ -18,7 +18,7 @@
 import re
 import urlparse
 import kodi
-import log_utils
+import log_utils  # @UnusedImport
 import dom_parser
 from salts_lib import scraper_utils
 from salts_lib.constants import FORCE_NO_MATCH
@@ -64,7 +64,7 @@ class Scraper(scraper.Scraper):
         airdate_pattern = 'class="lst"[^>]+href="([^"]+)(?:[^>]+>){6}{p_day}/{p_month}/{year}<'
         return self._default_get_episode_url(season_url, video, episode_pattern, title_pattern, airdate_pattern)
     
-    def search(self, video_type, title, year, season=''):
+    def search(self, video_type, title, year, season=''):  # @UnusedVariable
         results = []
         if title and title[0].isalpha():
             page_url = ['/list/?char=%s' % (title[0])]

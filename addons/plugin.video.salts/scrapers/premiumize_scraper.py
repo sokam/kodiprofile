@@ -20,7 +20,7 @@ import urllib
 import urlparse
 import xbmcgui
 import kodi
-import log_utils
+import log_utils  # @UnusedImport
 import dom_parser
 from salts_lib import scraper_utils
 from salts_lib.constants import FORCE_NO_MATCH
@@ -36,8 +36,8 @@ BROWSE_URL = '/api/torrent/browse?hash=%s'
 LIST_URL = '/api/transfer/list'
 
 BASE_UR2 = 'https://yts.ag'
-MOVIE_SEARCH_URL = '/api/v2/list_movies.json?query_term=%s&sort_by=seeders&order_by=desc'
-MOVIE_DETAILS_URL = '/api/v2/movie_details.json?movie_id=%s'
+MOVIE_SEARCH_URL = '/api/v2/list_movies.json'
+MOVIE_DETAILS_URL = '/api/v2/movie_details.json'
 
 BASE_URL3 = 'https://eztv.ag'
 
@@ -163,9 +163,8 @@ class Scraper(scraper.Scraper):
             movie_id = self.__get_movie_id(source_url)
         
         if movie_id:
-            details_url = MOVIE_DETAILS_URL % (movie_id[0])
-            details_url = urlparse.urljoin(self.movie_base_url, details_url)
-            detail_data = self._json_get(details_url, cache_limit=24)
+            details_url = urlparse.urljoin(self.movie_base_url, MOVIE_DETAILS_URL)
+            detail_data = self._json_get(details_url, params={'movie_id': movie_id[0]}, cache_limit=24)
             try: torrents = detail_data['data']['movie']['torrents']
             except KeyError: torrents = []
             try: hashes = [torrent['hash'].lower() for torrent in torrents]
@@ -228,7 +227,7 @@ class Scraper(scraper.Scraper):
             matches = [link for link in hashes if re.search(airdate_pattern, link[1])]
         return matches
 
-    def search(self, video_type, title, year, season=''):
+    def search(self, video_type, title, year, season=''):  # @UnusedVariable
         if video_type == VIDEO_TYPES.MOVIE:
             return self.__movie_search(title, year)
         else:
@@ -236,9 +235,9 @@ class Scraper(scraper.Scraper):
 
     def __movie_search(self, title, year):
         results = []
-        search_url = MOVIE_SEARCH_URL % (urllib.quote_plus(title))
-        search_url = urlparse.urljoin(self.movie_base_url, search_url)
-        js_data = self._json_get(search_url, cache_limit=1)
+        params = {'query_term': title, 'sort_by': 'seeders', 'order_by': 'desc'}
+        search_url = urlparse.urljoin(self.movie_base_url, MOVIE_SEARCH_URL)
+        js_data = self._json_get(search_url, params=params, cache_limit=1)
         if 'data' in js_data and 'movies' in js_data['data']:
             for movie in js_data['data']['movies']:
                 match_year = str(movie['year'])
@@ -285,14 +284,14 @@ class Scraper(scraper.Scraper):
         settings.append('         <setting id="%s-include_trans" type="bool" label="     %s" default="true" visible="eq(-9,true)"/>' % (name, i18n('include_transcodes')))
         return settings
 
-    def _json_get(self, url, data=None, allow_redirect=True, cache_limit=8):
+    def _json_get(self, url, params=None, data=None, allow_redirect=True, cache_limit=8):
         if not self.username or not self.password:
             return {}
         
         if data is None: data = {}
         if 'premiumize.me' in url.lower():
             data.update({'customer_id': self.username, 'pin': self.password})
-        result = super(self.__class__, self)._http_get(url, data=data, allow_redirect=allow_redirect, cache_limit=cache_limit)
+        result = super(self.__class__, self)._http_get(url, params=params, data=data, allow_redirect=allow_redirect, cache_limit=cache_limit)
         js_result = scraper_utils.parse_json(result, url)
         if 'status' in js_result and js_result['status'] == 'error':
             msg = js_result.get('message', js_result.get('status_message', 'Unknown Error'))
@@ -307,4 +306,3 @@ class Scraper(scraper.Scraper):
             return ''
 
         return super(self.__class__, self)._http_get(url, data=data, headers=headers, allow_redirect=allow_redirect, cache_limit=cache_limit)
-        

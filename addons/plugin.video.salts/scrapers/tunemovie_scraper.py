@@ -20,7 +20,7 @@ import urllib
 import urlparse
 import base64
 import kodi
-import log_utils
+import log_utils  # @UnusedImport
 import dom_parser
 from salts_lib import scraper_utils
 from salts_lib.constants import FORCE_NO_MATCH
@@ -30,7 +30,7 @@ import scraper
 
 BASE_URL = 'http://tunemovies.to'
 LINK_URL = '/ip.temp/swf/plugins/ipplugins.php'
-LINK_URL2 = '/ip.temp/swf/ipplayer/ipplayer.php?u=%s&w=100%%&h=420'
+LINK_URL2 = '/ip.temp/swf/ipplayer/ipplayer.php'
 XHR = {'X-Requested-With': 'XMLHttpRequest'}
 GK_KEY = base64.b64decode('Q05WTmhPSjlXM1BmeFd0UEtiOGg=')
 
@@ -94,8 +94,9 @@ class Scraper(scraper.Scraper):
                 html = self._http_get(url, data=data, headers=headers, cache_limit=.25)
                 js_data = scraper_utils.parse_json(html, url)
                 if 's' in js_data:
-                    url = urlparse.urljoin(self.base_url, LINK_URL2 % (js_data['s']))
-                    html = self._http_get(url, data=data, headers=headers, cache_limit=.25)
+                    url = urlparse.urljoin(self.base_url, LINK_URL2)
+                    params = {'u': js_data['s'], 'w': '100%', 'h': 420}
+                    html = self._http_get(url, params=params, data=data, headers=headers, cache_limit=.25)
                     js_data = scraper_utils.parse_json(html, url)
                     if 'data' in js_data and js_data['data']:
                         if isinstance(js_data['data'], basestring):
@@ -126,7 +127,7 @@ class Scraper(scraper.Scraper):
         return sources
 
     def _get_episode_url(self, season_url, video):
-        episode_pattern = 'class="[^"]*episode_series_link[^"]*"\s+href="([^"]+)[^>]*>\s*%s\s*<' % (video.episode)
+        episode_pattern = 'class="[^"]*episode_series_link[^"]*"[^>]+href="([^"]+)[^>]*>\s*%s\s*<' % (video.episode)
         return self._default_get_episode_url(season_url, video, episode_pattern)
     
     def search(self, video_type, title, year, season=''):

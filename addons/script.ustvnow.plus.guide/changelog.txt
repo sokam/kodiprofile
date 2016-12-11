@@ -1,4 +1,14 @@
 --------------------------
+USTVnow Guide - 1.2.4
+--------------------------
++ Added Go To Now option in context menu
+
+--------------------------
+USTVnow Guide - 1.2.3
+--------------------------
++ Updated addon.xml
+
+--------------------------
 USTVnow Guide - 1.2.2
 --------------------------
 + Updated fanart to have TVADDONS logo

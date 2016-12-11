@@ -19,7 +19,7 @@ import re
 import urllib
 import urlparse
 import kodi
-import log_utils
+import log_utils  # @UnusedImport
 import dom_parser
 from salts_lib import scraper_utils
 from salts_lib.constants import FORCE_NO_MATCH
@@ -29,7 +29,7 @@ import scraper
 
 BASE_URL = 'http://vivo.to'
 LINK_URL = '/ip.temp/swf/plugins/ipplugins.php'
-PLAYER_URL = '/ip.temp/swf/ipplayer/ipplayer.php?u=%s&w=100%%&h=420'
+PLAYER_URL = '/ip.temp/swf/ipplayer/ipplayer.php'
 XHR = {'X-Requested-With': 'XMLHttpRequest'}
 QUALITY_MAP = {'HD': QUALITIES.HD720, 'SD': QUALITIES.HIGH}
 
@@ -134,9 +134,9 @@ class Scraper(scraper.Scraper):
     
     def __get_real_url(self, stream_url):
         if not stream_url.startswith('http'):
-            url = PLAYER_URL % (stream_url)
-            url = urlparse.urljoin(self.base_url, url)
-            html = self._http_get(url, headers=XHR, cache_limit=.25)
+            url = urlparse.urljoin(self.base_url, PLAYER_URL)
+            params = {'u': stream_url, 'w': '100%', 'h': 420}
+            html = self._http_get(url, params=params, headers=XHR, cache_limit=.25)
             js_data = scraper_utils.parse_json(html, url)
             if 'data' in js_data and js_data['data']:
                 if 'files' in js_data['data'] and js_data['data']['files']:
@@ -176,6 +176,7 @@ class Scraper(scraper.Scraper):
                                 continue
                             match_year = ''
                     
-                        result = {'title': scraper_utils.cleanse_title(match_title), 'year': match_year, 'url': scraper_utils.pathify_url(match_url)}
-                        results.append(result)
+                        if not year or not match_year or year == match_year:
+                            result = {'title': scraper_utils.cleanse_title(match_title), 'year': match_year, 'url': scraper_utils.pathify_url(match_url)}
+                            results.append(result)
         return results

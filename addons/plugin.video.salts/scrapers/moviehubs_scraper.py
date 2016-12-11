@@ -20,7 +20,7 @@ import urlparse
 import urllib
 import re
 import kodi
-import log_utils
+import log_utils  # @UnusedImport
 import dom_parser
 import base64
 from salts_lib import scraper_utils
@@ -117,7 +117,7 @@ class Scraper(scraper.Scraper):
                     
         return sources
     
-    def search(self, video_type, title, year, season=''):
+    def search(self, video_type, title, year, season=''):  # @UnusedVariable
         results = []
         search_url = urlparse.urljoin(self.base_url, '/search-movies/%s.html' % (urllib.quote_plus(title)))
         html = self._http_get(search_url, cache_limit=8)

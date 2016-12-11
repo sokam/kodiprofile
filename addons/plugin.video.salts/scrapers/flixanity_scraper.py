@@ -22,21 +22,22 @@ import urllib
 import urlparse
 import string
 import random
+import hashlib
 import kodi
-import log_utils
-import dom_parser
+import log_utils  # @UnusedImport
 from salts_lib import scraper_utils
 from salts_lib.constants import FORCE_NO_MATCH
 from salts_lib.constants import QUALITIES
 from salts_lib.constants import VIDEO_TYPES
+from salts_lib.constants import XHR
 from salts_lib.utils2 import i18n
 import scraper
 
 
-BASE_URL = 'http://www.flixanity.is'
+BASE_URL = 'http://flixanity.watch'
 EMBED_URL = '/ajax/embeds.php'
-SEARCH_URL = '/api/v1/cautare/apr'
-XHR = {'X-Requested-With': 'XMLHttpRequest'}
+SEARCH_URL = '/api/v1/cautare/upd'
+KEY = 'MEE2cnUzNXl5aTV5bjRUSFlwSnF5MFg4MnRFOTVidFY='
 
 class Scraper(scraper.Scraper):
     base_url = BASE_URL
@@ -61,8 +62,8 @@ class Scraper(scraper.Scraper):
         source_url = self.get_url(video)
         sources = []
         if source_url and source_url != FORCE_NO_MATCH:
-            url = urlparse.urljoin(self.base_url, source_url)
-            html = self._http_get(url, cache_limit=.5)
+            page_url = urlparse.urljoin(self.base_url, source_url)
+            html = self._http_get(page_url, cache_limit=.5)
             if video.video_type == VIDEO_TYPES.MOVIE:
                 action = 'getMovieEmb'
             else:
@@ -75,8 +76,8 @@ class Scraper(scraper.Scraper):
                 elid = urllib.quote(base64.encodestring(str(int(time.time()))).strip())
                 data = {'action': action, 'idEl': match.group(1), 'token': self.__token, 'elid': elid}
                 ajax_url = urlparse.urljoin(self.base_url, EMBED_URL)
-                headers = XHR
-                headers['Authorization'] = 'Bearer %s' % (self.__get_bearer())
+                headers = {'Authorization': 'Bearer %s' % (self.__get_bearer()), 'Referer': page_url}
+                headers.update(XHR)
                 html = self._http_get(ajax_url, data=data, headers=headers, cache_limit=.5)
                 html = html.replace('\\"', '"').replace('\\/', '/')
                  
@@ -98,16 +99,17 @@ class Scraper(scraper.Scraper):
 
         return sources
 
-    def search(self, video_type, title, year, season=''):
+    def search(self, video_type, title, year, season=''):  # @UnusedVariable
         results = []
         self.__get_token()
         if self.__token is not None:
             search_url = urlparse.urljoin(self.base_url, self.__get_search_url())
             timestamp = int(time.time() * 1000)
             s = self.__get_s()
-            query = {'q': title, 'limit': '100', 'timestamp': timestamp, 'verifiedCheck': self.__token, 'set': s, 'rt': self.__get_rt(self.__token + s)}
-            headers = XHR
-            headers['Referer'] = self.base_url
+            query = {'q': title, 'limit': '100', 'timestamp': timestamp, 'verifiedCheck': self.__token, 'set': s, 'rt': self.__get_rt(self.__token + s),
+                     'sl': self.__get_sl(search_url)}
+            headers = {'Referer': self.base_url}
+            headers.update(XHR)
             html = self._http_get(search_url, data=query, headers=headers, cache_limit=1)
             if video_type in [VIDEO_TYPES.TVSHOW, VIDEO_TYPES.EPISODE]:
                 media_type = 'TV SHOW'
@@ -118,7 +120,8 @@ class Scraper(scraper.Scraper):
                 if item['meta'].upper().startswith(media_type):
                     match_year = str(item['year']) if 'year' in item and item['year'] else ''
                     if not year or not match_year or year == match_year:
-                        result = {'title': scraper_utils.cleanse_title(item['title']), 'url': scraper_utils.pathify_url(item['permalink']), 'year': match_year}
+                        
+                        result = {'title': scraper_utils.cleanse_title(item['title']), 'url': scraper_utils.pathify_url(item['permalink'].replace('/show/', '/tv-show/')), 'year': match_year}
                         results.append(result)
 
         return results
@@ -127,7 +130,8 @@ class Scraper(scraper.Scraper):
         season_url = show_url + '/season/%s' % (video.season)
         episode_pattern = 'href="([^"]+/season/%s/episode/%s/?)"' % (video.season, video.episode)
         title_pattern = 'href="(?P<url>[^"]+/season/%s/episode/%s/?)"\s+title="(?P<title>[^"]+)'
-        return self._default_get_episode_url(season_url, video, episode_pattern, title_pattern)
+        headers = {'Referer': urlparse.urljoin(self.base_url, show_url)}
+        return self._default_get_episode_url(season_url, video, episode_pattern, title_pattern, headers=headers)
 
     @classmethod
     def get_settings(cls):
@@ -174,10 +178,12 @@ class Scraper(scraper.Scraper):
                 match = re.search('=\s*"([^"]*/cautare/[^"]*)', html)
                 if match:
                     search_url = match.group(1)
-                    search_url = search_url.replace('\\', '')
+                    match = re.search('u\s*=\s*"([^"]+)', html)
+                    if match:
+                        search_url = search_url[:search_url.rfind('/') + 1] + match.group(1)
                     break
         return search_url
-    
+        
     def __get_token(self, html=''):
         if self.username and self.password and self.__token is None:
             if not html:
@@ -201,3 +207,7 @@ class Scraper(scraper.Scraper):
                 new_code -= 26
             s2 += chr(new_code)
         return s2
+
+    def __get_sl(self, url):
+        u = url.split('/')[-1]
+        return hashlib.md5(KEY + u).hexdigest()

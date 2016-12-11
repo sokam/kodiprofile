@@ -19,16 +19,16 @@ import re
 import urllib
 import urlparse
 import kodi
-import log_utils
+import log_utils  # @UnusedImport
 from salts_lib import scraper_utils
 from salts_lib.constants import FORCE_NO_MATCH
 from salts_lib.constants import VIDEO_TYPES
+from salts_lib.constants import XHR
 import scraper
 
 
 BASE_URL = 'https://fmovie.co'
 INFO_URL = BASE_URL + '/video_info/iframe'
-XHR = {'X-Requested-With': 'XMLHttpRequest'}
 
 class Scraper(scraper.Scraper):
     base_url = BASE_URL
@@ -55,8 +55,8 @@ class Scraper(scraper.Scraper):
             if match:
                 video_id = match.group(1)
                 data = {'v': video_id}
-                headers = XHR
-                headers['Referer'] = page_url
+                headers = {'Referer': page_url}
+                headers.update(XHR)
                 html = self._http_get(INFO_URL, data=data, headers=headers, cache_limit=.5)
                 sources = scraper_utils.parse_json(html, INFO_URL)
                 for source in sources:
@@ -73,11 +73,10 @@ class Scraper(scraper.Scraper):
                         hosters.append(hoster)
         return hosters
 
-    def search(self, video_type, title, year, season=''):
-        search_url = urlparse.urljoin(self.base_url, '/results?q=')
-        search_url += urllib.quote_plus(title)
-        html = self._http_get(search_url, cache_limit=.25)
+    def search(self, video_type, title, year, season=''):  # @UnusedVariable
         results = []
+        search_url = urlparse.urljoin(self.base_url, '/results')
+        html = self._http_get(search_url, params={'q': title}, cache_limit=1)
         pattern = 'class="video_title".*?href="([^"]+)">([^<]+).*?Year</b>:\s*(\d*)'
         for match in re.finditer(pattern, html, re.DOTALL):
             url, match_title, match_year = match.groups()

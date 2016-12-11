@@ -17,20 +17,20 @@
 """
 import re
 import urlparse
-import urllib
 import datetime
 import kodi
-import log_utils
+import log_utils  # @UnusedImport
 import dom_parser
 from salts_lib import scraper_utils
 from salts_lib.constants import FORCE_NO_MATCH
 from salts_lib.constants import VIDEO_TYPES
 from salts_lib.constants import QUALITIES
+from salts_lib.constants import XHR
 import scraper
 
-BASE_URL = 'http://www.filmovizija.studio'
+BASE_URL = 'http://www.filmovizija.ws'
 EP_URL = '/episode.php?vid=%s'
-YT_URL = '/yt.php?p=%s&s=%s&u=%s'
+LINK_URL = '/morgan.php'
 
 class Scraper(scraper.Scraper):
     base_url = BASE_URL
@@ -47,52 +47,45 @@ class Scraper(scraper.Scraper):
     def get_name(cls):
         return 'Filmovizija'
 
+    def resolve_link(self, link):
+        if link.startswith('http'):
+            return link
+        else:
+            link_url = urlparse.urljoin(self.base_url, LINK_URL)
+            data = {'redirect': link}
+            html = self._http_get(link_url, data=data, headers=XHR)
+            if html.startswith('http'):
+                return html.strip()
+    
     def get_sources(self, video):
         source_url = self.get_url(video)
         hosters = []
         if source_url and source_url != FORCE_NO_MATCH:
             page_url = urlparse.urljoin(self.base_url, source_url)
             html = self._http_get(page_url, cache_limit=.5)
-            for fragment in dom_parser.parse_dom(html, 'span', {'class': 'fullm'}):
-                link = dom_parser.parse_dom(fragment, 'a', ret='href')
-                if link:
+            for row in dom_parser.parse_dom(html, 'tr', {'id': 'linktr'}):
+                redirect = dom_parser.parse_dom(row, 'span', ret='id')
+                link = dom_parser.parse_dom(row, 'a', ret='href')
+                if link and link[0].startswith('http'):
                     stream_url = link[0]
+                elif redirect:
+                    stream_url = redirect[0]
+                else:
+                    stream_url = ''
+
+                if stream_url.startswith('http'):
                     host = urlparse.urlparse(stream_url).hostname
+                else:
+                    host = dom_parser.parse_dom(row, 'h9')
+                    host = host[0] if host else ''
+                    
+                if stream_url and host:
                     quality = scraper_utils.get_quality(video, host, QUALITIES.HIGH)
                     hoster = {'multi-part': False, 'host': host, 'class': self, 'quality': quality, 'views': None, 'rating': None, 'url': stream_url, 'direct': False}
                     hosters.append(hoster)
             
-            hosters += self.__get_direct_links(html, page_url)
         return hosters
 
-    def __get_direct_links(self, html, page_url):
-        hosters = []
-        match = re.search("&u=([^']+)", html)
-        if match:
-            u = match.group(1)
-            fragment = dom_parser.parse_dom(html, 'ul', {'class': '[^"]*rektab[^"]*'})
-            if fragment:
-                page = dom_parser.parse_dom(fragment[0], 'a', ret='id')
-                if page:
-                    page = page[0]
-                    ss = dom_parser.parse_dom(fragment[0], 'a', {'id': page}, ret='class')
-                    for s in ss:
-                        yt_url = YT_URL % (page, s, u)
-                        url = urlparse.urljoin(self.base_url, yt_url)
-                        headers = {'Referer': page_url}
-                        html = self._http_get(url, headers=headers, cache_limit=.5)
-                        sources = self._parse_sources_list(html)
-                        for source in sources:
-                            host = self._get_direct_hostname(source)
-                            if sources[source]['quality']:
-                                quality = sources[source]['quality']
-                            else:
-                                quality = QUALITIES.HIGH
-                            stream_url = source + '|User-Agent=%s' % (scraper_utils.get_ua())
-                            hoster = {'multi-part': False, 'host': host, 'class': self, 'quality': quality, 'views': None, 'rating': None, 'url': stream_url, 'direct': True}
-                            hosters.append(hoster)
-        return hosters
-    
     def _get_episode_url(self, show_url, video):
         url = urlparse.urljoin(self.base_url, show_url)
         html = self._http_get(url, cache_limit=8)
@@ -125,7 +118,7 @@ class Scraper(scraper.Scraper):
             if best_id:
                 return EP_URL % (best_id)
 
-    def search(self, video_type, title, year, season=''):
+    def search(self, video_type, title, year, season=''):  # @UnusedVariable
         if video_type == VIDEO_TYPES.MOVIE:
             results = self.__movie_search(title, year)
         else:
@@ -134,9 +127,9 @@ class Scraper(scraper.Scraper):
 
     def __movie_search(self, title, year):
         results = []
-        search_url = urlparse.urljoin(self.base_url, '/search1.php?keywords=%s&ser=506')
-        search_url = search_url % (urllib.quote_plus(title))
-        html = self._http_get(search_url, cache_limit=8)
+        search_url = urlparse.urljoin(self.base_url, '/search1.php')
+        params = {'keywords': title, 'ser': 506}
+        html = self._http_get(search_url, params=params, cache_limit=8)
         fragment = dom_parser.parse_dom(html, 'ul', {'class': 'cbp-rfgrid'})
         if fragment:
             for item in dom_parser.parse_dom(fragment[0], 'li'):
@@ -148,21 +141,14 @@ class Scraper(scraper.Scraper):
                     
                 if match_url and match_title_year:
                     match_url = match_url[0]
-                    match_title_year = match_title_year[0]
-                    match = re.search('(.*?)\s+\((\d{4})\)', match_title_year)
-                    if match:
-                        match_title, match_year = match.groups()
-                    else:
-                        match_title = match_title_year
-                        match_year = ''
-            
+                    match_title, match_year = scraper_utils.extra_year(match_title_year[0])
                     if not year or not match_year or year == match_year:
                         result = {'url': scraper_utils.pathify_url(match_url), 'title': scraper_utils.cleanse_title(match_title), 'year': match_year}
                         results.append(result)
 
         return results
     
-    def __tv_search(self, title, year):
+    def __tv_search(self, title, year):  # @UnusedVariable
         results = []
         url = urlparse.urljoin(self.base_url, '/tvshows.html')
         html = self._http_get(url, cache_limit=48)
@@ -176,5 +162,3 @@ class Scraper(scraper.Scraper):
                     result = {'url': scraper_utils.pathify_url(match_url), 'title': scraper_utils.cleanse_title(match_title), 'year': match_year}
                     results.append(result)
         return results
-        
-        

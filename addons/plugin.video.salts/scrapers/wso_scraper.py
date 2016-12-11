@@ -18,7 +18,7 @@
 """
 import re
 import urlparse
-import log_utils
+import log_utils  # @UnusedImport
 import kodi
 import dom_parser
 from salts_lib import scraper_utils
@@ -27,7 +27,7 @@ from salts_lib.constants import QUALITIES
 from salts_lib.constants import VIDEO_TYPES
 import scraper
 
-BASE_URL = 'http://watchseries-online.li'
+BASE_URL = 'http://watchseries-online.nl'
 
 class Scraper(scraper.Scraper):
     base_url = BASE_URL
@@ -72,7 +72,7 @@ class Scraper(scraper.Scraper):
             % (int(video.season), int(video.episode), video.season, video.episode, video.season, video.episode)
         return self._default_get_episode_url(show_url, video, episode_pattern)
 
-    def search(self, video_type, title, year, season=''):
+    def search(self, video_type, title, year, season=''):  # @UnusedVariable
         results = []
         url = urlparse.urljoin(self.base_url, '/index')
         html = self._http_get(url, cache_limit=24)

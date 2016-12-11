@@ -18,7 +18,7 @@
 import re
 import urlparse
 import kodi
-import log_utils
+import log_utils  # @UnusedImport
 from salts_lib import scraper_utils
 from salts_lib.constants import FORCE_NO_MATCH
 from salts_lib.constants import VIDEO_TYPES
@@ -36,7 +36,7 @@ except ImportError:
     class ParseError(Exception): pass
 
 BASE_URL = 'http://dizipas.com'
-AJAX_URL = 'http://dizipas.org/player/ajax.php?dizi=%s'
+AJAX_URL = 'http://dizipas.org/player/ajax.php'
 XHR = {'X-Requested-With': 'XMLHttpRequest'}
 
 
@@ -114,9 +114,8 @@ class Scraper(scraper.Scraper):
         sources = {}
         match = re.search('dizi=([^"]+)', html)
         if match:
-            ajax_url = AJAX_URL % (match.group(1))
-            html = self._http_get(ajax_url, headers=XHR, cache_limit=.5)
-            js_result = scraper_utils.parse_json(html, ajax_url)
+            html = self._http_get(AJAX_URL, params={'dizi': match.group(1)}, headers=XHR, cache_limit=.5)
+            js_result = scraper_utils.parse_json(html, AJAX_URL)
             for source in js_result.get('success', []):
                 stream_url = source.get('src')
                 if stream_url is not None:
@@ -142,7 +141,7 @@ class Scraper(scraper.Scraper):
         title_pattern = 'class="episode-name"\s+href="(?P<url>[^"]+)">(?P<title>[^<]+)'
         return self._default_get_episode_url(show_url, video, episode_pattern, title_pattern)
 
-    def search(self, video_type, title, year, season=''):
+    def search(self, video_type, title, year, season=''):  # @UnusedVariable
         results = []
         xml_url = urlparse.urljoin(self.base_url, '/series.xml')
         xml = self._http_get(xml_url, cache_limit=24)

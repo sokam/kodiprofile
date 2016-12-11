@@ -16,7 +16,6 @@
     along with this program.  If not, see <http://www.gnu.org/licenses/>.
 """
 import re
-import urllib
 import urlparse
 import kodi
 from salts_lib import scraper_utils
@@ -66,12 +65,12 @@ class Scraper(scraper.Scraper):
                 hosters.append(hoster)
         return hosters
 
-    def search(self, video_type, title, year, season=''):
-        search_url = urlparse.urljoin(self.base_url, '/index.php?search=%s&image.x=0&image.y=0')
-        search_url = search_url % (urllib.quote_plus(title))
-        html = self._http_get(search_url, cache_limit=.25)
-
+    def search(self, video_type, title, year, season=''):  # @UnusedVariable
         results = []
+        search_url = urlparse.urljoin(self.base_url, '/index.php')
+        params = {'search': title, 'image.x': 0, 'image.y': 0}
+        html = self._http_get(search_url, params=params, cache_limit=1)
+
         # Are we on a results page?
         if not re.search('window\.location', html):
             pattern = '<td[^>]+class="movieText"[^>]*>(.*?)</p>.*?href="(/watch/[^"]+)'
@@ -79,15 +78,8 @@ class Scraper(scraper.Scraper):
                 match_title_year, match_url = match.groups('')
                 # skip porn
                 if '-XXX-' in match_url.upper() or ' XXX:' in match_title_year: continue
-                
                 match_title_year = re.sub('</?.*?>', '', match_title_year)
-                match = re.search('(.*?)\s+\(?(\d{4})\)?', match_title_year)
-                if match:
-                    match_title, match_year = match.groups()
-                else:
-                    match_title = match_title_year
-                    match_year = ''
-                
+                match_title, match_year = scraper_utils.extra_year(match_title_year)
                 if not year or not match_year or year == match_year:
                     result = {'url': match_url, 'title': scraper_utils.cleanse_title(match_title), 'year': match_year}
                     results.append(result)

@@ -20,7 +20,7 @@ import urlparse
 import re
 import urllib
 import kodi
-import log_utils
+import log_utils  # @UnusedImport
 import dom_parser
 from salts_lib import scraper_utils
 from salts_lib.constants import VIDEO_TYPES
@@ -73,32 +73,34 @@ class Scraper(scraper.Scraper):
                     js_data = scraper_utils.parse_json(html, ep_url)
                     try:
                         links = dom_parser.parse_dom(js_data['link']['embed'], 'iframe', ret='src')
-                        direct = False
                     except:
-                        direct = True
                         try: links = js_data['link']['l']
                         except: links = []
                     try: heights = js_data['link']['q']
                     except: heights = []
                     for stream_url, height in map(None, links, heights):
-                        if direct:
-                            host = self._get_direct_hostname(stream_url)
-                            if host == 'gvideo':
-                                quality = scraper_utils.gv_get_quality(stream_url)
-                            elif height:
+                        match = re.search('movie_url=(.*)', stream_url)
+                        if match:
+                            stream_url = match.group(1)
+                            
+                        host = self._get_direct_hostname(stream_url)
+                        if host == 'gvideo':
+                            quality = scraper_utils.gv_get_quality(stream_url)
+                            stream_url += '|User-Agent=%s&Referer=%s' % (scraper_utils.get_ua(), urllib.quote(page_url))
+                            direct = True
+                        else:
+                            host = urlparse.urlparse(stream_url).hostname
+                            if height:
                                 quality = scraper_utils.height_get_quality(height)
                             else:
                                 quality = QUALITIES.HD720
-                            stream_url += '|User-Agent=%s&Referer=%s' % (scraper_utils.get_ua(), urllib.quote(page_url))
-                        else:
-                            host = urlparse.urlparse(stream_url).hostname
-                            quality = QUALITIES.HD720
+                            direct = False
                         source = {'multi-part': False, 'url': stream_url, 'host': host, 'class': self, 'quality': quality, 'views': None, 'rating': None, 'direct': direct}
                         sources.append(source)
 
         return sources
 
-    def search(self, video_type, title, year, season=''):
+    def search(self, video_type, title, year, season=''):  # @UnusedVariable
         results = []
         search_url = urlparse.urljoin(self.base_url, '/search/%s.html')
         search_url = search_url % (self.__to_slug(title))
@@ -109,13 +111,7 @@ class Scraper(scraper.Scraper):
             if match_url and match_title_year:
                 match_url = match_url[0]
                 match_title_year = match_title_year[0]
-                match = re.search('(.*?)\s+\((\d{4})\)\s*', match_title_year)
-                if match:
-                    match_title, match_year = match.groups()
-                else:
-                    match_title = match_title_year
-                    match_year = ''
-                
+                match_title, match_year = scraper_utils.extra_year(match_title_year[0])
                 if not year or not match_year or year == match_year:
                     result = {'title': scraper_utils.cleanse_title(match_title), 'year': match_year, 'url': scraper_utils.pathify_url(match_url)}
                     results.append(result)

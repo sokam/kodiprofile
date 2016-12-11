@@ -16,7 +16,6 @@
     along with this program.  If not, see <http://www.gnu.org/licenses/>.
 """
 import re
-import urllib
 import urlparse
 import kodi
 import dom_parser
@@ -26,7 +25,7 @@ from salts_lib.constants import QUALITIES
 from salts_lib.constants import VIDEO_TYPES
 import scraper
 
-BASE_URL = 'http://watchmovies-online.nl'
+BASE_URL = 'http://watchmovies.nz/'
 
 class Scraper(scraper.Scraper):
     base_url = BASE_URL
@@ -66,22 +65,14 @@ class Scraper(scraper.Scraper):
                 hosters.append(hoster)
         return hosters
 
-    def search(self, video_type, title, year, season=''):
+    def search(self, video_type, title, year, season=''):  # @UnusedVariable
         results = []
-        url = urlparse.urljoin(self.base_url, '/?s=%s&search=' % urllib.quote_plus(title))
-        html = self._http_get(url, cache_limit=8)
-
+        html = self._http_get(self.base_url, params={'s': title, 'search': ''}, cache_limit=8)
         for item in dom_parser.parse_dom(html, 'div', {'class': '[^"]*movie_poster[^"]*'}):
             match = re.search('href="([^"]+)[^>]+title="([^"]+)', item)
             if match:
                 url, match_title_year = match.groups()
-                match = re.search('(.*?)(?:\s+\(?(\d{4})\)?)', match_title_year)
-                if match:
-                    match_title, match_year = match.groups()
-                else:
-                    match_title = match_title_year
-                    match_year = ''
-                
+                match_title, match_year = scraper_utils.extra_year(match_title_year)
                 if not year or not match_year or year == match_year:
                     result = {'url': scraper_utils.pathify_url(url), 'title': scraper_utils.cleanse_title(match_title), 'year': match_year}
                     results.append(result)

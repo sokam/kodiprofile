@@ -1126,6 +1126,66 @@ msgctxt "#30288"
 msgid "Working..."
 msgstr ""
 
+msgctxt "#30289"
+msgid "Re-Scrape All"
+msgstr ""
+
+msgctxt "#30290"
+msgid "Manual Search (All Unmatched Only)"
+msgstr ""
+
+msgctxt "#30291"
+msgid "Torba Account Authorization"
+msgstr ""
+
+msgctxt "#30292"
+msgid "Torba Authorization Complete"
+msgstr ""
+
+msgctxt "#30293"
+msgid "Torba Authorization Failed"
+msgstr ""
+
+msgctxt "#30294"
+msgid "Authorize SALTS to access my torba account"
+msgstr ""
+
+msgctxt "#30295"
+msgid "and login when prompted"
+msgstr ""
+
+msgctxt "#30296"
+msgid "Flush Image Cache"
+msgstr ""
+
+msgctxt "#30297"
+msgid "Are you sure you want to clear the image metadata cache?"
+msgstr ""
+
+msgctxt "#30298"
+msgid "The addon will be significantly slower until is is re-cached."
+msgstr ""
+
+msgctxt "#30299"
+msgid "Flush Complete"
+msgstr ""
+
+msgctxt "#30300"
+msgid "Refresh Images"
+msgstr ""
+
+msgctxt "#30301"
+msgid "Private Scraper Updated: "
+msgstr ""
+
+msgctxt "#30302"
+msgid "Reset Torba Authorization"
+msgstr ""
+
+msgctxt "#30303"
+msgid "Torba Authorization Reset"
+msgstr ""
+
 msgctxt "#30500"
 msgid "Addon Theme"
 msgstr ""
@@ -1201,7 +1261,7 @@ msgid "Year"
 msgstr ""
 
 msgctxt "#30518"
-msgid "Activity"
+msgid "Recent Activity"
 msgstr ""
 
 msgctxt "#30519"
@@ -1965,5 +2025,89 @@ msgstr ""
 
 msgctxt "#30707"
 msgid "Date Format"
+msgstr ""
+
+msgctxt "#30708"
+msgid "Past Activity"
+msgstr ""
+
+msgctxt "#30709"
+msgid "Always Show Custom Progress Dialogs"
+msgstr ""
+
+msgctxt "#30710"
+msgid "Image Metadata API Keys"
+msgstr ""
+
+msgctxt "#30711"
+msgid "Fanart.tv API Key (Blank = Disable)"
+msgstr ""
+
+msgctxt "#30712"
+msgid "TMDB API Key (Blank = Disable)"
+msgstr ""
+
+msgctxt "#30713"
+msgid "TVDB API Key (Blank = Disable)"
+msgstr ""
+
+msgctxt "#30714"
+msgid "Enable OMDB Images"
+msgstr ""
+
+msgctxt "#30715"
+msgid "Enable TVMaze Images"
+msgstr ""
+
+msgctxt "#30716"
+msgid "Flush Image Cache..."
+msgstr ""
+
+msgctxt "#30717"
+msgid "Enable Fanart.tv Images"
+msgstr ""
+
+msgctxt "#30718"
+msgid "Fanart.tv Personal API Key"
+msgstr ""
+
+msgctxt "#30719"
+msgid "Enable Backgrounds/Fanart"
+msgstr ""
+
+msgctxt "#30720"
+msgid "Enable Posters"
+msgstr ""
+
+msgctxt "#30721"
+msgid "Enable Banners"
+msgstr ""
+
+msgctxt "#30722"
+msgid "Enable Clearart"
+msgstr ""
+
+msgctxt "#30723"
+msgid "Artwork Scraping"
+msgstr ""
+
+msgctxt "#30724"
+msgid "Enable Thumbnails"
+msgstr ""
+
+msgctxt "#30725"
+msgid "Artwork Types"
+msgstr ""
+
+msgctxt "#30726"
+msgid "    Use animated posters when available"
+msgstr ""
+
+msgctxt "#30727"
+msgid "Enable Cast Thumbnails"
+msgstr ""
+
+msgctxt "#30728"
+msgid "    *** Install TMDB API Cache ***"
 msgstr ""
 

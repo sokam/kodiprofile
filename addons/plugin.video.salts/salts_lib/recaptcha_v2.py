@@ -31,7 +31,7 @@ import scraper_utils
 COMPONENT = __name__
 
 class cInputWindow(xbmcgui.WindowDialog):
-    def __init__(self, *args, **kwargs):
+    def __init__(self, *args, **kwargs):  # @UnusedVariable
         bg_image = os.path.join(kodi.get_path(), 'resources', 'skins', 'Default', 'media', 'DialogBack2.png')
         check_image = os.path.join(kodi.get_path(), 'resources', 'skins', 'Default', 'media', 'checked.png')
         self.cancelled = False

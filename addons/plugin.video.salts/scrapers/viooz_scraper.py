@@ -16,10 +16,9 @@
     along with this program.  If not, see <http://www.gnu.org/licenses/>.
 """
 import re
-import urllib
 import urlparse
 import kodi
-import log_utils
+import log_utils  # @UnusedImport
 import dom_parser
 from salts_lib import scraper_utils
 from salts_lib.constants import FORCE_NO_MATCH
@@ -83,19 +82,17 @@ class Scraper(scraper.Scraper):
                         hosters.append(hoster)
             
             for fragment in dom_parser.parse_dom(page_html, 'div', {'class': 'tabContent'}):
-                iframe_url = dom_parser.parse_dom(fragment, 'iframe', ret='src')
-                if iframe_url:
-                    host = urlparse.urlparse(iframe_url[0]).hostname
-                    hoster = {'multi-part': False, 'url': iframe_url[0], 'class': self, 'quality': quality, 'host': host, 'rating': None, 'views': None, 'direct': False}
+                for stream_url in dom_parser.parse_dom(fragment, 'iframe', ret='src') + dom_parser.parse_dom(fragment, 'a', ret='href'):
+                    host = urlparse.urlparse(stream_url).hostname
+                    hoster = {'multi-part': False, 'url': stream_url, 'class': self, 'quality': quality, 'host': host, 'rating': None, 'views': None, 'direct': False}
                     hosters.append(hoster)
 
         return hosters
 
-    def search(self, video_type, title, year, season=''):
-        search_url = urlparse.urljoin(self.base_url, '/search?q=')
-        search_url += urllib.quote_plus(title)
-        search_url += '&s=t'
-        html = self._http_get(search_url, cache_limit=.25)
+    def search(self, video_type, title, year, season=''):  # @UnusedVariable
+        search_url = urlparse.urljoin(self.base_url, '/search')
+        params = {'q': title, 's': 't'}
+        html = self._http_get(search_url, params=params, cache_limit=1)
         pattern = 'class="title_list">\s*<a\s+href="([^"]+)"\s+title="([^"]+)\((\d{4})\)'
         results = []
         for match in re.finditer(pattern, html):

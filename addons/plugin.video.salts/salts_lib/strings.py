@@ -294,6 +294,20 @@ STRINGS = {
     'genres': 30285,
     'retr_collection': 30286,
     'adding_items': 30287,
-    'working': 30288
-    
+    'working': 30288,
+    'rescrape_all': 30289,
+    'manual_search_all': 30290,
+    'torba_acct_auth': 30291,
+    'torba_auth_complete': 30292,
+    'torba_auth_failed': 30293,
+    'torba_auth': 30294,
+    'login_prompt': 30295,
+    'flush_image_cache': 30296,
+    'flush_image_line1': 30297,
+    'flush_image_line2': 30298,
+    'flush_complete': 30299,
+    'refresh_images': 30300,
+    'scraper_updated': 30301,
+    'reset_torba': 30302,
+    'torba_auth_reset': 30303
 }

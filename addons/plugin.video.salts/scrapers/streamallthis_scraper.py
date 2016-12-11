@@ -18,7 +18,8 @@
 import re
 import urlparse
 import kodi
-import log_utils
+import log_utils  # @UnusedImport
+import dom_parser
 from salts_lib import scraper_utils
 from salts_lib.constants import FORCE_NO_MATCH
 from salts_lib.constants import QUALITIES
@@ -47,41 +48,31 @@ class Scraper(scraper.Scraper):
         hosters = []
         if source_url and source_url != FORCE_NO_MATCH:
             url = urlparse.urljoin(self.base_url, source_url)
-            html = self._http_get(url, cache_limit=.5)
-
-            new_url = ''
-            while True:
-                match = re.search("location.href=['\"](/watch[^\"']+)", html)
-                if match:
-                    new_url = match.group(1)
-                    url = urlparse.urljoin(self.base_url, new_url)
-                    html = self._http_get(url, cache_limit=.5)
-                else:
-                    match = re.search('''<iframe[^>]*src=['"]((?!https?://streamallthis)[^'"]+)''', html)
+            html = self._http_get(url, cache_limit=2)
+            urls = dom_parser.parse_dom(html, 'iframe', ret='src')
+            for iframe_url in urls:
+                if '/ads/' in iframe_url:
+                    continue
+                elif '/watch/' in iframe_url:
+                    url = urlparse.urljoin(self.base_url, iframe_url)
+                    html = self._http_get(url, cache_limit=2)
+                    urls += dom_parser.parse_dom(html, 'iframe', ret='src')
+                    match = re.search('''location.href=['"]([^'"]+)''', html)
                     if match:
-                        new_url = match.group(1)
-                        if '/watch/' in new_url:
-                            url = urlparse.urljoin(self.base_url, new_url)
-                            html = self._http_get(url, cache_limit=.5)
-                        else:
-                            url = new_url
-                            break
-                    else:
-                        url = new_url
-                        break
-
-            if url:
-                stream_url = url
-                host = urlparse.urlparse(stream_url).hostname
-                hoster = {'multi-part': False, 'host': host, 'class': self, 'url': stream_url, 'quality': QUALITIES.HIGH, 'views': None, 'rating': None, 'direct': False}
-                hosters.append(hoster)
+                        urls.append(match.group(1))
+                else:
+                    stream_url = iframe_url
+                    host = urlparse.urlparse(stream_url).hostname
+                    hoster = {'multi-part': False, 'host': host, 'class': self, 'url': stream_url, 'quality': QUALITIES.HIGH, 'views': None, 'rating': None, 'direct': False}
+                    hosters.append(hoster)
+                    
         return hosters
 
     def _get_episode_url(self, show_url, video):
         episode_pattern = 'href="([^"]+s%02de%02d\.html)"\s+class="la"' % (int(video.season), int(video.episode))
         return self._default_get_episode_url(show_url, video, episode_pattern, '')
 
-    def search(self, video_type, title, year, season=''):
+    def search(self, video_type, title, year, season=''):  # @UnusedVariable
         url = urlparse.urljoin(self.base_url, '/tv-shows-list.html')
         html = self._http_get(url, cache_limit=8)
 

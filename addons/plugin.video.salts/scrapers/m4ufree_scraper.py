@@ -18,18 +18,17 @@
 import re
 import urlparse
 import kodi
-import log_utils
+import log_utils  # @UnusedImport
 import dom_parser
 from salts_lib import scraper_utils
 from salts_lib.constants import FORCE_NO_MATCH
 from salts_lib.constants import QUALITIES
 from salts_lib.constants import VIDEO_TYPES
+from salts_lib.constants import XHR
 import scraper
 
-
-BASE_URL = 'http://m4ufree.info/'
-AJAX_URL = '/demo.php?v=%s'
-XHR = {'X-Requested-With': 'XMLHttpRequest'}
+BASE_URL = 'http://m4ufree.info'
+AJAX_URL = '/demo.php'
 
 class Scraper(scraper.Scraper):
     base_url = BASE_URL
@@ -66,13 +65,12 @@ class Scraper(scraper.Scraper):
                 url = match.group(1)
                 html = self._http_get(url, cache_limit=.5)
             
-            sources = self.__get_sources(html)
+            sources = self.__get_embedded(html)
             for link in dom_parser.parse_dom(html, 'span', {'class': '[^"]*btn-eps[^"]*'}, ret='link'):
-                ajax_url = AJAX_URL % (link)
-                ajax_url = urlparse.urljoin(self.base_url, ajax_url)
-                headers = XHR
-                headers['Referer'] = url
-                html = self._http_get(ajax_url, headers=headers, cache_limit=.5)
+                ajax_url = urlparse.urljoin(self.base_url, AJAX_URL)
+                headers = {'Referer': url}
+                headers.update(XHR)
+                html = self._http_get(ajax_url, params={'v': link}, headers=headers, cache_limit=.5)
                 sources.update(self.__get_sources(html))
             
             for source in sources:
@@ -88,17 +86,12 @@ class Scraper(scraper.Scraper):
 
         return hosters
     
+    def __get_embedded(self, html):
+        return self.__proc_sources(self._parse_sources_list(html))
+    
     def __get_sources(self, html):
-        sources = {}
+        sources = self._parse_sources_list(html)
         for source in dom_parser.parse_dom(html, 'source', {'type': 'video/mp4'}, ret='src') + dom_parser.parse_dom(html, 'iframe', ret='src'):
-            if not source.startswith('http'):
-                source = urlparse.urljoin(self.base_url, source)
-                
-            if self.base_url in source:
-                redir_url = self._http_get(source, allow_redirect=False, method='HEAD', cache_limit=.25)
-                if redir_url.startswith('http'):
-                    source = redir_url
-            
             if self._get_direct_hostname(source) == 'gvideo':
                 quality = scraper_utils.gv_get_quality(source)
                 direct = True
@@ -107,10 +100,26 @@ class Scraper(scraper.Scraper):
                 direct = False
             
             sources[source] = {'quality': quality, 'direct': direct}
-        
-        return sources
+        return self.__proc_sources(sources)
     
-    def search(self, video_type, title, year, season=''):
+    def __proc_sources(self, sources):
+        sources2 = {}
+        for source in sources:
+            if not source.startswith('http'):
+                stream_url = urlparse.urljoin(self.base_url, source)
+            else:
+                stream_url = source
+                
+            if self.base_url in stream_url:
+                redir_url = self._http_get(stream_url, allow_redirect=False, method='HEAD')
+                if redir_url.startswith('http'):
+                    sources2[redir_url] = sources[source]
+            else:
+                sources2[stream_url] = sources[source]
+                    
+        return sources2
+        
+    def search(self, video_type, title, year, season=''):  # @UnusedVariable
         results = []
         title = re.sub('[^A-Za-z0-9 ]', '', title)
         title = re.sub('\s+', '-', title)
@@ -121,13 +130,7 @@ class Scraper(scraper.Scraper):
         for match_url, match_title_year in zip(links, titles):
             match_title_year = re.sub('</?cite>', '', match_title_year)
             match_title_year = re.sub('^Watch\s*', '', match_title_year)
-            match = re.search('(.*?)\s+\(?(\d{4})\)?', match_title_year)
-            if match:
-                match_title, match_year = match.groups()
-            else:
-                match_title = match_title_year
-                match_year = ''
-            
+            match_title, match_year = scraper_utils.extra_year(match_title_year)
             if not year or not match_year or year == match_year:
                 result = {'title': scraper_utils.cleanse_title(match_title), 'year': match_year, 'url': scraper_utils.pathify_url(match_url)}
                 results.append(result)

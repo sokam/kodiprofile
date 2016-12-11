@@ -16,10 +16,9 @@
     along with this program.  If not, see <http://www.gnu.org/licenses/>.
 """
 import re
-import urllib
 import urlparse
 import kodi
-import log_utils
+import log_utils  # @UnusedImport
 import dom_parser
 from salts_lib import scraper_utils
 from salts_lib.constants import FORCE_NO_MATCH
@@ -28,7 +27,7 @@ from salts_lib.utils2 import i18n
 import scraper
 
 
-BASE_URL = 'http://beta.myvideolinks.xyz'
+BASE_URL = 'http://videolinks.ga'
 
 class Scraper(scraper.Scraper):
     base_url = BASE_URL
@@ -53,8 +52,8 @@ class Scraper(scraper.Scraper):
             html = self._http_get(url, cache_limit=.5)
 
             views = None
-            pattern = '<span[^>]+>(\d+)\s+Views'
-            match = re.search(pattern, html)
+            pattern = '</i>\s*(\d+)\s*views'
+            match = re.search(pattern, html, re.I)
             if match:
                 views = int(match.group(1))
 
@@ -65,21 +64,19 @@ class Scraper(scraper.Scraper):
         return hosters
 
     def __get_movie_links(self, video, views, html):
-        q_str = ''
-        fragment = dom_parser.parse_dom(html, 'div', {'class': 'post-title'})
-        if fragment:
-            q_str = fragment[0]
+        post_title = dom_parser.parse_dom(html, 'h1', {'class': '[^"]*post-title[^"]*'})
+        q_str = post_title[0] if post_title else ''
         
-        match = re.search('<p>Size:(.*)', html, re.DOTALL)
-        if match:
-            fragment = match.group(1)
-        else:
-            fragment = html
-
+        fragment = html
+        entry = dom_parser.parse_dom(html, 'div', {'class': 'entry-content'})
+        if entry:
+            ul = dom_parser.parse_dom(entry[0], 'ul')
+            if ul: fragment = ul[0]
+            
         return self.__get_links(video, views, fragment, q_str)
 
     def __get_episode_links(self, video, views, html):
-        pattern = '<h1>(.*?)</h1>(.*?)</ul>'
+        pattern = '<h1>(.*?)</h1>\s*<ul>(.*?)</ul>'
         hosters = []
         for match in re.finditer(pattern, html, re.DOTALL):
             q_str, fragment = match.groups()
@@ -109,10 +106,8 @@ class Scraper(scraper.Scraper):
         settings.append('         <setting id="%s-select" type="enum" label="     %s" lvalues="30636|30637" default="0" visible="eq(-5,true)"/>' % (name, i18n('auto_select')))
         return settings
 
-    def search(self, video_type, title, year, season=''):
-        search_url = urlparse.urljoin(self.base_url, '/?s=')
-        search_url += urllib.quote_plus(title)
-        html = self._http_get(search_url, cache_limit=1)
-        pattern = 'class="post-title">\s*<h\d+>\s*<a\s+href="(?P<url>[^"]*)"[^>]+title="(?:Permanent Link to )?(?P<post_title>[^"]+).*?class="post-date"><img[^>]+>(?:&nbsp;)*(?P<date>[^@]+)'
-        date_format = '%b %d, %Y'
+    def search(self, video_type, title, year, season=''):  # @UnusedVariable
+        html = self._http_get(self.base_url, params={'s': title}, cache_limit=1)
+        pattern = 'class="post-title">\s*<a\s+href="(?P<url>[^"]*?(?P<post_date>\d{4}/\d{2}/\d{2})[^"]*)[^>]+title="(?:Permanent Link to )?(?P<post_title>[^"]+)'
+        date_format = '%Y/%m/%d'
         return self._blog_proc_results(html, pattern, date_format, video_type, title, year)

@@ -20,7 +20,7 @@ import re
 import urllib
 import urlparse
 import kodi
-import log_utils
+import log_utils  # @UnusedImport
 import dom_parser
 from salts_lib import scraper_utils
 from salts_lib.constants import FORCE_NO_MATCH
@@ -68,7 +68,6 @@ class Scraper(scraper.Scraper):
             for match in re.finditer('''['"]?file['"]?\s*:\s*['"]([^'"]+)['"][^}]*['"]?label['"]?\s*:\s*['"]([^'"]*)''', match.group(1), re.DOTALL):
                 stream_url, label = match.groups()
                 stream_url = stream_url.replace('\\x', '').decode('hex')
-                log_utils.log(stream_url)
                 hoster = self.__create_source(stream_url, label, page_url)
                 hosters.append(hoster)
                     
@@ -115,7 +114,7 @@ class Scraper(scraper.Scraper):
         title_pattern = 'class="gizle".*?href="(?P<url>[^"]+)">(?P<title>[^<]+)'
         return self._default_get_episode_url(show_url, video, episode_pattern, title_pattern)
 
-    def search(self, video_type, title, year, season=''):
+    def search(self, video_type, title, year, season=''):  # @UnusedVariable
         html = self._http_get(self.base_url, cache_limit=48)
         results = []
         fragment = dom_parser.parse_dom(html, 'div', {'id': 'fil'})

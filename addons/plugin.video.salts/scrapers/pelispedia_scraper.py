@@ -21,7 +21,7 @@ import scraper
 import urllib
 import base64
 import kodi
-import log_utils
+import log_utils  # @UnusedImport
 import dom_parser
 from salts_lib import scraper_utils
 from salts_lib.constants import VIDEO_TYPES
@@ -30,7 +30,7 @@ from salts_lib.constants import QUALITIES
 
 BASE_URL = 'http://www.pelispedia.tv'
 PK_URL = '/Pe_Player_Html5/pk/pk_2/plugins/protected.php'
-GK_URL = '/Pe_flsh/plugins/gkpluginsphp.php'
+GK_URL = '/gkphp_flv/plugins/gkpluginsphp.php'
 DEL_LIST = ['sub', 'id']
 XHR = {'X-Requested-With': 'XMLHttpRequest'}
 MOVIE_SEARCH_URL = 'aHR0cHM6Ly93d3cuZ29vZ2xlYXBpcy5jb20vY3VzdG9tc2VhcmNoL3YxZWxlbWVudD9rZXk9QUl6YVN5Q1ZBWGlVelJZc01MMVB2NlJ3U0cxZ3VubU1pa1R6UXFZJnJzej1maWx0ZXJlZF9jc2UmbnVtPTEwJmhsPWVuJmN4PTAxMzA0MzU4NDUzMDg1NzU4NzM4MTpkcGR2Y3FlbGt3dyZnb29nbGVob3N0PXd3dy5nb29nbGUuY29tJnE9JXM='
@@ -65,7 +65,7 @@ class Scraper(scraper.Scraper):
                     if fragment:
                         for media_url in dom_parser.parse_dom(fragment[0], 'a', ret='href'):
                             media_url = media_url.replace(' ', '')
-                            if self.base_url in media_url or 'pelispedia.biz' in media_url:
+                            if any([media_url for u in (self.base_url, 'pelispedia.biz', 'pelispedia.vip') if u in media_url]):
                                 headers = {'Referer': iframe_url[0]}
                                 html = self._http_get(media_url, headers=headers, cache_limit=.5)
                                 hosters += self.__get_page_links(html)
@@ -136,7 +136,7 @@ class Scraper(scraper.Scraper):
         title_pattern = 'href="(?P<url>[^"]+-season-\d+-episode-\d+[^"]*).*?<span[^>]*class="[^"]*ml5[^"]*">(?P<title>[^<]+)'
         return self._default_get_episode_url(show_url, video, episode_pattern, title_pattern)
     
-    def search(self, video_type, title, year, season=''):
+    def search(self, video_type, title, year, season=''):  # @UnusedVariable
         if video_type == VIDEO_TYPES.TVSHOW:
             results = self.__tv_search(title, year)
         else:
@@ -146,31 +146,8 @@ class Scraper(scraper.Scraper):
     def __tv_search(self, title, year):
         results = []
         if title:
-            norm_title = scraper_utils.normalize_title(title)
             url = '/series/letra/%s/' % (title[0])
-            url = urlparse.urljoin(self.base_url, url)
-            html = self._http_get(url, cache_limit=48)
-            for item in dom_parser.parse_dom(html, 'li', {'class': '[^"]*bpM12[^"]*'}):
-                title_frag = dom_parser.parse_dom(item, 'h2')
-                year_frag = dom_parser.parse_dom(item, 'div', {'class': '[^"]*sectionDetail[^"]*'})
-                match_url = dom_parser.parse_dom(item, 'a', ret='href')
-                if title_frag and match_url:
-                    match_url = match_url[0]
-                    match = re.search('(.*?)<br>', title_frag[0])
-                    if match:
-                        match_title = match.group(1)
-                    else:
-                        match_title = title_frag[0]
-                        
-                    match_year = ''
-                    if year_frag:
-                        match = re.search('(\d{4})', year_frag[0])
-                        if match:
-                            match_year = match.group(1)
-    
-                    if norm_title in scraper_utils.normalize_title(match_title) and (not year or not match_year or year == match_year):
-                        result = {'url': scraper_utils.pathify_url(match_url), 'title': scraper_utils.cleanse_title(match_title), 'year': match_year}
-                        results.append(result)
+            results = self.__proc_results(url, title, year)
                         
         return results
 
@@ -195,6 +172,39 @@ class Scraper(scraper.Scraper):
                 
                 if norm_title in scraper_utils.normalize_title(match_title) and (not year or not match_year or year == match_year):
                     result = {'title': scraper_utils.cleanse_title(match_title), 'year': match_year, 'url': scraper_utils.pathify_url(match_url)}
+                    results.append(result)
+        
+        if not results and title and year:
+            url = '/movies/all/?year=%s&gender=&letra=%s' % (year, title[0])
+            results = self.__proc_results(url, title, year)
+            
+        return results
+
+    def __proc_results(self, url, title, year):
+        results = []
+        url = urlparse.urljoin(self.base_url, url)
+        html = self._http_get(url, cache_limit=48)
+        norm_title = scraper_utils.normalize_title(title)
+        for item in dom_parser.parse_dom(html, 'li', {'class': '[^"]*bpM12[^"]*'}):
+            title_frag = dom_parser.parse_dom(item, 'h2')
+            year_frag = dom_parser.parse_dom(item, 'div', {'class': '[^"]*sectionDetail[^"]*'})
+            match_url = dom_parser.parse_dom(item, 'a', ret='href')
+            if title_frag and match_url:
+                match_url = match_url[0]
+                match = re.search('(.*?)<br>', title_frag[0])
+                if match:
+                    match_title = match.group(1)
+                else:
+                    match_title = title_frag[0]
+                    
+                match_year = ''
+                if year_frag:
+                    match = re.search('(\d{4})', year_frag[0])
+                    if match:
+                        match_year = match.group(1)
+
+                if norm_title in scraper_utils.normalize_title(match_title) and (not year or not match_year or year == match_year):
+                    result = {'url': scraper_utils.pathify_url(match_url), 'title': scraper_utils.cleanse_title(match_title), 'year': match_year}
                     results.append(result)
         
         return results

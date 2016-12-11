@@ -74,7 +74,7 @@ class RealDebridResolver(UrlResolver):
                     link = self.__get_link(alt)
                     if link is not None: links.append(link)
 
-            return helpers.pick_source(links, self.get_setting('autopick') == 'true')
+            return helpers.pick_source(links)
 
     def __get_link(self, link):
         if 'download' in link:

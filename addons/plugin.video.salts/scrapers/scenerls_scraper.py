@@ -19,7 +19,7 @@ import re
 import urllib
 import urlparse
 import kodi
-import log_utils
+import log_utils  # @UnusedImport
 import dom_parser
 from salts_lib import scraper_utils
 from salts_lib.constants import FORCE_NO_MATCH
@@ -89,16 +89,17 @@ class Scraper(scraper.Scraper):
         settings.append('         <setting id="%s-select" type="enum" label="     %s" lvalues="30636|30637" default="0" visible="eq(-5,true)"/>' % (name, i18n('auto_select')))
         return settings
 
-    def search(self, video_type, title, year, season=''):
-        search_url = urlparse.urljoin(self.base_url, '/?s=%s&submit=Find')
+    def search(self, video_type, title, year, season=''):  # @UnusedVariable
+        search_url = urlparse.urljoin(self.base_url, '/search/%s/')
         search_url = search_url % (urllib.quote_plus(title))
-        all_html = self._http_get(search_url, require_debrid=True, cache_limit=1)
+        headers = {'Referer': self.base_url}
+        all_html = self._http_get(search_url, headers=headers, require_debrid=True, cache_limit=1)
         
         html = ''
         for post in dom_parser.parse_dom(all_html, 'div', {'class': 'post'}):
-            if CATEGORIES[video_type] in post and self.__get_post_links(post):
+            if CATEGORIES[video_type] in post:
                 html += post
                 
-        post_pattern = 'class="postTitle">.*?href="(?P<url>[^"]+)[^>]*>(?P<post_title>[^<]+).*?Published on:\s*(?P<date>[^ ]+ 0*\d+, \d+)'
-        date_format = '%b %d, %Y'
+        post_pattern = 'class="postTitle">.*?href="(?P<url>[^"]+)[^>]*>(?P<post_title>.*?)</a>'
+        date_format = ''
         return self._blog_proc_results(html, post_pattern, date_format, video_type, title, year)

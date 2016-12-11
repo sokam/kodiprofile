@@ -16,7 +16,6 @@
     along with this program.  If not, see <http://www.gnu.org/licenses/>.
 """
 import re
-import urllib
 import urlparse
 import kodi
 from salts_lib import scraper_utils
@@ -66,17 +65,17 @@ class Scraper(scraper.Scraper):
 
         return sources
 
-    def search(self, video_type, title, year, season=''):
+    def search(self, video_type, title, year, season=''):  # @UnusedVariable
+        results = []
         if video_type == VIDEO_TYPES.MOVIE:
             section = '1'
             url_marker = '-movie-online-'
         else:
             section = '2'
             url_marker = '-tv-show-online-'
-        search_url = urlparse.urljoin(self.base_url, '/?keyword=%s&search_section=%s' % (urllib.quote_plus(title), section))
-        html = self._http_get(search_url, cache_limit=.25)
+        params = {'keyword': title, 'search_section': section}
+        html = self._http_get(self.base_url, params=params, cache_limit=1)
 
-        results = []
         for match in re.finditer('class="item".*?href="([^"]+)"\s*title="Watch (.*?)(?:\s+\((\d{4})\))?"', html):
             url, res_title, res_year = match.groups('')
             if url_marker in url and (not year or not res_year or year == res_year):

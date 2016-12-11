@@ -16,20 +16,22 @@
     along with this program.  If not, see <http://www.gnu.org/licenses/>.
 """
 import re
+import hashlib
 import urlparse
 import urllib
 import kodi
-import log_utils
+import log_utils  # @UnusedImport
 import dom_parser
 from salts_lib import scraper_utils
+from salts_lib import jsunpack
 from salts_lib.constants import FORCE_NO_MATCH
 from salts_lib.constants import QUALITIES
 from salts_lib.constants import VIDEO_TYPES
-from salts_lib.constants import XHR
 import scraper
 import xml.etree.ElementTree as ET
 
-BASE_URL = 'http://watch5s.com'
+BASE_URL = 'http://watch5s.to'
+STREAM_URL = 'http://streaming.watch5s.to/videoplayback/%s?key=%s'
 LINK_URL = '/player/'
 Q_MAP = {'TS': QUALITIES.LOW, 'CAM': QUALITIES.LOW, 'HDTS': QUALITIES.LOW, 'HD-720P': QUALITIES.HD720}
 
@@ -55,21 +57,19 @@ class Scraper(scraper.Scraper):
         if source_url and source_url != FORCE_NO_MATCH:
             page_url = urlparse.urljoin(self.base_url, source_url)
             html = self._http_get(page_url, cache_limit=2)
-            match1 = re.search('source\s*:\s*"([^"]+)', html)
-            match2 = re.search('subCDN\s*:\s*"([^"]+)', html)
-            match3 = re.search('subURL\s*:\s*"([^"]+)', html)
-            label = dom_parser.parse_dom(html, 'a', {'class': '[^"]*btn-eps[^"]*'})
-            if match1 and match2 and match3:
-                data = {'source': match1.group(1), 'subCDN': match2.group(1), 'subURL': match3.group(1)}
-                player_url = urlparse.urljoin(self.base_url, '/player/')
-                headers = {'Referer': page_url}
-                headers.update(XHR)
-                html = self._http_get(player_url, data=data, headers=headers, cache_limit=1)
-                match = re.search('url_playlist\s*=\s*"([^"]+)', html)
-                if match:
-                    headers = {'Referer': page_url}
-                    label = label[0] if label else ''
-                    sources.update(self.__get_links_from_xml(match.group(1), headers, label))
+            if video.video_type == VIDEO_TYPES.MOVIE:
+                sources.update(self.__scrape_sources(html, page_url))
+                pages = set(dom_parser.parse_dom(html, 'a', {'class': '[^"]*btn-eps[^"]*'}, ret='href'))
+                active = set(dom_parser.parse_dom(html, 'a', {'class': '[^"]*active[^"]*'}, ret='href'))
+                for page in list(pages - active):
+                    page_url = urlparse.urljoin(self.base_url, page)
+                    html = self._http_get(page_url, cache_limit=2)
+                    sources.update(self.__scrape_sources(html, page_url))
+            else:
+                for page in self.__match_episode(video, html):
+                    page_url = urlparse.urljoin(self.base_url, page)
+                    html = self._http_get(page_url, cache_limit=2)
+                    sources.update(self.__scrape_sources(html, page_url))
         
         for source in sources:
             if not source.lower().startswith('http'): continue
@@ -86,6 +86,85 @@ class Scraper(scraper.Scraper):
             hosters.append(hoster)
         return hosters
 
+    def __scrape_sources(self, html, page_url):
+        headers = {'Referer': page_url, 'Origin': self.base_url}
+        cookie, grab_url = self.__get_grab_url(html)
+        if cookie and grab_url:
+            headers.update({'Cookie': cookie})
+            sources = self.__get_links_from_playlist(grab_url, headers)
+            if not sources:
+                match = re.search('url_playlist\s*=\s*"([^"]+)', html)
+                if match:
+                    headers = {'Referer': page_url}
+                    label = dom_parser.parse_dom(html, 'a', {'class': '[^"]*active[^"]*'})
+                    label = label[0] if label else ''
+                    sources = self.__get_links_from_xml(match.group(1), headers, '')
+                else:
+                    sources = {}
+        return sources
+    
+    def __get_grab_url(self, html):
+        cookie = ''
+        stream_url = ''
+        hash_match = re.search('hash\s*:\s*"([^"]+)', html)
+        if hash_match:
+            hash_val = hash_match.group(1)
+            token = scraper_utils.get_token()
+            key = hashlib.md5('(*&^%$#@!' + hash_val[46:58]).hexdigest()
+            cookie = '%s=%s' % (key, token)
+            stream_url = STREAM_URL % (hash_val, hashlib.md5('!@#$%^&*(' + token).hexdigest())
+        return cookie, stream_url
+    
+    def __get_links_from_js(self, html, page_url):
+        sources = {}
+        for src_url in dom_parser.parse_dom(html, 'script', ret='src'):
+            if 'slug=' in src_url:
+                headers = {'Referer': page_url}
+                js_src = self._http_get(src_url, headers=headers, cache_limit=.5)
+                if jsunpack.detect(js_src):
+                    unpacked_data = jsunpack.unpack(js_src)
+                else:
+                    unpacked_data = js_src
+                    
+                match = re.search('"?sourcesPlaylist?"\s*:\s*"([^"]+)', unpacked_data)
+                if match:
+                    sources.update(self.__get_links_from_playlist(match.group(1), headers))
+                else:
+                    match = re.search('"?sourcesEmbed?"\s*:\s*"([^"]+)', unpacked_data)
+                    if match:
+                        embed_url = match.group(1).replace('\\', '')
+                        sources[embed_url] = {'quality': QUALITIES.HD720, 'direct': False}
+                        
+        return sources
+    
+    def __get_links_from_playlist(self, grab_url, headers):
+        sources = {}
+        grab_url = grab_url.replace('\\', '')
+        grab_html = self._http_get(grab_url, headers=headers, cache_limit=.5)
+        js_data = scraper_utils.parse_json(grab_html, grab_url)
+        try: playlist = js_data['playlist'][0]['sources']
+        except: playlist = []
+        for item in playlist:
+            stream_url = item.get('file')
+            if stream_url:
+                if stream_url.startswith('/'):
+                    stream_url = urlparse.urljoin(self.base_url, stream_url)
+                    redir_url = self._http_get(stream_url, headers=headers, allow_redirect=False, method='HEAD')
+                    if redir_url.startswith('http'):
+                        stream_url = redir_url
+                
+                if self._get_direct_hostname(stream_url) == 'gvideo':
+                    quality = scraper_utils.gv_get_quality(stream_url)
+                elif 'label' in item:
+                    quality = scraper_utils.height_get_quality(item['label'])
+                else:
+                    quality = QUALITIES.HIGH
+                
+                log_utils.log('Adding stream: %s Quality: %s' % (stream_url, quality), log_utils.LOGDEBUG)
+                sources[stream_url] = {'quality': quality, 'direct': True}
+                if not kodi.get_setting('scraper_url'): break
+        return sources
+        
     def __get_links_from_xml(self, xml_url, headers, button_label):
         sources = {}
         try:
@@ -111,22 +190,27 @@ class Scraper(scraper.Scraper):
     def _get_episode_url(self, season_url, video):
         url = urlparse.urljoin(self.base_url, season_url)
         html = self._http_get(url, cache_limit=8)
+        if self.__match_episode(video, html):
+            return scraper_utils.pathify_url(season_url)
+        
+    def __match_episode(self, video, html):
+        matches = []
         links = dom_parser.parse_dom(html, 'a', {'class': '[^"]*btn-eps[^"]*'}, ret="href")
         labels = dom_parser.parse_dom(html, 'a', {'class': '[^"]*btn-eps[^"]*'})
-        for episode in zip(labels, links):
-            match = re.search('Ep(?:isode)?\s+(\d+)', episode[0], re.I)
+        for ep_label, ep_url in zip(labels, links):
+            match = re.search('Ep(?:isode)?\s+(\d+)', ep_label, re.I)
             if match:
                 ep_num = match.group(1)
                 try: ep_num = int(ep_num)
                 except: ep_num = 0
                 if int(video.episode) == ep_num:
-                    return scraper_utils.pathify_url(episode[1])
+                    matches.append(ep_url)
+        return matches
         
     def search(self, video_type, title, year, season=''):
-        search_url = urlparse.urljoin(self.base_url, '/search/?q=')
-        search_url += urllib.quote_plus(title)
-        html = self._http_get(search_url, cache_limit=8)
         results = []
+        search_url = urlparse.urljoin(self.base_url, '/search')
+        html = self._http_get(search_url, params={'q': title}, cache_limit=8)
         for item in dom_parser.parse_dom(html, 'div', {'class': 'ml-item'}):
             match_title = dom_parser.parse_dom(item, 'span', {'class': 'mli-info'})
             match_url = re.search('href="([^"]+)', item, re.DOTALL)

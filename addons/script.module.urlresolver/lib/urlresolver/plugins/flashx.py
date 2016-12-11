@@ -16,12 +16,13 @@
     You should have received a copy of the GNU General Public License
     along with this program.  If not, see <http://www.gnu.org/licenses/>.
 """
-
-import re
-from lib import jsunpack
-from lib import helpers
+import os
+import hashlib
 from urlresolver import common
 from urlresolver.resolver import UrlResolver, ResolverError
+
+FX_SOURCE = 'https://offshoregit.com/tvaresolvers/fx_gmu.py'
+FX_PATH = os.path.join(common.plugins_path, 'fx_gmu.py')
 
 class FlashxResolver(UrlResolver):
     name = "flashx"
@@ -31,55 +32,57 @@ class FlashxResolver(UrlResolver):
     def __init__(self):
         self.net = common.Net()
 
+    @common.cache.cache_method(cache_limit=1)
+    def get_fx_code(self):
+        try:
+            headers = self.net.http_HEAD(FX_SOURCE).get_headers(as_dict=True)
+            common.log_utils.log(headers)
+            old_etag = self.get_setting('etag')
+            new_etag = headers.get('Etag', '')
+            old_len = self.__old_length()
+            new_len = int(headers.get('Content-Length', 0))
+            if old_etag != new_etag or old_len != new_len:
+                common.log_utils.log('Updating fx_gmu: |%s|%s|%s|%s|' % (old_etag, new_etag, old_len, new_len))
+                self.set_setting('etag', new_etag)
+                new_py = self.net.http_GET(FX_SOURCE).content
+                if new_py:
+                    with open(FX_PATH, 'w') as f:
+                        f.write(new_py)
+                    common.kodi.notify('Flashx Resolver Auto-Updated')
+            else:
+                common.log_utils.log('Reusing existing fx_gmu.py: |%s|%s|%s|%s|' % (old_etag, new_etag, old_len, new_len))
+        except Exception as e:
+            common.log_utils.log_warning('Exception during flashx code retrieve: %s' % e)
+            
+    def __old_length(self):
+        try:
+            with open(FX_PATH, 'r') as f:
+                old_py = f.read()
+            old_len = len(old_py)
+        except:
+            old_len = 0
+        return old_len
+
     def get_media_url(self, host, media_id):
-        web_url = self.get_url(host, media_id)
-        headers = {'User-Agent': common.FF_USER_AGENT}
-        html = self.net.http_GET(web_url, headers=headers).content
-        if 'File Not Found' in html:
-            raise ResolverError('File got deleted?')
-        cookies = self.__get_cookies(html)
-
-        match = re.search('"([^"]+counter(?:\d+|)\.cgi[^"]+)".*?<span id="cxc(?:\d+|)">(\d+)<', html, re.DOTALL)
-
-        if not match:
-            raise ResolverError('Site structure changed!')
-
-        self.net.http_GET(match.group(1), headers=headers)
-        data = helpers.get_hidden(html)
-        data['imhuman'] = 'Proceed to this video'
-        common.kodi.sleep(int(match.group(2))*1000+500)
-        headers.update({'Referer': web_url, 'Cookie': '; '.join(cookies)})
-
-        html = self.net.http_POST('http://www.flashx.tv/dl?view', data, headers=headers).content
-        sources = []
-        for match in re.finditer('(eval\(function.*?)</script>', html, re.DOTALL):
-            packed_data = jsunpack.unpack(match.group(1))
-            sources += self.__parse_sources_list(packed_data)
-        source = helpers.pick_source(sources, self.get_setting('auto_pick') == 'true')
-        return source
-
-    def __get_cookies(self, html):
-        cookies = {'ref_url': 'http://www.flashx.tv/'}
-        for match in re.finditer("\$\.cookie\(\s*'([^']+)'\s*,\s*'([^']+)", html):
-            key, value = match.groups()
-            cookies[key] = value
-        return cookies
-
-    def __parse_sources_list(self, html):
-        sources = []
-        match = re.search('sources\s*:\s*\[(.*?)\]', html, re.DOTALL)
-        if match:
-            for match in re.finditer('''['"]?file['"]?\s*:\s*['"]([^'"]+)['"][^}]*['"]?label['"]?\s*:\s*['"]([^'"]*)''', match.group(1), re.DOTALL):
-                stream_url, label = match.groups()
-                stream_url = stream_url.replace('\/', '/')
-                sources.append((label, stream_url))
-        return sources
-
+        try:
+            if self.get_setting('auto_update') == 'true':
+                self.get_fx_code()
+            with open(FX_PATH, 'r') as f:
+                py_data = f.read()
+            common.log_utils.log('fx_gmu hash: %s' % (hashlib.md5(py_data).hexdigest()))
+            import fx_gmu
+            web_url = self.get_url(host, media_id)
+            return fx_gmu.get_media_url(web_url)
+        except Exception as e:
+            common.log_utils.log_debug('Exception during flashx resolve parse: %s' % e)
+            raise
+        
     def get_url(self, host, media_id):
-        return self._default_get_url(host, media_id, 'http://{host}/{media_id}')
+        return self._default_get_url(host, media_id, 'http://{host}/embed.php?c={media_id}')
 
     @classmethod
     def get_settings_xml(cls):
         xml = super(cls, cls).get_settings_xml()
-        xml.append('<setting id="%s_auto_pick" type="bool" label="Automatically pick best quality" default="false" visible="true"/>' % (cls.__name__))
+        xml.append('<setting id="%s_auto_update" type="bool" label="Automatically update resolver" default="true"/>' % (cls.__name__))
+        xml.append('<setting id="%s_etag" type="text" default="" visible="false"/>' % (cls.__name__))
         return xml

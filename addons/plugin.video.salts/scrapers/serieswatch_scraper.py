@@ -18,13 +18,13 @@
 """
 import re
 import kodi
-import log_utils
+import log_utils  # @UnusedImport
 from salts_lib import scraper_utils
 from salts_lib.constants import FORCE_NO_MATCH
 from salts_lib.constants import VIDEO_TYPES
 import scraper
 
-BASE_URL = 'http://cdn.serieswatch.tv/2'
+BASE_URL = 'http://dl.hastidownload.biz/2'
 
 class Scraper(scraper.Scraper):
     base_url = BASE_URL
@@ -77,7 +77,7 @@ class Scraper(scraper.Scraper):
                 episodes.append(item)
         return episodes
                 
-    def search(self, video_type, title, year, season=''):
+    def search(self, video_type, title, year, season=''):  # @UnusedVariable
         results = []
         if video_type == VIDEO_TYPES.MOVIE:
             results = self.__movie_search(title, year)

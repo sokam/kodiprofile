@@ -19,13 +19,13 @@
 import re
 import urlparse
 import kodi
-import log_utils
+import log_utils  # @UnusedImport
 from salts_lib import scraper_utils
 from salts_lib.constants import FORCE_NO_MATCH
 from salts_lib.constants import VIDEO_TYPES
 import scraper
 
-BASE_URL = 'http://dl.fardadownload.ir/Serial'
+BASE_URL = 'http://dl.uplodin.ir/Serial'
 
 class Scraper(scraper.Scraper):
     base_url = BASE_URL
@@ -89,7 +89,7 @@ class Scraper(scraper.Scraper):
     def __episode_match(self, line, video):
         return scraper_utils.release_check(video, line['link'], require_title=False)
     
-    def search(self, video_type, title, year, season=''):
+    def search(self, video_type, title, year, season=''):  # @UnusedVariable
         results = []
         norm_title = scraper_utils.normalize_title(title)
         html = self._http_get(self.base_url, cache_limit=24 * 7)

@@ -19,6 +19,7 @@ import re
 import urlparse
 import kodi
 import dom_parser
+import log_utils  # @UnusedImport
 from salts_lib import scraper_utils
 from salts_lib.constants import FORCE_NO_MATCH
 from salts_lib.constants import VIDEO_TYPES
@@ -48,13 +49,18 @@ class Scraper(scraper.Scraper):
         if source_url and source_url != FORCE_NO_MATCH:
             url = urlparse.urljoin(self.base_url, source_url)
             html = self._http_get(url, cache_limit=.5)
+
+            for item in dom_parser.parse_dom(html, 'li'):
+                label = dom_parser.parse_dom(item, 'span', {'class': 'type'})
+                value = dom_parser.parse_dom(item, 'p', {'class': 'text'})
+                if label and value and 'quality' in label[0].lower():
+                    q_str = value[0]
+                    break
+            else:
+                q_str = ''
+            
             fragment = dom_parser.parse_dom(html, 'div', {'id': 'fstory-video'})
             if fragment:
-                q_str = ''
-                match = re.search('<span>([^<]+)', fragment[0])
-                if match:
-                    q_str = match.group(1)
-
                 for match in re.finditer('<iframe[^>]*src="([^"]+)', fragment[0], re.I):
                     stream_url = match.group(1)
                     host = urlparse.urlparse(stream_url).hostname
@@ -63,12 +69,12 @@ class Scraper(scraper.Scraper):
             
         return hosters
 
-    def search(self, video_type, title, year, season=''):
+    def search(self, video_type, title, year, season=''):  # @UnusedVariable
         results = []
-        search_url = urlparse.urljoin(self.base_url, '/index.php?do=search')
+        search_url = urlparse.urljoin(self.base_url, '/index.php')
         data = {'subaction': 'search', 'story': title, 'do': 'search'}
         headers = {'Referer': search_url}
-        html = self._http_get(search_url, data=data, headers=headers, cache_limit=1)
+        html = self._http_get(search_url, params={'do': 'search'}, data=data, headers=headers, cache_limit=1)
         fragment = dom_parser.parse_dom(html, 'div', {'id': 'dle-content'})
         if fragment:
             for item in dom_parser.parse_dom(fragment[0], 'div', {'class': 'short-film'}):

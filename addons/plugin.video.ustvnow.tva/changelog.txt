@@ -1,3 +1,9 @@
+[B]Version 14.4.8[/B]
+- Updated Recordings and Scheduled sections sort order (Thanks to fjans for this code change suggestion!)
+
+[B]Version 14.4.7[/B]
+- Updated code to start streams to be much more efficient (Thanks to fjans for this code change suggestion!)
+
 [B]Version 14.4.6[/B]
 - Cleaned up description
 - Updated TVADDONS notification branding to www.tvaddons.ag

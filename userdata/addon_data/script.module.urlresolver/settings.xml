@@ -1,4 +1,6 @@
 <settings>
+    <setting id="AliezResolver_enabled" value="true" />
+    <setting id="AliezResolver_priority" value="100" />
     <setting id="AllDebridResolver_enabled" value="true" />
     <setting id="AllDebridResolver_login" value="false" />
     <setting id="AllDebridResolver_password" value="" />
@@ -8,10 +10,16 @@
     <setting id="AllVidResolver_priority" value="100" />
     <setting id="AllmyvideosResolver_enabled" value="true" />
     <setting id="AllmyvideosResolver_priority" value="100" />
+    <setting id="AniStreamResolver_enabled" value="true" />
+    <setting id="AniStreamResolver_priority" value="100" />
+    <setting id="AnyFilesResolver_enabled" value="true" />
+    <setting id="AnyFilesResolver_priority" value="100" />
     <setting id="AuEngineResolver_enabled" value="true" />
     <setting id="AuEngineResolver_priority" value="100" />
     <setting id="BestreamsResolver_enabled" value="true" />
     <setting id="BestreamsResolver_priority" value="100" />
+    <setting id="BlazefileResolver_enabled" value="true" />
+    <setting id="BlazefileResolver_priority" value="100" />
     <setting id="BriskfileResolver_enabled" value="true" />
     <setting id="BriskfileResolver_priority" value="100" />
     <setting id="CastampResolver_enabled" value="true" />
@@ -28,6 +36,7 @@
     <setting id="CyberlockerResolver_priority" value="100" />
     <setting id="DaclipsResolver_enabled" value="true" />
     <setting id="DaclipsResolver_priority" value="100" />
+    <setting id="DailymotionResolver_auto_pick" value="false" />
     <setting id="DailymotionResolver_enabled" value="true" />
     <setting id="DailymotionResolver_priority" value="100" />
     <setting id="DailymotionResolver_quality" value="0" />
@@ -35,8 +44,12 @@
     <setting id="DivxstageResolver_priority" value="100" />
     <setting id="DonevideoResolver_enabled" value="true" />
     <setting id="DonevideoResolver_priority" value="100" />
+    <setting id="DownaceResolver_enabled" value="true" />
+    <setting id="DownaceResolver_priority" value="100" />
     <setting id="EcostreamResolver_enabled" value="true" />
     <setting id="EcostreamResolver_priority" value="100" />
+    <setting id="EstreamResolver_enabled" value="true" />
+    <setting id="EstreamResolver_priority" value="100" />
     <setting id="ExashareResolver_enabled" value="true" />
     <setting id="ExashareResolver_login" value="false" />
     <setting id="ExashareResolver_password" value="" />
@@ -50,12 +63,16 @@
     <setting id="FilePupResolver_auto_pick" value="false" />
     <setting id="FilePupResolver_enabled" value="true" />
     <setting id="FilePupResolver_priority" value="100" />
+    <setting id="FileWeedResolver_enabled" value="true" />
+    <setting id="FileWeedResolver_priority" value="100" />
     <setting id="FilehootResolver_enabled" value="true" />
     <setting id="FilehootResolver_priority" value="100" />
     <setting id="FilenukeResolver_enabled" value="true" />
     <setting id="FilenukeResolver_priority" value="100" />
     <setting id="FlashxResolver_auto_pick" value="false" />
+    <setting id="FlashxResolver_auto_update" value="true" />
     <setting id="FlashxResolver_enabled" value="true" />
+    <setting id="FlashxResolver_etag" value="" />
     <setting id="FlashxResolver_priority" value="100" />
     <setting id="GoogleResolver_auto_pick" value="false" />
     <setting id="GoogleResolver_enabled" value="true" />
@@ -129,7 +146,10 @@
     <setting id="OneeightyuploadResolver_priority" value="100" />
     <setting id="OpenLoadResolver_auto_update" value="true" />
     <setting id="OpenLoadResolver_enabled" value="false" />
+    <setting id="OpenLoadResolver_etag" value="" />
+    <setting id="OpenLoadResolver_key" value="" />
     <setting id="OpenLoadResolver_priority" value="100" />
+    <setting id="OpenLoadResolver_url" value="" />
     <setting id="Play44Resolver_enabled" value="true" />
     <setting id="Play44Resolver_priority" value="100" />
     <setting id="PlayHDResolver_enabled" value="true" />
@@ -143,6 +163,8 @@
     <setting id="PlayedtoResolver_priority" value="100" />
     <setting id="PlaywireResolver_enabled" value="true" />
     <setting id="PlaywireResolver_priority" value="100" />
+    <setting id="PowerwatchResolver_enabled" value="true" />
+    <setting id="PowerwatchResolver_priority" value="100" />
     <setting id="PremiumizeMeResolver_enabled" value="true" />
     <setting id="PremiumizeMeResolver_login" value="false" />
     <setting id="PremiumizeMeResolver_password" value="" />
@@ -159,6 +181,8 @@
     <setting id="PureVidResolver_priority" value="100" />
     <setting id="PureVidResolver_quality" value="Maximum" />
     <setting id="PureVidResolver_username" value="" />
+    <setting id="PutLoadResolver_enabled" value="true" />
+    <setting id="PutLoadResolver_priority" value="100" />
     <setting id="PutlockerResolver_enabled" value="true" />
     <setting id="PutlockerResolver_login" value="false" />
     <setting id="PutlockerResolver_notify" value="false" />
@@ -216,6 +240,8 @@
     <setting id="StreamcloudResolver_priority" value="100" />
     <setting id="StreamintoResolver_enabled" value="true" />
     <setting id="StreamintoResolver_priority" value="100" />
+    <setting id="StreamplayResolver_enabled" value="true" />
+    <setting id="StreamplayResolver_priority" value="100" />
     <setting id="TeramixerResolver_enabled" value="true" />
     <setting id="TeramixerResolver_priority" value="100" />
     <setting id="TheFileResolver_enabled" value="true" />
@@ -230,6 +256,8 @@
     <setting id="Toltsd_felResolver_priority" value="100" />
     <setting id="TrollVidResolver_enabled" value="true" />
     <setting id="TrollVidResolver_priority" value="100" />
+    <setting id="TudouResolver_enabled" value="true" />
+    <setting id="TudouResolver_priority" value="100" />
     <setting id="TunePkResolver_enabled" value="true" />
     <setting id="TunePkResolver_priority" value="100" />
     <setting id="TunePkResolver_quality" value="0" />
@@ -245,6 +273,8 @@
     <setting id="UploadXResolver_priority" value="100" />
     <setting id="UploadcResolver_enabled" value="true" />
     <setting id="UploadcResolver_priority" value="100" />
+    <setting id="UploadzResolver_enabled" value="true" />
+    <setting id="UploadzResolver_priority" value="100" />
     <setting id="UsersCloudResolver_enabled" value="true" />
     <setting id="UsersCloudResolver_priority" value="100" />
     <setting id="UsersFilesResolver_enabled" value="true" />
@@ -301,6 +331,8 @@
     <setting id="VideobbResolver_enabled" value="true" />
     <setting id="VideobbResolver_priority" value="100" />
     <setting id="VideobbResolver_q" value="2" />
+    <setting id="VideocloudResolver_enabled" value="true" />
+    <setting id="VideocloudResolver_priority" value="100" />
     <setting id="VideomegaResolver_enabled" value="true" />
     <setting id="VideomegaResolver_priority" value="100" />
     <setting id="VideorajResolver_enabled" value="true" />
@@ -311,6 +343,8 @@
     <setting id="VideowoodResolver_priority" value="100" />
     <setting id="VideozedResolver_enabled" value="true" />
     <setting id="VideozedResolver_priority" value="100" />
+    <setting id="VidloxResolver_enabled" value="true" />
+    <setting id="VidloxResolver_priority" value="100" />
     <setting id="VidplayResolver_enabled" value="true" />
     <setting id="VidplayResolver_priority" value="100" />
     <setting id="VidstreamResolver_enabled" value="true" />
@@ -328,6 +362,8 @@
     <setting id="VivosxResolver_priority" value="100" />
     <setting id="VodlockerResolver_enabled" value="true" />
     <setting id="VodlockerResolver_priority" value="100" />
+    <setting id="VodmineResolver_enabled" value="true" />
+    <setting id="VodmineResolver_priority" value="100" />
     <setting id="VshareEuResolver_enabled" value="true" />
     <setting id="VshareEuResolver_priority" value="100" />
     <setting id="VshareResolver_enabled" value="true" />
@@ -338,6 +374,8 @@
     <setting id="WatchersResolver_priority" value="100" />
     <setting id="WatchonlineResolver_enabled" value="true" />
     <setting id="WatchonlineResolver_priority" value="100" />
+    <setting id="WatchpassResolver_enabled" value="true" />
+    <setting id="WatchpassResolver_priority" value="100" />
     <setting id="WeShareResolver_enabled" value="true" />
     <setting id="WeShareResolver_priority" value="100" />
     <setting id="XvidstageResolver_enabled" value="true" />
@@ -367,14 +405,17 @@
     <setting id="ZstreamResolver_priority" value="100" />
     <setting id="addon_version" value="2.9.4" />
     <setting id="allow_universal" value="true" />
+    <setting id="auto_pick" value="true" />
     <setting id="bayfilesResolver_enabled" value="true" />
     <setting id="bayfilesResolver_priority" value="100" />
     <setting id="billionuploads_enabled" value="true" />
     <setting id="billionuploads_priority" value="100" />
     <setting id="crunchyrollResolver_enabled" value="true" />
     <setting id="crunchyrollResolver_priority" value="100" />
+    <setting id="current_ua" value="Mozilla/5.0 (Windows NT 6.2; Win64; IA64; Trident/7.0; rv:11.0) like Gecko" />
     <setting id="hostingbulkResolver_enabled" value="true" />
     <setting id="hostingbulkResolver_priority" value="100" />
+    <setting id="last_ua_create" value="1481060652" />
     <setting id="movreelResolver_enabled" value="true" />
     <setting id="movreelResolver_login" value="false" />
     <setting id="movreelResolver_password" value="" />

@@ -15,22 +15,23 @@
     You should have received a copy of the GNU General Public License
     along with this program.  If not, see <http://www.gnu.org/licenses/>.
 """
-import random
 import re
 import urllib
 import urlparse
 import kodi
-import log_utils
+import log_utils  # @UnusedImport
 import dom_parser
 from salts_lib import scraper_utils
 from salts_lib.constants import FORCE_NO_MATCH
 from salts_lib.constants import VIDEO_TYPES
+from salts_lib.constants import XHR
 import scraper
 
-XHR = {'X-Requested-With': 'XMLHttpRequest'}
 VIDEO_URL = '/video_info/iframe'
 
 class Scraper(scraper.Scraper):
+    OPTIONS = ['https://xmovies8.org', 'http://genvideos.org', 'https://putlockerhd.co']
+    
     def __init__(self, timeout=scraper.DEFAULT_TIMEOUT):
         self.timeout = timeout
         self.base_url = kodi.get_setting('%s-base_url' % (self.get_name()))
@@ -61,10 +62,9 @@ class Scraper(scraper.Scraper):
             if match:
                 video_id = match.group(1)
                 url = urlparse.urljoin(self.base_url, VIDEO_URL)
-                data = {'v': video_id}
-                headers = XHR
-                headers['Referer'] = page_url
-                html = self._http_get(url, data=data, headers=headers, cache_limit=.5)
+                headers = {'Referer': page_url}
+                headers.update(XHR)
+                html = self._http_get(url, data={'v': video_id}, headers=headers, cache_limit=.5)
                 sources = scraper_utils.parse_json(html, url)
                 for source in sources:
                     match = re.search('url=(.*)', sources[source])
@@ -80,19 +80,16 @@ class Scraper(scraper.Scraper):
                         hosters.append(hoster)
         return hosters
         
-    def search(self, video_type, title, year, season=''):
-        search_url = urlparse.urljoin(self.base_url, '/results?q=%s' % urllib.quote_plus(title))
-        html = self._http_get(search_url, cache_limit=.25)
+    def search(self, video_type, title, year, season=''):  # @UnusedVariable
+        search_url = urlparse.urljoin(self.base_url, '/results')
+        html = self._http_get(search_url, params={'q': title}, cache_limit=1)
         results = []
         for result in dom_parser.parse_dom(html, 'div', {'class': 'cell'}):
             match = re.search('class="video_title".*?href="([^"]+)"[^>]*>\s*([^<]+)', result, re.DOTALL)
             if match:
                 url, match_title_year = match.groups()
-                match = re.search('(.*?)\s+\((\d{4})\)', match_title_year)
-                if match:
-                    match_title, match_year = match.groups()
-                else:
-                    match_title = match_title_year
+                match_title, match_year = scraper_utils.extra_year(match_title_year)
+                if not match_year:
                     match = re.search('class="video_quality".*?Year\s*(?:</b>)?\s*:\s*(\d{4})', result, re.DOTALL)
                     if match:
                         match_year = match.group(1)
@@ -110,11 +107,4 @@ class Scraper(scraper.Scraper):
         settings.append('         <setting id="%s-default_url" type="text" visible="false"/>' % (cls.get_name()))
         return settings
 
-# if no default url has been set, then pick one and set it. If one has been set, use it
-default_url = kodi.get_setting('%s-default_url' % (Scraper.get_name()))
-if not default_url:
-    BASE_URL = random.choice(['https://xmovies8.org', 'http://genvideos.org'])
-    Scraper.base_url = BASE_URL
-    kodi.set_setting('%s-default_url' % (Scraper.get_name()), BASE_URL)
-else:
-    Scraper.base_url = default_url
+scraper_utils.set_default_url(Scraper)

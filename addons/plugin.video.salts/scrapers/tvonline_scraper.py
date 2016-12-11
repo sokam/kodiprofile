@@ -19,7 +19,7 @@ import re
 import urlparse
 import base64
 import kodi
-import log_utils
+import log_utils  # @UnusedImport
 import dom_parser
 from salts_lib import scraper_utils
 from salts_lib.constants import FORCE_NO_MATCH
@@ -71,7 +71,7 @@ class Scraper(scraper.Scraper):
         title_pattern = '''href=['"](?P<url>[^'"]+/season-\d+-episode-\d+/?).*?>\s*\d+\s*-\s*(?P<title>.*?)</a>'''
         return self._default_get_episode_url(show_url, video, episode_pattern, title_pattern)
 
-    def search(self, video_type, title, year, season=''):
+    def search(self, video_type, title, year, season=''):  # @UnusedVariable
         results = []
         if title:
             first_letter = title[:1].lower()
@@ -84,13 +84,7 @@ class Scraper(scraper.Scraper):
                 norm_title = scraper_utils.normalize_title(title)
                 for match in re.finditer('''href=["']([^'"]+)[^>]+>([^<]+)''', fragment[0]):
                     url, match_title_year = match.groups()
-                    match = re.search('(.*?)\s+\((\d{4})\)', match_title_year)
-                    if match:
-                        match_title, match_year = match.groups()
-                    else:
-                        match_title = match_title_year
-                        match_year = ''
-                    
+                    match_title, match_year = scraper_utils.extra_year(match_title_year)
                     if norm_title in scraper_utils.normalize_title(match_title) and (not year or not match_year or year == match_year):
                         result = {'url': scraper_utils.pathify_url(url), 'title': scraper_utils.cleanse_title(match_title), 'year': match_year}
                         results.append(result)

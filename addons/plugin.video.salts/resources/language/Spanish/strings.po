@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: SALTS\n"
 "POT-Creation-Date: YEAR-MO-DA HO:MI+ZONE\n"
-"PO-Revision-Date: 2016-07-25 12:01+0000\n"
+"PO-Revision-Date: 2016-10-12 12:01+0000\n"
 "Last-Translator: Achaw Gomez <achaw.ar@gmail.com>\n"
 "Language-Team: Spanish (http://www.transifex.com/tv-addons/salts/language/es/)\n"
 "MIME-Version: 1.0\n"
@@ -23,7 +23,7 @@ msgstr "Peliculas"
 
 msgctxt "#30001"
 msgid "TV Shows"
-msgstr "Series de TV"
+msgstr "Series"
 
 msgctxt "#30002"
 msgid "Movie"
@@ -31,7 +31,7 @@ msgstr "Película"
 
 msgctxt "#30003"
 msgid "TV Show"
-msgstr "Serie de TV"
+msgstr "Serie"
 
 msgctxt "#30004"
 msgid "Settings"
@@ -211,7 +211,7 @@ msgstr "sea efectivo. Las siguientes configuraciones seran cambiadas:"
 
 msgctxt "#30048"
 msgid ""
-msgstr "[COLOR red]Definir orden de Scraper, Fuentes Definidas, Día de inicio en Calendario, Tiempo de espera de Trakt, Tiempo de espera de Scraper, Lista de seguimiento MNE, Testear Direct[/COLOR]"
+msgstr "[COLOR red]Definir orden de Scrapers, Fuentes Definidas, Día de inicio en Calendario, Tiempo de espera de Trakt, Tiempo de espera de Scraper, Lista de seguimiento MNE, Testear Direct[/COLOR]"
 
 msgctxt "#30049"
 msgid "Go Back"
@@ -319,11 +319,11 @@ msgstr "Búsquedas guardadas eliminadas: %s"
 
 msgctxt "#30075"
 msgid "Scraper Timeouts: %s/%s"
-msgstr "Tiempo de Espera de Fuente: %s/%s"
+msgstr "Tiempo de Espera de Scraper agotado: %s/%s"
 
 msgctxt "#30076"
 msgid "No Useable Sources Found%s"
-msgstr "No se encontraron fuentes usables: %s"
+msgstr "No se encontraron fuentes válidas: %s"
 
 msgctxt "#30077"
 msgid "Choose a subtitle to download"
@@ -375,7 +375,7 @@ msgstr "Ingresar Búsqueda"
 
 msgctxt "#30089"
 msgid "Scraper does not support searching"
-msgstr "El scraper no soporta búsquedas"
+msgstr "El Scraper no soporta búsquedas"
 
 msgctxt "#30090"
 msgid "Enter Rating (unrate, or 1-10)"
@@ -383,7 +383,7 @@ msgstr "Ingresar Rating (unrate, or 1-10)"
 
 msgctxt "#30091"
 msgid "Input TVShow ID"
-msgstr "Ingresa ID de Serie de TV"
+msgstr "Ingresa ID de la Serie"
 
 msgctxt "#30092"
 msgid "Item Added to Collection"
@@ -455,7 +455,7 @@ msgstr "Ingresa el nombre de archivo a exportar"
 
 msgctxt "#30109"
 msgid "Export Successful"
-msgstr "Se exporto con éxito"
+msgstr "La BD se ha exportado con éxito"
 
 msgctxt "#30110"
 msgid "Exported to %s"
@@ -475,7 +475,7 @@ msgstr "Seleccione el archivo a importar"
 
 msgctxt "#30114"
 msgid "Import Success"
-msgstr "Se importo con éxito"
+msgstr "La BD se ha importado con éxito"
 
 msgctxt "#30115"
 msgid "Imported from %s"
@@ -607,11 +607,11 @@ msgstr "No existen listas para el usuario: %s"
 
 msgctxt "#30147"
 msgid "Scraper Automatically Disabled"
-msgstr "Fuente desactivada automáticamente"
+msgstr "Scraper desactivado automáticamente"
 
 msgctxt "#30148"
 msgid "[COLOR blue]%s[/COLOR]'s FL of %s is over your Failure Level threshold"
-msgstr "[COLOR blue]%s[/COLOR]'s LF de %s supera el nivel de fallas permitido"
+msgstr "[COLOR blue]%s[/COLOR]'s NF de %s supera el nivel de fallas permitido"
 
 msgctxt "#30149"
 msgid "Disabling it avoids wasting time and resources"
@@ -679,7 +679,7 @@ msgstr "Url base"
 
 msgctxt "#30176"
 msgid "Include in Page Existence checks?"
-msgstr "Incluir en chequeo de Page Existence"
+msgstr "Chequear que la página existe"
 
 msgctxt "#30177"
 msgid "Username"
@@ -743,7 +743,7 @@ msgstr "Error al escribir archivo"
 
 msgctxt "#30192"
 msgid "Reset All Scraper Base Urls to Default"
-msgstr "Reiniciar todas las base de url de scraper a valores por defecto"
+msgstr "Reiniciar todas las base de url de scrapers a valores por defecto"
 
 msgctxt "#30193"
 msgid "Base Url Reset Complete"
@@ -819,11 +819,11 @@ msgstr "Existe Localmente"
 
 msgctxt "#30211"
 msgid "Scraper Download Url"
-msgstr "Url de descarga para Scraper"
+msgstr "Url de descarga para scraper"
 
 msgctxt "#30212"
 msgid "Scraper Decryption Key"
-msgstr "Key de descifrado para Scraper"
+msgstr "Key de descifrado para scraper"
 
 msgctxt "#30213"
 msgid "Trakt On Deck"
@@ -871,11 +871,11 @@ msgstr "Mi Historial de Vistos"
 
 msgctxt "#30224"
 msgid "Trying Sources for Auto-Play"
-msgstr "Intentando Reprod. Automática de Fuentes"
+msgstr "Reproducción Automática: Probando Fuentes"
 
 msgctxt "#30225"
 msgid "Trying: [%s] %s from %s"
-msgstr "Intentando: [%s] %s desde %s"
+msgstr "Probando: [%s] %s desde %s"
 
 msgctxt "#30226"
 msgid "Failed: [%s] %s from %s"
@@ -883,7 +883,7 @@ msgstr "Falló: [%s] %s desde %s"
 
 msgctxt "#30227"
 msgid "Scraper Timeouts: [COLOR blue]%s[/COLOR]"
-msgstr "Tiempo de  espera agotado de Scraper: [COLOR blue]%s[/COLOR]"
+msgstr "Tiempo de  espera de scraper agotado [COLOR blue]%s[/COLOR]"
 
 msgctxt "#30228"
 msgid "Reset Failures"
@@ -915,7 +915,7 @@ msgstr "Mostrar dia de emisión de episodio en Calendario"
 
 msgctxt "#30235"
 msgid "Set Scraper timeout to 20 seconds"
-msgstr "Definir tiempo de espera de Scraper en 20 segs."
+msgstr "Definir tiempo de espera de scraper en 20 segs."
 
 msgctxt "#30236"
 msgid "Include Watchlist in My Next Episodes"
@@ -943,11 +943,11 @@ msgstr "Definir tipo de ordenación de Fuentes a valores por defecto"
 
 msgctxt "#30242"
 msgid "Set Scraper Sort Order to default"
-msgstr "Definir orden de clasificación de Scraper a valores por defecto"
+msgstr "Definir orden de clasificación de fuente a valores por defecto"
 
 msgctxt "#30243"
 msgid "Reset All Scraper Base Urls to Default"
-msgstr "Reiniciar todas las base de url de scraper a valores por defecto"
+msgstr "Reiniciar todas las base de url de scrapers a valores por defecto"
 
 msgctxt "#30244"
 msgid "Select All/None"
@@ -1129,6 +1129,34 @@ msgctxt "#30288"
 msgid "Working..."
 msgstr "Cargando..."
 
+msgctxt "#30289"
+msgid "Re-Scrape All"
+msgstr "Re-Scrapear Todo"
+
+msgctxt "#30290"
+msgid "Manual Search (All Unmatched Only)"
+msgstr "Búsqueda Manual (Solo no emparejados)"
+
+msgctxt "#30291"
+msgid "Torba Account Authorization"
+msgstr "Autorización de cuenta Torba"
+
+msgctxt "#30292"
+msgid "Torba Authorization Complete"
+msgstr "Autorización de cuenta Torba finalizada"
+
+msgctxt "#30293"
+msgid "Torba Authorization Failed"
+msgstr "Falló la autorización de cuenta en Torba"
+
+msgctxt "#30294"
+msgid "Authorize SALTS to access my torba account"
+msgstr "Autorizar a SALTS a acceder a mi cuenta de Torba"
+
+msgctxt "#30295"
+msgid "and login when prompted"
+msgstr "y cuando pregunte, loguearse"
+
 msgctxt "#30500"
 msgid "Addon Theme"
 msgstr "Tema:"
@@ -1143,7 +1171,7 @@ msgstr "Dia de Inicio de Calendario (0=Hoy)"
 
 msgctxt "#30503"
 msgid "Show air time on calendars"
-msgstr "Mostrar tiempo de emisión en calendarios"
+msgstr "Mostrar horario de emisión en calendarios"
 
 msgctxt "#30504"
 msgid "My Collection Sort Order"
@@ -1202,8 +1230,8 @@ msgid "Year"
 msgstr "Año"
 
 msgctxt "#30518"
-msgid "Activity"
-msgstr "Actividad"
+msgid "Recent Activity"
+msgstr "Actividad Reciente"
 
 msgctxt "#30519"
 msgid "Title"
@@ -1355,7 +1383,7 @@ msgstr "Integración de Colección"
 
 msgctxt "#30558"
 msgid "TV Show Folder"
-msgstr "Directorio de Series de TV"
+msgstr "Directorio de Series"
 
 msgctxt "#30559"
 msgid "Movie Folder"
@@ -1427,7 +1455,7 @@ msgstr "    Mostrar Progreso de Descargas"
 
 msgctxt "#30576"
 msgid "    TV Show Download Folder"
-msgstr "Directorio de Descarga de Series de TV"
+msgstr "Directorio de Descarga de Series"
 
 msgctxt "#30577"
 msgid "    Movie Download Folder"
@@ -1435,7 +1463,7 @@ msgstr "Directorio de Descarga de Películas"
 
 msgctxt "#30578"
 msgid "Scraper Timeout (seconds) (0=No Limit)"
-msgstr "Tiempo de Espera de Scraper (segundos) (0=Sin Límite)"
+msgstr "Tiempo de Espera de Fuente (segundos) (0=Sin Límite)"
 
 msgctxt "#30579"
 msgid "Maximum Source Results (0=No Limit)"
@@ -1451,7 +1479,7 @@ msgstr "Lista de exclusión de fuentes"
 
 msgctxt "#30582"
 msgid "Maximum Allowed TV Show Quality"
-msgstr "Calidad máxima permitida para Series de TV"
+msgstr "Calidad máxima permitida para Series"
 
 msgctxt "#30583"
 msgid "Maximum Allowed Movie Quality"
@@ -1575,7 +1603,7 @@ msgstr "Incluir en chequeo de Page Existence"
 
 msgctxt "#30614"
 msgid "Subtitles work only for TV Shows currently"
-msgstr "Los Subtítulos solo funcionan para Series de TV por ahora"
+msgstr "Los Subtítulos solo funcionan para Series (por ahora)"
 
 msgctxt "#30615"
 msgid "Enable Subtitles"
@@ -1811,7 +1839,7 @@ msgstr "Vista por defecto de Fuentes (0 = Ninguna)"
 
 msgctxt "#30673"
 msgid "Scraper Last Update"
-msgstr "Ultima actualización de Scraper"
+msgstr "Ultima actualización de scraper"
 
 msgctxt "#30674"
 msgid "Trakt API Offline Mode"
@@ -1855,7 +1883,7 @@ msgstr "Mostrar \"Mirar de Nuevo\""
 
 msgctxt "#30684"
 msgid "Show air time in MNE"
-msgstr "Mostrar tiempo de emisión en Mis Próximos Episodios"
+msgstr "Mostrar hora de emisión en Mis Próximos Episodios"
 
 msgctxt "#30686"
 msgid "Show Next Episode Notification"
@@ -1891,7 +1919,7 @@ msgstr "Lista de Peliculas por Género"
 
 msgctxt "#30694"
 msgid "TV Genre List"
-msgstr "Lista de Series de Tv por Género"
+msgstr "Lista de Series por Género"
 
 msgctxt "#30695"
 msgid "Trending"
@@ -1899,7 +1927,7 @@ msgstr "Tendencia"
 
 msgctxt "#30696"
 msgid "Popular"
-msgstr "Popular"
+msgstr "Populares"
 
 msgctxt "#30697"
 msgid "Anticipated"
@@ -1940,4 +1968,32 @@ msgstr "Mas recolectadas (Mes)"
 msgctxt "#30706"
 msgid "Most Collected (All)"
 msgstr "Mas recolectadas (Todas)"
+
+msgctxt "#30707"
+msgid "Date Format"
+msgstr "Formato de Fecha"
+
+msgctxt "#30708"
+msgid "Past Activity"
+msgstr "Actividad Anterior"
+
+msgctxt "#30709"
+msgid "Always Show Custom Progress Dialogs"
+msgstr "Sempre mostrar dialogo de progreso customizado"
+
+msgctxt "#30710"
+msgid "Image Metadata API Keys"
+msgstr "API Keys para Metadata de Imágenes"
+
+msgctxt "#30711"
+msgid "Fanart.tv API Key"
+msgstr "API Key de Fanart.tv"
+
+msgctxt "#30712"
+msgid "TMDB API Key"
+msgstr "API Key de TMDB"
+
+msgctxt "#30713"
+msgid "TVDB API Key"
+msgstr "API Key de TVDB"
 

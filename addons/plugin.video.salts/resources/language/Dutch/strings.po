@@ -2,6 +2,7 @@
 # Addon id: plugin.video.salts
 # Addon Provider: TV Addons
 # Translators:
+# Jan Schouten <jschouten@schoutenwebdesign.nl>, 2016
 # Mike Bike, 2015-2016
 # Rodrigo, 2015
 # tknorris, 2015
@@ -9,8 +10,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: SALTS\n"
 "POT-Creation-Date: YEAR-MO-DA HO:MI+ZONE\n"
-"PO-Revision-Date: 2016-07-10 21:47+0000\n"
-"Last-Translator: Mike Bike\n"
+"PO-Revision-Date: 2016-10-12 02:21+0000\n"
+"Last-Translator: tknorris\n"
 "Language-Team: Dutch (http://www.transifex.com/tv-addons/salts/language/nl/)\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -32,7 +33,7 @@ msgstr "Film"
 
 msgctxt "#30003"
 msgid "TV Show"
-msgstr "TV Show"
+msgstr "TV Serie"
 
 msgctxt "#30004"
 msgid "Settings"
@@ -80,7 +81,7 @@ msgstr "Recent Geüpdate %s"
 
 msgctxt "#30015"
 msgid "Recommended %s"
-msgstr "Aangeraden %s"
+msgstr "Aanbevolen %s"
 
 msgctxt "#30016"
 msgid "My %s Collection"
@@ -128,11 +129,11 @@ msgstr "Zoeken"
 
 msgctxt "#30027"
 msgid "Recent Searches"
-msgstr "Recente Opzoekingen"
+msgstr "Recente gezocht"
 
 msgctxt "#30028"
 msgid "Saved Searches"
-msgstr "Bewaarde Opzoekingen"
+msgstr "Bewaarde zoektermen"
 
 msgctxt "#30029"
 msgid "Force Refresh"
@@ -168,11 +169,11 @@ msgstr "Scraper Uitzetten"
 
 msgctxt "#30037"
 msgid "Move Up"
-msgstr "Hoger Plaatsen"
+msgstr "Omhoog verplaatsen"
 
 msgctxt "#30038"
 msgid "Move Down"
-msgstr "Lager Plaatsen"
+msgstr "Omlaag verplaatsen"
 
 msgctxt "#30039"
 msgid "Move To..."
@@ -180,7 +181,7 @@ msgstr "Verplaatsen Naar..."
 
 msgctxt "#30040"
 msgid "Enter New Position (1 - %s)"
-msgstr "Geef Nieuwe Positie in (1 - %s)"
+msgstr "Geef Nieuwe Positie op (1 - %s)"
 
 msgctxt "#30041"
 msgid "Set Default %s View"
@@ -204,7 +205,7 @@ msgstr "Verwijder [B][COLOR red]VOLLEDIGE[/COLOR][/B] URL Cache"
 
 msgctxt "#30046"
 msgid "This will set some settings to values that have been found to"
-msgstr "Dit zet een aantal instellingen naar waardes dewelke optimaal zijn"
+msgstr "Dit zet een aantal instellingen naar waardes welke optimaal zijn"
 
 msgctxt "#30047"
 msgid "be effective. The following settings will be changed:"
@@ -344,7 +345,7 @@ msgstr "Kies uw stream"
 
 msgctxt "#30081"
 msgid "Set Related Url"
-msgstr "Zet Verwante URL"
+msgstr "Gerelateerde URL instellen"
 
 msgctxt "#30082"
 msgid "Received result from: %s"
@@ -356,7 +357,7 @@ msgstr "Te Wijzigen URL (%s)"
 
 msgctxt "#30084"
 msgid "Related %s url at %s"
-msgstr "Verwante %s URL op %s"
+msgstr "Gerelateerde %s URL op %s"
 
 msgctxt "#30085"
 msgid "[COLOR blue]%s[/COLOR] Related Url Set"
@@ -364,15 +365,15 @@ msgstr "[COLOR blue]%s[/COLOR] Verwante URL Reeks"
 
 msgctxt "#30086"
 msgid "Manual Search"
-msgstr "Manuele Opzoeking"
+msgstr "Handmatig zoeken"
 
 msgctxt "#30087"
 msgid "Select Related"
-msgstr "Kies Verwante"
+msgstr "Kies gerelateerde"
 
 msgctxt "#30088"
 msgid "Enter Search"
-msgstr "Geef Opzoeking in"
+msgstr "Geef zoekterm op"
 
 msgctxt "#30089"
 msgid "Scraper does not support searching"
@@ -380,7 +381,7 @@ msgstr "Zoeken wordt niet ondersteund door Scraper"
 
 msgctxt "#30090"
 msgid "Enter Rating (unrate, or 1-10)"
-msgstr "Geef Beoordeeling in: (verwijder, of 1-10)"
+msgstr "Vul beoordeling in: (verwijder, of 1-10)"
 
 msgctxt "#30091"
 msgid "Input TVShow ID"
@@ -412,7 +413,7 @@ msgstr "Gemarkeerd als %s"
 
 msgctxt "#30098"
 msgid "Updating Subscriptions..."
-msgstr "Bezig met Abonnementen te updaten..."
+msgstr "Abonnementen bijwerken..."
 
 msgctxt "#30099"
 msgid "Next Update in %0.1f hours"
@@ -520,7 +521,7 @@ msgstr "Volgende Week"
 
 msgctxt "#30125"
 msgid "Mark as Unwatched (SALTS)"
-msgstr "Bekeken status Verwijderen (SALTS)"
+msgstr "Markeer als niet bekeken (SALTS)"
 
 msgctxt "#30126"
 msgid "Mark as Watched (SALTS)"
@@ -628,7 +629,7 @@ msgstr "Behoud als actief"
 
 msgctxt "#30152"
 msgid "Disable It"
-msgstr "Desactiveer Het"
+msgstr "Deactiveren"
 
 msgctxt "#30153"
 msgid "Trakt Bookmark Exists"
@@ -1203,8 +1204,8 @@ msgid "Year"
 msgstr "Jaren"
 
 msgctxt "#30518"
-msgid "Activity"
-msgstr "Activteit"
+msgid "Recent Activity"
+msgstr "Recente Activiteit"
 
 msgctxt "#30519"
 msgid "Title"
@@ -1941,4 +1942,12 @@ msgstr "Meest Toegevoegd (Maand)"
 msgctxt "#30706"
 msgid "Most Collected (All)"
 msgstr "Meest Toegevoegd (Totaal)"
+
+msgctxt "#30707"
+msgid "Date Format"
+msgstr "Datum Formaat"
+
+msgctxt "#30708"
+msgid "Past Activity"
+msgstr "Laatste Activiteit"
 

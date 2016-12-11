@@ -15,6 +15,7 @@
     You should have received a copy of the GNU General Public License
     along with this program.  If not, see <http://www.gnu.org/licenses/>.
 """
+import hashlib
 import base64
 import random
 import re
@@ -24,13 +25,16 @@ import urllib
 import urlparse
 import json
 import os.path
+import string
 import kodi
 import log_utils
 from salts_lib import pyaes
 from salts_lib import utils2
-from salts_lib.constants import *
+from salts_lib.constants import *  # @UnusedWildImport
 
 cleanse_title = utils2.cleanse_title
+to_datetime = utils2.to_datetime
+normalize_title = utils2.normalize_title
 to_datetime = utils2.to_datetime
 
 def disable_sub_check(settings):
@@ -44,7 +48,8 @@ def get_ua():
     except: last_gen = 0
     if not kodi.get_setting('current_ua') or last_gen < (time.time() - (7 * 24 * 60 * 60)):
         index = random.randrange(len(RAND_UAS))
-        user_agent = RAND_UAS[index].format(win_ver=random.choice(WIN_VERS), feature=random.choice(FEATURES), br_ver=random.choice(BR_VERS[index]))
+        versions = {'win_ver': random.choice(WIN_VERS), 'feature': random.choice(FEATURES), 'br_ver': random.choice(BR_VERS[index])}
+        user_agent = RAND_UAS[index].format(**versions)
         log_utils.log('Creating New User Agent: %s' % (user_agent), log_utils.LOGDEBUG)
         kodi.set_setting('current_ua', user_agent)
         kodi.set_setting('last_ua_create', str(int(time.time())))
@@ -80,16 +85,6 @@ def force_title(video):
         trakt_str = kodi.get_setting('force_title_match')
         trakt_list = trakt_str.split('|') if trakt_str else []
         return str(video.trakt_id) in trakt_list
-
-def normalize_title(title):
-    if title is None: title = ''
-    title = cleanse_title(title)
-    new_title = title.upper()
-    new_title = re.sub('[^A-Za-z0-9]', '', new_title)
-    if isinstance(new_title, unicode):
-        new_title = new_title.encode('utf-8')
-    # log_utils.log('In title: |%s| Out title: |%s|' % (title,new_title), log_utils.LOGDEBUG)
-    return new_title
 
 def blog_get_quality(video, q_str, host):
     """
@@ -170,6 +165,8 @@ def gv_get_quality(stream_url):
     if 'itag=18' in stream_url or '=m18' in stream_url:
         return QUALITIES.MEDIUM
     elif 'itag=22' in stream_url or '=m22' in stream_url:
+        return QUALITIES.HD720
+    elif 'itag=15' in stream_url or '=m15' in stream_url:
         return QUALITIES.HD720
     elif 'itag=34' in stream_url or '=m34' in stream_url:
         return QUALITIES.HIGH
@@ -303,6 +300,7 @@ def release_check(video, title, require_title=True):
         matches = matches and (sxe_match or airdate_match)
         
     if not matches:
+        if isinstance(title, unicode): title = title.encode('utf-8')
         log_utils.log('*%s*%s*%s* - |%s|%s|%s| - |%s|%s|%s| - |%s|%s|' % (video, title, meta, norm_title, match_norm_title, title_match,
                                                                           video.year, meta.get('year'), year_match, sxe_match, airdate_match), log_utils.LOGDEBUG)
     return matches
@@ -392,3 +390,30 @@ def parse_params(params):
         value = re.sub('''['"]''', '', value.strip())
         result[key] = value
     return result
+
+# if no default url has been set, then pick one and set it. If one has been set, use it
+def set_default_url(Scraper):
+    default_url = kodi.get_setting('%s-default_url' % (Scraper.get_name()))
+    if not default_url:
+        default_url = random.choice(Scraper.OPTIONS)
+        kodi.set_setting('%s-default_url' % (Scraper.get_name()), default_url)
+    Scraper.base_url = default_url
+    return default_url
+
+def extra_year(match_title_year):
+    match = re.search('(.*?)\s+\((\d{4})\)', match_title_year)
+    if match:
+        match_title, match_year = match.groups()
+    else:
+        match = re.search('(.*?)\s+(\d{4})$', match_title_year)
+        if match:
+            match_title, match_year = match.groups()
+        else:
+            match_title = match_title_year
+            match_year = ''
+    return match_title, match_year
+
+def get_token(hash_len=16):
+    chars = string.digits + string.ascii_uppercase + string.ascii_lowercase
+    base = hashlib.sha512(str(int(time.time()) / 60 / 60)).digest()
+    return ''.join([chars[int(ord(c) % len(chars))] for c in base[:hash_len]])

@@ -15,14 +15,13 @@
     You should have received a copy of the GNU General Public License
     along with this program.  If not, see <http://www.gnu.org/licenses/>.
 """
-import HTMLParser
 import random
 import re
 import string
 import urllib
 import urlparse
 import kodi
-import log_utils
+import log_utils  # @UnusedImport
 import dom_parser
 from salts_lib import scraper_utils
 from salts_lib.constants import FORCE_NO_MATCH
@@ -56,14 +55,12 @@ class Scraper(scraper.Scraper):
         url, query = link.split('?', 1)
         data = urlparse.parse_qs(query, True)
         url = urlparse.urljoin(self.base_url, url)
-        url += '?s=%s&t=%s&app_id=SALTS' % (data['id'][0], data['t'][0])
-        list_url = LIST_URL % (data['t'][0])
-        headers = {'Referer': list_url}
-        html = self._http_get(url, data=data, headers=headers, cache_limit=.25)
+        params = {'s': data['id'][0], 't': data['t'][0], 'app_id': 'SALTS'}
+        headers = {'Referer': LIST_URL % (data['t'][0])}
+        html = self._http_get(url, params=params, data=data, headers=headers, cache_limit=.25)
         match = re.search('url=(http.*)', html)
         if match:
-            url = urllib.unquote_plus(match.group(1))
-            return url
+            return urllib.unquote_plus(match.group(1))
 
     def get_sources(self, video):
         source_url = self.get_url(video)
@@ -112,7 +109,7 @@ class Scraper(scraper.Scraper):
                 log_utils.log('Failure (%s) during icefilms get sources: |%s|' % (str(e), video), log_utils.LOGWARNING)
         return sources
 
-    def search(self, video_type, title, year, season=''):
+    def search(self, video_type, title, year, season=''):  # @UnusedVariable
         results = []
         if video_type == VIDEO_TYPES.MOVIE:
             url = urlparse.urljoin(self.base_url, '/movies/a-z/')
@@ -137,13 +134,7 @@ class Scraper(scraper.Scraper):
         pattern = 'class=star.*?href=([^>]+)>(.*?)</a>'
         for match in re.finditer(pattern, html, re.DOTALL):
             match_url, match_title_year = match.groups()
-            match = re.search('(.*?)\s+\((\d{4})\)', match_title_year)
-            if match:
-                match_title, match_year = match.groups()
-            else:
-                match_title = match_title_year
-                match_year = ''
-            
+            match_title, match_year = scraper_utils.extra_year(match_title_year)
             if norm_title in scraper_utils.normalize_title(match_title) and (not year or not match_year or year == match_year):
                 result = {'url': match_url, 'title': scraper_utils.cleanse_title(match_title), 'year': match_year}
                 results.append(result)

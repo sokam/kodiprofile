@@ -19,24 +19,32 @@ import os
 import re
 import urllib
 import urlparse
+import time
 import xbmcvfs
 import kodi
-import log_utils
+import log_utils  # @UnusedImport
 import utils
 import dom_parser
 from salts_lib import scraper_utils
+from salts_lib.utils2 import i18n
 from salts_lib.constants import FORCE_NO_MATCH
 from salts_lib.constants import VIDEO_TYPES
 from salts_lib import gui_utils
 import scraper
 
 XHR = {'X-Requested-With': 'XMLHttpRequest'}
-BASE_URL = 'http://torba.se'
-BASE_URL2 = 'http://streamtorrent.tv'
-SEARCH_URL = '/%s/autocomplete?order=relevance&title=%s'
 SEARCH_TYPES = {VIDEO_TYPES.MOVIE: 'movies', VIDEO_TYPES.TVSHOW: 'series'}
+
+BASE_URL = 'http://torba.se'
+SEARCH_URL = '/%s/autocomplete'
+
+BASE_URL2 = 'https://streamtorrent.tv'
 TOR_URL = BASE_URL2 + '/api/torrent/%s.json'
 PL_URL = BASE_URL2 + '/api/torrent/%s/%s.m3u8?json=true'
+OAUTH_GET_URL = BASE_URL2 + '/api/oauth/client'
+OAUTH_CRED_URL = BASE_URL2 + '/api/oauth/credentials?device_code=%s'
+OAUTH_TOKEN_URL = BASE_URL2 + '/api/oauth/token'
+
 M3U8_PATH = os.path.join(kodi.translate_path(kodi.get_profile()), 'torbase.m3u8')
 M3U8_TEMPLATE = [
     '#EXTM3U',
@@ -48,11 +56,11 @@ M3U8_TEMPLATE = [
 
 class Scraper(scraper.Scraper):
     base_url = BASE_URL
+    auth_url = False
 
     def __init__(self, timeout=scraper.DEFAULT_TIMEOUT):
         self.timeout = timeout
         self.base_url = kodi.get_setting('%s-base_url' % (self.get_name()))
-        self.auth_url = False
 
     @classmethod
     def provides(cls):
@@ -69,7 +77,14 @@ class Scraper(scraper.Scraper):
             query = dict([(key, query[key][0]) if query[key] else (key, '') for key in query])
             if 'vid_id' in query and 'stream_id' in query and 'height' in query:
                 auth_url = PL_URL % (query['vid_id'], query['stream_id'])
-                result = self.__authorize_ip(auth_url)
+                result = self.__get_playlist_with_token(auth_url)
+                if not result:
+                    if int(query['height']) > 720:
+                        if self.auth_torba():
+                            result = self.__get_playlist_with_token(auth_url)
+                    else:
+                        result = self.__authorize_ip(auth_url)
+                
                 if result:
                     key = '%sp' % (query['height'])
                     if key in result:
@@ -85,28 +100,65 @@ class Scraper(scraper.Scraper):
         except Exception as e:
             log_utils.log('Failure during torba resolver: %s' % (e), log_utils.LOGWARNING)
 
+    # try to get the playlist using the token, try to refresh the token if it fails
+    # reset all oauth params if the refresh fails
+    def __get_playlist_with_token(self, pl_url):
+        result = {}
+        name = self.get_name()
+        token = kodi.get_setting('%s-token' % (name))
+        if token:
+            authorized, result = self.__use_token(pl_url, token)
+            if not authorized:
+                client_id = kodi.get_setting('%s-client_id' % (name))
+                client_secret = kodi.get_setting('%s-client_secret' % (name))
+                refresh_token = kodi.get_setting('%s-refresh' % (name))
+                if client_id and client_secret and refresh_token:
+                    token = self.__get_token(client_id, client_secret, refresh_token)
+                    if token:
+                        authorized, result = self.__use_token(pl_url, token)
+                    else:
+                        self.reset_auth()
+                    
+        return result
+    
+    def reset_auth(self):
+        name = self.get_name()
+        kodi.set_setting('%s-client_id' % (name), '')
+        kodi.set_setting('%s-client_secret' % (name), '')
+        kodi.set_setting('%s-token' % (name), '')
+        kodi.set_setting('%s-refresh' % (name), '')
+        
+    # try to use the oauth token to get a playlist
+    def __use_token(self, pl_url, token):
+        pl_url += '&token=%s' % (token)
+        return self.check_auth2(pl_url)
+        
+    # do ip whitelist authorization
     def __authorize_ip(self, auth_url):
-        self.auth_url = auth_url
-        authorized, response = self.check_auth()
+        authorized, response = self.check_auth2(auth_url)
         if authorized:
             return response
         else:
             if 'url' in response:
+                self.auth_url = auth_url
                 return gui_utils.do_ip_auth(self, response['url'], response.get('qrcode'))
             else:
                 log_utils.log('Unusable JSON from Torba: %s' % (response), log_utils.LOGWARNING)
                 return False
     
-    def check_auth(self):
-        if not self.auth_url:
-            return True, None
-        
-        js_data = utils.json_loads_as_str(self._http_get(self.auth_url, cache_limit=0))
-        if 'url' in js_data:
+    def check_auth2(self, auth_url):
+        js_data = scraper_utils.parse_json(self._http_get(auth_url, cache_limit=0), auth_url)
+        if not js_data or 'url' in js_data:
             authorized = False
         else:
             authorized = True
         return authorized, js_data
+        
+    def check_auth(self):
+        if not self.auth_url:
+            return True, None
+        
+        return self.check_auth2(self.auth_url)
     
     def get_sources(self, video):
         source_url = self.get_url(video)
@@ -152,11 +204,12 @@ class Scraper(scraper.Scraper):
                 title_pattern = 'href="(?P<url>[^"]+)"[^>]*>\s*<div class="series-item-title">(?P<title>[^<]+)'
                 return self._default_get_episode_url(season_url, video, episode_pattern, title_pattern)
     
-    def search(self, video_type, title, year, season=''):
+    def search(self, video_type, title, year, season=''):  # @UnusedVariable
         results = []
         search_url = urlparse.urljoin(self.base_url, SEARCH_URL)
-        search_url = search_url % (SEARCH_TYPES[video_type], urllib.quote_plus(title))
-        html = self._http_get(search_url, headers=XHR, cache_limit=1)
+        search_url = search_url % (SEARCH_TYPES[video_type])
+        params = {'order': 'relevance', 'title': title}
+        html = self._http_get(search_url, params=params, headers=XHR, cache_limit=1)
         js_data = scraper_utils.parse_json(html, search_url)
         for item in js_data:
             if 'title' in item and 'link' in item:
@@ -168,3 +221,56 @@ class Scraper(scraper.Scraper):
                     results.append(result)
 
         return results
+
+    @classmethod
+    def get_settings(cls):
+        settings = super(cls, cls).get_settings()
+        name = cls.get_name()
+        settings.append('         <setting id="%s-get_token" label="    %s" type="action" action="RunPlugin(plugin://plugin.video.salts/?mode=auth_torba)" visible="eq(-4,true)"/>'
+                        % (name, i18n('torba_auth')))
+        settings.append('         <setting id="%s-reset_token" label="    %s" type="action" action="RunPlugin(plugin://plugin.video.salts/?mode=reset_torba)" visible="eq(-5,true)"/>'
+                        % (name, i18n('reset_torba')))
+        settings.append('         <setting id="%s-token" type="text" default="" visible="false"/>' % (name))
+        settings.append('         <setting id="%s-refresh" type="text" default="" visible="false"/>' % (name))
+        settings.append('         <setting id="%s-client_id" type="text" default="" visible="false"/>' % (name))
+        settings.append('         <setting id="%s-client_secret" type="text" default="" visible="false"/>' % (name))
+        return settings
+
+    def auth_torba(self):
+        html = self._http_get(OAUTH_GET_URL, cache_limit=0)
+        js_data = scraper_utils.parse_json(html, OAUTH_GET_URL)
+        line1 = i18n('verification_url') % (js_data['verification_short_url'])
+        line2 = i18n('login_prompt')
+        countdown = int(utils.iso_2_utc(js_data['expires_in']) - time.time())
+        interval = js_data['interval'] / 1000
+        with kodi.CountdownDialog(i18n('torba_acct_auth'), line1=line1, line2=line2, countdown=countdown, interval=interval) as cd:
+            result = cd.start(self.check_oauth, [js_data['device_code']])
+        
+        # cancelled
+        if result is None: return
+        return self.__get_token(result['client_id'], result['client_secret'], js_data['device_code'])
+        
+    def __get_token(self, client_id, client_secret, code):
+        try:
+            name = self.get_name()
+            kodi.set_setting('%s-client_id' % (name), client_id)
+            kodi.set_setting('%s-client_secret' % (name), client_secret)
+            data = {'client_id': client_id, 'client_secret': client_secret, 'code': code}
+            html = self._http_get(OAUTH_TOKEN_URL, data=data, cache_limit=0)
+            log_utils.log(html)
+            if not html:
+                return False
+            
+            js_data = scraper_utils.parse_json(html, OAUTH_TOKEN_URL)
+            kodi.set_setting('%s-token' % (name), js_data['access_token'])
+            kodi.set_setting('%s-refresh' % (name), js_data['refresh_token'])
+            return js_data['access_token']
+        except Exception as e:
+            log_utils.log('Torba Authorization failed: %s' % (e), log_utils.LOGWARNING)
+            return False
+    
+    def check_oauth(self, device_code):
+        url = OAUTH_CRED_URL % (device_code)
+        html = self._http_get(url, cache_limit=0)
+        js_data = scraper_utils.parse_json(html, url) if html else {}
+        return js_data
