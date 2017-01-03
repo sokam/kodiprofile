@@ -290,6 +290,8 @@ class TVDBScraper(Scraper):
     protocol = 'https://'
     BASE_URL = 'api.thetvdb.com'
     ZIP_URL = 'thetvdb.com'
+    EP_CACHE = {}
+    CAST_CACHE = {}
     headers = {'Content-Type': 'application/json'}
     image_base = 'http://thetvdb.com/banners/'
     token = None
@@ -397,24 +399,22 @@ class TVDBScraper(Scraper):
     def get_episode_images(self, ids, season, episode):
         ep_art = {}
         if 'tvdb' in ids and ids['tvdb'] and self.API_KEY and THUMB_ENABLED:
-            xml = self.__get_xml(ids['tvdb'], 'en.xml')
-            # can't use predicates yet because ET 1.3 is Python 2.7
-            for ep_item in ET.fromstring(xml).findall('.//Episode'):
-                try: item_season = int(ep_item.findtext('SeasonNumber', -1))
-                except: item_season = -1
-                try: item_episode = int(ep_item.findtext('EpisodeNumber', -1))
-                except: item_episode = -1
-                if int(season) == item_season and int(episode) == item_episode:
-                    thumb = ep_item.findtext('filename')
-                    if thumb:
-                        ep_art['thumb'] = self.image_base + thumb
-                    break
+            tvdb = ids['tvdb']
+            season = int(season)
+            episode = int(episode)
+            if tvdb not in TVDBScraper.EP_CACHE:
+                self.__build_ep_cache(tvdb, season)
+
+            if season in TVDBScraper.EP_CACHE[tvdb] and episode in TVDBScraper.EP_CACHE[tvdb][season]:
+                ep_art['thumb'] = self.image_base + TVDBScraper.EP_CACHE[tvdb][season][episode]
                 
         return ep_art
         
     def get_cast(self, tvdb):
         cast = []
-        if self.API_KEY and self.zip_is_cached(tvdb):
+        if tvdb in TVDBScraper.CAST_CACHE:
+            cast = TVDBScraper.CAST_CACHE[tvdb]
+        elif self.API_KEY and self.__zip_is_cached(tvdb):
             xml = self.__get_xml(tvdb, 'actors.xml')
             for actor in ET.fromstring(xml).findall('.//Actor'):
                 name = actor.findtext('Name')
@@ -424,27 +424,45 @@ class TVDBScraper(Scraper):
                     if thumbnail:
                         thumbnail = self.image_base + thumbnail
                     cast.append({'name': name, 'role': role, 'thumb': thumbnail})
+            TVDBScraper.CAST_CACHE[tvdb] = cast
 
         return cast
     
-    def zip_is_cached(self, tvdb):
+    def __zip_is_cached(self, tvdb):
         url = 'http://thetvdb.com/api/%s/series/%s/all/en.zip ' % (self.API_KEY, tvdb)
         created, _res_header, _html = db_connection.get_cached_url(url)
         return time.time() - created < ZIP_CACHE * 60 * 60
         
+    def __build_ep_cache(self, tvdb, season=None):
+        if tvdb not in TVDBScraper.EP_CACHE:
+            TVDBScraper.EP_CACHE[tvdb] = {}
+            
+        xml = self.__get_xml(tvdb, 'en.xml')
+        # can't use predicates yet because ET 1.3 is Python 2.7
+        for item in ET.fromstring(xml).findall('.//Episode'):
+            try: item_season = int(item.findtext('SeasonNumber', -1))
+            except: continue
+            try: item_episode = int(item.findtext('EpisodeNumber', -1))
+            except: continue
+            thumb = item.findtext('filename')
+            if (season is None or int(season) == item_season) and thumb:
+                TVDBScraper.EP_CACHE[tvdb].setdefault(item_season, {})
+                TVDBScraper.EP_CACHE[tvdb][item_season][item_episode] = thumb
+    
     def __get_xml(self, tvdb, file_name):
         xml = '<xml/>'
-        url = 'http://thetvdb.com/api/%s/series/%s/all/en.zip ' % (self.API_KEY, tvdb)
-        zip_data = self._get_url(url, cache_limit=ZIP_CACHE)
-        if zip_data:
-            try:
-                zip_file = zipfile.ZipFile(StringIO.StringIO(zip_data))
-                xml = zip_file.read(file_name)
-            except Exception as e:
-                log_utils.log('TVDB Zip Error (%s): %s' % (e, url), log_utils.LOGWARNING)
-            finally:
-                try: zip_file.close()
-                except UnboundLocalError: pass
+        if self.API_KEY:
+            url = 'http://thetvdb.com/api/%s/series/%s/all/en.zip ' % (self.API_KEY, tvdb)
+            zip_data = self._get_url(url, cache_limit=ZIP_CACHE)
+            if zip_data:
+                try:
+                    zip_file = zipfile.ZipFile(StringIO.StringIO(zip_data))
+                    xml = zip_file.read(file_name)
+                except Exception as e:
+                    log_utils.log('TVDB Zip Error (%s): %s' % (e, url), log_utils.LOGWARNING)
+                finally:
+                    try: zip_file.close()
+                    except UnboundLocalError: pass
         return xml
         
     def __get_images(self, xml):

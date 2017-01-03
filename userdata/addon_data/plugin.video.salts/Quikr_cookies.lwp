@@ -1,0 +1,5 @@
+#LWP-Cookies-2.0
+Set-Cookie3: __cfduid=daa70eb0320ab57615e5e54e4f6b39d941481433188; path="/"; domain=".quikrmovies.to"; path_spec; domain_dot; expires="2017-12-11 05:13:08Z"; HttpOnly=None; version=0
+Set-Cookie3: __cfduid=d4f2aeafb592c2ae45f6304e992f3df291481435015; path="/"; domain=".qvideos.stream"; path_spec; domain_dot; expires="2017-12-11 05:43:35Z"; HttpOnly=None; version=0
+Set-Cookie3: PHPSESSID=ejnjemfevehhkb7m9n7f81suq7; path="/"; domain="quikrmovies.to"; path_spec; discard; version=0
+Set-Cookie3: PHPSESSID=5onqrdvcar434kg6vinqcce621; path="/"; domain="qvideos.stream"; path_spec; discard; version=0

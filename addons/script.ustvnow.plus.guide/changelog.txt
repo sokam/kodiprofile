@@ -1,4 +1,9 @@
 --------------------------
+USTVnow Guide - 1.2.5
+--------------------------
++ Fixed Channel sort order to be alphabetical without case sensitivity
+
+--------------------------
 USTVnow Guide - 1.2.4
 --------------------------
 + Added Go To Now option in context menu

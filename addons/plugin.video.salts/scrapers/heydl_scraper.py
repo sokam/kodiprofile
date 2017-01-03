@@ -60,7 +60,7 @@ class Scraper(scraper.Scraper):
             for stream_url in dom_parser.parse_dom(html, 'a', ret='href'):
                 if MOVIE_URL in stream_url:
                     meta = scraper_utils.parse_movie_link(stream_url)
-                    stream_url = scraper_utils.pathify_url(stream_url) + '|User-Agent=%s' % (scraper_utils.get_ua())
+                    stream_url = scraper_utils.pathify_url(stream_url) + scraper_utils.append_headers({'User-Agent': scraper_utils.get_ua()})
                     quality = scraper_utils.height_get_quality(meta['height'])
                     hoster = {'multi-part': False, 'host': self._get_direct_hostname(stream_url), 'class': self, 'quality': quality, 'views': None, 'rating': None, 'url': stream_url, 'direct': True}
                     if 'format' in meta: hoster['format'] = meta['format']

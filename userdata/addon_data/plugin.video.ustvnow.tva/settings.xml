@@ -13,7 +13,7 @@
     <setting id="free_package" value="true" />
     <setting id="live_stream_option" value="0" />
     <setting id="logo" value="1" />
-    <setting id="notify" value="1" />
+    <setting id="notify" value="3" />
     <setting id="password" value="so123456" />
     <setting id="quality" value="1" />
     <setting id="rec_live" value="true" />

@@ -64,7 +64,7 @@ class Scraper(scraper.Scraper):
                             quality = scraper_utils.gv_get_quality(stream_url)
                         else:
                             quality = scraper_utils.height_get_quality(height)
-                        stream_url += '|User-Agent=%s' % (scraper_utils.get_ua())
+                        stream_url += scraper_utils.append_headers({'User-Agent': scraper_utils.get_ua()})
                         source = {'multi-part': False, 'url': stream_url, 'host': host, 'class': self, 'quality': quality, 'views': None, 'rating': None, 'direct': True}
                         sources.append(source)
 

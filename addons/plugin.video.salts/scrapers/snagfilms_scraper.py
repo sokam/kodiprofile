@@ -68,7 +68,7 @@ class Scraper(scraper.Scraper):
                     for source in sources:
                         quality = sources[source]['quality']
                         host = self._get_direct_hostname(source)
-                        stream_url = source + '|User-Agent=%s&Referer=%s' % (scraper_utils.get_ua(), urllib.quote(iframe_url))
+                        stream_url = source + scraper_utils.append_headers({'User-Agent': scraper_utils.get_ua(), 'Referer': iframe_url})
                         hoster = {'multi-part': False, 'host': host, 'class': self, 'quality': quality, 'views': None, 'rating': None, 'url': stream_url, 'direct': True}
                         match = re.search('(\d+[a-z]bps)', source)
                         if match:

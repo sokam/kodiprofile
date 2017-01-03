@@ -26,7 +26,7 @@ from salts_lib.constants import VIDEO_TYPES
 from salts_lib.constants import FORCE_NO_MATCH
 from salts_lib.constants import QUALITIES
 
-BASE_URL = 'http://www.spacemov.net'
+BASE_URL = 'http://www.spacemov.ag'
 
 class Scraper(scraper.Scraper):
     base_url = BASE_URL
@@ -64,7 +64,6 @@ class Scraper(scraper.Scraper):
         html = self._http_get(self.base_url, params=params, cache_limit=8)
         fragment = dom_parser.parse_dom(html, 'div', {'id': 'single-post'})
         if fragment:
-            log_utils.log(fragment)
             for item in dom_parser.parse_dom(fragment[0], 'div', {'class': 'box-bg'}):
                 match = re.search('href="([^"]+)[^>]+>([^<]+)', item)
                 if match:

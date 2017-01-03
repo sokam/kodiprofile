@@ -78,7 +78,7 @@ class Scraper(scraper.Scraper):
                     host = self._get_direct_hostname(source)
                 else:
                     host = urlparse.urlparse(source).hostname
-                stream_url = source + '|User-Agent=%s' % (scraper_utils.get_ua())
+                stream_url = source + scraper_utils.append_headers({'User-Agent': scraper_utils.get_ua()})
                 direct = sources[source]['direct']
                 quality = sources[source]['quality']
                 hoster = {'multi-part': False, 'host': host, 'class': self, 'quality': quality, 'views': views, 'rating': None, 'url': stream_url, 'direct': direct}

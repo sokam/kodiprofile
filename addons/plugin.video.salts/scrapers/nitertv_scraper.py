@@ -16,7 +16,6 @@
     along with this program.  If not, see <http://www.gnu.org/licenses/>.
 """
 import re
-import urllib
 import urlparse
 import kodi
 import log_utils  # @UnusedImport
@@ -64,7 +63,7 @@ class Scraper(scraper.Scraper):
                         headers = {'Referer': url}
                         html = self._http_get(DIR_URL, params={'v': stream_url[3:]}, headers=headers, auth=False, allow_redirect=False, cache_limit=.5)
                         if html.startswith('http'):
-                            stream_url = html + '|User-Agent=%s&Referer=%s' % (scraper_utils.get_ua(), urllib.quote(url))
+                            stream_url = html + scraper_utils.append_headers({'User-Agent': scraper_utils.get_ua(), 'Referer': url})
                             host = self._get_direct_hostname(stream_url)
                             direct = True
                             quality = QUALITIES.HD720

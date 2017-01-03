@@ -19,37 +19,31 @@
 '''
 
 
-import re,urllib,urlparse,random
+import re,json,urllib,urlparse
 
 from resources.lib.modules import cleantitle
 from resources.lib.modules import client
+from resources.lib.modules import directstream
 
 
 class source:
     def __init__(self):
-        self.domains = ['genvideos.org']
-        self.base_link = 'http://genvideos.org'
-        self.search_link = '/results?q=%s'
+        self.language = ['en']
+        self.domains = ['genvideos.org', 'genvideos.com']
+        self.base_link = 'http://genvideos.com'
+        self.search_link = '/watch_%s_%s.html'
 
 
     def movie(self, imdb, title, year):
         try:
-            query = self.search_link % (urllib.quote_plus(title))
-            query = urlparse.urljoin(self.base_link, query)
+            url = self.search_link % (cleantitle.geturl(title).replace('-', '_'), year)
+            url = urlparse.urljoin(self.base_link, url)
 
-            t = cleantitle.get(title)
+            r = client.request(url, limit='2')
+            r = client.parseDOM(r, 'meta', ret='content', attrs = {'property': 'og:title'})[0]
+            if not year in r: raise Exception()
 
-            r = client.request(query)
-
-            r = client.parseDOM(r, 'div', attrs = {'class': 'cell_container'})
-            r = [(client.parseDOM(i, 'a', ret='href'), client.parseDOM(i, 'a', ret='title')) for i in r]
-            r = [(i[0][0], i[1][0]) for i in r if len(i[0]) > 0 and len(i[1]) > 0]
-            r = [(i[0], re.findall('(.+?) \((\d{4})', i[1])) for i in r]
-            r = [(i[0], i[1][0][0], i[1][0][1]) for i in r if len(i[1]) > 0]
-            r = [i[0] for i in r if t == cleantitle.get(i[1]) and year == i[2]][0]
-
-            url = re.findall('(?://.+?|)(/.+)', r)[0]
-            url = client.replaceHTMLCodes(url)
+            url = re.findall('(?://.+?|)(/.+)', url)[0]
             url = url.encode('utf-8')
             return url
         except:
@@ -64,23 +58,22 @@ class source:
 
             referer = urlparse.urljoin(self.base_link, url)
 
-            headers = {'X-Requested-With': 'XMLHttpRequest'}
+            h = {'X-Requested-With': 'XMLHttpRequest'}
 
-            post = urlparse.parse_qs(urlparse.urlparse(referer).query).values()[0][0]
+            try: post = urlparse.parse_qs(urlparse.urlparse(referer).query).values()[0][0]
+            except: post = referer.strip('/').split('/')[-1].split('watch_', 1)[-1].rsplit('#')[0].rsplit('.')[0]
+
             post = urllib.urlencode({'v': post})
 
             url = urlparse.urljoin(self.base_link, '/video_info/iframe')
 
-            r = client.request(url, post=post, headers=headers, referer=referer)
+            r = client.request(url, post=post, headers=h, referer=url)
+            r = json.loads(r).values()
+            r = [urllib.unquote(i.split('url=')[-1])  for i in r]
 
-            r = re.findall('"(\d+)"\s*:\s*"([^"]+)', r)
-            r = [(urllib.unquote(i[1].split('url=')[-1]), i[0])  for i in r]
-
-            links = [(i[0], '1080p') for i in r if int(i[1]) >= 1080]
-            links += [(i[0], 'HD') for i in r if 720 <= int(i[1]) < 1080]
-            links += [(i[0], 'SD') for i in r if 480 <= int(i[1]) < 720]
-
-            for i in links: sources.append({'source': 'gvideo', 'quality': i[1], 'provider': 'Genvideo', 'url': i[0], 'direct': True, 'debridonly': False})
+            for i in r:
+                try: sources.append({'source': 'gvideo', 'quality': directstream.googletag(i)[0]['quality'], 'provider': 'Genvideo', 'url': i, 'direct': True, 'debridonly': False})
+                except: pass
 
             return sources
         except:
@@ -88,12 +81,6 @@ class source:
 
 
     def resolve(self, url):
-        try:
-            url = client.request(url, output='geturl')
-            if 'requiressl=yes' in url: url = url.replace('http://', 'https://')
-            else: url = url.replace('https://', 'http://')
-            return url
-        except:
-            return
+        return directstream.googlepass(url)
 
 

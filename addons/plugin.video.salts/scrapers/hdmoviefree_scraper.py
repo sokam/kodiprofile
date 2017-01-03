@@ -18,7 +18,6 @@
 import scraper
 import urlparse
 import re
-import urllib
 import kodi
 import log_utils  # @UnusedImport
 import dom_parser
@@ -86,7 +85,7 @@ class Scraper(scraper.Scraper):
                         host = self._get_direct_hostname(stream_url)
                         if host == 'gvideo':
                             quality = scraper_utils.gv_get_quality(stream_url)
-                            stream_url += '|User-Agent=%s&Referer=%s' % (scraper_utils.get_ua(), urllib.quote(page_url))
+                            stream_url += scraper_utils.append_headers({'User-Agent': scraper_utils.get_ua(), 'Referer': page_url})
                             direct = True
                         else:
                             host = urlparse.urlparse(stream_url).hostname

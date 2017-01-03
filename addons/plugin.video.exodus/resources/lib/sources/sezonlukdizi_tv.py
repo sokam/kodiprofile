@@ -24,10 +24,12 @@ import re,urllib,urlparse,json
 from resources.lib.modules import cleantitle
 from resources.lib.modules import client
 from resources.lib.modules import cache
+from resources.lib.modules import directstream
 
 
 class source:
     def __init__(self):
+        self.language = ['en']
         self.domains = ['sezonlukdizi.com']
         self.base_link = 'http://sezonlukdizi.com'
         self.search_link = '/js/dizi.js'
@@ -148,14 +150,10 @@ class source:
                 url = 'http:' + url
 
             for i in range(3):
-                u = client.request(url, output='geturl')
+                u = directstream.googlepass(url)
                 if not u == None: break
 
-            url = u
-
-            if 'requiressl=yes' in url: url = url.replace('http://', 'https://')
-            else: url = url.replace('https://', 'http://')
-            return url
+            return u
         except:
             return
 

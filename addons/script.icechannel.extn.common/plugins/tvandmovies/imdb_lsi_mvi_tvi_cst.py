@@ -16,7 +16,7 @@ class IMDb(MovieIndexer, TVShowIndexer, CustomSettings, ListIndexer):
     display_name = "IMDb"
     
     
-    img='https://istream-xbmc-repo.googlecode.com/svn/images/imdb.png'
+    img='http://istreamrepo.me/istream/images/imdb.png'
     
     default_indexer_enabled = 'true'
     
@@ -24,7 +24,7 @@ class IMDb(MovieIndexer, TVShowIndexer, CustomSettings, ListIndexer):
         xml = '<settings>\n'
         xml += '<category label="IMDb SETTINGS">\n'
         xml += '<setting id="en_us" type="bool" label="Show English Language Only" default="true" />\n'        
-        xml += '<setting id="get_url()" label="Base Url" type="labelenum" default="http://imdb.com/" values="http://imdb.com/|http://akas.imdb.com/" />\n'
+        xml += '<setting id="get_url()" label="Base Url" type="labelenum" default="http://www.imdb.com/" values="http://www.imdb.com/|http://akas.imdb.com/" />\n'
         xml += '<setting id="imdb_user_number" label="User Number" type="text" default="" />\n'
         xml += '<setting id="future" type="bool" label="Show Future Episodes" default="false" />\n'
         xml += '<setting id="watch_list_main" type="bool" label="Show Main Watchlist" default="true" />\n'
@@ -229,7 +229,7 @@ class IMDb(MovieIndexer, TVShowIndexer, CustomSettings, ListIndexer):
                 if item_year:
                     item_year = item_year.group(1)
                 else:
-                    r='>%s</a>\n    <span class=".+?">\((.+?)\)<'%item_title
+                    r='>%s</a>\n    <span class=".+?">\((.+?)\)<'%item_title.replace('?','\?')
                     item_year=re.search(r, content)
                     item_year = re.search("([0-9]+)", item_year.group(1))
                     if item_year:
@@ -269,7 +269,8 @@ class IMDb(MovieIndexer, TVShowIndexer, CustomSettings, ListIndexer):
         
         import re
         import datetime
-        
+        import xbmc
+        xbmc.log(date_str)
         item_air_date = common.unescape(date_str).replace('      ', '')
         item_fmtd_air_date = ""
         if 'Jan' in item_air_date: item_fmtd_air_date = '01-'
@@ -285,7 +286,10 @@ class IMDb(MovieIndexer, TVShowIndexer, CustomSettings, ListIndexer):
         elif 'Nov' in item_air_date: item_fmtd_air_date = '11-'
         elif 'Dec' in item_air_date: item_fmtd_air_date = '12-'
         else: item_fmtd_air_date = '12-'
-        date = re.search('([0-9]{1,2})', item_air_date)
+        date=item_air_date.split('.')[0]
+
+        date = re.search('([0-9]{1,2})', date)
+
         if date: 
             date = date.group(1)
             item_fmtd_air_date += "%02d-" % int(date)
@@ -303,7 +307,7 @@ class IMDb(MovieIndexer, TVShowIndexer, CustomSettings, ListIndexer):
         except TypeError:
             import time
             item_fmtd_air_date = datetime.datetime(*(time.strptime(item_fmtd_air_date, "%m-%d-%Y")[0:6]))
-            
+ 
         return item_fmtd_air_date
 
     def GetContent(self, indexer, url, title, name, year, season, episode, type, list):      

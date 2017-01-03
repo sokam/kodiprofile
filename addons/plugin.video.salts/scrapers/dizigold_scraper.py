@@ -82,7 +82,7 @@ class Scraper(scraper.Scraper):
 
                 for source in sources:
                     direct = source.get('direct', True)
-                    stream_url = source['file'] + '|User-Agent=%s' % (scraper_utils.get_ua())
+                    stream_url = source['file'] + scraper_utils.append_headers({'User-Agent': scraper_utils.get_ua()})
                     if direct:
                         host = self._get_direct_hostname(stream_url)
                         if host == 'gvideo':

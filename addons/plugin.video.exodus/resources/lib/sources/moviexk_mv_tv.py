@@ -28,6 +28,7 @@ from resources.lib.modules import directstream
 
 class source:
     def __init__(self):
+        self.language = ['en']
         self.domains = ['moviexk.com']
         self.base_link = 'http://moviexk.com'
         self.search_link = 'aHR0cHM6Ly93d3cuZ29vZ2xlYXBpcy5jb20vY3VzdG9tc2VhcmNoL3YxZWxlbWVudD9rZXk9QUl6YVN5Q1ZBWGlVelJZc01MMVB2NlJ3U0cxZ3VubU1pa1R6UXFZJnJzej1maWx0ZXJlZF9jc2UmbnVtPTEwJmhsPWVuJmN4PTAxMzQ0NjM1MTYzMDQ5MzU5NTE5Nzprc2NlY2tjdXZxcyZnb29nbGVob3N0PXd3dy5nb29nbGUuY29tJnE9JXM='
@@ -35,17 +36,33 @@ class source:
 
     def movie(self, imdb, title, year):
         try:
+            url = '%s/%s-%s/' % (self.base_link, cleantitle.geturl(title), year)
+
+            url = client.request(url, output='geturl')
+
+            if url == None: raise Exception()
+
+            url = re.findall('(?://.+?|)(/.+)', url)[0]
+            url = client.replaceHTMLCodes(url)
+            url = url.encode('utf-8')
+            return url
+        except:
+            pass
+
+        try:
             t = cleantitle.get(title)
 
             q = '%s %s' % (title, year)
             q = self.search_link.decode('base64') % urllib.quote_plus(q)
 
-            r = client.request(q)
+            r = client.request(q, error=True)
+
             r = json.loads(r)['results']
             r = [(i['url'], i['titleNoFormatting']) for i in r]
             r = [(i[0], re.findall('(?:^Watch Movie |^Watch |)(.+?)\((\d{4})', i[1])) for i in r]
             r = [(i[0], i[1][0][0], i[1][0][1]) for i in r if i[1]]
-            r = [i for i in r if not 'fb_comment_' in i[0]]
+            r = [(urllib.unquote_plus(i[0]), i[1], i[2]) for i in r]
+            r = [(urlparse.urlparse(i[0]).path, i[1], i[2]) for i in r]
             r = [i for i in r if t == cleantitle.get(i[1]) and year == i[2]]
             r = re.sub('/watch-movie-|-\d+$', '/', r[0][0].strip())
 
@@ -54,7 +71,7 @@ class source:
             url = url.encode('utf-8')
             return url
         except:
-            return
+            pass
 
 
     def tvshow(self, imdb, tvdb, tvshowtitle, year):
@@ -71,9 +88,12 @@ class source:
    
             r = [(i[0], re.findall('(?:^Watch Movie |^Watch |)(.+?)$', i[1])) for i in r]
             r = [(i[0], i[1][0].rsplit('TV Series')[0].strip('(')) for i in r if i[1]]
-            r = [i for i in r if not 'fb_comment_' in i[0]]
+            r = [(urllib.unquote_plus(i[0]), i[1]) for i in r]
+            r = [(urlparse.urlparse(i[0]).path, i[1]) for i in r]
             r = [i for i in r if t == cleantitle.get(i[1])]
-            r = r[0][0].strip()
+
+            r = urlparse.urljoin(self.base_link, r[0][0].strip())
+
             if '/watch-movie-' in r: r = re.sub('/watch-movie-|-\d+$', '/', r)
 
             y = re.findall('(\d{4})', r)
@@ -114,12 +134,7 @@ class source:
 
             url = f.rsplit('?', 1)[0]
 
-            r = client.request(url)
-
-            r = client.parseDOM(r, 'div', attrs = {'class': 'btn.+?'})
-            r = client.parseDOM(r, 'a', ret='href')[0]
-
-            r = client.request(r, referer=url)
+            r = client.request(url, mobile=True)
 
             r = client.parseDOM(r, 'div', attrs = {'id': 'servers'})
             r = client.parseDOM(r, 'li')
@@ -136,7 +151,7 @@ class source:
 
             for u in r:
                 try:
-                    url = client.request(u)
+                    url = client.request(u, mobile=True)
                     url = client.parseDOM(url, 'source', ret='src')
                     url = [i.strip().split()[0] for i in url]
 
@@ -152,12 +167,6 @@ class source:
 
 
     def resolve(self, url):
-        try:
-            url = client.request(url, output='geturl')
-            if 'requiressl=yes' in url: url = url.replace('http://', 'https://')
-            else: url = url.replace('https://', 'http://')
-            return url
-        except:
-            return
+        return directstream.googlepass(url)
 
 

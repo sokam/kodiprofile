@@ -54,7 +54,7 @@ class Scraper(scraper.Scraper):
             html = self._http_get(url, cache_limit=.5)
             for div in dom_parser.parse_dom(html, 'div', {'class': 'tabcontent'}):
                 for source in dom_parser.parse_dom(div, 'source', ret='src'):
-                    source += '|User-Agent=%s' % (scraper_utils.get_ua())
+                    source += scraper_utils.append_headers({'User-Agent': scraper_utils.get_ua()})
                     sources[source] = {'quality': None, 'direct': True}
                 
                 iframe_url = dom_parser.parse_dom(div, 'iframe', ret='src')

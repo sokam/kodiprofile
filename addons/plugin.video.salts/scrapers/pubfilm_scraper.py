@@ -77,7 +77,7 @@ class Scraper(scraper.Scraper):
                     sources = self._parse_sources_list(html)
                     
                 for source in sources:
-                    stream_url = source + '|User-Agent=%s' % (scraper_utils.get_ua())
+                    stream_url = source + scraper_utils.append_headers({'User-Agent': scraper_utils.get_ua()})
                     direct = sources[source]['direct']
                     quality = sources[source]['quality']
                     if sources[source]['direct']:

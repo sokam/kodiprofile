@@ -18,7 +18,7 @@
 import re
 import urlparse
 import kodi
-import log_utils
+import log_utils  # @UnusedImport
 import dom_parser
 from salts_lib import scraper_utils
 from salts_lib.constants import FORCE_NO_MATCH
@@ -26,7 +26,7 @@ from salts_lib.constants import QUALITIES
 from salts_lib.constants import VIDEO_TYPES
 import scraper
 
-BASE_URL = 'http://projectfreetv.at'
+BASE_URL = 'http://project-free-tv.ch'
 
 class Scraper(scraper.Scraper):
     base_url = BASE_URL

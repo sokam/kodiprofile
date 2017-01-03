@@ -106,7 +106,7 @@ viewsFile = os.path.join(dataPath, 'views.db')
 
 bookmarksFile = os.path.join(dataPath, 'bookmarks.db')
 
-providercacheFile = os.path.join(dataPath, 'providers.11.db')
+providercacheFile = os.path.join(dataPath, 'providers.12.db')
 
 metacacheFile = os.path.join(dataPath, 'meta.4.db')
 
@@ -183,7 +183,7 @@ def selectDialog(list, heading=addonInfo('name')):
 
 
 def moderator():
-    netloc = [urlparse.urlparse(sys.argv[0]).netloc, '', 'plugin.video.live.streamspro', 'plugin.video.phstreams', 'plugin.video.cpstreams', 'plugin.video.tinklepad', 'plugin.video.metallic']
+    netloc = [urlparse.urlparse(sys.argv[0]).netloc, '', 'plugin.video.live.streamspro', 'plugin.video.phstreams', 'plugin.video.cpstreams', 'plugin.video.streamarmy', 'plugin.video.tinklepad', 'plugin.video.metallic']
 
     if not infoLabel('Container.PluginName') in netloc: sys.exit()
 

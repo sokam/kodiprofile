@@ -1,3 +1,9 @@
+[B]Version 0.9.20:[/B] - (12/18/2016)
+- default.py: Gaining updated URL domains to kissanime.ru
+- config.py: Gaining updated URL domains to kissanime.ru
+- teh_tools.py: Gaining updated URL domain to kissanime.ru
+
+
 [B]Note:[/B]  IRC Chat Channel: #The_Projects @ irc.snoonet.org:6667
 
 [B]Version 0.9.19[/B] - (05/02/2016)

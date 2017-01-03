@@ -29,7 +29,7 @@ from salts_lib.constants import FORCE_NO_MATCH
 from salts_lib.constants import QUALITIES
 
 BASE_URL = 'http://moviehubs.net'
-GK_URL = 'http://cdn.moviehubs.net/media/plugins/gkpluginsphp.php'
+GK_URL = BASE_URL + '/media/plugins/gkpluginsphp.php'
 HOST_SUB = {'dailymotion': 'idowatch.net', 'other': 'watchers.to', 'veoh': 'entervideo.net'}
 
 class Scraper(scraper.Scraper):
@@ -91,7 +91,7 @@ class Scraper(scraper.Scraper):
                         host = self._get_direct_hostname(stream_url)
                         if host == 'gvideo':
                             quality = scraper_utils.gv_get_quality(stream_url)
-                            stream_url += '|User-Agent=%s' % (scraper_utils.get_ua())
+                            stream_url += scraper_utils.append_headers({'User-Agent': scraper_utils.get_ua()})
                             direct = True
                         else:
                             host = HOST_SUB.get(source['host'].lower(), source['host'])
@@ -123,16 +123,16 @@ class Scraper(scraper.Scraper):
         html = self._http_get(search_url, cache_limit=8)
         for item in dom_parser.parse_dom(html, 'div', {'class': 'thumb'}):
             match_url = dom_parser.parse_dom(item, 'a', ret='href')
-            match_title = re.search('onmouseover="([^"]+)', item)
-            match_year = dom_parser.parse_dom(item, 'div', {'class': '[^"]*status-year[^"]*'})
-            if match_url and match_title:
+            match_title_year = re.search('onmouseover="([^"]+)', item)
+            year_frag = dom_parser.parse_dom(item, 'div', {'class': '[^"]*status-year[^"]*'})
+            if match_url and match_title_year:
                 match_url = match_url[0]
-                match_title = match_title.group(1)
-                match = re.search('<b>\s*(.*)\s*</b>', match_title)
-                if match:
-                    match_title = match.group(1)
-                    
-                match_year = match_year[0] if match_year else ''
+                match_title_year = match_title_year.group(1)
+                match = re.search('<b>\s*(.*)\s*</b>', match_title_year)
+                if match: match_title_year = match.group(1)
+                match_title, match_year = scraper_utils.extra_year(match_title_year)
+                if not match_year and year_frag:
+                    match_year = year_frag[0]
                                     
                 if not year or not match_year or year == match_year:
                     result = {'title': scraper_utils.cleanse_title(match_title), 'year': match_year, 'url': scraper_utils.pathify_url(match_url)}

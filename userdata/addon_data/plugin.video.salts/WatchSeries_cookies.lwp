@@ -1,5 +1,7 @@
 #LWP-Cookies-2.0
 Set-Cookie3: tu=8c4cff617b1163313f140d1c95a9e0ed; path="/"; domain=".myvideolinks.eu"; path_spec; expires="2019-12-31 23:00:00Z"; httponly=None; version=0
+Set-Cookie3: __cfduid=dfb97dbc06efe9ffb13e022cd25b874a01481578212; path="/"; domain=".watchseries.ag"; path_spec; domain_dot; expires="2017-12-12 21:30:12Z"; HttpOnly=None; version=0
+Set-Cookie3: __cfduid=dac98f74987b90355eed4a80457cedd0e1481578212; path="/"; domain=".watchseriesfree.to"; path_spec; domain_dot; expires="2017-12-12 21:30:12Z"; HttpOnly=None; version=0
 Set-Cookie3: __cfduid=dffeaf6709bda6bc62a1a44e888a88f621481002930; path="/"; domain=".ws.mg"; path_spec; domain_dot; expires="2017-12-06 05:42:10Z"; HttpOnly=None; version=0
 Set-Cookie3: PHPSESSID=25ced1d80a53258b82c5c409b587c8bb; path="/"; domain="uflix.org"; path_spec; discard; version=0
 Set-Cookie3: PHPSESSID=cb9j67jchot6qgobevekd40lf4; path="/"; domain="www.primewire.ag"; path_spec; discard; version=0

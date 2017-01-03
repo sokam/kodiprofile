@@ -15,11 +15,10 @@ GNU General Public License for more details.
 You should have received a copy of the GNU General Public License
 along with this program. If not, see <http://www.gnu.org/licenses/>.
 '''
-import re
 import json
-import time
 from lib import helpers
 from urlresolver import common
+from urlresolver.common import i18n
 from urlresolver.resolver import UrlResolver, ResolverError
 
 INTERVALS = 5
@@ -50,10 +49,10 @@ class TheVideoResolver(UrlResolver):
             raise ResolverError('Unable to locate links')
 
     def __auth_ip(self, media_id):
-        header = 'TheVideo.me Stream Authorization'
-        line1 = 'To play this video, authorization is required'
-        line2 = 'Visit the link below to authorize the devices on your network:'
-        line3 = '[B][COLOR blue]https://thevideo.me/pair[/COLOR][/B] then "Activate Streaming"'
+        header = i18n('thevideo_auth_header')
+        line1 = i18n('auth_required')
+        line2 = i18n('visit_link')
+        line3 = i18n('click_pair') % ('https://thevideo.me/pair')
         with common.kodi.CountdownDialog(header, line1, line2, line3) as cd:
             return cd.start(self.__check_auth, [media_id])
         

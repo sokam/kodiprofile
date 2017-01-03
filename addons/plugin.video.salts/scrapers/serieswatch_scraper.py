@@ -47,7 +47,7 @@ class Scraper(scraper.Scraper):
         if source_url and source_url != FORCE_NO_MATCH:
             if video.video_type == VIDEO_TYPES.MOVIE:
                 meta = scraper_utils.parse_movie_link(source_url)
-                stream_url = source_url + '|User-Agent=%s' % (scraper_utils.get_ua())
+                stream_url = source_url + scraper_utils.append_headers({'User-Agent': scraper_utils.get_ua()})
                 quality = scraper_utils.height_get_quality(meta['height'])
                 hoster = {'multi-part': False, 'host': self._get_direct_hostname(stream_url), 'class': self, 'quality': quality, 'views': None, 'rating': None, 'url': stream_url, 'direct': True}
                 if 'format' in meta: hoster['format'] = meta['format']
@@ -55,7 +55,7 @@ class Scraper(scraper.Scraper):
             else:
                 for episode in self.__match_episode(source_url, video):
                     meta = scraper_utils.parse_episode_link(episode['title'])
-                    stream_url = episode['url'] + '|User-Agent=%s' % (scraper_utils.get_ua())
+                    stream_url = episode['url'] + scraper_utils.append_headers({'User-Agent': scraper_utils.get_ua()})
                     stream_url = stream_url.replace(self.base_url, '')
                     quality = scraper_utils.height_get_quality(meta['height'])
                     hoster = {'multi-part': False, 'host': self._get_direct_hostname(stream_url), 'class': self, 'quality': quality, 'views': None, 'rating': None, 'url': stream_url, 'direct': True}

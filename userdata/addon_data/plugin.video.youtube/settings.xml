@@ -22,9 +22,11 @@
     <setting id="kodion.refresh_token" value="" />
     <setting id="kodion.search.size" value="1" />
     <setting id="kodion.setup_wizard" value="false" />
+    <setting id="kodion.subtitle.languages" value="0" />
     <setting id="kodion.support.alternative_player" value="true" />
     <setting id="kodion.video.quality" value="3" />
     <setting id="kodion.video.quality.ask" value="false" />
+    <setting id="kodion.video.quality.mpd" value="false" />
     <setting id="kodion.view.default" value="50" />
     <setting id="kodion.view.episodes" value="50" />
     <setting id="kodion.view.override" value="false" />
@@ -44,6 +46,7 @@
     <setting id="saved_searches" value="3" />
     <setting id="search" value="true" />
     <setting id="shows" value="true" />
+    <setting id="simple.requests.ssl.verify" value="false" />
     <setting id="store_searches" value="[&apos;collegiate shag&apos;, &apos;shag&apos;]" />
     <setting id="subscriptions" value="true" />
     <setting id="timeout" value="3" />
@@ -58,6 +61,10 @@
     <setting id="youtube.api.enable" value="true" />
     <setting id="youtube.api.id" value="861556708454-d6dlm3lh05idd8npek18k6be8ba3oc68" />
     <setting id="youtube.api.key" value="AIzaSyAd-YEOqZz9nXVzGtn3KWzYLbLaajhqIDA" />
+    <setting id="youtube.api.key.switch" value="own" />
+    <setting id="youtube.api.key.switch.use" value="own" />
+    <setting id="youtube.api.last.hash" value="b2482a6a38dcddfa7692a27bdc6bd3d3" />
+    <setting id="youtube.api.last.switch" value="own" />
     <setting id="youtube.api.lastused.error" value="false" />
     <setting id="youtube.api.lastused.id" value="294899064488-a8kc1k1jd00kamqre0vd2nftuiifrf6a" />
     <setting id="youtube.api.lastused.key" value="AIzaSyCZwQuosFJbQznqnqpqpYlaJWVMn16wBvs" />
@@ -68,6 +75,7 @@
     <setting id="youtube.channel.fanart.show" value="true" />
     <setting id="youtube.folder.browse_channels.show" value="true" />
     <setting id="youtube.folder.disliked_videos.show" value="true" />
+    <setting id="youtube.folder.history.playlist" value="" />
     <setting id="youtube.folder.history.show" value="true" />
     <setting id="youtube.folder.liked_videos.show" value="true" />
     <setting id="youtube.folder.live.show" value="true" />
@@ -76,9 +84,11 @@
     <setting id="youtube.folder.playlists.show" value="true" />
     <setting id="youtube.folder.popular_right_now.show" value="true" />
     <setting id="youtube.folder.recommendations.show" value="true" />
+    <setting id="youtube.folder.settings.show" value="true" />
     <setting id="youtube.folder.sign.in.show" value="false" />
     <setting id="youtube.folder.sign.out.show" value="true" />
     <setting id="youtube.folder.subscriptions.show" value="true" />
+    <setting id="youtube.folder.watch_later.playlist" value="" />
     <setting id="youtube.folder.watch_later.show" value="true" />
     <setting id="youtube.language" value="en-US" />
     <setting id="youtube.playlist.watchlater.autoremove" value="true" />

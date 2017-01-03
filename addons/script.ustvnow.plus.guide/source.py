@@ -518,9 +518,9 @@ class Database(object):
         c = self.conn.cursor()
         channelList = list()
         if onlyVisible:
-            c.execute('SELECT * FROM channels WHERE source=? AND visible=? ORDER BY title', [self.source.KEY, True])
+            c.execute('SELECT * FROM channels WHERE source=? AND visible=? ORDER BY title COLLATE NOCASE', [self.source.KEY, True])
         else:
-            c.execute('SELECT * FROM channels WHERE source=? ORDER BY title', [self.source.KEY])
+            c.execute('SELECT * FROM channels WHERE source=? ORDER BY title COLLATE NOCASE', [self.source.KEY])
         for row in c:
             channel = Channel(row['id'], row['title'], row['logo'], row['stream_url'], row['visible'], row['weight'])
             channelList.append(channel)

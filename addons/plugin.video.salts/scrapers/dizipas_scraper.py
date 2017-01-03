@@ -65,7 +65,7 @@ class Scraper(scraper.Scraper):
             sources.update(self.__get_linked(html))
             sources.update(self.__get_ajax(html, url))
             for source in sources:
-                stream_url = source + '|User-Agent=%s' % (scraper_utils.get_ua())
+                stream_url = source + scraper_utils.append_headers({'User-Agent': scraper_utils.get_ua()})
                 host = self._get_direct_hostname(source)
                 hoster = {'multi-part': False, 'host': host, 'class': self, 'quality': sources[source], 'views': None, 'rating': None, 'url': stream_url, 'direct': True, 'subs': 'Turkish subtitles'}
                 hosters.append(hoster)

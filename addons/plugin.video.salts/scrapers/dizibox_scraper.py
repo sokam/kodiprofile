@@ -93,7 +93,7 @@ class Scraper(scraper.Scraper):
             js_data = scraper_utils.parse_json(html, xhr_url)
             try:
                 for source in js_data['VideoSources']:
-                    stream_url = source['file'] + '|User-Agent=%s' % (scraper_utils.get_ua())
+                    stream_url = source['file'] + scraper_utils.append_headers({'User-Agent': scraper_utils.get_ua()})
                     host = self._get_direct_hostname(source['file'])
                     label = source.get('label', '')
                     if host == 'gvideo':
@@ -116,7 +116,7 @@ class Scraper(scraper.Scraper):
             stream_url, height = match.groups()
             if stream_url not in seen_urls:
                 seen_urls[stream_url] = True
-                stream_url += '|User-Agent=%s' % (scraper_utils.get_ua())
+                stream_url += scraper_utils.append_headers({'User-Agent': scraper_utils.get_ua()})
                 host = self._get_direct_hostname(stream_url)
                 if host == 'gvideo':
                     quality = scraper_utils.gv_get_quality(stream_url)

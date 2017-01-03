@@ -97,7 +97,7 @@ class Scraper(scraper.Scraper):
                     if sources[source]['direct']:
                         host = self._get_direct_hostname(source)
                         if host != 'gvideo':
-                            stream_url = source + '|User-Agent=%s&Referer=%s' % (scraper_utils.get_ua(), urllib.quote(page_url))
+                            stream_url = source + scraper_utils.append_headers({'User-Agent': scraper_utils.get_ua(), 'Referer': page_url})
                         else:
                             stream_url = source
                     else:

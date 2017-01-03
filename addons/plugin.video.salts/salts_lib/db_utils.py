@@ -601,13 +601,14 @@ class DB_Connection():
             while True:
                 try:
                     if not is_read: DB_Connection.writes += 1
-                    cur = self.__get_db_connection().cursor()
+                    db_con = self.__get_db_connection()
+                    cur = db_con.cursor()
                     # log_utils.log('Running: %s with %s' % (sql, params), log_utils.LOGDEBUG, COMPONENT)
                     cur.execute(sql, params)
                     if is_read:
                         rows = cur.fetchall()
                     cur.close()
-                    self.__get_db_connection().commit()
+                    db_con.commit()
                     if SPEED == 0:
                         self.__update_writers()
                     return rows
@@ -620,13 +621,13 @@ class DB_Connection():
                         self.db = None
                     elif any(s for s in ['no such table', 'no such column'] if s in str(e)):
                         if self.db is not None:
-                            self.__get_db_connection().rollback()
+                            db_con.rollback()
                         raise DatabaseRecoveryError(e)
                     else:
                         raise
                 except DatabaseError as e:
                     if self.db is not None:
-                        self.__get_db_connection().rollback()
+                        db_con.rollback()
                     raise DatabaseRecoveryError(e)
         finally:
             if self.db_type == DB_TYPES.SQLITE and not is_read:

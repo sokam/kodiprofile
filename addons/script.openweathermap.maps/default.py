@@ -279,3 +279,4 @@ MONITOR = MyMonitor()
 if ( __name__ == "__main__" ):
     log('script version %s started' % ADDONVERSION)
     Main()
+

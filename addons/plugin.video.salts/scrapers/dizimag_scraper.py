@@ -17,7 +17,6 @@
     along with this program.  If not, see <http://www.gnu.org/licenses/>.
 """
 import re
-import urllib
 import urlparse
 import kodi
 import log_utils  # @UnusedImport
@@ -97,10 +96,10 @@ class Scraper(scraper.Scraper):
             redir_url = self._http_get(stream_url, headers=headers, allow_redirect=False, cache_limit=.25)
             if redir_url.startswith('http'):
                 stream_url = redir_url
-                stream_url += '|User-Agent=%s' % (scraper_utils.get_ua())
+                stream_url += scraper_utils.append_headers({'User-Agent': scraper_utils.get_ua()})
             else:
-                stream_url += '|User-Agent=%s&Referer=%s&Cookie=%s' % (scraper_utils.get_ua(), urllib.quote(page_url), self._get_stream_cookies())
-                
+                stream_url += scraper_utils.append_headers({'User-Agent': scraper_utils.get_ua(), 'Referer': page_url, 'Cookie': self._get_stream_cookies()})
+
         host = self._get_direct_hostname(stream_url)
         if host == 'gvideo':
             quality = scraper_utils.gv_get_quality(stream_url)

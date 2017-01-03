@@ -30,7 +30,8 @@
     <setting id="HideEPGwithRDS" type="bool">false</setting>
     <setting id="SkinHelper.EnableAnimatedPosters" type="bool">false</setting>
     <setting id="SkinHelper.EnablePVRThumbs" type="bool">false</setting>
-    <setting id="HomeVideosButton4" type="string">plugin.video.ustvnow.tva</setting>
+    <setting id="disablecontext:script.playrandomvideos" type="bool">false</setting>
+    <setting id="HomeVideosButton4" type="string">plugin.video.ccloudtv</setting>
     <setting id="HomeVideosButton5" type="string">plugin.video.prosport</setting>
     <setting id="CustomBackgroundPath" type="string">special://home/media/SKINDEFAULT.jpg</setting>
     <setting id="HomeVideosButton2" type="string">plugin.video.salts</setting>
@@ -40,7 +41,7 @@
     <setting id="HomeMusicButton2" type="string">plugin.audio.npr</setting>
     <setting id="HomeMusicButton3" type="string">plugin.audio.booksshouldbefree</setting>
     <setting id="HomeMusicButton4" type="string">plugin.audio.hongkongradio</setting>
-    <setting id="HomeMusicButton5" type="string">script.navi-x</setting>
+    <setting id="HomeMusicButton5" type="string">plugin.audio.tuneinradio</setting>
     <setting id="HomePictureButton1" type="string">plugin.image.500px</setting>
     <setting id="HomePictureButton2" type="string">plugin.image.comicstrips</setting>
     <setting id="HomePictureButton3" type="string">plugin.image.flickr</setting>

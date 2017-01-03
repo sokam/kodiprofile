@@ -17,7 +17,6 @@
 """
 import re
 from string import capwords
-import urllib
 import urlparse
 import kodi
 import log_utils  # @UnusedImport
@@ -64,7 +63,7 @@ class Scraper(scraper.Scraper):
                             quality = QUALITIES.HD720
                         else:
                             quality = QUALITIES.HIGH
-                        stream_url = stream_url + '|User-Agent=%s&Referer=%s&Cookie=%s' % (scraper_utils.get_ua(), urllib.quote(url), self._get_stream_cookies())
+                        stream_url += scraper_utils.append_headers({'User-Agent': scraper_utils.get_ua(), 'Referer': url, 'Cookie': self._get_stream_cookies()})
                         hoster = {'multi-part': False, 'host': self._get_direct_hostname(stream_url), 'class': self, 'url': stream_url, 'quality': quality, 'views': None, 'rating': None, 'direct': True}
                         hosters.append(hoster)
 

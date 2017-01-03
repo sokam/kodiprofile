@@ -4,7 +4,7 @@
 ### # Author: 			#		The Highway
 ### # Version:			#		(ever changing)
 ### # Description: 	#		My Project Config File
-###	#	
+###	#Updated By:	#		Gaining	2016-2017 changed domain to kissanime.ru
 ### ############################################################################################################
 ### ############################################################################################################
 ### Imports ###
@@ -82,7 +82,7 @@ def ps(x):
 			,'__credits__': 				""
 			,'_addon_id': 					addon_id
 			,'_plugin_id': 					addon_id
-			,'_domain_url': 				"https://kissanime.to"
+			,'_domain_url': 				"https://kissanime.ru"
 			,'_database_name': 			"kissanime"
 			,'common_word': 				"Anime"
 			,'common_word2': 				"Watch"
@@ -92,22 +92,22 @@ def ps(x):
 			,'content_links': 			"list"
 			,'proxy1x': 						"http://69.197.132.80:3128"
 			,'proxy2x': 						"http://50.2.64.206:7808"
-			,'proxy': 							"http://173.213.96.229:7808"
+			,'proxy': 							"http://104.25.46.113:7808"
 			,'proxy_o1': 						"http://50.2.64.206:7808"
 			,'proxy_old': 					"http://192.69.200.37:7808"
 			,'proxy3': 							"http://198.27.97.214:7808"
 			,'proxy4': 							"http://72.29.101.11:7808"
 			,'proxy5': 							"http://198.56.208.37:8089"
-			,'proxy6': 							"http://199.241.138.201:7808"
+			,'proxy6': 							"http://104.25.46.113:80"
 			,'special.home.addons': 'special:'+os.sep+os.sep+'home'+os.sep+'addons'+os.sep
 			,'special.home': 				'special:'+os.sep+os.sep+'home'
-			,'img_kisslogo':				net.url_with_headers('http://kissanime.to/Content/images/logo.png')
-			,'img_next':						net.url_with_headers('http://kissanime.to/Content/images/next.png')
-			,'img_prev':						net.url_with_headers('http://kissanime.to/Content/images/previous.png')
-			,'img_az':							net.url_with_headers('http://kissanime.to/Content/images/logo.png')
-			,'img_search':					net.url_with_headers('http://kissanime.to/Content/images/read.png')
-			,'img_hot':							net.url_with_headers('http://kissanime.to/Content/images/hot.png')
-			,'img_updated':					net.url_with_headers('http://kissanime.to/Content/images/newupdate.png')
+			,'img_kisslogo':				net.url_with_headers('http://kissanime.ru/Content/images/logo.png')
+			,'img_next':						net.url_with_headers('http://kissanime.ru/Content/images/next.png')
+			,'img_prev':						net.url_with_headers('http://kissanime.ru/Content/images/previous.png')
+			,'img_az':							net.url_with_headers('http://kissanime.ru/Content/images/logo.png')
+			,'img_search':					net.url_with_headers('http://kissanime.ru/Content/images/read.png')
+			,'img_hot':							net.url_with_headers('http://kissanime.ru/Content/images/hot.png')
+			,'img_updated':					net.url_with_headers('http://kissanime.ru/Content/images/newupdate.png')
 			,'GENRES_Notes': 				{'Dub':"English voices, no subtitle.",
 															'Movie':"Movie",
 															'Special':"Special",

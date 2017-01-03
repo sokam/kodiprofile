@@ -24,10 +24,12 @@ import re,urllib,urlparse,json,base64
 from resources.lib.modules import cleantitle
 from resources.lib.modules import client
 from resources.lib.modules import cache
+from resources.lib.modules import directstream
 
 
 class source:
     def __init__(self):
+        self.language = ['en']
         self.domains = ['pubfilmno1.com', 'pubfilm.com', 'pidtv.com']
         self.base_link = 'http://pidtv.com'
         self.moviesearch_link = '/%s-%s-full-hd-pidtv-free.html'
@@ -162,12 +164,6 @@ class source:
 
 
     def resolve(self, url):
-        try:
-            url = client.request(url, output='geturl')
-            if 'requiressl=yes' in url: url = url.replace('http://', 'https://')
-            else: url = url.replace('https://', 'http://')
-            return url
-        except:
-            return
+        return directstream.googlepass(url)
 
 

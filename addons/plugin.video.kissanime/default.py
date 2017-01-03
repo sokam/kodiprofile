@@ -4,7 +4,7 @@
 ### # Author: 			#		The Highway
 ### # Version:			#		vX.X.X
 ### # Description: 	#		http://www.KissAnime.com
-###	#	
+###	# Updated By:	#		Gaining	2016-2017 changed domain to kissanime.ru
 ### ############################################################################################################
 ### ############################################################################################################
 _testing=True; _testing=False
@@ -1637,7 +1637,7 @@ def listBookmarks(section,url='',cat=''):
 			#labs['title']=name
 			try: 
 				img=re.compile('"(http://.+?\.jpg)"').findall(tInfo)[0].replace(' ','%20')
-				if 'kissanime.com/' in img: img=img.replace('kissanime.com/','kissanime.to/')
+				if 'kissanime.com/' in img: img=img.replace('kissanime.com/','kissanime.ru/')
 				img=net.url_with_headers(img)
 			except: img=_artIcon
 			fimg=''+img
@@ -1672,8 +1672,8 @@ def listBookmarks(section,url='',cat=''):
 				##if os.path.exists(xbmc.translatePath(ps('special.home.addons'))+ps('cMI.primewire.search.folder')):
 				##	contextMenuItems.append((ps('cMI.primewire.search.name'), 		ps('cMI.primewire.search.url') 	% (ps('cMI.primewire.search.plugin'), ps('cMI.primewire.search.section'), name)))
 				##### Right Click Menu for: Anime ##### /\ #####
-				if 'kissanime.com/' in img: img=img.replace('kissanime.com/','kissanime.to/')
-				if 'kissanime.com/' in fimg: fimg=fimg.replace('kissanime.com/','kissanime.to/')
+				if 'kissanime.com/' in img: img=img.replace('kissanime.com/','kissanime.ru/')
+				if 'kissanime.com/' in fimg: fimg=fimg.replace('kissanime.com/','kissanime.ru/')
 				img = net.url_with_headers(img)
 				fimg = net.url_with_headers(fimg)
 				pars={'mode':'GetEpisodes','url':item_url,'img':img,'title':labs['title']}
@@ -1726,7 +1726,7 @@ def listUpcoming(section=_default_section_, url='', startPage='1', numOfPages='1
 			vtype='episode'; animetype='tvshow'; fimg=""; img=""; contextMenuItems=[]; item_url=_domain_url+item_url; labs={'imdb_id':'','cover_url':'','backdrop_url':'','plot':''}; 
 			animename=''+name; animename=animename.replace(' (Dub)','').replace(' (Sub)','').replace(' (TV)','').replace(' OVA','').replace(' Movies','').replace(' Movie','').replace(' Specials','').replace(' New','') #.replace(' 2nd Season','')
 			FoundItK=visited_check2(animename)
-			if 'kissanime.com/' in tImage: tImage=tImage.replace('kissanime.com/','kissanime.to/')
+			if 'kissanime.com/' in tImage: tImage=tImage.replace('kissanime.com/','kissanime.ru/')
 			tImage = net.url_with_headers(tImage)
 			img=''+tImage; fimg=''+tImage; 
 			labs[u'title']=name
@@ -1737,8 +1737,8 @@ def listUpcoming(section=_default_section_, url='', startPage='1', numOfPages='1
 			labs[u'plot']+='\n'+cFL("Date Aired: ",'lime')+cFL(tDateAired,'pink')
 			labs[u'plot']+='\n'+cFL(tSummary,'grey')
 			
-			if 'kissanime.com/' in img: img=img.replace('kissanime.com/','kissanime.to/')
-			if 'kissanime.com/' in fimg: fimg=fimg.replace('kissanime.com/','kissanime.to/')
+			if 'kissanime.com/' in img: img=img.replace('kissanime.com/','kissanime.ru/')
+			if 'kissanime.com/' in fimg: fimg=fimg.replace('kissanime.com/','kissanime.ru/')
 			img = net.url_with_headers(img)
 			fimg = net.url_with_headers(fimg)			
 			if FoundItK==True: labs[u'overlay']=7
@@ -1767,8 +1767,8 @@ def listItems(section=_default_section_,url='',startPage='1',numOfPages='1',genr
 	#DoE("ReplaceWindow(500)")
 	#DoE("ActivateWindow(500)")
 	
-	##url='http://kissanime.to'
-	#url=url.replace('://kissanime.to/','://www.kissanime.to/')
+	##url='http://kissanime.ru'
+	#url=url.replace('://kissanime.ru/','://www.kissanime.ru/')
 	#url=url.replace('http://','https://')
 	
 	if (tfalse(addst('customproxy','false'))==True) and (len(addst('proxy','')) > 9): Proxy=addst('proxy','')
@@ -1958,13 +1958,13 @@ def listItems(section=_default_section_,url='',startPage='1',numOfPages='1',genr
 					
 				###
 				#debob(tInfo);
-				if 'kissanime.com/' in img: img=img.replace('kissanime.com/','kissanime.to/')
+				if 'kissanime.com/' in img: img=img.replace('kissanime.com/','kissanime.ru/')
 				img = net.url_with_headers(img)
 				if (EnableSiteArt==True):
 					if (img=="") or (img==u""):
 						try: 
 							img=re.compile('"(http://.+?\.jpg)"').findall(tInfo)[0].replace(' ','%20'); #debob({'img':img}); 
-							if 'kissanime.com/' in img: img=img.replace('kissanime.com/','kissanime.to/')
+							if 'kissanime.com/' in img: img=img.replace('kissanime.com/','kissanime.ru/')
 							img = net.url_with_headers(img)
 						except: img=_artIcon
 					if (fimg=="") or (fimg==u""): fimg=''+img
@@ -2064,8 +2064,8 @@ def listItems(section=_default_section_,url='',startPage='1',numOfPages='1',genr
 			## ### ## 
 			contextMenuItems.append(('Use Browser', 'XBMC.RunPlugin(%s)' % _addon.build_plugin_url({'mode':'BrowseUrl','url':item_url}) ))
 			## ### ## 
-			if 'kissanime.com/' in img: img=img.replace('kissanime.com/','kissanime.to/')
-			if 'kissanime.com/' in fimg: fimg=fimg.replace('kissanime.com/','kissanime.to/')
+			if 'kissanime.com/' in img: img=img.replace('kissanime.com/','kissanime.ru/')
+			if 'kissanime.com/' in fimg: fimg=fimg.replace('kissanime.com/','kissanime.ru/')
 			img = net.url_with_headers(img)
 			fimg = net.url_with_headers(fimg)			
 			pars={'mode':'GetEpisodes','url':item_url,'img':img,'title':labs[u'title'],'type':vtype,'fanart':fimg}
@@ -2144,8 +2144,8 @@ def listItems(section=_default_section_,url='',startPage='1',numOfPages='1',genr
 			#if (LInfo=='Completed'): labs[u'title']+=' '+addst("text-is-completed","[COLOR lime]*[/COLOR]")
 			#if ('</a>' in LInfo): labs[u'title']+=' '+addst("text-has-latest-episode","[COLOR cornflowerblue]*[/COLOR]")
 			## ### ## 
-			if 'kissanime.com/' in img: img=img.replace('kissanime.com/','kissanime.to/')
-			if 'kissanime.com/' in fimg: fimg=fimg.replace('kissanime.com/','kissanime.to/')
+			if 'kissanime.com/' in img: img=img.replace('kissanime.com/','kissanime.ru/')
+			if 'kissanime.com/' in fimg: fimg=fimg.replace('kissanime.com/','kissanime.ru/')
 			img = net.url_with_headers(img)
 			fimg = net.url_with_headers(fimg)			
 			if (tfalse(addst("Notyetaired"))==False) and (LInfo=='Not yet aired'): deb(LInfo,name)
@@ -2353,14 +2353,14 @@ def listItems_Upcoming(section=_default_section_, url='', startPage='1', numOfPa
 				
 				
 			###
-			if 'kissanime.com/' in img: img=img.replace('kissanime.com/','kissanime.to/')
+			if 'kissanime.com/' in img: img=img.replace('kissanime.com/','kissanime.ru/')
 			img=net.url_with_headers(img)
 			if (EnableSiteArt==True):
 				if (img=="") or (img==u"") or (len(img)==0):
 					#try: img=re.compile('"(http://.+?\.jpg)"').findall(tInfo)[0].replace(' ','%20')
 					#except: img=_artIcon
 					img=img_url
-					if 'kissanime.com/' in img: img=img.replace('kissanime.com/','kissanime.to/')
+					if 'kissanime.com/' in img: img=img.replace('kissanime.com/','kissanime.ru/')
 					img=net.url_with_headers(img)
 				if (fimg=="") or (fimg==u""): fimg=''+img
 				if fimg==_artIcon: fimg=_artFanart
@@ -2448,8 +2448,8 @@ def listItems_Upcoming(section=_default_section_, url='', startPage='1', numOfPa
 			##### Right Click Menu for: Anime ##### /\ #####
 			#try: contextMenuItems.append(("Refresh MetaData", "XBMC.RunPlugin(%s)" % _addon.build_plugin_url({'mode':'refresh_meta','imdb_id':str(labs['imdb_id']),'video_type':animetype,'title':animename,'alt_id':'imdbnum','year':'','url':item_url}) ))
 			#except: pass
-			if 'kissanime.com/' in img: img=img.replace('kissanime.com/','kissanime.to/')
-			if 'kissanime.com/' in fimg: fimg=fimg.replace('kissanime.com/','kissanime.to/')
+			if 'kissanime.com/' in img: img=img.replace('kissanime.com/','kissanime.ru/')
+			if 'kissanime.com/' in fimg: fimg=fimg.replace('kissanime.com/','kissanime.ru/')
 			img=net.url_with_headers(img)
 			fimg=net.url_with_headers(fimg)				
 			pars={'mode':'GetEpisodes','url':item_url,'img':img,'title':labs[u'title'],'type':vtype,'fanart':fimg}
@@ -2594,9 +2594,9 @@ def listItems_OLD(section=_default_section_, url='', startPage='1', numOfPages='
 	#s='<a\n*\s*href="(/'+ps('common_word')+'/[A-Za-z0-9\-/_]+)"\n*\s*title=\'(.*?)\'\n*\s*/*>\n*\s*(.+?)\s*\n*\s*</a>'
 	#s='<a\n*\s*href="(/'+ps('common_word')+'/[A-Za-z0-9\-/_]+)"\n*\s*title=\'(.*?)\'\n*\s*/*>\s*\n*\s*(.+?)\s*\n*\s*</a>\s*\n*\s*\n*\s*</td>\s*\n*\s*<td>\s*\n*\s*(.*?)\s*\n*\s*</td>\s*\n*\s*</tr>'
 	s='<a\n*\s*href="(/'+ps('common_word')+'/[A-Za-z0-9\-/_]+)"\n*\s*title=\'(.*?)\'\n*\s*[/]*>\s*\n*\s*(.+?)\s*\n*\s*</a>\s*\n*\s*\n*\s*(.*?)\s*\n*\s*\n*\s*</td>\s*\n*\s*<td>\s*\n*\s*(.+?)\s*\n*\s*</td>\s*\n*\s*</tr>'
-	## ## http://kissanime.to/M
-	## ## <article class="underline" alink="/M/Anime/Pupa"><div class="post-preview"><a href="/M/Anime/Pupa"><img src="http://kissanime.to/Uploads/Etc/9-15-2013/61078454554395l.jpg"/></a></div><div class="post-content"><h2><a href="/M/Anime/Pupa">Pupa</a></h2><p>Episode 001</p><div class="date"><span class="bggreen">Ongoing</span></div></div><div class="clear"></div></article>
-	## s='<article class="underline" alink=".+?"><div class="post-preview"><a href="/M(/Anime/.+?)"><img src="(http://kissanime.to/Uploads/Etc/[0-9\-]+/[0-9]+.jpg)"/></a></div><div class="post-content"><h2><a href=".+?">(.+?)</a></h2><p>(.+?)</p><div class="date"><span class="\D+">(.+?)</span></div></div><div class="clear"></div></article>'
+	## ## http://kissanime.ru/M
+	## ## <article class="underline" alink="/M/Anime/Pupa"><div class="post-preview"><a href="/M/Anime/Pupa"><img src="http://kissanime.ru/Uploads/Etc/9-15-2013/61078454554395l.jpg"/></a></div><div class="post-content"><h2><a href="/M/Anime/Pupa">Pupa</a></h2><p>Episode 001</p><div class="date"><span class="bggreen">Ongoing</span></div></div><div class="clear"></div></article>
+	## s='<article class="underline" alink=".+?"><div class="post-preview"><a href="/M(/Anime/.+?)"><img src="(http://kissanime.ru/Uploads/Etc/[0-9\-]+/[0-9]+.jpg)"/></a></div><div class="post-content"><h2><a href=".+?">(.+?)</a></h2><p>(.+?)</p><div class="date"><span class="\D+">(.+?)</span></div></div><div class="clear"></div></article>'
 	#s2=''
 	#s1=[s,s2]
 	#for s in s1:
@@ -2610,7 +2610,7 @@ def listItems_OLD(section=_default_section_, url='', startPage='1', numOfPages='
 			contextMenuItems=[]; item_url=_domain_url+item_url; labs={}; LInfo=LInfo.strip()
 			try: 
 				img=re.compile('"(http://.+?\.jpg)"').findall(tInfo)[0].replace(' ','%20')
-				if 'kissanime.com/' in img: img=img.replace('kissanime.com/','kissanime.to/')
+				if 'kissanime.com/' in img: img=img.replace('kissanime.com/','kissanime.ru/')
 				img=net.url_with_headers(img)
 			except: img=_artIcon
 			fimg=''+img
@@ -2755,7 +2755,7 @@ def listItems_OLD(section=_default_section_, url='', startPage='1', numOfPages='
 				
 			#
 			#mlabs['']  mlabs['backdrop_url']
-			#try: img=re.compile('("http://kissanime.to/Uploads/Etc/[0-9\-]+/[0-9]+[A-Za-z0-9\-_/\s]*.jpg)"').findall(tInfo)[0]
+			#try: img=re.compile('("http://kissanime.ru/Uploads/Etc/[0-9\-]+/[0-9]+[A-Za-z0-9\-_/\s]*.jpg)"').findall(tInfo)[0]
 			labs['title']=name.replace(' (Dub)',' [COLOR green](Dub)[/COLOR]').replace(' (Sub)',' [COLOR blue](Sub)[/COLOR]').replace(' OVA',' [COLOR red]OVA[/COLOR]').replace(' Movie',' [COLOR maroon]Movie[/COLOR]').replace(': ',':[CR] ').replace(' New',' [COLOR yellow]New[/COLOR]').replace(' (TV)',' [COLOR cornflowerblue](TV)[/COLOR]').replace(' Specials',' [COLOR deeppink]Specials[/COLOR]') #.replace('','')
 			deb('title',labs['title']); deb('url',item_url); deb('img',img); deb('fanart',fimg)
 			#deb('plot',labs['plot']); 
@@ -2780,8 +2780,8 @@ def listItems_OLD(section=_default_section_, url='', startPage='1', numOfPages='
 			##if os.path.exists(xbmc.translatePath(ps('special.home.addons'))+ps('cMI.primewire.search.folder')):
 			##	contextMenuItems.append((ps('cMI.primewire.search.name'), 		ps('cMI.primewire.search.url') 	% (ps('cMI.primewire.search.plugin'), ps('cMI.primewire.search.section'), name)))
 			##### Right Click Menu for: Anime ##### /\ #####
-			if 'kissanime.com/' in img: img=img.replace('kissanime.com/','kissanime.to/')
-			if 'kissanime.com/' in fimg: fimg=fimg.replace('kissanime.com/','kissanime.to/')
+			if 'kissanime.com/' in img: img=img.replace('kissanime.com/','kissanime.ru/')
+			if 'kissanime.com/' in fimg: fimg=fimg.replace('kissanime.com/','kissanime.ru/')
 			img=net.url_with_headers(img)
 			fimg=net.url_with_headers(fimg)				
 			pars={'mode':'GetEpisodes','url':item_url,'img':img,'title':labs['title']}
@@ -2816,7 +2816,7 @@ def listEpisodes(section,url,img='',showtitle='',season=''): #_param['img']
 		try: img=re.compile('<div class="barTitle">\s*Cover</div>\s*<div class="barContent">\s*<div class="arrow-general">\s*(?:&nbsp;\s*)?</div>\s*<div style="text-align: center">\s*<img width="\d+px" height="\d+px" src="(.+?)"\s*/>').findall(nolines(html).replace('&nbsp;',' '))[0]
 		except: img=_artIcon
 	debob(['Thumb',img])
-	if 'kissanime.com/' in img: img=img.replace('kissanime.com/','kissanime.to/')
+	if 'kissanime.com/' in img: img=img.replace('kissanime.com/','kissanime.ru/')
 	img=net.url_with_headers(img)
 	fimg=addpr("fanart",img)
 	if (len(fimg)==0) or ('icon.png' in fimg.lower()):
@@ -3224,8 +3224,8 @@ def listEpisodes(section,url,img='',showtitle='',season=''): #_param['img']
 					contextMenuItems.append(BMa)
 					contextMenuItems.append(BMr)
 			#BookmarkID
-			if 'kissanime.com/' in img: img=img.replace('kissanime.com/','kissanime.to/')
-			if 'kissanime.com/' in fimg: fimg=fimg.replace('kissanime.com/','kissanime.to/')
+			if 'kissanime.com/' in img: img=img.replace('kissanime.com/','kissanime.ru/')
+			if 'kissanime.com/' in fimg: fimg=fimg.replace('kissanime.com/','kissanime.ru/')
 			img=net.url_with_headers(img)
 			fimg=net.url_with_headers(fimg)				
 			pars={'mode':'GetLinks','img':img,'url':ep_url,'title':ep_name,'studio':showtitle+" - "+ep_name,'showtitle':showtitle,'epnameo':epnameo}
@@ -3276,8 +3276,8 @@ def listEpisodes(section,url,img='',showtitle='',season=''): #_param['img']
 	##EnableSiteArt=tfalse(addst("enable-site-art"))
 	EnableVisitedLeft=tfalse(addst("enable-visited-left"))
 	##if EnableMeta==False: EnableSiteArt=True
-	if 'kissanime.com/' in img: img=img.replace('kissanime.com/','kissanime.to/')
-	if 'kissanime.com/' in fimg: fimg=fimg.replace('kissanime.com/','kissanime.to/')
+	if 'kissanime.com/' in img: img=img.replace('kissanime.com/','kissanime.ru/')
+	if 'kissanime.com/' in fimg: fimg=fimg.replace('kissanime.com/','kissanime.ru/')
 	img=net.url_with_headers(img)
 	fimg=net.url_with_headers(fimg)		
 	if len(relatedshows) > 0:
@@ -3369,7 +3369,7 @@ def ListAdvertisements(section=_default_section_,html="",pageUrl="",url=""):
 	#deb("Number of Advertisements*",str(len(Advertisements))); #debob(html); 
 	if len(Advertisements) > 0:
 		for AdvertisementName,AdvertisementUrl,AdvertisementImage in Advertisements:
-			if 'kissanime.com/' in AdvertisementImage: AdvertisementImage=AdvertisementImage.replace('kissanime.com/','kissanime.to/')
+			if 'kissanime.com/' in AdvertisementImage: AdvertisementImage=AdvertisementImage.replace('kissanime.com/','kissanime.ru/')
 			AdvertisementImage=net.url_with_headers(AdvertisementImage)
 			try: _addon.add_directory({'mode':'BrowseUrl','section':section,'url':AdvertisementUrl},{'title':"Advertisement [ [I]"+AdvertisementName+"[/I] ]"}, img=AdvertisementImage)
 			except: pass
@@ -3445,17 +3445,17 @@ def Menu_2():
 	WhereAmI('@ the Menu 2')
 	if tfalse(addst("singleline"))==True: CR2=' '
 	else: CR2='[CR]'
-	_addon.add_directory({'mode':'System.Exec','url':'http://kissanime.to/'},{'title': cFL_('KissAnime.to',ps('cFL_color3'))},is_folder=True,fanart=_artFanart,img='http://kissanime.to/Content/images/logo.png'); 
-	#_addon.add_directory({'mode':'System.Exec','url':'http://kissanime.to/M'},{'title': cFL_('KissAnime Mobile',ps('cFL_color3'))},is_folder=True,fanart=_artFanart,img='http://kissanime.to/Content/images/logo.png'); 
-	#_addon.add_directory({'mode':'System.Exec','url':'http://kissanime.to/Message/ReportError'},{'title': cFL_('Report Errors',ps('cFL_color3'))},is_folder=True,fanart=_artFanart,img='http://kissanime.to/Content/images/logo.png'); 
-	#_addon.add_directory({'mode':'System.Exec','url':''},{'title': cFL_('KissAnime',ps('cFL_color3'))},is_folder=True,fanart=_artFanart,img='http://kissanime.to/Content/images/logo.png'); 
-	_addon.add_directory({'mode':'System.Exec','url':'http://kissanime.to/AdvanceSearch'},{'title': cFL_('Advanced Search',ps('cFL_color3'))},is_folder=True,fanart=_artFanart,img='http://kissanime.to/Content/images/logo.png'); 
+	_addon.add_directory({'mode':'System.Exec','url':'http://kissanime.ru/'},{'title': cFL_('kissanime.ru',ps('cFL_color3'))},is_folder=True,fanart=_artFanart,img='http://kissanime.ru/Content/images/logo.png'); 
+	#_addon.add_directory({'mode':'System.Exec','url':'http://kissanime.ru/M'},{'title': cFL_('KissAnime Mobile',ps('cFL_color3'))},is_folder=True,fanart=_artFanart,img='http://kissanime.ru/Content/images/logo.png'); 
+	#_addon.add_directory({'mode':'System.Exec','url':'http://kissanime.ru/Message/ReportError'},{'title': cFL_('Report Errors',ps('cFL_color3'))},is_folder=True,fanart=_artFanart,img='http://kissanime.ru/Content/images/logo.png'); 
+	#_addon.add_directory({'mode':'System.Exec','url':''},{'title': cFL_('KissAnime',ps('cFL_color3'))},is_folder=True,fanart=_artFanart,img='http://kissanime.ru/Content/images/logo.png'); 
+	_addon.add_directory({'mode':'System.Exec','url':'http://kissanime.ru/AdvanceSearch'},{'title': cFL_('Advanced Search',ps('cFL_color3'))},is_folder=True,fanart=_artFanart,img='http://kissanime.ru/Content/images/logo.png'); 
 	_addon.add_directory({'mode':'System.Exec','url':'https://www.facebook.com/groups/kisscommunity'},{'title': cFL_('Discussion',ps('cFL_color3'))},is_folder=True,fanart='https://fbcdn-sphotos-b-a.akamaihd.net/hphotos-ak-prn2/t1/954767_686622534684507_1720354290_n.jpg',img='http://i.imgur.com/ImsT2tb.png'); 
 	_addon.add_directory({'mode':'System.Exec','url':'https://www.facebook.com/messages/kissanimeweb'},{'title': cFL_('Request Anime',ps('cFL_color3'))},is_folder=True,fanart='https://scontent-b-ord.xx.fbcdn.net/hphotos-frc3/t1/483600_372465079535066_686333025_n.jpg',img='http://i.imgur.com/S568G7Q.jpg'); 
 	_addon.add_directory({'mode':'System.Exec','url':'http://kissmanga.com/'},{'title': cFL_('KissManga.com',ps('cFL_color3'))},is_folder=True,fanart='https://scontent-b-ord.xx.fbcdn.net/hphotos-frc3/t1/1538852_511236602306952_774531197_n.jpg',img='http://kissmanga.com/Content/images/logo.png'); 
 	_addon.add_directory({'mode':'System.Exec','url':'https://www.facebook.com/kissanimeweb'},{'title': cFL_('FaceBook',ps('cFL_color3'))},is_folder=True,fanart='https://scontent-b-ord.xx.fbcdn.net/hphotos-frc3/t1/483600_372465079535066_686333025_n.jpg',img='http://www.marketingpilgrim.com/wp-content/uploads/2012/01/facebook-icon-1.png'); 
 	_addon.add_directory({'mode':'System.Exec','url':'http://forum.kissanime.com/'},{'title': cFL_('KA Forum',ps('cFL_color3'))},is_folder=True,fanart=_artFanart,img='http://forum.kissanime.com/logo1.png'); 
-	_addon.add_directory({'mode':'System.Exec','url':'http://kissanime.to/Message/FAQ'},{'title': cFL_('KA F.A.Q.',ps('cFL_color3'))},is_folder=True,fanart=_artFanart,img='http://kissanime.to/Content/images/logo.png'); 
+	_addon.add_directory({'mode':'System.Exec','url':'http://kissanime.ru/Message/FAQ'},{'title': cFL_('KA F.A.Q.',ps('cFL_color3'))},is_folder=True,fanart=_artFanart,img='http://kissanime.ru/Content/images/logo.png'); 
 	
 	
 	set_view('list',addst('default-view')); eod()
@@ -3639,7 +3639,7 @@ def Menu_MainMenu(): #The Main Menu
 	##_addon.add_directory({'mode': 'DownloadStop'}, 		 {'title':  cFL('S',ps('cFL_color'))+'top Current Download'},is_folder=False		,img=_artDead							,fanart=_artFanart)
 	_addon.add_directory({'mode': 'TextBoxFile',  'title': "[COLOR cornflowerblue]Local Change Log:[/COLOR]  %s"  % (__plugin__), 'url': ps('changelog.local')}, 	{'title': cFL_('Local Change Log',ps('cFL_color3'))}, is_folder=False ,fanart=_artFanart,img=psgn('local change log','.jpg')) #,img=art('thechangelog','.jpg')
 	
-	_addon.add_directory({'mode': 'BrowseMenu2'},{'title': cFL_('Kiss'+ps('common_word')+' '+CR2+'Site Shortcuts',ps('cFL_color3'))},is_folder=True,fanart=_artFanart,img=psgn('site shortcuts','.jpg')) #_artIcon) #'http://kissanime.to/Content/images/logo.png') #,img=art('thechangelog','.jpg')
+	_addon.add_directory({'mode': 'BrowseMenu2'},{'title': cFL_('Kiss'+ps('common_word')+' '+CR2+'Site Shortcuts',ps('cFL_color3'))},is_folder=True,fanart=_artFanart,img=psgn('site shortcuts','.jpg')) #_artIcon) #'http://kissanime.ru/Content/images/logo.png') #,img=art('thechangelog','.jpg')
 	
 	#
 	if (len(addst("LastVideoPlayItemUrl")) > 0) and (tfalse(addst("enable-autoplay-lvp"))==True): _addon.add_directory({'mode':'PlayVideoB','url':addst("LastVideoPlayItemUrl"),'title':addst('LastVideoPlayItemName'),'studio':addst('LastVideoPlayItemStudio'),'img':addst("LastVideoPlayItemImg")},{'title':cFL_('Last Video [Played]: '+cFL(addst('LastVideoPlayItemName'),ps('cFL_color3'))+CR2+cFL(addst('LastVideoPlayItemStudio'),'blue'),ps('cFL_color'))},fanart=addst("LastVideoPlayItemImg"),img=addst("LastVideoPlayItemImg"),is_folder=False)
@@ -3670,7 +3670,7 @@ def Menu_MainMenu(): #The Main Menu
 	if tfalse(addst("splash-screen"))==True: 
 		#do_My_Splash(5); 
 		import splash_highway as splash
-		splash.do_My_Splash('http://kissanime.to/Content/images/logo.png',5); 
+		splash.do_My_Splash('http://kissanime.ru/Content/images/logo.png',5); 
 		#splash.do_My_Splash('https://scontent-b-ord.xx.fbcdn.net/hphotos-frc3/t1.0-9/483600_372465079535066_686333025_n.jpg',5); 
 	set_view('list',addst('default-view')); eod()
 	### ############ 
@@ -3791,8 +3791,8 @@ def fav__COMMON__check_SQL(FavUrl,subfav):
 			if len(r) > 0:
 				if r[0]==FavUrl: 
 					iFound=True; #debob(["db result",r]); 
-		elif 'kissanime.to/' in FavUrl:
-			FavUrl=FavUrl.replace('kissanime.to/','kissanime.com/')
+		elif 'kissanime.ru/' in FavUrl:
+			FavUrl=FavUrl.replace('kissanime.ru/','kissanime.com/')
 			r=get_database_1st_s('SELECT url FROM %s WHERE (url == "%s")' % (FavTable,FavUrl)); 
 			if r:
 				#debob(["db result",r]); 
@@ -3865,8 +3865,8 @@ def fav__list(section,subfav=''):
 			for (name,year,img,fanart,country,url,plot,genre,dbid) in favs:
 				if (debugging==True): print '----------------------------'
 				if (debugging==True): print name,year,img,fanart,country,url,plot,genre,dbid #,pars,labs
-				if 'kissanime.com/' in img: img=img.replace('kissanime.com/','kissanime.to/')
-				if 'kissanime.com/' in fanart: fanart=fanart.replace('kissanime.com/','kissanime.to/')
+				if 'kissanime.com/' in img: img=img.replace('kissanime.com/','kissanime.ru/')
+				if 'kissanime.com/' in fanart: fanart=fanart.replace('kissanime.com/','kissanime.ru/')
 				img=net.url_with_headers(img)
 				fanart=net.url_with_headers(fanart)
 				contextMenuItems=[]; labs2={}; labs2['fanart']=''
@@ -3967,21 +3967,21 @@ def FavoritesSQL_List(favsN='1'):
 										#####
 										if DoAFixOrRuni==True:
 											url=k[0]; 
-											sDB=['UPDATE shows SET url = "%s" WHERE (url == "%s")' % (  url.replace('kissanime.com/','kissanime.to/').replace('kissanime.me/','kissanime.to/').replace('http://','https://'),url )]
+											sDB=['UPDATE shows SET url = "%s" WHERE (url == "%s")' % (  url.replace('kissanime.com/','kissanime.ru/').replace('kissanime.me/','kissanime.ru/').replace('http://','https://'),url )]
 											debob(sDB); 
 											do_database(sDB); 
-											sDB=['UPDATE %s SET url = "%s" WHERE (url == "%s")' % (  FavTable,url.replace('kissanime.com/','kissanime.to/').replace('kissanime.me/','kissanime.to/').replace('http://','https://'),url )]
+											sDB=['UPDATE %s SET url = "%s" WHERE (url == "%s")' % (  FavTable,url.replace('kissanime.com/','kissanime.ru/').replace('kissanime.me/','kissanime.ru/').replace('http://','https://'),url )]
 											debob(sDB); 
 											do_database(sDB); 
 											img=_artIcon; fanart=_artFanart; 
 											try: img=k[6]; fanart=k[7]; 
 											except: pass
 											if (img.startswith('http://')) or ('kissanime.com' in img) or ('kissanime.me' in img):
-												sDB=['UPDATE shows SET img = "%s" WHERE (img == "%s")' % (  img.replace('kissanime.com/','kissanime.to/').replace('kissanime.me/','kissanime.to/').replace('http://','https://'),img )]
+												sDB=['UPDATE shows SET img = "%s" WHERE (img == "%s")' % (  img.replace('kissanime.com/','kissanime.ru/').replace('kissanime.me/','kissanime.ru/').replace('http://','https://'),img )]
 												debob(sDB); 
 												do_database(sDB); 
 											if (fanart.startswith('http://')) or ('kissanime.com' in fanart) or ('kissanime.me' in fanart):
-												sDB=['UPDATE shows SET fanart = "%s" WHERE (fanart == "%s")' % (  fanart.replace('kissanime.com/','kissanime.to/').replace('kissanime.me/','kissanime.to/').replace('http://','https://'),fanart )]
+												sDB=['UPDATE shows SET fanart = "%s" WHERE (fanart == "%s")' % (  fanart.replace('kissanime.com/','kissanime.ru/').replace('kissanime.me/','kissanime.ru/').replace('http://','https://'),fanart )]
 												debob(sDB); 
 												do_database(sDB); 
 											
@@ -4001,12 +4001,12 @@ def FavoritesSQL_List(favsN='1'):
 											if len(img)==0: 
 												img=_artIcon; 
 											else:
-												if 'kissanime.com/' in img: img=img.replace('kissanime.com/','kissanime.to/')
+												if 'kissanime.com/' in img: img=img.replace('kissanime.com/','kissanime.ru/')
 												img=net.url_with_headers(img)
 											if len(fanart)==0: 
 												fanart=_artFanart; 
 											else:
-												if 'kissanime.com/' in fanart: fanart=fanart.replace('kissanime.com/','kissanime.to/')
+												if 'kissanime.com/' in fanart: fanart=fanart.replace('kissanime.com/','kissanime.ru/')
 												fanart=net.url_with_headers(fanart)										
 											pars['url']=url; pars['fanart']=fanart; pars['img']=img; labs['plot']=plot; labs['imdb_id']=imdb; fimg=fanart; item_url=url; 
 											name=title; pars['title']=title; 
@@ -4086,7 +4086,7 @@ def History101(): ## This method uses both the SQL's visited and shows tables.  
 										try: img=k[6]; fanart=k[7]; 
 										except: pass
 										try: 
-											url=k[0].replace('kissanime.com/','kissanime.to/').replace('kissanime.me/','kissanime.to/').replace('http://','https://'); 
+											url=k[0].replace('kissanime.com/','kissanime.ru/').replace('kissanime.me/','kissanime.ru/').replace('http://','https://'); 
 											title=k[1]; visitedUrl=k[10] 
 											plot=urllib.unquote_plus(k[9]); 
 										except: pass
@@ -4096,13 +4096,13 @@ def History101(): ## This method uses both the SQL's visited and shows tables.  
 											if len(img)==0: 
 												img=_artIcon; 
 											else:
-												if 'kissanime.com/' in img: img=img.replace('kissanime.com/','kissanime.to/')
+												if 'kissanime.com/' in img: img=img.replace('kissanime.com/','kissanime.ru/')
 												if img.startswith('http://'): img=img.replace('http://','https://')
 												img=net.url_with_headers(img)
 											if len(fanart)==0: 
 												fanart=_artFanart; 
 											else:
-												if 'kissanime.com/' in fanart: fanart=fanart.replace('kissanime.com/','kissanime.to/')
+												if 'kissanime.com/' in fanart: fanart=fanart.replace('kissanime.com/','kissanime.ru/')
 												if fanart.startswith('http://'): fanart=fanart.replace('http://','https://')
 												fanart=net.url_with_headers(fanart)
 											
@@ -4182,16 +4182,16 @@ def History101a(): ## This method uses only the SQL's visited table.
 										if len(img)==0: 
 											img=_artIcon; 
 										else:
-											if 'kissanime.com/' in img: img=img.replace('kissanime.com/','kissanime.to/')
+											if 'kissanime.com/' in img: img=img.replace('kissanime.com/','kissanime.ru/')
 											if img.startswith('http://'): img=img.replace('http://','https://')
 											img=net.url_with_headers(img)
 										if len(fanart)==0: 
 											fanart=_artFanart; 
 										else:
-											if 'kissanime.com/' in fanart: fanart=fanart.replace('kissanime.com/','kissanime.to/')
+											if 'kissanime.com/' in fanart: fanart=fanart.replace('kissanime.com/','kissanime.ru/')
 											if fanart.startswith('http://'): fanart=fanart.replace('http://','https://')
 											fanart=net.url_with_headers(fanart)										
-										pars['url']=k[0].replace('kissanime.com/','kissanime.to/').replace('kissanime.me/','kissanime.to/').replace('http://','https://'); 
+										pars['url']=k[0].replace('kissanime.com/','kissanime.ru/').replace('kissanime.me/','kissanime.ru/').replace('http://','https://'); 
 										pars['mode']='GetEpisodes'; pars['site']=addpr('site'); pars['section']=addpr('section'); pars['fanart']=fanart; pars['img']=img; 
 										pars['title']=k[1]; labs['title']=k[1] #pars['title']; 
 										_addon.add_directory(pars,labs,img=img,fanart=fanart,contextmenu_items=contextMenuItems,context_replace=True)
@@ -4235,13 +4235,13 @@ def History201():
 										else:
 											#img=ArtworkCaching(img)
 											#if i==5: return
-											if 'kissanime.com/' in img: img=img.replace('kissanime.com/','kissanime.to/')
+											if 'kissanime.com/' in img: img=img.replace('kissanime.com/','kissanime.ru/')
 											if img.startswith('http://'): img=img.replace('http://','https://')
 											img=net.url_with_headers(img)
 										if len(fanart)==0: 
 											fanart=_artFanart; 
 										else:
-											if 'kissanime.com/' in fanart: fanart=fanart.replace('kissanime.com/','kissanime.to/')
+											if 'kissanime.com/' in fanart: fanart=fanart.replace('kissanime.com/','kissanime.ru/')
 											if fanart.startswith('http://'): fanart=fanart.replace('http://','https://')
 											fanart=net.url_with_headers(fanart) 
 										fimg=fanart; item_url=url; pars['url']=url; pars['imdbnum']=k[5]; pars['imdbid']=k[5]; labs['imdb_id']=k[5]; pars['mode']='GetEpisodes'; pars['site']=addpr('site'); pars['section']=addpr('section'); pars['fanart']=fanart; pars['img']=img; 
@@ -4470,9 +4470,9 @@ def check_mode(mode=''):
 	try: uRL=_param['url']
 	except: uRL=''
 	if ('kissanime.com/' in uRL) and (not 'forum' in uRL):
-		uRL=uRL.replace('kissanime.com/','kissanime.to/')
+		uRL=uRL.replace('kissanime.com/','kissanime.ru/')
 	elif ('kissanime.me/' in uRL): # and (not 'forum' in uRL):
-		uRL=uRL.replace('kissanime.me/','kissanime.to/')
+		uRL=uRL.replace('kissanime.me/','kissanime.ru/')
 	#####
 	if (mode=='') or (mode=='main') or (mode=='MainMenu'): Menu_MainMenu()
 	#elif (mode=='PlayVideo'): 						PlayVideo(uRL, _param['infoLabels'], _param['listitem'])

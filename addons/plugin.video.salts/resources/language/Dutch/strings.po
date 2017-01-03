@@ -2,7 +2,7 @@
 # Addon id: plugin.video.salts
 # Addon Provider: TV Addons
 # Translators:
-# Jan Schouten <jschouten@schoutenwebdesign.nl>, 2016
+# Jan Schouten, 2016
 # Mike Bike, 2015-2016
 # Rodrigo, 2015
 # tknorris, 2015
@@ -10,7 +10,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: SALTS\n"
 "POT-Creation-Date: YEAR-MO-DA HO:MI+ZONE\n"
-"PO-Revision-Date: 2016-10-12 02:21+0000\n"
+"PO-Revision-Date: 2016-12-09 16:37+0000\n"
 "Last-Translator: tknorris\n"
 "Language-Team: Dutch (http://www.transifex.com/tv-addons/salts/language/nl/)\n"
 "MIME-Version: 1.0\n"
@@ -213,6 +213,8 @@ msgstr "bevonden. De volgende instellingen zullen veranderd worden:"
 
 msgctxt "#30048"
 msgid ""
+"[COLOR red]Scraper Sort Order, Source Sorting, Calendar Start Day, Trakt "
+"Timeout, Scraper Timeout, Watchlist in MNE, Test Direct[/COLOR]"
 msgstr "[COLOR red]Scraper Volgorder, Bron Volgorder, Kalender start dag, Trakt Tijdslimiet, Scraper Tijdslimiet, Volglijst in MNE, Test Direct[/COLOR]"
 
 msgctxt "#30049"
@@ -965,6 +967,7 @@ msgstr "SALTS Database Fout Herstellen"
 
 msgctxt "#30247"
 msgid ""
+"The SALTS DB has an issue that may be correctable by a forced DB migration."
 msgstr "De SALTS DB heeft een Fout die hersteld kan worden door een DB migratie"
 
 msgctxt "#30248"

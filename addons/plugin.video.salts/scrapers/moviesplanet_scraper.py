@@ -88,7 +88,7 @@ class Scraper(scraper.Scraper):
                                 
         for source in sources:
             host = self._get_direct_hostname(source)
-            stream_url = source + '|User-Agent=%s' % (scraper_utils.get_ua())
+            stream_url = source + scraper_utils.append_headers({'User-Agent': scraper_utils.get_ua()})
             if host == 'gvideo':
                 quality = scraper_utils.gv_get_quality(source)
             else:

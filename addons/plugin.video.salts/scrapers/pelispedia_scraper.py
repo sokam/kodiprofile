@@ -29,7 +29,7 @@ from salts_lib.constants import FORCE_NO_MATCH
 from salts_lib.constants import QUALITIES
 
 BASE_URL = 'http://www.pelispedia.tv'
-PK_URL = '/Pe_Player_Html5/pk/pk_2/plugins/protected.php'
+PK_URL = '/Pe_Player_Html6/pk/pk_2/plugins/protected.php'
 GK_URL = '/gkphp_flv/plugins/gkpluginsphp.php'
 DEL_LIST = ['sub', 'id']
 XHR = {'X-Requested-With': 'XMLHttpRequest'}
@@ -105,7 +105,7 @@ class Scraper(scraper.Scraper):
                             quality = scraper_utils.height_get_quality(item['height'])
                         else:
                             quality = QUALITIES.HD720
-                        stream_url = item['url'] + '|User-Agent=%s' % (scraper_utils.get_ua())
+                        stream_url = item['url'] + scraper_utils.append_headers({'User-Agent': scraper_utils.get_ua()})
                         hoster = {'multi-part': False, 'url': stream_url, 'class': self, 'quality': quality, 'host': self._get_direct_hostname(item['url']), 'rating': None, 'views': None, 'direct': True}
                         hosters.append(hoster)
         return hosters
@@ -132,7 +132,7 @@ class Scraper(scraper.Scraper):
         return hosters
         
     def _get_episode_url(self, show_url, video):
-        episode_pattern = 'href="([^"]+-season-%s-episode-%s[^\d"]*)' % (video.season, video.episode)
+        episode_pattern = 'href="([^"]+-season-%s-episode-%s(?!\d)[^"]*)' % (video.season, video.episode)
         title_pattern = 'href="(?P<url>[^"]+-season-\d+-episode-\d+[^"]*).*?<span[^>]*class="[^"]*ml5[^"]*">(?P<title>[^<]+)'
         return self._default_get_episode_url(show_url, video, episode_pattern, title_pattern)
     

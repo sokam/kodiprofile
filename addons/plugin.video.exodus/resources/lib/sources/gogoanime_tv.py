@@ -30,6 +30,7 @@ from resources.lib.modules import tvmaze
 
 class source:
     def __init__(self):
+        self.language = ['en']
         self.domains = ['gogoanimemobile.com', 'gogoanimemobile.net', 'gogoanime.io']
         self.base_link = 'http://ww1.gogoanime.io'
         self.search_link = '/search.html?keyword=%s'
@@ -116,12 +117,6 @@ class source:
 
 
     def resolve(self, url):
-        try:
-            url = client.request(url, output='geturl')
-            if 'requiressl=yes' in url: url = url.replace('http://', 'https://')
-            else: url = url.replace('https://', 'http://')
-            return url
-        except:
-            return
+        return directstream.googlepass(url)
 
 

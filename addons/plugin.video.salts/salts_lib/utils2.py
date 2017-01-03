@@ -216,6 +216,7 @@ def filename_from_title(title, video_type, year=None):
 
     filename = re.sub(r'(?!%s)[^\w\-_\.]', '.', filename)
     filename = re.sub('\.+', '.', filename)
+    filename = re.sub(re.compile('(CON|PRN|AUX|NUL|COM\d|LPT\d)\.', re.I), '\\1_', filename)
     xbmc.makeLegalFilename(filename)
     return filename
 
@@ -276,7 +277,7 @@ def test_stream(hoster):
     # parse_qsl doesn't work because it splits elements by ';' which can be in a non-quoted UA
     try:
         headers = dict([item.split('=') for item in (hoster['url'].split('|')[1]).split('&')])
-        for key in headers: headers[key] = urllib.unquote(headers[key])
+        for key in headers: headers[key] = urllib.unquote_plus(headers[key])
     except:
         headers = {}
     log_utils.log('Testing Stream: %s from %s using Headers: %s' % (hoster['url'], hoster['class'].get_name(), headers), log_utils.LOGDEBUG)

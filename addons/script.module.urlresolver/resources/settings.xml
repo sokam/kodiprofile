@@ -24,7 +24,7 @@
 		<setting label="Premiumize.me" type="lsep"/>
 		<setting id="PremiumizeMeResolver_priority" type="number" label="Priority" default="100"/>
 		<setting id="PremiumizeMeResolver_enabled" type="bool" label="Enabled" default="true"/>
-		<setting id="PremiumizeMeResolver_use_https" type="bool" label="Use HTTPS" default="false"/>
+		<setting id="PremiumizeMeResolver_use_https" type="bool" label="Use HTTPS" default="true"/>
 		<setting id="PremiumizeMeResolver_login" type="bool" label="login" default="false"/>
 		<setting id="PremiumizeMeResolver_username" enable="eq(-1,true)" type="text" label="Customer ID" default=""/>
 		<setting id="PremiumizeMeResolver_password" enable="eq(-2,true)" type="text" label="PIN" option="hidden" default=""/>
@@ -43,7 +43,7 @@
 		<setting id="RPnetResolver_enabled" type="bool" label="Enabled" default="true"/>
 		<setting id="RPnetResolver_login" type="bool" label="login" default="false"/>
 		<setting id="RPnetResolver_username" enable="eq(-1,true)" type="text" label="Username" default=""/>
-		<setting id="RPnetResolver_password" enable="eq(-2,true)" type="text" label="Password (API KEY)" option="hidden" default=""/>
+		<setting id="RPnetResolver_password" enable="eq(-2,true)" type="text" label="Password" option="hidden" default=""/>
 		<setting label="Simply-Debrid" type="lsep"/>
 		<setting id="SimplyDebridResolver_priority" type="number" label="Priority" default="100"/>
 		<setting id="SimplyDebridResolver_enabled" type="bool" label="Enabled" default="true"/>
@@ -355,6 +355,9 @@
 		<setting label="vidcrazy.net" type="lsep"/>
 		<setting id="VidCrazyResolver_priority" type="number" label="Priority" default="100"/>
 		<setting id="VidCrazyResolver_enabled" type="bool" label="Enabled" default="true"/>
+		<setting label="videa" type="lsep"/>
+		<setting id="VideaResolver_priority" type="number" label="Priority" default="100"/>
+		<setting id="VideaResolver_enabled" type="bool" label="Enabled" default="true"/>
 		<setting label="videocloud.co" type="lsep"/>
 		<setting id="VideocloudResolver_priority" type="number" label="Priority" default="100"/>
 		<setting id="VideocloudResolver_enabled" type="bool" label="Enabled" default="true"/>
@@ -370,11 +373,11 @@
 		<setting label="videoweed.es" type="lsep"/>
 		<setting id="VideoweedResolver_priority" type="number" label="Priority" default="100"/>
 		<setting id="VideoweedResolver_enabled" type="bool" label="Enabled" default="true"/>
+	</category>
+	<category label="Resolvers 5">
 		<setting label="videowood" type="lsep"/>
 		<setting id="VideowoodResolver_priority" type="number" label="Priority" default="100"/>
 		<setting id="VideowoodResolver_enabled" type="bool" label="Enabled" default="true"/>
-	</category>
-	<category label="Resolvers 5">
 		<setting label="videozoo" type="lsep"/>
 		<setting id="VideoZooResolver_priority" type="number" label="Priority" default="100"/>
 		<setting id="VideoZooResolver_enabled" type="bool" label="Enabled" default="true"/>

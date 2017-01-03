@@ -18,7 +18,6 @@
 import re
 import urlparse
 import random
-import urllib
 import kodi
 import log_utils  # @UnusedImport
 import dom_parser
@@ -31,7 +30,6 @@ import scraper
 
 BASE_URL = 'http://dizilab.com'
 AJAX_URL = '/request/php/'
-STREAM_URL = '%s%s|User-Agent=%s&Referer=%s'
 ICONS = {'icon-tr': 'Turkish Subtitles', 'icon-en': 'English Subtitles', 'icon-orj': ''}
 DEFAULT_SUB = 'Turkish Subtitles'
 
@@ -143,7 +141,7 @@ class Scraper(scraper.Scraper):
                     for variant in js_data.get('variants', {}):
                         stream_host = random.choice(variant.get('hosts', []))
                         if stream_host:
-                            stream_url = STREAM_URL % (stream_host, variant['path'], scraper_utils.get_ua(), urllib.quote(page_url))
+                            stream_url = stream_host + variant['path'] + scraper_utils.append_headers({'User-Agent': scraper_utils.get_ua(), 'Referer': page_url})
                             if not stream_url.startswith('http'):
                                 stream_url = 'http://' + stream_url
                             host = self._get_direct_hostname(stream_url)

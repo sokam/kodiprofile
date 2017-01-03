@@ -280,6 +280,7 @@ def parse_link(link, item, patterns):
     return item
     
 def release_check(video, title, require_title=True):
+    if isinstance(title, unicode): title = title.encode('utf-8')
     if video.video_type == VIDEO_TYPES.MOVIE:
         meta = parse_movie_link(title)
     else:
@@ -300,7 +301,6 @@ def release_check(video, title, require_title=True):
         matches = matches and (sxe_match or airdate_match)
         
     if not matches:
-        if isinstance(title, unicode): title = title.encode('utf-8')
         log_utils.log('*%s*%s*%s* - |%s|%s|%s| - |%s|%s|%s| - |%s|%s|' % (video, title, meta, norm_title, match_norm_title, title_match,
                                                                           video.year, meta.get('year'), year_match, sxe_match, airdate_match), log_utils.LOGDEBUG)
     return matches
@@ -417,3 +417,6 @@ def get_token(hash_len=16):
     chars = string.digits + string.ascii_uppercase + string.ascii_lowercase
     base = hashlib.sha512(str(int(time.time()) / 60 / 60)).digest()
     return ''.join([chars[int(ord(c) % len(chars))] for c in base[:hash_len]])
+
+def append_headers(headers):
+    return '|%s' % '&'.join(['%s=%s' % (key, urllib.quote_plus(headers[key])) for key in headers])

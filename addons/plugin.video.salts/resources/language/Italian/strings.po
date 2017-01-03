@@ -2,14 +2,14 @@
 # Addon id: plugin.video.salts
 # Addon Provider: TV Addons
 # Translators:
-# Alessandro Boggiano <boggiano@gmail.com>, 2016
-# theloca95 <iloca95@gmail.com>, 2015-2016
+# Alessandro Boggiano, 2016
+# theloca95, 2015-2016
 # tknorris, 2016
 msgid ""
 msgstr ""
 "Project-Id-Version: SALTS\n"
 "POT-Creation-Date: YEAR-MO-DA HO:MI+ZONE\n"
-"PO-Revision-Date: 2016-10-12 02:21+0000\n"
+"PO-Revision-Date: 2016-12-09 16:37+0000\n"
 "Last-Translator: tknorris\n"
 "Language-Team: Italian (http://www.transifex.com/tv-addons/salts/language/it/)\n"
 "MIME-Version: 1.0\n"

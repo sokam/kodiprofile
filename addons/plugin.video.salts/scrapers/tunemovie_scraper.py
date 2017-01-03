@@ -28,7 +28,7 @@ from salts_lib.constants import QUALITIES
 from salts_lib.constants import VIDEO_TYPES
 import scraper
 
-BASE_URL = 'http://tunemovies.to'
+BASE_URL = 'http://tunemovie.is'
 LINK_URL = '/ip.temp/swf/plugins/ipplugins.php'
 LINK_URL2 = '/ip.temp/swf/ipplayer/ipplayer.php'
 XHR = {'X-Requested-With': 'XMLHttpRequest'}
@@ -65,7 +65,7 @@ class Scraper(scraper.Scraper):
                 if host == 'gvideo':
                     direct = True
                     quality = sources[source]
-                    stream_url = source + '|User-Agent=%s' % (scraper_utils.get_ua())
+                    stream_url = source + scraper_utils.append_headers({'User-Agent': scraper_utils.get_ua()})
                 else:
                     direct = False
                     stream_url = source

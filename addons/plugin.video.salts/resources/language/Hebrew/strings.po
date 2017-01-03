@@ -2,17 +2,17 @@
 # Addon id: plugin.video.salts
 # Addon Provider: TV Addons
 # Translators:
-# Itzik Bereby <itzik.bereby@gmail.com>, 2016
-# ‫לידור מליח‬‎ <lidormalich@gmail.com>, 2015
-# Michael strat <Mstrat37@gmail.com>, 2015
-# SagaMi <amazonfirekodiil@gmail.com>, 2016
-# Vella <vellama@gmail.com>, 2015
-# Yaron Shahrabani <sh.yaron@gmail.com>, 2016
+# Itzik Bereby, 2016
+# ‫לידור מליח‬‎, 2015
+# Michael strat, 2015
+# SagaMi, 2016
+# Vella, 2015
+# Yaron Shahrabani, 2016
 msgid ""
 msgstr ""
 "Project-Id-Version: SALTS\n"
 "POT-Creation-Date: YEAR-MO-DA HO:MI+ZONE\n"
-"PO-Revision-Date: 2016-10-12 02:21+0000\n"
+"PO-Revision-Date: 2016-12-09 16:37+0000\n"
 "Last-Translator: tknorris\n"
 "Language-Team: Hebrew (http://www.transifex.com/tv-addons/salts/language/he/)\n"
 "MIME-Version: 1.0\n"
@@ -215,6 +215,8 @@ msgstr "יעילים. ההגדרה הבאה תשתנה:"
 
 msgctxt "#30048"
 msgid ""
+"[COLOR red]Scraper Sort Order, Source Sorting, Calendar Start Day, Trakt "
+"Timeout, Scraper Timeout, Watchlist in MNE, Test Direct[/COLOR]"
 msgstr "[COLOR red]סדר אוספי הנתונים, סדר המקורות, יום התחלת היומן, תום הזמן של Trakt, תום הזמן של אוספי הנתונים, רשימת צפייה ב־MNE, בדיקה ישירה[/COLOR]"
 
 msgctxt "#30049"
@@ -959,6 +961,7 @@ msgstr "התאוששות מתקלה במסד הנתונים של SALTS"
 
 msgctxt "#30247"
 msgid ""
+"The SALTS DB has an issue that may be correctable by a forced DB migration."
 msgstr "במסד הנתונים של SALTS התרחשה תקלה שניתן לתקן על ידי אילוץ הגירת מסד הנתונים."
 
 msgctxt "#30248"

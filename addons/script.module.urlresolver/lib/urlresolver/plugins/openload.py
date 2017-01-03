@@ -16,11 +16,10 @@ GNU General Public License for more details.
 You should have received a copy of the GNU General Public License
 along with this program. If not, see <http://www.gnu.org/licenses/>.
 """
-import hashlib
 import os
 import json
-from lib import pyaes
 from urlresolver import common
+from urlresolver.common import i18n
 from urlresolver.resolver import UrlResolver, ResolverError
 
 API_BASE_URL = 'https://api.openload.co/1'
@@ -36,72 +35,12 @@ class OpenLoadResolver(UrlResolver):
     def __init__(self):
         self.net = common.Net()
 
-    @common.cache.cache_method(cache_limit=1)
-    def get_ol_code(self):
-        try:
-            ol_source = self.get_setting('url')
-            ol_key = self.get_setting('key')
-            if ol_source and ol_key:
-                headers = self.net.http_HEAD(ol_source).get_headers(as_dict=True)
-                common.log_utils.log(headers)
-                old_etag = self.get_setting('etag')
-                new_etag = headers.get('Etag', '')
-                old_len = self.__old_length()
-                new_len = int(headers.get('Content-Length', 0))
-                if old_etag != new_etag or old_len != new_len:
-                    common.log_utils.log('Updating ol_gmu: |%s|%s|%s|%s|' % (old_etag, new_etag, old_len, new_len))
-                    self.set_setting('etag', new_etag)
-                    new_py = self.net.http_GET(ol_source).content
-                    if new_py:
-                        new_py = self.__decrypt(new_py, ol_key)
-                        if new_py:
-                            with open(OL_PATH, 'w') as f:
-                                f.write(new_py)
-                            common.kodi.notify('OpenLoad Resolver Auto-Updated')
-                else:
-                    common.log_utils.log('Reusing existing ol_gmu.py: |%s|%s|%s|%s|' % (old_etag, new_etag, old_len, new_len))
-        except Exception as e:
-            common.log_utils.log_warning('Exception during OpenLoad code retrieve: %s' % (e))
-            
-    def __decrypt(self, cipher_text, key):
-        if cipher_text:
-            try:
-                scraper_key = hashlib.sha256(key).digest()
-                IV = '\0' * 16
-                decrypter = pyaes.Decrypter(pyaes.AESModeOfOperationCBC(scraper_key, IV))
-                plain_text = decrypter.feed(cipher_text)
-                plain_text += decrypter.feed()
-                if 'get_media_url' not in plain_text:
-                    plain_text = ''
-            except Exception as e:
-                common.log_utils.log_warning('Exception during OpenLoad Decrypt: %s' % (e))
-                plain_text = ''
-        else:
-            plain_text = ''
-
-        return plain_text
-    
-    def __old_length(self):
-        try:
-            with open(OL_PATH, 'r') as f:
-                old_py = f.read()
-            old_len = len(old_py)
-        except:
-            old_len = -1
-        return old_len
-
     def get_media_url(self, host, media_id):
         try:
-            if self.get_setting('auto_update') == 'true':
-                self.get_ol_code()
-                
-            with open(OL_PATH, 'r') as f:
-                py_data = f.read()
-                
-            common.log_utils.log('ol_gmu hash: %s' % (hashlib.md5(py_data).hexdigest()))
+            self._auto_update(self.get_setting('url'), OL_PATH, self.get_setting('key'))
+            common.log_file_hash(OL_PATH)
             import ol_gmu
-            web_url = self.get_url(host, media_id)
-            return ol_gmu.get_media_url(web_url)
+            return ol_gmu.get_media_url(self.get_url(host, media_id))
         except Exception as e:
             common.log_utils.log_debug('Exception during openload resolve parse: %s' % (e))
             try:
@@ -114,7 +53,7 @@ class OpenLoadResolver(UrlResolver):
             if video_url:
                 return video_url
             else:
-                raise ResolverError('No OpenLoad Authorization')
+                raise ResolverError(i18n('no_ol_auth'))
 
     def get_url(self, host, media_id):
         return 'http://openload.co/embed/%s' % (media_id)
@@ -124,10 +63,10 @@ class OpenLoadResolver(UrlResolver):
         pair_url = js_data.get('result', {}).get('auth_url', '')
         if pair_url:
             pair_url = pair_url.replace('\/', '/')
-            header = 'OpenLoad Stream Authorization'
-            line1 = 'To play this video, authorization is required'
-            line2 = 'Visit the link below to authorize the devices on your network:'
-            line3 = '[B][COLOR blue]%s[/COLOR][/B] then click "Pair"' % (pair_url)
+            header = i18n('ol_auth_header')
+            line1 = i18n('auth_required')
+            line2 = i18n('visit_link')
+            line3 = i18n('click_pair') % (pair_url)
             with common.kodi.CountdownDialog(header, line1, line2, line3) as cd:
                 return cd.start(self.__check_auth, [media_id])
         
@@ -154,8 +93,8 @@ class OpenLoadResolver(UrlResolver):
     @classmethod
     def get_settings_xml(cls):
         xml = super(cls, cls).get_settings_xml()
-        xml.append('<setting id="%s_auto_update" type="bool" label="Automatically update resolver" default="true"/>' % (cls.__name__))
-        xml.append('<setting id="%s_url" type="text" label="    Auto-Update Url" default="" visible="eq(-1,true)"/>' % (cls.__name__))
-        xml.append('<setting id="%s_key" type="text" label="    Decryption Key" default="" option="hidden" visible="eq(-2,true)"/>' % (cls.__name__))
+        xml.append('<setting id="%s_auto_update" type="bool" label="%s" default="true"/>' % (cls.__name__, i18n('auto_update')))
+        xml.append('<setting id="%s_url" type="text" label="    %s" default="" visible="eq(-1,true)"/>' % (cls.__name__, i18n('update_url')))
+        xml.append('<setting id="%s_key" type="text" label="    %s" default="" option="hidden" visible="eq(-2,true)"/>' % (cls.__name__, i18n('decrypt_key')))
         xml.append('<setting id="%s_etag" type="text" default="" visible="false"/>' % (cls.__name__))
         return xml

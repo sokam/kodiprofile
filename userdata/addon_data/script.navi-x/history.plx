@@ -2,6 +2,40 @@ version=1
 title=History
 #
 type=playlist
+name=[COLOR=FFFFFF00]* 2015 TOP MOVIES *[/COLOR] [COLOR=FF00FF00]*VISIT CAMCHANCE.COM*[/COLOR]
+description=[COLOR=FFFFFF00]VISIT CAMCHANCE.COM (THE CHAT WITH CAM), MEET UNKNOW PEOPLE FACE TO FACE.[/COLOR]
+-= 2175 views in last 24 hours =-/description
+thumb=http://i.imgur.com/vdeHVYx.jpg
+background=http://i.imgur.com/CxCceek.jpg
+URL=http://www.navixtreme.com/playlist/96828/_2015_top_movies_visit_camchance.com.plx
+date=2015-12-29
+#
+type=playlist
+name=([COLOR=FFFF0000]Live[/COLOR] International [COLOR=FF00BFFF]TV[/COLOR]) All Working!
+description=Visit my website Janco809.com
+
+New updates coming soon.
+
+Thank you to all of my viewers support and wish the best out there for all my fellow hosts doing their thing to provide entertainment for people around the world as I am.. keep up the great work to all!!
+
+\\\\///E A S Y S T R E A M S////\\\
+
+== Last Updated : May 4  5:00 pm ET ==
+{[COLOR=FF00FFFF]{==============================}[/COLOR]}
+
+Donate to My PayPal Jaymac192@msn.com
+Every bit helps.
+
+Email me with any questions, bad links or request [COLOR=FF00BFFF]Jaymac192@gmail.com[/COLOR]
+
+{{== Links [COLOR=FF00FF00] Tested [/COLOR]  / [COLOR=FFFF34FF] Added [/COLOR]  /[COLOR=FFFF0000] Replaced [/COLOR]/ [COLOR=FF00BFFF] Updated Daily [/COLOR] ==}}
+-= List owner: Janco809 =-
+-=864 views in last 24 hours =-/description
+thumb=http://lrc.utk.edu/learn/images/dishworld.jpg
+background=http://www.livewallpapers.org/wp-content/uploads/2012/12/blue-3d-cubes.jpg
+URL=http://www.navixtreme.com/playlist/150363/(live_international_tv)_all_working.plx
+#
+type=playlist
 name=videobronx
 description=-= List owner: bronxbico =-
 -=7555814 views in last 7 days =-/description
@@ -74,15 +108,6 @@ name=search results: hunger games
 thumb=http://media.navi-x.org/images/logos/search.png
 background=http://media.navi-x.org/images/backgrounds/bkg_navix_bh_plain.jpg
 URL=http://www.navixtreme.com/playlist/search/hunger%20games
-#
-type=playlist
-name=[COLOR=FFFFFF00]* 2015 TOP MOVIES *[/COLOR] [COLOR=FF00FF00]*VISIT CAMCHANCE.COM*[/COLOR]
-description=[COLOR=FFFFFF00]VISIT CAMCHANCE.COM (THE CHAT WITH CAM), MEET UNKNOW PEOPLE FACE TO FACE.[/COLOR]
--= 1632 views in last 24 hours =-/description
-thumb=http://i.imgur.com/vdeHVYx.jpg
-background=http://i.imgur.com/CxCceek.jpg
-URL=http://www.navixtreme.com/playlist/96828/_2015_top_movies_visit_camchance.com.plx
-date=2015-12-17
 #
 type=playlist
 name=[COLOR=FFFF00FF]2015 MOVIES.....[/COLOR] [COLOR=FFFFFF00]*Constant Updates*[/COLOR] [COLOR=FFFFFF00]*Visit newmoviepalace.blogspot.com*[/COLOR] 
@@ -1898,29 +1923,4 @@ description=-= List owner: gravens =-
 thumb=http://www.livestream.com/filestore/logos/6a941358-6c7f-2ebf-e8ac-b05f4f338270-banner.png
 background=http://f0.pepst.com/c/9C5AF4/342032/ssc3/home/080/pravinsatpute/live_tv_5134713877728624213.gif_480_480_0_64000_0_1_0.gif
 URL=http://www.navixtreme.com/playlist/146444/live_tv_x.plx
-#
-type=playlist
-name=([COLOR=FFFF0000]Live[/COLOR] International [COLOR=FF00BFFF]TV[/COLOR]) All Working!
-description=Visit my website Janco809.com
-
-New updates coming soon.
-
-Thank you to all of my viewers support and wish the best out there for all my fellow hosts doing their thing to provide entertainment for people around the world as I am.. keep up the great work to all!!
-
-\\\\///E A S Y S T R E A M S////\\\
-
-== Last Updated : May 4  5:00 pm ET ==
-{[COLOR=FF00FFFF]{==============================}[/COLOR]}
-
-Donate to My PayPal Jaymac192@msn.com
-Every bit helps.
-
-Email me with any questions, bad links or request [COLOR=FF00BFFF]Jaymac192@gmail.com[/COLOR]
-
-{{== Links [COLOR=FF00FF00] Tested [/COLOR]  / [COLOR=FFFF34FF] Added [/COLOR]  /[COLOR=FFFF0000] Replaced [/COLOR]/ [COLOR=FF00BFFF] Updated Daily [/COLOR] ==}}
--= List owner: Janco809 =-
--=755 views in last 24 hours =-/description
-thumb=http://lrc.utk.edu/learn/images/dishworld.jpg
-background=http://www.livewallpapers.org/wp-content/uploads/2012/12/blue-3d-cubes.jpg
-URL=http://www.navixtreme.com/playlist/150363/(live_international_tv)_all_working.plx
 #

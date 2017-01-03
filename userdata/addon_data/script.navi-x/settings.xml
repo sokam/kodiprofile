@@ -1,9 +1,16 @@
 <settings>
+    <setting id="GUI-testing-enable" value="false" />
     <setting id="LastVerMessageID" value="3.8.2" />
+    <setting id="cachedexpires" value="2" />
+    <setting id="core-color" value="[COLOR ff4682b4]Steel Blue[/COLOR]" />
     <setting id="core-homepage" value="Default" />
+    <setting id="core-skin" value="Default" />
     <setting id="debug-enable" value="false" />
     <setting id="debug-show" value="false" />
+    <setting id="historysize" value="50" />
+    <setting id="pagesize" value="200" />
     <setting id="scripts-testers" value="false" />
     <setting id="scripts-testers2" value="" />
+    <setting id="urltimeout" value="20" />
     <setting id="use-LocalUrlResolver" value="false" />
 </settings>

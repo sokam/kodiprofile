@@ -61,13 +61,13 @@ def pick_source(sources, auto_pick=None):
         if auto_pick:
             return sources[0][1]
         else:
-            result = xbmcgui.Dialog().select('Choose the link', [source[0] if source[0] else 'Uknown' for source in sources])
+            result = xbmcgui.Dialog().select(common.i18n('choose_the_link'), [source[0] if source[0] else 'Uknown' for source in sources])
             if result == -1:
-                raise ResolverError('No link selected')
+                raise ResolverError(common.i18n('no_link_selected'))
             else:
                 return sources[result][1]
     else:
-        raise ResolverError('No Video Link Found')
+        raise ResolverError(common.i18n('no_video_link'))
 
 def append_headers(headers):
     return '|%s' % '&'.join(['%s=%s' % (key, urllib.quote_plus(headers[key])) for key in headers])
@@ -105,7 +105,7 @@ def parse_smil_source_list(smil):
         sources += [(label, '%s playpath=%s' % (base, i.group(1)))]
     return sources
 
-def scrape_sources(html, result_blacklist=None):
+def scrape_sources(html, result_blacklist=None, scheme='http'):
     def __parse_to_list(_html, regex):
         _blacklist = ['.jpg', '.jpeg', '.gif', '.png', '.js', '.css', '.htm', '.html', '.php', '.srt', '.sub', '.xml', '.swf', '.vtt']
         _blacklist = set(_blacklist + result_blacklist)
@@ -116,6 +116,7 @@ def scrape_sources(html, result_blacklist=None):
             stream_url = match['url']
             file_name = urlparse(stream_url).path.split('/')[-1]
             blocked = not file_name or any(item in file_name.lower() for item in _blacklist)
+            if stream_url.startswith('//'): stream_url = scheme + ':' + stream_url
             if '://' not in stream_url or blocked or (stream_url in streams) or any(stream_url == t[1] for t in source_list):
                 continue
     
@@ -155,6 +156,7 @@ def scrape_sources(html, result_blacklist=None):
 
 
 def get_media_url(url, result_blacklist=None):
+    scheme = urlparse(url).scheme
     if result_blacklist is None:
         result_blacklist = []
     elif isinstance(result_blacklist, str):
@@ -162,9 +164,7 @@ def get_media_url(url, result_blacklist=None):
 
     result_blacklist = list(set(result_blacklist + ['.smil']))  # smil(not playable) contains potential sources, only blacklist when called from here
     net = common.Net()
-    parsed_url = urlparse(url)
-    headers = {'User-Agent': common.FF_USER_AGENT,
-               'Referer': '%s://%s' % (parsed_url.scheme, parsed_url.hostname)}
+    headers = {'User-Agent': common.FF_USER_AGENT}
 
     response = net.http_GET(url, headers=headers)
     response_headers = response.get_headers(as_dict=True)
@@ -174,7 +174,7 @@ def get_media_url(url, result_blacklist=None):
         headers.update({'Cookie': cookie})
     html = response.content
 
-    source_list = scrape_sources(html, result_blacklist)
+    source_list = scrape_sources(html, result_blacklist, scheme)
     source = pick_source(source_list)
     return source + append_headers(headers)
 

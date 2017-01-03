@@ -34,6 +34,8 @@ class cInputWindow(xbmcgui.WindowDialog):
     def __init__(self, *args, **kwargs):  # @UnusedVariable
         bg_image = os.path.join(kodi.get_path(), 'resources', 'skins', 'Default', 'media', 'DialogBack2.png')
         check_image = os.path.join(kodi.get_path(), 'resources', 'skins', 'Default', 'media', 'checked.png')
+        button_fo = os.path.join(kodi.get_path(), 'resources', 'skins', 'Default', 'media', 'button-fo.png')
+        button_nofo = os.path.join(kodi.get_path(), 'resources', 'skins', 'Default', 'media', 'button-nofo.png')
         self.cancelled = False
         self.chk = [0] * 9
         self.chkbutton = [0] * 9
@@ -64,13 +66,11 @@ class cInputWindow(xbmcgui.WindowDialog):
         name = 'for: [I]%s[/I]' % (name) if name is not None else ''
         self.strActionInfo = xbmcgui.ControlLabel(imgX, imgY + imgh, imgw, 20, 'Captcha Round: %s %s' % (self.iteration, name), 'font40')
         self.addControl(self.strActionInfo)
-        self.cancelbutton = xbmcgui.ControlButton(middle - 110, button_y, 100, button_h, 'Cancel', alignment=2)
-        self.okbutton = xbmcgui.ControlButton(middle + 10, button_y, 100, button_h, 'OK', alignment=2)
+        self.cancelbutton = xbmcgui.ControlButton(middle - 110, button_y, 100, button_h, 'Cancel', focusTexture=button_fo, noFocusTexture=button_nofo, alignment=2)
+        self.okbutton = xbmcgui.ControlButton(middle + 10, button_y, 100, button_h, 'OK', focusTexture=button_fo, noFocusTexture=button_nofo, alignment=2)
         self.addControl(self.okbutton)
         self.addControl(self.cancelbutton)
 
-        button_fo = os.path.join(kodi.get_path(), 'resources', 'skins', 'Default', 'media', 'button-fo.png')
-        button_nofo = os.path.join(kodi.get_path(), 'resources', 'skins', 'Default', 'media', 'button-nofo.png')
         for i in xrange(9):
             row = i / 3
             col = i % 3

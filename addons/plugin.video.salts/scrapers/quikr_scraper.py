@@ -67,7 +67,7 @@ class Scraper(scraper.Scraper):
                     direct = sources[source]['direct']
                     if direct:
                         host = self._get_direct_hostname(source)
-                        stream_url = source + '|User-Agent=%s' % (scraper_utils.get_ua())
+                        stream_url = source + scraper_utils.append_headers({'User-Agent': scraper_utils.get_ua()})
                     else:
                         host = urlparse.urlparse(source).hostname
                         stream_url = source
@@ -82,7 +82,6 @@ class Scraper(scraper.Scraper):
         html = self._http_get(iframe_url, headers=headers, cache_limit=.5)
         if jsunpack.detect(html):
             html = jsunpack.unpack(html)
-        log_utils.log(html)
         
         return self._parse_sources_list(html)
     

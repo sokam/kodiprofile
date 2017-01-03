@@ -86,7 +86,7 @@ class Scraper(scraper.Scraper):
                             sources += [{'stream_url': iframe_url, 'subs': 'Turkish subtitles', 'height': 480, 'direct': False}]
                             
             for source in sources:
-                stream_url = source['stream_url'] + '|User-Agent=%s' % (scraper_utils.get_ua())
+                stream_url = source['stream_url'] + scraper_utils.append_headers({'User-Agent': scraper_utils.get_ua()})
                 if source['direct']:
                     host = self._get_direct_hostname(stream_url)
                     if host == 'gvideo':

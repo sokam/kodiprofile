@@ -28,8 +28,9 @@ from resources.lib.modules import directstream
 
 class source:
     def __init__(self):
+        self.language = ['en']
         self.domains = ['xmovies8.tv', 'xmovies8.ru']
-        self.base_link = 'http://xmovies8.ru'
+        self.base_link = 'http://xmovies8.tv'
         self.moviesearch_link = '/movie/%s-%s/'
 
 
@@ -93,12 +94,6 @@ class source:
 
 
     def resolve(self, url):
-        try:
-            url = client.request(url, output='geturl')
-            if 'requiressl=yes' in url: url = url.replace('http://', 'https://')
-            else: url = url.replace('https://', 'http://')
-            return url
-        except:
-            return
+        return directstream.googlepass(url)
 
 

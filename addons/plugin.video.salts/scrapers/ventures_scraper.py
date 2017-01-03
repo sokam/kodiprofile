@@ -62,7 +62,7 @@ class Scraper(scraper.Scraper):
                     if match:
                         if meta['dubbed']: continue
                         if not match['url'].lower().endswith(('.mkv', '.mp4', '.avi')): continue
-                        stream_url = match['url'] + '|User-Agent=%s' % (scraper_utils.get_ua())
+                        stream_url = match['url'] + scraper_utils.append_headers({'User-Agent': scraper_utils.get_ua()})
                         stream_url = stream_url.replace(self.base_url, '')
                         quality = scraper_utils.height_get_quality(meta['height'])
                         hoster = {'multi-part': False, 'host': self._get_direct_hostname(stream_url), 'class': self, 'quality': quality, 'views': None, 'rating': None, 'url': stream_url, 'direct': True}

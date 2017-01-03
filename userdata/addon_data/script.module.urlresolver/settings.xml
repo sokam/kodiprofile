@@ -309,6 +309,8 @@
     <setting id="VidUpResolver_priority" value="100" />
     <setting id="VidbullResolver_enabled" value="true" />
     <setting id="VidbullResolver_priority" value="100" />
+    <setting id="VideaResolver_enabled" value="true" />
+    <setting id="VideaResolver_priority" value="100" />
     <setting id="VideoBeeResolver_enabled" value="true" />
     <setting id="VideoBeeResolver_priority" value="100" />
     <setting id="VideoHutResolver_enabled" value="true" />
@@ -412,10 +414,10 @@
     <setting id="billionuploads_priority" value="100" />
     <setting id="crunchyrollResolver_enabled" value="true" />
     <setting id="crunchyrollResolver_priority" value="100" />
-    <setting id="current_ua" value="Mozilla/5.0 (Windows NT 6.2; Win64; IA64; Trident/7.0; rv:11.0) like Gecko" />
+    <setting id="current_ua" value="Mozilla/5.0 (Windows NT 5.0; WOW64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/47.0.2526.73 Safari/537.36" />
     <setting id="hostingbulkResolver_enabled" value="true" />
     <setting id="hostingbulkResolver_priority" value="100" />
-    <setting id="last_ua_create" value="1481060652" />
+    <setting id="last_ua_create" value="1482907779" />
     <setting id="movreelResolver_enabled" value="true" />
     <setting id="movreelResolver_login" value="false" />
     <setting id="movreelResolver_password" value="" />
