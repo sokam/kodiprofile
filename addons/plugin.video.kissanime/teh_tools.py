@@ -688,7 +688,7 @@ def set_view(content='none',view_mode=50,do_sort=False):
 	h=int(sys.argv[1])
 	#try:		h=int(sys.argv[1])
 	#except:	h=_addon.handle
-	if (content is not 'none'): xbmcplugin.setContent(h, content)
+	#if (content is not 'none'): xbmcplugin.setContent(h, content)
 	#types:									# set_view()
 	# 50		CommonRootView
 	# 51		FullWidthList

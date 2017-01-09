@@ -1,0 +1,5 @@
+#LWP-Cookies-2.0
+Set-Cookie3: __cfduid=d38c6220797aeb45cc905684f0b425c181483861101; path="/"; domain=".yabancidizi.com"; path_spec; domain_dot; expires="2018-01-08 07:38:21Z"; HttpOnly=None; version=0
+Set-Cookie3: __cfduid=d419ff95ebc9ee6d792905fda1e5bddbc1483861101; path="/"; domain=".yabancidizi.net"; path_spec; domain_dot; expires="2018-01-08 07:38:21Z"; HttpOnly=None; version=0
+Set-Cookie3: PHPSESSID=teh03ubsud1cc6k7lbhogn2c04; path="/"; domain="www.yabancidizi.com"; path_spec; discard; version=0
+Set-Cookie3: PHPSESSID=teh03ubsud1cc6k7lbhogn2c04; path="/"; domain="yabancidizi.net"; path_spec; discard; version=0

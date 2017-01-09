@@ -27,7 +27,7 @@ from salts_lib.utils2 import i18n
 import scraper
 
 
-BASE_URL = 'http://myvideolinks.ga'
+BASE_URL = 'http://ezfile.xyz'
 
 class Scraper(scraper.Scraper):
     base_url = BASE_URL

@@ -4,7 +4,7 @@
 ### # Author: 			#		The Highway
 ### # Version:			#		(ever changing)
 ### # Description: 	#		My Project Config File
-###	#Updated By:	#		Gaining	2016-2017 changed domain to kissanime.ru
+###	# Updated By:	#		Gaining	2016-2017 changed domain to kissanime.ru
 ### ############################################################################################################
 ### ############################################################################################################
 ### Imports ###

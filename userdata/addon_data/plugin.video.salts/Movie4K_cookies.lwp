@@ -2,8 +2,8 @@
 Set-Cookie3: __cfduid=d4da963781ded1a53c9fd4b57583297c81466142383; path="/"; domain=".movie4k.to"; path_spec; domain_dot; expires="2017-06-17 05:46:23Z"; HttpOnly=None; version=0
 Set-Cookie3: __cfduid=d91cefd4b748de05df41d3c3e208a562d1480741853; path="/"; domain=".movie4k.tv"; path_spec; domain_dot; expires="2017-12-03 05:10:53Z"; HttpOnly=None; version=0
 Set-Cookie3: PHPSESSID=rltsdbc5k7289k3cj9ekvgltp2; path="/"; domain="movie4k.to"; path_spec; discard; version=0
-Set-Cookie3: lang=en; path="/"; domain="movie4k.to"; path_spec; version=0
-Set-Cookie3: onlylanguage=en; path="/"; domain="movie4k.to"; path_spec; version=0
+Set-Cookie3: lang=en; path="/"; domain="movie4k.to"; path_spec; discard; version=0
+Set-Cookie3: onlylanguage=en; path="/"; domain="movie4k.to"; path_spec; discard; version=0
 Set-Cookie3: PHPSESSID=rltsdbc5k7289k3cj9ekvgltp2; path="/"; domain="movie4k.tv"; path_spec; discard; version=0
 Set-Cookie3: lang=en; path="/"; domain="movie4k.tv"; expires="2017-12-03 05:10:53Z"; version=0
 Set-Cookie3: PHPSESSID=qedob92f12nm54a49eprotgk04; path="/"; domain="twomovies.us"; path_spec; discard; version=0

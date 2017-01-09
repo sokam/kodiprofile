@@ -48,7 +48,7 @@ class Scraper(scraper.Scraper):
         norm_title = scraper_utils.normalize_title(video.title)
         if source_url and source_url != FORCE_NO_MATCH:
             source_url = urlparse.urljoin(self.base_url, source_url)
-            for line in self._get_files(source_url, cache_limit=24):
+            for line in self._get_files(source_url, headers={'Referer': self.base_url}, cache_limit=24):
                 if not line['directory']:
                     match = {}
                     if video.video_type == VIDEO_TYPES.MOVIE:
@@ -61,7 +61,7 @@ class Scraper(scraper.Scraper):
                         
                     if match:
                         if meta['dubbed']: continue
-                        stream_url = match['url'] + scraper_utils.append_headers({'User-Agent': scraper_utils.get_ua()})
+                        stream_url = match['url'] + scraper_utils.append_headers({'User-Agent': scraper_utils.get_ua(), 'Referer': source_url})
                         stream_url = stream_url.replace(self.base_url, '')
                         quality = scraper_utils.height_get_quality(meta['height'])
                         hoster = {'multi-part': False, 'host': self._get_direct_hostname(stream_url), 'class': self, 'quality': quality, 'views': None, 'rating': None, 'url': stream_url, 'direct': True}
@@ -75,14 +75,14 @@ class Scraper(scraper.Scraper):
         force_title = scraper_utils.force_title(video)
         if not force_title:
             show_url = self.base_url + show_url
-            html = self._http_get(show_url, cache_limit=48)
+            html = self._http_get(show_url, headers={'Referer': self.base_url}, cache_limit=48)
             match = re.search('href="(S%02d/)"' % (int(video.season)), html)
             if match:
                 season_url = urlparse.urljoin(show_url, match.group(1))
             else:
                 season_url = show_url
 
-            for item in self._get_files(season_url, cache_limit=8):
+            for item in self._get_files(season_url, headers={'Referer': show_url}, cache_limit=8):
                 if self.__episode_match(item, video):
                     return scraper_utils.pathify_url(season_url)
 

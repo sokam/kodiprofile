@@ -30,7 +30,7 @@ import scraper
 
 BASE_URL = 'http://xmovies8.tv'
 PLAYER_URL = '/ajax/movie/load_player_v2'
-EPISODES_URL = '/ajax/movie/load_episodes'
+EPISODES_URL = '/ajax/movie/load_episodes_v2'
 
 class Scraper(scraper.Scraper):
     base_url = BASE_URL
@@ -58,10 +58,11 @@ class Scraper(scraper.Scraper):
             players = list(set(re.findall("load_player\(\s*'([^']+)'\s*,\s*'?(\d+)\s*'?", html)))
             player_url = urlparse.urljoin(self.base_url, PLAYER_URL)
             for link_id, height in players:
-                headers = {'Referer': page_url, 'Accept-Encoding': 'gzip, deflate', 'Server': 'cloudflare-nginx', 'Accept-Formating': 'application/json, text/javascript'}
+                headers = {'Referer': page_url, 'Server': 'cloudflare-nginx', 'Accept': 'text/html, */*; q=0.01',
+                           'Accept-Language': 'en-US,en;q=0.5', 'Accept-Formating': 'application/json, text/javascript', 'Accept-Encoding': 'gzip, deflate'}
                 headers.update(XHR)
-                params = {'id': link_id, 'quality': height, '_': int(time.time() * 1000)}
-                html = self._http_get(player_url, params=params, headers=headers, cache_limit=0)
+                params = {'id': link_id, 'quality': height, '_': self.__make_token()}
+                html = self._http_get(player_url, params=params, headers=headers, cache_limit=1)
                 js_data = scraper_utils.parse_json(html, player_url)
                 if js_data.get('playlist', ''):
                     link_url = js_data['playlist']
@@ -109,17 +110,22 @@ class Scraper(scraper.Scraper):
         match = re.search("data\s*:\s*{\s*id:\s*(\d+),\s*episode_id:\s*(\d+),\s*link_id:\s*(\d+)", html)
         if match:
             show_id, ep_id, link_id = match.groups()
-            data = {'id': show_id, 'episode_id': ep_id, 'link_id': link_id, '_': int(time.time() * 1000)}
-            headers = {'Referer': page_url, 'Accept-Formating': 'application/json, text/javascript', 'Server': 'cloudflare-nginx'}
+            params = {'id': show_id, 'episode_id': ep_id, 'link_id': link_id, '_': self.__make_token()}
+            headers = {'Referer': page_url, 'Server': 'cloudflare-nginx', 'Accept': 'text/html, */*; q=0.01',
+                       'Accept-Language': 'en-US,en;q=0.5', 'Accept-Formating': 'application/json, text/javascript'}
             headers.update(XHR)
-            html = self._http_get(url, data=data, headers=headers, cache_limit=1)
+            html = self._http_get(url, params=params, headers=headers, cache_limit=1)
         return html
     
+    def __make_token(self):
+        token = int(time.time()) / 60 * 60
+        token = token * 1000 + (token % 1000)
+        return token
+        
     def _get_episode_url(self, season_url, video):
         season_url = urlparse.urljoin(self.base_url, season_url)
         html = self._http_get(season_url, cache_limit=.5)
-        html = self.__get_players(html, season_url)
-        episode_pattern = 'href="([^"]+)[^>]+class="[^"]*btn-episode[^>]*>(?:Episode)?\s*0*%s<' % (video.episode)
+        episode_pattern = 'href="([^"]+)[^>]+class="[^"]*red-border[^>]*>(?:Episode)?\s*0*%s<' % (video.episode)
         match = re.search(episode_pattern, html)
         if match:
             return scraper_utils.pathify_url(match.group(1))

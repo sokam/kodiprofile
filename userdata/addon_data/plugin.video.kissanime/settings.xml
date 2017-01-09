@@ -6,11 +6,11 @@
     <setting id="CMI_Search1Channel" value="true" />
     <setting id="CMI_SearchPrimeWire" value="true" />
     <setting id="CMI_ShowInfo" value="true" />
-    <setting id="LastShowListedFANART" value="http://kissanime.to/Uploads/Etc/4-7-2013/54721354547347.jpg|Referer=http%3A%2F%2Fkissanime.to%2FUploads%2FEtc%2F4-7-2013&amp;User-Agent=Mozilla%2F5.0+%28Windows+NT+6.1%3B+WOW64%3B+rv%3A6.0%29+Gecko%2F20100101+Firefox%2F6.0&amp;Connection-Timeout=60&amp;Cookie=__cfduid%3Ddd8985edcec8f51f5b4288945d204981f1479363498%3Bcf_clearance%3Da60ffd30840796a58fb2adf580425ec6d80cd2ef-1479363498-86400%3BASP.NET_SessionId%3Dhp2255fhnaujp4ygmxbyqhwp%3Bidtz%3D184.100.170.123-51051943%3B" />
-    <setting id="LastShowListedIMG" value="http://kissanime.to/Uploads/Etc/4-7-2013/54721354547347.jpg|Referer=http%3A%2F%2Fkissanime.to%2FUploads%2FEtc%2F4-7-2013&amp;User-Agent=Mozilla%2F5.0+%28Windows+NT+6.1%3B+WOW64%3B+rv%3A6.0%29+Gecko%2F20100101+Firefox%2F6.0&amp;Connection-Timeout=60&amp;Cookie=__cfduid%3Ddd8985edcec8f51f5b4288945d204981f1479363498%3Bcf_clearance%3Da60ffd30840796a58fb2adf580425ec6d80cd2ef-1479363498-86400%3BASP.NET_SessionId%3Dhp2255fhnaujp4ygmxbyqhwp%3Bidtz%3D184.100.170.123-51051943%3B" />
+    <setting id="LastShowListedFANART" value="/home/sokam/.kodi/addons/plugin.video.kissanime/fanart.jpg" />
+    <setting id="LastShowListedIMG" value="https://myanimelist.cdn-dena.com/images/anime/10/47347.jpg|Referer=https%3A%2F%2Fmyanimelist.cdn-dena.com%2Fimages%2Fanime%2F10&amp;User-Agent=Mozilla%2F5.0+%28Windows+NT+6.1%3B+WOW64%3B+rv%3A6.0%29+Gecko%2F20100101+Firefox%2F6.0&amp;Connection-Timeout=60" />
     <setting id="LastShowListedImdbID" value="" />
     <setting id="LastShowListedNAME" value="Shingeki no Kyojin [COLOR blue](Sub)[/COLOR]" />
-    <setting id="LastShowListedURL" value="https://kissanime.to/Anime/Shingeki-no-Kyojin" />
+    <setting id="LastShowListedURL" value="https://kissanime.ru/Anime/Shingeki-no-Kyojin" />
     <setting id="LastVideoPlayItemImg" value="http://kissanime.to/Uploads/Etc/6-25-2014/4821105452016921.jpg|Referer=http%3A%2F%2Fkissanime.to%2FUploads%2FEtc%2F6-25-2014&amp;User-Agent=Mozilla%2F5.0+%28Windows+NT+6.1%3B+WOW64%3B+rv%3A6.0%29+Gecko%2F20100101+Firefox%2F6.0&amp;Connection-Timeout=60&amp;Cookie=__cfduid%3Dd6b22e3f2d57246335ba3866d5aaecc241478670402%3Bcf_clearance%3D52c60d91ce9bf07a4d621a44058cad3dc4d6635a-1478670402-86400%3BASP.NET_SessionId%3Dhp2255fhnaujp4ygmxbyqhwp%3Bidtz%3D184.100.170.123-22164295%3B" />
     <setting id="LastVideoPlayItemName" value="Naruto Shippuuden (Sub) Episode 053" />
     <setting id="LastVideoPlayItemStudio" value="[720p]3.mp4" />

@@ -1,5 +1,7 @@
 #LWP-Cookies-2.0
+Set-Cookie3: __cfduid=da1fb767a7b9e7c8063cb796fdb2b57c81483943870; path="/"; domain=".kissanime.ru"; path_spec; domain_dot; expires="2018-01-09 06:37:50Z"; HttpOnly=None; version=0
+Set-Cookie3: cf_clearance="3507645e1e096302db1884d826d7ddcc97bdd04a-1483943870-86400"; path="/"; domain=".kissanime.ru"; path_spec; domain_dot; expires="2017-01-10 07:37:50Z"; HttpOnly=None; version=0
 Set-Cookie3: __cfduid=dd8985edcec8f51f5b4288945d204981f1479363498; path="/"; domain=".kissanime.to"; path_spec; domain_dot; expires="2017-11-17 06:18:18Z"; HttpOnly=None; version=0
-Set-Cookie3: cf_clearance="a60ffd30840796a58fb2adf580425ec6d80cd2ef-1479363498-86400"; path="/"; domain=".kissanime.to"; path_spec; domain_dot; expires="2016-11-18 07:18:18Z"; HttpOnly=None; version=0
+Set-Cookie3: idtz="174.25.113.105-498145178"; path="/"; domain="kissanime.ru"; path_spec; discard; version=0
 Set-Cookie3: ASP.NET_SessionId=hp2255fhnaujp4ygmxbyqhwp; path="/"; domain="kissanime.to"; path_spec; discard; HttpOnly=None; version=0
 Set-Cookie3: idtz="184.100.170.123-51051943"; path="/"; domain="kissanime.to"; path_spec; discard; version=0

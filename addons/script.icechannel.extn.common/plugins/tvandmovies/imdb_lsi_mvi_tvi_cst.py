@@ -269,8 +269,6 @@ class IMDb(MovieIndexer, TVShowIndexer, CustomSettings, ListIndexer):
         
         import re
         import datetime
-        import xbmc
-        xbmc.log(date_str)
         item_air_date = common.unescape(date_str).replace('      ', '')
         item_fmtd_air_date = ""
         if 'Jan' in item_air_date: item_fmtd_air_date = '01-'

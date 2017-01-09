@@ -64,14 +64,11 @@ class Scraper(scraper.Scraper):
     def __get_post_links(self, html):
         sources = {}
         release = dom_parser.parse_dom(html, 'span', {'itemprop': 'name'})
-        match = re.search('>Download<(.*?)<script', html, re.I | re.DOTALL)
-        if match:
-            for match in re.finditer('href="([^"]+)[^>]*>([^<]+)', match.group(1)):
-                stream_url, link_release = match.groups()
-                if '.srt' in link_release: continue
-                if re.search('\.part\.?\d+', link_release) or '.rar' in link_release or 'sample' in link_release or link_release.endswith('.nfo'): continue
-                temp_release = link_release if not release else release[0]
-                sources[stream_url] = {'release': temp_release}
+        release = release[0] if release else ''
+        fragment = dom_parser.parse_dom(html, 'div', {'class': 'entry'})
+        if fragment:
+            for match in re.finditer('<p>\s*(http.*?)</p>', fragment[0]):
+                sources[match.group(1)] = {'release': release}
         return sources
         
     def get_url(self, video):

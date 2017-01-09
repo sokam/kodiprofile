@@ -26,7 +26,7 @@ from salts_lib.constants import QUALITIES
 from salts_lib.constants import VIDEO_TYPES
 import scraper
 
-BASE_URL = 'http://putlocker9.com'
+BASE_URL = 'http://putlocker9.is'
 
 class Scraper(scraper.Scraper):
     base_url = BASE_URL
@@ -58,51 +58,48 @@ class Scraper(scraper.Scraper):
         hosters = []
         if source_url and source_url != FORCE_NO_MATCH:
             page_url = urlparse.urljoin(self.base_url, source_url)
-            headers = {'Referer': ''}
-            html = self._http_get(page_url, headers=headers, cache_limit=.5)
-            page_links = []
-            for fragment in dom_parser.parse_dom(html, 'script', {'type': 'text/rocketscript'}):
-                for iframe_url in dom_parser.parse_dom(fragment, 'iframe', ret='src'):
-                    iframe_url = iframe_url.replace('\\"', '')
-                    if 'youtube' not in iframe_url:
-                        host = urlparse.urlparse(iframe_url).hostname
-                        page_links.append((iframe_url, 'embedded', host))
-                
-            page_links += re.findall('<a[^>]+href="([^"]+)[^>]+>(Version \d+)</a>([^<]+)', html)
-            
-            for stream_url, version, host in page_links:
-                if not stream_url.startswith('http'):
-                    url = source_url + stream_url
-                    host = host.replace('&nbsp;', '')
-                else:
-                    url = stream_url
-                    host = urlparse.urlparse(stream_url).hostname
-                
-                base_quality = QUALITIES.HD720 if version == 'embedded' else QUALITIES.HIGH
-                hoster = {'multi-part': False, 'host': host, 'class': self, 'quality': scraper_utils.get_quality(video, host, base_quality), 'views': None, 'rating': None, 'url': url, 'direct': False}
-                hoster['version'] = '(%s)' % (version)
-                hosters.append(hoster)
+            html = self._http_get(page_url, cache_limit=.5)
+            fragment = dom_parser.parse_dom(html, 'div', {'class': 'alternativesc'})
+            if fragment:
+                for item in dom_parser.parse_dom(fragment[0], 'div', {'class': 'altercolumn'}):
+                    link = dom_parser.parse_dom(item, 'a', {'class': 'altercolumnlink'}, ret='href')
+                    host = dom_parser.parse_dom(item, 'span')
+                    if link and host:
+                        link = link[0]
+                        if not link.startswith('http'):
+                            link = source_url + link
+                        host = host[0]
+                        quality = scraper_utils.get_quality(video, host, QUALITIES.HIGH)
+                        hoster = {'multi-part': False, 'host': host, 'class': self, 'quality': quality, 'views': None, 'rating': None, 'url': link, 'direct': False}
+                        hosters.append(hoster)
 
         return hosters
 
     def search(self, video_type, title, year, season=''):  # @UnusedVariable
         results = []
         headers = {'Referer': self.base_url}
-        params = {'s': title, 'submit': 'Search Now!'}
+        params = {'search': title}
         html = self._http_get(self.base_url, params=params, headers=headers, cache_limit=8)
-        for item in dom_parser.parse_dom(html, 'div', {'class': 'aaa_item'}):
-            match_title_year = dom_parser.parse_dom(item, 'a', ret='title')
+        for item in dom_parser.parse_dom(html, 'div', {'class': 'listCard'}):
+            match_title = dom_parser.parse_dom(item, 'p', {'class': 'extraTitle'})
             match_url = dom_parser.parse_dom(item, 'a', ret='href')
-            if match_title_year and match_url:
+            match_year = dom_parser.parse_dom(item, 'p', {'class': 'cardYear'})
+            if match_url and match_title:
                 match_url = match_url[0]
-                match_title, match_year = scraper_utils.extra_year(match_title_year[0])
+                match_title = match_title[0]
+                match_year = match_year[0] if match_year else ''
                 if not year or not match_year or year == match_year:
                     result = {'url': scraper_utils.pathify_url(match_url), 'title': scraper_utils.cleanse_title(match_title), 'year': match_year}
                     results.append(result)
         return results
 
     def _get_episode_url(self, show_url, video):
-        episode_pattern = 'href="([^"]+season-%s-episode-%s-[^"]+)' % (video.season, video.episode)
-        title_pattern = 'href="(?P<url>[^"]+season-\d+-episode-\d+-[^"]+).*?\s+-\s+(?P<title>.*?)</td>'
-        headers = {'Referer': urlparse.urljoin(self.base_url, show_url)}
-        return self._default_get_episode_url(show_url, video, episode_pattern, title_pattern, headers=headers)
+        show_url = urlparse.urljoin(self.base_url, show_url)
+        html = self._http_get(show_url, headers={'Referer': self.base_url}, cache_limit=24 * 7)
+        match = re.search('href="([^"]*season=0*%s(?!\d))[^"]*' % (video.season), html)
+        if match:
+            season_url = show_url + match.group(1)
+            episode_pattern = 'href="([^"]*/0*%s-0*%s/[^"]*)' % (video.season, video.episode)
+            title_pattern = 'class="episodeDetail">.*?href="(?P<url>[^"]+)[^>]*>\s*(?P<title>.*?)\s*</a>'
+            headers = {'Referer': show_url}
+            return self._default_get_episode_url(season_url, video, episode_pattern, title_pattern, headers=headers)

@@ -28,7 +28,7 @@ from salts_lib.constants import FORCE_NO_MATCH
 from salts_lib.constants import VIDEO_TYPES
 import scraper
 
-BASE_URL = 'http://sezonlukdizi.com'
+BASE_URL = 'http://sezonlukdizi.net'
 SEARCH_URL = '/js/dizi.js'
 SEASON_URL = '/ajax/dataDizi.asp'
 EMBED_URL = '/ajax/dataEmbed.asp'

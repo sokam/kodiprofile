@@ -414,10 +414,10 @@
     <setting id="billionuploads_priority" value="100" />
     <setting id="crunchyrollResolver_enabled" value="true" />
     <setting id="crunchyrollResolver_priority" value="100" />
-    <setting id="current_ua" value="Mozilla/5.0 (Windows NT 5.0; WOW64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/47.0.2526.73 Safari/537.36" />
+    <setting id="current_ua" value="Mozilla/5.0 (Windows NT 7.0; Win64; x64; Trident/7.0; rv:11.0) like Gecko" />
     <setting id="hostingbulkResolver_enabled" value="true" />
     <setting id="hostingbulkResolver_priority" value="100" />
-    <setting id="last_ua_create" value="1482907779" />
+    <setting id="last_ua_create" value="1483857528" />
     <setting id="movreelResolver_enabled" value="true" />
     <setting id="movreelResolver_login" value="false" />
     <setting id="movreelResolver_password" value="" />

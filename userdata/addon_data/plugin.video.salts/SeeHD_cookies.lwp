@@ -1,3 +1,5 @@
 #LWP-Cookies-2.0
 Set-Cookie3: __cfduid=d586622c90fdcb3161d7dc2661a4ee7a11481578212; path="/"; domain=".seehd.club"; path_spec; domain_dot; expires="2017-12-12 21:30:12Z"; HttpOnly=None; version=0
 Set-Cookie3: __cfduid=d22d2f1867853a8293c50aa00d77c87051482020713; path="/"; domain=".seehd.se"; path_spec; domain_dot; expires="2017-12-18 00:25:13Z"; HttpOnly=None; version=0
+Set-Cookie3: __cfduid=d84140f977c0bff029d7c8ca58c6bcf511483861104; path="/"; domain=".songs2dl.com"; path_spec; domain_dot; expires="2018-01-08 07:38:24Z"; HttpOnly=None; version=0
+Set-Cookie3: PHPSESSID=3a2548e81f81e1f0ac3bdb81bd611332; path="/"; domain="songs2dl.com"; path_spec; discard; version=0
