@@ -15,7 +15,7 @@
     <audiooutput>
         <ac3passthrough default="true">true</ac3passthrough>
         <ac3transcode default="true">false</ac3transcode>
-        <audiodevice default="true">PULSE:Default</audiodevice>
+        <audiodevice default="true">ALSA:@</audiodevice>
         <channels default="true">1</channels>
         <config default="true">2</config>
         <dspaddonsenabled default="true">false</dspaddonsenabled>
@@ -100,7 +100,7 @@
             <level>0</level>
             <showhigherlevels>true</showhigherlevels>
         </eventlog>
-        <systemtotaluptime>211643</systemtotaluptime>
+        <systemtotaluptime>205438</systemtotaluptime>
     </general>
     <input>
         <enablejoystick default="true">true</enablejoystick>
@@ -382,7 +382,7 @@
         <blankdisplays default="true">false</blankdisplays>
         <fakefullscreen default="true">true</fakefullscreen>
         <limitedrange default="true">false</limitedrange>
-        <monitor default="true">Default</monitor>
+        <monitor>VGA1</monitor>
         <preferedstereoscopicmode default="true">100</preferedstereoscopicmode>
         <resolution default="true">16</resolution>
         <screen default="true">0</screen>
